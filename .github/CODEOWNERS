@@ -1,0 +1,15 @@
+# Code owners for RBFopt_Test repository
+# These owners will be automatically requested for review when someone opens a pull request
+
+# Default owners for everything in the repo
+* @bernalde
+
+# Specific ownership for documentation
+*.md @bernalde
+/docs/ @bernalde
+
+# Notebooks
+*.ipynb @bernalde
+
+# Data files
+*.csv @bernalde
