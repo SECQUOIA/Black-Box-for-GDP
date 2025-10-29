@@ -22,7 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Enhanced README from minimal description to comprehensive documentation
 
-## [Initial] - Before 2025-10-29
+## [Initial] - Historical
 
 ### Initial Content
 - Jupyter notebooks for RBFopt and DFO testing
