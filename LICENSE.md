@@ -13,9 +13,10 @@ Please add an appropriate license to clarify how others can use, modify, and dis
 - **Proprietary/All Rights Reserved**: If you want to retain all rights
 
 You can easily add a license through GitHub:
-1. Go to the repository settings
-2. Click "Add a license" 
-3. Choose an appropriate license from the list
+1. Go to Repository → Settings → General
+2. Scroll to the License section
+3. Click "Add a license"
+4. Choose an appropriate license from the list
 
 For more information about choosing a license, visit: https://choosealicense.com/
 
