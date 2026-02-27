@@ -24,7 +24,7 @@ def alpine2_gdp(Npts=31):
         m.Ychoice[n].fix_y = pyo.Constraint(expr=m.y == m.g[n])
     m.pick_y = Disjunction(expr=[m.Ychoice[n] for n in m.N])
 
-    # Objective (Pyomo trig uses radians)
+    # Objective, the objective can be modified based on which QHDOpt problem you want to solve
     m.obj = pyo.Objective(
         expr= -pyo.sqrt(m.x * m.y) * pyo.sin(m.x) * pyo.sin(m.y),
         sense=pyo.minimize
