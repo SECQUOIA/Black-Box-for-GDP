@@ -97,6 +97,12 @@ def qhdopt_gdp(Npts=31):
         expr=-pyo.sqrt(m.x * m.y) * pyo.sin(m.x) * pyo.sin(m.y),
         sense=pyo.minimize
     )
+    
+    # # Objective: Ackley2 function
+    # m.obj = pyo.Objective(
+    #     expr=-200 * pyo.exp(-0.2 * pyo.sqrt(m.x**2 + m.y**2))
+    #     sense=pyo.minimize
+    # )
 
     return m
 
