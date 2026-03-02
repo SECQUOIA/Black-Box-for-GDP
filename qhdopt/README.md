@@ -12,9 +12,9 @@ This folder implements the Quantum Hamiltonian Descent (QHD) algorithm with modi
 The integer grid coordinates are transformed to continuous domain before objective evaluation:
 
 - **Original integer space**: x, y ∈ [0, 30] (31×31 grid)
-- **Scaling factor**: `k = 1000/30 ≈ 33.333`
+- **Scaling factor**: `k = 1000/30 ≈ 33.333` (approximation shown for readability)
 - **Transformed coordinates**: `x_continuous = x × k`, `y_continuous = y × k`
-- **Result**: Continuous domain scaled to [0, ~1000]
+- **Result**: Continuous domain scaled to [0, 1000]
 
 ### Objective Function Scaling
 The nonconvex objective function evaluated on scaled coordinates is then normalized:
