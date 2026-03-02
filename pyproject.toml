@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "rbfopt-test"
 version = "0.1.0"
-description = "RBFopt optimization tests with alpine and other benchmark functions"
+description = "Benchmark and test suite for the RBFopt optimization library (alpine and other benchmark functions)"
 requires-python = ">=3.10"
 dependencies = [
     "rbfopt>=1.0",
