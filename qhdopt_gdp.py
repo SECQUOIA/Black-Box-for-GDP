@@ -13,127 +13,211 @@ Reference:
     for Nonconvex Optimization Problems on Quantum Computers
 
 GDP Formulation:
-    This implementation uses Pyomo's GDP framework to model the problem with 
-    disjunctive constraints. The variables (x, y) are restricted to lie on a 
-    discrete lattice using disjunctions. These disjunctions can be transformed 
+    This implementation uses Pyomo's GDP framework to model the problem with
+    disjunctive constraints. The variables (x, y) are restricted to lie on a
+    discrete lattice using disjunctions. These disjunctions can be transformed
     to Big-M MINLP formulations for solution with solvers like BARON or SCIP.
 
 """
 
+import math
 import pyomo.environ as pyo
 from pyomo.gdp import Disjunct, Disjunction
 
+BOUNDS = {
+    "holder_table": (-10.0, 10.0, -10.0, 10.0),
+    "deflected_corrugated_spring": (0.0, 10.0, 0.0, 10.0),
+    "dropwave": (-5.12, 5.12, -5.12, 5.12),
+    "levy": (-10.0, 10.0, -10.0, 10.0),
+    "levy13": (-10.0, 10.0, -10.0, 10.0),
+    "bohachevsky2": (-100.0, 100.0, -100.0, 100.0),
+    "camel3": (-5.0, 5.0, -5.0, 5.0),
+    "csendes": (-1.0, 1.0, -1.0, 1.0),
+    "rosenbrock": (-2.0, 2.0, -1.0, 3.0),
+    "michalewicz": (0.0, math.pi, 0.0, math.pi),
+    "easom": (-10.0, 10.0, -10.0, 10.0),
+    "xin_she_yang3": (-20.0, 20.0, -20.0, 20.0),
+    "alpine1": (0.0, 10.0, 0.0, 10.0),
+    "griewank": (-600.0, 600.0, -600.0, 600.0),
+    "rastrigin": (-5.12, 5.12, -5.12, 5.12),
+    "ackley": (-5.0, 5.0, -5.0, 5.0),
+    "alpine2": (0.0, 1000.0, 0.0, 1000.0),
+    "hosaki": (0.0, 5.0, 0.0, 6.0),
+    "shubert": (0.0, 10.0, 0.0, 10.0),
+    "styblinski_tang": (-5.0, 5.0, -5.0, 5.0),
+    "sum_of_squares": (-10.0, 10.0, -10.0, 10.0),
+}
 
-def qhdopt_gdp(Npts=31):
+def build_objective(m, name: str):
     """
-    Create a QHDOpt GDP model with alpine2 function as the objective.
-    
-    The alpine2 function is a nonconvex benchmark problem used in optimization.
-    It is optimized over a discrete lattice of Npts x Npts points.
-    
-    Parameters
-    ----------
-    Npts : int, optional
-        Number of points in the lattice for each dimension (default: 31).
-        The lattice points are: 0, 1, ..., Npts-1 (normalized to [0, 1000]).
-        Total lattice includes 0, so technically it's a "31x31" lattice
-        (indices from 0 to 30).
-    
-    Returns
-    -------
-    m : pyo.ConcreteModel
-        A Pyomo ConcreteModel with the QHDOpt GDP formulation.
-    
-    Model Components
-    ----------------
-    - m.N : RangeSet [1, Npts] for indexing lattice points
-    - m.g : Parameter array mapping indices to scaled values [0, 1000]
-    - m.x, m.y : Continuous variables bounded in [0, 1000]
-    - m.Xchoice, m.Ychoice : Disjunct blocks for x and y lattice selection
-    - m.pick_x, m.pick_y : Disjunctions ensuring exactly one lattice point is selected
-    - m.obj : Objective function (minimization of alpine2)
-    
-    Objective Function
-    ------------------
-    Minimizes: -sqrt(x*y) * sin(x) * sin(y)
-    
-    This is the alpine2 benchmark function. The negative sign is used because
-    optimization algorithms typically minimize, but the original problem may
-    seek maximum values in certain contexts.
+    Return a Pyomo expression for the selected objective.
     """
+    name = name.lower()
+
+    if name == "ackley":
+        return (
+            -20 * pyo.exp(-0.2 * pyo.sqrt(0.5 * (m.x**2 + m.y**2)))
+            - pyo.exp(0.5 * (pyo.cos(2 * math.pi * m.x) + pyo.cos(2 * math.pi * m.y)))
+            + 20
+            + pyo.exp(1)
+        )
+    elif name == "alpine1":
+        return abs(m.x * pyo.sin(m.x) + 0.1 * m.x) + abs(
+            m.y * pyo.sin(m.y) + 0.1 * m.y
+        )
+    elif name == "alpine2":
+        return -pyo.sqrt(m.x * m.y) * pyo.sin(m.x) * pyo.sin(m.y)
+    elif name == "bohachevsky2":
+        return (
+            m.x**2
+            + 2 * m.y**2
+            - 0.3 * pyo.cos(3 * math.pi * m.x) * pyo.cos(4 * math.pi * m.y)
+            + 0.3
+        )
+    elif name == "camel3":
+        return 2 * m.x**2 - 1.05 * m.x**4 + 1 / 6 * m.x**6 + m.x * m.y + m.y**2
+    elif name == "csendes":
+        eps = 1e-12
+        return (
+            m.x**6 * (2 + pyo.sin(1 / (m.x + eps)))**2
+            + m.y**6 * (2 + pyo.sin(1 / (m.y + eps)))**2
+        )
+    elif name == "deflected_corrugated_spring":
+        return 0.1 * ((m.x - 5) ** 2 + (m.y - 5) ** 2) - pyo.cos(
+            5 * pyo.sqrt((m.x - 5) ** 2 + (m.y - 5) ** 2)
+        )
+    elif name == "dropwave":
+        return -(1 + pyo.cos(12 * pyo.sqrt(m.x**2 + m.y**2))) / (
+            0.5 * (m.x**2 + m.y**2) + 2
+        )
+    elif name == "easom":
+        return (
+            -pyo.cos(m.x) * pyo.cos(m.y)
+            * pyo.exp(-((m.x - math.pi)**2 + (m.y - math.pi)**2))
+        )
+    elif name == "griewank":
+        return (m.x**2 + m.y**2) / 4000 - pyo.cos(m.x) * pyo.cos(m.y / pyo.sqrt(2)) + 1
+    elif name == "holder_table":
+        return -abs(
+            pyo.sin(m.x) * pyo.cos(m.y)
+            * pyo.exp(abs(1 - pyo.sqrt(m.x**2 + m.y**2) / math.pi))
+        )
+    elif name == "hosaki":
+        return (
+            (1 - 8 * m.x + 7 * m.x**2 - 7 / 3 * m.x**3 + 1 / 4 * m.x**4)
+            * m.y**2
+            * pyo.exp(-m.y)
+        )
+    elif name == "levy":
+        return (
+            pyo.sin(math.pi * (1 + (m.x - 1) / 4)) ** 2
+            + ((m.x - 1) / 4) ** 2
+            * (1 + 10 * pyo.sin(math.pi * (1 + (m.x - 1) / 4) + 1) ** 2)
+            + ((m.y - 1) / 4) ** 2
+            * (1 + pyo.sin(2 * math.pi * (1 + (m.y - 1) / 4)) ** 2)
+        )
+    elif name == "levy13":
+        return (
+            pyo.sin(3 * math.pi * m.x) ** 2
+            + (m.x - 1) ** 2 * (1 + pyo.sin(3 * math.pi * m.y) ** 2)
+            + (m.y - 1) ** 2 * (1 + pyo.sin(2 * math.pi * m.y) ** 2)
+        )
+    elif name == "michalewicz":
+        return -pyo.sin(m.x) * (pyo.sin(m.x**2 / math.pi) ** 20) - pyo.sin(m.y) * (
+            pyo.sin(2 * m.y**2 / math.pi) ** 20
+        )
+    elif name == "rastrigin":
+        return (
+            m.x**2
+            - 10 * pyo.cos(2 * math.pi * m.x)
+            + m.y**2
+            - 10 * pyo.cos(2 * math.pi * m.y)
+            + 20
+        )
+    elif name == "rosenbrock":
+        return (1 - m.x) ** 2 + 100 * (m.y - m.x**2) ** 2
+    elif name == "shubert":
+        return (
+            pyo.cos(2 * m.x + 1) + 2 * pyo.cos(3 * m.x + 2) + 3 * pyo.cos(4 * m.x + 3)
+        ) * (pyo.cos(2 * m.y + 1) + pyo.cos(m.y + 2))
+    elif name == "styblinski_tang":
+        return (
+            (1 / 78)
+            * 0.5
+            * (m.x**4 - 16 * m.x**2 + 5 * m.x + m.y**4 - 16 * m.y**2 + 5 * m.y)
+        )
+    elif name == "sum_of_squares":
+        return m.x**2 + 2 * m.y**2
+    elif name == "xin_she_yang3":
+        return (
+            pyo.exp(-((m.x / 15) ** 6 + (m.y) ** 6))
+            + 2 * pyo.exp(-(m.x**2 + m.y**2)) * pyo.cos(m.x)**2 * pyo.cos(m.y)**2
+        )
+    else:
+        raise ValueError(f"Unknown objective function name: {name}")
+
+
+def qhdopt_gdp(Npts=31, objective_name="alpine2", sense=pyo.minimize):
+    """Create a QHDOpt GDP model for the specified objective function."""
+    objective_name = objective_name.lower()
+    if objective_name not in BOUNDS:
+        raise ValueError(f"Unknown objective '{objective_name}'. Options: {sorted(BOUNDS)}")
+
+    xmin, xmax, ymin, ymax = BOUNDS[objective_name]
+
     m = pyo.ConcreteModel()
 
-    # Define parameters
-    # Create a lattice with Npts points uniformly distributed in [0, 1000]
-    m.N = pyo.RangeSet(1, Npts)
-    m.g = pyo.Param(
-        m.N,
-        initialize=lambda m, n: 1000.0 * (n - 1) / (Npts - 1),
-        mutable=False
-    )
+    # Lattice index set: 0..Npts-1 (these are the integer lattice coordinates)
+    m.I = pyo.RangeSet(0, Npts - 1)
 
-    # Define variables
-    # x and y are restricted to lattice points through disjunctions
-    m.x = pyo.Var(bounds=(0, 1000))
-    m.y = pyo.Var(bounds=(0, 1000))
+    # Grid point coordinates in the *true domain* for this objective
+    m.gx = pyo.Param(m.I, initialize=lambda m, i: xmin + (i / (Npts - 1)) * (xmax - xmin))
+    m.gy = pyo.Param(m.I, initialize=lambda m, i: ymin + (i / (Npts - 1)) * (ymax - ymin))
 
-    # --- Disjunction for x ---
-    # Exactly one disjunct must be active, forcing x to take one of the lattice values
-    m.Xchoice = Disjunct(m.N)
-    for n in m.N:
-        m.Xchoice[n].fix_x = pyo.Constraint(expr=m.x == m.g[n])
-    m.pick_x = Disjunction(expr=[m.Xchoice[n] for n in m.N])
+    # Continuous decision variables (still GDP-restricted to gx/gy)
+    m.x = pyo.Var(bounds=(xmin, xmax))
+    m.y = pyo.Var(bounds=(ymin, ymax))
 
-    # --- Disjunction for y ---
-    # Exactly one disjunct must be active, forcing y to take one of the lattice values
-    m.Ychoice = Disjunct(m.N)
-    for n in m.N:
-        m.Ychoice[n].fix_y = pyo.Constraint(expr=m.y == m.g[n])
-    m.pick_y = Disjunction(expr=[m.Ychoice[n] for n in m.N])
+    # Integer lattice coordinates to print later (0..Npts-1)
+    m.ix = pyo.Var(within=pyo.Integers, bounds=(0, Npts - 1))
+    m.iy = pyo.Var(within=pyo.Integers, bounds=(0, Npts - 1))
 
-    # Objective: Alpine2 function
-    # Alpine2 is a nonconvex benchmark function with multiple local minima
-    m.obj = pyo.Objective(
-        expr=-pyo.sqrt(m.x * m.y) * pyo.sin(m.x) * pyo.sin(m.y),
-        sense=pyo.minimize
-    )
-    
-    # # Objective: Ackley2 function
-    # m.obj = pyo.Objective(
-    #     expr=-200 * pyo.exp(-0.2 * pyo.sqrt(m.x**2 + m.y**2))
-    #     sense=pyo.minimize
-    # )
+    # --- Disjunction for x (chooses lattice point i, fixes both x and ix) ---
+    m.Xchoice = Disjunct(m.I)
+    for i in m.I:
+        m.Xchoice[i].fix_x = pyo.Constraint(expr=m.x == m.gx[i])
+        m.Xchoice[i].fix_ix = pyo.Constraint(expr=m.ix == i)
+    m.pick_x = Disjunction(expr=[m.Xchoice[i] for i in m.I])
+
+    # --- Disjunction for y (chooses lattice point j, fixes both y and iy) ---
+    m.Ychoice = Disjunct(m.I)
+    for j in m.I:
+        m.Ychoice[j].fix_y = pyo.Constraint(expr=m.y == m.gy[j])
+        m.Ychoice[j].fix_iy = pyo.Constraint(expr=m.iy == j)
+    m.pick_y = Disjunction(expr=[m.Ychoice[j] for j in m.I])
+
+    # Objective (selected)
+    m.obj = pyo.Objective(expr=build_objective(m, objective_name), sense=sense)
 
     return m
 
+
 if __name__ == "__main__":
-    """
-    Example: Solve the QHDOpt GDP problem with alpine2 function.
-    
-    This script:
-    1. Creates a GDP model for the alpine2 optimization problem
-    2. Transforms the GDP into a Big-M MINLP formulation
-    3. Solves using GAMS/SCIP solver
-    4. Reports the optimal lattice point and objective value
-    """
-    m = qhdopt_gdp(Npts=31)
+    m = qhdopt_gdp(Npts=31, objective_name="levy13", sense=pyo.minimize)
 
     # Transform GDP -> MINLP (Big-M transformation)
     # This converts the disjunctions into mixed-integer constraints
     pyo.TransformationFactory("gdp.bigm").apply_to(m)
-
-    # Choose solver:
-    # - BARON: Global solver for MINLP (commercial)
-    # - SCIP: Open-source solver for MINLP
-    # solver = pyo.SolverFactory("baron")
     solver = pyo.SolverFactory("gams")
 
     res = solver.solve(m, solver="scip", tee=True)
 
-    print("\n" + "=" * 50)
-    print("QHDOpt GDP Solution (Alpine2 Function)")
-    print("=" * 50)
+    print("\n" + "=" * 30)
+    print("QHDOpt GDP Solution")
+    print("=" * 30)
+    print("lattice ix =", int(round(pyo.value(m.ix))))
+    print("lattice iy =", int(round(pyo.value(m.iy))))
     print("x =", pyo.value(m.x))
     print("y =", pyo.value(m.y))
     print("obj =", pyo.value(m.obj))
-    print("=" * 50)
+    print("=" * 30)
