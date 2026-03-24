@@ -1,42 +1,48 @@
-# QHDOPT GDP - Quantum Hamiltonian Descent Optimization
+# QHDOPT Benchmark Data and Pseudo-LDSDA Search
 
-## Source
-Based on research from: [Quantum Hamiltonian Descent - Nonconvex 2D](https://jiaqileng.github.io/quantum-hamiltonian-descent/nonconvex2d.html)
+## Scope
+This directory contains precomputed benchmark grids and lightweight documentation
+for the CSV-driven pseudo-LDSDA experiments in this repository.
 
-## Overview
-This folder implements the Quantum Hamiltonian Descent (QHD) algorithm with modifications for the GDP (Generalized Descent Problem) framework integrated with RBFopt.
+The current `qhdopt_gdp.py` implementation works directly on the normalized CSV
+files stored in `qhdopt/`. It does not build Pyomo GDP models, and it does not
+implement the Quantum Hamiltonian Descent (QHD) algorithm itself.
 
-## Key Modifications: Coordinate and Objective Function Scaling
+## Data Files
+Each CSV file stores a normalized objective grid with the required columns
+`x`, `y`, and `z_norm`.
 
-### Coordinate Scaling
-The integer grid coordinates are transformed to continuous domain before objective evaluation:
+- `x`, `y`: integer lattice indices
+- `z_norm`: normalized objective value at that lattice point
 
-- **Original integer space**: x, y ∈ [0, 30] (31×31 grid)
-- **Scaling factor**: `k = 1000/30 ≈ 33.333` (approximation shown for readability)
-- **Transformed coordinates**: `x_continuous = x × k`, `y_continuous = y × k`
-- **Result**: Continuous domain scaled to [0, 1000]
+The current benchmark grids are 31 x 31 and use indices `0, ..., 30` in each
+coordinate.
 
-### Objective Function Scaling
-The nonconvex objective function evaluated on scaled coordinates is then normalized:
+## Search Procedure
+`qhdopt_gdp.py` runs a pseudo-LDSDA search on one CSV grid at a time.
 
-- **Minimum objective value**: Scaled to **0**
-- **Maximum objective value**: Scaled to **1** (using the greatest value from the evaluation grid)
-- **Optimization goal**: Minimization
+1. Load the selected grid from CSV.
+2. Choose one or more starting points on the lattice.
+3. Evaluate the 4-neighborhood or 8-neighborhood around the current point.
+4. Select an improving neighbor and define the search direction.
+5. Continue line search along that direction until improvement stops or the
+   trial point leaves the grid.
+6. Restart neighborhood search from the last improving point.
 
-### Rationale
-This two-stage scaling approach:
-- Extends the search domain to provide finer gradient information
-- Normalizes objective values for consistent algorithm behavior
-- Improves numerical stability during gradient and descent computations
-- Enables fair comparison across different problem instances
-- Enhances convergence properties of the quantum descent dynamics
+The module also includes a helper routine that ranks several starting points by
+initial objective value before running the search from best to worst.
 
-### Implementation
-1. Apply coordinate transformation: `(x_c, y_c) = (x × 1000/30, y × 1000/30)`
-2. Evaluate nonconvex objective on scaled coordinates
-3. Identify minimum and maximum values from grid evaluations
-4. Apply objective normalization: `f_scaled = (f - f_min) / (f_max - f_min)`
-5. Solve minimization problem in normalized space [0, 1]
+## Reference
+The benchmark grids used here are adapted from benchmark examples listed on:
+[Quantum Hamiltonian Descent - Nonconvex 2D](https://jiaqileng.github.io/quantum-hamiltonian-descent/nonconvex2d.html)
 
-## Usage
-Use the optimization routines in this folder for nonconvex 2D problems where quantum-inspired descent with scaled objectives improves solution quality and algorithmic stability.
+That reference is used here as a source for the benchmark test set. The search
+code in this repository is a discrete pseudo-LDSDA procedure over precomputed
+CSV data.
+
+## Usage Notes
+- `load_grid_csv` validates the CSV schema and returns both the DataFrame and a
+  dictionary lookup keyed by `(x, y)`.
+- `ldsda_from_csv` runs one pseudo-LDSDA search from a single starting point.
+- `run_ldsda_from_best_starting_points` ranks starting points by initial value
+  and runs the search from best to worst.
