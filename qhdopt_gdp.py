@@ -1,223 +1,534 @@
 """
-QHDOpt GDP Formulation
-======================
+CSV-driven pseudo-LDSDA experiments for the QHDOpt benchmark grids.
 
-This module implements the Quantum Hamiltonian Descent Optimization (QHDOpt) problems
-in Generalized Disjunctive Programming (GDP) formulation using Pyomo.
+This module loads normalized benchmark grids from `qhdopt/*.csv` and runs a
+discrete local-descent search that mimics the main structure of LDSDA on a
+sampled lattice. It does not build Pyomo GDP models, and it does not implement
+the full LDSDA solver.
 
-The QHDOpt framework is based on:
+The benchmark grids used here are derived from benchmark examples listed on:
 https://jiaqileng.github.io/quantum-hamiltonian-descent/nonconvex2d.html
 
-Reference:
-    Leng et al. - Quantum Hamiltonian Descent: A Novel Optimization Algorithm
-    for Nonconvex Optimization Problems on Quantum Computers
-
-GDP Formulation:
-    This implementation uses Pyomo's GDP framework to model the problem with
-    disjunctive constraints. The variables (x, y) are restricted to lie on a
-    discrete lattice using disjunctions. These disjunctions can be transformed
-    to Big-M MINLP formulations for solution with solvers like BARON or SCIP.
-
+Although the filename is retained from an earlier GDP-oriented version, the
+current implementation operates directly on precomputed CSV grids.
 """
 
-import math
-import pyomo.environ as pyo
-from pyomo.gdp import Disjunct, Disjunction
+import pandas as pd
+import random
+from math import isclose, sqrt
 
-BOUNDS = {
-    "holder_table": (-10.0, 10.0, -10.0, 10.0),
-    "deflected_corrugated_spring": (0.0, 10.0, 0.0, 10.0),
-    "dropwave": (-5.12, 5.12, -5.12, 5.12),
-    "levy": (-10.0, 10.0, -10.0, 10.0),
-    "levy13": (-10.0, 10.0, -10.0, 10.0),
-    "bohachevsky2": (-100.0, 100.0, -100.0, 100.0),
-    "camel3": (-5.0, 5.0, -5.0, 5.0),
-    "csendes": (-1.0, 1.0, -1.0, 1.0),
-    "rosenbrock": (-2.0, 2.0, -1.0, 3.0),
-    "michalewicz": (0.0, math.pi, 0.0, math.pi),
-    "easom": (-10.0, 10.0, -10.0, 10.0),
-    "xin_she_yang3": (-20.0, 20.0, -20.0, 20.0),
-    "alpine1": (0.0, 10.0, 0.0, 10.0),
-    "griewank": (-600.0, 600.0, -600.0, 600.0),
-    "rastrigin": (-5.12, 5.12, -5.12, 5.12),
-    "ackley": (-5.0, 5.0, -5.0, 5.0),
-    "alpine2": (0.0, 1000.0, 0.0, 1000.0),
-    "hosaki": (0.0, 5.0, 0.0, 6.0),
-    "shubert": (0.0, 10.0, 0.0, 10.0),
-    "styblinski_tang": (-5.0, 5.0, -5.0, 5.0),
-    "sum_of_squares": (-10.0, 10.0, -10.0, 10.0),
-}
 
-def build_objective(m, name: str):
+def load_grid_csv(csv_path):
     """
-    Return a Pyomo expression for the selected objective.
-    """
-    name = name.lower()
+    Load a normalized 2D benchmark grid from CSV.
 
-    if name == "ackley":
-        return (
-            -20 * pyo.exp(-0.2 * pyo.sqrt(0.5 * (m.x**2 + m.y**2)))
-            - pyo.exp(0.5 * (pyo.cos(2 * math.pi * m.x) + pyo.cos(2 * math.pi * m.y)))
-            + 20
-            + pyo.exp(1)
-        )
-    elif name == "alpine1":
-        return abs(m.x * pyo.sin(m.x) + 0.1 * m.x) + abs(
-            m.y * pyo.sin(m.y) + 0.1 * m.y
-        )
-    elif name == "alpine2":
-        return -pyo.sqrt(m.x * m.y) * pyo.sin(m.x) * pyo.sin(m.y)
-    elif name == "bohachevsky2":
-        return (
-            m.x**2
-            + 2 * m.y**2
-            - 0.3 * pyo.cos(3 * math.pi * m.x) * pyo.cos(4 * math.pi * m.y)
-            + 0.3
-        )
-    elif name == "camel3":
-        return 2 * m.x**2 - 1.05 * m.x**4 + 1 / 6 * m.x**6 + m.x * m.y + m.y**2
-    elif name == "csendes":
-        eps = 1e-12
-        return (
-            m.x**6 * (2 + pyo.sin(1 / (m.x + eps)))**2
-            + m.y**6 * (2 + pyo.sin(1 / (m.y + eps)))**2
-        )
-    elif name == "deflected_corrugated_spring":
-        return 0.1 * ((m.x - 5) ** 2 + (m.y - 5) ** 2) - pyo.cos(
-            5 * pyo.sqrt((m.x - 5) ** 2 + (m.y - 5) ** 2)
-        )
-    elif name == "dropwave":
-        return -(1 + pyo.cos(12 * pyo.sqrt(m.x**2 + m.y**2))) / (
-            0.5 * (m.x**2 + m.y**2) + 2
-        )
-    elif name == "easom":
-        return (
-            -pyo.cos(m.x) * pyo.cos(m.y)
-            * pyo.exp(-((m.x - math.pi)**2 + (m.y - math.pi)**2))
-        )
-    elif name == "griewank":
-        return (m.x**2 + m.y**2) / 4000 - pyo.cos(m.x) * pyo.cos(m.y / pyo.sqrt(2)) + 1
-    elif name == "holder_table":
-        return -abs(
-            pyo.sin(m.x) * pyo.cos(m.y)
-            * pyo.exp(abs(1 - pyo.sqrt(m.x**2 + m.y**2) / math.pi))
-        )
-    elif name == "hosaki":
-        return (
-            (1 - 8 * m.x + 7 * m.x**2 - 7 / 3 * m.x**3 + 1 / 4 * m.x**4)
-            * m.y**2
-            * pyo.exp(-m.y)
-        )
-    elif name == "levy":
-        return (
-            pyo.sin(math.pi * (1 + (m.x - 1) / 4)) ** 2
-            + ((m.x - 1) / 4) ** 2
-            * (1 + 10 * pyo.sin(math.pi * (1 + (m.x - 1) / 4) + 1) ** 2)
-            + ((m.y - 1) / 4) ** 2
-            * (1 + pyo.sin(2 * math.pi * (1 + (m.y - 1) / 4)) ** 2)
-        )
-    elif name == "levy13":
-        return (
-            pyo.sin(3 * math.pi * m.x) ** 2
-            + (m.x - 1) ** 2 * (1 + pyo.sin(3 * math.pi * m.y) ** 2)
-            + (m.y - 1) ** 2 * (1 + pyo.sin(2 * math.pi * m.y) ** 2)
-        )
-    elif name == "michalewicz":
-        return -pyo.sin(m.x) * (pyo.sin(m.x**2 / math.pi) ** 20) - pyo.sin(m.y) * (
-            pyo.sin(2 * m.y**2 / math.pi) ** 20
-        )
-    elif name == "rastrigin":
-        return (
-            m.x**2
-            - 10 * pyo.cos(2 * math.pi * m.x)
-            + m.y**2
-            - 10 * pyo.cos(2 * math.pi * m.y)
-            + 20
-        )
-    elif name == "rosenbrock":
-        return (1 - m.x) ** 2 + 100 * (m.y - m.x**2) ** 2
-    elif name == "shubert":
-        return (
-            pyo.cos(2 * m.x + 1) + 2 * pyo.cos(3 * m.x + 2) + 3 * pyo.cos(4 * m.x + 3)
-        ) * (pyo.cos(2 * m.y + 1) + pyo.cos(m.y + 2))
-    elif name == "styblinski_tang":
-        return (
-            (1 / 78)
-            * 0.5
-            * (m.x**4 - 16 * m.x**2 + 5 * m.x + m.y**4 - 16 * m.y**2 + 5 * m.y)
-        )
-    elif name == "sum_of_squares":
-        return m.x**2 + 2 * m.y**2
-    elif name == "xin_she_yang3":
-        return (
-            pyo.exp(-((m.x / 15) ** 6 + (m.y) ** 6))
-            + 2 * pyo.exp(-(m.x**2 + m.y**2)) * pyo.cos(m.x)**2 * pyo.cos(m.y)**2
-        )
+    Required columns:
+        - x
+        - y
+        - z_norm
+
+    Returns
+    -------
+    df : pandas.DataFrame
+    grid : dict
+        grid[(x, y)] = z_norm
+    """
+    df = pd.read_csv(csv_path)
+
+    required_cols = {"x", "y", "z_norm"}
+    missing = required_cols - set(df.columns)
+    if missing:
+        raise ValueError(f"CSV is missing required columns: {missing}")
+
+    df["x"] = df["x"].astype(int)
+    df["y"] = df["y"].astype(int)
+
+    grid = {
+        (int(row.x), int(row.y)): float(row.z_norm)
+        for row in df.itertuples(index=False)
+    }
+    return df, grid
+
+
+def get_neighbors(point, grid, diagonal=False):
+    """
+    Return valid neighbors of a grid point.
+
+    Parameters
+    ----------
+    point : tuple
+        (x, y)
+    grid : dict
+        grid[(x, y)] = z
+    diagonal : bool
+        If True, use 8-neighborhood, L-infinity.
+        If False, use 4-neighborhood, L-2.
+    """
+    x, y = point
+
+    if diagonal:
+        directions = [
+            (-1, 0),
+            (1, 0),
+            (0, -1),
+            (0, 1),
+            (-1, -1),
+            (-1, 1),
+            (1, -1),
+            (1, 1),
+        ]
     else:
-        raise ValueError(f"Unknown objective function name: {name}")
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
+    neighbors = []
+    for dx, dy in directions:
+        candidate = (x + dx, y + dy)
+        if candidate in grid:
+            neighbors.append(candidate)
+
+    return neighbors
 
 
-def qhdopt_gdp(Npts=31, objective_name="alpine2", sense=pyo.minimize):
-    """Create a QHDOpt GDP model for the specified objective function."""
-    objective_name = objective_name.lower()
-    if objective_name not in BOUNDS:
-        raise ValueError(f"Unknown objective '{objective_name}'. Options: {sorted(BOUNDS)}")
+def ldsda_from_csv(
+    csv_path,
+    start_point,
+    diagonal=False,
+    maximize=False,
+    tol=1e-12,
+    tie_break="first",
+    verbose=True,
+):
+    """
+    Pseudo-LDSDA search on a 2D discrete grid loaded from CSV.
 
-    xmin, xmax, ymin, ymax = BOUNDS[objective_name]
+    Procedure
+    ---------
+    1. Perform neighbor search around the current point.
+    2. Choose the best improving neighbor.
+    3. Define the search direction from the current point to that neighbor.
+    4. Perform line search along that direction until the next point is worse
+       (or out of bounds).
+    5. Restart neighbor search from the last improving point.
 
-    m = pyo.ConcreteModel()
+    Parameters
+    ----------
+    csv_path : str
+        Path to CSV file.
+    start_point : tuple
+        Initial point as (x, y).
+    diagonal : bool, optional
+        If True, use 8-neighborhood. Otherwise 4-neighborhood.
+    maximize : bool, optional
+        If True, maximize z_norm. Otherwise minimize.
+    tol : float, optional
+        Improvement tolerance.
+    tie_break : str, optional
+        How to break ties between equally good improving neighbors.
+        Options:
+            - "first"
+            - "nearest"
+            - "farthest"
+    verbose : bool, optional
+        Print iteration log.
 
-    # Lattice index set: 0..Npts-1 (these are the integer lattice coordinates)
-    m.I = pyo.RangeSet(0, Npts - 1)
+    Returns
+    -------
+    result : dict
+        {
+            "start_point": ...,
+            "start_value": ...,
+            "best_point": ...,
+            "best_value": ...,
+            "major_iterations": ...,
+            "points_explored": ...,
+            "unique_explored_points": [...],
+            "path": [...],
+            "history": [...],
+            "explored_points": [...]
+        }
+    """
+    _, grid = load_grid_csv(csv_path)
 
-    # Grid point coordinates in the *true domain* for this objective
-    m.gx = pyo.Param(m.I, initialize=lambda m, i: xmin + (i / (Npts - 1)) * (xmax - xmin))
-    m.gy = pyo.Param(m.I, initialize=lambda m, i: ymin + (i / (Npts - 1)) * (ymax - ymin))
+    start_point = tuple(start_point)
+    if start_point not in grid:
+        raise ValueError(f"Start point {start_point} is not in the grid.")
 
-    # Continuous decision variables (still GDP-restricted to gx/gy)
-    m.x = pyo.Var(bounds=(xmin, xmax))
-    m.y = pyo.Var(bounds=(ymin, ymax))
+    def better(new_val, current_val):
+        if maximize:
+            return new_val > current_val + tol
+        return new_val < current_val - tol
 
-    # Integer lattice coordinates to print later (0..Npts-1)
-    m.ix = pyo.Var(within=pyo.Integers, bounds=(0, Npts - 1))
-    m.iy = pyo.Var(within=pyo.Integers, bounds=(0, Npts - 1))
+    def equal_obj(a, b):
+        return isclose(a, b, abs_tol=tol, rel_tol=0.0)
 
-    # --- Disjunction for x (chooses lattice point i, fixes both x and ix) ---
-    m.Xchoice = Disjunct(m.I)
-    for i in m.I:
-        m.Xchoice[i].fix_x = pyo.Constraint(expr=m.x == m.gx[i])
-        m.Xchoice[i].fix_ix = pyo.Constraint(expr=m.ix == i)
-    m.pick_x = Disjunction(expr=[m.Xchoice[i] for i in m.I])
+    def move_distance(p1, p2):
+        return sqrt((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2)
 
-    # --- Disjunction for y (chooses lattice point j, fixes both y and iy) ---
-    m.Ychoice = Disjunct(m.I)
-    for j in m.I:
-        m.Ychoice[j].fix_y = pyo.Constraint(expr=m.y == m.gy[j])
-        m.Ychoice[j].fix_iy = pyo.Constraint(expr=m.iy == j)
-    m.pick_y = Disjunction(expr=[m.Ychoice[j] for j in m.I])
+    current = start_point
+    current_val = grid[current]
 
-    # Objective (selected)
-    m.obj = pyo.Objective(expr=build_objective(m, objective_name), sense=sense)
+    path = [current]
 
-    return m
+    major_iter = 0
+    unique_explored_points = set()
+    explored_points = []
+
+    # Include the start point as an evaluated point
+    unique_explored_points.add(current)
+    explored_points.append((current, current_val, "start_point", 0))
+
+    history = [
+        {
+            "major_iter": 0,
+            "base_point": current,
+            "base_value": current_val,
+            "neighbor_points": [],
+            "line_search_points": [],
+            "unique_points_explored_so_far": 1,
+        }
+    ]
+
+    if verbose:
+        print(f"Start | point={current} | z_norm={current_val:.12f}")
+        print("Unique points explored so far: 1")
+
+    while True:
+        major_iter += 1
+
+        # 1. Neighbor search
+        neighbors = get_neighbors(current, grid, diagonal=diagonal)
+
+        neighbor_points = []
+        improving = []
+
+        for nb in neighbors:
+            nb_val = grid[nb]
+            neighbor_points.append((nb, nb_val))
+            explored_points.append((nb, nb_val, "neighbor_search", major_iter))
+            unique_explored_points.add(nb)
+
+            if better(nb_val, current_val):
+                improving.append((nb, nb_val))
+
+        if verbose:
+            print(f"\nMajor iteration {major_iter}")
+            print(f"Base point: {current} -> {current_val:.12f}")
+            print("Neighbor search explored:")
+            for pt, val in neighbor_points:
+                print(f"   {pt} -> {val:.12f}")
+            print(f"Unique points explored so far: {len(unique_explored_points)}")
+
+        # Stop if no improving neighbor exists
+        if not improving:
+            if verbose:
+                print("No improving neighbor found. Stop.")
+            history.append(
+                {
+                    "major_iter": major_iter,
+                    "base_point": current,
+                    "base_value": current_val,
+                    "neighbor_points": neighbor_points,
+                    "line_search_points": [],
+                    "unique_points_explored_so_far": len(unique_explored_points),
+                    "stopped": True,
+                }
+            )
+            break
+
+        # 2. Pick best improving neighbor
+        if maximize:
+            best_val = max(val for _, val in improving)
+        else:
+            best_val = min(val for _, val in improving)
+
+        candidate_points = [
+            (pt, val) for pt, val in improving if equal_obj(val, best_val)
+        ]
+
+        if tie_break == "first":
+            next_point, next_val = candidate_points[0]
+        elif tie_break == "nearest":
+            next_point, next_val = min(
+                candidate_points, key=lambda item: move_distance(current, item[0])
+            )
+        elif tie_break == "farthest":
+            next_point, next_val = max(
+                candidate_points, key=lambda item: move_distance(current, item[0])
+            )
+        else:
+            raise ValueError("tie_break must be one of: 'first', 'nearest', 'farthest'")
+
+        direction = (next_point[0] - current[0], next_point[1] - current[1])
+
+        if verbose:
+            print(f"Chosen improving neighbor: {next_point} -> {next_val:.12f}")
+            print(f"Chosen direction: {direction}")
+
+        # 3. Line search
+        line_search_points = []
+
+        last_improving_point = next_point
+        last_improving_val = next_val
+
+        # next_point was already evaluated during neighbor search,
+        # so do not count it again as a unique explored point
+        path.append(next_point)
+        line_search_points.append((next_point, next_val, "accepted"))
+
+        current_line_point = next_point
+        current_line_val = next_val
+
+        while True:
+            trial_point = (
+                current_line_point[0] + direction[0],
+                current_line_point[1] + direction[1],
+            )
+
+            if trial_point not in grid:
+                line_search_points.append((trial_point, None, "out_of_bounds"))
+                if verbose:
+                    print(
+                        f"Line search trial {trial_point} -> out of bounds, stop line search."
+                    )
+                break
+
+            trial_val = grid[trial_point]
+            explored_points.append((trial_point, trial_val, "line_search", major_iter))
+            unique_explored_points.add(trial_point)
+
+            if better(trial_val, current_line_val):
+                current_line_point = trial_point
+                current_line_val = trial_val
+                last_improving_point = trial_point
+                last_improving_val = trial_val
+                path.append(current_line_point)
+                line_search_points.append((trial_point, trial_val, "accepted"))
+
+                if verbose:
+                    print(f"Line search accepted: {trial_point} -> {trial_val:.12f}")
+            else:
+                line_search_points.append((trial_point, trial_val, "rejected"))
+                if verbose:
+                    print(f"Line search rejected: {trial_point} -> {trial_val:.12f}")
+                    print("Restart neighbor search from last improving point.")
+                break
+
+        # 4. Restart from last improving point
+        current = last_improving_point
+        current_val = last_improving_val
+
+        history.append(
+            {
+                "major_iter": major_iter,
+                "base_point": current,
+                "base_value": current_val,
+                "neighbor_points": neighbor_points,
+                "line_search_points": line_search_points,
+                "direction": direction,
+                "unique_points_explored_so_far": len(unique_explored_points),
+            }
+        )
+
+    return {
+        "start_point": start_point,
+        "start_value": grid[start_point],
+        "best_point": current,
+        "best_value": current_val,
+        "major_iterations": major_iter,
+        "points_explored": len(unique_explored_points),
+        "unique_explored_points": sorted(unique_explored_points),
+        "path": path,
+        "history": history,
+        "explored_points": explored_points,
+    }
 
 
-if __name__ == "__main__":
-    m = qhdopt_gdp(Npts=31, objective_name="levy13", sense=pyo.minimize)
+def run_ldsda_from_best_starting_points(
+    csv_path,
+    starting_points,
+    diagonal=False,
+    maximize=False,
+    tol=1e-12,
+    tie_break="first",
+    target_value=0.0,
+    verbose=True,
+):
+    """
+    Rank starting points by initial value, then run pseudo-LDSDA from best to worst.
 
-    # Transform GDP -> MINLP (Big-M transformation)
-    # This converts the disjunctions into mixed-integer constraints
-    pyo.TransformationFactory("gdp.bigm").apply_to(m)
-    solver = pyo.SolverFactory("gams")
+    Returns
+    -------
+    result : dict
+        {
+            "ordered_starting_points": [...],
+            "starting_point_values": [...],
+            "runs": [...],
+            "best_run": ...,
+            "best_value": ...,
+            "best_point": ...,
+            "total_points_explored_across_runs": ...,
+            "total_unique_points_explored_across_runs": ...,
+            "all_unique_points_explored": [...]
+        }
+    """
+    _, grid = load_grid_csv(csv_path)
 
-    res = solver.solve(m, solver="scip", tee=True)
+    cleaned_points = [tuple(pt) for pt in starting_points]
 
-    print("\n" + "=" * 30)
-    print("QHDOpt GDP Solution")
-    print("=" * 30)
-    print("lattice ix =", int(round(pyo.value(m.ix))))
-    print("lattice iy =", int(round(pyo.value(m.iy))))
-    print("x =", pyo.value(m.x))
-    print("y =", pyo.value(m.y))
-    print("obj =", pyo.value(m.obj))
-    print("=" * 30)
+    for pt in cleaned_points:
+        if pt not in grid:
+            raise ValueError(f"Starting point {pt} is not in the grid.")
+
+    # Evaluate starting point values first
+    starting_point_values = [(pt, grid[pt]) for pt in cleaned_points]
+
+    # Sort starting points by initial value
+    starting_point_values.sort(key=lambda item: item[1], reverse=maximize)
+    ordered_starting_points = [pt for pt, _ in starting_point_values]
+
+    if verbose:
+        print("Starting points ranked by initial value:")
+        for rank, (pt, val) in enumerate(starting_point_values, start=1):
+            print(f"{rank}. {pt} -> {val:.12f}")
+
+    runs = []
+    best_run = None
+
+    # Count the initial ranking evaluations of the starting points
+    initial_points_evaluated = len(cleaned_points)
+
+    total_points_explored_across_runs = 0
+    all_unique_points_explored = set(cleaned_points)
+
+    def target_reached(val):
+        return isclose(val, target_value, abs_tol=tol, rel_tol=0.0)
+
+    for i, pt in enumerate(ordered_starting_points, start=1):
+        if verbose:
+            print("\n" + "=" * 70)
+            print(f"Run {i} starting from {pt}")
+            print("=" * 70)
+
+        run_result = ldsda_from_csv(
+            csv_path=csv_path,
+            start_point=pt,
+            diagonal=diagonal,
+            maximize=maximize,
+            tol=tol,
+            tie_break=tie_break,
+            verbose=verbose,
+        )
+
+        runs.append(run_result)
+
+        total_points_explored_across_runs += run_result["points_explored"]
+        all_unique_points_explored.update(run_result["unique_explored_points"])
+
+        if best_run is None:
+            best_run = run_result
+        else:
+            if maximize:
+                if run_result["best_value"] > best_run["best_value"] + tol:
+                    best_run = run_result
+            else:
+                if run_result["best_value"] < best_run["best_value"] - tol:
+                    best_run = run_result
+
+        if verbose:
+            print(f"\nRun {i} result:")
+            print(f"  Start point            : {run_result['start_point']}")
+            print(f"  Start value            : {run_result['start_value']:.12f}")
+            print(f"  Best point             : {run_result['best_point']}")
+            print(f"  Best value             : {run_result['best_value']:.12f}")
+            print(f"  Points explored (run)  : {run_result['points_explored']}")
+
+        if target_reached(run_result["best_value"]):
+            if verbose:
+                print(f"\nTarget value {target_value} reached. Stopping the loop.")
+            break
+
+    return {
+        "ordered_starting_points": ordered_starting_points,
+        "starting_point_values": starting_point_values,
+        "runs": runs,
+        "best_run": best_run,
+        "best_value": best_run["best_value"],
+        "best_point": best_run["best_point"],
+        "initial_points_evaluated": initial_points_evaluated,
+        "total_points_explored_across_runs": total_points_explored_across_runs,
+        "total_points_explored_including_initial_ranking": initial_points_evaluated
+        + total_points_explored_across_runs,
+        "total_unique_points_explored_across_runs": len(all_unique_points_explored),
+        "all_unique_points_explored": sorted(all_unique_points_explored),
+    }
+
+
+# Example batch run across all benchmark grids.
+rng = random.Random(0)
+starting_points = [(rng.randint(0, 30), rng.randint(0, 30)) for _ in range(3)]
+print("Starting points:")
+for sp in starting_points:
+    print(sp)
+
+csv_paths = [
+    "qhdopt/ackley.csv",
+    "qhdopt/alpine1.csv",
+    "qhdopt/alpine2.csv",
+    "qhdopt/bohachevsky2.csv",
+    "qhdopt/camel3.csv",
+    "qhdopt/csendes.csv",
+    "qhdopt/deflected_corrugated_spring.csv",
+    "qhdopt/dropwave.csv",
+    "qhdopt/easom.csv",
+    "qhdopt/griewank.csv",
+    "qhdopt/holder_table.csv",
+    "qhdopt/hosaki.csv",
+    "qhdopt/levy.csv",
+    "qhdopt/levy13.csv",
+    "qhdopt/michalewicz.csv",
+    "qhdopt/rastrigin.csv",
+    "qhdopt/rosenbrock.csv",
+    "qhdopt/shubert.csv",
+    "qhdopt/styblinski_tang.csv",
+    "qhdopt/sum_of_squares.csv",
+    "qhdopt/xin_she_yang3.csv",
+]
+
+for csv_path in csv_paths:
+    print("\n" + "=" * 80)
+    print(f"Running: {csv_path}")
+    print("=" * 80)
+
+    multi_result = run_ldsda_from_best_starting_points(
+        csv_path=csv_path,
+        starting_points=starting_points,
+        diagonal=True,
+        maximize=False,
+        tie_break="first",
+        target_value=0.0,
+        verbose=True,
+    )
+
+    print("\nOverall summary:")
+    print(
+        "Ordered starting points                        :",
+        multi_result["ordered_starting_points"],
+    )
+    print("Overall best point                             :", multi_result["best_point"])
+    print("Overall best value                             :", multi_result["best_value"])
+    print(
+        "Initial starting points evaluated              :",
+        multi_result["initial_points_evaluated"],
+    )
+    print(
+        "Total points explored across runs              :",
+        multi_result["total_points_explored_across_runs"],
+    )
+    print(
+        "Total points explored incl. initial ranking    :",
+        multi_result["total_points_explored_including_initial_ranking"],
+    )
+    print(
+        "Total unique points explored overall           :",
+        multi_result["total_unique_points_explored_across_runs"],
+    )
