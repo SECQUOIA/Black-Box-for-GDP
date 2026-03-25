@@ -6,6 +6,11 @@ build-backend = "setuptools.build_meta"
 name = "rbfopt-test"
 version = "0.1.0"
 description = "Benchmark and test suite for the RBFopt optimization library (alpine and other benchmark functions)"
+authors = [
+    { name = "Albert Lee" },
+    { name = "David E. Bernal Neira" },
+]
+license = { text = "MIT" }
 requires-python = ">=3.10"
 dependencies = [
     "rbfopt>=1.0",
