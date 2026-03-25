@@ -44,6 +44,34 @@ That reference is used here as a source for the benchmark test set. The search
 code in this repository is a discrete pseudo-LDSDA procedure over precomputed
 CSV data.
 
+### License and data usage
+The above web page is the authoritative source for the original benchmark
+problems. Users of this repository should consult that reference (and any
+associated project pages or repositories) for the applicable license and data
+usage terms. The CSV grids in this directory are provided solely for research
+and experimental benchmarking purposes and should be redistributed or reused
+only in ways that are compatible with the licensing and usage terms of the
+original Quantum Hamiltonian Descent benchmark materials.
+
+### Adaptation details
+The CSV grids in `qhdopt/` are not direct copies of any files from the linked
+reference. Instead, each benchmark surface is sampled on a regular integer
+lattice and normalized into the following schema:
+
+- The domain is discretized on a 31 × 31 lattice with indices `x, y ∈ {0, …, 30}`.
+- `x` and `y` are integer lattice indices; any mapping from indices to the
+  continuous coordinates used in the original reference is handled in the code
+  that generated these CSVs and is not required for running the pseudo-LDSDA
+  search.
+- `z_norm` stores a normalized objective value at each lattice point. The
+  normalization is performed per-grid (for example, via a simple linear scaling
+  of the original objective values to a bounded numerical range) to improve
+  numerical stability and make grids easier to compare.
+  
+These adaptation steps are limited to discretization and normalization; no
+additional smoothing, noise injection, or qualitative modification of the
+benchmark surfaces has been intentionally introduced.
+
 ## Usage Notes
 - `load_grid_csv` validates the CSV schema and returns both the DataFrame and a
   dictionary lookup keyed by `(x, y)`.
