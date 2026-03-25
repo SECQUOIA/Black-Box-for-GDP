@@ -60,7 +60,9 @@ os.makedirs(log_dir, exist_ok=True)
 def load_grid(filename=DATA_DIR / "ackley.csv"):
     """
     Load grid data from CSV.
-    Expected CSV columns: "x", "y", and "z_norm".
+    Expected CSV columns include "Point", "x", "y", and "z_norm".
+    The loader uses "x", "y", and "z_norm"; the "Point" column is retained in
+    the CSV files for readability and traceability.
     Returns a dictionary mapping (x, y) tuples to the normalized objective value.
     """
     grid_data = {}

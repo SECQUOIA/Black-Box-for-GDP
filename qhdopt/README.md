@@ -9,11 +9,15 @@ files stored in `qhdopt/`. It does not build Pyomo GDP models, and it does not
 implement the Quantum Hamiltonian Descent (QHD) algorithm itself.
 
 ## Data Files
-Each CSV file stores a normalized objective grid with the required columns
-`x`, `y`, and `z_norm`.
+Each CSV file stores a normalized objective grid with the columns
+`Point`, `x`, `y`, and `z_norm`.
 
+- `Point`: string representation of the lattice point, retained intentionally for readability and traceability in the CSV files
 - `x`, `y`: integer lattice indices
 - `z_norm`: normalized objective value at that lattice point
+
+The pseudo-LDSDA code uses `x`, `y`, and `z_norm` for loading and lookup. The
+`Point` column is kept in the datasets on purpose and is not being removed.
 
 The current benchmark grids are 31 x 31 and use indices `0, ..., 30` in each
 coordinate.
