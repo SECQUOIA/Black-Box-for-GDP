@@ -9,9 +9,9 @@ solver.
 The benchmark grids used here are derived from benchmark examples listed on:
 https://jiaqileng.github.io/quantum-hamiltonian-descent/nonconvex2d.html
 
-DSDA terminology here follows the discrete steepest descent literature from
-process systems engineering; see, for example, Bernal Neira et al. (Process
-Systems Engineering 2022) on D-SDA/LD-SDA methods for GDP-based optimization.
+Here, DSDA stands for the Discrete Steepest Descent Algorithm; see, for example, 
+Ovalle et al., “Logic-Based Discrete-Steepest Descent: A Solution Method for 
+Process Synthesis Generalized Disjunctive Programs.”
 
 Although the filename is retained from an earlier GDP-oriented version, the
 current implementation operates directly on precomputed CSV grids.
