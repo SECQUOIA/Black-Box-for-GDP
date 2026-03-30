@@ -47,8 +47,7 @@ csv_files = [
 ]
 
 max_eval_list = [10, 30, 50, 70, 100]
-# max_eval_list = [100]
-n_repeats = 5
+n_repeats = 5 # number of independent runs per (CSV file, max_evaluations) setting
 
 # =============================
 # OUTPUT FOLDER FOR LOGS
@@ -96,11 +95,13 @@ for sp in starting_points:
 
 def obj_funct(x):
     """
-    Given a candidate point x (a list or 1-D numpy array with 2 elements),
-    this function rounds x to the nearest integers and returns the objective value
-    if the point exists in grid_data. Otherwise, returns a penalty value.
+    Create an objective callback bound to a specific grid.
+
+    RBFOpt may supply coordinates as floats even for integer variables,
+    so we round to the nearest lattice point before lookup.
+    Missing points receive a penalty.
     """
-    x_int = int(round(x[0]))
+    x_int = int(round(x[0])) # convert float representation to grid index
     y_int = int(round(x[1]))
 
     if (x_int, y_int) in grid_data:
@@ -132,7 +133,7 @@ def main():
     for max_eval in max_eval_list:
         for repeat in range(1, n_repeats + 1):
             for csv_name in csv_files:
-                run_id += 1
+                run_id += 1ee
                 csv_label = Path(csv_name).stem
                 log_file = log_dir / f"run_{run_id:04d}__{csv_label}__E{max_eval}__R{repeat}.log"
 
@@ -153,11 +154,11 @@ def main():
                     init_node_pos = np.array(starting_points, dtype=float)
 
                     black_box = rbfopt.RbfoptUserBlackBox(
-                        2,
-                        np.array([0, 0]),
-                        np.array([30, 30]),
-                        np.array(["I", "I"]),
-                        obj_funct,
+                        2, # dimension: 2 decision variables (x, y)
+                        np.array([0, 0]), # lower bounds for the grid
+                        np.array([30, 30]), # upper bounds for the grid
+                        np.array(["I", "I"]), # both variables are integer-valued
+                        obj_funct, # black-box objective evaluator on the lattice
                     )
 
                     settings = rbfopt.RbfoptSettings(
