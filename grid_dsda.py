@@ -96,6 +96,7 @@ def dsda_from_csv(
     tie_break="first",
     verbose=True,
     max_points_explored=None,
+    grid=None,
 ):
     """
     DSDA-style search on a discrete grid loaded from CSV.
@@ -133,6 +134,10 @@ def dsda_from_csv(
         Maximum number of evaluated points allowed for this DSDA run. If the
         budget is reached in the middle of the run, the search stops and returns
         the best point found so far.
+    grid : dict or None, optional
+        Pre-loaded grid dictionary mapping coordinate tuples to z_norm values.
+        When provided, csv_path is not read again, avoiding redundant I/O
+        in multi-start loops.
 
     Returns
     -------
@@ -156,7 +161,8 @@ def dsda_from_csv(
     if max_points_explored is not None and max_points_explored < 1:
         raise ValueError("max_points_explored must be at least 1.")
 
-    _, grid = load_grid_csv(csv_path)
+    if grid is None:
+        _, grid = load_grid_csv(csv_path)
 
     start_point = tuple(start_point)
     if start_point not in grid:
@@ -560,6 +566,7 @@ def run_dsda_from_best_starting_points(
             tie_break=tie_break,
             verbose=verbose,
             max_points_explored=remaining_budget,
+            grid=grid,
         )
 
         runs.append(run_result)
@@ -630,44 +637,27 @@ def run_dsda_from_best_starting_points(
 ldsda_from_csv = dsda_from_csv
 run_ldsda_from_best_starting_points = run_dsda_from_best_starting_points
 
-if __name__ == "__main__":
+
+def main():
+    """Run DSDA search on all benchmark grids with random starting points."""
+    from pathlib import Path
+
+    csv_dir = Path(__file__).resolve().parent / "qhdopt"
+    csv_paths = sorted(csv_dir.glob("*.csv"))
+
     rng = random.Random(0)
     starting_points = [(rng.randint(0, 30), rng.randint(0, 30)) for _ in range(3)]
     print("Starting points:")
     for sp in starting_points:
         print(sp)
 
-    csv_paths = [
-        "qhdopt/ackley.csv",
-        "qhdopt/alpine1.csv",
-        "qhdopt/alpine2.csv",
-        "qhdopt/bohachevsky2.csv",
-        "qhdopt/camel3.csv",
-        "qhdopt/csendes.csv",
-        "qhdopt/deflected_corrugated_spring.csv",
-        "qhdopt/dropwave.csv",
-        "qhdopt/easom.csv",
-        "qhdopt/griewank.csv",
-        "qhdopt/holder_table.csv",
-        "qhdopt/hosaki.csv",
-        "qhdopt/levy.csv",
-        "qhdopt/levy13.csv",
-        "qhdopt/michalewicz.csv",
-        "qhdopt/rastrigin.csv",
-        "qhdopt/rosenbrock.csv",
-        "qhdopt/shubert.csv",
-        "qhdopt/styblinski_tang.csv",
-        "qhdopt/sum_of_squares.csv",
-        "qhdopt/xin_she_yang3.csv",
-    ]
-
     for csv_path in csv_paths:
         print("\n" + "=" * 80)
-        print(f"Running: {csv_path}")
+        print(f"Running: {csv_path.name}")
         print("=" * 80)
 
         multi_result = run_dsda_from_best_starting_points(
-            csv_path=csv_path,
+            csv_path=str(csv_path),
             starting_points=starting_points,
             diagonal=True,
             maximize=False,
@@ -707,3 +697,7 @@ if __name__ == "__main__":
             "Stopped early due to point budget              :",
             multi_result["stopped_early"],
         )
+
+
+if __name__ == "__main__":
+    main()

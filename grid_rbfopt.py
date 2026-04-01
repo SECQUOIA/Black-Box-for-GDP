@@ -18,42 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "qhdopt"
 LOG_DIR = BASE_DIR / "logs"
 
-
-# =============================
-# LIST OF QHDOPT CSV FILES
-# =============================
-csv_files = [
-    DATA_DIR / "hosaki.csv",
-    DATA_DIR / "levy.csv",
-    DATA_DIR / "levy13.csv",
-    DATA_DIR / "michalewicz.csv",
-    DATA_DIR / "rastrigin.csv",
-    DATA_DIR / "rosenbrock.csv",
-    DATA_DIR / "shubert.csv",
-    DATA_DIR / "styblinski_tang.csv",
-    DATA_DIR / "sum_of_squares.csv",
-    DATA_DIR / "xin_she_yang3.csv",
-    DATA_DIR / "alpine1.csv",
-    DATA_DIR / "alpine2.csv",
-    DATA_DIR / "bohachevsky2.csv",
-    DATA_DIR / "camel3.csv",
-    DATA_DIR / "csendes.csv",
-    DATA_DIR / "deflected_corrugated_spring.csv",
-    DATA_DIR / "dropwave.csv",
-    DATA_DIR / "easom.csv",
-    DATA_DIR / "griewank.csv",
-    DATA_DIR / "holder_table.csv",
-    DATA_DIR / "ackley.csv",
-]
-
-max_eval_list = [10, 30, 50, 70, 100]
-n_repeats = 5 # number of independent runs per (CSV file, max_evaluations) setting
-
-# =============================
-# OUTPUT FOLDER FOR LOGS
-# =============================
-log_dir = LOG_DIR
-os.makedirs(log_dir, exist_ok=True)
+PENALTY = 1e5
 
 
 def load_grid(filename=DATA_DIR / "ackley.csv"):
@@ -78,62 +43,63 @@ def load_grid(filename=DATA_DIR / "ackley.csv"):
     return grid_data
 
 
-# Load the data from a default grid; overwritten inside batch loops.
-grid_data = load_grid()
-
-PENALTY = 1e5  # adjust this penalty as appropriate
-# PENALTY = np.inf  # use infinity as penalty for infeasible points
-# PENALTY = np.nan  # use NaN as penalty for infeasible points
-# PENALTY = None  # use None as penalty for infeasible points
-
-rng = random.Random(0)
-starting_points = [(rng.randint(0, 30), rng.randint(0, 30)) for _ in range(3)]
-print("Starting points:")
-for sp in starting_points:
-    print(sp)
+def grid_bounds(grid_data):
+    """Derive the lower and upper bounds from the grid keys."""
+    keys = list(grid_data.keys())
+    xs = [k[0] for k in keys]
+    ys = [k[1] for k in keys]
+    return np.array([min(xs), min(ys)]), np.array([max(xs), max(ys)])
 
 
-def obj_funct(x):
+def make_obj_funct(grid_data):
     """
-    Create an objective callback bound to a specific grid.
+    Return an objective callback bound to *grid_data*.
 
     RBFOpt may supply coordinates as floats even for integer variables,
-    so we round to the nearest lattice point before lookup.
-    Missing points receive a penalty.
+    so the callback rounds to the nearest lattice point before lookup.
+    Points outside the grid receive a finite penalty.
     """
-    x_int = int(round(x[0])) # convert float representation to grid index
-    y_int = int(round(x[1]))
+    def obj_funct(x):
+        x_int = int(round(x[0]))
+        y_int = int(round(x[1]))
+        if (x_int, y_int) in grid_data:
+            return grid_data[(x_int, y_int)]
+        return PENALTY
+    return obj_funct
 
-    if (x_int, y_int) in grid_data:
-        return grid_data[(x_int, y_int)]
-    return PENALTY
 
-
-# =============================
-# BATCH RUNS: 21 files x 5 max_evals x 5 repeats = 525 runs
-# =============================
 def main():
-    global grid_data
+    csv_files = sorted(DATA_DIR.glob("*.csv"))
+    max_eval_list = [10, 30, 50, 70, 100]
+    # Number of independent RBFOpt runs per (CSV file, max_evaluations) setting
+    n_repeats = 5
 
-    run_id = 0
-    total_runs = len(csv_files) * len(max_eval_list) * n_repeats
+    log_dir = LOG_DIR
+    os.makedirs(log_dir, exist_ok=True)
 
-    # Set COIN_BIN to your local AMPL/COIN solver binaries directory
-    # before running with solver-based global search.
+    rng = random.Random(0)
+    starting_points = [(rng.randint(0, 30), rng.randint(0, 30)) for _ in range(3)]
+    print("Starting points:")
+    for sp in starting_points:
+        print(sp)
+
     coin_bin = os.environ.get("COIN_BIN", "").strip()
     if not coin_bin:
         raise ValueError(
             "Set the COIN_BIN environment variable to your AMPL/COIN solver "
-            "binary directory before running qhdopt_rbfopt.py"
+            "binary directory before running grid_rbfopt.py"
         )
 
     minlp_solver_path = f"{coin_bin}/bonmin"
     nlp_solver_path = f"{coin_bin}/ipopt"
 
+    run_id = 0
+    total_runs = len(csv_files) * len(max_eval_list) * n_repeats
+
     for max_eval in max_eval_list:
         for repeat in range(1, n_repeats + 1):
             for csv_name in csv_files:
-                run_id += 1ee
+                run_id += 1
                 csv_label = Path(csv_name).stem
                 log_file = log_dir / f"run_{run_id:04d}__{csv_label}__E{max_eval}__R{repeat}.log"
 
@@ -146,6 +112,8 @@ def main():
                     print("===================================")
 
                     grid_data = load_grid(csv_name)
+                    obj_fn = make_obj_funct(grid_data)
+                    lb, ub = grid_bounds(grid_data)
 
                     print("Starting points used:")
                     for sp in starting_points:
@@ -153,12 +121,13 @@ def main():
 
                     init_node_pos = np.array(starting_points, dtype=float)
 
+                    # 2 decision variables (x, y), both integer-valued
                     black_box = rbfopt.RbfoptUserBlackBox(
-                        2, # dimension: 2 decision variables (x, y)
-                        np.array([0, 0]), # lower bounds for the grid
-                        np.array([30, 30]), # upper bounds for the grid
-                        np.array(["I", "I"]), # both variables are integer-valued
-                        obj_funct, # black-box objective evaluator on the lattice
+                        2,
+                        lb,
+                        ub,
+                        np.array(["I", "I"]),
+                        obj_fn,
                     )
 
                     settings = rbfopt.RbfoptSettings(

@@ -10,7 +10,7 @@ authors = [
     { name = "Albert Lee" },
     { name = "David E. Bernal Neira" },
 ]
-license = { text = "MIT" }
+license = "MIT"
 requires-python = ">=3.10"
 dependencies = [
     "rbfopt>=1.0",
@@ -25,3 +25,9 @@ dev = [
     "jupyter>=1.0",
     "ipython>=8.0",
 ]
+test = [
+    "pytest>=7.0",
+]
+
+[tool.setuptools]
+py-modules = ["grid_dsda", "grid_rbfopt"]
