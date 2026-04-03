@@ -31,3 +31,6 @@ test = [
 
 [tool.setuptools]
 py-modules = ["grid_dsda", "grid_rbfopt"]
+
+[tool.setuptools.data-files]
+"qhdopt" = ["qhdopt/*.csv", "qhdopt/README.md"]
