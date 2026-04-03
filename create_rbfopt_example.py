@@ -64,7 +64,7 @@ ax.set_yticks(range(1, 18))
 ax.grid(True, linestyle=':', linewidth=0.7)
 ax.set_xlabel(r'$Z_{E1}$, Number of Reactors', fontsize=14)
 ax.set_ylabel(r'$Z_{E2}$, Position of the Reflux', fontsize=14)
-ax.set_title('Derivitive-Free Optimization in Integer Lattice', fontsize=16)
+ax.set_title('Derivative-Free Optimization in Integer Lattice', fontsize=16)
 
 # Masks
 if feasible_mask:
@@ -127,7 +127,7 @@ def update(frame):
 anim = FuncAnimation(fig, update, frames=len(trajectory), init_func=init,
                      interval=600, blit=False, repeat=False, save_count=len(trajectory))
 
-out_path = 'gif/dfo_integer_lattice_example.gif'
+out_path = 'dfo_integer_lattice_example.gif'
 anim.save(out_path, writer=PillowWriter(fps=2))
 
 out_path
