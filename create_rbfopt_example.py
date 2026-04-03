@@ -127,7 +127,7 @@ def update(frame):
 anim = FuncAnimation(fig, update, frames=len(trajectory), init_func=init,
                      interval=600, blit=False, repeat=False, save_count=len(trajectory))
 
-out_path = 'gif/dfo_integer_lattice.gif'
+out_path = 'gif/dfo_integer_lattice_example.gif'
 anim.save(out_path, writer=PillowWriter(fps=2))
 
 out_path
