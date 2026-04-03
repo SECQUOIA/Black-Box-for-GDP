@@ -10,7 +10,7 @@ authors = [
     { name = "Albert Lee" },
     { name = "David E. Bernal Neira" },
 ]
-license = "MIT"
+license = { text = "MIT" }
 requires-python = ">=3.10"
 dependencies = [
     "rbfopt>=1.0",
