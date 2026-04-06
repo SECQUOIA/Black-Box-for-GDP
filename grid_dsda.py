@@ -131,8 +131,9 @@ def dsda_from_csv(
     verbose : bool, optional
         Print iteration log.
     max_points_explored : int or None, optional
-        Maximum number of evaluated points allowed for this DSDA run. If the
-        budget is reached in the middle of the run, the search stops and returns
+        Maximum number of evaluated points allowed for this DSDA run. This
+        budget is enforced on total point evaluations, not on unique explored
+        points. If the budget is reached in the middle of the run, the search stops and returns
         the best point found so far.
     grid : dict or None, optional
         Pre-loaded grid dictionary mapping coordinate tuples to z_norm values.
@@ -193,6 +194,7 @@ def dsda_from_csv(
     stop_reason = None
 
     def budget_reached():
+        # Budget is enforced on total point evaluations, not unique points.
         return (
             max_points_explored is not None
             and len(explored_points) >= max_points_explored

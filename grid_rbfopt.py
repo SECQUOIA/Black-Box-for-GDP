@@ -30,16 +30,36 @@ def load_grid(filename=DATA_DIR / "ackley.csv"):
     Returns a dictionary mapping (x, y) tuples to the normalized objective value.
     """
     grid_data = {}
-    with open(filename, "r") as f:
+    with open(filename, "r", newline="") as f:
         reader = csv.DictReader(f)
-        for row in reader:
+
+        required_fields = {"x", "y", "z_norm"}
+        fieldnames = reader.fieldnames
+        if fieldnames is None:
+            raise ValueError(f"CSV file {filename} is missing a header row")
+
+        missing_fields = required_fields.difference(fieldnames)
+        if missing_fields:
+            missing_list = ", ".join(sorted(missing_fields))
+            raise ValueError(
+                f"CSV file {filename} is missing required columns: {missing_list}"
+            )
+
+        for row_num, row in enumerate(reader, start=2):
             try:
                 x_val = int(row["x"])
                 y_val = int(row["y"])
                 obj_val = float(row["z_norm"])
-                grid_data[(x_val, y_val)] = obj_val
-            except Exception:
-                continue
+            except (ValueError, TypeError) as exc:
+                raise ValueError(
+                    f"Malformed row {row_num} in {filename}: {row}"
+                ) from exc
+
+            grid_data[(x_val, y_val)] = obj_val
+
+    if not grid_data:
+        raise ValueError(f"No valid grid points were loaded from {filename}")
+
     return grid_data
 
 
@@ -90,8 +110,17 @@ def main():
             "binary directory before running grid_rbfopt.py"
         )
 
-    minlp_solver_path = f"{coin_bin}/bonmin"
-    nlp_solver_path = f"{coin_bin}/ipopt"
+    coin_bin_path = Path(coin_bin)
+    minlp_solver_path = coin_bin_path / "bonmin"
+    nlp_solver_path = coin_bin_path / "ipopt"
+
+    missing_paths = [p for p in (minlp_solver_path, nlp_solver_path) if not p.exists()]
+    if missing_paths:
+        missing_str = ", ".join(str(p) for p in missing_paths)
+        raise FileNotFoundError(
+            f"Missing solver executable(s): {missing_str}. "
+            "Check that COIN_BIN points to the correct solver binary directory."
+        )
 
     run_id = 0
     total_runs = len(csv_files) * len(max_eval_list) * n_repeats
@@ -101,7 +130,10 @@ def main():
             for csv_name in csv_files:
                 run_id += 1
                 csv_label = Path(csv_name).stem
-                log_file = log_dir / f"run_{run_id:04d}__{csv_label}__E{max_eval}__R{repeat}.log"
+                log_file = (
+                    log_dir
+                    / f"run_{run_id:04d}__{csv_label}__E{max_eval}__R{repeat}.log"
+                )
 
                 with open(log_file, "w") as f, redirect_stdout(f):
                     print("===================================")
@@ -132,8 +164,8 @@ def main():
 
                     settings = rbfopt.RbfoptSettings(
                         max_evaluations=max_eval,
-                        minlp_solver_path=minlp_solver_path,
-                        nlp_solver_path=nlp_solver_path,
+                        minlp_solver_path=str(minlp_solver_path),
+                        nlp_solver_path=str(nlp_solver_path),
                         algorithm="MSRSM",
                         rbf="auto",
                         global_search_method="solver",
