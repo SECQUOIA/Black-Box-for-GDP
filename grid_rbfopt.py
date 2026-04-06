@@ -11,7 +11,7 @@ import rbfopt
 
 warnings.filterwarnings(
     "ignore",
-    message="Signature .* for <class 'numpy.longdouble'> does not match any known type"
+    message="Signature .* for <class 'numpy.longdouble'> does not match any known type",
 )
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -79,12 +79,14 @@ def make_obj_funct(grid_data):
     so the callback rounds to the nearest lattice point before lookup.
     Points outside the grid receive a finite penalty.
     """
+
     def obj_funct(x):
         x_int = int(round(x[0]))
         y_int = int(round(x[1]))
         if (x_int, y_int) in grid_data:
             return grid_data[(x_int, y_int)]
         return PENALTY
+
     return obj_funct
 
 
@@ -155,11 +157,7 @@ def main():
 
                     # 2 decision variables (x, y), both integer-valued
                     black_box = rbfopt.RbfoptUserBlackBox(
-                        2,
-                        lb,
-                        ub,
-                        np.array(["I", "I"]),
-                        obj_fn,
+                        2, lb, ub, np.array(["I", "I"]), obj_fn
                     )
 
                     settings = rbfopt.RbfoptSettings(
@@ -180,12 +178,17 @@ def main():
                     )
 
                     start = time.time()
-                    best_val, best_point, itercount, evalcount, fast_evalcount = alg.optimize()
+                    best_val, best_point, itercount, evalcount, fast_evalcount = (
+                        alg.optimize()
+                    )
                     end = time.time()
 
                     print("Optimization completed.")
                     print("Best objective value found:", best_val)
-                    print("At lattice point (rounded):", [int(round(v)) for v in best_point])
+                    print(
+                        "At lattice point (rounded):",
+                        [int(round(v)) for v in best_point],
+                    )
                     print("Iterations:", itercount, "Function evaluations:", evalcount)
                     print("Runtime (seconds):", end - start)
 

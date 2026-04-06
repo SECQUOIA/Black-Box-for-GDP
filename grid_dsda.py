@@ -9,8 +9,8 @@ solver.
 The benchmark grids used here are derived from benchmark examples listed on:
 https://jiaqileng.github.io/quantum-hamiltonian-descent/nonconvex2d.html
 
-Here, DSDA stands for the Discrete Steepest Descent Algorithm; see, for example, 
-Ovalle et al., “Logic-Based Discrete-Steepest Descent: A Solution Method for 
+Here, DSDA stands for the Discrete Steepest Descent Algorithm; see, for example,
+Ovalle et al., “Logic-Based Discrete-Steepest Descent: A Solution Method for
 Process Synthesis Generalized Disjunctive Programs.”
 
 Although the filename is retained from an earlier GDP-oriented version, the
@@ -84,7 +84,6 @@ def get_neighbors(point, grid, diagonal=False):
             neighbors.append(candidate)
 
     return neighbors
-
 
 
 def dsda_from_csv(
@@ -259,7 +258,9 @@ def dsda_from_csv(
                 stopped_early = True
                 stop_reason = "max_points_explored"
                 if verbose:
-                    print("Maximum point-exploration budget reached during neighbor search. Stop.")
+                    print(
+                        "Maximum point-exploration budget reached during neighbor search. Stop."
+                    )
                 break
 
             nb_val = grid[nb]
@@ -359,7 +360,9 @@ def dsda_from_csv(
                 stopped_early = True
                 stop_reason = "max_points_explored"
                 if verbose:
-                    print("Maximum point-exploration budget reached during line search. Stop.")
+                    print(
+                        "Maximum point-exploration budget reached during line search. Stop."
+                    )
                 break
 
             trial_point = tuple(
@@ -515,11 +518,16 @@ def run_dsda_from_best_starting_points(
     def target_reached(val):
         return isclose(val, target_value, abs_tol=tol, rel_tol=0.0)
 
-    if max_points_explored is not None and initial_points_evaluated >= max_points_explored:
+    if (
+        max_points_explored is not None
+        and initial_points_evaluated >= max_points_explored
+    ):
         stopped_early = True
         stop_reason = "max_points_explored"
         if verbose:
-            print("Maximum point-exploration budget reached during starting-point ranking.")
+            print(
+                "Maximum point-exploration budget reached during starting-point ranking."
+            )
         return {
             "ordered_starting_points": ordered_starting_points,
             "starting_point_values": starting_point_values,
@@ -556,7 +564,9 @@ def run_dsda_from_best_starting_points(
                 stopped_early = True
                 stop_reason = "max_points_explored"
                 if verbose:
-                    print("Maximum point-exploration budget reached before starting the next DSDA run.")
+                    print(
+                        "Maximum point-exploration budget reached before starting the next DSDA run."
+                    )
                 break
 
         run_result = dsda_from_csv(
@@ -606,7 +616,9 @@ def run_dsda_from_best_starting_points(
             stopped_early = True
             stop_reason = run_result["stop_reason"]
             if verbose:
-                print("\nStopping after an incomplete DSDA run because the point budget was exhausted.")
+                print(
+                    "\nStopping after an incomplete DSDA run because the point budget was exhausted."
+                )
             break
 
         if target_reached(run_result["best_value"]):
@@ -634,6 +646,7 @@ def run_dsda_from_best_starting_points(
         "stop_reason": stop_reason,
         "max_points_explored": max_points_explored,
     }
+
 
 # Backward-compatible aliases retained from the earlier LDSDA naming.
 ldsda_from_csv = dsda_from_csv
@@ -673,8 +686,14 @@ def main():
             "Ordered starting points                        :",
             multi_result["ordered_starting_points"],
         )
-        print("Overall best point                             :", multi_result["best_point"])
-        print("Overall best value                             :", multi_result["best_value"])
+        print(
+            "Overall best point                             :",
+            multi_result["best_point"],
+        )
+        print(
+            "Overall best value                             :",
+            multi_result["best_value"],
+        )
         print(
             "Initial starting points evaluated              :",
             multi_result["initial_points_evaluated"],
