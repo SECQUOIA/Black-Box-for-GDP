@@ -20,15 +20,22 @@ The DSDA-style code in `grid_dsda.py` uses `x`, `y`, and `z_norm` for loading
 and lookup. The `Point` column is kept in the datasets on purpose and is not
 being removed.
 
-The current benchmark grids are 31 x 31 and use indices `0, ..., 30` in each
-coordinate.
+The grid dimensions are not hardcoded: both `grid_dsda.py` and `grid_rbfopt.py`
+derive the grid size and bounds from whatever the CSV contains. The current
+benchmark CSVs happen to be 31 × 31 (indices `0, …, 30` in each coordinate),
+but any resolution works.
 
 ## Search Procedure
-`grid_dsda.py` runs a DSDA-style search on one CSV grid at a time.
+`grid_dsda.py` runs a DSDA-style search on one CSV grid at a time. The search
+algorithm (`get_neighbors`, `dsda_from_csv`) operates on n-dimensional
+coordinate tuples, so it generalises beyond 2-D grids. The current CSV schema
+uses `x` and `y` columns (2-D), but extending to higher dimensions only
+requires adding coordinate columns and updating the loader.
 
 1. Load the selected grid from CSV.
 2. Choose one or more starting points on the lattice.
-3. Evaluate the 4-neighborhood or 8-neighborhood around the current point.
+3. Evaluate the 4-neighborhood (axis-aligned moves) or full L∞ neighborhood
+   (including diagonals) around the current point.
 4. Select an improving neighbor and define the search direction.
 5. Continue line search along that direction until improvement stops or the
    trial point leaves the grid.
