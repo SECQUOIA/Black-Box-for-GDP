@@ -246,6 +246,11 @@ def dsda_from_csv(
 
         major_iter += 1
 
+        # Capture the base state before any updates so that the history
+        # entry records the actual starting point of this iteration.
+        iter_base_point = current
+        iter_base_val = current_val
+
         # 1. Neighbor search
         neighbors = get_neighbors(current, grid, diagonal=diagonal)
 
@@ -406,8 +411,8 @@ def dsda_from_csv(
         history.append(
             {
                 "major_iter": major_iter,
-                "base_point": current,
-                "base_value": current_val,
+                "base_point": iter_base_point,
+                "base_value": iter_base_val,
                 "neighbor_points": neighbor_points,
                 "line_search_points": line_search_points,
                 "direction": direction,

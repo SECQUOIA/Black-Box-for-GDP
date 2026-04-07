@@ -172,3 +172,50 @@ def test_run_dsda_multi_start():
     assert result["best_point"] == (15, 15)
     # Should stop after 1 run since (14,14) leads directly to 0.0
     assert len(result["runs"]) == 1
+
+
+# ------------------------------------------------------------------
+# grid_dsda: history base_point records the start of each iteration
+# ------------------------------------------------------------------
+
+def test_history_base_point_records_iteration_start():
+    """base_point in history must be the point BEFORE the search, not after."""
+    from grid_dsda import dsda_from_csv
+
+    csv_path = str(ROOT / "qhdopt" / "ackley.csv")
+    result = dsda_from_csv(csv_path, (10, 10), diagonal=True, verbose=False)
+
+    history = result["history"]
+    # Iteration 0 is the initial record
+    assert history[0]["base_point"] == (10, 10)
+
+    # For each subsequent iteration, base_point must equal the previous
+    # iteration's result (the point DSDA restarted from), not the end
+    # of the current iteration's line search.
+    for i in range(1, len(history)):
+        entry = history[i]
+        # The base point of this iteration should be the point
+        # that was "current" at the start, i.e. where the
+        # algorithm is resuming neighbor search from.
+        # It must NOT equal the endpoint of this iteration's
+        # line search (unless the iteration found no improvement).
+        assert entry["base_point"] is not None
+        assert entry["base_value"] is not None
+
+    # Stronger check: the path records the improving moves.  If the
+    # algorithm moved, the last history entry's base_point should
+    # differ from its line-search endpoint.
+    if len(history) >= 3:
+        # Pick a history entry where a line search actually occurred
+        for entry in history[1:]:
+            if entry.get("line_search_points"):
+                accepted = [
+                    pt for pt, val, status in entry["line_search_points"]
+                    if status == "accepted"
+                ]
+                if accepted:
+                    last_accepted = accepted[-1]
+                    assert entry["base_point"] != last_accepted, (
+                        "base_point should be the iteration start, "
+                        "not the line-search endpoint"
+                    )

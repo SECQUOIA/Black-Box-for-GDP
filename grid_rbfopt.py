@@ -127,6 +127,13 @@ def main():
     run_id = 0
     total_runs = len(csv_files) * len(max_eval_list) * n_repeats
 
+    # Pre-load grids once per CSV to avoid redundant I/O across the
+    # (max_eval, repeat) combinations.
+    grids = {}
+    for csv_name in csv_files:
+        grid_data = load_grid(csv_name)
+        grids[csv_name] = (grid_data, make_obj_funct(grid_data), grid_bounds(grid_data))
+
     for max_eval in max_eval_list:
         for repeat in range(1, n_repeats + 1):
             for csv_name in csv_files:
@@ -137,6 +144,8 @@ def main():
                     / f"run_{run_id:04d}__{csv_label}__E{max_eval}__R{repeat}.log"
                 )
 
+                grid_data, obj_fn, (lb, ub) = grids[csv_name]
+
                 with open(log_file, "w") as f, redirect_stdout(f):
                     print("===================================")
                     print(f"RUN: {run_id}/{total_runs}")
@@ -144,10 +153,6 @@ def main():
                     print("MAX_EVAL:", max_eval)
                     print("REPEAT:", repeat)
                     print("===================================")
-
-                    grid_data = load_grid(csv_name)
-                    obj_fn = make_obj_funct(grid_data)
-                    lb, ub = grid_bounds(grid_data)
 
                     print("Starting points used:")
                     for sp in starting_points:
