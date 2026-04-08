@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rbfopt-test"
+version = "0.1.0"
+description = "Benchmark and test suite for the RBFopt optimization library (alpine and other benchmark functions)"
+authors = [
+    { name = "Albert Lee" },
+    { name = "David E. Bernal Neira" },
+]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "rbfopt>=1.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pandas>=1.5",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyter>=1.0",
+    "ipython>=8.0",
+]
+test = [
+    "pytest>=7.0",
+]
+
+[tool.setuptools]
+py-modules = ["grid_dsda", "grid_rbfopt"]
+
+[tool.setuptools.data-files]
+"qhdopt" = ["qhdopt/*.csv", "qhdopt/README.md"]
