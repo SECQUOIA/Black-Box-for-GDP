@@ -18,7 +18,8 @@ documentation of workflows involving RBFOpt and related discrete search methods.
   functions.
 - `qhdopt/`: normalized benchmark grid data and notes about data provenance.
 - `tests/`: regression tests for the grid-loading and search helper modules.
-- `gif/`: generated visualizations from optimization runs.
+- `scripts/`: utility scripts for generating visual examples and report figures.
+- `gif/`: generated visualizations from optimization case studies.
 - `*.ipynb`: notebooks used to run and inspect optimization case studies.
 - `compl_enum_*.csv`: completed enumeration data from benchmark case studies.
 
