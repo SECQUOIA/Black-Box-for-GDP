@@ -1,16 +1,15 @@
 # RBFopt_Test
 
 RBFopt_Test is a research and testing repository for derivative-free
-optimization experiments. It focuses on comparing RBFOpt-based optimization
+optimization case studies. It focuses on comparing RBFOpt-based optimization
 with DSDA-style search procedures over discrete benchmark grids.
 
 ## Project Purpose
 
 The goal of this repository is to organize scripts, notebooks, benchmark data,
-and visual outputs used to study optimization behavior on grid-based test
-problems. The repository is intended for experimentation, regression testing,
-and documentation of workflows involving RBFOpt and related discrete search
-methods.
+and visual outputs used to document selected optimization case studies on
+grid-based test problems. The repository is intended for regression testing and
+documentation of workflows involving RBFOpt and related discrete search methods.
 
 ## Repository Map
 
@@ -20,8 +19,8 @@ methods.
 - `qhdopt/`: normalized benchmark grid data and notes about data provenance.
 - `tests/`: regression tests for the grid-loading and search helper modules.
 - `gif/`: generated visualizations from optimization runs.
-- `*.ipynb`: notebooks used to run and inspect optimization experiments.
-- `compl_enum_*.csv`: completed enumeration data from benchmark experiments.
+- `*.ipynb`: notebooks used to run and inspect optimization case studies.
+- `compl_enum_*.csv`: completed enumeration data from benchmark case studies.
 
 ## License
 
