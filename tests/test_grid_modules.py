@@ -7,13 +7,9 @@ module-level side effects, and guard against regressions such as the
 """
 
 import ast
-import importlib
-import io
 import sys
 from pathlib import Path
 from unittest.mock import patch
-
-import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -39,7 +35,7 @@ def test_grid_dsda_import_no_side_effects(capsys):
     """Importing grid_dsda must not print or execute batch code."""
     if "grid_dsda" in sys.modules:
         del sys.modules["grid_dsda"]
-    import grid_dsda  # noqa: F811
+    import grid_dsda  # noqa: F401
     captured = capsys.readouterr()
     assert captured.out == "", "grid_dsda produced stdout on import"
 
@@ -50,7 +46,7 @@ def test_grid_dsda_import_no_side_effects(capsys):
 
 def test_load_grid_csv():
     from grid_dsda import load_grid_csv
-    df, grid = load_grid_csv(str(ROOT / "qhdopt" / "ackley.csv"))
+    _, grid = load_grid_csv(str(ROOT / "qhdopt" / "ackley.csv"))
     assert len(grid) == 961  # 31x31
     assert (15, 15) in grid
     assert grid[(15, 15)] == 0.0
