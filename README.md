@@ -18,10 +18,21 @@ documentation of workflows involving RBFOpt and related discrete search methods.
   functions.
 - `qhdopt/`: normalized benchmark grid data and notes about data provenance.
 - `tests/`: regression tests for the grid-loading and search helper modules.
-- `scripts/`: utility scripts for generating visual examples and report figures.
+- `scripts/`: utility scripts for generating visual examples and report
+  figures, including `create_rbfopt_example.py` for producing a GIF that
+  illustrates the concept of derivative-free optimization on an integer
+  lattice for presentation and teaching materials.
 - `gif/`: generated visualizations from optimization case studies.
 - `*.ipynb`: notebooks used to run and inspect optimization case studies.
 - `compl_enum_*.csv`: completed enumeration data from benchmark case studies.
+
+## Visual Example Script
+
+The script `scripts/create_rbfopt_example.py` is a lightweight visualization
+helper used to generate an explanatory GIF for content materials. It is meant
+to illustrate the derivative-free optimization idea on a simple integer
+lattice, rather than serve as part of the main benchmark or regression-testing
+workflow.
 
 ## License
 
