@@ -178,7 +178,7 @@ def main():
                     )
 
                     start = time.time()
-                    best_val, best_point, itercount, evalcount, fast_evalcount = (
+                    best_val, best_point, itercount, evalcount, _fast_evalcount = (
                         alg.optimize()
                     )
                     end = time.time()
