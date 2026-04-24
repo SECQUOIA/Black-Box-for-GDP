@@ -9,6 +9,8 @@ module-level side effects, and guard against regressions such as the
 import ast
 import sys
 from pathlib import Path
+from tempfile import TemporaryDirectory
+from types import SimpleNamespace
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -187,6 +189,19 @@ def test_dsda_tie_break_farthest():
     assert result["path"][1] == (2, 2)
 
 
+def test_dsda_handles_three_dimensional_grid():
+    grid = {
+        (x, y, z): float(x + y + z)
+        for x in range(2)
+        for y in range(2)
+        for z in range(2)
+    }
+    result = _run_dsda_on_grid(grid, start_point=(1, 1, 1), diagonal=True)
+    assert result["best_point"] == (0, 0, 0)
+    assert result["best_value"] == 0.0
+    assert all(len(point) == 3 for point in result["path"])
+
+
 def test_dsda_max_points_budget():
     from grid_dsda import dsda_from_csv
     csv_path = str(ROOT / "qhdopt" / "ackley.csv")
@@ -228,6 +243,74 @@ def test_grid_bounds():
     lb, ub = ns["grid_bounds"](grid)
     assert list(lb) == [0, 0]
     assert list(ub) == [5, 10]
+
+
+def test_grid_rbfopt_main_smoke():
+    ns = _exec_grid_rbfopt()
+    fake_grid = {(0, 0): 0.0, (1, 1): 1.0}
+    optimize_counter = {"count": 0}
+
+    class FakeBlackBox:
+        def __init__(self, dimension, lower_bounds, upper_bounds, var_types, obj_fn):
+            self.dimension = dimension
+            self.lower_bounds = lower_bounds
+            self.upper_bounds = upper_bounds
+            self.var_types = var_types
+            self.obj_fn = obj_fn
+
+    class FakeSettings:
+        def __init__(self, **kwargs):
+            self.kwargs = kwargs
+
+    class FakeAlgorithm:
+        def __init__(
+            self,
+            settings,
+            black_box,
+            init_node_pos=None,
+            init_node_val=None,
+            do_init_strategy=None,
+        ):
+            self.settings = settings
+            self.black_box = black_box
+            self.init_node_pos = init_node_pos
+            self.init_node_val = init_node_val
+            self.do_init_strategy = do_init_strategy
+
+        def optimize(self):
+            optimize_counter["count"] += 1
+            return 0.0, [0.0, 0.0], 1, 2, 0
+
+    with TemporaryDirectory() as tmpdir:
+        tmp_path = Path(tmpdir)
+        data_dir = tmp_path / "qhdopt"
+        data_dir.mkdir()
+        (data_dir / "ackley.csv").write_text("x,y,z_norm\n0,0,0.0\n")
+
+        coin_bin = tmp_path / "coin_bin"
+        coin_bin.mkdir()
+        (coin_bin / "bonmin").write_text("")
+        (coin_bin / "ipopt").write_text("")
+
+        log_dir = tmp_path / "logs"
+
+        ns["DATA_DIR"] = data_dir
+        ns["LOG_DIR"] = log_dir
+        ns["load_grid"] = lambda _filename: fake_grid
+        ns["rbfopt"] = SimpleNamespace(
+            RbfoptUserBlackBox=FakeBlackBox,
+            RbfoptSettings=FakeSettings,
+            RbfoptAlgorithm=FakeAlgorithm,
+        )
+
+        with patch.dict(ns["os"].environ, {"COIN_BIN": str(coin_bin)}):
+            ns["main"]()
+
+        log_files = sorted(log_dir.glob("*.log"))
+        assert len(log_files) == 25
+        assert optimize_counter["count"] == 25
+        assert log_files[0].name == "run_0001__ackley__E10__R1.log"
+        assert "Optimization completed." in log_files[0].read_text()
 
 
 # ------------------------------------------------------------------
