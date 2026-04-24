@@ -52,6 +52,18 @@ def test_load_grid_csv():
     assert grid[(15, 15)] == 0.0
 
 
+def _run_dsda_on_grid(grid, start_point, **kwargs):
+    from grid_dsda import dsda_from_csv
+
+    return dsda_from_csv(
+        csv_path="/nonexistent/path.csv",
+        start_point=start_point,
+        verbose=False,
+        grid=grid,
+        **kwargs,
+    )
+
+
 # ------------------------------------------------------------------
 # grid_dsda: get_neighbors (n-dimensional)
 # ------------------------------------------------------------------
@@ -105,6 +117,74 @@ def test_dsda_finds_optimum():
     result = dsda_from_csv(csv_path, (14, 14), diagonal=True, verbose=False)
     assert result["best_point"] == (15, 15)
     assert result["best_value"] == 0.0
+
+
+def test_dsda_maximize_mode():
+    grid = {
+        (0, 0): 0.0,
+        (0, 1): 1.0,
+        (1, 0): 2.0,
+        (1, 1): 3.0,
+    }
+    result = _run_dsda_on_grid(
+        grid, start_point=(0, 0), diagonal=True, maximize=True,
+    )
+    assert result["best_point"] == (1, 1)
+    assert result["best_value"] == 3.0
+
+
+def test_dsda_tie_break_first():
+    grid = {
+        (0, 0): 10.0,
+        (0, 1): 10.0,
+        (0, 2): 10.0,
+        (1, 0): 10.0,
+        (1, 1): 5.0,
+        (1, 2): 4.0,
+        (2, 0): 10.0,
+        (2, 1): 10.0,
+        (2, 2): 4.0,
+    }
+    result = _run_dsda_on_grid(
+        grid, start_point=(1, 1), diagonal=True, tie_break="first",
+    )
+    assert result["path"][1] == (1, 2)
+
+
+def test_dsda_tie_break_nearest():
+    grid = {
+        (0, 0): 10.0,
+        (0, 1): 10.0,
+        (0, 2): 10.0,
+        (1, 0): 10.0,
+        (1, 1): 5.0,
+        (1, 2): 4.0,
+        (2, 0): 10.0,
+        (2, 1): 10.0,
+        (2, 2): 4.0,
+    }
+    result = _run_dsda_on_grid(
+        grid, start_point=(1, 1), diagonal=True, tie_break="nearest",
+    )
+    assert result["path"][1] == (1, 2)
+
+
+def test_dsda_tie_break_farthest():
+    grid = {
+        (0, 0): 10.0,
+        (0, 1): 10.0,
+        (0, 2): 10.0,
+        (1, 0): 10.0,
+        (1, 1): 5.0,
+        (1, 2): 4.0,
+        (2, 0): 10.0,
+        (2, 1): 10.0,
+        (2, 2): 4.0,
+    }
+    result = _run_dsda_on_grid(
+        grid, start_point=(1, 1), diagonal=True, tie_break="farthest",
+    )
+    assert result["path"][1] == (2, 2)
 
 
 def test_dsda_max_points_budget():
@@ -168,3 +248,15 @@ def test_run_dsda_multi_start():
     assert result["best_point"] == (15, 15)
     # Should stop after 1 run since (14,14) leads directly to 0.0
     assert len(result["runs"]) == 1
+
+
+def test_backward_compatible_aliases():
+    from grid_dsda import (
+        dsda_from_csv,
+        ldsda_from_csv,
+        run_dsda_from_best_starting_points,
+        run_ldsda_from_best_starting_points,
+    )
+
+    assert ldsda_from_csv is dsda_from_csv
+    assert run_ldsda_from_best_starting_points is run_dsda_from_best_starting_points
