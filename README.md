@@ -51,7 +51,7 @@ For a lightweight DSDA run on one of the benchmark grids:
 from grid_dsda import dsda_from_csv
 
 result = dsda_from_csv(
-    "qhdopt/ackley.csv",
+    "benchmark_grids/ackley.csv",
     start_point=(14, 14),
     diagonal=True,
     verbose=False,
@@ -68,7 +68,7 @@ python grid_rbfopt.py
 
 ## Benchmark Overview
 
-The `qhdopt/` directory contains normalized benchmark grids stored as CSV
+The `benchmark_grids/` directory contains normalized benchmark grids stored as CSV
 files. These grids are used by the DSDA and RBFOpt utilities to compare search
 behavior on discrete lattice problems. The notebooks in the repository build on
 these datasets to document selected case studies and visual results.
@@ -78,7 +78,7 @@ these datasets to document selected case studies and visual results.
 - `grid_dsda.py`: DSDA-style search utilities for precomputed CSV grids.
 - `grid_rbfopt.py`: RBFOpt wrapper utilities for grid-based objective
   functions.
-- `qhdopt/`: normalized benchmark grid data and notes about data provenance.
+- `benchmark_grids/`: normalized benchmark grid data and notes about data provenance.
 - `tests/`: regression tests for the grid-loading and search helper modules.
 - `scripts/`: utility scripts for generating visual examples and report
   figures, including `create_rbfopt_example.py` for producing a GIF that

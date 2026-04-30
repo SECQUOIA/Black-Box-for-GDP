@@ -1,12 +1,12 @@
-# QHDOPT Benchmark Data and DSDA-Style Search
+# Benchmark Grid Data and DSDA-Style Search
 
 ## Scope
 This directory contains precomputed benchmark grids and lightweight documentation
 for the CSV-driven DSDA-style experiments in this repository.
 
 The current `grid_dsda.py` implementation works directly on the normalized CSV
-files stored in `qhdopt/`. It does not build Pyomo GDP models, and it does not
-implement the Quantum Hamiltonian Descent (QHD) algorithm itself.
+files stored in `benchmark_grids/`. These files are packaged here as benchmark
+grid instances for the DSDA-style and RBFOpt experiments in this repository.
 
 ## Data Files
 Each CSV file stores a normalized objective grid with the columns
@@ -55,7 +55,7 @@ only in ways that are compatible with the licensing and usage terms of the
 original Quantum Hamiltonian Descent benchmark materials.
 
 ### Adaptation details
-The CSV grids in `qhdopt/` are not direct copies of any files from the linked
+The CSV grids in `benchmark_grids/` are not direct copies of any files from the linked
 reference. Each benchmark surface is sampled on a 31 x 31 integer lattice
 (`x, y in {0, ..., 30}`) and min-max normalized per grid so that
 `z_norm in [0, 1]` (0 = best, 1 = worst). Non-finite rows are dropped before
