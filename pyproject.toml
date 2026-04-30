@@ -33,8 +33,8 @@ test = [
 ]
 
 [tool.setuptools]
-packages = ["qhdopt"]
+packages = ["benchmark_grids"]
 py-modules = ["grid_dsda", "grid_rbfopt"]
 
 [tool.setuptools.package-data]
-qhdopt = ["*.csv", "README.md"]
+benchmark_grids = ["*.csv", "README.md"]
