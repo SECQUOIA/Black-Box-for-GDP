@@ -48,7 +48,7 @@ def test_grid_dsda_import_no_side_effects(capsys):
 
 def test_load_grid_csv():
     from grid_dsda import load_grid_csv
-    _, grid = load_grid_csv(str(ROOT / "qhdopt" / "ackley.csv"))
+    _, grid = load_grid_csv(str(ROOT / "benchmark_grids" / "ackley.csv"))
     assert len(grid) == 961  # 31x31
     assert (15, 15) in grid
     assert grid[(15, 15)] == 0.0
@@ -99,7 +99,7 @@ def test_dsda_from_csv_with_preloaded_grid():
     """When a grid dict is passed, csv_path should not be read."""
     from grid_dsda import load_grid_csv, dsda_from_csv
 
-    _, grid = load_grid_csv(str(ROOT / "qhdopt" / "ackley.csv"))
+    _, grid = load_grid_csv(str(ROOT / "benchmark_grids" / "ackley.csv"))
 
     # Pass a bogus csv_path — if the function tries to read it, it will fail
     result = dsda_from_csv(
@@ -115,7 +115,7 @@ def test_dsda_from_csv_with_preloaded_grid():
 
 def test_dsda_finds_optimum():
     from grid_dsda import dsda_from_csv
-    csv_path = str(ROOT / "qhdopt" / "ackley.csv")
+    csv_path = str(ROOT / "benchmark_grids" / "ackley.csv")
     result = dsda_from_csv(csv_path, (14, 14), diagonal=True, verbose=False)
     assert result["best_point"] == (15, 15)
     assert result["best_value"] == 0.0
@@ -204,7 +204,7 @@ def test_dsda_handles_three_dimensional_grid():
 
 def test_dsda_max_points_budget():
     from grid_dsda import dsda_from_csv
-    csv_path = str(ROOT / "qhdopt" / "ackley.csv")
+    csv_path = str(ROOT / "benchmark_grids" / "ackley.csv")
     result = dsda_from_csv(
         csv_path, (0, 0), diagonal=True, verbose=False, max_points_explored=3,
     )
@@ -283,7 +283,7 @@ def test_grid_rbfopt_main_smoke():
 
     with TemporaryDirectory() as tmpdir:
         tmp_path = Path(tmpdir)
-        data_dir = tmp_path / "qhdopt"
+        data_dir = tmp_path / "benchmark_grids"
         data_dir.mkdir()
         (data_dir / "ackley.csv").write_text("x,y,z_norm\n0,0,0.0\n")
 
@@ -319,7 +319,7 @@ def test_grid_rbfopt_main_smoke():
 
 def test_run_dsda_multi_start():
     from grid_dsda import run_dsda_from_best_starting_points
-    csv_path = str(ROOT / "qhdopt" / "ackley.csv")
+    csv_path = str(ROOT / "benchmark_grids" / "ackley.csv")
     result = run_dsda_from_best_starting_points(
         csv_path=csv_path,
         starting_points=[(14, 14), (0, 0)],
