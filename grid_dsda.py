@@ -22,6 +22,8 @@ import random
 from itertools import product
 from math import isclose, sqrt
 
+from instrumentation import TrackedObjective, make_result_record, save_results_csv  # noqa: F401
+
 
 def load_grid_csv(csv_path):
     """
