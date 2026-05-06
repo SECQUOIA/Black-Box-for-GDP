@@ -9,6 +9,8 @@ from pathlib import Path
 import numpy as np
 import rbfopt
 
+from instrumentation import TrackedObjective, make_result_record, save_results_csv  # noqa: F401
+
 warnings.filterwarnings(
     "ignore",
     message="Signature .* for <class 'numpy.longdouble'> does not match any known type",
