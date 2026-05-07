@@ -122,6 +122,8 @@ def test_dsda_finds_optimum():
     assert result["wall_time_s"] >= 0.0
     assert len(result["incumbent_trajectory"]) == result["point_evaluations"]
     assert len(result["objective_wall_times"]) == result["point_evaluations"]
+    assert result["result_record"]["method"] == "DSDA"
+    assert result["result_record"]["total_evals"] == result["point_evaluations"]
 
 
 def test_dsda_maximize_mode():
@@ -282,6 +284,8 @@ def test_grid_rbfopt_main_smoke():
 
         def optimize(self):
             optimize_counter["count"] += 1
+            self.black_box.obj_fn([0.0, 0.0])
+            self.black_box.obj_fn([1.0, 1.0])
             return 0.0, [0.0, 0.0], 1, 2, 0
 
     with TemporaryDirectory() as tmpdir:
@@ -307,11 +311,15 @@ def test_grid_rbfopt_main_smoke():
         )
 
         with patch.dict(ns["os"].environ, {"COIN_BIN": str(coin_bin)}):
-            ns["main"]()
+            result_records = ns["main"]()
 
         log_files = sorted(log_dir.glob("*.log"))
         assert len(log_files) == 25
         assert optimize_counter["count"] == 25
+        assert len(result_records) == 25
+        assert result_records[0]["method"] == "RBFOpt"
+        assert result_records[0]["total_evals"] == 2
+        assert result_records[0]["incumbent_trajectory"] == [0.0, 0.0]
         assert log_files[0].name == "run_0001__ackley__E10__R1.log"
         assert "Optimization completed." in log_files[0].read_text()
 
@@ -336,6 +344,9 @@ def test_run_dsda_multi_start():
     total_evals = result["total_point_evaluations_including_initial_ranking"]
     assert len(result["incumbent_trajectory"]) == total_evals
     assert len(result["objective_wall_times"]) == total_evals
+    assert result["result_record"]["method"] == "DSDA"
+    assert result["result_record"]["total_evals"] == total_evals
+    assert result["result_record"]["found_optimum"]
     # Should stop after 1 run since (14,14) leads directly to 0.0
     assert len(result["runs"]) == 1
 
