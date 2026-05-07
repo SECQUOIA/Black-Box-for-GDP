@@ -9,7 +9,7 @@ from pathlib import Path
 import numpy as np
 import rbfopt
 
-from instrumentation import TrackedObjective, make_result_record, save_results_csv  # noqa: F401
+from instrumentation import TrackedObjective
 
 warnings.filterwarnings(
     "ignore",
@@ -149,6 +149,7 @@ def main():
 
                     grid_data = load_grid(csv_name)
                     obj_fn = make_obj_funct(grid_data)
+                    tracked_obj_fn = TrackedObjective(obj_fn)
                     lb, ub = grid_bounds(grid_data)
 
                     print("Starting points used:")
@@ -159,7 +160,7 @@ def main():
 
                     # 2 decision variables (x, y), both integer-valued
                     black_box = rbfopt.RbfoptUserBlackBox(
-                        2, lb, ub, np.array(["I", "I"]), obj_fn
+                        2, lb, ub, np.array(["I", "I"]), tracked_obj_fn
                     )
 
                     settings = rbfopt.RbfoptSettings(
@@ -192,6 +193,7 @@ def main():
                         [int(round(v)) for v in best_point],
                     )
                     print("Iterations:", itercount, "Function evaluations:", evalcount)
+                    print("Tracked objective evaluations:", tracked_obj_fn.call_count)
                     print("Runtime (seconds):", end - start)
 
     print(f"All runs completed. Logs saved in: {log_dir}")

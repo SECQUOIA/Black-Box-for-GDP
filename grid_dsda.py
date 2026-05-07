@@ -22,7 +22,7 @@ import random
 from itertools import product
 from math import isclose, sqrt
 
-from instrumentation import TrackedObjective, make_result_record, save_results_csv  # noqa: F401
+from instrumentation import TrackedObjective
 
 
 def load_grid_csv(csv_path):
@@ -88,6 +88,15 @@ def get_neighbors(point, grid, diagonal=False):
     return neighbors
 
 
+def make_grid_objective(grid):
+    """Return an objective function that evaluates points from a grid mapping."""
+
+    def objective(point):
+        return grid[tuple(point)]
+
+    return objective
+
+
 def dsda_from_csv(
     csv_path,
     start_point,
@@ -98,6 +107,7 @@ def dsda_from_csv(
     verbose=True,
     max_points_explored=None,
     grid=None,
+    tracked_objective=None,
 ):
     """
     DSDA-style search on a discrete grid loaded from CSV.
@@ -140,6 +150,9 @@ def dsda_from_csv(
         Pre-loaded grid dictionary mapping coordinate tuples to z_norm values.
         When provided, csv_path is not read again, avoiding redundant I/O
         in multi-start loops.
+    tracked_objective : TrackedObjective or None, optional
+        Shared objective wrapper. When omitted, this function creates its own
+        wrapper around the grid objective.
 
     Returns
     -------
@@ -170,6 +183,16 @@ def dsda_from_csv(
     if start_point not in grid:
         raise ValueError(f"Start point {start_point} is not in the grid.")
 
+    if tracked_objective is None:
+        tracked_objective = TrackedObjective(
+            make_grid_objective(grid), maximize=maximize
+        )
+
+    initial_call_count = tracked_objective.call_count
+
+    def run_evaluations():
+        return tracked_objective.call_count - initial_call_count
+
     def better(new_val, current_val):
         if maximize:
             return new_val > current_val + tol
@@ -182,7 +205,8 @@ def dsda_from_csv(
         return sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2)))
 
     current = start_point
-    current_val = grid[current]
+    current_val = tracked_objective(current)
+    start_value = current_val
     best_seen_point = current
     best_seen_value = current_val
 
@@ -198,7 +222,7 @@ def dsda_from_csv(
         # Budget is enforced on total point evaluations, not unique points.
         return (
             max_points_explored is not None
-            and len(explored_points) >= max_points_explored
+            and run_evaluations() >= max_points_explored
         )
 
     def update_best(point, value):
@@ -265,7 +289,7 @@ def dsda_from_csv(
                     )
                 break
 
-            nb_val = grid[nb]
+            nb_val = tracked_objective(nb)
             neighbor_points.append((nb, nb_val))
             explored_points.append((nb, nb_val, "neighbor_search", major_iter))
             unique_explored_points.add(nb)
@@ -379,7 +403,7 @@ def dsda_from_csv(
                     )
                 break
 
-            trial_val = grid[trial_point]
+            trial_val = tracked_objective(trial_point)
             explored_points.append((trial_point, trial_val, "line_search", major_iter))
             unique_explored_points.add(trial_point)
             update_best(trial_point, trial_val)
@@ -424,12 +448,12 @@ def dsda_from_csv(
 
     return {
         "start_point": start_point,
-        "start_value": grid[start_point],
+        "start_value": start_value,
         "best_point": best_seen_point,
         "best_value": best_seen_value,
         "major_iterations": major_iter,
         "points_explored": len(unique_explored_points),
-        "point_evaluations": len(explored_points),
+        "point_evaluations": run_evaluations(),
         "unique_explored_points": sorted(unique_explored_points),
         "path": path,
         "history": history,
@@ -485,6 +509,7 @@ def run_dsda_from_best_starting_points(
         raise ValueError("max_points_explored must be at least 1.")
 
     _, grid = load_grid_csv(csv_path)
+    tracked_objective = TrackedObjective(make_grid_objective(grid), maximize=maximize)
 
     cleaned_points = [tuple(pt) for pt in starting_points]
 
@@ -493,7 +518,7 @@ def run_dsda_from_best_starting_points(
             raise ValueError(f"Starting point {pt} is not in the grid.")
 
     # Evaluate starting point values first
-    starting_point_values = [(pt, grid[pt]) for pt in cleaned_points]
+    starting_point_values = [(pt, tracked_objective(pt)) for pt in cleaned_points]
 
     # Sort starting points by initial value
     starting_point_values.sort(key=lambda item: item[1], reverse=maximize)
@@ -581,6 +606,7 @@ def run_dsda_from_best_starting_points(
             verbose=verbose,
             max_points_explored=remaining_budget,
             grid=grid,
+            tracked_objective=tracked_objective,
         )
 
         runs.append(run_result)
