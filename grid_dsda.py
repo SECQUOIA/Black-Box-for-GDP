@@ -19,6 +19,7 @@ current implementation operates directly on precomputed CSV grids.
 
 import pandas as pd
 import random
+import time
 from itertools import product
 from math import isclose, sqrt
 
@@ -171,10 +172,13 @@ def dsda_from_csv(
             "explored_points": [...],
             "stopped_early": ...,
             "stop_reason": ...,
+            "wall_time_s": ...,
         }
     """
     if max_points_explored is not None and max_points_explored < 1:
         raise ValueError("max_points_explored must be at least 1.")
+
+    start_time = time.perf_counter()
 
     if grid is None:
         _, grid = load_grid_csv(csv_path)
@@ -461,6 +465,7 @@ def dsda_from_csv(
         "stopped_early": stopped_early,
         "stop_reason": stop_reason,
         "max_points_explored": max_points_explored,
+        "wall_time_s": time.perf_counter() - start_time,
     }
 
 
@@ -503,10 +508,13 @@ def run_dsda_from_best_starting_points(
             "total_point_evaluations_including_initial_ranking": ...,
             "stopped_early": ...,
             "stop_reason": ...,
+            "wall_time_s": ...,
         }
     """
     if max_points_explored is not None and max_points_explored < 1:
         raise ValueError("max_points_explored must be at least 1.")
+
+    start_time = time.perf_counter()
 
     _, grid = load_grid_csv(csv_path)
     tracked_objective = TrackedObjective(make_grid_objective(grid), maximize=maximize)
@@ -574,6 +582,7 @@ def run_dsda_from_best_starting_points(
             "stopped_early": stopped_early,
             "stop_reason": stop_reason,
             "max_points_explored": max_points_explored,
+            "wall_time_s": time.perf_counter() - start_time,
         }
 
     for i, pt in enumerate(ordered_starting_points, start=1):
@@ -673,6 +682,7 @@ def run_dsda_from_best_starting_points(
         "stopped_early": stopped_early,
         "stop_reason": stop_reason,
         "max_points_explored": max_points_explored,
+        "wall_time_s": time.perf_counter() - start_time,
     }
 
 
