@@ -120,6 +120,8 @@ def test_dsda_finds_optimum():
     assert result["best_point"] == (15, 15)
     assert result["best_value"] == 0.0
     assert result["wall_time_s"] >= 0.0
+    assert len(result["incumbent_trajectory"]) == result["point_evaluations"]
+    assert len(result["objective_wall_times"]) == result["point_evaluations"]
 
 
 def test_dsda_maximize_mode():
@@ -331,6 +333,9 @@ def test_run_dsda_multi_start():
     assert result["best_value"] == 0.0
     assert result["best_point"] == (15, 15)
     assert result["wall_time_s"] >= 0.0
+    total_evals = result["total_point_evaluations_including_initial_ranking"]
+    assert len(result["incumbent_trajectory"]) == total_evals
+    assert len(result["objective_wall_times"]) == total_evals
     # Should stop after 1 run since (14,14) leads directly to 0.0
     assert len(result["runs"]) == 1
 
