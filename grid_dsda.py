@@ -173,6 +173,8 @@ def dsda_from_csv(
             "stopped_early": ...,
             "stop_reason": ...,
             "wall_time_s": ...,
+            "incumbent_trajectory": [...],
+            "objective_wall_times": [...],
         }
     """
     if max_points_explored is not None and max_points_explored < 1:
@@ -196,6 +198,12 @@ def dsda_from_csv(
 
     def run_evaluations():
         return tracked_objective.call_count - initial_call_count
+
+    def run_incumbent_trajectory():
+        return tracked_objective.incumbent_trajectory[initial_call_count:]
+
+    def run_objective_wall_times():
+        return tracked_objective.wall_times[initial_call_count:]
 
     def better(new_val, current_val):
         if maximize:
@@ -466,6 +474,8 @@ def dsda_from_csv(
         "stop_reason": stop_reason,
         "max_points_explored": max_points_explored,
         "wall_time_s": time.perf_counter() - start_time,
+        "incumbent_trajectory": run_incumbent_trajectory(),
+        "objective_wall_times": run_objective_wall_times(),
     }
 
 
@@ -509,6 +519,8 @@ def run_dsda_from_best_starting_points(
             "stopped_early": ...,
             "stop_reason": ...,
             "wall_time_s": ...,
+            "incumbent_trajectory": [...],
+            "objective_wall_times": [...],
         }
     """
     if max_points_explored is not None and max_points_explored < 1:
@@ -583,6 +595,8 @@ def run_dsda_from_best_starting_points(
             "stop_reason": stop_reason,
             "max_points_explored": max_points_explored,
             "wall_time_s": time.perf_counter() - start_time,
+            "incumbent_trajectory": tracked_objective.incumbent_trajectory,
+            "objective_wall_times": tracked_objective.wall_times,
         }
 
     for i, pt in enumerate(ordered_starting_points, start=1):
@@ -683,6 +697,8 @@ def run_dsda_from_best_starting_points(
         "stop_reason": stop_reason,
         "max_points_explored": max_points_explored,
         "wall_time_s": time.perf_counter() - start_time,
+        "incumbent_trajectory": tracked_objective.incumbent_trajectory,
+        "objective_wall_times": tracked_objective.wall_times,
     }
 
 
