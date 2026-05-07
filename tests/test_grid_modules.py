@@ -119,6 +119,7 @@ def test_dsda_finds_optimum():
     result = dsda_from_csv(csv_path, (14, 14), diagonal=True, verbose=False)
     assert result["best_point"] == (15, 15)
     assert result["best_value"] == 0.0
+    assert result["wall_time_s"] >= 0.0
 
 
 def test_dsda_maximize_mode():
@@ -329,6 +330,7 @@ def test_run_dsda_multi_start():
     )
     assert result["best_value"] == 0.0
     assert result["best_point"] == (15, 15)
+    assert result["wall_time_s"] >= 0.0
     # Should stop after 1 run since (14,14) leads directly to 0.0
     assert len(result["runs"]) == 1
 
