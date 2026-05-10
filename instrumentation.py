@@ -9,6 +9,7 @@ schema.
 import csv
 import json
 import time
+from datetime import datetime
 from pathlib import Path
 
 
@@ -150,6 +151,12 @@ def save_results_csv(results_list, output_path):
                     for field in RESULT_FIELDS
                 }
             )
+
+
+def make_timestamped_results_dir(base_dir, label):
+    """Return a timestamped results directory path for one benchmark run."""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+    return Path(base_dir) / f"{label}_{timestamp}"
 
 
 def _validate_result_record(result):
