@@ -1,7 +1,7 @@
 """
 CSV-driven DSDA-style experiments for the QHDOpt benchmark grids.
 
-This module loads normalized benchmark grids from `qhdopt/*.csv` and runs a
+This module loads normalized benchmark grids from `benchmark_grids/*.csv` and runs a
 discrete steepest descent search directly on the sampled lattice. It does not
 build Pyomo GDP models, and it does not implement the full GDP-based LDSDA
 solver.

@@ -23,7 +23,7 @@ warnings.filterwarnings(
 )
 
 BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR / "qhdopt"
+DATA_DIR = BASE_DIR / "benchmark_grids"
 LOG_DIR = BASE_DIR / "logs"
 RESULTS_DIR = BASE_DIR / "results"
 
