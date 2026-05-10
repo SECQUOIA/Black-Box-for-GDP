@@ -24,7 +24,16 @@ from itertools import product
 from math import isclose, sqrt
 from pathlib import Path
 
-from instrumentation import TrackedObjective, make_result_record
+from instrumentation import (
+    TrackedObjective,
+    make_result_record,
+    make_timestamped_results_dir,
+    save_results_csv,
+)
+
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "qhdopt"
+RESULTS_DIR = BASE_DIR / "results"
 
 
 def load_grid_csv(csv_path):
@@ -760,8 +769,10 @@ run_ldsda_from_best_starting_points = run_dsda_from_best_starting_points
 
 def main():
     """Run DSDA search on all benchmark grids with random starting points."""
-    csv_dir = Path(__file__).resolve().parent / "qhdopt"
-    csv_paths = sorted(csv_dir.glob("*.csv"))
+    csv_paths = sorted(DATA_DIR.glob("*.csv"))
+    result_records = []
+    results_dir = make_timestamped_results_dir(RESULTS_DIR, "dsda")
+    results_path = results_dir / "dsda_results.csv"
 
     rng = random.Random(0)
     starting_points = [(rng.randint(0, 30), rng.randint(0, 30)) for _ in range(3)]
@@ -783,6 +794,7 @@ def main():
             target_value=0.0,
             verbose=True,
         )
+        result_records.append(multi_result["result_record"])
 
         print("\nOverall summary:")
         print(
@@ -821,6 +833,10 @@ def main():
             "Stopped early due to point budget              :",
             multi_result["stopped_early"],
         )
+
+    save_results_csv(result_records, results_path)
+    print(f"DSDA result records saved in: {results_path}")
+    return result_records, results_path
 
 
 if __name__ == "__main__":

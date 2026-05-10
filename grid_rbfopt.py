@@ -10,7 +10,12 @@ from pathlib import Path
 import numpy as np
 import rbfopt
 
-from instrumentation import TrackedObjective, make_result_record
+from instrumentation import (
+    TrackedObjective,
+    make_result_record,
+    make_timestamped_results_dir,
+    save_results_csv,
+)
 
 warnings.filterwarnings(
     "ignore",
@@ -20,6 +25,7 @@ warnings.filterwarnings(
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "qhdopt"
 LOG_DIR = BASE_DIR / "logs"
+RESULTS_DIR = BASE_DIR / "results"
 
 PENALTY = 1e5
 
@@ -131,6 +137,8 @@ def main():
     run_id = 0
     total_runs = len(csv_files) * len(max_eval_list) * n_repeats
     result_records = []
+    results_dir = make_timestamped_results_dir(RESULTS_DIR, "rbfopt")
+    results_path = results_dir / "rbfopt_results.csv"
 
     for max_eval in max_eval_list:
         for repeat in range(1, n_repeats + 1):
@@ -220,7 +228,9 @@ def main():
                     print("Result record:", result_record)
 
     print(f"All runs completed. Logs saved in: {log_dir}")
-    return result_records
+    save_results_csv(result_records, results_path)
+    print(f"RBFOpt result records saved in: {results_path}")
+    return result_records, results_path
 
 
 if __name__ == "__main__":
