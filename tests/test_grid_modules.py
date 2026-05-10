@@ -48,7 +48,7 @@ def test_grid_dsda_main_writes_results_csv(monkeypatch):
 
     with TemporaryDirectory() as tmpdir:
         tmp_path = Path(tmpdir)
-        data_dir = tmp_path / "qhdopt"
+        data_dir = tmp_path / "benchmark_grids"
         data_dir.mkdir()
         (data_dir / "tiny.csv").write_text(
             "x,y,z_norm\n"
