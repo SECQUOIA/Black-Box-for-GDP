@@ -7,6 +7,7 @@ module-level side effects, and guard against regressions such as the
 """
 
 import ast
+import csv
 import sys
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -40,6 +41,39 @@ def test_grid_dsda_import_no_side_effects(capsys):
     import grid_dsda  # noqa: F401
     captured = capsys.readouterr()
     assert captured.out == "", "grid_dsda produced stdout on import"
+
+
+def test_grid_dsda_main_writes_results_csv(monkeypatch):
+    import grid_dsda
+
+    with TemporaryDirectory() as tmpdir:
+        tmp_path = Path(tmpdir)
+        data_dir = tmp_path / "qhdopt"
+        data_dir.mkdir()
+        (data_dir / "tiny.csv").write_text(
+            "x,y,z_norm\n"
+            "27,12,3.0\n"
+            "24,28,2.0\n"
+            "13,1,1.0\n"
+        )
+
+        results_dir = tmp_path / "results"
+        monkeypatch.setattr(grid_dsda, "DATA_DIR", data_dir)
+        monkeypatch.setattr(grid_dsda, "RESULTS_DIR", results_dir)
+
+        result_records, results_path = grid_dsda.main()
+
+        assert len(result_records) == 1
+        assert results_path.exists()
+        assert results_path.name == "dsda_results.csv"
+        assert results_path.parent.name.startswith("dsda_")
+
+        with results_path.open(newline="") as handle:
+            rows = list(csv.DictReader(handle))
+
+        assert len(rows) == 1
+        assert rows[0]["csv_name"] == "tiny.csv"
+        assert rows[0]["method"] == "DSDA"
 
 
 # ------------------------------------------------------------------
@@ -303,6 +337,7 @@ def test_grid_rbfopt_main_smoke():
 
         ns["DATA_DIR"] = data_dir
         ns["LOG_DIR"] = log_dir
+        ns["RESULTS_DIR"] = tmp_path / "results"
         ns["load_grid"] = lambda _filename: fake_grid
         ns["rbfopt"] = SimpleNamespace(
             RbfoptUserBlackBox=FakeBlackBox,
@@ -311,7 +346,7 @@ def test_grid_rbfopt_main_smoke():
         )
 
         with patch.dict(ns["os"].environ, {"COIN_BIN": str(coin_bin)}):
-            result_records = ns["main"]()
+            result_records, results_path = ns["main"]()
 
         log_files = sorted(log_dir.glob("*.log"))
         assert len(log_files) == 25
@@ -320,6 +355,9 @@ def test_grid_rbfopt_main_smoke():
         assert result_records[0]["method"] == "RBFOpt"
         assert result_records[0]["total_evals"] == 2
         assert result_records[0]["incumbent_trajectory"] == [0.0, 0.0]
+        assert results_path.exists()
+        assert results_path.name == "rbfopt_results.csv"
+        assert results_path.parent.name.startswith("rbfopt_")
         assert log_files[0].name == "run_0001__ackley__E10__R1.log"
         assert "Optimization completed." in log_files[0].read_text()
 
