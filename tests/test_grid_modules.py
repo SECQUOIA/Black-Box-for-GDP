@@ -389,6 +389,30 @@ def test_run_dsda_multi_start():
     assert len(result["runs"]) == 1
 
 
+def test_run_dsda_multi_start_ranking_respects_budget():
+    from grid_dsda import run_dsda_from_best_starting_points
+
+    csv_path = str(ROOT / "benchmark_grids" / "ackley.csv")
+    result = run_dsda_from_best_starting_points(
+        csv_path=csv_path,
+        starting_points=[(14, 14), (0, 0), (30, 30)],
+        max_points_explored=2,
+        diagonal=True,
+        target_value=0.0,
+        verbose=False,
+    )
+
+    assert result["initial_points_evaluated"] == 2
+    assert len(result["starting_point_values"]) == 2
+    assert result["runs"] == []
+    assert result["stopped_early"]
+    assert result["stop_reason"] == "max_points_explored"
+    assert result["total_point_evaluations_including_initial_ranking"] == 2
+    assert result["result_record"]["total_evals"] == 2
+    assert len(result["incumbent_trajectory"]) == 2
+    assert len(result["objective_wall_times"]) == 2
+
+
 def test_backward_compatible_aliases():
     from grid_dsda import (
         dsda_from_csv,
