@@ -564,8 +564,16 @@ def run_dsda_from_best_starting_points(
         if pt not in grid:
             raise ValueError(f"Starting point {pt} is not in the grid.")
 
-    # Evaluate starting point values first
-    starting_point_values = [(pt, tracked_objective(pt)) for pt in cleaned_points]
+    # Evaluate starting point values first, while honoring the global
+    # black-box evaluation budget.
+    starting_point_values = []
+    for pt in cleaned_points:
+        if (
+            max_points_explored is not None
+            and tracked_objective.call_count >= max_points_explored
+        ):
+            break
+        starting_point_values.append((pt, tracked_objective(pt)))
 
     # Sort starting points by initial value
     starting_point_values.sort(key=lambda item: item[1], reverse=maximize)
@@ -580,10 +588,10 @@ def run_dsda_from_best_starting_points(
     best_run = None
 
     # Count the initial ranking evaluations of the starting points
-    initial_points_evaluated = len(cleaned_points)
+    initial_points_evaluated = len(starting_point_values)
     total_points_explored_across_runs = 0
     total_point_evaluations_across_runs = 0
-    all_unique_points_explored = set(cleaned_points)
+    all_unique_points_explored = {pt for pt, _ in starting_point_values}
     stopped_early = False
     stop_reason = None
 
