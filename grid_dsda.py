@@ -209,8 +209,25 @@ def dsda_from_csv(
     def run_evaluations():
         return tracked_objective.call_count - initial_call_count
 
+    local_incumbent = None
+    local_incumbent_trajectory = []
+
+    def evaluate_run_point(point):
+        nonlocal local_incumbent
+
+        value = tracked_objective(point)
+        if local_incumbent is None:
+            local_incumbent = value
+        elif maximize:
+            if value > local_incumbent:
+                local_incumbent = value
+        elif value < local_incumbent:
+            local_incumbent = value
+        local_incumbent_trajectory.append(local_incumbent)
+        return value
+
     def run_incumbent_trajectory():
-        return tracked_objective.incumbent_trajectory[initial_call_count:]
+        return list(local_incumbent_trajectory)
 
     def run_objective_wall_times():
         return tracked_objective.wall_times[initial_call_count:]
@@ -227,7 +244,7 @@ def dsda_from_csv(
         return sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2)))
 
     current = start_point
-    current_val = tracked_objective(current)
+    current_val = evaluate_run_point(current)
     start_value = current_val
     best_seen_point = current
     best_seen_value = current_val
@@ -311,7 +328,7 @@ def dsda_from_csv(
                     )
                 break
 
-            nb_val = tracked_objective(nb)
+            nb_val = evaluate_run_point(nb)
             neighbor_points.append((nb, nb_val))
             explored_points.append((nb, nb_val, "neighbor_search", major_iter))
             unique_explored_points.add(nb)
@@ -425,7 +442,7 @@ def dsda_from_csv(
                     )
                 break
 
-            trial_val = tracked_objective(trial_point)
+            trial_val = evaluate_run_point(trial_point)
             explored_points.append((trial_point, trial_val, "line_search", major_iter))
             unique_explored_points.add(trial_point)
             update_best(trial_point, trial_val)
