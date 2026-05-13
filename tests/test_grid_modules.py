@@ -413,6 +413,38 @@ def test_run_dsda_multi_start_ranking_respects_budget():
     assert len(result["objective_wall_times"]) == 2
 
 
+def test_run_dsda_multi_start_run_trajectories_are_local():
+    from grid_dsda import run_dsda_from_best_starting_points
+
+    csv_path = str(ROOT / "benchmark_grids" / "ackley.csv")
+    result = run_dsda_from_best_starting_points(
+        csv_path=csv_path,
+        starting_points=[(15, 15), (0, 0)],
+        max_points_explored=20,
+        diagonal=False,
+        target_value=-1.0,
+        verbose=False,
+    )
+
+    assert len(result["runs"]) == 2
+    second_run = result["runs"][1]
+    raw_run_values = [value for _pt, value, _phase, _iter in second_run["explored_points"]]
+    expected_local_trajectory = []
+    best_value = None
+    for value in raw_run_values:
+        if best_value is None or value < best_value:
+            best_value = value
+        expected_local_trajectory.append(best_value)
+
+    assert second_run["incumbent_trajectory"] == expected_local_trajectory
+    assert (
+        second_run["result_record"]["incumbent_trajectory"]
+        == expected_local_trajectory
+    )
+    assert second_run["incumbent_trajectory"][0] == second_run["start_value"]
+    assert second_run["incumbent_trajectory"][0] != result["incumbent_trajectory"][0]
+
+
 def test_backward_compatible_aliases():
     from grid_dsda import (
         dsda_from_csv,
