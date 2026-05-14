@@ -33,8 +33,8 @@ test = [
 ]
 
 [tool.setuptools]
+py-modules = ["grid_dsda", "grid_rbfopt", "instrumentation"]
 packages = ["benchmark_grids"]
-py-modules = ["grid_dsda", "grid_rbfopt"]
 
 [tool.setuptools.package-data]
 benchmark_grids = ["*.csv", "README.md"]

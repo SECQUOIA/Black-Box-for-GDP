@@ -7,6 +7,7 @@ module-level side effects, and guard against regressions such as the
 """
 
 import ast
+import csv
 import sys
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -40,6 +41,39 @@ def test_grid_dsda_import_no_side_effects(capsys):
     import grid_dsda  # noqa: F401
     captured = capsys.readouterr()
     assert captured.out == "", "grid_dsda produced stdout on import"
+
+
+def test_grid_dsda_main_writes_results_csv(monkeypatch):
+    import grid_dsda
+
+    with TemporaryDirectory() as tmpdir:
+        tmp_path = Path(tmpdir)
+        data_dir = tmp_path / "benchmark_grids"
+        data_dir.mkdir()
+        (data_dir / "tiny.csv").write_text(
+            "x,y,z_norm\n"
+            "27,12,3.0\n"
+            "24,28,2.0\n"
+            "13,1,1.0\n"
+        )
+
+        results_dir = tmp_path / "results"
+        monkeypatch.setattr(grid_dsda, "DATA_DIR", data_dir)
+        monkeypatch.setattr(grid_dsda, "RESULTS_DIR", results_dir)
+
+        result_records, results_path = grid_dsda.main()
+
+        assert len(result_records) == 1
+        assert results_path.exists()
+        assert results_path.name == "dsda_results.csv"
+        assert results_path.parent.name.startswith("dsda_")
+
+        with results_path.open(newline="") as handle:
+            rows = list(csv.DictReader(handle))
+
+        assert len(rows) == 1
+        assert rows[0]["csv_name"] == "tiny.csv"
+        assert rows[0]["method"] == "DSDA"
 
 
 # ------------------------------------------------------------------
@@ -119,6 +153,11 @@ def test_dsda_finds_optimum():
     result = dsda_from_csv(csv_path, (14, 14), diagonal=True, verbose=False)
     assert result["best_point"] == (15, 15)
     assert result["best_value"] == 0.0
+    assert result["wall_time_s"] >= 0.0
+    assert len(result["incumbent_trajectory"]) == result["point_evaluations"]
+    assert len(result["objective_wall_times"]) == result["point_evaluations"]
+    assert result["result_record"]["method"] == "DSDA"
+    assert result["result_record"]["total_evals"] == result["point_evaluations"]
 
 
 def test_dsda_maximize_mode():
@@ -279,6 +318,8 @@ def test_grid_rbfopt_main_smoke():
 
         def optimize(self):
             optimize_counter["count"] += 1
+            self.black_box.obj_fn([0.0, 0.0])
+            self.black_box.obj_fn([1.0, 1.0])
             return 0.0, [0.0, 0.0], 1, 2, 0
 
     with TemporaryDirectory() as tmpdir:
@@ -296,6 +337,7 @@ def test_grid_rbfopt_main_smoke():
 
         ns["DATA_DIR"] = data_dir
         ns["LOG_DIR"] = log_dir
+        ns["RESULTS_DIR"] = tmp_path / "results"
         ns["load_grid"] = lambda _filename: fake_grid
         ns["rbfopt"] = SimpleNamespace(
             RbfoptUserBlackBox=FakeBlackBox,
@@ -304,11 +346,18 @@ def test_grid_rbfopt_main_smoke():
         )
 
         with patch.dict(ns["os"].environ, {"COIN_BIN": str(coin_bin)}):
-            ns["main"]()
+            result_records, results_path = ns["main"]()
 
         log_files = sorted(log_dir.glob("*.log"))
         assert len(log_files) == 25
         assert optimize_counter["count"] == 25
+        assert len(result_records) == 25
+        assert result_records[0]["method"] == "RBFOpt"
+        assert result_records[0]["total_evals"] == 2
+        assert result_records[0]["incumbent_trajectory"] == [0.0, 0.0]
+        assert results_path.exists()
+        assert results_path.name == "rbfopt_results.csv"
+        assert results_path.parent.name.startswith("rbfopt_")
         assert log_files[0].name == "run_0001__ackley__E10__R1.log"
         assert "Optimization completed." in log_files[0].read_text()
 
@@ -329,8 +378,71 @@ def test_run_dsda_multi_start():
     )
     assert result["best_value"] == 0.0
     assert result["best_point"] == (15, 15)
+    assert result["wall_time_s"] >= 0.0
+    total_evals = result["total_point_evaluations_including_initial_ranking"]
+    assert len(result["incumbent_trajectory"]) == total_evals
+    assert len(result["objective_wall_times"]) == total_evals
+    assert result["result_record"]["method"] == "DSDA"
+    assert result["result_record"]["total_evals"] == total_evals
+    assert result["result_record"]["found_optimum"]
     # Should stop after 1 run since (14,14) leads directly to 0.0
     assert len(result["runs"]) == 1
+
+
+def test_run_dsda_multi_start_ranking_respects_budget():
+    from grid_dsda import run_dsda_from_best_starting_points
+
+    csv_path = str(ROOT / "benchmark_grids" / "ackley.csv")
+    result = run_dsda_from_best_starting_points(
+        csv_path=csv_path,
+        starting_points=[(14, 14), (0, 0), (30, 30)],
+        max_points_explored=2,
+        diagonal=True,
+        target_value=0.0,
+        verbose=False,
+    )
+
+    assert result["initial_points_evaluated"] == 2
+    assert len(result["starting_point_values"]) == 2
+    assert result["runs"] == []
+    assert result["stopped_early"]
+    assert result["stop_reason"] == "max_points_explored"
+    assert result["total_point_evaluations_including_initial_ranking"] == 2
+    assert result["result_record"]["total_evals"] == 2
+    assert len(result["incumbent_trajectory"]) == 2
+    assert len(result["objective_wall_times"]) == 2
+
+
+def test_run_dsda_multi_start_run_trajectories_are_local():
+    from grid_dsda import run_dsda_from_best_starting_points
+
+    csv_path = str(ROOT / "benchmark_grids" / "ackley.csv")
+    result = run_dsda_from_best_starting_points(
+        csv_path=csv_path,
+        starting_points=[(15, 15), (0, 0)],
+        max_points_explored=20,
+        diagonal=False,
+        target_value=-1.0,
+        verbose=False,
+    )
+
+    assert len(result["runs"]) == 2
+    second_run = result["runs"][1]
+    raw_run_values = [value for _pt, value, _phase, _iter in second_run["explored_points"]]
+    expected_local_trajectory = []
+    best_value = None
+    for value in raw_run_values:
+        if best_value is None or value < best_value:
+            best_value = value
+        expected_local_trajectory.append(best_value)
+
+    assert second_run["incumbent_trajectory"] == expected_local_trajectory
+    assert (
+        second_run["result_record"]["incumbent_trajectory"]
+        == expected_local_trajectory
+    )
+    assert second_run["incumbent_trajectory"][0] == second_run["start_value"]
+    assert second_run["incumbent_trajectory"][0] != result["incumbent_trajectory"][0]
 
 
 def test_backward_compatible_aliases():

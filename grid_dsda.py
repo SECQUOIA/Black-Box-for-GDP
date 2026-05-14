@@ -19,8 +19,21 @@ current implementation operates directly on precomputed CSV grids.
 
 import pandas as pd
 import random
+import time
 from itertools import product
 from math import isclose, sqrt
+from pathlib import Path
+
+from instrumentation import (
+    TrackedObjective,
+    make_result_record,
+    make_timestamped_results_dir,
+    save_results_csv,
+)
+
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "benchmark_grids"
+RESULTS_DIR = BASE_DIR / "results"
 
 
 def load_grid_csv(csv_path):
@@ -86,6 +99,15 @@ def get_neighbors(point, grid, diagonal=False):
     return neighbors
 
 
+def make_grid_objective(grid):
+    """Return an objective function that evaluates points from a grid mapping."""
+
+    def objective(point):
+        return grid[tuple(point)]
+
+    return objective
+
+
 def dsda_from_csv(
     csv_path,
     start_point,
@@ -96,6 +118,7 @@ def dsda_from_csv(
     verbose=True,
     max_points_explored=None,
     grid=None,
+    tracked_objective=None,
 ):
     """
     DSDA-style search on a discrete grid loaded from CSV.
@@ -138,6 +161,9 @@ def dsda_from_csv(
         Pre-loaded grid dictionary mapping coordinate tuples to z_norm values.
         When provided, csv_path is not read again, avoiding redundant I/O
         in multi-start loops.
+    tracked_objective : TrackedObjective or None, optional
+        Shared objective wrapper. When omitted, this function creates its own
+        wrapper around the grid objective.
 
     Returns
     -------
@@ -156,10 +182,15 @@ def dsda_from_csv(
             "explored_points": [...],
             "stopped_early": ...,
             "stop_reason": ...,
+            "wall_time_s": ...,
+            "incumbent_trajectory": [...],
+            "objective_wall_times": [...],
         }
     """
     if max_points_explored is not None and max_points_explored < 1:
         raise ValueError("max_points_explored must be at least 1.")
+
+    start_time = time.perf_counter()
 
     if grid is None:
         _, grid = load_grid_csv(csv_path)
@@ -167,6 +198,39 @@ def dsda_from_csv(
     start_point = tuple(start_point)
     if start_point not in grid:
         raise ValueError(f"Start point {start_point} is not in the grid.")
+
+    if tracked_objective is None:
+        tracked_objective = TrackedObjective(
+            make_grid_objective(grid), maximize=maximize
+        )
+
+    initial_call_count = tracked_objective.call_count
+
+    def run_evaluations():
+        return tracked_objective.call_count - initial_call_count
+
+    local_incumbent = None
+    local_incumbent_trajectory = []
+
+    def evaluate_run_point(point):
+        nonlocal local_incumbent
+
+        value = tracked_objective(point)
+        if local_incumbent is None:
+            local_incumbent = value
+        elif maximize:
+            if value > local_incumbent:
+                local_incumbent = value
+        elif value < local_incumbent:
+            local_incumbent = value
+        local_incumbent_trajectory.append(local_incumbent)
+        return value
+
+    def run_incumbent_trajectory():
+        return list(local_incumbent_trajectory)
+
+    def run_objective_wall_times():
+        return tracked_objective.wall_times[initial_call_count:]
 
     def better(new_val, current_val):
         if maximize:
@@ -180,7 +244,8 @@ def dsda_from_csv(
         return sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2)))
 
     current = start_point
-    current_val = grid[current]
+    current_val = evaluate_run_point(current)
+    start_value = current_val
     best_seen_point = current
     best_seen_value = current_val
 
@@ -196,7 +261,7 @@ def dsda_from_csv(
         # Budget is enforced on total point evaluations, not unique points.
         return (
             max_points_explored is not None
-            and len(explored_points) >= max_points_explored
+            and run_evaluations() >= max_points_explored
         )
 
     def update_best(point, value):
@@ -263,7 +328,7 @@ def dsda_from_csv(
                     )
                 break
 
-            nb_val = grid[nb]
+            nb_val = evaluate_run_point(nb)
             neighbor_points.append((nb, nb_val))
             explored_points.append((nb, nb_val, "neighbor_search", major_iter))
             unique_explored_points.add(nb)
@@ -377,7 +442,7 @@ def dsda_from_csv(
                     )
                 break
 
-            trial_val = grid[trial_point]
+            trial_val = evaluate_run_point(trial_point)
             explored_points.append((trial_point, trial_val, "line_search", major_iter))
             unique_explored_points.add(trial_point)
             update_best(trial_point, trial_val)
@@ -420,14 +485,17 @@ def dsda_from_csv(
         if stopped_early:
             break
 
-    return {
+    wall_time_s = time.perf_counter() - start_time
+    incumbent_trajectory = run_incumbent_trajectory()
+
+    result = {
         "start_point": start_point,
-        "start_value": grid[start_point],
+        "start_value": start_value,
         "best_point": best_seen_point,
         "best_value": best_seen_value,
         "major_iterations": major_iter,
         "points_explored": len(unique_explored_points),
-        "point_evaluations": len(explored_points),
+        "point_evaluations": run_evaluations(),
         "unique_explored_points": sorted(unique_explored_points),
         "path": path,
         "history": history,
@@ -435,7 +503,24 @@ def dsda_from_csv(
         "stopped_early": stopped_early,
         "stop_reason": stop_reason,
         "max_points_explored": max_points_explored,
+        "wall_time_s": wall_time_s,
+        "incumbent_trajectory": incumbent_trajectory,
+        "objective_wall_times": run_objective_wall_times(),
     }
+    result["result_record"] = make_result_record(
+        csv_name=Path(csv_path).name,
+        method="DSDA",
+        seed=None,
+        n_starts=1,
+        max_evals=max_points_explored,
+        best_value=best_seen_value,
+        best_point=best_seen_point,
+        total_evals=run_evaluations(),
+        wall_time_s=wall_time_s,
+        found_optimum=None,
+        incumbent_trajectory=incumbent_trajectory,
+    )
+    return result
 
 
 def run_dsda_from_best_starting_points(
@@ -477,12 +562,18 @@ def run_dsda_from_best_starting_points(
             "total_point_evaluations_including_initial_ranking": ...,
             "stopped_early": ...,
             "stop_reason": ...,
+            "wall_time_s": ...,
+            "incumbent_trajectory": [...],
+            "objective_wall_times": [...],
         }
     """
     if max_points_explored is not None and max_points_explored < 1:
         raise ValueError("max_points_explored must be at least 1.")
 
+    start_time = time.perf_counter()
+
     _, grid = load_grid_csv(csv_path)
+    tracked_objective = TrackedObjective(make_grid_objective(grid), maximize=maximize)
 
     cleaned_points = [tuple(pt) for pt in starting_points]
 
@@ -490,8 +581,16 @@ def run_dsda_from_best_starting_points(
         if pt not in grid:
             raise ValueError(f"Starting point {pt} is not in the grid.")
 
-    # Evaluate starting point values first
-    starting_point_values = [(pt, grid[pt]) for pt in cleaned_points]
+    # Evaluate starting point values first, while honoring the global
+    # black-box evaluation budget.
+    starting_point_values = []
+    for pt in cleaned_points:
+        if (
+            max_points_explored is not None
+            and tracked_objective.call_count >= max_points_explored
+        ):
+            break
+        starting_point_values.append((pt, tracked_objective(pt)))
 
     # Sort starting points by initial value
     starting_point_values.sort(key=lambda item: item[1], reverse=maximize)
@@ -506,10 +605,10 @@ def run_dsda_from_best_starting_points(
     best_run = None
 
     # Count the initial ranking evaluations of the starting points
-    initial_points_evaluated = len(cleaned_points)
+    initial_points_evaluated = len(starting_point_values)
     total_points_explored_across_runs = 0
     total_point_evaluations_across_runs = 0
-    all_unique_points_explored = set(cleaned_points)
+    all_unique_points_explored = {pt for pt, _ in starting_point_values}
     stopped_early = False
     stop_reason = None
 
@@ -528,7 +627,9 @@ def run_dsda_from_best_starting_points(
             print(
                 "Maximum point-exploration budget reached during starting-point ranking."
             )
-        return {
+        wall_time_s = time.perf_counter() - start_time
+        incumbent_trajectory = tracked_objective.incumbent_trajectory
+        result = {
             "ordered_starting_points": ordered_starting_points,
             "starting_point_values": starting_point_values,
             "runs": runs,
@@ -547,7 +648,24 @@ def run_dsda_from_best_starting_points(
             "stopped_early": stopped_early,
             "stop_reason": stop_reason,
             "max_points_explored": max_points_explored,
+            "wall_time_s": wall_time_s,
+            "incumbent_trajectory": incumbent_trajectory,
+            "objective_wall_times": tracked_objective.wall_times,
         }
+        result["result_record"] = make_result_record(
+            csv_name=Path(csv_path).name,
+            method="DSDA",
+            seed=None,
+            n_starts=len(cleaned_points),
+            max_evals=max_points_explored,
+            best_value=best_value,
+            best_point=best_point,
+            total_evals=tracked_objective.call_count,
+            wall_time_s=wall_time_s,
+            found_optimum=target_reached(best_value),
+            incumbent_trajectory=incumbent_trajectory,
+        )
+        return result
 
     for i, pt in enumerate(ordered_starting_points, start=1):
         if verbose:
@@ -579,6 +697,7 @@ def run_dsda_from_best_starting_points(
             verbose=verbose,
             max_points_explored=remaining_budget,
             grid=grid,
+            tracked_objective=tracked_objective,
         )
 
         runs.append(run_result)
@@ -626,7 +745,11 @@ def run_dsda_from_best_starting_points(
                 print(f"\nTarget value {target_value} reached. Stopping the loop.")
             break
 
-    return {
+    wall_time_s = time.perf_counter() - start_time
+    incumbent_trajectory = tracked_objective.incumbent_trajectory
+    total_evals = initial_points_evaluated + total_point_evaluations_across_runs
+
+    result = {
         "ordered_starting_points": ordered_starting_points,
         "starting_point_values": starting_point_values,
         "runs": runs,
@@ -640,12 +763,28 @@ def run_dsda_from_best_starting_points(
         "total_unique_points_explored_across_runs": len(all_unique_points_explored),
         "all_unique_points_explored": sorted(all_unique_points_explored),
         "total_point_evaluations_across_runs": total_point_evaluations_across_runs,
-        "total_point_evaluations_including_initial_ranking": initial_points_evaluated
-        + total_point_evaluations_across_runs,
+        "total_point_evaluations_including_initial_ranking": total_evals,
         "stopped_early": stopped_early,
         "stop_reason": stop_reason,
         "max_points_explored": max_points_explored,
+        "wall_time_s": wall_time_s,
+        "incumbent_trajectory": incumbent_trajectory,
+        "objective_wall_times": tracked_objective.wall_times,
     }
+    result["result_record"] = make_result_record(
+        csv_name=Path(csv_path).name,
+        method="DSDA",
+        seed=None,
+        n_starts=len(cleaned_points),
+        max_evals=max_points_explored,
+        best_value=best_value,
+        best_point=best_point,
+        total_evals=total_evals,
+        wall_time_s=wall_time_s,
+        found_optimum=target_reached(best_value),
+        incumbent_trajectory=incumbent_trajectory,
+    )
+    return result
 
 
 # Backward-compatible aliases retained from the earlier LDSDA naming.
@@ -655,10 +794,10 @@ run_ldsda_from_best_starting_points = run_dsda_from_best_starting_points
 
 def main():
     """Run DSDA search on all benchmark grids with random starting points."""
-    from pathlib import Path
-
-    csv_dir = Path(__file__).resolve().parent / "benchmark_grids"
-    csv_paths = sorted(csv_dir.glob("*.csv"))
+    csv_paths = sorted(DATA_DIR.glob("*.csv"))
+    result_records = []
+    results_dir = make_timestamped_results_dir(RESULTS_DIR, "dsda")
+    results_path = results_dir / "dsda_results.csv"
 
     rng = random.Random(0)
     starting_points = [(rng.randint(0, 30), rng.randint(0, 30)) for _ in range(3)]
@@ -680,6 +819,7 @@ def main():
             target_value=0.0,
             verbose=True,
         )
+        result_records.append(multi_result["result_record"])
 
         print("\nOverall summary:")
         print(
@@ -718,6 +858,10 @@ def main():
             "Stopped early due to point budget              :",
             multi_result["stopped_early"],
         )
+
+    save_results_csv(result_records, results_path)
+    print(f"DSDA result records saved in: {results_path}")
+    return result_records, results_path
 
 
 if __name__ == "__main__":
