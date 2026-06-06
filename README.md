@@ -79,6 +79,8 @@ these datasets to document selected case studies and visual results.
 - `grid_rbfopt.py`: RBFOpt wrapper utilities for grid-based objective
   functions.
 - `benchmark_grids/`: normalized benchmark grid data and notes about data provenance.
+- `case_study_data/`: completed enumeration CSV data for process case studies,
+  grouped by column, CSTR, and small-batch examples.
 - `tests/`: regression tests for the grid-loading and search helper modules.
 - `scripts/`: utility scripts for generating visual examples and report
   figures, including `create_rbfopt_example.py` for producing a GIF that
@@ -86,7 +88,6 @@ these datasets to document selected case studies and visual results.
   lattice for presentation and teaching materials.
 - `gif/`: generated visualizations from optimization case studies.
 - `*.ipynb`: notebooks used to run and inspect optimization case studies.
-- `compl_enum_*.csv`: completed enumeration data from benchmark case studies.
 
 ## Visual Example Script
 

@@ -34,7 +34,16 @@ test = [
 
 [tool.setuptools]
 py-modules = ["grid_dsda", "grid_rbfopt", "instrumentation"]
-packages = ["benchmark_grids"]
+packages = [
+    "benchmark_grids",
+    "case_study_data",
+    "case_study_data.column",
+    "case_study_data.cstr",
+    "case_study_data.small_batch",
+]
 
 [tool.setuptools.package-data]
 benchmark_grids = ["*.csv", "README.md"]
+"case_study_data.column" = ["*.csv"]
+"case_study_data.cstr" = ["*.csv"]
+"case_study_data.small_batch" = ["*.csv"]
