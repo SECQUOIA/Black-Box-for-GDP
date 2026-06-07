@@ -36,6 +36,7 @@ test = [
 py-modules = ["grid_dsda", "grid_rbfopt", "instrumentation"]
 packages = [
     "benchmark_grids",
+    "case_studies",
     "case_study_data",
     "case_study_data.column",
     "case_study_data.cstr",

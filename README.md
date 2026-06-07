@@ -108,7 +108,7 @@ python -m pytest tests/ -q
 Run the basic lint checks used by GitHub Actions with:
 
 ```bash
-python -m ruff check grid_dsda.py grid_rbfopt.py tests scripts
+python -m ruff check grid_dsda.py grid_rbfopt.py case_studies tests scripts
 ```
 
 ## License
