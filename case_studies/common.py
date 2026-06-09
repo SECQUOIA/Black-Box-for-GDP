@@ -28,3 +28,28 @@ def generate_lhc_starting_points(n_dims, n_points, lb, ub, seed):
         clamped = np.minimum(np.maximum(rounded, lower_bounds), upper_bounds)
         points.append(tuple(int(value) for value in clamped))
     return points
+
+
+def rank_starting_points(starting_points, tracked_objective, is_feasible):
+    """Evaluate and rank LHC starts while preserving full initial accounting."""
+    starting_point_values = []
+    feasible_start_values = []
+
+    for point in starting_points:
+        lattice_point = tuple(point)
+        value = tracked_objective(lattice_point)
+        starting_point_values.append((lattice_point, value))
+        if is_feasible(lattice_point):
+            feasible_start_values.append((lattice_point, value))
+
+    if not feasible_start_values:
+        raise ValueError("No feasible LHC starting points were generated for DSDA.")
+
+    feasible_start_values.sort(key=lambda item: item[1])
+    selected_start, selected_start_value = feasible_start_values[0]
+    return (
+        selected_start,
+        selected_start_value,
+        feasible_start_values,
+        starting_point_values,
+    )

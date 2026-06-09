@@ -19,12 +19,23 @@ def test_small_batch_dsda_selects_lowest_feasible_lhc_start():
         }.__getitem__
     )
 
-    selected_start, feasible_start_values = choose_best_feasible_start(
+    (
+        selected_start,
+        selected_start_value,
+        feasible_start_values,
+        starting_point_values,
+    ) = choose_best_feasible_start(
         [(2, 3, 2), (3, 2, 2), (2, 2, 1)],
         objective,
     )
 
     assert selected_start == (2, 2, 1)
+    assert selected_start_value == 167427.65711470306
+    assert starting_point_values == [
+        ((2, 3, 2), 209964.94866578083),
+        ((3, 2, 2), 222943.12301931926),
+        ((2, 2, 1), 167427.65711470306),
+    ]
     assert feasible_start_values == [
         ((2, 2, 1), 167427.65711470306),
         ((2, 3, 2), 209964.94866578083),
@@ -39,7 +50,7 @@ def test_small_batch_dsda_raises_if_no_lhc_starts_are_feasible():
     with pytest.raises(ValueError, match="No feasible LHC starting points"):
         choose_best_feasible_start([(1, 2, 1), (3, 3, 4)], objective)
 
-    assert objective.call_count == 0
+    assert objective.call_count == 2
 
 
 def test_small_batch_dsda_finds_known_best_from_default_seed():

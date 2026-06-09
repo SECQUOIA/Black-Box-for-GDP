@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 
 from case_studies.common import generate_lhc_starting_points
-from case_studies.dynamic_case import KNOWN_BEST_POINT, KNOWN_BEST_VALUE
+from case_studies.dynamic_case import KNOWN_BEST_POINT, KNOWN_BEST_VALUE, PENALTY
 from case_studies.dynamic_dsda import (
     choose_best_feasible_start,
     run_dynamic_dsda,
@@ -28,12 +28,23 @@ def test_dynamic_dsda_selects_lowest_feasible_lhc_start():
         }.__getitem__
     )
 
-    selected_start, feasible_start_values = choose_best_feasible_start(
+    (
+        selected_start,
+        selected_start_value,
+        feasible_start_values,
+        starting_point_values,
+    ) = choose_best_feasible_start(
         points,
         objective,
     )
 
     assert selected_start == (2, 4)
+    assert selected_start_value == -137.1797042946188
+    assert starting_point_values == [
+        ((2, 4), -137.1797042946188),
+        ((9, 9), -28.596739202011523),
+        ((4, 5), -55.81190616713566),
+    ]
     assert feasible_start_values == [
         ((2, 4), -137.1797042946188),
         ((4, 5), -55.81190616713566),
@@ -46,6 +57,11 @@ def test_dynamic_dsda_ignores_infeasible_lhc_starts():
     result = run_dynamic_dsda(seed=1, n_starts=3, max_evaluations=12)
 
     assert result["starting_points"] == [(8, 4), (6, 2), (3, 8)]
+    assert result["starting_point_values"][:3] == [
+        ((8, 4), PENALTY),
+        ((6, 2), PENALTY),
+        ((3, 8), -141.82503814335138),
+    ]
     assert result["feasible_start_values"] == [((3, 8), -141.82503814335138)]
     assert result["selected_start"] == (3, 8)
 
@@ -62,10 +78,18 @@ def test_dynamic_dsda_finds_known_best_from_seed_zero():
     assert result["tracked_evals"] <= 12
 
 
+def test_dynamic_dsda_does_not_re_evaluate_selected_start_after_ranking():
+    result = run_dynamic_dsda(seed=0, n_starts=3, max_evaluations=4)
+
+    assert result["tracked_evals"] == 4
+    assert result["run_result"]["point_evaluations"] == 1
+    assert result["run_result"]["points_explored"] == 2
+
+
 def test_dynamic_dsda_raises_if_no_lhc_starts_are_feasible():
     objective = TrackedObjective(lambda _point: 0.0)
 
     with pytest.raises(ValueError, match="No feasible LHC starting points"):
         choose_best_feasible_start([(8, 4), (6, 2)], objective)
 
-    assert objective.call_count == 0
+    assert objective.call_count == 2

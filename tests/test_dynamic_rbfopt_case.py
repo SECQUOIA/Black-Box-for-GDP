@@ -5,6 +5,7 @@ from types import SimpleNamespace
 
 import numpy as np
 
+import case_studies.dynamic_rbfopt as dynamic_rbfopt
 from case_studies.common import generate_lhc_starting_points
 from case_studies.dynamic_case import PENALTY, dynamic_objective
 from case_studies.dynamic_rbfopt import (
@@ -44,8 +45,10 @@ def test_resolve_solver_paths_from_solver_dir(tmp_path, monkeypatch):
     assert str(tmp_path) in os.environ["PATH"].split(os.pathsep)
 
 
-def test_run_dynamic_rbfopt_uses_lhc_points_as_explicit_initial_nodes():
+def test_run_dynamic_rbfopt_uses_lhc_points_as_explicit_initial_nodes(monkeypatch):
     captured = {}
+    ticks = iter([10.0, 12.5])
+    monkeypatch.setattr(dynamic_rbfopt.time, "perf_counter", lambda: next(ticks))
 
     class FakeBlackBox:
         def __init__(self, dimension, lower_bounds, upper_bounds, var_types, obj_fn):
@@ -102,6 +105,8 @@ def test_run_dynamic_rbfopt_uses_lhc_points_as_explicit_initial_nodes():
     assert captured["init_node_val"] is None
     assert captured["do_init_strategy"] is False
     assert result["tracked_evals"] == 3
+    assert result["wall_time_s"] == 2.5
+    assert result["result_record"]["wall_time_s"] == 2.5
     assert result["result_record"]["method"] == "RBFOpt"
     assert result["result_record"]["seed"] == 0
     assert result["result_record"]["n_starts"] == 3

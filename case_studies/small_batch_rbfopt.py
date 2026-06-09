@@ -3,6 +3,7 @@
 import argparse
 import math
 import os
+import time
 from pathlib import Path
 
 import numpy as np
@@ -137,9 +138,11 @@ def run_small_batch_rbfopt(
         do_init_strategy=False,
     )
 
+    start_time = time.perf_counter()
     best_value, best_point, itercount, evalcount, fast_evalcount = (
         algorithm_instance.optimize()
     )
+    wall_time_s = time.perf_counter() - start_time
     best_point_rounded = [int(round(value)) for value in best_point]
     found_optimum = (
         list(KNOWN_BEST_POINT) == best_point_rounded
@@ -155,7 +158,7 @@ def run_small_batch_rbfopt(
         best_value=best_value,
         best_point=best_point_rounded,
         total_evals=tracked_objective.call_count,
-        wall_time_s=sum(tracked_objective.wall_times),
+        wall_time_s=wall_time_s,
         found_optimum=found_optimum,
         incumbent_trajectory=tracked_objective.incumbent_trajectory,
     )
@@ -168,6 +171,7 @@ def run_small_batch_rbfopt(
         "evalcount": evalcount,
         "fast_evalcount": fast_evalcount,
         "tracked_evals": tracked_objective.call_count,
+        "wall_time_s": wall_time_s,
         "incumbent_trajectory": tracked_objective.incumbent_trajectory,
         "objective_wall_times": tracked_objective.wall_times,
         "minlp_solver_path": minlp_solver_path,

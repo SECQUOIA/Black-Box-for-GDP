@@ -14,13 +14,24 @@ from instrumentation import TrackedObjective
 def test_cstr_dsda_selects_lowest_feasible_lhc_start():
     objective = TrackedObjective(CSTR_FEASIBLE_OBJECTIVES.__getitem__)
 
-    selected_start, feasible_start_values = choose_best_feasible_start(
+    (
+        selected_start,
+        selected_start_value,
+        feasible_start_values,
+        starting_point_values,
+    ) = choose_best_feasible_start(
         [(2, 2), (7, 7), (3, 3)],
         objective,
         CSTR_FEASIBLE_OBJECTIVES,
     )
 
     assert selected_start == (7, 7)
+    assert selected_start_value == 2.965911187241821
+    assert starting_point_values == [
+        ((2, 2), 4.061881684530914),
+        ((7, 7), 2.965911187241821),
+        ((3, 3), 3.3148454030723937),
+    ]
     assert feasible_start_values == [
         ((7, 7), 2.965911187241821),
         ((3, 3), 3.3148454030723937),
@@ -39,7 +50,7 @@ def test_cstr_dsda_raises_if_no_lhc_starts_are_feasible():
             CSTR_FEASIBLE_OBJECTIVES,
         )
 
-    assert objective.call_count == 0
+    assert objective.call_count == 2
 
 
 def test_cstr_dsda_finds_known_best_from_default_seed():

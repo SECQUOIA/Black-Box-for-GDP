@@ -16,30 +16,26 @@ from .column_case import (
     KNOWN_BEST_VALUE,
     LOWER_BOUNDS,
     UPPER_BOUNDS,
+    column_objective,
+    is_column_feasible,
 )
 from .column_rbfopt import DEFAULT_SEED
-from .common import generate_lhc_starting_points
+from .common import generate_lhc_starting_points, rank_starting_points
 
 
 def choose_best_feasible_start(starting_points, tracked_objective):
     """
     Choose the feasible LHC start with the lowest column objective value.
 
-    Infeasible LHC points are ignored for the DSDA mimic. Feasible points are
-    evaluated through the shared tracker so ranking evaluations count toward
-    the DSDA budget.
+    All generated LHC points are evaluated through the shared tracker so the
+    initial design accounting matches RBFOpt, then feasible starts are ranked
+    for the DSDA descent run.
     """
-    feasible_start_values = []
-    for point in starting_points:
-        lattice_point = tuple(point)
-        if lattice_point in COLUMN_FEASIBLE_OBJECTIVES:
-            feasible_start_values.append((lattice_point, tracked_objective(lattice_point)))
-
-    if not feasible_start_values:
-        raise ValueError("No feasible LHC starting points were generated for DSDA.")
-
-    feasible_start_values.sort(key=lambda item: item[1])
-    return feasible_start_values[0][0], feasible_start_values
+    return rank_starting_points(
+        starting_points,
+        tracked_objective,
+        is_column_feasible,
+    )
 
 
 def run_column_dsda(
@@ -59,10 +55,13 @@ def run_column_dsda(
         ub=UPPER_BOUNDS,
         seed=seed,
     )
-    tracked_objective = TrackedObjective(
-        lambda point: COLUMN_FEASIBLE_OBJECTIVES[tuple(point)]
-    )
-    selected_start, feasible_start_values = choose_best_feasible_start(
+    tracked_objective = TrackedObjective(column_objective)
+    (
+        selected_start,
+        selected_start_value,
+        feasible_start_values,
+        starting_point_values,
+    ) = choose_best_feasible_start(
         starting_points,
         tracked_objective,
     )
@@ -85,6 +84,7 @@ def run_column_dsda(
             max_points_explored=remaining_budget,
             grid=COLUMN_FEASIBLE_OBJECTIVES,
             tracked_objective=tracked_objective,
+            start_value=selected_start_value,
         )
 
     if run_result is None:
@@ -118,8 +118,10 @@ def run_column_dsda(
     return {
         "case_name": "column",
         "starting_points": starting_points,
+        "starting_point_values": starting_point_values,
         "feasible_start_values": feasible_start_values,
         "selected_start": selected_start,
+        "selected_start_value": selected_start_value,
         "best_value": best_value,
         "best_point": best_point,
         "tracked_evals": tracked_objective.call_count,

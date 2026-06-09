@@ -8,11 +8,12 @@ from pathlib import Path
 from grid_dsda import dsda_from_csv
 from instrumentation import TrackedObjective, make_result_record, save_results_csv
 
-from .common import generate_lhc_starting_points
+from .common import generate_lhc_starting_points, rank_starting_points
 from .cstr_case import (
     DEFAULT_GRID_SIZE,
     DEFAULT_MAX_EVALUATIONS,
     LOWER_BOUNDS,
+    cstr_objective,
     load_cstr_case_data,
 )
 from .cstr_rbfopt import DEFAULT_SEED
@@ -26,21 +27,15 @@ def choose_best_feasible_start(
     """
     Choose the feasible LHC start with the lowest CSTR objective value.
 
-    Infeasible LHC points are ignored for the DSDA mimic. Feasible points are
-    evaluated through the shared tracker so ranking evaluations count toward
-    the DSDA budget.
+    All generated LHC points are evaluated through the shared tracker so the
+    initial design accounting matches RBFOpt, then feasible starts are ranked
+    for the DSDA descent run.
     """
-    feasible_start_values = []
-    for point in starting_points:
-        lattice_point = tuple(point)
-        if lattice_point in feasible_objectives:
-            feasible_start_values.append((lattice_point, tracked_objective(lattice_point)))
-
-    if not feasible_start_values:
-        raise ValueError("No feasible LHC starting points were generated for DSDA.")
-
-    feasible_start_values.sort(key=lambda item: item[1])
-    return feasible_start_values[0][0], feasible_start_values
+    return rank_starting_points(
+        starting_points,
+        tracked_objective,
+        lambda point: point in feasible_objectives,
+    )
 
 
 def run_cstr_dsda(
@@ -68,9 +63,18 @@ def run_cstr_dsda(
         seed=seed,
     )
     tracked_objective = TrackedObjective(
-        lambda point: feasible_objectives[tuple(point)]
+        lambda point: cstr_objective(
+            point,
+            grid_size=grid_size,
+            feasible_objectives=feasible_objectives,
+        )
     )
-    selected_start, feasible_start_values = choose_best_feasible_start(
+    (
+        selected_start,
+        selected_start_value,
+        feasible_start_values,
+        starting_point_values,
+    ) = choose_best_feasible_start(
         starting_points,
         tracked_objective,
         feasible_objectives,
@@ -94,6 +98,7 @@ def run_cstr_dsda(
             max_points_explored=remaining_budget,
             grid=feasible_objectives,
             tracked_objective=tracked_objective,
+            start_value=selected_start_value,
         )
 
     if run_result is None:
@@ -128,8 +133,10 @@ def run_cstr_dsda(
         "case_name": "cstr",
         "grid_size": int(grid_size),
         "starting_points": starting_points,
+        "starting_point_values": starting_point_values,
         "feasible_start_values": feasible_start_values,
         "selected_start": selected_start,
+        "selected_start_value": selected_start_value,
         "best_value": best_value,
         "best_point": best_point,
         "tracked_evals": tracked_objective.call_count,

@@ -66,6 +66,19 @@ To run the full RBFOpt batch script after configuring `COIN_BIN`:
 python grid_rbfopt.py
 ```
 
+For extracted process case studies, run the DSDA and RBFOpt modules directly:
+
+```bash
+python -m case_studies.column_dsda --seed 1 --n-starts 3 --max-evaluations 16
+python -m case_studies.column_rbfopt --seed 1 --n-starts 3 --max-evaluations 16
+```
+
+The case-study RBFOpt runners accept the same solver configuration pattern as
+`grid_rbfopt.py`. Set `COIN_BIN` or pass `--solver-dir` to a directory
+containing `bonmin` and `ipopt`; for examples that use sampling, such as the
+small-batch runner, solver paths can be omitted unless you switch the global
+search method back to a solver-backed mode.
+
 ## Benchmark Overview
 
 The `benchmark_grids/` directory contains normalized benchmark grids stored as CSV
