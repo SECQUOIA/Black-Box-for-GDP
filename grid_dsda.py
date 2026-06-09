@@ -119,6 +119,7 @@ def dsda_from_csv(
     max_points_explored=None,
     grid=None,
     tracked_objective=None,
+    start_value=None,
 ):
     """
     DSDA-style search on a discrete grid loaded from CSV.
@@ -138,6 +139,11 @@ def dsda_from_csv(
         Path to CSV file.
     start_point : tuple
         Initial point as (x, y).
+    start_value : float or None, optional
+        Previously evaluated objective value for ``start_point``. When provided,
+        the start point is not evaluated again, which lets callers include a
+        shared initial design in a global evaluation budget without double
+        counting the selected start.
     diagonal : bool, optional
         If True, use the full L-infinity neighborhood. Otherwise use one-coordinate moves.
     maximize : bool, optional
@@ -212,10 +218,9 @@ def dsda_from_csv(
     local_incumbent = None
     local_incumbent_trajectory = []
 
-    def evaluate_run_point(point):
+    def record_run_value(value):
         nonlocal local_incumbent
 
-        value = tracked_objective(point)
         if local_incumbent is None:
             local_incumbent = value
         elif maximize:
@@ -225,6 +230,9 @@ def dsda_from_csv(
             local_incumbent = value
         local_incumbent_trajectory.append(local_incumbent)
         return value
+
+    def evaluate_run_point(point):
+        return record_run_value(tracked_objective(point))
 
     def run_incumbent_trajectory():
         return list(local_incumbent_trajectory)
@@ -244,7 +252,10 @@ def dsda_from_csv(
         return sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2)))
 
     current = start_point
-    current_val = evaluate_run_point(current)
+    if start_value is None:
+        current_val = evaluate_run_point(current)
+    else:
+        current_val = record_run_value(start_value)
     start_value = current_val
     best_seen_point = current
     best_seen_value = current_val

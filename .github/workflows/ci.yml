@@ -24,7 +24,7 @@ jobs:
           python -m pip install ".[lint]"
 
       - name: Run Ruff
-        run: python -m ruff check grid_dsda.py grid_rbfopt.py tests scripts
+        run: python -m ruff check grid_dsda.py grid_rbfopt.py case_studies tests scripts
 
   test:
     runs-on: ubuntu-latest

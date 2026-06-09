@@ -66,6 +66,19 @@ To run the full RBFOpt batch script after configuring `COIN_BIN`:
 python grid_rbfopt.py
 ```
 
+For extracted process case studies, run the DSDA and RBFOpt modules directly:
+
+```bash
+python -m case_studies.column_dsda --seed 1 --n-starts 3 --max-evaluations 16
+python -m case_studies.column_rbfopt --seed 1 --n-starts 3 --max-evaluations 16
+```
+
+The case-study RBFOpt runners accept the same solver configuration pattern as
+`grid_rbfopt.py`. Set `COIN_BIN` or pass `--solver-dir` to a directory
+containing `bonmin` and `ipopt`; for examples that use sampling, such as the
+small-batch runner, solver paths can be omitted unless you switch the global
+search method back to a solver-backed mode.
+
 ## Benchmark Overview
 
 The `benchmark_grids/` directory contains normalized benchmark grids stored as CSV
@@ -79,6 +92,8 @@ these datasets to document selected case studies and visual results.
 - `grid_rbfopt.py`: RBFOpt wrapper utilities for grid-based objective
   functions.
 - `benchmark_grids/`: normalized benchmark grid data and notes about data provenance.
+- `case_study_data/`: completed enumeration CSV data for process case studies,
+  grouped by column, CSTR, and small-batch examples.
 - `tests/`: regression tests for the grid-loading and search helper modules.
 - `scripts/`: utility scripts for generating visual examples and report
   figures, including `create_rbfopt_example.py` for producing a GIF that
@@ -86,7 +101,6 @@ these datasets to document selected case studies and visual results.
   lattice for presentation and teaching materials.
 - `gif/`: generated visualizations from optimization case studies.
 - `*.ipynb`: notebooks used to run and inspect optimization case studies.
-- `compl_enum_*.csv`: completed enumeration data from benchmark case studies.
 
 ## Visual Example Script
 
@@ -107,7 +121,7 @@ python -m pytest tests/ -q
 Run the basic lint checks used by GitHub Actions with:
 
 ```bash
-python -m ruff check grid_dsda.py grid_rbfopt.py tests scripts
+python -m ruff check grid_dsda.py grid_rbfopt.py case_studies tests scripts
 ```
 
 ## License
