@@ -25,11 +25,11 @@ The core Python dependencies are declared in `pyproject.toml`. The editable
 install above is the most convenient option when working on the repository
 locally because it keeps the source tree and test commands in sync.
 
-## Solver Setup for `grid_rbfopt.py`
+## Solver Setup for RBFOpt Runs
 
-The RBFOpt batch script depends on external BONMIN and IPOPT solver binaries.
-Before running `grid_rbfopt.py`, set the `COIN_BIN` environment variable to the
-directory containing those executables:
+The RBFOpt batch scripts depend on external BONMIN and IPOPT solver binaries.
+Before running `grid_rbfopt.py` or the RBFOpt side of `benchmark.py`, set the
+`COIN_BIN` environment variable to the directory containing those executables:
 
 ```bash
 export COIN_BIN="/path/to/coin/bin"
@@ -40,8 +40,8 @@ The script expects at least:
 - `bonmin`
 - `ipopt`
 
-If `COIN_BIN` is unset or points to the wrong location, `grid_rbfopt.py` will
-raise an error before starting the optimization runs.
+If `COIN_BIN` is unset or points to the wrong location, pass `--solver-dir` to
+`benchmark.py` or configure RBFOpt to use a solver-free global search method.
 
 ## Usage Examples
 
@@ -65,6 +65,21 @@ To run the full RBFOpt batch script after configuring `COIN_BIN`:
 ```bash
 python grid_rbfopt.py
 ```
+
+To run the automated DSDA/RBFOpt head-to-head benchmark on all packaged grids:
+
+```bash
+python benchmark.py \
+    --methods dsda,rbfopt \
+    --seeds 0-9 \
+    --n-starts 3 \
+    --max-evals 10,30,50,70,100 \
+    --grids-dir benchmark_grids \
+    --output results
+```
+
+The benchmark runner writes a unified CSV such as
+`results/benchmark_YYYYMMDD.csv`.
 
 For extracted process case studies, run the DSDA and RBFOpt modules directly:
 
@@ -91,6 +106,8 @@ these datasets to document selected case studies and visual results.
 - `grid_dsda.py`: DSDA-style search utilities for precomputed CSV grids.
 - `grid_rbfopt.py`: RBFOpt wrapper utilities for grid-based objective
   functions.
+- `benchmark.py`: automated DSDA/RBFOpt benchmark runner with shared Latin
+  Hypercube initialization and unified CSV output.
 - `benchmark_grids/`: normalized benchmark grid data and notes about data provenance.
 - `case_study_data/`: completed enumeration CSV data for process case studies,
   grouped by column, CSTR, and small-batch examples.
@@ -121,7 +138,7 @@ python -m pytest tests/ -q
 Run the basic lint checks used by GitHub Actions with:
 
 ```bash
-python -m ruff check grid_dsda.py grid_rbfopt.py case_studies tests scripts
+python -m ruff check benchmark.py grid_dsda.py grid_rbfopt.py case_studies tests scripts
 ```
 
 ## License
