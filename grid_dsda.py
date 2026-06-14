@@ -606,6 +606,7 @@ def run_dsda_from_best_starting_points(
     # Sort starting points by initial value
     starting_point_values.sort(key=lambda item: item[1], reverse=maximize)
     ordered_starting_points = [pt for pt, _ in starting_point_values]
+    starting_value_by_point = {pt: val for pt, val in starting_point_values}
 
     if verbose:
         print("Starting points ranked by initial value:")
@@ -709,6 +710,7 @@ def run_dsda_from_best_starting_points(
             max_points_explored=remaining_budget,
             grid=grid,
             tracked_objective=tracked_objective,
+            start_value=starting_value_by_point[pt],
         )
 
         runs.append(run_result)
