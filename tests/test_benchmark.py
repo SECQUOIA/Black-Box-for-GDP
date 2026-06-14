@@ -141,6 +141,63 @@ def test_run_benchmark_writes_dsda_and_rbfopt_rows_with_shared_lhc(tmp_path):
     assert rows[1]["method"] == "RBFOpt"
 
 
+def test_run_benchmark_rejects_budget_smaller_than_initial_design(tmp_path):
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    _write_tiny_grid(grids_dir / "tiny.csv")
+
+    with pytest.raises(ValueError, match="greater than or equal to n_starts"):
+        benchmark.run_benchmark(
+            methods=("dsda", "rbfopt"),
+            seeds=[0],
+            n_starts=3,
+            max_evals=[2],
+            grids_dir=grids_dir,
+            output=tmp_path / "benchmark.csv",
+            global_search_method="sampling",
+            rbfopt_module=_fake_rbfopt({}),
+        )
+
+
+def test_resolve_solver_paths_empty_solver_dir_ignores_coin_bin(monkeypatch, tmp_path):
+    monkeypatch.setenv("COIN_BIN", str(tmp_path / "missing_coin"))
+
+    minlp_solver_path, nlp_solver_path = benchmark.resolve_solver_paths(solver_dir="")
+
+    assert minlp_solver_path == ""
+    assert nlp_solver_path == ""
+
+
+def test_sampling_rbfopt_does_not_validate_coin_bin(monkeypatch, tmp_path):
+    monkeypatch.setenv("COIN_BIN", str(tmp_path / "missing_coin"))
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    csv_path = grids_dir / "tiny.csv"
+    _write_tiny_grid(csv_path)
+    _, grid = benchmark.load_grid_csv(csv_path)
+    lower_bounds, upper_bounds = benchmark.grid_bounds(grid)
+    captured = {}
+
+    result = benchmark.run_rbfopt_benchmark_case(
+        csv_path=csv_path,
+        grid=grid,
+        lower_bounds=lower_bounds,
+        upper_bounds=upper_bounds,
+        starting_points=[(0, 0), (1, 1)],
+        seed=0,
+        n_starts=2,
+        max_evals=2,
+        target_value=0.0,
+        global_search_method="sampling",
+        rbfopt_module=_fake_rbfopt(captured),
+    )
+
+    assert result["minlp_solver_path"] == ""
+    assert result["nlp_solver_path"] == ""
+    assert captured["settings"]["minlp_solver_path"] == ""
+    assert captured["settings"]["nlp_solver_path"] == ""
+
+
 def test_main_accepts_cli_arguments_and_returns_output_path(tmp_path):
     grids_dir = tmp_path / "benchmark_grids"
     grids_dir.mkdir()

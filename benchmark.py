@@ -114,7 +114,11 @@ def resolve_solver_paths(
     if minlp_solver_path and nlp_solver_path:
         return str(minlp_solver_path), str(nlp_solver_path)
 
-    solver_dir = solver_dir or os.environ.get("COIN_BIN", "").strip()
+    if solver_dir is None:
+        solver_dir = os.environ.get("COIN_BIN", "").strip()
+    elif isinstance(solver_dir, str):
+        solver_dir = solver_dir.strip()
+
     if not solver_dir:
         return str(minlp_solver_path), str(nlp_solver_path)
 
@@ -241,11 +245,17 @@ def run_rbfopt_benchmark_case(
     if rbfopt_module is None:
         import rbfopt as rbfopt_module
 
-    minlp_solver_path, nlp_solver_path = resolve_solver_paths(
-        solver_dir=solver_dir,
-        minlp_solver_path=minlp_solver_path,
-        nlp_solver_path=nlp_solver_path,
+    explicit_solver_config = (
+        bool(minlp_solver_path)
+        or bool(nlp_solver_path)
+        or (solver_dir is not None and str(solver_dir).strip() != "")
     )
+    if global_search_method == "solver" or explicit_solver_config:
+        minlp_solver_path, nlp_solver_path = resolve_solver_paths(
+            solver_dir=solver_dir,
+            minlp_solver_path=minlp_solver_path,
+            nlp_solver_path=nlp_solver_path,
+        )
 
     n_dims = len(lower_bounds)
     init_node_pos = np.asarray(starting_points, dtype=float)
@@ -339,6 +349,11 @@ def run_benchmark(
         raise ValueError("n_starts must be at least 1")
     if any(max_eval < 1 for max_eval in max_evals):
         raise ValueError("max_evals values must be at least 1")
+    if any(max_eval < n_starts for max_eval in max_evals):
+        raise ValueError(
+            "max_evals values must be greater than or equal to n_starts so "
+            "all shared initial LHC points fit inside the evaluation budget"
+        )
 
     csv_paths = discover_grid_paths(grids_dir)
     results_path = benchmark_output_path(output)

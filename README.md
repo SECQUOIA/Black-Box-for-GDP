@@ -79,7 +79,9 @@ python benchmark.py \
 ```
 
 The benchmark runner writes a unified CSV such as
-`results/benchmark_YYYYMMDD.csv`.
+`results/benchmark_YYYYMMDD.csv`. Each `--max-evals` value must be at least
+`--n-starts` because all shared initial LHC points count toward the evaluation
+budget.
 
 For extracted process case studies, run the DSDA and RBFOpt modules directly:
 
