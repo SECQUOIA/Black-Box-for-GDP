@@ -221,6 +221,75 @@ def test_resolve_solver_paths_empty_solver_dir_ignores_coin_bin(monkeypatch, tmp
     assert nlp_solver_path == ""
 
 
+def test_solver_rbfopt_fails_early_without_required_executables(monkeypatch, tmp_path):
+    monkeypatch.delenv("COIN_BIN", raising=False)
+    monkeypatch.setattr(benchmark.shutil, "which", lambda _name: None)
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    csv_path = grids_dir / "tiny.csv"
+    _write_tiny_grid(csv_path)
+    _, grid = benchmark.load_grid_csv(csv_path)
+    lower_bounds, upper_bounds = benchmark.grid_bounds(grid)
+    captured = {}
+
+    with pytest.raises(
+        FileNotFoundError,
+        match=r"RBFOpt solver mode requires BONMIN and IPOPT",
+    ):
+        benchmark.run_rbfopt_benchmark_case(
+            csv_path=csv_path,
+            grid=grid,
+            lower_bounds=lower_bounds,
+            upper_bounds=upper_bounds,
+            starting_points=[(0, 0), (1, 1)],
+            seed=0,
+            n_starts=2,
+            max_evals=2,
+            target_value=0.0,
+            rbfopt_module=_fake_rbfopt(captured),
+        )
+
+    assert "settings" not in captured
+
+
+def test_solver_rbfopt_resolves_required_executables_from_path(monkeypatch, tmp_path):
+    monkeypatch.delenv("COIN_BIN", raising=False)
+    solver_dir = tmp_path / "bin"
+    solver_dir.mkdir()
+    (solver_dir / "bonmin").touch()
+    (solver_dir / "ipopt").touch()
+    solver_paths = {
+        "bonmin": str(solver_dir / "bonmin"),
+        "ipopt": str(solver_dir / "ipopt"),
+    }
+    monkeypatch.setattr(benchmark.shutil, "which", solver_paths.get)
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    csv_path = grids_dir / "tiny.csv"
+    _write_tiny_grid(csv_path)
+    _, grid = benchmark.load_grid_csv(csv_path)
+    lower_bounds, upper_bounds = benchmark.grid_bounds(grid)
+    captured = {}
+
+    result = benchmark.run_rbfopt_benchmark_case(
+        csv_path=csv_path,
+        grid=grid,
+        lower_bounds=lower_bounds,
+        upper_bounds=upper_bounds,
+        starting_points=[(0, 0), (1, 1)],
+        seed=0,
+        n_starts=2,
+        max_evals=2,
+        target_value=0.0,
+        rbfopt_module=_fake_rbfopt(captured),
+    )
+
+    assert result["minlp_solver_path"] == solver_paths["bonmin"]
+    assert result["nlp_solver_path"] == solver_paths["ipopt"]
+    assert captured["settings"]["minlp_solver_path"] == solver_paths["bonmin"]
+    assert captured["settings"]["nlp_solver_path"] == solver_paths["ipopt"]
+
+
 def test_sampling_rbfopt_does_not_validate_coin_bin(monkeypatch, tmp_path):
     monkeypatch.setenv("COIN_BIN", str(tmp_path / "missing_coin"))
     grids_dir = tmp_path / "benchmark_grids"
