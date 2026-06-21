@@ -40,8 +40,10 @@ The script expects at least:
 - `bonmin`
 - `ipopt`
 
-If `COIN_BIN` is unset or points to the wrong location, pass `--solver-dir` to
-`benchmark.py` or configure RBFOpt to use a solver-free global search method.
+If `COIN_BIN` is unset, `benchmark.py` also checks `PATH`. Solver mode fails
+before starting the benchmark when BONMIN or IPOPT cannot be found; pass
+`--solver-dir`, pass explicit solver paths, or configure RBFOpt to use a
+solver-free global search method.
 
 ## Usage Examples
 
