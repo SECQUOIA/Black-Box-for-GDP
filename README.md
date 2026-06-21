@@ -40,8 +40,50 @@ The script expects at least:
 - `bonmin`
 - `ipopt`
 
-If `COIN_BIN` is unset or points to the wrong location, pass `--solver-dir` to
-`benchmark.py` or configure RBFOpt to use a solver-free global search method.
+The recommended user-space installation path is conda-forge:
+
+```bash
+conda install -c conda-forge coin-or-bonmin ipopt
+export COIN_BIN="$(dirname "$(which bonmin)")"
+```
+
+Then verify that both solver executables are visible:
+
+```bash
+which bonmin
+which ipopt
+python - <<'PY'
+from pyomo.environ import SolverFactory
+for name in ("bonmin", "ipopt"):
+    solver = SolverFactory(name)
+    print(name, solver.available(exception_flag=False), solver.executable())
+PY
+```
+
+On Ubuntu, `coinor-libbonmin*` apt packages may install Bonmin libraries without
+the `bonmin` executable that Pyomo/RBFOpt expects. Use the conda-forge package
+above, or otherwise provide a solver binary directory containing both
+executables and pass it to `benchmark.py` with `--solver-dir`.
+
+## Solver Setup for BAM Runs
+
+BAM support is optional. Install the BAM Python wrapper when you want to include
+BAM in benchmark comparisons:
+
+```bash
+python -m pip install -e ".[test,lint,bam]"
+```
+
+The packaged `benchmark_grids/` problems are two-dimensional, so BAM can run
+them in its free mode. For higher-dimensional cases, point BAM at a local
+license file without committing it to the repository:
+
+```bash
+export BAM_LICENSE_FILE="/home/bernalde/packages/bamlice.txt"
+```
+
+You can also pass the license path directly to the benchmark runner with
+`--bam-license-file`.
 
 ## Usage Examples
 
@@ -83,6 +125,19 @@ The benchmark runner writes a unified CSV such as
 `--n-starts` because all shared initial LHC points count toward the evaluation
 budget.
 
+To include BAM in the same benchmark matrix:
+
+```bash
+python benchmark.py \
+    --methods dsda,rbfopt,bam \
+    --seeds 0-9 \
+    --n-starts 3 \
+    --max-evals 10,30,50,70,100 \
+    --grids-dir benchmark_grids \
+    --output results \
+    --bam-license-file /home/bernalde/packages/bamlice.txt
+```
+
 For extracted process case studies, run the DSDA and RBFOpt modules directly:
 
 ```bash
@@ -108,7 +163,7 @@ these datasets to document selected case studies and visual results.
 - `grid_dsda.py`: DSDA-style search utilities for precomputed CSV grids.
 - `grid_rbfopt.py`: RBFOpt wrapper utilities for grid-based objective
   functions.
-- `benchmark.py`: automated DSDA/RBFOpt benchmark runner with shared Latin
+- `benchmark.py`: automated DSDA/RBFOpt/BAM benchmark runner with shared Latin
   Hypercube initialization and unified CSV output.
 - `benchmark_grids/`: normalized benchmark grid data and notes about data provenance.
 - `case_study_data/`: completed enumeration CSV data for process case studies,
