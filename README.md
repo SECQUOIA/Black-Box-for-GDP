@@ -83,6 +83,10 @@ The benchmark runner writes a unified CSV such as
 be at least `--n-starts` because all shared initial LHC points count toward the
 evaluation budget.
 
+Custom grid directories must contain complete integer lattices: every `(x, y)`
+coordinate within the grid's minimum and maximum bounds must be present. The
+runner rejects sparse grids before starting the benchmark matrix.
+
 For extracted process case studies, run the DSDA and RBFOpt modules directly:
 
 ```bash
