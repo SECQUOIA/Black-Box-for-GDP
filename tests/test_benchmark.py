@@ -26,6 +26,15 @@ def _write_tiny_grid(path):
     )
 
 
+def _write_sparse_grid(path):
+    path.write_text(
+        "x,y,z_norm\n"
+        "0,0,0.0\n"
+        "0,1,1.0\n"
+        "1,0,1.0\n"
+    )
+
+
 def _fake_rbfopt(captured):
     class FakeBlackBox:
         def __init__(self, dimension, lower_bounds, upper_bounds, var_types, obj_fn):
@@ -178,6 +187,28 @@ def test_run_benchmark_rejects_budget_smaller_than_initial_design(tmp_path):
             output=tmp_path / "benchmark.csv",
             global_search_method="sampling",
             rbfopt_module=_fake_rbfopt({}),
+        )
+
+
+def test_run_benchmark_rejects_sparse_grid(tmp_path):
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    _write_sparse_grid(grids_dir / "sparse.csv")
+
+    with pytest.raises(
+        ValueError,
+        match=(
+            r"Benchmark grid sparse\.csv must contain a complete integer lattice; "
+            r"found 3 points, expected 4"
+        ),
+    ):
+        benchmark.run_benchmark(
+            methods=("dsda",),
+            seeds=[0],
+            n_starts=1,
+            max_evals=[1],
+            grids_dir=grids_dir,
+            output=tmp_path / "benchmark.csv",
         )
 
 
