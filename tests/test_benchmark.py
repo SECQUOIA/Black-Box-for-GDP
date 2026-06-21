@@ -1,6 +1,7 @@
 """Tests for the automated benchmark runner."""
 
 import csv
+from datetime import datetime
 from types import SimpleNamespace
 
 import numpy as np
@@ -82,6 +83,27 @@ def test_parse_methods_normalizes_and_validates():
 
     with pytest.raises(Exception, match="Unsupported method"):
         benchmark.parse_methods("dsda,unknown")
+
+
+def test_benchmark_output_path_uses_unique_timestamp_for_directory(tmp_path):
+    first = benchmark.benchmark_output_path(
+        tmp_path / "results",
+        now=datetime(2026, 6, 21, 12, 34, 56, 123456),
+    )
+    second = benchmark.benchmark_output_path(
+        tmp_path / "results",
+        now=datetime(2026, 6, 21, 12, 34, 56, 123457),
+    )
+
+    assert first.name == "benchmark_20260621_123456_123456.csv"
+    assert second.name == "benchmark_20260621_123456_123457.csv"
+    assert first != second
+
+
+def test_benchmark_output_path_preserves_explicit_csv_path(tmp_path):
+    output = tmp_path / "custom.csv"
+
+    assert benchmark.benchmark_output_path(output) == output
 
 
 def test_run_benchmark_writes_dsda_and_rbfopt_rows_with_shared_lhc(tmp_path):
