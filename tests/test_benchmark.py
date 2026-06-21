@@ -320,6 +320,36 @@ def test_sampling_rbfopt_does_not_validate_coin_bin(monkeypatch, tmp_path):
     assert captured["settings"]["nlp_solver_path"] == ""
 
 
+def test_real_rbfopt_sampling_smoke(monkeypatch, tmp_path):
+    monkeypatch.setenv("COIN_BIN", str(tmp_path / "missing_coin"))
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    csv_path = grids_dir / "tiny.csv"
+    _write_tiny_grid(csv_path)
+    _, grid = benchmark.load_grid_csv(csv_path)
+    lower_bounds, upper_bounds = benchmark.grid_bounds(grid)
+
+    result = benchmark.run_rbfopt_benchmark_case(
+        csv_path=csv_path,
+        grid=grid,
+        lower_bounds=lower_bounds,
+        upper_bounds=upper_bounds,
+        starting_points=[(0, 0), (0, 2), (2, 0)],
+        seed=0,
+        n_starts=3,
+        max_evals=4,
+        target_value=0.0,
+        global_search_method="sampling",
+    )
+
+    assert result["best_value"] == pytest.approx(0.0)
+    assert result["best_point"] == [0, 0]
+    assert result["tracked_evals"] == 4
+    assert result["result_record"]["total_evals"] == 4
+    assert result["minlp_solver_path"] == ""
+    assert result["nlp_solver_path"] == ""
+
+
 def test_main_accepts_cli_arguments_and_returns_output_path(tmp_path):
     grids_dir = tmp_path / "benchmark_grids"
     grids_dir.mkdir()
