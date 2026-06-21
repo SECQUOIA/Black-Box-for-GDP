@@ -157,6 +157,20 @@ def grid_bounds(grid):
     return np.asarray(lower_bounds), np.asarray(upper_bounds)
 
 
+def validate_full_lattice(grid, lower_bounds, upper_bounds, grid_name):
+    """Require every integer point within the grid bounds to be present."""
+    axis_sizes = [
+        int(upper) - int(lower) + 1
+        for lower, upper in zip(lower_bounds, upper_bounds)
+    ]
+    expected_points = math.prod(axis_sizes)
+    if len(grid) != expected_points:
+        raise ValueError(
+            f"Benchmark grid {grid_name} must contain a complete integer lattice; "
+            f"found {len(grid)} points, expected {expected_points} within its bounds"
+        )
+
+
 def make_grid_objective(grid, penalty=PENALTY):
     """Create an RBFOpt-compatible grid objective with an out-of-grid penalty."""
 
@@ -363,6 +377,7 @@ def run_benchmark(
     for csv_path in csv_paths:
         _, grid = load_grid_csv(csv_path)
         lower_bounds, upper_bounds = grid_bounds(grid)
+        validate_full_lattice(grid, lower_bounds, upper_bounds, csv_path.name)
         target_value = min(grid.values())
 
         for seed in seeds:
