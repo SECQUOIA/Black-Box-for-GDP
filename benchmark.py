@@ -174,7 +174,8 @@ def benchmark_output_path(output, now=None):
         return output
 
     now = now or datetime.now()
-    return output / f"benchmark_{now.strftime('%Y%m%d')}.csv"
+    timestamp = now.strftime("%Y%m%d_%H%M%S_%f")
+    return output / f"benchmark_{timestamp}.csv"
 
 
 def discover_grid_paths(grids_dir):
