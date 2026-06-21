@@ -34,6 +34,12 @@ def test_grid_rbfopt_compiles():
     ast.parse(source, filename="grid_rbfopt.py")
 
 
+def test_benchmark_compiles():
+    """benchmark.py must remain valid Python."""
+    source = (ROOT / "benchmark.py").read_text()
+    ast.parse(source, filename="benchmark.py")
+
+
 def test_grid_dsda_import_no_side_effects(capsys):
     """Importing grid_dsda must not print or execute batch code."""
     if "grid_dsda" in sys.modules:
@@ -411,6 +417,26 @@ def test_run_dsda_multi_start_ranking_respects_budget():
     assert result["result_record"]["total_evals"] == 2
     assert len(result["incumbent_trajectory"]) == 2
     assert len(result["objective_wall_times"]) == 2
+
+
+def test_run_dsda_multi_start_reuses_ranked_start_value():
+    from grid_dsda import run_dsda_from_best_starting_points
+
+    csv_path = str(ROOT / "benchmark_grids" / "ackley.csv")
+    result = run_dsda_from_best_starting_points(
+        csv_path=csv_path,
+        starting_points=[(14, 14), (0, 0), (30, 30)],
+        max_points_explored=4,
+        diagonal=True,
+        target_value=0.0,
+        verbose=False,
+    )
+
+    assert result["initial_points_evaluated"] == 3
+    assert result["total_point_evaluations_including_initial_ranking"] == 4
+    assert result["runs"][0]["point_evaluations"] == 1
+    assert result["runs"][0]["points_explored"] == 2
+    assert result["result_record"]["total_evals"] == 4
 
 
 def test_run_dsda_multi_start_run_trajectories_are_local():
