@@ -89,6 +89,21 @@ Custom grid directories must contain complete integer lattices: every `(x, y)`
 coordinate within the grid's minimum and maximum bounds must be present. The
 runner rejects sparse grids before starting the benchmark matrix.
 
+To create the standard benchmark analysis figures and statistics tables from a
+benchmark results CSV:
+
+```bash
+python benchmark_analysis.py \
+    --results-csv results/benchmark_YYYYMMDD_HHMMSS_ffffff.csv \
+    --grids-dir benchmark_grids \
+    --figure-dir results/figures
+```
+
+If `--results-csv` is omitted, `benchmark_analysis.py` uses the newest
+`results/benchmark_*.csv` file. The script writes performance profiles, data
+profiles, comparison plots, and Wilcoxon summary tables under
+`results/figures/`.
+
 For extracted process case studies, run the DSDA and RBFOpt modules directly:
 
 ```bash
@@ -116,6 +131,8 @@ these datasets to document selected case studies and visual results.
   functions.
 - `benchmark.py`: automated DSDA/RBFOpt benchmark runner with shared Latin
   Hypercube initialization and unified CSV output.
+- `benchmark_analysis.py`: reusable analysis and plotting helpers for the
+  benchmark results CSV, plus a CLI for saving figures and statistics tables.
 - `benchmark_grids/`: normalized benchmark grid data and notes about data provenance.
 - `case_study_data/`: completed enumeration CSV data for process case studies,
   grouped by column, CSTR, and small-batch examples.
@@ -146,7 +163,7 @@ python -m pytest tests/ -q
 Run the basic lint checks used by GitHub Actions with:
 
 ```bash
-python -m ruff check benchmark.py grid_dsda.py grid_rbfopt.py case_studies tests scripts
+python -m ruff check benchmark.py benchmark_analysis.py grid_dsda.py grid_rbfopt.py case_studies tests scripts
 ```
 
 ## License
