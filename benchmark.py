@@ -471,7 +471,7 @@ def run_bam_benchmark_case(
                 tracked_objective,
                 x0=best_point,
                 bounds=bounds,
-                integrality=list(range(n_dims)),
+                integrality=[1] * n_dims,
                 options={
                     "max_evals": remaining_evals,
                     "print_to_screen": int(verbose),

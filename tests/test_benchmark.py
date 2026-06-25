@@ -259,7 +259,7 @@ def test_run_benchmark_writes_bam_rows_with_shared_lhc(tmp_path):
         float(grid_objective(point)) for point in expected_starts
     ]
     assert captured["options"]["max_evals"] == 1
-    assert captured["integrality"] == [0, 1]
+    assert captured["integrality"] == [1, 1]
     assert captured["bounds"] == [(0.0, 2.0), (0.0, 2.0)]
     assert results_path.exists()
 
