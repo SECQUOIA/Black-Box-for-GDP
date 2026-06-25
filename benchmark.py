@@ -3,6 +3,7 @@
 import argparse
 import math
 import os
+import shutil
 import sys
 import time
 from contextlib import contextmanager, nullcontext
@@ -145,6 +146,42 @@ def resolve_solver_paths(
     return str(resolved_minlp), str(resolved_nlp)
 
 
+def resolve_required_solver_paths(
+    solver_dir=None,
+    minlp_solver_path="",
+    nlp_solver_path="",
+):
+    """Resolve both executables required by RBFOpt's solver search mode."""
+    minlp_solver_path, nlp_solver_path = resolve_solver_paths(
+        solver_dir=solver_dir,
+        minlp_solver_path=minlp_solver_path,
+        nlp_solver_path=nlp_solver_path,
+    )
+
+    def find_executable(configured_path, command):
+        if configured_path and Path(configured_path).is_file():
+            return str(configured_path)
+        return shutil.which(str(configured_path or command)) or ""
+
+    minlp_solver_path = find_executable(minlp_solver_path, "bonmin")
+    nlp_solver_path = find_executable(nlp_solver_path, "ipopt")
+
+    missing = []
+    if not minlp_solver_path:
+        missing.append("BONMIN")
+    if not nlp_solver_path:
+        missing.append("IPOPT")
+    if missing:
+        missing_text = " and ".join(missing)
+        raise FileNotFoundError(
+            f"RBFOpt solver mode requires {missing_text}. Set COIN_BIN, pass "
+            "--solver-dir or explicit solver paths, ensure the executables are "
+            "on PATH, or choose a solver-free --global-search-method."
+        )
+
+    return minlp_solver_path, nlp_solver_path
+
+
 def grid_bounds(grid):
     """Derive integer lower and upper bounds from a grid mapping."""
     if not grid:
@@ -158,6 +195,20 @@ def grid_bounds(grid):
         lower_bounds.append(min(coordinates))
         upper_bounds.append(max(coordinates))
     return np.asarray(lower_bounds), np.asarray(upper_bounds)
+
+
+def validate_full_lattice(grid, lower_bounds, upper_bounds, grid_name):
+    """Require every integer point within the grid bounds to be present."""
+    axis_sizes = [
+        int(upper) - int(lower) + 1
+        for lower, upper in zip(lower_bounds, upper_bounds)
+    ]
+    expected_points = math.prod(axis_sizes)
+    if len(grid) != expected_points:
+        raise ValueError(
+            f"Benchmark grid {grid_name} must contain a complete integer lattice; "
+            f"found {len(grid)} points, expected {expected_points} within its bounds"
+        )
 
 
 def make_grid_objective(grid, penalty=PENALTY):
@@ -177,7 +228,8 @@ def benchmark_output_path(output, now=None):
         return output
 
     now = now or datetime.now()
-    return output / f"benchmark_{now.strftime('%Y%m%d')}.csv"
+    timestamp = now.strftime("%Y%m%d_%H%M%S_%f")
+    return output / f"benchmark_{timestamp}.csv"
 
 
 def discover_grid_paths(grids_dir):
@@ -254,7 +306,13 @@ def run_rbfopt_benchmark_case(
         or bool(nlp_solver_path)
         or (solver_dir is not None and str(solver_dir).strip() != "")
     )
-    if global_search_method == "solver" or explicit_solver_config:
+    if global_search_method == "solver":
+        minlp_solver_path, nlp_solver_path = resolve_required_solver_paths(
+            solver_dir=solver_dir,
+            minlp_solver_path=minlp_solver_path,
+            nlp_solver_path=nlp_solver_path,
+        )
+    elif explicit_solver_config:
         minlp_solver_path, nlp_solver_path = resolve_solver_paths(
             solver_dir=solver_dir,
             minlp_solver_path=minlp_solver_path,
@@ -502,6 +560,7 @@ def run_benchmark(
     for csv_path in csv_paths:
         _, grid = load_grid_csv(csv_path)
         lower_bounds, upper_bounds = grid_bounds(grid)
+        validate_full_lattice(grid, lower_bounds, upper_bounds, csv_path.name)
         target_value = min(grid.values())
 
         for seed in seeds:

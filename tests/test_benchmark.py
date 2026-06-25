@@ -1,6 +1,7 @@
 """Tests for the automated benchmark runner."""
 
 import csv
+from datetime import datetime
 from types import SimpleNamespace
 
 import numpy as np
@@ -22,6 +23,15 @@ def _write_tiny_grid(path):
         "2,0,2.0\n"
         "2,1,3.0\n"
         "2,2,4.0\n"
+    )
+
+
+def _write_sparse_grid(path):
+    path.write_text(
+        "x,y,z_norm\n"
+        "0,0,0.0\n"
+        "0,1,1.0\n"
+        "1,0,1.0\n"
     )
 
 
@@ -127,6 +137,27 @@ def test_parse_methods_normalizes_and_validates():
 
     with pytest.raises(Exception, match="Unsupported method"):
         benchmark.parse_methods("dsda,unknown")
+
+
+def test_benchmark_output_path_uses_unique_timestamp_for_directory(tmp_path):
+    first = benchmark.benchmark_output_path(
+        tmp_path / "results",
+        now=datetime(2026, 6, 21, 12, 34, 56, 123456),
+    )
+    second = benchmark.benchmark_output_path(
+        tmp_path / "results",
+        now=datetime(2026, 6, 21, 12, 34, 56, 123457),
+    )
+
+    assert first.name == "benchmark_20260621_123456_123456.csv"
+    assert second.name == "benchmark_20260621_123456_123457.csv"
+    assert first != second
+
+
+def test_benchmark_output_path_preserves_explicit_csv_path(tmp_path):
+    output = tmp_path / "custom.csv"
+
+    assert benchmark.benchmark_output_path(output) == output
 
 
 def test_run_benchmark_writes_dsda_and_rbfopt_rows_with_shared_lhc(tmp_path):
@@ -279,6 +310,28 @@ def test_run_benchmark_rejects_budget_smaller_than_initial_design(tmp_path):
         )
 
 
+def test_run_benchmark_rejects_sparse_grid(tmp_path):
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    _write_sparse_grid(grids_dir / "sparse.csv")
+
+    with pytest.raises(
+        ValueError,
+        match=(
+            r"Benchmark grid sparse\.csv must contain a complete integer lattice; "
+            r"found 3 points, expected 4"
+        ),
+    ):
+        benchmark.run_benchmark(
+            methods=("dsda",),
+            seeds=[0],
+            n_starts=1,
+            max_evals=[1],
+            grids_dir=grids_dir,
+            output=tmp_path / "benchmark.csv",
+        )
+
+
 def test_resolve_solver_paths_empty_solver_dir_ignores_coin_bin(monkeypatch, tmp_path):
     monkeypatch.setenv("COIN_BIN", str(tmp_path / "missing_coin"))
 
@@ -286,6 +339,75 @@ def test_resolve_solver_paths_empty_solver_dir_ignores_coin_bin(monkeypatch, tmp
 
     assert minlp_solver_path == ""
     assert nlp_solver_path == ""
+
+
+def test_solver_rbfopt_fails_early_without_required_executables(monkeypatch, tmp_path):
+    monkeypatch.delenv("COIN_BIN", raising=False)
+    monkeypatch.setattr(benchmark.shutil, "which", lambda _name: None)
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    csv_path = grids_dir / "tiny.csv"
+    _write_tiny_grid(csv_path)
+    _, grid = benchmark.load_grid_csv(csv_path)
+    lower_bounds, upper_bounds = benchmark.grid_bounds(grid)
+    captured = {}
+
+    with pytest.raises(
+        FileNotFoundError,
+        match=r"RBFOpt solver mode requires BONMIN and IPOPT",
+    ):
+        benchmark.run_rbfopt_benchmark_case(
+            csv_path=csv_path,
+            grid=grid,
+            lower_bounds=lower_bounds,
+            upper_bounds=upper_bounds,
+            starting_points=[(0, 0), (1, 1)],
+            seed=0,
+            n_starts=2,
+            max_evals=2,
+            target_value=0.0,
+            rbfopt_module=_fake_rbfopt(captured),
+        )
+
+    assert "settings" not in captured
+
+
+def test_solver_rbfopt_resolves_required_executables_from_path(monkeypatch, tmp_path):
+    monkeypatch.delenv("COIN_BIN", raising=False)
+    solver_dir = tmp_path / "bin"
+    solver_dir.mkdir()
+    (solver_dir / "bonmin").touch()
+    (solver_dir / "ipopt").touch()
+    solver_paths = {
+        "bonmin": str(solver_dir / "bonmin"),
+        "ipopt": str(solver_dir / "ipopt"),
+    }
+    monkeypatch.setattr(benchmark.shutil, "which", solver_paths.get)
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    csv_path = grids_dir / "tiny.csv"
+    _write_tiny_grid(csv_path)
+    _, grid = benchmark.load_grid_csv(csv_path)
+    lower_bounds, upper_bounds = benchmark.grid_bounds(grid)
+    captured = {}
+
+    result = benchmark.run_rbfopt_benchmark_case(
+        csv_path=csv_path,
+        grid=grid,
+        lower_bounds=lower_bounds,
+        upper_bounds=upper_bounds,
+        starting_points=[(0, 0), (1, 1)],
+        seed=0,
+        n_starts=2,
+        max_evals=2,
+        target_value=0.0,
+        rbfopt_module=_fake_rbfopt(captured),
+    )
+
+    assert result["minlp_solver_path"] == solver_paths["bonmin"]
+    assert result["nlp_solver_path"] == solver_paths["ipopt"]
+    assert captured["settings"]["minlp_solver_path"] == solver_paths["bonmin"]
+    assert captured["settings"]["nlp_solver_path"] == solver_paths["ipopt"]
 
 
 def test_sampling_rbfopt_does_not_validate_coin_bin(monkeypatch, tmp_path):
@@ -316,6 +438,36 @@ def test_sampling_rbfopt_does_not_validate_coin_bin(monkeypatch, tmp_path):
     assert result["nlp_solver_path"] == ""
     assert captured["settings"]["minlp_solver_path"] == ""
     assert captured["settings"]["nlp_solver_path"] == ""
+
+
+def test_real_rbfopt_sampling_smoke(monkeypatch, tmp_path):
+    monkeypatch.setenv("COIN_BIN", str(tmp_path / "missing_coin"))
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    csv_path = grids_dir / "tiny.csv"
+    _write_tiny_grid(csv_path)
+    _, grid = benchmark.load_grid_csv(csv_path)
+    lower_bounds, upper_bounds = benchmark.grid_bounds(grid)
+
+    result = benchmark.run_rbfopt_benchmark_case(
+        csv_path=csv_path,
+        grid=grid,
+        lower_bounds=lower_bounds,
+        upper_bounds=upper_bounds,
+        starting_points=[(0, 0), (0, 2), (2, 0)],
+        seed=0,
+        n_starts=3,
+        max_evals=4,
+        target_value=0.0,
+        global_search_method="sampling",
+    )
+
+    assert result["best_value"] == pytest.approx(0.0)
+    assert result["best_point"] == [0, 0]
+    assert result["tracked_evals"] == 4
+    assert result["result_record"]["total_evals"] == 4
+    assert result["minlp_solver_path"] == ""
+    assert result["nlp_solver_path"] == ""
 
 
 def test_main_accepts_cli_arguments_and_returns_output_path(tmp_path):

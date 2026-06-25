@@ -65,6 +65,11 @@ the `bonmin` executable that Pyomo/RBFOpt expects. Use the conda-forge package
 above, or otherwise provide a solver binary directory containing both
 executables and pass it to `benchmark.py` with `--solver-dir`.
 
+If `COIN_BIN` is unset, `benchmark.py` also checks `PATH`. Solver mode fails
+before starting the benchmark when BONMIN or IPOPT cannot be found; pass
+`--solver-dir`, pass explicit solver paths, or configure RBFOpt to use a
+solver-free global search method.
+
 ## Solver Setup for BAM Runs
 
 BAM support is optional. Install the BAM Python wrapper when you want to include
@@ -121,9 +126,13 @@ python benchmark.py \
 ```
 
 The benchmark runner writes a unified CSV such as
-`results/benchmark_YYYYMMDD.csv`. Each `--max-evals` value must be at least
-`--n-starts` because all shared initial LHC points count toward the evaluation
-budget.
+`results/benchmark_YYYYMMDD_HHMMSS_ffffff.csv`. Each `--max-evals` value must
+be at least `--n-starts` because all shared initial LHC points count toward the
+evaluation budget.
+
+Custom grid directories must contain complete integer lattices: every `(x, y)`
+coordinate within the grid's minimum and maximum bounds must be present. The
+runner rejects sparse grids before starting the benchmark matrix.
 
 To include BAM in the same benchmark matrix:
 
