@@ -120,6 +120,7 @@ def run_dynamic_rbfopt(
         algorithm=algorithm,
         rbf=rbf,
         global_search_method=global_search_method,
+        rand_seed=seed,
     )
     algorithm_instance = rbfopt_module.RbfoptAlgorithm(
         settings,
