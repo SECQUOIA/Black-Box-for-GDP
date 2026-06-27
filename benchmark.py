@@ -4,14 +4,14 @@ import argparse
 import math
 import os
 import shutil
-import sys
 import time
-from contextlib import contextmanager, nullcontext
+from contextlib import nullcontext
 from datetime import datetime
 from pathlib import Path
 
 import numpy as np
 
+from case_studies.bam_common import run_bam_with_initial_design, suppress_solver_output
 from case_studies.common import generate_lhc_starting_points
 from grid_dsda import load_grid_csv, run_dsda_from_best_starting_points
 from instrumentation import TrackedObjective, make_result_record, save_results_csv
@@ -272,6 +272,9 @@ def run_dsda_benchmark_case(
             "found_optimum": math.isclose(
                 record["best_value"], target_value, abs_tol=1e-12, rel_tol=0.0
             ),
+            "initial_evals": result["initial_points_evaluated"],
+            "adaptive_evals": result["total_point_evaluations_across_runs"],
+            "unique_evals": result["total_unique_points_explored_across_runs"],
         }
     )
     result["result_record"] = record
@@ -369,6 +372,11 @@ def run_rbfopt_benchmark_case(
             best_value, target_value, abs_tol=1e-12, rel_tol=0.0
         ),
         incumbent_trajectory=tracked_objective.incumbent_trajectory,
+        initial_evals=len(starting_points),
+        adaptive_evals=max(0, tracked_objective.call_count - len(starting_points)),
+        unique_evals=tracked_objective.unique_evaluation_count,
+        solver_evalcount=evalcount,
+        solver_iterations=itercount,
     )
     return {
         "csv_name": Path(csv_path).name,
@@ -388,41 +396,6 @@ def run_rbfopt_benchmark_case(
     }
 
 
-def configure_bam_license(bam_module, bam_license_file=None):
-    """Configure a BAM license file when the caller supplies one."""
-    if not bam_license_file:
-        return ""
-
-    license_path = str(Path(bam_license_file).expanduser())
-    bam_module.set_license_file(license_path)
-    return license_path
-
-
-@contextmanager
-def suppress_solver_output():
-    """Suppress native solver banners and iteration logs."""
-    sys.stdout.flush()
-    sys.stderr.flush()
-    stdout_fd = sys.stdout.fileno()
-    stderr_fd = sys.stderr.fileno()
-    saved_stdout_fd = os.dup(stdout_fd)
-    saved_stderr_fd = os.dup(stderr_fd)
-    devnull_fd = os.open(os.devnull, os.O_WRONLY)
-
-    try:
-        os.dup2(devnull_fd, stdout_fd)
-        os.dup2(devnull_fd, stderr_fd)
-        yield
-    finally:
-        sys.stdout.flush()
-        sys.stderr.flush()
-        os.dup2(saved_stdout_fd, stdout_fd)
-        os.dup2(saved_stderr_fd, stderr_fd)
-        os.close(saved_stdout_fd)
-        os.close(saved_stderr_fd)
-        os.close(devnull_fd)
-
-
 def run_bam_benchmark_case(
     csv_path,
     grid,
@@ -438,85 +411,40 @@ def run_bam_benchmark_case(
     verbose=False,
 ):
     """Run one BAM benchmark case and return its unified result record."""
-    if bam_module is None:
-        import bam as bam_module
-
-    configured_license_file = configure_bam_license(
-        bam_module,
+    result = run_bam_with_initial_design(
+        objective=make_grid_objective(grid),
+        lower_bounds=lower_bounds,
+        upper_bounds=upper_bounds,
+        starting_points=starting_points,
+        max_evaluations=max_evals,
         bam_license_file=bam_license_file,
+        bam_module=bam_module,
+        verbose=verbose,
     )
-    n_dims = len(lower_bounds)
-    bounds = [
-        (float(lower_bound), float(upper_bound))
-        for lower_bound, upper_bound in zip(lower_bounds, upper_bounds)
-    ]
-    init_node_pos = np.asarray(starting_points, dtype=float)
-    tracked_objective = TrackedObjective(make_grid_objective(grid))
-    start_time = time.perf_counter()
-    init_node_val = np.asarray(
-        [tracked_objective(point) for point in init_node_pos],
-        dtype=float,
-    )
-
-    best_index = int(np.argmin(init_node_val))
-    best_value = float(init_node_val[best_index])
-    best_point = init_node_pos[best_index]
-    remaining_evals = max_evals - len(init_node_pos)
-    bam_result = None
-
-    if remaining_evals > 0:
-        output_context = nullcontext() if verbose else suppress_solver_output()
-        with output_context:
-            bam_result = bam_module.minimize(
-                tracked_objective,
-                x0=best_point,
-                bounds=bounds,
-                integrality=[1] * n_dims,
-                options={
-                    "max_evals": remaining_evals,
-                    "print_to_screen": int(verbose),
-                },
-                x_evaluated=init_node_pos,
-                f_evaluated=init_node_val,
-            )
-        best_value = float(bam_result.fun)
-        best_point = np.asarray(bam_result.x, dtype=float)
-
-    wall_time_s = time.perf_counter() - start_time
-    best_point_rounded = [int(round(value)) for value in best_point]
-
     result_record = make_result_record(
         csv_name=Path(csv_path).name,
         method="BAM",
         seed=seed,
         n_starts=n_starts,
         max_evals=max_evals,
-        best_value=best_value,
-        best_point=best_point_rounded,
-        total_evals=tracked_objective.call_count,
-        wall_time_s=wall_time_s,
+        best_value=result["best_value"],
+        best_point=result["best_point"],
+        total_evals=result["tracked_evals"],
+        wall_time_s=result["wall_time_s"],
         found_optimum=math.isclose(
-            best_value, target_value, abs_tol=1e-12, rel_tol=0.0
+            result["best_value"], target_value, abs_tol=1e-12, rel_tol=0.0
         ),
-        incumbent_trajectory=tracked_objective.incumbent_trajectory,
+        incumbent_trajectory=result["incumbent_trajectory"],
+        initial_evals=result["initial_evals"],
+        adaptive_evals=result["adaptive_evals"],
+        unique_evals=result["unique_evals"],
+        solver_evalcount=result["evalcount"],
+        solver_iterations=result["iterations"],
+        solver_status=result["status"],
+        solver_message=result["message"],
     )
-    return {
-        "csv_name": Path(csv_path).name,
-        "starting_points": starting_points,
-        "best_value": best_value,
-        "best_point": best_point_rounded,
-        "evalcount": getattr(bam_result, "nfev", tracked_objective.call_count),
-        "iterations": getattr(bam_result, "nit", 0),
-        "status": getattr(bam_result, "status", None),
-        "message": getattr(bam_result, "message", ""),
-        "tracked_evals": tracked_objective.call_count,
-        "wall_time_s": wall_time_s,
-        "incumbent_trajectory": tracked_objective.incumbent_trajectory,
-        "objective_wall_times": tracked_objective.wall_times,
-        "bam_license_file": configured_license_file,
-        "result": bam_result,
-        "result_record": result_record,
-    }
+    result.update({"csv_name": Path(csv_path).name, "result_record": result_record})
+    return result
 
 
 def run_benchmark(

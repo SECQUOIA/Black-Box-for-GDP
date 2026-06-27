@@ -213,6 +213,13 @@ def main():
                             best_val, 0.0, abs_tol=1e-12, rel_tol=0.0
                         ),
                         incumbent_trajectory=tracked_obj_fn.incumbent_trajectory,
+                        initial_evals=len(starting_points),
+                        adaptive_evals=max(
+                            0, tracked_obj_fn.call_count - len(starting_points)
+                        ),
+                        unique_evals=tracked_obj_fn.unique_evaluation_count,
+                        solver_evalcount=evalcount,
+                        solver_iterations=itercount,
                     )
                     result_records.append(result_record)
 

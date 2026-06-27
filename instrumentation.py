@@ -25,6 +25,13 @@ RESULT_FIELDS = (
     "wall_time_s",
     "found_optimum",
     "incumbent_trajectory",
+    "initial_evals",
+    "adaptive_evals",
+    "unique_evals",
+    "solver_evalcount",
+    "solver_iterations",
+    "solver_status",
+    "solver_message",
 )
 
 
@@ -54,6 +61,7 @@ class TrackedObjective:
         self._incumbent = None
         self._incumbent_trajectory = []
         self._wall_times = []
+        self._evaluation_points = []
 
     def __call__(self, *args, **kwargs):
         start_time = self._timer()
@@ -61,6 +69,7 @@ class TrackedObjective:
         elapsed = self._timer() - start_time
 
         self._call_count += 1
+        self._evaluation_points.append(_freeze_point(args[0]) if args else None)
         self._wall_times.append(elapsed)
         self._update_incumbent(value)
         self._incumbent_trajectory.append(self._incumbent)
@@ -81,6 +90,16 @@ class TrackedObjective:
     def wall_times(self):
         """Per-call wall times in seconds."""
         return list(self._wall_times)
+
+    @property
+    def evaluation_points(self):
+        """Point argument recorded for each objective call, when available."""
+        return list(self._evaluation_points)
+
+    @property
+    def unique_evaluation_count(self):
+        """Number of distinct point arguments recorded by this wrapper."""
+        return len({point for point in self._evaluation_points if point is not None})
 
     @property
     def incumbent(self):
@@ -113,6 +132,13 @@ def make_result_record(
     wall_time_s,
     found_optimum,
     incumbent_trajectory,
+    initial_evals=None,
+    adaptive_evals=None,
+    unique_evals=None,
+    solver_evalcount=None,
+    solver_iterations=None,
+    solver_status=None,
+    solver_message="",
 ):
     """Build a unified benchmark result record."""
     return {
@@ -127,6 +153,13 @@ def make_result_record(
         "wall_time_s": wall_time_s,
         "found_optimum": found_optimum,
         "incumbent_trajectory": incumbent_trajectory,
+        "initial_evals": initial_evals,
+        "adaptive_evals": adaptive_evals,
+        "unique_evals": unique_evals,
+        "solver_evalcount": solver_evalcount,
+        "solver_iterations": solver_iterations,
+        "solver_status": solver_status,
+        "solver_message": solver_message,
     }
 
 
@@ -170,3 +203,15 @@ def _serialize_for_csv(value):
     if isinstance(value, (dict, list, tuple)):
         return json.dumps(value)
     return value
+
+
+def _freeze_point(point):
+    if isinstance(point, (str, bytes)):
+        return point
+    try:
+        return tuple(float(value) for value in point)
+    except (TypeError, ValueError):
+        try:
+            return float(point)
+        except (TypeError, ValueError):
+            return repr(point)

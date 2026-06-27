@@ -91,15 +91,13 @@ def _fake_bam(captured):
         bounds=None,
         integrality=None,
         options=None,
-        x_evaluated=None,
-        f_evaluated=None,
     ):
-        captured["x0"] = np.asarray(x0, dtype=float)
+        captured["x0"] = x0
         captured["bounds"] = bounds
         captured["integrality"] = integrality
         captured["options"] = options
-        captured["x_evaluated"] = np.asarray(x_evaluated, dtype=float)
-        captured["f_evaluated"] = np.asarray(f_evaluated, dtype=float)
+        captured["x_evaluated"] = np.asarray(options["x_evaluated"], dtype=float)
+        captured["f_evaluated"] = np.asarray(options["f_evaluated"], dtype=float)
 
         candidate = np.asarray([0.0, 0.0])
         candidate_value = objective(candidate)
@@ -249,7 +247,11 @@ def test_run_benchmark_writes_bam_rows_with_shared_lhc(tmp_path):
     assert len(result_records) == 1
     assert result_records[0]["method"] == "BAM"
     assert result_records[0]["total_evals"] == 3
+    assert result_records[0]["initial_evals"] == 2
+    assert result_records[0]["adaptive_evals"] == 1
+    assert result_records[0]["solver_evalcount"] == 1
     assert captured["license_file"] == str(tmp_path / "bamlice.txt")
+    assert captured["x0"] is None
     assert captured["x_evaluated"].tolist() == [
         [float(value) for value in point] for point in expected_starts
     ]
@@ -290,6 +292,9 @@ def test_bam_budget_equal_to_initial_design_skips_solver_call(tmp_path):
     assert result["best_point"] == [0, 1]
     assert result["best_value"] == 1.0
     assert result["tracked_evals"] == 2
+    assert result["evalcount"] == 0
+    assert result["result_record"]["initial_evals"] == 2
+    assert result["result_record"]["adaptive_evals"] == 0
 
 
 def test_run_benchmark_rejects_budget_smaller_than_initial_design(tmp_path):
