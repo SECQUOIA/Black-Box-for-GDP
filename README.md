@@ -73,7 +73,7 @@ solver-free global search method.
 ## Solver Setup for BAM Runs
 
 BAM support is optional. Install the BAM Python wrapper when you want to include
-BAM in benchmark comparisons:
+BAM as a separate optimizer in benchmark comparisons:
 
 ```bash
 python -m pip install -e ".[test,lint,bam]"
@@ -88,7 +88,8 @@ export BAM_LICENSE_FILE="/home/bernalde/packages/bamlice.txt"
 ```
 
 You can also pass the license path directly to the benchmark runner with
-`--bam-license-file`.
+`--bam-license-file`. BAM is run as a sibling benchmark method beside DSDA and
+RBFOpt; this repository does not call BAM from inside RBFOpt.
 
 ## Usage Examples
 
@@ -128,7 +129,11 @@ python benchmark.py \
 The benchmark runner writes a unified CSV such as
 `results/benchmark_YYYYMMDD_HHMMSS_ffffff.csv`. Each `--max-evals` value must
 be at least `--n-starts` because all shared initial LHC points count toward the
-evaluation budget.
+evaluation budget. BAM receives the same pre-evaluated LHC design through its
+warm-start data and then spends only the remaining budget on adaptive
+evaluations. The CSV includes audit columns for initial evaluations, adaptive
+evaluations, unique evaluated points, and solver metadata such as evaluation
+count, status, and message when the solver exposes them.
 
 Custom grid directories must contain complete integer lattices: every `(x, y)`
 coordinate within the grid's minimum and maximum bounds must be present. The
@@ -154,11 +159,21 @@ python -m case_studies.column_dsda --seed 1 --n-starts 3 --max-evaluations 16
 python -m case_studies.column_rbfopt --seed 1 --n-starts 3 --max-evaluations 16
 ```
 
+The column, CSTR, and small-batch case studies also provide BAM runners with
+the same shared LHC initialization pattern:
+
+```bash
+python -m case_studies.column_bam --seed 1 --n-starts 3 --max-evaluations 16
+python -m case_studies.cstr_bam --grid-size 7 --seed 0 --n-starts 3 --max-evaluations 10
+python -m case_studies.small_batch_bam --seed 0 --n-starts 3 --max-evaluations 10
+```
+
 The case-study RBFOpt runners accept the same solver configuration pattern as
 `grid_rbfopt.py`. Set `COIN_BIN` or pass `--solver-dir` to a directory
 containing `bonmin` and `ipopt`; for examples that use sampling, such as the
 small-batch runner, solver paths can be omitted unless you switch the global
-search method back to a solver-backed mode.
+search method back to a solver-backed mode. Case-study BAM runners accept
+`--bam-license-file` and default to `BAM_LICENSE_FILE` when it is set.
 
 ## Benchmark Overview
 
@@ -172,8 +187,9 @@ these datasets to document selected case studies and visual results.
 - `grid_dsda.py`: DSDA-style search utilities for precomputed CSV grids.
 - `grid_rbfopt.py`: RBFOpt wrapper utilities for grid-based objective
   functions.
-- `benchmark.py`: automated DSDA/RBFOpt/BAM benchmark runner with shared Latin
-  Hypercube initialization and unified CSV output.
+- `benchmark.py`: automated benchmark runner with DSDA, RBFOpt, and BAM as
+  separate methods using shared Latin Hypercube initialization and unified CSV
+  output.
 - `benchmark_grids/`: normalized benchmark grid data and notes about data provenance.
 - `case_study_data/`: completed enumeration CSV data for process case studies,
   grouped by column, CSTR, and small-batch examples.
