@@ -55,7 +55,6 @@ def run_bam_with_initial_design(
     max_evaluations,
     bam_license_file=None,
     bam_module=None,
-    nonfinite_penalty=1e12,
     verbose=False,
 ):
     """Run BAM from pre-evaluated initial points and return raw telemetry."""
@@ -82,20 +81,15 @@ def run_bam_with_initial_design(
         (float(lower_bound), float(upper_bound))
         for lower_bound, upper_bound in zip(lower_bounds, upper_bounds)
     ]
-    def finite_objective(point):
-        value = float(objective(point))
-        if nonfinite_penalty is not None and not math.isfinite(value):
-            return float(nonfinite_penalty)
-        return value
-
-    tracked_objective = TrackedObjective(finite_objective)
+    tracked_objective = TrackedObjective(objective)
     start_time = time.perf_counter()
     init_node_val = np.asarray(
         [tracked_objective(point) for point in init_node_pos],
         dtype=float,
     )
 
-    best_index = int(np.argmin(init_node_val))
+    ranking_values = np.where(np.isfinite(init_node_val), init_node_val, np.inf)
+    best_index = int(np.argmin(ranking_values))
     best_value = float(init_node_val[best_index])
     best_point = init_node_pos[best_index]
     remaining_evals = (
@@ -146,3 +140,13 @@ def run_bam_with_initial_design(
         "bam_license_file": configured_license_file,
         "result": bam_result,
     }
+
+
+def make_nan_infeasible_objective(feasible_objectives):
+    """Return objective values from a feasible map and NaN for infeasible points."""
+
+    def objective(point):
+        lattice_point = tuple(int(round(value)) for value in point)
+        return feasible_objectives.get(lattice_point, math.nan)
+
+    return objective

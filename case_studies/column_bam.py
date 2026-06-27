@@ -7,15 +7,15 @@ from pathlib import Path
 
 from instrumentation import make_result_record, save_results_csv
 
-from .bam_common import run_bam_with_initial_design
+from .bam_common import make_nan_infeasible_objective, run_bam_with_initial_design
 from .column_case import (
+    COLUMN_FEASIBLE_OBJECTIVES,
     COLUMN_CSV_NAME,
     DEFAULT_MAX_EVALUATIONS,
     KNOWN_BEST_POINT,
     KNOWN_BEST_VALUE,
     LOWER_BOUNDS,
     UPPER_BOUNDS,
-    column_objective,
 )
 from .column_rbfopt import DEFAULT_SEED
 from .common import generate_lhc_starting_points
@@ -38,7 +38,7 @@ def run_column_bam(
         seed=seed,
     )
     result = run_bam_with_initial_design(
-        objective=column_objective,
+        objective=make_nan_infeasible_objective(COLUMN_FEASIBLE_OBJECTIVES),
         lower_bounds=LOWER_BOUNDS,
         upper_bounds=UPPER_BOUNDS,
         starting_points=starting_points,

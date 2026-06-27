@@ -7,13 +7,12 @@ from pathlib import Path
 
 from instrumentation import make_result_record, save_results_csv
 
-from .bam_common import run_bam_with_initial_design
+from .bam_common import make_nan_infeasible_objective, run_bam_with_initial_design
 from .common import generate_lhc_starting_points
 from .cstr_case import (
     DEFAULT_GRID_SIZE,
     DEFAULT_MAX_EVALUATIONS,
     LOWER_BOUNDS,
-    cstr_objective,
     load_cstr_case_data,
 )
 from .cstr_rbfopt import DEFAULT_SEED
@@ -43,11 +42,7 @@ def run_cstr_bam(
         seed=seed,
     )
     result = run_bam_with_initial_design(
-        objective=lambda point: cstr_objective(
-            point,
-            grid_size=grid_size,
-            feasible_objectives=feasible_objectives,
-        ),
+        objective=make_nan_infeasible_objective(feasible_objectives),
         lower_bounds=LOWER_BOUNDS,
         upper_bounds=upper_bounds,
         starting_points=starting_points,

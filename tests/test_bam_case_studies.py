@@ -1,5 +1,6 @@
 """Tests for BAM case-study runners."""
 
+import math
 from types import SimpleNamespace
 
 import numpy as np
@@ -29,6 +30,7 @@ def _fake_bam(captured, candidate):
 
         candidate_point = np.asarray(candidate, dtype=float)
         candidate_value = objective(candidate_point)
+        captured["candidate_value"] = candidate_value
         best_index = int(np.argmin(captured["f_evaluated"]))
         best_value = float(captured["f_evaluated"][best_index])
         best_point = captured["x_evaluated"][best_index]
@@ -56,7 +58,7 @@ def test_run_column_bam_uses_shared_lhc_as_warm_start(tmp_path):
         n_starts=3,
         max_evaluations=16,
         bam_license_file=tmp_path / "bamlice.txt",
-        bam_module=_fake_bam(captured, candidate=(15, 9)),
+        bam_module=_fake_bam(captured, candidate=(7, 1)),
     )
 
     assert result["starting_points"] == [(14, 4), (12, 1), (9, 8)]
@@ -77,6 +79,7 @@ def test_run_column_bam_uses_shared_lhc_as_warm_start(tmp_path):
     assert result["result_record"]["csv_name"] == "compl_enum_column_17_baron.csv"
     assert result["result_record"]["solver_evalcount"] == 13
     assert result["result_record"]["solver_status"] == 35
+    assert math.isnan(captured["candidate_value"])
 
 
 def test_run_cstr_bam_uses_case_grid_bounds_and_metadata():
@@ -87,7 +90,7 @@ def test_run_cstr_bam_uses_case_grid_bounds_and_metadata():
         seed=0,
         n_starts=3,
         max_evaluations=10,
-        bam_module=_fake_bam(captured, candidate=(1, 1)),
+        bam_module=_fake_bam(captured, candidate=(1, 2)),
     )
 
     assert result["starting_points"] == [(2, 2), (7, 7), (3, 3)]
@@ -100,6 +103,7 @@ def test_run_cstr_bam_uses_case_grid_bounds_and_metadata():
     assert result["result_record"]["initial_evals"] == 3
     assert result["result_record"]["adaptive_evals"] == 1
     assert result["result_record"]["unique_evals"] == 4
+    assert math.isnan(captured["candidate_value"])
 
 
 def test_run_small_batch_bam_uses_three_integer_variables():

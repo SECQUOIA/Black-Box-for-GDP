@@ -7,7 +7,7 @@ from pathlib import Path
 
 from instrumentation import make_result_record, save_results_csv
 
-from .bam_common import run_bam_with_initial_design
+from .bam_common import make_nan_infeasible_objective, run_bam_with_initial_design
 from .common import generate_lhc_starting_points
 from .small_batch_case import (
     DEFAULT_MAX_EVALUATIONS,
@@ -17,7 +17,6 @@ from .small_batch_case import (
     SMALL_BATCH_CSV_NAME,
     SMALL_BATCH_FEASIBLE_OBJECTIVES,
     UPPER_BOUNDS,
-    small_batch_objective,
 )
 from .small_batch_rbfopt import DEFAULT_SEED
 
@@ -39,10 +38,7 @@ def run_small_batch_bam(
         seed=seed,
     )
     result = run_bam_with_initial_design(
-        objective=lambda point: small_batch_objective(
-            point,
-            feasible_objectives=SMALL_BATCH_FEASIBLE_OBJECTIVES,
-        ),
+        objective=make_nan_infeasible_objective(SMALL_BATCH_FEASIBLE_OBJECTIVES),
         lower_bounds=LOWER_BOUNDS,
         upper_bounds=UPPER_BOUNDS,
         starting_points=starting_points,
