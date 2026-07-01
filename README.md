@@ -159,13 +159,14 @@ python -m case_studies.column_dsda --seed 1 --n-starts 3 --max-evaluations 16
 python -m case_studies.column_rbfopt --seed 1 --n-starts 3 --max-evaluations 16
 ```
 
-The column, CSTR, and small-batch case studies also provide BAM runners with
-the same shared LHC initialization pattern:
+The column, CSTR, small-batch, and dynamic case studies also provide BAM
+runners with the same shared LHC initialization pattern:
 
 ```bash
 python -m case_studies.column_bam --seed 1 --n-starts 3 --max-evaluations 16
 python -m case_studies.cstr_bam --grid-size 7 --seed 0 --n-starts 3 --max-evaluations 10
 python -m case_studies.small_batch_bam --seed 0 --n-starts 3 --max-evaluations 10
+python -m case_studies.dynamic_bam --seed 0 --n-starts 3 --max-evaluations 12
 ```
 
 The case-study RBFOpt runners accept the same solver configuration pattern as

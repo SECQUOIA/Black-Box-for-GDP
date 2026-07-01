@@ -7,6 +7,7 @@ import numpy as np
 
 from case_studies.column_bam import run_column_bam
 from case_studies.cstr_bam import run_cstr_bam
+from case_studies.dynamic_bam import run_dynamic_bam
 from case_studies.small_batch_bam import run_small_batch_bam
 
 
@@ -129,3 +130,33 @@ def test_run_small_batch_bam_uses_three_integer_variables():
     assert result["case_name"] == "small_batch"
     assert result["result_record"]["method"] == "BAM"
     assert result["result_record"]["solver_message"] == "fake BAM budget reached"
+
+
+def test_run_dynamic_bam_uses_dynamic_case_bounds_and_metadata():
+    captured = {}
+
+    result = run_dynamic_bam(
+        seed=0,
+        n_starts=3,
+        max_evaluations=12,
+        bam_module=_fake_bam(captured, candidate=(1, 4)),
+    )
+
+    assert result["starting_points"] == [(2, 4), (9, 9), (4, 5)]
+    assert captured["x0"] is None
+    assert captured["bounds"] == [(1.0, 9.0), (2.0, 9.0)]
+    assert captured["integrality"] == [1, 1]
+    assert captured["options"]["max_evals"] == 9
+    assert captured["x_evaluated"].tolist() == [
+        [2.0, 4.0],
+        [9.0, 9.0],
+        [4.0, 5.0],
+    ]
+    assert captured["candidate_value"] == -212.00878719112268
+    assert result["case_name"] == "dynamic"
+    assert result["best_point"] == [1, 4]
+    assert result["result_record"]["csv_name"] == "dynamic"
+    assert result["result_record"]["method"] == "BAM"
+    assert result["result_record"]["found_optimum"]
+    assert result["result_record"]["initial_evals"] == 3
+    assert result["result_record"]["adaptive_evals"] == 1
