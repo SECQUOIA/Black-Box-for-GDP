@@ -81,13 +81,56 @@ def _fake_rbfopt(captured):
     )
 
 
+def _fake_bam(captured):
+    def set_license_file(path):
+        captured["license_file"] = path
+
+    def minimize(
+        objective,
+        x0,
+        bounds=None,
+        integrality=None,
+        options=None,
+    ):
+        captured["x0"] = x0
+        captured["bounds"] = bounds
+        captured["integrality"] = integrality
+        captured["options"] = options
+        captured["x_evaluated"] = np.asarray(options["x_evaluated"], dtype=float)
+        captured["f_evaluated"] = np.asarray(options["f_evaluated"], dtype=float)
+
+        candidate = np.asarray([0.0, 0.0])
+        candidate_value = objective(candidate)
+        best_index = int(np.argmin(captured["f_evaluated"]))
+        best_value = float(captured["f_evaluated"][best_index])
+        best_point = captured["x_evaluated"][best_index]
+        if candidate_value < best_value:
+            best_value = candidate_value
+            best_point = candidate
+
+        return SimpleNamespace(
+            x=best_point,
+            fun=best_value,
+            nfev=int(options["max_evals"]),
+            nit=1,
+            status=35,
+            message="fake BAM budget reached",
+        )
+
+    return SimpleNamespace(set_license_file=set_license_file, minimize=minimize)
+
+
 def test_parse_int_sequence_accepts_ranges_and_lists():
     assert benchmark.parse_int_sequence("0-2,5") == [0, 1, 2, 5]
     assert benchmark.parse_int_sequence("10,30,50") == [10, 30, 50]
 
 
 def test_parse_methods_normalizes_and_validates():
-    assert benchmark.parse_methods("DSDA,rbfopt") == ("dsda", "rbfopt")
+    assert benchmark.parse_methods("DSDA,rbfopt,BAM") == (
+        "dsda",
+        "rbfopt",
+        "bam",
+    )
     assert benchmark.normalize_methods(("DSDA", "rbfopt")) == ("dsda", "rbfopt")
 
     with pytest.raises(Exception, match="Unsupported method"):
@@ -152,6 +195,7 @@ def test_run_benchmark_writes_dsda_and_rbfopt_rows_with_shared_lhc(tmp_path):
     assert captured["do_init_strategy"] is False
     assert captured["settings"]["max_evaluations"] == 2
     assert captured["settings"]["global_search_method"] == "sampling"
+    assert captured["settings"]["rand_seed"] == 0
 
     for record in result_records:
         assert record["csv_name"] == "tiny.csv"
@@ -170,6 +214,87 @@ def test_run_benchmark_writes_dsda_and_rbfopt_rows_with_shared_lhc(tmp_path):
     assert len(rows) == 2
     assert rows[0]["method"] == "DSDA"
     assert rows[1]["method"] == "RBFOpt"
+
+
+def test_run_benchmark_writes_bam_rows_with_shared_lhc(tmp_path):
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    csv_path = grids_dir / "tiny.csv"
+    _write_tiny_grid(csv_path)
+
+    captured = {}
+    fake_bam = _fake_bam(captured)
+
+    result_records, results_path = benchmark.run_benchmark(
+        methods=("bam",),
+        seeds=[0],
+        n_starts=2,
+        max_evals=[3],
+        grids_dir=grids_dir,
+        output=tmp_path / "results",
+        bam_license_file=tmp_path / "bamlice.txt",
+        bam_module=fake_bam,
+    )
+
+    expected_starts = generate_lhc_starting_points(
+        n_dims=2,
+        n_points=2,
+        lb=np.array([0, 0]),
+        ub=np.array([2, 2]),
+        seed=0,
+    )
+
+    assert len(result_records) == 1
+    assert result_records[0]["method"] == "BAM"
+    assert result_records[0]["total_evals"] == 3
+    assert result_records[0]["initial_evals"] == 2
+    assert result_records[0]["adaptive_evals"] == 1
+    assert result_records[0]["solver_evalcount"] == 1
+    assert captured["license_file"] == str(tmp_path / "bamlice.txt")
+    assert captured["x0"] is None
+    assert captured["x_evaluated"].tolist() == [
+        [float(value) for value in point] for point in expected_starts
+    ]
+    _, grid = benchmark.load_grid_csv(csv_path)
+    grid_objective = benchmark.make_grid_objective(grid)
+    assert captured["f_evaluated"].tolist() == [
+        float(grid_objective(point)) for point in expected_starts
+    ]
+    assert captured["options"]["max_evals"] == 1
+    assert captured["integrality"] == [1, 1]
+    assert captured["bounds"] == [(0.0, 2.0), (0.0, 2.0)]
+    assert results_path.exists()
+
+
+def test_bam_budget_equal_to_initial_design_skips_solver_call(tmp_path):
+    grids_dir = tmp_path / "benchmark_grids"
+    grids_dir.mkdir()
+    csv_path = grids_dir / "tiny.csv"
+    _write_tiny_grid(csv_path)
+    _, grid = benchmark.load_grid_csv(csv_path)
+    lower_bounds, upper_bounds = benchmark.grid_bounds(grid)
+    captured = {}
+
+    result = benchmark.run_bam_benchmark_case(
+        csv_path=csv_path,
+        grid=grid,
+        lower_bounds=lower_bounds,
+        upper_bounds=upper_bounds,
+        starting_points=[(1, 1), (0, 1)],
+        seed=0,
+        n_starts=2,
+        max_evals=2,
+        target_value=0.0,
+        bam_module=_fake_bam(captured),
+    )
+
+    assert "x_evaluated" not in captured
+    assert result["best_point"] == [0, 1]
+    assert result["best_value"] == 1.0
+    assert result["tracked_evals"] == 2
+    assert result["evalcount"] == 0
+    assert result["result_record"]["initial_evals"] == 2
+    assert result["result_record"]["adaptive_evals"] == 0
 
 
 def test_run_benchmark_rejects_budget_smaller_than_initial_design(tmp_path):
