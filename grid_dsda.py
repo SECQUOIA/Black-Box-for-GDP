@@ -252,6 +252,7 @@ def dsda_from_csv(
         return sqrt(sum((a - b) ** 2 for a, b in zip(p1, p2)))
 
     current = start_point
+    used_cached_start_value = start_value is not None
     if start_value is None:
         current_val = evaluate_run_point(current)
     else:
@@ -530,6 +531,13 @@ def dsda_from_csv(
         wall_time_s=wall_time_s,
         found_optimum=None,
         incumbent_trajectory=incumbent_trajectory,
+        initial_evals=0 if used_cached_start_value else 1,
+        adaptive_evals=(
+            run_evaluations()
+            if used_cached_start_value
+            else max(0, run_evaluations() - 1)
+        ),
+        unique_evals=len(unique_explored_points),
     )
     return result
 
@@ -676,6 +684,9 @@ def run_dsda_from_best_starting_points(
             wall_time_s=wall_time_s,
             found_optimum=target_reached(best_value),
             incumbent_trajectory=incumbent_trajectory,
+            initial_evals=initial_points_evaluated,
+            adaptive_evals=total_point_evaluations_across_runs,
+            unique_evals=len(all_unique_points_explored),
         )
         return result
 
@@ -796,6 +807,9 @@ def run_dsda_from_best_starting_points(
         wall_time_s=wall_time_s,
         found_optimum=target_reached(best_value),
         incumbent_trajectory=incumbent_trajectory,
+        initial_evals=initial_points_evaluated,
+        adaptive_evals=total_point_evaluations_across_runs,
+        unique_evals=len(all_unique_points_explored),
     )
     return result
 

@@ -61,6 +61,7 @@ def test_run_dynamic_rbfopt_uses_lhc_points_as_explicit_initial_nodes(monkeypatc
     class FakeSettings:
         def __init__(self, **kwargs):
             self.kwargs = kwargs
+            captured["settings"] = kwargs
 
     class FakeAlgorithm:
         def __init__(
@@ -102,6 +103,7 @@ def test_run_dynamic_rbfopt_uses_lhc_points_as_explicit_initial_nodes(monkeypatc
 
     assert result["starting_points"] == [(2, 4), (9, 9), (4, 5)]
     assert captured["init_node_pos"].tolist() == [[2.0, 4.0], [9.0, 9.0], [4.0, 5.0]]
+    assert captured["settings"]["rand_seed"] == 0
     assert captured["init_node_val"] is None
     assert captured["do_init_strategy"] is False
     assert result["tracked_evals"] == 3
