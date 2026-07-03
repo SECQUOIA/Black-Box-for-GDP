@@ -119,6 +119,9 @@ def run_small_batch_dsda(
         wall_time_s=wall_time_s,
         found_optimum=found_optimum,
         incumbent_trajectory=tracked_objective.incumbent_trajectory,
+        initial_evals=len(starting_point_values),
+        adaptive_evals=max(0, tracked_objective.call_count - len(starting_point_values)),
+        unique_evals=tracked_objective.unique_evaluation_count,
     )
     return {
         "case_name": "small_batch",

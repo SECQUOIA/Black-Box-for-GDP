@@ -87,6 +87,7 @@ def test_run_small_batch_rbfopt_uses_lhc_points_as_explicit_initial_nodes():
     assert captured["do_init_strategy"] is False
     assert captured["settings"]["algorithm"] == "Gutmann"
     assert captured["settings"]["global_search_method"] == "sampling"
+    assert captured["settings"]["rand_seed"] == 0
     assert result["best_point"] == [2, 2, 1]
     assert result["best_value"] == 167427.65711470306
     assert result["tracked_evals"] == 3
