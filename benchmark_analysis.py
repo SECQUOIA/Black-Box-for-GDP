@@ -1,6 +1,7 @@
 """Analysis and plotting helpers for benchmark.py result CSVs."""
 
 import argparse
+import itertools
 import json
 import math
 from pathlib import Path
@@ -14,7 +15,12 @@ RESULTS_DIR = Path("results")
 GRIDS_DIR = Path("benchmark_grids")
 FIGURE_DIR = Path("results/figures")
 
-METHOD_ORDER = ("DSDA", "RBFOpt")
+METHOD_ORDER = ("DSDA", "RBFOpt", "BAM")
+METHOD_COLORS = {
+    "DSDA": "#1f77b4",
+    "RBFOpt": "#ff7f0e",
+    "BAM": "#2ca02c",
+}
 PRIMARY_TOLERANCE = 1e-5
 TOLERANCES = (1e-1, 1e-3, 1e-5, 1e-7)
 
@@ -53,6 +59,18 @@ def configure_plot_style():
             "font.size": 10,
         }
     )
+
+
+def ordered_method_names(methods, method_order=METHOD_ORDER):
+    """Return preferred methods followed by any additional observed methods."""
+    observed = {str(method) for method in methods if pd.notna(method)}
+    preferred = [method for method in method_order if method in observed]
+    return preferred + sorted(observed.difference(preferred))
+
+
+def ordered_methods(results_df, method_order=METHOD_ORDER):
+    """Return method names from a benchmark results frame in display order."""
+    return ordered_method_names(results_df["method"], method_order)
 
 
 def parse_float_sequence(value):
@@ -223,10 +241,9 @@ def performance_ratio_table(results_df, tolerance=PRIMARY_TOLERANCE, budget=None
         aggfunc="min",
     )
     best = pivot.min(axis=1, skipna=True)
-    pivot = pivot.loc[best.notna()]
     if pivot.empty:
         return pivot
-    return pivot.div(best.loc[pivot.index], axis=0)
+    return pivot.div(best, axis=0)
 
 
 def _finite_profile_grid(ratios):
@@ -259,7 +276,7 @@ def plot_performance_profiles(
     for ax, budget in zip(axes.ravel(), budgets, strict=True):
         ratios = performance_ratio_table(results_df, tolerance, budget)
         tau_values = _finite_profile_grid(ratios)
-        methods = [method for method in method_order if method in ratios.columns]
+        methods = ordered_method_names(ratios.columns, method_order)
 
         if ratios.empty or not methods:
             ax.text(0.5, 0.5, "No solved instances", ha="center", va="center")
@@ -271,7 +288,14 @@ def plot_performance_profiles(
                     np.sum(method_ratios <= tau) / denominator
                     for tau in tau_values
                 ]
-                ax.step(tau_values, fractions, where="post", label=method, lw=2)
+                ax.step(
+                    tau_values,
+                    fractions,
+                    where="post",
+                    label=method,
+                    color=METHOD_COLORS.get(method),
+                    lw=2,
+                )
 
         ax.set_title(f"max_evals = {budget}")
         ax.set_xlabel("performance ratio tau")
@@ -316,7 +340,7 @@ def plot_data_profiles(
 
     for ax, tolerance in zip(axes.ravel(), tolerances, strict=True):
         data = data_profile_frame(results_df, tolerance)
-        methods = [method for method in method_order if method in set(data["method"])]
+        methods = ordered_methods(data, method_order)
         finite = data["normalized_evals_to_solve"].dropna()
         max_x = max(1.0, float(finite.max())) if not finite.empty else 1.0
         x_values = np.linspace(0.0, max_x, 200)
@@ -331,7 +355,14 @@ def plot_data_profiles(
                 np.sum(method_values <= x_value) / denominator
                 for x_value in x_values
             ]
-            ax.step(x_values, fractions, where="post", label=method, lw=2)
+            ax.step(
+                x_values,
+                fractions,
+                where="post",
+                label=method,
+                color=METHOD_COLORS.get(method),
+                lw=2,
+            )
 
         ax.set_title(f"tolerance = {tolerance:g}")
         ax.set_xlabel("evaluations / dimension")
@@ -360,7 +391,7 @@ def plot_best_value_boxplots(results_df, method_order=METHOD_ORDER):
 
     for ax, budget in zip(axes.ravel(), budgets, strict=True):
         data = results_df[results_df["max_evals"] == budget]
-        methods = [method for method in method_order if method in set(data["method"])]
+        methods = ordered_methods(data, method_order)
         values = [data.loc[data["method"] == method, "best_value"] for method in methods]
         try:
             ax.boxplot(values, tick_labels=methods, showmeans=True)
@@ -375,77 +406,162 @@ def plot_best_value_boxplots(results_df, method_order=METHOD_ORDER):
     return fig
 
 
-def plot_winner_heatmap(results_df, method_a="DSDA", method_b="RBFOpt"):
-    """Heatmap of average winner by grid and budget for two methods."""
-    plt = _pyplot()
+def winner_heatmap_frames(results_df, method_order=METHOD_ORDER):
+    """Return winner labels and best-to-runner-up margins by grid and budget."""
     pivot = results_df.pivot_table(
         index=["csv_name", "max_evals"],
         columns="method",
         values="best_value",
         aggfunc="mean",
     )
-    if method_a not in pivot.columns or method_b not in pivot.columns:
-        raise ValueError(f"Expected both {method_a} and {method_b} in results")
+    methods = ordered_method_names(pivot.columns, method_order)
+    if len(methods) < 2:
+        raise ValueError("Winner heatmaps require at least two methods")
 
-    # Positive deltas favor method_a because the benchmark is minimizing.
-    delta = (pivot[method_b] - pivot[method_a]).unstack("max_evals")
-    if delta.empty:
-        raise ValueError("No paired rows found for winner heatmap")
+    rows = []
+    for (grid_name, budget), values in pivot[methods].iterrows():
+        values = values.dropna()
+        if values.empty:
+            continue
+        best_value = float(values.min())
+        winners = [
+            method
+            for method in methods
+            if method in values.index
+            and np.isclose(float(values[method]), best_value)
+        ]
+        if len(winners) > 1:
+            margin = 0.0
+        elif len(values) > 1:
+            margin = float(values.nsmallest(2).iloc[1] - best_value)
+        else:
+            margin = math.nan
+        rows.append(
+            {
+                "csv_name": grid_name,
+                "max_evals": budget,
+                "winner": " / ".join(winners),
+                "winning_margin": margin,
+            }
+        )
 
-    fig_height = max(4.0, 0.35 * len(delta.index))
+    if not rows:
+        raise ValueError("No rows found for winner heatmap")
+    frame = pd.DataFrame(rows)
+    labels = frame.pivot(index="csv_name", columns="max_evals", values="winner")
+    margins = frame.pivot(
+        index="csv_name",
+        columns="max_evals",
+        values="winning_margin",
+    )
+    return labels, margins
+
+
+def plot_winner_heatmap(results_df, method_order=METHOD_ORDER):
+    """Heatmap of the winning method and its margin over the runner-up."""
+    plt = _pyplot()
+    labels, margins = winner_heatmap_frames(results_df, method_order)
+    plot_values = np.ma.masked_invalid(margins.to_numpy(dtype=float))
+
+    fig_height = max(4.0, 0.35 * len(margins.index))
     fig, ax = plt.subplots(figsize=(8.0, fig_height))
-    image = ax.imshow(delta.to_numpy(), cmap="coolwarm", aspect="auto")
-    ax.set_xticks(np.arange(len(delta.columns)), labels=delta.columns)
-    ax.set_yticks(np.arange(len(delta.index)), labels=delta.index)
+    image = ax.imshow(plot_values, cmap="YlGn", aspect="auto", vmin=0.0)
+    ax.set_xticks(np.arange(len(margins.columns)), labels=margins.columns)
+    ax.set_yticks(np.arange(len(margins.index)), labels=margins.index)
     ax.set_xlabel("max_evals")
     ax.set_ylabel("grid")
-    ax.set_title(f"Average winner: positive favors {method_a}")
+    ax.set_title("Average winner and margin over runner-up")
 
-    for y_index, grid_name in enumerate(delta.index):
-        for x_index, budget in enumerate(delta.columns):
-            value = delta.loc[grid_name, budget]
-            if pd.isna(value):
-                label = "missing"
-            elif np.isclose(value, 0.0):
-                label = "tie"
+    finite_margins = margins.to_numpy(dtype=float)
+    finite_margins = finite_margins[np.isfinite(finite_margins)]
+    max_margin = float(finite_margins.max()) if finite_margins.size else 0.0
+    for y_index, grid_name in enumerate(labels.index):
+        for x_index, budget in enumerate(labels.columns):
+            label = labels.loc[grid_name, budget]
+            margin = margins.loc[grid_name, budget]
+            if pd.isna(label):
+                annotation = "missing"
+            elif pd.isna(margin):
+                annotation = str(label)
             else:
-                label = method_a if value > 0 else method_b
-            ax.text(x_index, y_index, label, ha="center", va="center", fontsize=8)
+                annotation = f"{label}\n{margin:.3g}"
+            text_color = (
+                "white"
+                if max_margin > 0 and pd.notna(margin) and margin > max_margin / 2
+                else "black"
+            )
+            ax.text(
+                x_index,
+                y_index,
+                annotation,
+                ha="center",
+                va="center",
+                fontsize=8,
+                color=text_color,
+            )
 
-    fig.colorbar(
-        image,
-        ax=ax,
-        label=f"mean {method_b} best_value - mean {method_a} best_value",
-    )
+    fig.colorbar(image, ax=ax, label="runner-up mean - winning mean best_value")
     fig.tight_layout()
     return fig
 
 
-def plot_wall_time_scatter(results_df, method_a="DSDA", method_b="RBFOpt"):
-    """Scatter plot of paired wall time per grid, seed, and budget."""
+def plot_wall_time_scatter(
+    results_df,
+    method_a="DSDA",
+    method_b=None,
+    method_order=METHOD_ORDER,
+):
+    """Plot paired wall times for one baseline against every other method."""
     plt = _pyplot()
+    methods = ordered_methods(results_df, method_order)
+    if method_a not in methods:
+        raise ValueError(f"Expected {method_a} in results")
+    comparison_methods = (
+        [method_b] if method_b is not None else [m for m in methods if m != method_a]
+    )
+    missing = set(comparison_methods).difference(methods)
+    if missing:
+        raise ValueError(f"Missing comparison method(s): {', '.join(sorted(missing))}")
+    if not comparison_methods:
+        raise ValueError("Wall-time comparisons require at least two methods")
+
     paired = results_df.pivot_table(
         index=["csv_name", "seed", "max_evals"],
         columns="method",
         values="wall_time_s",
         aggfunc="mean",
     )
-    if method_a not in paired.columns or method_b not in paired.columns:
-        raise ValueError(f"Expected both {method_a} and {method_b} in results")
-    paired = paired.dropna(subset=[method_a, method_b])
+    fig, axes = plt.subplots(
+        1,
+        len(comparison_methods),
+        figsize=(4.8 * len(comparison_methods), 4.2),
+        squeeze=False,
+    )
 
-    fig, ax = plt.subplots(figsize=(5.0, 4.2))
-    if paired.empty:
-        ax.text(0.5, 0.5, "No paired wall-time rows", ha="center", va="center")
-    else:
-        ax.scatter(paired[method_a], paired[method_b], alpha=0.7)
-        max_time = float(np.nanmax(paired[[method_a, method_b]].to_numpy()))
-        max_time = max(max_time, 1e-12)
-        ax.plot([0, max_time], [0, max_time], color="black", ls="--", lw=1)
+    for ax, comparison_method in zip(
+        axes.ravel(), comparison_methods, strict=True
+    ):
+        comparison = paired.dropna(subset=[method_a, comparison_method])
+        if comparison.empty:
+            ax.text(0.5, 0.5, "No paired wall-time rows", ha="center", va="center")
+        else:
+            ax.scatter(
+                comparison[method_a],
+                comparison[comparison_method],
+                alpha=0.7,
+                color=METHOD_COLORS.get(comparison_method),
+            )
+            max_time = float(
+                np.nanmax(comparison[[method_a, comparison_method]].to_numpy())
+            )
+            max_time = max(max_time, 1e-12)
+            ax.plot([0, max_time], [0, max_time], color="black", ls="--", lw=1)
 
-    ax.set_xlabel(f"{method_a} wall_time_s")
-    ax.set_ylabel(f"{method_b} wall_time_s")
-    ax.set_title("Paired wall-time comparison")
+        ax.set_xlabel(f"{method_a} wall_time_s")
+        ax.set_ylabel(f"{comparison_method} wall_time_s")
+        ax.set_title(f"{method_a} vs {comparison_method}")
+
+    fig.suptitle("Paired wall-time comparison")
     fig.tight_layout()
     return fig
 
@@ -495,33 +611,58 @@ def plot_convergence_curves(
     budget=None,
     method_order=METHOD_ORDER,
 ):
-    """Plot mean incumbent value vs evaluation count for one grid and budget."""
+    """Plot seed-averaged convergence, with one panel per selected grid."""
     plt = _pyplot()
-    if grid_name is None:
-        grid_name = sorted(results_df["csv_name"].unique())[0]
     if budget is None:
         budget = int(results_df["max_evals"].max())
+    budget_data = results_df[results_df["max_evals"] == budget]
+    if grid_name is None:
+        grid_names = sorted(budget_data["csv_name"].unique())
+    else:
+        grid_names = [grid_name]
+    if not grid_names:
+        raise ValueError(f"No trajectories found for budget={budget}")
 
-    means = trajectory_mean_frame(results_df, grid_name=grid_name, budget=budget)
-    fig, ax = plt.subplots(figsize=(5.5, 4.0))
-    for method in method_order:
-        method_data = means[means["method"] == method]
-        if method_data.empty:
-            continue
-        ax.plot(
-            method_data["eval_number"],
-            method_data["incumbent"],
-            marker="o",
-            linewidth=2,
-            label=method,
+    n_columns = min(3, len(grid_names))
+    n_rows = math.ceil(len(grid_names) / n_columns)
+    fig, axes = plt.subplots(
+        n_rows,
+        n_columns,
+        figsize=(4.2 * n_columns, 3.3 * n_rows),
+        squeeze=False,
+        sharex=True,
+    )
+    methods = ordered_methods(budget_data, method_order)
+    for ax, selected_grid in zip(axes.ravel(), grid_names, strict=False):
+        means = trajectory_mean_frame(
+            results_df,
+            grid_name=selected_grid,
+            budget=budget,
         )
+        for method in methods:
+            method_data = means[means["method"] == method]
+            if method_data.empty:
+                continue
+            ax.plot(
+                method_data["eval_number"],
+                method_data["incumbent"],
+                marker="o",
+                markersize=3,
+                linewidth=1.8,
+                label=method,
+                color=METHOD_COLORS.get(method),
+            )
+        ax.set_xlabel("evaluation count")
+        ax.set_ylabel("mean incumbent best_value")
+        ax.set_title(selected_grid)
 
-    ax.set_xlabel("evaluation count")
-    ax.set_ylabel("mean incumbent best_value")
-    ax.set_title(f"Convergence curves: {grid_name}, max_evals={budget}")
-    handles, _ = ax.get_legend_handles_labels()
+    for ax in axes.ravel()[len(grid_names) :]:
+        ax.set_visible(False)
+
+    handles, labels = axes.ravel()[0].get_legend_handles_labels()
     if handles:
-        ax.legend()
+        fig.legend(handles, labels, loc="upper center", ncol=len(labels))
+    fig.suptitle(f"Convergence curves, max_evals={budget}", y=1.01)
     fig.tight_layout()
     return fig
 
@@ -543,7 +684,12 @@ def holm_bonferroni(results_df, p_col="p_value", alpha=0.05):
         adjusted.loc[index, "holm_p_value"] = running_max
 
     adjusted["holm_reject_0.05"] = adjusted["holm_p_value"] <= alpha
-    return adjusted.sort_values("max_evals").reset_index(drop=True)
+    sort_columns = [
+        column
+        for column in ("max_evals", "method_a", "method_b")
+        if column in adjusted
+    ]
+    return adjusted.sort_values(sort_columns).reset_index(drop=True)
 
 
 def rank_biserial_from_differences(differences):
@@ -610,9 +756,28 @@ def wilcoxon_by_budget(results_df, method_a="DSDA", method_b="RBFOpt"):
     return holm_bonferroni(pd.DataFrame(rows))
 
 
-def friedman_by_budget(results_df):
+def pairwise_wilcoxon_by_budget(results_df, method_order=METHOD_ORDER):
+    """Run every method pair and apply one Holm correction to all tests."""
+    methods = ordered_methods(results_df, method_order)
+    rows = []
+    for method_a, method_b in itertools.combinations(methods, 2):
+        comparison = wilcoxon_by_budget(results_df, method_a, method_b)
+        if comparison.empty:
+            continue
+        rows.append(
+            comparison.drop(
+                columns=["holm_p_value", "holm_reject_0.05"],
+                errors="ignore",
+            )
+        )
+    if not rows:
+        return pd.DataFrame()
+    return holm_bonferroni(pd.concat(rows, ignore_index=True))
+
+
+def friedman_by_budget(results_df, method_order=METHOD_ORDER):
     """Run Friedman tests by budget when three or more methods are present."""
-    methods = sorted(results_df["method"].unique())
+    methods = ordered_methods(results_df, method_order)
     if len(methods) < 3:
         raise ValueError("Friedman tests require at least three methods.")
 
@@ -644,6 +809,157 @@ def friedman_by_budget(results_df):
         )
 
     return pd.DataFrame(rows)
+
+
+def average_ranks_by_budget(results_df, method_order=METHOD_ORDER):
+    """Return average minimization ranks over complete grid blocks."""
+    methods = ordered_methods(results_df, method_order)
+    if len(methods) < 2:
+        raise ValueError("Average ranks require at least two methods.")
+
+    aggregated = results_df.groupby(
+        ["csv_name", "max_evals", "method"], as_index=False
+    )["best_value"].mean()
+    rows = []
+    for budget, budget_df in aggregated.groupby("max_evals"):
+        paired = budget_df.pivot(
+            index="csv_name",
+            columns="method",
+            values="best_value",
+        ).dropna(subset=methods)
+        if paired.empty:
+            continue
+        average_ranks = paired[methods].rank(axis=1, method="average").mean(axis=0)
+        for method in methods:
+            rows.append(
+                {
+                    "max_evals": int(budget),
+                    "n_blocks": len(paired),
+                    "method": method,
+                    "average_rank": float(average_ranks[method]),
+                }
+            )
+    return pd.DataFrame(rows)
+
+
+def nemenyi_by_budget(results_df, alpha=0.05, method_order=METHOD_ORDER):
+    """Run Nemenyi all-pairs post-hoc comparisons on average method ranks."""
+    methods = ordered_methods(results_df, method_order)
+    if len(methods) < 3:
+        raise ValueError("Nemenyi tests require at least three methods.")
+
+    rank_frame = average_ranks_by_budget(results_df, method_order)
+    rows = []
+    n_methods = len(methods)
+    q_alpha = float(
+        stats.studentized_range.ppf(1.0 - alpha, n_methods, np.inf) / np.sqrt(2.0)
+    )
+    for budget, budget_ranks in rank_frame.groupby("max_evals"):
+        n_blocks = int(budget_ranks["n_blocks"].iloc[0])
+        standard_error = math.sqrt(
+            n_methods * (n_methods + 1) / (6.0 * n_blocks)
+        )
+        critical_difference = q_alpha * standard_error
+        ranks = budget_ranks.set_index("method")["average_rank"]
+        for method_a, method_b in itertools.combinations(methods, 2):
+            rank_difference = abs(float(ranks[method_a] - ranks[method_b]))
+            statistic = rank_difference / standard_error
+            p_value = float(
+                stats.studentized_range.sf(
+                    statistic * np.sqrt(2.0),
+                    n_methods,
+                    np.inf,
+                )
+            )
+            rows.append(
+                {
+                    "max_evals": int(budget),
+                    "n_blocks": n_blocks,
+                    "method_a": method_a,
+                    "method_b": method_b,
+                    "average_rank_a": float(ranks[method_a]),
+                    "average_rank_b": float(ranks[method_b]),
+                    "rank_difference": rank_difference,
+                    "critical_difference": critical_difference,
+                    "p_value": p_value,
+                    "significant": rank_difference > critical_difference,
+                }
+            )
+    return pd.DataFrame(rows)
+
+
+def plot_critical_difference_diagrams(
+    results_df,
+    alpha=0.05,
+    method_order=METHOD_ORDER,
+):
+    """Plot average ranks and the Nemenyi critical difference by budget."""
+    plt = _pyplot()
+    methods = ordered_methods(results_df, method_order)
+    if len(methods) < 3:
+        raise ValueError("Critical-difference diagrams require at least three methods")
+
+    rank_frame = average_ranks_by_budget(results_df, method_order)
+    nemenyi = nemenyi_by_budget(results_df, alpha, method_order)
+    budgets = sorted(rank_frame["max_evals"].unique())
+    if not budgets:
+        raise ValueError("No complete method blocks found for rank comparison")
+
+    fig, axes = plt.subplots(
+        1,
+        len(budgets),
+        figsize=(5.0 * len(budgets), 3.8),
+        squeeze=False,
+    )
+    for ax, budget in zip(axes.ravel(), budgets, strict=True):
+        budget_ranks = rank_frame[rank_frame["max_evals"] == budget].sort_values(
+            "average_rank"
+        )
+        y_positions = np.linspace(0.65, 0.25, len(budget_ranks))
+        ax.hlines(0.75, 1, len(methods), color="black", linewidth=1)
+        ax.set_xticks(range(1, len(methods) + 1))
+        ax.set_xlim(0.75, len(methods) + 0.25)
+        ax.set_ylim(0.0, 1.0)
+        ax.set_yticks([])
+        ax.set_xlabel("average rank (lower is better)")
+        ax.set_title(f"max_evals = {budget}")
+
+        for y_position, row in zip(
+            y_positions, budget_ranks.itertuples(index=False), strict=True
+        ):
+            ax.plot([row.average_rank, row.average_rank], [y_position, 0.75], c="0.5")
+            ax.scatter(
+                row.average_rank,
+                y_position,
+                color=METHOD_COLORS.get(row.method),
+                zorder=3,
+            )
+            ax.text(
+                row.average_rank,
+                y_position - 0.06,
+                f"{row.method} ({row.average_rank:.2f})",
+                ha="center",
+                va="top",
+            )
+
+        critical_difference = nemenyi.loc[
+            nemenyi["max_evals"] == budget,
+            "critical_difference",
+        ].iloc[0]
+        cd_start = 1.0
+        cd_end = min(len(methods), cd_start + critical_difference)
+        ax.plot([cd_start, cd_end], [0.92, 0.92], c="black", linewidth=3)
+        ax.text(
+            (cd_start + cd_end) / 2,
+            0.94,
+            f"CD = {critical_difference:.2f}",
+            ha="center",
+            va="bottom",
+        )
+
+    fig.suptitle(f"Nemenyi critical-difference diagrams (alpha={alpha:g})")
+    fig.tight_layout()
+    return fig
 
 
 def load_analysis_dataset(results_csv=None, results_dir=RESULTS_DIR, grids_dir=GRIDS_DIR):
@@ -680,12 +996,23 @@ def save_default_figures(
         ("convergence_curves.png", lambda: plot_convergence_curves(results_df)),
     ]
 
-    if {"DSDA", "RBFOpt"}.issubset(set(results_df["method"])):
+    methods = ordered_methods(results_df)
+    if len(methods) >= 2:
         figure_factories.extend(
             [
                 ("winner_heatmap.png", lambda: plot_winner_heatmap(results_df)),
-                ("wall_time_scatter.png", lambda: plot_wall_time_scatter(results_df)),
+                (
+                    "wall_time_scatter.png",
+                    lambda: plot_wall_time_scatter(results_df, method_a=methods[0]),
+                ),
             ]
+        )
+    if len(methods) >= 3:
+        figure_factories.append(
+            (
+                "critical_difference_diagrams.png",
+                lambda: plot_critical_difference_diagrams(results_df),
+            )
         )
 
     saved_paths = []
@@ -704,7 +1031,7 @@ def save_statistics_tables(
     output_dir=FIGURE_DIR,
     tolerance=PRIMARY_TOLERANCE,
 ):
-    """Save solved-summary and Wilcoxon result CSV tables."""
+    """Save solved-summary and applicable multi-method statistics tables."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -713,10 +1040,20 @@ def save_statistics_tables(
     solved_fraction_summary(results_df, tolerance).to_csv(summary_path)
     saved_paths.append(summary_path)
 
-    if {"DSDA", "RBFOpt"}.issubset(set(results_df["method"])):
+    methods = ordered_methods(results_df)
+    if len(methods) >= 2:
         wilcoxon_path = output_dir / "wilcoxon_by_budget.csv"
-        wilcoxon_by_budget(results_df).to_csv(wilcoxon_path, index=False)
+        pairwise_wilcoxon_by_budget(results_df).to_csv(wilcoxon_path, index=False)
         saved_paths.append(wilcoxon_path)
+
+    if len(methods) >= 3:
+        friedman_path = output_dir / "friedman_by_budget.csv"
+        friedman_by_budget(results_df).to_csv(friedman_path, index=False)
+        saved_paths.append(friedman_path)
+
+        nemenyi_path = output_dir / "nemenyi_by_budget.csv"
+        nemenyi_by_budget(results_df).to_csv(nemenyi_path, index=False)
+        saved_paths.append(nemenyi_path)
 
     return saved_paths
 

@@ -124,6 +124,7 @@ def run_column_rbfopt(
         algorithm=algorithm,
         rbf=rbf,
         global_search_method=global_search_method,
+        rand_seed=seed,
     )
     algorithm_instance = rbfopt_module.RbfoptAlgorithm(
         settings,
@@ -156,6 +157,11 @@ def run_column_rbfopt(
         wall_time_s=wall_time_s,
         found_optimum=found_optimum,
         incumbent_trajectory=tracked_objective.incumbent_trajectory,
+        initial_evals=len(starting_points),
+        adaptive_evals=max(0, tracked_objective.call_count - len(starting_points)),
+        unique_evals=tracked_objective.unique_evaluation_count,
+        solver_evalcount=evalcount,
+        solver_iterations=itercount,
     )
     return {
         "case_name": "column",

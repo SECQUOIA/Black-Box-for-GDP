@@ -1,15 +1,17 @@
-"""Automated DSDA vs RBFOpt benchmark runner for packaged grid CSVs."""
+"""Automated DSDA, RBFOpt, and BAM benchmark runner for packaged grid CSVs."""
 
 import argparse
 import math
 import os
 import shutil
 import time
+from contextlib import nullcontext
 from datetime import datetime
 from pathlib import Path
 
 import numpy as np
 
+from case_studies.bam_common import run_bam_with_initial_design, suppress_solver_output
 from case_studies.common import generate_lhc_starting_points
 from grid_dsda import load_grid_csv, run_dsda_from_best_starting_points
 from instrumentation import TrackedObjective, make_result_record, save_results_csv
@@ -19,6 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_GRIDS_DIR = BASE_DIR / "benchmark_grids"
 DEFAULT_RESULTS_DIR = BASE_DIR / "results"
 DEFAULT_METHODS = ("dsda", "rbfopt")
+SUPPORTED_METHODS = ("dsda", "rbfopt", "bam")
 DEFAULT_MAX_EVALS = (10, 30, 50, 70, 100)
 PENALTY = 1e5
 
@@ -62,11 +65,11 @@ def parse_methods(value):
     if not methods:
         raise argparse.ArgumentTypeError("At least one method is required")
 
-    allowed = set(DEFAULT_METHODS)
+    allowed = set(SUPPORTED_METHODS)
     invalid = sorted(set(methods).difference(allowed))
     if invalid:
         invalid_text = ", ".join(invalid)
-        allowed_text = ", ".join(DEFAULT_METHODS)
+        allowed_text = ", ".join(SUPPORTED_METHODS)
         raise argparse.ArgumentTypeError(
             f"Unsupported method(s): {invalid_text}. Choose from: {allowed_text}"
         )
@@ -269,6 +272,9 @@ def run_dsda_benchmark_case(
             "found_optimum": math.isclose(
                 record["best_value"], target_value, abs_tol=1e-12, rel_tol=0.0
             ),
+            "initial_evals": result["initial_points_evaluated"],
+            "adaptive_evals": result["total_point_evaluations_across_runs"],
+            "unique_evals": result["total_unique_points_explored_across_runs"],
         }
     )
     result["result_record"] = record
@@ -291,6 +297,7 @@ def run_rbfopt_benchmark_case(
     algorithm="MSRSM",
     rbf="auto",
     global_search_method="solver",
+    verbose=False,
     rbfopt_module=None,
 ):
     """Run one RBFOpt benchmark case and return its unified result record."""
@@ -332,6 +339,7 @@ def run_rbfopt_benchmark_case(
         algorithm=algorithm,
         rbf=rbf,
         global_search_method=global_search_method,
+        rand_seed=seed,
     )
     algorithm_instance = rbfopt_module.RbfoptAlgorithm(
         settings,
@@ -341,10 +349,12 @@ def run_rbfopt_benchmark_case(
         do_init_strategy=False,
     )
 
+    output_context = nullcontext() if verbose else suppress_solver_output()
     start_time = time.perf_counter()
-    best_value, best_point, itercount, evalcount, fast_evalcount = (
-        algorithm_instance.optimize()
-    )
+    with output_context:
+        best_value, best_point, itercount, evalcount, fast_evalcount = (
+            algorithm_instance.optimize()
+        )
     wall_time_s = time.perf_counter() - start_time
     best_point_rounded = [int(round(value)) for value in best_point]
 
@@ -362,6 +372,11 @@ def run_rbfopt_benchmark_case(
             best_value, target_value, abs_tol=1e-12, rel_tol=0.0
         ),
         incumbent_trajectory=tracked_objective.incumbent_trajectory,
+        initial_evals=len(starting_points),
+        adaptive_evals=max(0, tracked_objective.call_count - len(starting_points)),
+        unique_evals=tracked_objective.unique_evaluation_count,
+        solver_evalcount=evalcount,
+        solver_iterations=itercount,
     )
     return {
         "csv_name": Path(csv_path).name,
@@ -381,6 +396,57 @@ def run_rbfopt_benchmark_case(
     }
 
 
+def run_bam_benchmark_case(
+    csv_path,
+    grid,
+    lower_bounds,
+    upper_bounds,
+    starting_points,
+    seed,
+    n_starts,
+    max_evals,
+    target_value,
+    bam_license_file=None,
+    bam_module=None,
+    verbose=False,
+):
+    """Run one BAM benchmark case and return its unified result record."""
+    result = run_bam_with_initial_design(
+        objective=make_grid_objective(grid),
+        lower_bounds=lower_bounds,
+        upper_bounds=upper_bounds,
+        starting_points=starting_points,
+        max_evaluations=max_evals,
+        bam_license_file=bam_license_file,
+        bam_module=bam_module,
+        verbose=verbose,
+    )
+    result_record = make_result_record(
+        csv_name=Path(csv_path).name,
+        method="BAM",
+        seed=seed,
+        n_starts=n_starts,
+        max_evals=max_evals,
+        best_value=result["best_value"],
+        best_point=result["best_point"],
+        total_evals=result["tracked_evals"],
+        wall_time_s=result["wall_time_s"],
+        found_optimum=math.isclose(
+            result["best_value"], target_value, abs_tol=1e-12, rel_tol=0.0
+        ),
+        incumbent_trajectory=result["incumbent_trajectory"],
+        initial_evals=result["initial_evals"],
+        adaptive_evals=result["adaptive_evals"],
+        unique_evals=result["unique_evals"],
+        solver_evalcount=result["evalcount"],
+        solver_iterations=result["iterations"],
+        solver_status=result["status"],
+        solver_message=result["message"],
+    )
+    result.update({"csv_name": Path(csv_path).name, "result_record": result_record})
+    return result
+
+
 def run_benchmark(
     methods=DEFAULT_METHODS,
     seeds=range(10),
@@ -398,6 +464,8 @@ def run_benchmark(
     tie_break="first",
     verbose=False,
     rbfopt_module=None,
+    bam_license_file=None,
+    bam_module=None,
 ):
     """Run the full benchmark matrix and write unified results to CSV."""
     methods = normalize_methods(methods)
@@ -464,9 +532,27 @@ def run_benchmark(
                         algorithm=algorithm,
                         rbf=rbf,
                         global_search_method=global_search_method,
+                        verbose=verbose,
                         rbfopt_module=rbfopt_module,
                     )
                     result_records.append(rbfopt_result["result_record"])
+
+                if "bam" in methods:
+                    bam_result = run_bam_benchmark_case(
+                        csv_path=csv_path,
+                        grid=grid,
+                        lower_bounds=lower_bounds,
+                        upper_bounds=upper_bounds,
+                        starting_points=starting_points,
+                        seed=seed,
+                        n_starts=n_starts,
+                        max_evals=max_eval,
+                        target_value=target_value,
+                        bam_license_file=bam_license_file,
+                        bam_module=bam_module,
+                        verbose=verbose,
+                    )
+                    result_records.append(bam_result["result_record"])
 
     save_results_csv(result_records, results_path)
     return result_records, results_path
@@ -500,13 +586,21 @@ def build_parser():
     parser.add_argument("--algorithm", default="MSRSM")
     parser.add_argument("--rbf", default="auto")
     parser.add_argument("--global-search-method", default="solver")
+    parser.add_argument(
+        "--bam-license-file",
+        default=os.environ.get("BAM_LICENSE_FILE", ""),
+        help=(
+            "Path to a BAM license file. Defaults to BAM_LICENSE_FILE when set; "
+            "2D BAM benchmark grids can run without a license."
+        ),
+    )
     parser.add_argument("--tie-break", default="first")
     parser.add_argument("--no-diagonal", action="store_true")
     parser.add_argument("--verbose", action="store_true")
     return parser
 
 
-def main(argv=None, rbfopt_module=None):
+def main(argv=None, rbfopt_module=None, bam_module=None):
     """CLI entry point for the benchmark runner."""
     args = build_parser().parse_args(argv)
     result_records, results_path = run_benchmark(
@@ -526,6 +620,8 @@ def main(argv=None, rbfopt_module=None):
         tie_break=args.tie_break,
         verbose=args.verbose,
         rbfopt_module=rbfopt_module,
+        bam_license_file=args.bam_license_file,
+        bam_module=bam_module,
     )
     print(f"Benchmark completed: {len(result_records)} runs")
     print(f"Results saved in: {results_path}")

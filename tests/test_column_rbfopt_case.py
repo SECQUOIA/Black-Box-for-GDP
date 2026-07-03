@@ -34,6 +34,7 @@ def test_run_column_rbfopt_uses_lhc_points_as_explicit_initial_nodes():
     class FakeSettings:
         def __init__(self, **kwargs):
             self.kwargs = kwargs
+            captured["settings"] = kwargs
 
     class FakeAlgorithm:
         def __init__(
@@ -79,6 +80,7 @@ def test_run_column_rbfopt_uses_lhc_points_as_explicit_initial_nodes():
         [12.0, 1.0],
         [9.0, 8.0],
     ]
+    assert captured["settings"]["rand_seed"] == 1
     assert captured["init_node_val"] is None
     assert captured["do_init_strategy"] is False
     assert result["best_point"] == [14, 4]

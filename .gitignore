@@ -2,6 +2,10 @@
 OsiDefaultName_bounds
 OsiDefaultName_start
 
+# Local solver licenses
+bamlice.txt
+*.lic
+
 # Python
 __pycache__/
 *.py[cod]
@@ -44,4 +48,3 @@ env/
 # OS
 .DS_Store
 Thumbs.db
-
