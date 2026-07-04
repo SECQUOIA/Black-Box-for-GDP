@@ -169,16 +169,14 @@ def attach_grid_metadata(results_df, grids_dir=GRIDS_DIR):
 
     missing_target = merged["target_value"].isna()
     if missing_target.any():
-        observed_best = merged.groupby("csv_name")["best_value"].transform("min")
-        merged.loc[missing_target, "target_value"] = observed_best[missing_target]
-        merged.loc[missing_target, "dimension"] = 1
-        merged.loc[missing_target, "grid_points"] = np.nan
-        print(
-            "Warning: some grids were not found in GRIDS_DIR. "
-            "Observed best values were used as fallback targets."
+        missing_names = sorted(merged.loc[missing_target, "csv_name"].unique())
+        missing_text = ", ".join(missing_names)
+        raise ValueError(
+            "Missing grid metadata for result CSV(s): "
+            f"{missing_text}. Ensure every csv_name exists in {grids_dir}."
         )
 
-    merged["dimension"] = merged["dimension"].fillna(1).astype(int)
+    merged["dimension"] = merged["dimension"].astype(int)
     return merged
 
 
@@ -234,11 +232,12 @@ def performance_ratio_table(results_df, tolerance=PRIMARY_TOLERANCE, budget=None
     if budget is not None:
         data = data[data["max_evals"] == budget]
 
-    pivot = data.pivot_table(
-        index=["csv_name", "seed"],
-        columns="method",
-        values="evals_to_solve",
-        aggfunc="min",
+    pivot = (
+        data.groupby(["csv_name", "seed", "method"], dropna=False)[
+            "evals_to_solve"
+        ]
+        .min()
+        .unstack("method")
     )
     best = pivot.min(axis=1, skipna=True)
     if pivot.empty:
@@ -420,8 +419,17 @@ def winner_heatmap_frames(results_df, method_order=METHOD_ORDER):
 
     rows = []
     for (grid_name, budget), values in pivot[methods].iterrows():
-        values = values.dropna()
-        if values.empty:
+        if values.isna().all():
+            continue
+        if values.isna().any():
+            rows.append(
+                {
+                    "csv_name": grid_name,
+                    "max_evals": budget,
+                    "winner": "incomplete",
+                    "winning_margin": math.nan,
+                }
+            )
             continue
         best_value = float(values.min())
         winners = [
@@ -578,9 +586,14 @@ def trajectory_mean_frame(results_df, grid_name=None, budget=None):
     rows = []
     for row in data.itertuples(index=False):
         trajectory = row.incumbent_trajectory
-        if not isinstance(trajectory, (list, tuple)):
-            continue
-        for eval_number, incumbent in enumerate(trajectory, start=1):
+        if not isinstance(trajectory, (list, tuple)) or not trajectory:
+            raise ValueError(
+                "Missing incumbent trajectory for "
+                f"grid={row.csv_name}, method={row.method}, seed={row.seed}"
+            )
+        trajectory = [float(incumbent) for incumbent in trajectory]
+        for eval_number in range(1, int(budget) + 1):
+            incumbent = trajectory[min(eval_number - 1, len(trajectory) - 1)]
             rows.append(
                 {
                     "csv_name": row.csv_name,
@@ -588,7 +601,7 @@ def trajectory_mean_frame(results_df, grid_name=None, budget=None):
                     "seed": row.seed,
                     "max_evals": row.max_evals,
                     "eval_number": eval_number,
-                    "incumbent": float(incumbent),
+                    "incumbent": incumbent,
                 }
             )
 
@@ -625,10 +638,11 @@ def plot_convergence_curves(
 
     n_columns = min(3, len(grid_names))
     n_rows = math.ceil(len(grid_names) / n_columns)
+    figure_height = 3.3 * n_rows
     fig, axes = plt.subplots(
         n_rows,
         n_columns,
-        figsize=(4.2 * n_columns, 3.3 * n_rows),
+        figsize=(4.2 * n_columns, figure_height),
         squeeze=False,
         sharex=True,
     )
@@ -660,10 +674,18 @@ def plot_convergence_curves(
         ax.set_visible(False)
 
     handles, labels = axes.ravel()[0].get_legend_handles_labels()
+    header_height = 0.7
     if handles:
-        fig.legend(handles, labels, loc="upper center", ncol=len(labels))
-    fig.suptitle(f"Convergence curves, max_evals={budget}", y=1.01)
-    fig.tight_layout()
+        legend_y = 1.0 - 0.28 / figure_height
+        fig.legend(
+            handles,
+            labels,
+            loc="upper center",
+            bbox_to_anchor=(0.5, legend_y),
+            ncol=len(labels),
+        )
+    fig.suptitle(f"Convergence curves, max_evals={budget}", y=0.995)
+    fig.tight_layout(rect=(0.0, 0.0, 1.0, 1.0 - header_height / figure_height))
     return fig
 
 
@@ -683,7 +705,8 @@ def holm_bonferroni(results_df, p_col="p_value", alpha=0.05):
         running_max = max(running_max, raw_adjusted)
         adjusted.loc[index, "holm_p_value"] = running_max
 
-    adjusted["holm_reject_0.05"] = adjusted["holm_p_value"] <= alpha
+    adjusted["holm_alpha"] = float(alpha)
+    adjusted["holm_reject"] = adjusted["holm_p_value"] <= alpha
     sort_columns = [
         column
         for column in ("max_evals", "method_a", "method_b")
@@ -766,7 +789,7 @@ def pairwise_wilcoxon_by_budget(results_df, method_order=METHOD_ORDER):
             continue
         rows.append(
             comparison.drop(
-                columns=["holm_p_value", "holm_reject_0.05"],
+                columns=["holm_p_value", "holm_alpha", "holm_reject"],
                 errors="ignore",
             )
         )
@@ -808,7 +831,7 @@ def friedman_by_budget(results_df, method_order=METHOD_ORDER):
             }
         )
 
-    return pd.DataFrame(rows)
+    return holm_bonferroni(pd.DataFrame(rows))
 
 
 def average_ranks_by_budget(results_df, method_order=METHOD_ORDER):
@@ -888,6 +911,30 @@ def nemenyi_by_budget(results_df, alpha=0.05, method_order=METHOD_ORDER):
     return pd.DataFrame(rows)
 
 
+def nonsignificant_rank_groups(nemenyi_results, methods_by_rank):
+    """Return maximal contiguous method groups not separated by Nemenyi tests."""
+    methods_by_rank = list(methods_by_rank)
+    significance = {
+        frozenset((row.method_a, row.method_b)): bool(row.significant)
+        for row in nemenyi_results.itertuples(index=False)
+    }
+    candidates = []
+    for start in range(len(methods_by_rank) - 1):
+        for stop in range(start + 2, len(methods_by_rank) + 1):
+            group = tuple(methods_by_rank[start:stop])
+            if all(
+                not significance.get(frozenset(pair), True)
+                for pair in itertools.combinations(group, 2)
+            ):
+                candidates.append(group)
+
+    return [
+        group
+        for group in candidates
+        if not any(set(group) < set(other) for other in candidates)
+    ]
+
+
 def plot_critical_difference_diagrams(
     results_df,
     alpha=0.05,
@@ -946,6 +993,23 @@ def plot_critical_difference_diagrams(
             nemenyi["max_evals"] == budget,
             "critical_difference",
         ].iloc[0]
+        budget_nemenyi = nemenyi[nemenyi["max_evals"] == budget]
+        groups = nonsignificant_rank_groups(
+            budget_nemenyi,
+            budget_ranks["method"],
+        )
+        rank_by_method = budget_ranks.set_index("method")["average_rank"]
+        group_y_values = np.linspace(0.80, 0.88, len(groups))
+        for group, group_y in zip(groups, group_y_values, strict=True):
+            group_ranks = rank_by_method.loc[list(group)]
+            ax.plot(
+                [group_ranks.min(), group_ranks.max()],
+                [group_y, group_y],
+                color="black",
+                linewidth=4,
+                solid_capstyle="butt",
+            )
+
         cd_start = 1.0
         cd_end = min(len(methods), cd_start + critical_difference)
         ax.plot([cd_start, cd_end], [0.92, 0.92], c="black", linewidth=3)
