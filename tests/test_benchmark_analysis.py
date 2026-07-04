@@ -1,6 +1,7 @@
 """Tests for benchmark analysis helpers."""
 
 import matplotlib
+import pandas as pd
 import pytest
 
 matplotlib.use("Agg")
@@ -152,6 +153,56 @@ def test_load_results_and_attach_grid_metadata(tmp_path):
     assert beta_target == 1
 
 
+def test_attach_grid_metadata_rejects_missing_grids(tmp_path):
+    grids_dir = tmp_path / "grids"
+    grids_dir.mkdir()
+    _write_grid(grids_dir / "alpha.csv")
+    results_path = tmp_path / "benchmark.csv"
+    _write_results(results_path)
+    raw_results = benchmark_analysis.load_benchmark_results(results_path)
+
+    with pytest.raises(ValueError, match=r"Missing grid metadata.*beta\.csv"):
+        benchmark_analysis.attach_grid_metadata(raw_results, grids_dir)
+
+
+def test_performance_ratios_keep_problems_unsolved_by_every_method():
+    rows = []
+    for method in benchmark_analysis.METHOD_ORDER:
+        rows.extend(
+            [
+                {
+                    "csv_name": "solved.csv",
+                    "seed": 0,
+                    "method": method,
+                    "max_evals": 3,
+                    "target_value": 0.0,
+                    "found_optimum": True,
+                    "total_evals": 2,
+                    "incumbent_trajectory": [1.0, 0.0],
+                },
+                {
+                    "csv_name": "unsolved.csv",
+                    "seed": 0,
+                    "method": method,
+                    "max_evals": 3,
+                    "target_value": 0.0,
+                    "found_optimum": False,
+                    "total_evals": 3,
+                    "incumbent_trajectory": [3.0, 2.0, 1.0],
+                },
+            ]
+        )
+
+    ratios = benchmark_analysis.performance_ratio_table(
+        pd.DataFrame(rows),
+        tolerance=1e-5,
+        budget=3,
+    )
+
+    assert len(ratios) == 2
+    assert ratios.loc[("unsolved.csv", 0)].isna().all()
+
+
 def test_solve_summary_and_wilcoxon_tables(tmp_path):
     grids_dir = tmp_path / "grids"
     grids_dir.mkdir()
@@ -217,6 +268,18 @@ def test_three_method_comparisons_include_bam(tmp_path):
     assert labels.loc["alpha.csv", 3] == "BAM"
     assert margins.loc["alpha.csv", 3] == pytest.approx(0.1)
 
+    incomplete = winner_input[
+        ~(
+            (winner_input["csv_name"] == "alpha.csv")
+            & (winner_input["method"] == "RBFOpt")
+        )
+    ]
+    incomplete_labels, incomplete_margins = (
+        benchmark_analysis.winner_heatmap_frames(incomplete)
+    )
+    assert incomplete_labels.loc["alpha.csv", 3] == "incomplete"
+    assert pd.isna(incomplete_margins.loc["alpha.csv", 3])
+
     wall_time_figure = benchmark_analysis.plot_wall_time_scatter(results)
     assert len(wall_time_figure.axes) == 2
 
@@ -235,6 +298,86 @@ def test_three_method_comparisons_include_bam(tmp_path):
         "RBFOpt",
         "BAM",
     }
+
+
+def test_trajectory_means_carry_terminal_incumbents_to_budget():
+    results = pd.DataFrame(
+        [
+            {
+                "csv_name": "alpha.csv",
+                "method": "DSDA",
+                "seed": 0,
+                "max_evals": 3,
+                "incumbent_trajectory": [5.0, 0.0],
+            },
+            {
+                "csv_name": "alpha.csv",
+                "method": "DSDA",
+                "seed": 1,
+                "max_evals": 3,
+                "incumbent_trajectory": [5.0, 4.0, 3.0],
+            },
+        ]
+    )
+
+    means = benchmark_analysis.trajectory_mean_frame(
+        results,
+        grid_name="alpha.csv",
+        budget=3,
+    )
+
+    assert means["incumbent"].tolist() == [5.0, 2.0, 1.5]
+
+
+def test_holm_and_friedman_report_correction_threshold(tmp_path):
+    raw_tests = pd.DataFrame(
+        {
+            "max_evals": [3, 5],
+            "p_value": [0.04, 0.20],
+        }
+    )
+    corrected = benchmark_analysis.holm_bonferroni(raw_tests, alpha=0.10)
+
+    assert set(corrected["holm_alpha"]) == {0.10}
+    assert corrected["holm_reject"].tolist() == [True, False]
+    assert "holm_reject_0.05" not in corrected
+
+    grids_dir = tmp_path / "grids"
+    grids_dir.mkdir()
+    _write_grid(grids_dir / "alpha.csv")
+    _write_grid(grids_dir / "beta.csv", offset=1.0)
+    results_path = tmp_path / "benchmark.csv"
+    _write_results(results_path)
+    results, _ = benchmark_analysis.load_analysis_dataset(
+        results_path,
+        grids_dir=grids_dir,
+    )
+    second_budget = results.copy()
+    second_budget["max_evals"] = 5
+    multi_budget = pd.concat([results, second_budget], ignore_index=True)
+
+    friedman = benchmark_analysis.friedman_by_budget(multi_budget)
+
+    assert len(friedman) == 2
+    assert {"holm_p_value", "holm_alpha", "holm_reject"}.issubset(friedman)
+    assert (friedman["holm_p_value"] >= friedman["p_value"]).all()
+
+
+def test_nonsignificant_rank_groups_are_maximal():
+    nemenyi = pd.DataFrame(
+        [
+            {"method_a": "A", "method_b": "B", "significant": False},
+            {"method_a": "A", "method_b": "C", "significant": True},
+            {"method_a": "B", "method_b": "C", "significant": False},
+        ]
+    )
+
+    groups = benchmark_analysis.nonsignificant_rank_groups(
+        nemenyi,
+        ["A", "B", "C"],
+    )
+
+    assert groups == [("A", "B"), ("B", "C")]
 
 
 def test_create_analysis_outputs_writes_figures_and_tables(tmp_path):

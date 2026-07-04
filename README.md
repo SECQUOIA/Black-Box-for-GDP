@@ -167,6 +167,13 @@ If `--results-csv` is omitted, `benchmark_analysis.py` uses the newest
 data profiles, per-grid convergence and winner plots, pairwise Wilcoxon tables,
 and Friedman/Nemenyi comparisons under `results/figures/`.
 
+Every `csv_name` in the results file must have a matching grid CSV under
+`--grids-dir`; analysis stops rather than inventing an optimum or dimension for
+missing metadata. Convergence averages carry the last incumbent from runs that
+terminate early through the selected evaluation budget. Wilcoxon and Friedman
+p-values are Holm-Bonferroni corrected across the reported comparisons and
+budget levels.
+
 For extracted process case studies, run the DSDA and RBFOpt modules directly:
 
 ```bash
