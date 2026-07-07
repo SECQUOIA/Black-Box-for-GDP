@@ -1,8 +1,8 @@
 # RBFopt_Test
 
 RBFopt_Test is a research and testing repository for derivative-free
-optimization case studies. It focuses on comparing RBFOpt-based optimization
-with DSDA-style search procedures over discrete benchmark grids.
+optimization case studies. It focuses on comparing RBFOpt, BAM, and DSDA-style
+search procedures over discrete benchmark grids.
 
 ## Project Purpose
 
@@ -152,6 +152,28 @@ python benchmark.py \
     --bam-license-file /home/bernalde/packages/bamlice.txt
 ```
 
+To create the standard benchmark analysis figures and statistics tables from a
+benchmark results CSV:
+
+```bash
+python benchmark_analysis.py \
+    --results-csv results/benchmark_YYYYMMDD_HHMMSS_ffffff.csv \
+    --grids-dir benchmark_grids \
+    --figure-dir results/figures
+```
+
+If `--results-csv` is omitted, `benchmark_analysis.py` uses the newest
+`results/benchmark_*.csv` file. The script writes three-method performance and
+data profiles, per-grid convergence and winner plots, pairwise Wilcoxon tables,
+and Friedman/Nemenyi comparisons under `results/figures/`.
+
+Every `csv_name` in the results file must have a matching grid CSV under
+`--grids-dir`; analysis stops rather than inventing an optimum or dimension for
+missing metadata. Convergence averages carry the last incumbent from runs that
+terminate early through the selected evaluation budget. Wilcoxon and Friedman
+p-values are Holm-Bonferroni corrected across the reported comparisons and
+budget levels.
+
 For extracted process case studies, run the DSDA and RBFOpt modules directly:
 
 ```bash
@@ -178,10 +200,11 @@ search method back to a solver-backed mode. Case-study BAM runners accept
 
 ## Benchmark Overview
 
-The `benchmark_grids/` directory contains normalized benchmark grids stored as CSV
-files. These grids are used by the DSDA and RBFOpt utilities to compare search
-behavior on discrete lattice problems. The notebooks in the repository build on
-these datasets to document selected case studies and visual results.
+The `benchmark_grids/` directory contains normalized benchmark grids stored as
+CSV files. These grids are used by the DSDA, RBFOpt, and BAM utilities to
+compare search behavior on discrete lattice problems. The notebooks in the
+repository build on these datasets to document selected case studies and visual
+results.
 
 ## Repository Map
 
@@ -191,6 +214,8 @@ these datasets to document selected case studies and visual results.
 - `benchmark.py`: automated benchmark runner with DSDA, RBFOpt, and BAM as
   separate methods using shared Latin Hypercube initialization and unified CSV
   output.
+- `benchmark_analysis.py`: reusable analysis and plotting helpers for the
+  benchmark results CSV, plus a CLI for saving figures and statistics tables.
 - `benchmark_grids/`: normalized benchmark grid data and notes about data provenance.
 - `case_study_data/`: completed enumeration CSV data for process case studies,
   grouped by column, CSTR, and small-batch examples.
@@ -221,7 +246,7 @@ python -m pytest tests/ -q
 Run the basic lint checks used by GitHub Actions with:
 
 ```bash
-python -m ruff check benchmark.py grid_dsda.py grid_rbfopt.py case_studies tests scripts
+python -m ruff check benchmark.py benchmark_analysis.py grid_dsda.py grid_rbfopt.py case_studies tests scripts
 ```
 
 ## License
