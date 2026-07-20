@@ -126,6 +126,48 @@ def test_first_eval_within_tolerance_uses_one_based_eval_count():
     ) == 0.01
 
 
+def test_runs_to_target_probability_handles_tts99_edge_cases():
+    assert benchmark_analysis.runs_to_target_probability(0.0) == float("inf")
+    assert benchmark_analysis.runs_to_target_probability(1.0) == 1
+    assert benchmark_analysis.runs_to_target_probability(0.5) == 7
+
+
+def test_tts99_summary_uses_hit_rate_and_median_wall_time_across_seeds():
+    results = pd.DataFrame(
+        [
+            {
+                "csv_name": grid_name,
+                "method": "DSDA",
+                "seed": seed,
+                "n_starts": 2,
+                "max_evals": 10,
+                "found_optimum": found_optimum,
+                "wall_time_s": wall_time_s,
+            }
+            for grid_name, outcomes in {
+                "never.csv": ((False, 1.0), (False, 3.0)),
+                "always.csv": ((True, 1.0), (True, 3.0)),
+                "sometimes.csv": ((True, 2.0), (False, 4.0)),
+            }.items()
+            for seed, (found_optimum, wall_time_s) in enumerate(outcomes)
+        ]
+    )
+
+    summary = benchmark_analysis.tts99_summary(results).set_index("csv_name")
+
+    assert summary.loc["never.csv", "hit_rate"] == 0.0
+    assert summary.loc["never.csv", "runs_99"] == float("inf")
+    assert summary.loc["never.csv", "tts99_s"] == float("inf")
+    assert summary.loc["always.csv", "hit_rate"] == 1.0
+    assert summary.loc["always.csv", "runs_99"] == 1
+    assert summary.loc["always.csv", "median_wall_time_s"] == 2.0
+    assert summary.loc["always.csv", "tts99_s"] == 2.0
+    assert summary.loc["sometimes.csv", "hit_rate"] == 0.5
+    assert summary.loc["sometimes.csv", "runs_99"] == 7
+    assert summary.loc["sometimes.csv", "median_wall_time_s"] == 3.0
+    assert summary.loc["sometimes.csv", "tts99_s"] == 21.0
+
+
 def test_load_results_and_attach_grid_metadata(tmp_path):
     grids_dir = tmp_path / "grids"
     grids_dir.mkdir()
@@ -402,12 +444,14 @@ def test_create_analysis_outputs_writes_figures_and_tables(tmp_path):
         "data_profiles.png",
         "best_value_boxplots.png",
         "convergence_curves.png",
+        "tts99_comparison.png",
         "winner_heatmap.png",
         "wall_time_scatter.png",
         "critical_difference_diagrams.png",
     }
     assert {path.name for path in outputs["table_paths"]} == {
         "solved_fraction_summary.csv",
+        "tts99_summary.csv",
         "wilcoxon_by_budget.csv",
         "friedman_by_budget.csv",
         "nemenyi_by_budget.csv",
