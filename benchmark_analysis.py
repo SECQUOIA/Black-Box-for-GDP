@@ -640,11 +640,18 @@ def plot_tts99_comparison(results_df, method_order=METHOD_ORDER):
 
     for ax, budget in zip(axes.ravel(), budgets, strict=True):
         budget_summary = summary[summary["max_evals"] == budget]
+        method_labels = []
         for method_index, method in enumerate(methods, start=1):
-            values = budget_summary.loc[
-                budget_summary["method"] == method,
-                "tts99_s",
-            ].to_numpy(dtype=float)
+            method_summary = budget_summary[budget_summary["method"] == method]
+            values = method_summary["tts99_s"].to_numpy(dtype=float)
+            run_counts = sorted(method_summary["n_runs"].unique())
+            if len(run_counts) == 1:
+                method_labels.append(f"{method}\nn={run_counts[0]}")
+            elif run_counts:
+                method_labels.append(f"{method}\nn={run_counts[0]}-{run_counts[-1]}")
+            else:
+                method_labels.append(method)
+
             finite = values[np.isfinite(values)]
             if finite.size:
                 ax.scatter(
@@ -653,12 +660,27 @@ def plot_tts99_comparison(results_df, method_order=METHOD_ORDER):
                     color=METHOD_COLORS.get(method),
                     alpha=0.7,
                 )
-                median = float(np.median(finite))
+
+            if values.size:
+                median = float(np.median(values))
+            else:
+                median = math.nan
+            if np.isfinite(median):
                 ax.plot(
                     [method_index - 0.2, method_index + 0.2],
                     [median, median],
                     color="black",
                     lw=2,
+                )
+            elif np.isinf(median):
+                ax.annotate(
+                    "median=∞",
+                    (method_index, marker_height),
+                    xytext=(0, 20),
+                    textcoords="offset points",
+                    ha="center",
+                    color="black",
+                    fontsize=8,
                 )
 
             infinite_count = int(np.isinf(values).sum())
@@ -680,13 +702,13 @@ def plot_tts99_comparison(results_df, method_order=METHOD_ORDER):
                     fontsize=8,
                 )
 
-        ax.set_xticks(range(1, len(methods) + 1), labels=methods)
+        ax.set_xticks(range(1, len(methods) + 1), labels=method_labels)
         ax.set_title(f"max_evals = {budget}")
         ax.set_xlabel("method")
         ax.set_ylim(bottom=0.0, top=marker_height * 1.2)
 
     axes.ravel()[0].set_ylabel("TTS99 (seconds)")
-    fig.suptitle("TTS99 by problem (∞ marks zero-hit groups)")
+    fig.suptitle("TTS99 by problem (black bar: median; ∞: zero-hit groups)")
     fig.tight_layout()
     return fig
 
