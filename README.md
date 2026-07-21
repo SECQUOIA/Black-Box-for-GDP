@@ -176,7 +176,10 @@ recorded by `found_optimum`; the per-run time is the median across seeds for the
 same problem, method, initialization size, and evaluation budget. A hit rate of
 one requires one run. A zero hit rate is reported as infinite TTS99 so failed
 configurations remain visible in both `tts99_summary.csv` and the generated
-figure.
+figure. The comparison figure's black median marker includes infinite TTS99
+groups; when the median is infinite, the figure labels it explicitly. Method
+labels also show the number of seed runs contributing to each problem group,
+or a range when group sizes differ.
 
 Every `csv_name` in the results file must have a matching grid CSV under
 `--grids-dir`; analysis stops rather than inventing an optimum or dimension for

@@ -168,6 +168,35 @@ def test_tts99_summary_uses_hit_rate_and_median_wall_time_across_seeds():
     assert summary.loc["sometimes.csv", "tts99_s"] == 21.0
 
 
+def test_tts99_plot_includes_failures_in_median_and_labels_run_count():
+    results = pd.DataFrame(
+        [
+            {
+                "csv_name": grid_name,
+                "method": "DSDA",
+                "seed": seed,
+                "n_starts": 2,
+                "max_evals": 10,
+                "found_optimum": found_optimum,
+                "wall_time_s": 1.0,
+            }
+            for grid_name, outcomes in {
+                "solved.csv": (True, True),
+                "failed_a.csv": (False, False),
+                "failed_b.csv": (False, False),
+            }.items()
+            for seed, found_optimum in enumerate(outcomes)
+        ]
+    )
+
+    figure = benchmark_analysis.plot_tts99_comparison(results)
+    axis = figure.axes[0]
+
+    assert "median=∞" in {text.get_text() for text in axis.texts}
+    assert [tick.get_text() for tick in axis.get_xticklabels()] == ["DSDA\nn=2"]
+    assert len(axis.lines) == 0
+
+
 def test_load_results_and_attach_grid_metadata(tmp_path):
     grids_dir = tmp_path / "grids"
     grids_dir.mkdir()
