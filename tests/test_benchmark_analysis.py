@@ -173,13 +173,14 @@ def test_tts99_plot_includes_failures_in_median_and_labels_run_count():
         [
             {
                 "csv_name": grid_name,
-                "method": "DSDA",
+                "method": method,
                 "seed": seed,
                 "n_starts": 2,
                 "max_evals": 10,
                 "found_optimum": found_optimum,
                 "wall_time_s": 1.0,
             }
+            for method in ("DSDA", "RBFOpt", "BAM")
             for grid_name, outcomes in {
                 "solved.csv": (True, True),
                 "failed_a.csv": (False, False),
@@ -191,9 +192,25 @@ def test_tts99_plot_includes_failures_in_median_and_labels_run_count():
 
     figure = benchmark_analysis.plot_tts99_comparison(results)
     axis = figure.axes[0]
+    figure.canvas.draw()
+    renderer = figure.canvas.get_renderer()
+    median_labels = [
+        text for text in axis.texts if text.get_text() == "median=∞"
+    ]
+    left_median_label = min(
+        median_labels,
+        key=lambda text: text.xy[0],
+    )
+    axes_bounds = axis.get_window_extent(renderer)
+    label_bounds = left_median_label.get_window_extent(renderer)
 
-    assert "median=∞" in {text.get_text() for text in axis.texts}
-    assert [tick.get_text() for tick in axis.get_xticklabels()] == ["DSDA\nn=2"]
+    assert label_bounds.x0 >= axes_bounds.x0
+    assert label_bounds.x1 <= axes_bounds.x1
+    assert [tick.get_text() for tick in axis.get_xticklabels()] == [
+        "DSDA\nn=2",
+        "RBFOpt\nn=2",
+        "BAM\nn=2",
+    ]
     assert len(axis.lines) == 0
 
 
