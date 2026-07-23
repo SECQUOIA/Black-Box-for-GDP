@@ -703,6 +703,7 @@ def plot_tts99_comparison(results_df, method_order=METHOD_ORDER):
                 )
 
         ax.set_xticks(range(1, len(methods) + 1), labels=method_labels)
+        ax.set_xlim(0.5, len(methods) + 0.5)
         ax.set_title(f"max_evals = {budget}")
         ax.set_xlabel("method")
         ax.set_ylim(bottom=0.0, top=marker_height * 1.2)
