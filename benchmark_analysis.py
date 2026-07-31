@@ -227,7 +227,21 @@ def solved_fraction_summary(results_df, tolerance=PRIMARY_TOLERANCE):
 
 
 def runs_to_target_probability(hit_rate, target_probability=0.99):
-    """Return independent runs needed to reach the target probability."""
+    """Calculate the number of independent runs needed for a target success chance.
+
+    Args:
+        hit_rate (float): Empirical probability that one run reaches the target,
+            in the closed interval [0, 1].
+        target_probability (float): Desired probability that at least one run
+            succeeds, in the open interval (0, 1). Defaults to 0.99.
+
+    Returns:
+        int or float: The smallest integer number of runs that reaches
+        ``target_probability``. Returns ``math.inf`` when ``hit_rate`` is zero.
+
+    Raises:
+        ValueError: If either probability is outside its permitted interval.
+    """
     hit_rate = float(hit_rate)
     target_probability = float(target_probability)
     if not 0.0 <= hit_rate <= 1.0:
@@ -242,7 +256,22 @@ def runs_to_target_probability(hit_rate, target_probability=0.99):
 
 
 def tts99_summary(results_df):
-    """Summarize exact-optimum hit rates and median-time TTS99 across seeds."""
+    """Summarize exact-optimum hit rates and median-time TTS99 across seeds.
+
+    Args:
+        results_df (pandas.DataFrame): Benchmark runs containing ``csv_name``,
+            ``method``, ``n_starts``, ``max_evals``, ``seed``,
+            ``found_optimum``, and ``wall_time_s`` columns.
+
+    Returns:
+        pandas.DataFrame: One row per problem, method, initialization count, and
+        evaluation budget. The result includes the run and hit counts, hit rate,
+        median wall time, runs needed for 99% success, and TTS99 in seconds.
+        Zero-hit groups have infinite ``runs_99`` and ``tts99_s`` values.
+
+    Raises:
+        ValueError: If a required column is missing or a wall time is negative.
+    """
     group_columns = ["csv_name", "method", "n_starts", "max_evals"]
     missing = set(group_columns + ["seed", "found_optimum", "wall_time_s"]).difference(
         results_df.columns
@@ -272,7 +301,20 @@ def tts99_summary(results_df):
 
 
 def performance_ratio_table(results_df, tolerance=PRIMARY_TOLERANCE, budget=None):
-    """Build a method-by-problem table of Dolan-More performance ratios."""
+    """Build a method-by-problem table of Dolan-More performance ratios.
+
+    Args:
+        results_df (pandas.DataFrame): Benchmark runs with the columns required
+            by :func:`annotate_solve_status`.
+        tolerance (float): Relative solution tolerance used to determine when a
+            run solves a problem. Defaults to ``PRIMARY_TOLERANCE``.
+        budget (int or None): Evaluation budget to include. When ``None``, all
+            budgets are included.
+
+    Returns:
+        pandas.DataFrame: Performance ratios indexed by problem and seed, with
+        one column per method. Unsolved method-problem pairs remain missing.
+    """
     data = annotate_solve_status(results_df, tolerance)
     if budget is not None:
         data = data[data["max_evals"] == budget]
@@ -620,7 +662,19 @@ def plot_wall_time_scatter(
 
 
 def plot_tts99_comparison(results_df, method_order=METHOD_ORDER):
-    """Plot per-problem TTS99 values by method and evaluation budget."""
+    """Plot per-problem TTS99 values by method and evaluation budget.
+
+    Args:
+        results_df (pandas.DataFrame): Benchmark runs accepted by
+            :func:`tts99_summary`.
+        method_order (sequence of str): Preferred display order for methods.
+            Observed methods not in this sequence are appended alphabetically.
+
+    Returns:
+        matplotlib.figure.Figure: A figure with one panel per evaluation budget.
+        Finite TTS99 values appear as points, zero-hit groups as infinity
+        markers, and each method's extended-real median as a black bar or label.
+    """
     plt = _pyplot()
     summary = tts99_summary(results_df)
     budgets = sorted(summary["max_evals"].unique())
