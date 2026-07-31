@@ -164,8 +164,22 @@ python benchmark_analysis.py \
 
 If `--results-csv` is omitted, `benchmark_analysis.py` uses the newest
 `results/benchmark_*.csv` file. The script writes three-method performance and
-data profiles, per-grid convergence and winner plots, pairwise Wilcoxon tables,
-and Friedman/Nemenyi comparisons under `results/figures/`.
+data profiles, per-grid convergence and winner plots, TTS99 comparisons,
+pairwise Wilcoxon tables, and Friedman/Nemenyi comparisons under
+`results/figures/`.
+
+TTS99 estimates the time required for repeated independent runs to reach a 99%
+probability of success. For hit rate `p`, the analysis uses
+`runs_99 = ceil(log(0.01) / log(1 - p))` and
+`TTS99 = runs_99 * median_wall_time_s`. A hit is an exact global-optimum event
+recorded by `found_optimum`; the per-run time is the median across seeds for the
+same problem, method, initialization size, and evaluation budget. A hit rate of
+one requires one run. A zero hit rate is reported as infinite TTS99 so failed
+configurations remain visible in both `tts99_summary.csv` and the generated
+figure. The comparison figure's black median marker includes infinite TTS99
+groups; when the median is infinite, the figure labels it explicitly. Method
+labels also show the number of seed runs contributing to each problem group,
+or a range when group sizes differ.
 
 Every `csv_name` in the results file must have a matching grid CSV under
 `--grids-dir`; analysis stops rather than inventing an optimum or dimension for

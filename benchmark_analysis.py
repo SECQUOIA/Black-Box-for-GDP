@@ -226,8 +226,95 @@ def solved_fraction_summary(results_df, tolerance=PRIMARY_TOLERANCE):
     )
 
 
+def runs_to_target_probability(hit_rate, target_probability=0.99):
+    """Calculate the number of independent runs needed for a target success chance.
+
+    Args:
+        hit_rate (float): Empirical probability that one run reaches the target,
+            in the closed interval [0, 1].
+        target_probability (float): Desired probability that at least one run
+            succeeds, in the open interval (0, 1). Defaults to 0.99.
+
+    Returns:
+        int or float: The smallest integer number of runs that reaches
+        ``target_probability``. Returns ``math.inf`` when ``hit_rate`` is zero.
+
+    Raises:
+        ValueError: If either probability is outside its permitted interval.
+    """
+    hit_rate = float(hit_rate)
+    target_probability = float(target_probability)
+    if not 0.0 <= hit_rate <= 1.0:
+        raise ValueError("hit_rate must be between 0 and 1")
+    if not 0.0 < target_probability < 1.0:
+        raise ValueError("target_probability must be between 0 and 1")
+    if hit_rate == 0.0:
+        return math.inf
+    if hit_rate == 1.0:
+        return 1
+    return math.ceil(math.log1p(-target_probability) / math.log1p(-hit_rate))
+
+
+def tts99_summary(results_df):
+    """Summarize exact-optimum hit rates and median-time TTS99 across seeds.
+
+    Args:
+        results_df (pandas.DataFrame): Benchmark runs containing ``csv_name``,
+            ``method``, ``n_starts``, ``max_evals``, ``seed``,
+            ``found_optimum``, and ``wall_time_s`` columns.
+
+    Returns:
+        pandas.DataFrame: One row per problem, method, initialization count, and
+        evaluation budget. The result includes the run and hit counts, hit rate,
+        median wall time, runs needed for 99% success, and TTS99 in seconds.
+        Zero-hit groups have infinite ``runs_99`` and ``tts99_s`` values.
+
+    Raises:
+        ValueError: If a required column is missing or a wall time is negative.
+    """
+    group_columns = ["csv_name", "method", "n_starts", "max_evals"]
+    missing = set(group_columns + ["seed", "found_optimum", "wall_time_s"]).difference(
+        results_df.columns
+    )
+    if missing:
+        missing_text = ", ".join(sorted(missing))
+        raise ValueError(f"TTS99 input is missing required columns: {missing_text}")
+    if (results_df["wall_time_s"] < 0).any():
+        raise ValueError("wall_time_s must be nonnegative")
+
+    summary = (
+        results_df.groupby(group_columns, as_index=False, dropna=False)
+        .agg(
+            n_runs=("seed", "size"),
+            hits=("found_optimum", "sum"),
+            hit_rate=("found_optimum", "mean"),
+            median_wall_time_s=("wall_time_s", "median"),
+        )
+        .sort_values(group_columns)
+        .reset_index(drop=True)
+    )
+    summary["hits"] = summary["hits"].astype(int)
+    summary["runs_99"] = summary["hit_rate"].apply(runs_to_target_probability)
+    summary["tts99_s"] = summary["runs_99"] * summary["median_wall_time_s"]
+    summary.loc[summary["hit_rate"] == 0.0, "tts99_s"] = math.inf
+    return summary
+
+
 def performance_ratio_table(results_df, tolerance=PRIMARY_TOLERANCE, budget=None):
-    """Build a method-by-problem table of Dolan-More performance ratios."""
+    """Build a method-by-problem table of Dolan-More performance ratios.
+
+    Args:
+        results_df (pandas.DataFrame): Benchmark runs with the columns required
+            by :func:`annotate_solve_status`.
+        tolerance (float): Relative solution tolerance used to determine when a
+            run solves a problem. Defaults to ``PRIMARY_TOLERANCE``.
+        budget (int or None): Evaluation budget to include. When ``None``, all
+            budgets are included.
+
+    Returns:
+        pandas.DataFrame: Performance ratios indexed by problem and seed, with
+        one column per method. Unsolved method-problem pairs remain missing.
+    """
     data = annotate_solve_status(results_df, tolerance)
     if budget is not None:
         data = data[data["max_evals"] == budget]
@@ -570,6 +657,113 @@ def plot_wall_time_scatter(
         ax.set_title(f"{method_a} vs {comparison_method}")
 
     fig.suptitle("Paired wall-time comparison")
+    fig.tight_layout()
+    return fig
+
+
+def plot_tts99_comparison(results_df, method_order=METHOD_ORDER):
+    """Plot per-problem TTS99 values by method and evaluation budget.
+
+    Args:
+        results_df (pandas.DataFrame): Benchmark runs accepted by
+            :func:`tts99_summary`.
+        method_order (sequence of str): Preferred display order for methods.
+            Observed methods not in this sequence are appended alphabetically.
+
+    Returns:
+        matplotlib.figure.Figure: A figure with one panel per evaluation budget.
+        Finite TTS99 values appear as points, zero-hit groups as infinity
+        markers, and each method's extended-real median as a black bar or label.
+    """
+    plt = _pyplot()
+    summary = tts99_summary(results_df)
+    budgets = sorted(summary["max_evals"].unique())
+    methods = ordered_methods(summary, method_order)
+    fig, axes = plt.subplots(
+        1,
+        len(budgets),
+        figsize=(4.2 * len(budgets), 3.8),
+        sharey=True,
+        squeeze=False,
+    )
+
+    finite_values = summary.loc[np.isfinite(summary["tts99_s"]), "tts99_s"]
+    marker_height = (
+        max(1.0, float(finite_values.max()) * 1.1) if len(finite_values) else 1.0
+    )
+
+    for ax, budget in zip(axes.ravel(), budgets, strict=True):
+        budget_summary = summary[summary["max_evals"] == budget]
+        method_labels = []
+        for method_index, method in enumerate(methods, start=1):
+            method_summary = budget_summary[budget_summary["method"] == method]
+            values = method_summary["tts99_s"].to_numpy(dtype=float)
+            run_counts = sorted(method_summary["n_runs"].unique())
+            if len(run_counts) == 1:
+                method_labels.append(f"{method}\nn={run_counts[0]}")
+            elif run_counts:
+                method_labels.append(f"{method}\nn={run_counts[0]}-{run_counts[-1]}")
+            else:
+                method_labels.append(method)
+
+            finite = values[np.isfinite(values)]
+            if finite.size:
+                ax.scatter(
+                    np.full(finite.size, method_index),
+                    finite,
+                    color=METHOD_COLORS.get(method),
+                    alpha=0.7,
+                )
+
+            if values.size:
+                median = float(np.median(values))
+            else:
+                median = math.nan
+            if np.isfinite(median):
+                ax.plot(
+                    [method_index - 0.2, method_index + 0.2],
+                    [median, median],
+                    color="black",
+                    lw=2,
+                )
+            elif np.isinf(median):
+                ax.annotate(
+                    "median=∞",
+                    (method_index, marker_height),
+                    xytext=(0, 20),
+                    textcoords="offset points",
+                    ha="center",
+                    color="black",
+                    fontsize=8,
+                )
+
+            infinite_count = int(np.isinf(values).sum())
+            if infinite_count:
+                ax.scatter(
+                    [method_index],
+                    [marker_height],
+                    marker="^",
+                    color="red",
+                    zorder=3,
+                )
+                ax.annotate(
+                    f"∞×{infinite_count}",
+                    (method_index, marker_height),
+                    xytext=(0, 5),
+                    textcoords="offset points",
+                    ha="center",
+                    color="red",
+                    fontsize=8,
+                )
+
+        ax.set_xticks(range(1, len(methods) + 1), labels=method_labels)
+        ax.set_xlim(0.5, len(methods) + 0.5)
+        ax.set_title(f"max_evals = {budget}")
+        ax.set_xlabel("method")
+        ax.set_ylim(bottom=0.0, top=marker_height * 1.2)
+
+    axes.ravel()[0].set_ylabel("TTS99 (seconds)")
+    fig.suptitle("TTS99 by problem (black bar: median; ∞: zero-hit groups)")
     fig.tight_layout()
     return fig
 
@@ -1058,6 +1252,7 @@ def save_default_figures(
         ),
         ("best_value_boxplots.png", lambda: plot_best_value_boxplots(results_df)),
         ("convergence_curves.png", lambda: plot_convergence_curves(results_df)),
+        ("tts99_comparison.png", lambda: plot_tts99_comparison(results_df)),
     ]
 
     methods = ordered_methods(results_df)
@@ -1103,6 +1298,10 @@ def save_statistics_tables(
     summary_path = output_dir / "solved_fraction_summary.csv"
     solved_fraction_summary(results_df, tolerance).to_csv(summary_path)
     saved_paths.append(summary_path)
+
+    tts99_path = output_dir / "tts99_summary.csv"
+    tts99_summary(results_df).to_csv(tts99_path, index=False)
+    saved_paths.append(tts99_path)
 
     methods = ordered_methods(results_df)
     if len(methods) >= 2:
