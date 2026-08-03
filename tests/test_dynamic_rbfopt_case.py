@@ -1,9 +1,11 @@
 """Tests for the dynamic case-study RBFOpt runner."""
 
 import os
+from contextlib import contextmanager
 from types import SimpleNamespace
 
 import numpy as np
+import pytest
 
 import case_studies.dynamic_rbfopt as dynamic_rbfopt
 from case_studies.common import generate_lhc_starting_points
@@ -45,10 +47,35 @@ def test_resolve_solver_paths_from_solver_dir(tmp_path, monkeypatch):
     assert str(tmp_path) in os.environ["PATH"].split(os.pathsep)
 
 
-def test_run_dynamic_rbfopt_uses_lhc_points_as_explicit_initial_nodes(monkeypatch):
+@pytest.mark.parametrize("verbose", [False, True])
+def test_run_dynamic_rbfopt_uses_lhc_points_as_explicit_initial_nodes(
+    monkeypatch,
+    verbose,
+):
     captured = {}
     ticks = iter([10.0, 12.5])
-    monkeypatch.setattr(dynamic_rbfopt.time, "perf_counter", lambda: next(ticks))
+    timer_calls = []
+
+    def fake_perf_counter():
+        timer_calls.append(True)
+        return next(ticks)
+
+    monkeypatch.setattr(dynamic_rbfopt.time, "perf_counter", fake_perf_counter)
+
+    @contextmanager
+    def fake_suppress_solver_output():
+        captured["suppression_requested"] = True
+        captured["suppression_active"] = True
+        try:
+            yield
+        finally:
+            captured["suppression_active"] = False
+
+    monkeypatch.setattr(
+        dynamic_rbfopt,
+        "suppress_solver_output",
+        fake_suppress_solver_output,
+    )
 
     class FakeBlackBox:
         def __init__(self, dimension, lower_bounds, upper_bounds, var_types, obj_fn):
@@ -74,11 +101,15 @@ def test_run_dynamic_rbfopt_uses_lhc_points_as_explicit_initial_nodes(monkeypatc
         ):
             self.settings = settings
             self.black_box = black_box
+            captured["timer_calls_at_algorithm_init"] = len(timer_calls)
             captured["init_node_pos"] = init_node_pos
             captured["init_node_val"] = init_node_val
             captured["do_init_strategy"] = do_init_strategy
 
         def optimize(self):
+            captured["suppression_active_during_optimize"] = captured.get(
+                "suppression_active", False
+            )
             best_value = None
             best_point = None
             for point in captured["init_node_pos"]:
@@ -99,6 +130,7 @@ def test_run_dynamic_rbfopt_uses_lhc_points_as_explicit_initial_nodes(monkeypatc
         n_starts=3,
         max_evaluations=12,
         rbfopt_module=fake_rbfopt,
+        verbose=verbose,
     )
 
     assert result["starting_points"] == [(2, 4), (9, 9), (4, 5)]
@@ -106,9 +138,12 @@ def test_run_dynamic_rbfopt_uses_lhc_points_as_explicit_initial_nodes(monkeypatc
     assert captured["settings"]["rand_seed"] == 0
     assert captured["init_node_val"] is None
     assert captured["do_init_strategy"] is False
+    assert captured["timer_calls_at_algorithm_init"] == 1
     assert result["tracked_evals"] == 3
     assert result["wall_time_s"] == 2.5
     assert result["result_record"]["wall_time_s"] == 2.5
     assert result["result_record"]["method"] == "RBFOpt"
     assert result["result_record"]["seed"] == 0
     assert result["result_record"]["n_starts"] == 3
+    assert captured.get("suppression_requested", False) is not verbose
+    assert captured["suppression_active_during_optimize"] is not verbose
