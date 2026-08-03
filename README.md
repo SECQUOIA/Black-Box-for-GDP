@@ -212,6 +212,76 @@ small-batch runner, solver paths can be omitted unless you switch the global
 search method back to a solver-backed mode. Case-study BAM runners accept
 `--bam-license-file` and default to `BAM_LICENSE_FILE` when it is set.
 
+To collect the reproducible three-method process case-study matrix in one
+audited CSV, run:
+
+```bash
+python case_study_benchmark.py \
+    --cases column,cstr,small_batch,dynamic \
+    --methods dsda,rbfopt,bam \
+    --seeds 0-9 \
+    --column-seeds 1-9 \
+    --n-starts 3 \
+    --solver-dir "$COIN_BIN" \
+    --bam-license-file "$BAM_LICENSE_FILE" \
+    --max-run-seconds 1800 \
+    --output results/case_studies
+```
+
+The default matrix uses budget 16 for column, budget 10 for small-batch,
+budgets 12, 15, 20, 30, 37, and 50 for dynamic, and CSTR grid sizes 5, 10, 15,
+20, 25, and 30. CSTR budgets are scaled as
+`ceil(10 * grid_size / 7)`. Column uses seeds 1-9 because seed 0 does not
+produce a feasible DSDA initial point. The runner writes all methods and cases
+to a single timestamped `process_case_studies_*.csv` file using the unified
+audit schema from `instrumentation.py`. The complete default plan contains 139
+case/seed/budget configurations and 417 method runs. Duplicate cases, methods,
+seeds, and budgets are rejected so every planned run has a unique identifier.
+
+Each completed method run is atomically checkpointed to a neighboring
+`*.partial.csv`, with a paired running manifest. If a solver fails or the
+process is interrupted, rerun the same protocol options with `--resume` and
+set `--output` to the checkpoint's corresponding explicit final CSV path; for
+example, resume `process_case_studies_<timestamp>.partial.csv` with
+`--output results/case_studies/process_case_studies_<timestamp>.csv`. The
+runner validates the checkpoint before skipping its completed prefix.
+`--max-run-seconds` supplies a best-effort POSIX wall-time deadline for each
+method run. An explicit completed CSV is never replaced unless `--overwrite`
+is supplied; timestamped directory output naturally chooses a new filename.
+The completed manifest records the protocol, software/source identity, input
+and initial-design hashes, row count, and output checksum without recording a
+BAM license path.
+
+Wall time starts after case-data loading, dependency resolution, and generation
+of the shared LHC design. It includes the initial black-box evaluations and the
+optimizer execution; for RBFOpt it also includes construction of the algorithm
+instance. Evaluation counts are the primary cross-method work measure.
+Iteration counts are retained as method telemetry, but DSDA, RBFOpt, and BAM do
+not define an iteration equivalently.
+
+After a benchmark completes, generate the Issue #18 summary tables and static
+figures from its audited CSV:
+
+```bash
+python case_study_analysis.py \
+    --results-csv results/case_studies/process_case_studies_YYYYMMDD_HHMMSS_ffffff.csv \
+    --output-dir results/case_studies/analysis
+```
+
+This writes `case_study_summary.csv`,
+`evaluation_convergence_summary.csv`, `case_study_overview.png`, and
+`evaluation_convergence.png`. The overview includes exact-optimum hit rate,
+normalized gap, wall time, TTS99, total/unique/adaptive evaluations, and a
+clearly qualified method-specific iteration panel. Convergence is indexed by
+black-box evaluation rather than solver iteration. A run with no finite
+incumbent yet contributes an infinite, censored gap instead of disappearing
+from the median denominator. The analysis verifies a paired completed manifest,
+CSV checksum, and row count when present, and prints a warning for a legacy
+unmanifested CSV. New structured CSV values use strict JSON (`null` for a
+leading non-finite incumbent); the analysis also accepts legacy
+`NaN`/`Infinity` traces and explicitly marks an all-non-finite trace as a
+terminal-only fallback instead of reconstructing progress.
+
 ## Benchmark Overview
 
 The `benchmark_grids/` directory contains normalized benchmark grids stored as
@@ -230,6 +300,10 @@ results.
   output.
 - `benchmark_analysis.py`: reusable analysis and plotting helpers for the
   benchmark results CSV, plus a CLI for saving figures and statistics tables.
+- `case_study_benchmark.py`: resumable, audited aggregate runner for the four
+  process case studies and all three methods.
+- `case_study_analysis.py`: reproducible process-case summary tables and static
+  BAM/DSDA/RBFOpt comparison figures.
 - `benchmark_grids/`: normalized benchmark grid data and notes about data provenance.
 - `case_study_data/`: completed enumeration CSV data for process case studies,
   grouped by column, CSTR, and small-batch examples.
@@ -247,7 +321,9 @@ The script `scripts/create_rbfopt_example.py` is a lightweight visualization
 helper used to generate an explanatory GIF for content materials. It is meant
 to illustrate the derivative-free optimization idea on a simple integer
 lattice, rather than serve as part of the main benchmark or regression-testing
-workflow.
+workflow. Existing notebook/GIF trajectories do not include BAM and are
+qualitative demonstrations, not evidence for the three-method comparison; use
+the audited static outputs from `case_study_analysis.py` for Issue #18.
 
 ## Development Checks
 
@@ -260,7 +336,7 @@ python -m pytest tests/ -q
 Run the basic lint checks used by GitHub Actions with:
 
 ```bash
-python -m ruff check benchmark.py benchmark_analysis.py grid_dsda.py grid_rbfopt.py case_studies tests scripts
+python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py case_studies tests scripts
 ```
 
 ## License

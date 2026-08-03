@@ -42,6 +42,8 @@ select = ["E4", "E7", "E9", "F"]
 py-modules = [
     "benchmark",
     "benchmark_analysis",
+    "case_study_analysis",
+    "case_study_benchmark",
     "grid_dsda",
     "grid_rbfopt",
     "instrumentation",
