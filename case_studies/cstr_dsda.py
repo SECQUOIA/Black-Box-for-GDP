@@ -48,7 +48,6 @@ def run_cstr_dsda(
     verbose=False,
 ):
     """Run DSDA on the CSTR case from the best feasible LHC start."""
-    start_time = time.perf_counter()
     case_data = load_cstr_case_data(grid_size)
     upper_bounds = case_data["upper_bounds"]
     feasible_objectives = case_data["feasible_objectives"]
@@ -69,6 +68,7 @@ def run_cstr_dsda(
             feasible_objectives=feasible_objectives,
         )
     )
+    start_time = time.perf_counter()
     (
         selected_start,
         selected_start_value,
@@ -131,6 +131,9 @@ def run_cstr_dsda(
         initial_evals=len(starting_point_values),
         adaptive_evals=max(0, tracked_objective.call_count - len(starting_point_values)),
         unique_evals=tracked_objective.unique_evaluation_count,
+        solver_iterations=(
+            0 if run_result is None else run_result["major_iterations"]
+        ),
     )
     return {
         "case_name": "cstr",
