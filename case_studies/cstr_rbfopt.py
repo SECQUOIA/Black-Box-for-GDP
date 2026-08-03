@@ -4,12 +4,14 @@ import argparse
 import math
 import os
 import time
+from contextlib import nullcontext
 from pathlib import Path
 
 import numpy as np
 
 from instrumentation import TrackedObjective, make_result_record, save_results_csv
 
+from .bam_common import suppress_solver_output
 from .common import generate_lhc_starting_points
 from .cstr_case import (
     DEFAULT_GRID_SIZE,
@@ -83,6 +85,7 @@ def run_cstr_rbfopt(
     rbf="auto",
     global_search_method="solver",
     rbfopt_module=None,
+    verbose=False,
 ):
     """
     Run RBFOpt on the CSTR case with shared, explicit LHC initial points.
@@ -137,19 +140,20 @@ def run_cstr_rbfopt(
         global_search_method=global_search_method,
         rand_seed=seed,
     )
-    algorithm_instance = rbfopt_module.RbfoptAlgorithm(
-        settings,
-        black_box,
-        init_node_pos=init_node_pos,
-        init_node_val=None,
-        do_init_strategy=False,
-    )
-
-    start_time = time.perf_counter()
-    best_value, best_point, itercount, evalcount, fast_evalcount = (
-        algorithm_instance.optimize()
-    )
-    wall_time_s = time.perf_counter() - start_time
+    output_context = nullcontext() if verbose else suppress_solver_output()
+    with output_context:
+        start_time = time.perf_counter()
+        algorithm_instance = rbfopt_module.RbfoptAlgorithm(
+            settings,
+            black_box,
+            init_node_pos=init_node_pos,
+            init_node_val=None,
+            do_init_strategy=False,
+        )
+        best_value, best_point, itercount, evalcount, fast_evalcount = (
+            algorithm_instance.optimize()
+        )
+        wall_time_s = time.perf_counter() - start_time
     best_point_rounded = [int(round(value)) for value in best_point]
     found_optimum = (
         list(known_best_point) == best_point_rounded
@@ -224,6 +228,7 @@ def parse_args():
     parser.add_argument("--algorithm", default="MSRSM")
     parser.add_argument("--rbf", default="auto")
     parser.add_argument("--global-search-method", default="solver")
+    parser.add_argument("--verbose", action="store_true")
     parser.add_argument("--output", default=None)
     return parser.parse_args()
 
@@ -242,4 +247,5 @@ if __name__ == "__main__":
         algorithm=args.algorithm,
         rbf=args.rbf,
         global_search_method=args.global_search_method,
+        verbose=args.verbose,
     )
