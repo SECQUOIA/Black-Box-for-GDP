@@ -45,7 +45,6 @@ def run_dynamic_dsda(
     verbose=False,
 ):
     """Run DSDA on the dynamic case from the best feasible LHC start."""
-    start_time = time.perf_counter()
     starting_points = generate_lhc_starting_points(
         n_dims=2,
         n_points=n_starts,
@@ -54,6 +53,7 @@ def run_dynamic_dsda(
         seed=seed,
     )
     tracked_objective = TrackedObjective(dynamic_objective)
+    start_time = time.perf_counter()
     (
         selected_start,
         selected_start_value,
@@ -115,6 +115,9 @@ def run_dynamic_dsda(
         initial_evals=len(starting_point_values),
         adaptive_evals=max(0, tracked_objective.call_count - len(starting_point_values)),
         unique_evals=tracked_objective.unique_evaluation_count,
+        solver_iterations=(
+            0 if run_result is None else run_result["major_iterations"]
+        ),
     )
     return {
         "case_name": "dynamic",
