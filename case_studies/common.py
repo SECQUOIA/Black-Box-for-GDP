@@ -1,5 +1,7 @@
 """Shared utilities for reproducible case-study runs."""
 
+import math
+
 import numpy as np
 from scipy.stats.qmc import LatinHypercube
 
@@ -18,15 +20,40 @@ def generate_lhc_starting_points(n_dims, n_points, lb, ub, seed):
     if np.any(upper_bounds < lower_bounds):
         raise ValueError("ub must be greater than or equal to lb")
 
-    sampler = LatinHypercube(d=n_dims, seed=seed)
-    unit_samples = sampler.random(n=n_points)
-    scaled = lower_bounds + unit_samples * (upper_bounds - lower_bounds)
+    integer_lower_bounds = np.ceil(lower_bounds).astype(int)
+    integer_upper_bounds = np.floor(upper_bounds).astype(int)
+    lattice_size = math.prod(integer_upper_bounds - integer_lower_bounds + 1)
+    if n_points > lattice_size:
+        raise ValueError(
+            f"Cannot generate {n_points} unique starts from a lattice with "
+            f"only {lattice_size} points"
+        )
 
+    sampler = LatinHypercube(d=n_dims, seed=seed)
     points = []
-    for row in scaled:
-        rounded = np.rint(row).astype(int)
-        clamped = np.minimum(np.maximum(rounded, lower_bounds), upper_bounds)
-        points.append(tuple(int(value) for value in clamped))
+    seen = set()
+
+    def add_samples(unit_samples):
+        scaled = lower_bounds + unit_samples * (upper_bounds - lower_bounds)
+        for row in scaled:
+            rounded = np.rint(row).astype(int)
+            clamped = np.minimum(np.maximum(rounded, lower_bounds), upper_bounds)
+            point = tuple(int(value) for value in clamped)
+            if point not in seen:
+                points.append(point)
+                seen.add(point)
+
+    add_samples(sampler.random(n=n_points))
+    attempts = 0
+    max_attempts = max(100, 10 * lattice_size)
+    while len(points) < n_points and attempts < max_attempts:
+        add_samples(sampler.random(n=1))
+        attempts += 1
+
+    if len(points) < n_points:
+        raise RuntimeError(
+            "Unable to generate the requested number of unique LHC lattice starts"
+        )
     return points
 
 
