@@ -103,7 +103,7 @@ def find_latest_case_study_results_csv(results_csv=None, results_dir=None):
     candidates = [
         path
         for path in results_dir.glob("process_case_studies_*.csv")
-        if not path.name.endswith(".partial.csv")
+        if not path.name.endswith((".partial.csv", ".partial.pending.csv"))
     ]
     if not candidates:
         raise FileNotFoundError(
@@ -886,7 +886,13 @@ def plot_case_study_overview(summary_df, method_order=METHOD_ORDER):
         raise ValueError(f"Overview summary is missing columns: {missing_text}")
 
     width = max(14.0, 0.95 * len(configurations))
-    fig, axes = plt.subplots(2, 4, figsize=(width, 8.2), sharex=True, squeeze=False)
+    fig, axes = plt.subplots(
+        len(metrics),
+        1,
+        figsize=(width, 2.6 * len(metrics)),
+        sharex=True,
+        squeeze=False,
+    )
     x_positions = np.arange(len(configurations), dtype=float)
     bar_width = min(0.25, 0.8 / max(1, len(methods)))
     indexed = summary_df.set_index(["csv_name", "n_starts", "max_evals", "method"])
@@ -948,10 +954,18 @@ def plot_case_study_overview(summary_df, method_order=METHOD_ORDER):
         if use_symlog:
             axis.set_yscale("symlog", linthresh=1e-3)
         axis.set_ylabel(ylabel)
-        axis.set_xticks(x_positions, labels=labels, rotation=45, ha="right")
         axis.grid(axis="x", visible=False)
         if metric == "hit_rate":
             axis.set_ylim(0.0, 105.0)
+
+    for axis in axes.ravel()[:-1]:
+        axis.tick_params(axis="x", labelbottom=False)
+    axes.ravel()[-1].set_xticks(
+        x_positions,
+        labels=labels,
+        rotation=45,
+        ha="right",
+    )
 
     handles, legend_labels = axes.ravel()[0].get_legend_handles_labels()
     if handles:
@@ -972,7 +986,7 @@ def plot_case_study_overview(summary_df, method_order=METHOD_ORDER):
         va="bottom",
         fontsize=8,
     )
-    fig.tight_layout(rect=(0.0, 0.045, 1.0, 0.93))
+    fig.tight_layout(rect=(0.0, 0.035, 1.0, 0.96))
     return fig
 
 

@@ -1,10 +1,13 @@
 """Tests for BAM case-study runners."""
 
+import io
 import math
+import sys
 from types import SimpleNamespace
 
 import numpy as np
 
+from case_studies.bam_common import suppress_solver_output
 from case_studies.column_bam import run_column_bam
 from case_studies.cstr_bam import run_cstr_bam
 from case_studies.dynamic_bam import run_dynamic_bam
@@ -49,6 +52,22 @@ def _fake_bam(captured, candidate):
         )
 
     return SimpleNamespace(set_license_file=set_license_file, minimize=minimize)
+
+
+def test_suppress_solver_output_handles_streams_without_file_descriptors(monkeypatch):
+    stdout = io.StringIO()
+    stderr = io.StringIO()
+    monkeypatch.setattr(sys, "stdout", stdout)
+    monkeypatch.setattr(sys, "stderr", stderr)
+
+    with suppress_solver_output():
+        print("hidden stdout")
+        print("hidden stderr", file=sys.stderr)
+
+    assert sys.stdout is stdout
+    assert sys.stderr is stderr
+    assert stdout.getvalue() == ""
+    assert stderr.getvalue() == ""
 
 
 def test_run_column_bam_uses_shared_lhc_as_warm_start(tmp_path):

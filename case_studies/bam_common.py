@@ -4,7 +4,7 @@ import math
 import os
 import sys
 import time
-from contextlib import contextmanager, nullcontext
+from contextlib import contextmanager, nullcontext, redirect_stderr, redirect_stdout
 from pathlib import Path
 
 import numpy as np
@@ -25,10 +25,17 @@ def configure_bam_license(bam_module, bam_license_file=None):
 @contextmanager
 def suppress_solver_output():
     """Suppress native solver banners and iteration logs."""
-    sys.stdout.flush()
-    sys.stderr.flush()
-    stdout_fd = sys.stdout.fileno()
-    stderr_fd = sys.stderr.fileno()
+    try:
+        sys.stdout.flush()
+        sys.stderr.flush()
+        stdout_fd = sys.stdout.fileno()
+        stderr_fd = sys.stderr.fileno()
+    except (AttributeError, OSError):
+        with open(os.devnull, "w", encoding="utf-8") as devnull:
+            with redirect_stdout(devnull), redirect_stderr(devnull):
+                yield
+        return
+
     saved_stdout_fd = os.dup(stdout_fd)
     saved_stderr_fd = os.dup(stderr_fd)
     devnull_fd = os.open(os.devnull, os.O_WRONLY)

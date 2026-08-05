@@ -202,8 +202,10 @@ def test_load_case_study_results_parses_audited_csv_without_grid_metadata(tmp_pa
 def test_latest_results_ignores_incomplete_checkpoints(tmp_path):
     completed = tmp_path / "process_case_studies_20260802_120000.csv"
     partial = tmp_path / "process_case_studies_20260802_130000.partial.csv"
+    pending = tmp_path / "process_case_studies_20260802_130000.partial.pending.csv"
     completed.write_text("completed\n", encoding="utf-8")
     partial.write_text("partial\n", encoding="utf-8")
+    pending.write_text("pending\n", encoding="utf-8")
 
     assert (
         case_study_analysis.find_latest_case_study_results_csv(results_dir=tmp_path)
@@ -228,10 +230,13 @@ def test_load_case_study_results_requires_audit_columns_and_unique_runs(tmp_path
 def test_latest_results_selection_excludes_newer_partial_checkpoint(tmp_path):
     completed = tmp_path / "process_case_studies_20260802.csv"
     partial = tmp_path / "process_case_studies_20260802.partial.csv"
+    pending = tmp_path / "process_case_studies_20260802.partial.pending.csv"
     completed.write_text("completed\n", encoding="utf-8")
     partial.write_text("partial\n", encoding="utf-8")
+    pending.write_text("pending\n", encoding="utf-8")
     os.utime(completed, (1, 1))
     os.utime(partial, (2, 2))
+    os.utime(pending, (3, 3))
 
     selected = case_study_analysis.find_latest_case_study_results_csv(
         results_dir=tmp_path
@@ -504,6 +509,44 @@ def test_overview_labels_solver_iterations_as_method_specific(tmp_path):
     }
     figure_notes = " ".join(text.get_text() for text in figure.texts)
     assert "method-specific and not directly comparable" in figure_notes
+    case_study_analysis._pyplot().close(figure)
+
+
+def test_default_sized_overview_keeps_configuration_labels_readable(tmp_path):
+    results_path = tmp_path / "process_cases.csv"
+    save_results_csv(_summary_records(), results_path)
+    results = case_study_analysis.load_case_study_results(results_path)
+    base_summary = case_study_analysis.summarize_case_study_results(results)
+    summaries = []
+    for configuration in range(14):
+        summaries.append(
+            base_summary.assign(
+                case_name="dynamic",
+                problem_label=f"Case {configuration + 1}",
+                csv_name=f"case_{configuration + 1}",
+                cstr_grid_size=math.nan,
+                max_evals=configuration + 4,
+            )
+        )
+    summary = pd.concat(summaries, ignore_index=True)
+
+    figure = case_study_analysis.plot_case_study_overview(summary)
+    figure.canvas.draw()
+    renderer = figure.canvas.get_renderer()
+    labels = [
+        label
+        for label in figure.axes[-1].get_xticklabels()
+        if label.get_visible() and label.get_text()
+    ]
+    bounds = sorted(
+        (label.get_window_extent(renderer=renderer) for label in labels),
+        key=lambda box: box.x0,
+    )
+
+    assert len(figure.axes) == 8
+    assert len(labels) == 14
+    assert all(left.x1 <= right.x0 for left, right in zip(bounds, bounds[1:]))
+    assert not any(label.get_visible() for label in figure.axes[0].get_xticklabels())
     case_study_analysis._pyplot().close(figure)
 
 

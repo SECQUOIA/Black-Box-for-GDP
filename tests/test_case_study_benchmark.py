@@ -6,6 +6,7 @@ import json
 import signal
 import time
 from datetime import datetime
+from pathlib import Path
 
 import pytest
 
@@ -165,6 +166,9 @@ def test_run_case_study_benchmark_combines_all_methods_in_one_csv(tmp_path):
         path.endswith("compl_enum_cstr_5_baron_hull.csv")
         for path in manifest["provenance"]["data_files_sha256"]
     )
+    source_hashes = manifest["provenance"]["source_files_sha256"]
+    assert "grid_dsda.py" in source_hashes
+    assert "case_studies/bam_common.py" in source_hashes
     partial_path = case_study_benchmark.case_study_partial_path(output_path)
     assert not partial_path.exists()
     assert not case_study_benchmark.case_study_manifest_path(partial_path).exists()
@@ -176,12 +180,13 @@ def test_small_batch_keeps_its_rbfopt_sampling_defaults(tmp_path):
         "small_batch": {"rbfopt": _fake_runner("rbfopt", calls, "small_batch")},
     }
 
+    output_path = tmp_path / "small_batch.csv"
     case_study_benchmark.run_case_study_benchmark(
         cases=("small_batch",),
         methods=("rbfopt",),
         seeds=(0,),
         small_batch_budgets=(10,),
-        output=tmp_path / "small_batch.csv",
+        output=output_path,
         rbfopt_module=object(),
         runners=runners,
     )
@@ -189,6 +194,15 @@ def test_small_batch_keeps_its_rbfopt_sampling_defaults(tmp_path):
     _, kwargs = calls[0]
     assert kwargs["algorithm"] == "Gutmann"
     assert kwargs["global_search_method"] == "sampling"
+    manifest = json.loads(
+        case_study_benchmark.case_study_manifest_path(output_path).read_text(
+            encoding="utf-8"
+        )
+    )
+    assert (
+        "case_studies/bam_common.py"
+        in manifest["provenance"]["source_files_sha256"]
+    )
 
 
 def test_real_small_batch_bam_requires_a_license_before_starting(tmp_path):
@@ -399,6 +413,109 @@ def test_resume_validates_and_skips_completed_prefix(tmp_path):
     partial_path = case_study_benchmark.case_study_partial_path(output_path)
     assert not partial_path.exists()
     assert not case_study_benchmark.case_study_manifest_path(partial_path).exists()
+
+
+def test_interrupt_after_staged_csv_write_keeps_checkpoint_resumable(
+    tmp_path,
+    monkeypatch,
+):
+    output_path = tmp_path / "interrupted_staging.csv"
+    real_save = case_study_benchmark._atomic_save_results_csv
+    save_count = 0
+
+    def interrupt_after_save(records, path):
+        nonlocal save_count
+        real_save(records, path)
+        save_count += 1
+        if save_count == 2:
+            raise KeyboardInterrupt("interrupted after staged CSV write")
+
+    monkeypatch.setattr(
+        case_study_benchmark,
+        "_atomic_save_results_csv",
+        interrupt_after_save,
+    )
+    with pytest.raises(KeyboardInterrupt, match="staged CSV"):
+        case_study_benchmark.run_case_study_benchmark(
+            cases=("cstr",),
+            methods=("dsda",),
+            seeds=(0,),
+            cstr_grid_sizes=(5,),
+            output=output_path,
+            runners={"cstr": {"dsda": _fake_runner("dsda", [])}},
+        )
+
+    monkeypatch.setattr(
+        case_study_benchmark,
+        "_atomic_save_results_csv",
+        real_save,
+    )
+    resume_calls = []
+    records, _ = case_study_benchmark.run_case_study_benchmark(
+        cases=("cstr",),
+        methods=("dsda",),
+        seeds=(0,),
+        cstr_grid_sizes=(5,),
+        output=output_path,
+        runners={"cstr": {"dsda": _fake_runner("dsda", resume_calls)}},
+        resume=True,
+    )
+
+    assert len(records) == 1
+    assert [kwargs["seed"] for _, kwargs in resume_calls] == [0]
+
+
+def test_resume_recovers_interruption_between_checkpoint_pair_promotions(
+    tmp_path,
+    monkeypatch,
+):
+    output_path = tmp_path / "interrupted_promotion.csv"
+    partial_path = case_study_benchmark.case_study_partial_path(output_path)
+    partial_manifest_path = case_study_benchmark.case_study_manifest_path(partial_path)
+    pending_path = case_study_benchmark.case_study_pending_path(partial_path)
+    pending_manifest_path = case_study_benchmark.case_study_manifest_path(pending_path)
+    real_replace = case_study_benchmark.os.replace
+    promotion_count = 0
+
+    def interrupt_manifest_promotion(source, destination):
+        nonlocal promotion_count
+        if Path(source) == pending_manifest_path and Path(
+            destination
+        ) == partial_manifest_path:
+            promotion_count += 1
+            if promotion_count == 2:
+                raise KeyboardInterrupt("interrupted between pair promotions")
+        return real_replace(source, destination)
+
+    monkeypatch.setattr(
+        case_study_benchmark.os,
+        "replace",
+        interrupt_manifest_promotion,
+    )
+    with pytest.raises(KeyboardInterrupt, match="between pair promotions"):
+        case_study_benchmark.run_case_study_benchmark(
+            cases=("cstr",),
+            methods=("dsda",),
+            seeds=(0,),
+            cstr_grid_sizes=(5,),
+            output=output_path,
+            runners={"cstr": {"dsda": _fake_runner("dsda", [])}},
+        )
+
+    monkeypatch.setattr(case_study_benchmark.os, "replace", real_replace)
+    resume_calls = []
+    records, _ = case_study_benchmark.run_case_study_benchmark(
+        cases=("cstr",),
+        methods=("dsda",),
+        seeds=(0,),
+        cstr_grid_sizes=(5,),
+        output=output_path,
+        runners={"cstr": {"dsda": _fake_runner("dsda", resume_calls)}},
+        resume=True,
+    )
+
+    assert len(records) == 1
+    assert resume_calls == []
 
 
 def test_resume_rejects_protocol_mismatch(tmp_path):
