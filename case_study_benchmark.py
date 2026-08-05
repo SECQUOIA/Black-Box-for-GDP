@@ -232,6 +232,14 @@ def case_study_partial_path(output_path):
     return output_path.with_name(f"{output_path.stem}.partial{output_path.suffix}")
 
 
+def case_study_pending_path(partial_path):
+    """Return the staged CSV path used to update a checkpoint pair safely."""
+    partial_path = Path(partial_path)
+    return partial_path.with_name(
+        f"{partial_path.stem}.pending{partial_path.suffix}"
+    )
+
+
 def build_run_matrix(
     cases=DEFAULT_CASES,
     seeds=DEFAULT_SEEDS,
@@ -552,7 +560,9 @@ def _provenance(matrix, cases, methods, n_starts):
         source_paths.add(BASE_DIR / "case_studies" / f"{case_name}_case.py")
         for method in methods:
             source_paths.add(BASE_DIR / "case_studies" / f"{case_name}_{method}.py")
-    if "bam" in methods:
+    if "dsda" in methods:
+        source_paths.add(BASE_DIR / "grid_dsda.py")
+    if {"rbfopt", "bam"}.intersection(methods):
         source_paths.add(BASE_DIR / "case_studies" / "bam_common.py")
 
     data_paths = set()
@@ -818,6 +828,34 @@ def _build_manifest(
     }
 
 
+def _save_checkpoint(
+    *,
+    partial_path,
+    partial_manifest_path,
+    manifest_context,
+    status,
+    records,
+    failed_run,
+):
+    """Replace a CSV/manifest checkpoint pair through recoverable staged files."""
+    pending_path = case_study_pending_path(partial_path)
+    pending_manifest_path = case_study_manifest_path(pending_path)
+
+    _atomic_save_results_csv(records, pending_path)
+    manifest = _build_manifest(
+        **manifest_context,
+        artifact_path=pending_path,
+        status=status,
+        records=records,
+        failed_run=failed_run,
+    )
+    manifest["output"]["current_csv_path"] = _portable_path(partial_path)
+    _atomic_save_json(manifest, pending_manifest_path)
+    os.replace(pending_path, partial_path)
+    os.replace(pending_manifest_path, partial_manifest_path)
+    return manifest
+
+
 def _validate_record_matches_run_key(record, run_key, row_number):
     expected_values = {
         "csv_name": run_key["csv_name"],
@@ -958,6 +996,77 @@ def _validate_resume_checkpoint(
     return records, manifest
 
 
+def _load_resume_checkpoint(
+    *,
+    partial_path,
+    partial_manifest_path,
+    expected_protocol,
+    expected_software,
+    expected_provenance,
+    planned_run_keys,
+    expected_configurations,
+):
+    """Load the newest valid checkpoint generation and promote staged files."""
+    partial_path = Path(partial_path)
+    partial_manifest_path = Path(partial_manifest_path)
+    pending_path = case_study_pending_path(partial_path)
+    pending_manifest_path = case_study_manifest_path(pending_path)
+    candidates = (
+        (partial_path, partial_manifest_path, 1),
+        (partial_path, pending_manifest_path, 0),
+        (pending_path, pending_manifest_path, 0),
+    )
+    valid_candidates = []
+    errors = []
+    seen_pairs = set()
+
+    for csv_path, manifest_path, stable_preference in candidates:
+        pair = (csv_path, manifest_path)
+        if pair in seen_pairs or not csv_path.is_file() or not manifest_path.is_file():
+            continue
+        seen_pairs.add(pair)
+        try:
+            records, manifest = _validate_resume_checkpoint(
+                partial_path=csv_path,
+                partial_manifest_path=manifest_path,
+                expected_protocol=expected_protocol,
+                expected_software=expected_software,
+                expected_provenance=expected_provenance,
+                planned_run_keys=planned_run_keys,
+                expected_configurations=expected_configurations,
+            )
+        except (OSError, ValueError) as error:
+            errors.append(error)
+            continue
+        valid_candidates.append(
+            (
+                len(records),
+                stable_preference,
+                csv_path,
+                manifest_path,
+                records,
+                manifest,
+            )
+        )
+
+    if not valid_candidates:
+        if errors:
+            raise errors[0]
+        raise FileNotFoundError("No valid process-case checkpoint pair was found")
+
+    _, _, csv_path, manifest_path, records, manifest = max(
+        valid_candidates,
+        key=lambda candidate: (candidate[0], candidate[1]),
+    )
+    if csv_path != partial_path:
+        os.replace(csv_path, partial_path)
+    if manifest_path != partial_manifest_path:
+        os.replace(manifest_path, partial_manifest_path)
+    pending_path.unlink(missing_ok=True)
+    pending_manifest_path.unlink(missing_ok=True)
+    return records, manifest
+
+
 def _redacted_exception_message(exception, bam_license_file):
     message = str(exception)
     if bam_license_file:
@@ -1066,6 +1175,8 @@ def run_case_study_benchmark(
     manifest_path = case_study_manifest_path(output_path)
     partial_path = case_study_partial_path(output_path)
     partial_manifest_path = case_study_manifest_path(partial_path)
+    pending_path = case_study_pending_path(partial_path)
+    pending_manifest_path = case_study_manifest_path(pending_path)
     existing_final_paths = [
         path for path in (output_path, manifest_path) if path.exists()
     ]
@@ -1078,12 +1189,17 @@ def run_case_study_benchmark(
     partial_exists = partial_path.exists()
     partial_manifest_exists = partial_manifest_path.exists()
     if resume:
-        if not partial_exists or not partial_manifest_exists:
+        resumable_pair_exists = (
+            (partial_exists and partial_manifest_exists)
+            or (partial_exists and pending_manifest_path.exists())
+            or (pending_path.exists() and pending_manifest_path.exists())
+        )
+        if not resumable_pair_exists:
             raise FileNotFoundError(
-                "resume requires both checkpoint files: "
-                f"{partial_path} and {partial_manifest_path}"
+                "resume requires both checkpoint files or a complete staged "
+                f"checkpoint pair for {partial_path}"
             )
-    elif partial_exists or partial_manifest_exists:
+    elif partial_exists or partial_manifest_exists or pending_manifest_path.exists():
         raise FileExistsError(
             "An incomplete process-case checkpoint already exists. "
             "Pass resume=True or --resume with the same explicit CSV output path."
@@ -1128,7 +1244,7 @@ def run_case_study_benchmark(
     expected_protocol = _build_protocol(**protocol_context)
 
     if resume:
-        records, checkpoint_manifest = _validate_resume_checkpoint(
+        records, checkpoint_manifest = _load_resume_checkpoint(
             partial_path=partial_path,
             partial_manifest_path=partial_manifest_path,
             expected_protocol=expected_protocol,
@@ -1143,7 +1259,6 @@ def run_case_study_benchmark(
         records = []
         started_at = datetime.now(timezone.utc).isoformat()
         resume_count = 0
-        _atomic_save_results_csv(records, partial_path)
 
     manifest_context = {
         "output_path": output_path,
@@ -1155,14 +1270,14 @@ def run_case_study_benchmark(
         "software": software,
         "provenance": provenance,
     }
-    running_manifest = _build_manifest(
-        **manifest_context,
-        artifact_path=partial_path,
+    _save_checkpoint(
+        partial_path=partial_path,
+        partial_manifest_path=partial_manifest_path,
+        manifest_context=manifest_context,
         status="running",
         records=records,
         failed_run=None,
     )
-    _atomic_save_json(running_manifest, partial_manifest_path)
 
     run_index = 0
     for row in matrix:
@@ -1212,16 +1327,15 @@ def run_case_study_benchmark(
                     run_index + 1,
                 )
                 candidate_records = [*records, result_record]
-                _atomic_save_results_csv(candidate_records, partial_path)
-                records = candidate_records
-                partial_manifest = _build_manifest(
-                    **manifest_context,
-                    artifact_path=partial_path,
+                _save_checkpoint(
+                    partial_path=partial_path,
+                    partial_manifest_path=partial_manifest_path,
+                    manifest_context=manifest_context,
                     status="running",
-                    records=records,
+                    records=candidate_records,
                     failed_run=None,
                 )
-                _atomic_save_json(partial_manifest, partial_manifest_path)
+                records = candidate_records
             except BaseException as exception:
                 failed_run = {
                     "run_key": current_run_key,
@@ -1232,14 +1346,23 @@ def run_case_study_benchmark(
                     ),
                 }
                 try:
-                    failed_manifest = _build_manifest(
-                        **manifest_context,
-                        artifact_path=partial_path,
+                    checkpoint_records, _ = _load_resume_checkpoint(
+                        partial_path=partial_path,
+                        partial_manifest_path=partial_manifest_path,
+                        expected_protocol=expected_protocol,
+                        expected_software=software,
+                        expected_provenance=provenance,
+                        planned_run_keys=planned_run_keys,
+                        expected_configurations=len(matrix),
+                    )
+                    _save_checkpoint(
+                        partial_path=partial_path,
+                        partial_manifest_path=partial_manifest_path,
+                        manifest_context=manifest_context,
                         status="failed",
-                        records=records,
+                        records=checkpoint_records,
                         failed_run=failed_run,
                     )
-                    _atomic_save_json(failed_manifest, partial_manifest_path)
                 except Exception:
                     pass
                 raise
@@ -1259,6 +1382,8 @@ def run_case_study_benchmark(
     )
     _atomic_save_json(manifest, manifest_path)
     partial_manifest_path.unlink(missing_ok=True)
+    pending_path.unlink(missing_ok=True)
+    pending_manifest_path.unlink(missing_ok=True)
     return records, output_path
 
 

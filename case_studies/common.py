@@ -37,7 +37,10 @@ def generate_lhc_starting_points(n_dims, n_points, lb, ub, seed):
         scaled = lower_bounds + unit_samples * (upper_bounds - lower_bounds)
         for row in scaled:
             rounded = np.rint(row).astype(int)
-            clamped = np.minimum(np.maximum(rounded, lower_bounds), upper_bounds)
+            clamped = np.minimum(
+                np.maximum(rounded, integer_lower_bounds),
+                integer_upper_bounds,
+            )
             point = tuple(int(value) for value in clamped)
             if point not in seen:
                 points.append(point)
