@@ -459,7 +459,7 @@ def plot_data_profiles(
         ax.set_ylim(0.0, 1.02)
         handles, _ = ax.get_legend_handles_labels()
         if handles:
-            ax.legend(loc="lower right")
+            ax.legend(loc="upper left")
 
     axes.ravel()[0].set_ylabel("fraction solved")
     fig.suptitle("Data profiles")

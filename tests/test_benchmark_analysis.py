@@ -378,6 +378,9 @@ def test_three_method_comparisons_include_bam(tmp_path):
         text.get_text() for text in performance_figure.axes[0].get_legend().get_texts()
     } == {"DSDA", "RBFOpt", "BAM"}
 
+    data_profile_figure = benchmark_analysis.plot_data_profiles(results)
+    assert all(axis.get_legend()._loc == 2 for axis in data_profile_figure.axes)
+
     convergence_figure = benchmark_analysis.plot_convergence_curves(
         results,
         grid_name="alpha.csv",
