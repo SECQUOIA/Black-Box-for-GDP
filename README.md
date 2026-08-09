@@ -248,7 +248,9 @@ runner validates the checkpoint before skipping its completed prefix.
 Checkpoint updates pass through a neighboring `*.partial.pending.csv` pair;
 after an interruption, `--resume` selects and promotes the newest complete,
 checksum-valid generation. These pending files are internal recovery artifacts
-and should not be edited or analyzed directly.
+and should not be edited or analyzed directly. Final CSV/manifest promotion is
+also recoverable: if it is interrupted between the two atomic replacements,
+rerun the same command with `--resume` and the explicit final CSV path.
 `--max-run-seconds` supplies a best-effort POSIX wall-time deadline for each
 method run. An explicit completed CSV is never replaced unless `--overwrite`
 is supplied; timestamped directory output naturally chooses a new filename.
