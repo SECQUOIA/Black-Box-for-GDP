@@ -205,7 +205,11 @@ def test_small_batch_keeps_its_rbfopt_sampling_defaults(tmp_path):
     )
 
 
-def test_real_small_batch_bam_requires_a_license_before_starting(tmp_path):
+def test_real_small_batch_bam_requires_a_license_before_starting(
+    tmp_path,
+    monkeypatch,
+):
+    monkeypatch.delenv("BAM_LICENSE_FILE", raising=False)
     with pytest.raises(FileNotFoundError, match="small-batch BAM study"):
         case_study_benchmark.run_case_study_benchmark(
             cases=("small_batch",),
@@ -516,6 +520,71 @@ def test_resume_recovers_interruption_between_checkpoint_pair_promotions(
 
     assert len(records) == 1
     assert resume_calls == []
+
+
+@pytest.mark.parametrize("existing_final", (False, True))
+def test_resume_recovers_interruption_between_final_pair_promotions(
+    tmp_path,
+    monkeypatch,
+    existing_final,
+):
+    output_path = tmp_path / "interrupted_finalization.csv"
+    partial_path = case_study_benchmark.case_study_partial_path(output_path)
+    partial_manifest_path = case_study_benchmark.case_study_manifest_path(partial_path)
+    manifest_path = case_study_benchmark.case_study_manifest_path(output_path)
+    real_replace = case_study_benchmark.os.replace
+    if existing_final:
+        output_path.write_text("previous result\n", encoding="utf-8")
+        manifest_path.write_text("{}\n", encoding="utf-8")
+
+    def interrupt_manifest_promotion(source, destination):
+        if Path(source) == partial_manifest_path and Path(destination) == manifest_path:
+            raise KeyboardInterrupt("interrupted between final pair promotions")
+        return real_replace(source, destination)
+
+    monkeypatch.setattr(
+        case_study_benchmark.os,
+        "replace",
+        interrupt_manifest_promotion,
+    )
+    with pytest.raises(KeyboardInterrupt, match="between final pair promotions"):
+        case_study_benchmark.run_case_study_benchmark(
+            cases=("cstr",),
+            methods=("dsda",),
+            seeds=(0,),
+            cstr_grid_sizes=(5,),
+            output=output_path,
+            runners={"cstr": {"dsda": _fake_runner("dsda", [])}},
+            overwrite=existing_final,
+        )
+
+    assert output_path.is_file()
+    assert manifest_path.exists() is existing_final
+    assert not partial_path.exists()
+    assert partial_manifest_path.is_file()
+
+    monkeypatch.setattr(case_study_benchmark.os, "replace", real_replace)
+    resume_calls = []
+    records, saved_path = case_study_benchmark.run_case_study_benchmark(
+        cases=("cstr",),
+        methods=("dsda",),
+        seeds=(0,),
+        cstr_grid_sizes=(5,),
+        output=output_path,
+        runners={"cstr": {"dsda": _fake_runner("dsda", resume_calls)}},
+        resume=True,
+        overwrite=existing_final,
+    )
+
+    assert len(records) == 1
+    assert saved_path == output_path
+    assert resume_calls == []
+    assert output_path.is_file()
+    assert manifest_path.is_file()
+    completed_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert completed_manifest["run"]["status"] == "completed"
+    assert not partial_path.exists()
+    assert not partial_manifest_path.exists()
 
 
 def test_resume_rejects_protocol_mismatch(tmp_path):

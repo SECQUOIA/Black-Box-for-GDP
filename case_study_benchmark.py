@@ -965,7 +965,8 @@ def _validate_resume_checkpoint(
     run_state = manifest.get("run")
     if not isinstance(run_state, dict):
         raise ValueError("Checkpoint manifest is missing run state")
-    if run_state.get("status") not in {"running", "failed"}:
+    checkpoint_status = run_state.get("status")
+    if checkpoint_status not in {"running", "failed", "completed"}:
         raise ValueError("Checkpoint manifest is not resumable")
     if run_state.get("expected_configurations") != expected_configurations:
         raise ValueError("Checkpoint expected configuration count does not match")
@@ -984,6 +985,8 @@ def _validate_resume_checkpoint(
     completed_rows = run_state.get("completed_rows")
     if completed_rows != len(records):
         raise ValueError("Checkpoint completed row count does not match its CSV")
+    if checkpoint_status == "completed" and completed_rows != len(planned_run_keys):
+        raise ValueError("Completed checkpoint does not contain every planned run")
     expected_prefix = planned_run_keys[: len(records)]
     if run_state.get("completed_run_keys") != expected_prefix:
         raise ValueError("Checkpoint completed run keys are not the planned prefix")
@@ -1005,17 +1008,20 @@ def _load_resume_checkpoint(
     expected_provenance,
     planned_run_keys,
     expected_configurations,
+    output_path=None,
 ):
     """Load the newest valid checkpoint generation and promote staged files."""
     partial_path = Path(partial_path)
     partial_manifest_path = Path(partial_manifest_path)
     pending_path = case_study_pending_path(partial_path)
     pending_manifest_path = case_study_manifest_path(pending_path)
-    candidates = (
+    candidates = [
         (partial_path, partial_manifest_path, 1),
         (partial_path, pending_manifest_path, 0),
         (pending_path, pending_manifest_path, 0),
-    )
+    ]
+    if output_path is not None:
+        candidates.append((Path(output_path), partial_manifest_path, 0))
     valid_candidates = []
     errors = []
     seen_pairs = set()
@@ -1177,10 +1183,29 @@ def run_case_study_benchmark(
     partial_manifest_path = case_study_manifest_path(partial_path)
     pending_path = case_study_pending_path(partial_path)
     pending_manifest_path = case_study_manifest_path(pending_path)
+    finalization_recovery_candidate = (
+        resume
+        and output_path.is_file()
+        and not partial_path.exists()
+        and partial_manifest_path.is_file()
+    )
+    if finalization_recovery_candidate:
+        recovery_manifest = _load_json(
+            partial_manifest_path,
+            "finalization recovery manifest",
+        )
+        recovery_run = recovery_manifest.get("run")
+        finalization_recovery_candidate = (
+            isinstance(recovery_run, dict)
+            and recovery_run.get("status") == "completed"
+        )
     existing_final_paths = [
         path for path in (output_path, manifest_path) if path.exists()
     ]
-    if existing_final_paths and not overwrite:
+    recover_without_overwrite = (
+        finalization_recovery_candidate and not manifest_path.exists()
+    )
+    if existing_final_paths and not overwrite and not recover_without_overwrite:
         existing_text = ", ".join(str(path) for path in existing_final_paths)
         raise FileExistsError(
             f"Completed output already exists: {existing_text}. "
@@ -1193,6 +1218,7 @@ def run_case_study_benchmark(
             (partial_exists and partial_manifest_exists)
             or (partial_exists and pending_manifest_path.exists())
             or (pending_path.exists() and pending_manifest_path.exists())
+            or finalization_recovery_candidate
         )
         if not resumable_pair_exists:
             raise FileNotFoundError(
@@ -1252,6 +1278,7 @@ def run_case_study_benchmark(
             expected_provenance=provenance,
             planned_run_keys=planned_run_keys,
             expected_configurations=len(matrix),
+            output_path=output_path,
         )
         started_at = checkpoint_manifest["run"]["started_at_utc"]
         resume_count = checkpoint_manifest["run"]["resume_count"] + 1
@@ -1354,6 +1381,7 @@ def run_case_study_benchmark(
                         expected_provenance=provenance,
                         planned_run_keys=planned_run_keys,
                         expected_configurations=len(matrix),
+                        output_path=output_path,
                     )
                     _save_checkpoint(
                         partial_path=partial_path,
@@ -1374,14 +1402,16 @@ def run_case_study_benchmark(
             f"{len(records)}"
         )
 
-    os.replace(partial_path, output_path)
     manifest = _build_manifest(
         **manifest_context,
+        artifact_path=partial_path,
         records=records,
         failed_run=None,
     )
-    _atomic_save_json(manifest, manifest_path)
-    partial_manifest_path.unlink(missing_ok=True)
+    manifest["output"]["current_csv_path"] = _portable_path(output_path)
+    _atomic_save_json(manifest, partial_manifest_path)
+    os.replace(partial_path, output_path)
+    os.replace(partial_manifest_path, manifest_path)
     pending_path.unlink(missing_ok=True)
     pending_manifest_path.unlink(missing_ok=True)
     return records, output_path
