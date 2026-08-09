@@ -377,6 +377,7 @@ def test_three_method_comparisons_include_bam(tmp_path):
     assert {
         text.get_text() for text in performance_figure.axes[0].get_legend().get_texts()
     } == {"DSDA", "RBFOpt", "BAM"}
+    assert all(axis.get_legend()._loc == 2 for axis in performance_figure.axes)
 
     data_profile_figure = benchmark_analysis.plot_data_profiles(results)
     assert all(axis.get_legend()._loc == 2 for axis in data_profile_figure.axes)
