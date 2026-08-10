@@ -686,6 +686,49 @@ def test_resume_ignores_informational_git_provenance(tmp_path):
     assert [kwargs["seed"] for _, kwargs in resume_calls] == [1]
 
 
+def test_resume_ignores_informational_platform_release(tmp_path):
+    output_path = _create_one_row_checkpoint(tmp_path, "kernel_release.csv")
+    partial_path = case_study_benchmark.case_study_partial_path(output_path)
+    manifest_path = case_study_benchmark.case_study_manifest_path(partial_path)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["software"]["platform"]["release"] = "informational-only"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    resume_calls = []
+
+    records, _ = case_study_benchmark.run_case_study_benchmark(
+        cases=("cstr",),
+        methods=("dsda",),
+        seeds=(0, 1),
+        cstr_grid_sizes=(5,),
+        output=output_path,
+        runners={"cstr": {"dsda": _fake_runner("dsda", resume_calls)}},
+        resume=True,
+    )
+
+    assert len(records) == 2
+    assert [kwargs["seed"] for _, kwargs in resume_calls] == [1]
+
+
+def test_resume_names_result_affecting_software_mismatch(tmp_path):
+    output_path = _create_one_row_checkpoint(tmp_path, "software_mismatch.csv")
+    partial_path = case_study_benchmark.case_study_partial_path(output_path)
+    manifest_path = case_study_benchmark.case_study_manifest_path(partial_path)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["software"]["distributions"]["numpy"] = "different-version"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="software distributions"):
+        case_study_benchmark.run_case_study_benchmark(
+            cases=("cstr",),
+            methods=("dsda",),
+            seeds=(0, 1),
+            cstr_grid_sizes=(5,),
+            output=output_path,
+            runners={"cstr": {"dsda": _fake_runner("dsda", [])}},
+            resume=True,
+        )
+
+
 def test_resume_names_reproducibility_critical_provenance_mismatch(tmp_path):
     output_path = _create_one_row_checkpoint(tmp_path, "source_mismatch.csv")
     partial_path = case_study_benchmark.case_study_partial_path(output_path)

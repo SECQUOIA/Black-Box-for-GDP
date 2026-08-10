@@ -79,6 +79,8 @@ RESUME_PROVENANCE_FIELDS = (
     "data_files_sha256",
     "initial_design",
 )
+RESUME_SOFTWARE_FIELDS = ("python", "distributions")
+RESUME_PLATFORM_FIELDS = ("machine", "system")
 CASE_CSV_NAMES = {
     "column": "compl_enum_column_17_baron.csv",
     "small_batch": "compl_enum_small_batch_baron.csv",
@@ -992,8 +994,21 @@ def _validate_resume_checkpoint(
         raise ValueError("Checkpoint manifest schema does not match")
     if manifest.get("protocol") != expected_protocol:
         raise ValueError("Checkpoint manifest protocol does not match this run")
-    if manifest.get("software") != expected_software:
-        raise ValueError("Checkpoint software versions do not match this run")
+    checkpoint_software = manifest.get("software")
+    if not isinstance(checkpoint_software, dict):
+        raise ValueError("Checkpoint manifest is missing software identity")
+    for field in RESUME_SOFTWARE_FIELDS:
+        if checkpoint_software.get(field) != expected_software.get(field):
+            raise ValueError(f"Checkpoint software {field} does not match this run")
+    checkpoint_platform = checkpoint_software.get("platform")
+    if not isinstance(checkpoint_platform, dict):
+        raise ValueError("Checkpoint manifest is missing software platform identity")
+    expected_platform = expected_software["platform"]
+    for field in RESUME_PLATFORM_FIELDS:
+        if checkpoint_platform.get(field) != expected_platform.get(field):
+            raise ValueError(
+                f"Checkpoint software platform.{field} does not match this run"
+            )
     checkpoint_provenance = manifest.get("provenance")
     if not isinstance(checkpoint_provenance, dict):
         raise ValueError("Checkpoint manifest is missing provenance")
