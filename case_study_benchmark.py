@@ -60,7 +60,7 @@ DEFAULT_SMALL_BATCH_BUDGETS = (10,)
 DEFAULT_DYNAMIC_BUDGETS = (12, 15, 20, 30, 37, 50)
 SUPPORTED_CASES = DEFAULT_CASES
 CSTR_BUDGET_FORMULA = "ceil(10 * grid_size / 7)"
-MANIFEST_VERSION = 2
+MANIFEST_VERSION = 3
 SOFTWARE_DISTRIBUTIONS = (
     "rbfopt-test",
     "rbfopt",
@@ -74,6 +74,11 @@ METHOD_LABELS = {
     "rbfopt": "RBFOpt",
     "bam": "BAM",
 }
+RESUME_PROVENANCE_FIELDS = (
+    "source_files_sha256",
+    "data_files_sha256",
+    "initial_design",
+)
 CASE_CSV_NAMES = {
     "column": "compl_enum_column_17_baron.csv",
     "small_batch": "compl_enum_small_batch_baron.csv",
@@ -679,7 +684,6 @@ def _method_configuration(
     global_search_method,
     diagonal,
     tie_break,
-    verbose,
     minlp_solver_path,
     nlp_solver_path,
     bam_license_file,
@@ -691,7 +695,6 @@ def _method_configuration(
         configuration["dsda"] = {
             "diagonal": diagonal,
             "tie_break": tie_break,
-            "verbose": verbose,
         }
     if "rbfopt" in methods:
         solver_identities = {"minlp": None, "nlp": None}
@@ -702,7 +705,6 @@ def _method_configuration(
             }
         configuration["rbfopt"] = {
             "rbf": rbf,
-            "verbose": bool(verbose),
             "effective_case_settings": {
                 case_name: {
                     "algorithm": algorithm or _rbfopt_defaults(case_name)[0],
@@ -722,7 +724,6 @@ def _method_configuration(
         configuration["bam"] = {
             "license_configured": bool(bam_license_file),
             "module_injected": bam_module is not None,
-            "verbose": verbose,
         }
     return configuration
 
@@ -734,13 +735,11 @@ def _build_protocol(
     methods,
     n_starts,
     planned_run_keys,
-    max_run_seconds,
     algorithm,
     rbf,
     global_search_method,
     diagonal,
     tie_break,
-    verbose,
     minlp_solver_path,
     nlp_solver_path,
     bam_license_file,
@@ -756,7 +755,6 @@ def _build_protocol(
         "cases": list(cases),
         "methods": list(methods),
         "n_starts": int(n_starts),
-        "max_run_seconds": max_run_seconds,
         "case_parameters": _case_protocol(matrix, cases),
         "method_configuration": _method_configuration(
             cases=cases,
@@ -766,7 +764,6 @@ def _build_protocol(
             global_search_method=global_search_method,
             diagonal=diagonal,
             tie_break=tie_break,
-            verbose=verbose,
             minlp_solver_path=minlp_solver_path,
             nlp_solver_path=nlp_solver_path,
             bam_license_file=bam_license_file,
@@ -775,6 +772,25 @@ def _build_protocol(
         ),
         "planned_run_keys": planned_run_keys,
         "planned_run_keys_sha256": hashlib.sha256(plan_json).hexdigest(),
+    }
+
+
+def _execution_attempt(
+    *,
+    resume_count,
+    completed_rows_before_attempt,
+    max_run_seconds,
+    verbose,
+    started_at_utc=None,
+):
+    """Record execution-only settings for one initial or resumed invocation."""
+    return {
+        "attempt": int(resume_count),
+        "started_at_utc": started_at_utc
+        or datetime.now(timezone.utc).isoformat(),
+        "completed_rows_before_attempt": int(completed_rows_before_attempt),
+        "max_run_seconds": max_run_seconds,
+        "verbose": bool(verbose),
     }
 
 
@@ -789,6 +805,7 @@ def _build_manifest(
     records,
     started_at,
     resume_count,
+    execution_context_history,
     failed_run,
     software,
     provenance,
@@ -800,6 +817,11 @@ def _build_manifest(
     )
     artifact_path = Path(artifact_path or output_path)
     manifest_path = case_study_manifest_path(output_path)
+    execution_context_history = [
+        dict(attempt) for attempt in execution_context_history
+    ]
+    if not execution_context_history:
+        raise ValueError("Execution context history must not be empty")
     return {
         "manifest_version": MANIFEST_VERSION,
         "schema": _result_schema(),
@@ -814,6 +836,8 @@ def _build_manifest(
             "completed_rows": len(records),
             "completed_run_keys": planned_run_keys[: len(records)],
             "resume_count": resume_count,
+            "execution_context": execution_context_history[-1],
+            "execution_context_history": execution_context_history,
             "failed_run": failed_run,
         },
         "software": software,
@@ -959,8 +983,12 @@ def _validate_resume_checkpoint(
         raise ValueError("Checkpoint manifest protocol does not match this run")
     if manifest.get("software") != expected_software:
         raise ValueError("Checkpoint software versions do not match this run")
-    if manifest.get("provenance") != expected_provenance:
-        raise ValueError("Checkpoint source/data provenance does not match this run")
+    checkpoint_provenance = manifest.get("provenance")
+    if not isinstance(checkpoint_provenance, dict):
+        raise ValueError("Checkpoint manifest is missing provenance")
+    for field in RESUME_PROVENANCE_FIELDS:
+        if checkpoint_provenance.get(field) != expected_provenance.get(field):
+            raise ValueError(f"Checkpoint provenance {field} does not match this run")
 
     run_state = manifest.get("run")
     if not isinstance(run_state, dict):
@@ -996,6 +1024,15 @@ def _validate_resume_checkpoint(
     resume_count = run_state.get("resume_count")
     if not isinstance(resume_count, int) or resume_count < 0:
         raise ValueError("Checkpoint manifest has an invalid resume count")
+    execution_context_history = run_state.get("execution_context_history")
+    if (
+        not isinstance(execution_context_history, list)
+        or len(execution_context_history) != resume_count + 1
+        or not all(isinstance(attempt, dict) for attempt in execution_context_history)
+    ):
+        raise ValueError("Checkpoint manifest has invalid execution context history")
+    if execution_context_history[-1].get("attempt") != resume_count:
+        raise ValueError("Checkpoint execution context history is out of order")
     return records, manifest
 
 
@@ -1254,13 +1291,11 @@ def run_case_study_benchmark(
         "methods": methods,
         "n_starts": n_starts,
         "planned_run_keys": planned_run_keys,
-        "max_run_seconds": max_run_seconds,
         "algorithm": algorithm,
         "rbf": rbf,
         "global_search_method": global_search_method,
         "diagonal": diagonal,
         "tie_break": tie_break,
-        "verbose": verbose,
         "minlp_solver_path": minlp_solver_path,
         "nlp_solver_path": nlp_solver_path,
         "bam_license_file": bam_license_file,
@@ -1282,10 +1317,26 @@ def run_case_study_benchmark(
         )
         started_at = checkpoint_manifest["run"]["started_at_utc"]
         resume_count = checkpoint_manifest["run"]["resume_count"] + 1
+        execution_context_history = list(
+            checkpoint_manifest["run"]["execution_context_history"]
+        )
+        attempt_started_at = datetime.now(timezone.utc).isoformat()
     else:
         records = []
         started_at = datetime.now(timezone.utc).isoformat()
         resume_count = 0
+        execution_context_history = []
+        attempt_started_at = started_at
+
+    execution_context_history.append(
+        _execution_attempt(
+            resume_count=resume_count,
+            completed_rows_before_attempt=len(records),
+            max_run_seconds=max_run_seconds,
+            verbose=verbose,
+            started_at_utc=attempt_started_at,
+        )
+    )
 
     manifest_context = {
         "output_path": output_path,
@@ -1294,6 +1345,7 @@ def run_case_study_benchmark(
         "protocol": expected_protocol,
         "started_at": started_at,
         "resume_count": resume_count,
+        "execution_context_history": execution_context_history,
         "software": software,
         "provenance": provenance,
     }

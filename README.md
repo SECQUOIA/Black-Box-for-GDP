@@ -251,12 +251,20 @@ checksum-valid generation. These pending files are internal recovery artifacts
 and should not be edited or analyzed directly. Final CSV/manifest promotion is
 also recoverable: if it is interrupted between the two atomic replacements,
 rerun the same command with `--resume` and the explicit final CSV path.
+The planned matrix and result-affecting protocol options must remain identical
+when resuming. Execution-only `--max-run-seconds` and `--verbose` may change;
+the manifest records their values and the completed-row boundary for every
+attempt. A deterministic non-timeout failure must be corrected without
+changing hashed source/data inputs or the planned matrix; narrowing the matrix
+is intentionally rejected, so a source-level fix requires a new benchmark run.
 `--max-run-seconds` supplies a best-effort POSIX wall-time deadline for each
 method run. An explicit completed CSV is never replaced unless `--overwrite`
 is supplied; timestamped directory output naturally chooses a new filename.
-The completed manifest records the protocol, software/source identity, input
-and initial-design hashes, row count, and output checksum without recording a
-BAM license path.
+The completed manifest records the protocol, per-attempt execution context,
+software/source identity, input and initial-design hashes, row count, and
+output checksum without recording a BAM license path. Git commit, branch, and
+dirty-state metadata are informational during resume; source/data/design hashes
+remain strict.
 
 Wall time starts after case-data loading, dependency resolution, and generation
 of the shared LHC design. It includes the initial black-box evaluations and the

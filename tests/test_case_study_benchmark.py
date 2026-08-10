@@ -123,12 +123,19 @@ def test_run_case_study_benchmark_combines_all_methods_in_one_csv(tmp_path):
     manifest_path = case_study_benchmark.case_study_manifest_path(output_path)
     with manifest_path.open(encoding="utf-8") as handle:
         manifest = json.load(handle)
-    assert manifest["manifest_version"] == 2
+    assert manifest["manifest_version"] == 3
     assert manifest["schema"]["fields"] == list(RESULT_FIELDS)
     assert manifest["protocol"]["cases"] == ["cstr"]
     assert manifest["protocol"]["methods"] == ["dsda", "rbfopt", "bam"]
     assert manifest["protocol"]["n_starts"] == 3
-    assert manifest["protocol"]["method_configuration"]["rbfopt"]["verbose"] is False
+    assert "verbose" not in manifest["protocol"]["method_configuration"]["rbfopt"]
+    assert manifest["run"]["execution_context"] == {
+        "attempt": 0,
+        "started_at_utc": manifest["run"]["started_at_utc"],
+        "completed_rows_before_attempt": 0,
+        "max_run_seconds": None,
+        "verbose": False,
+    }
     assert manifest["protocol"]["case_parameters"]["cstr"] == {
         "seeds": [2],
         "max_evaluation_budgets": [8],
@@ -249,7 +256,6 @@ def test_manifest_does_not_serialize_bam_license_path(tmp_path):
     assert manifest["protocol"]["method_configuration"]["bam"] == {
         "license_configured": True,
         "module_injected": True,
-        "verbose": False,
     }
 
 
@@ -602,6 +608,58 @@ def test_resume_rejects_protocol_mismatch(tmp_path):
         )
 
 
+def test_resume_ignores_informational_git_provenance(tmp_path):
+    output_path = _create_one_row_checkpoint(tmp_path, "git_metadata.csv")
+    partial_path = case_study_benchmark.case_study_partial_path(output_path)
+    manifest_path = case_study_benchmark.case_study_manifest_path(partial_path)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["provenance"]["git"] = {
+        "commit": "informational-only",
+        "branch": "detached",
+        "tracked_worktree_dirty": not manifest["provenance"]["git"].get(
+            "tracked_worktree_dirty",
+            False,
+        ),
+    }
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    resume_calls = []
+
+    records, _ = case_study_benchmark.run_case_study_benchmark(
+        cases=("cstr",),
+        methods=("dsda",),
+        seeds=(0, 1),
+        cstr_grid_sizes=(5,),
+        output=output_path,
+        runners={"cstr": {"dsda": _fake_runner("dsda", resume_calls)}},
+        resume=True,
+    )
+
+    assert len(records) == 2
+    assert [kwargs["seed"] for _, kwargs in resume_calls] == [1]
+
+
+def test_resume_names_reproducibility_critical_provenance_mismatch(tmp_path):
+    output_path = _create_one_row_checkpoint(tmp_path, "source_mismatch.csv")
+    partial_path = case_study_benchmark.case_study_partial_path(output_path)
+    manifest_path = case_study_benchmark.case_study_manifest_path(partial_path)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    source_hashes = manifest["provenance"]["source_files_sha256"]
+    first_source = next(iter(source_hashes))
+    source_hashes[first_source] = "0" * 64
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="provenance source_files_sha256"):
+        case_study_benchmark.run_case_study_benchmark(
+            cases=("cstr",),
+            methods=("dsda",),
+            seeds=(0, 1),
+            cstr_grid_sizes=(5,),
+            output=output_path,
+            runners={"cstr": {"dsda": _fake_runner("dsda", [])}},
+            resume=True,
+        )
+
+
 def test_resume_requires_both_partial_csv_and_manifest(tmp_path):
     output_path = tmp_path / "missing_manifest.csv"
     partial_path = case_study_benchmark.case_study_partial_path(output_path)
@@ -807,7 +865,6 @@ def test_configured_solver_provenance_uses_only_basename_and_hash(tmp_path):
         global_search_method=None,
         diagonal=True,
         tie_break="first",
-        verbose=True,
         minlp_solver_path=minlp_path,
         nlp_solver_path=nlp_path,
         bam_license_file=None,
@@ -815,7 +872,7 @@ def test_configured_solver_provenance_uses_only_basename_and_hash(tmp_path):
         bam_module=None,
     )["rbfopt"]
 
-    assert configuration["verbose"] is True
+    assert "verbose" not in configuration
     assert configuration["external_solver_executables"] == {
         "minlp": {
             "basename": "bonmin",
@@ -870,9 +927,69 @@ def test_max_run_seconds_times_out_and_restores_signal_state(tmp_path):
             encoding="utf-8"
         )
     )
-    assert failed_manifest["protocol"]["max_run_seconds"] == 0.02
+    assert "max_run_seconds" not in failed_manifest["protocol"]
+    assert failed_manifest["run"]["execution_context"]["max_run_seconds"] == 0.02
     assert failed_manifest["run"]["completed_rows"] == 0
     assert failed_manifest["run"]["failed_run"]["exception_type"] == ("RunTimeoutError")
+
+
+@pytest.mark.skipif(
+    not hasattr(signal, "setitimer"),
+    reason="POSIX interval timers are required",
+)
+def test_resume_allows_execution_context_changes_after_timeout(tmp_path):
+    output_path = tmp_path / "raised_deadline.csv"
+    attempts = []
+    completed_calls = []
+    successful_runner = _fake_runner("dsda", completed_calls)
+
+    def delayed_runner(**kwargs):
+        attempts.append(kwargs["verbose"])
+        time.sleep(0.05)
+        return successful_runner(**kwargs)
+
+    with pytest.raises(case_study_benchmark.RunTimeoutError):
+        case_study_benchmark.run_case_study_benchmark(
+            cases=("cstr",),
+            methods=("dsda",),
+            seeds=(0,),
+            cstr_grid_sizes=(5,),
+            output=output_path,
+            runners={"cstr": {"dsda": delayed_runner}},
+            max_run_seconds=0.01,
+            verbose=False,
+        )
+
+    records, _ = case_study_benchmark.run_case_study_benchmark(
+        cases=("cstr",),
+        methods=("dsda",),
+        seeds=(0,),
+        cstr_grid_sizes=(5,),
+        output=output_path,
+        runners={"cstr": {"dsda": delayed_runner}},
+        max_run_seconds=0.2,
+        verbose=True,
+        resume=True,
+    )
+
+    assert len(records) == 1
+    assert attempts == [False, True]
+    assert len(completed_calls) == 1
+    manifest = json.loads(
+        case_study_benchmark.case_study_manifest_path(output_path).read_text(
+            encoding="utf-8"
+        )
+    )
+    assert "max_run_seconds" not in manifest["protocol"]
+    assert all(
+        "verbose" not in configuration
+        for configuration in manifest["protocol"]["method_configuration"].values()
+    )
+    history = manifest["run"]["execution_context_history"]
+    assert [attempt["attempt"] for attempt in history] == [0, 1]
+    assert [attempt["max_run_seconds"] for attempt in history] == [0.01, 0.2]
+    assert [attempt["verbose"] for attempt in history] == [False, True]
+    assert [attempt["completed_rows_before_attempt"] for attempt in history] == [0, 0]
 
 
 @pytest.mark.parametrize("value", (0, -1, float("inf"), float("nan"), True))
