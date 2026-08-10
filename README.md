@@ -263,8 +263,9 @@ is supplied; timestamped directory output naturally chooses a new filename.
 The completed manifest records the protocol, per-attempt execution context,
 software/source identity, input and initial-design hashes, row count, and
 output checksum without recording a BAM license path. Git commit, branch, and
-dirty-state metadata are informational during resume; source/data/design hashes
-remain strict.
+dirty-state metadata and the operating-system kernel release are informational
+during resume; Python and dependency versions, platform system/machine, and
+source/data/design hashes remain strict.
 
 Wall time starts after case-data loading, dependency resolution, and generation
 of the shared LHC design. It includes the initial black-box evaluations and the
