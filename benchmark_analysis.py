@@ -192,7 +192,11 @@ def first_eval_within_tolerance(trajectory, target_value, tolerance):
 
     threshold = float(target_value) + tolerance_window(target_value, tolerance)
     for eval_number, value in enumerate(trajectory, start=1):
-        if float(value) <= threshold:
+        try:
+            numeric_value = float(value)
+        except (TypeError, ValueError):
+            continue
+        if math.isfinite(numeric_value) and numeric_value <= threshold:
             return eval_number
     return math.nan
 
@@ -388,7 +392,7 @@ def plot_performance_profiles(
         ax.set_ylim(0.0, 1.02)
         handles, _ = ax.get_legend_handles_labels()
         if handles:
-            ax.legend(loc="lower right")
+            ax.legend(loc="upper left")
 
     axes.ravel()[0].set_ylabel("fraction solved")
     fig.suptitle(f"Performance profiles, tolerance={tolerance:g}")
@@ -455,7 +459,7 @@ def plot_data_profiles(
         ax.set_ylim(0.0, 1.02)
         handles, _ = ax.get_legend_handles_labels()
         if handles:
-            ax.legend(loc="lower right")
+            ax.legend(loc="upper left")
 
     axes.ravel()[0].set_ylabel("fraction solved")
     fig.suptitle("Data profiles")
@@ -785,7 +789,11 @@ def trajectory_mean_frame(results_df, grid_name=None, budget=None):
                 "Missing incumbent trajectory for "
                 f"grid={row.csv_name}, method={row.method}, seed={row.seed}"
             )
-        trajectory = [float(incumbent) for incumbent in trajectory]
+        numeric_trajectory = pd.to_numeric(
+            pd.Series(trajectory, dtype="object"),
+            errors="coerce",
+        ).replace([np.inf, -np.inf], np.nan)
+        trajectory = numeric_trajectory.ffill().tolist()
         for eval_number in range(1, int(budget) + 1):
             incumbent = trajectory[min(eval_number - 1, len(trajectory) - 1)]
             rows.append(
