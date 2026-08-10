@@ -207,10 +207,10 @@ python -m case_studies.dynamic_bam --seed 0 --n-starts 3 --max-evaluations 12
 
 The case-study RBFOpt runners accept the same solver configuration pattern as
 `grid_rbfopt.py`. Set `COIN_BIN` or pass `--solver-dir` to a directory
-containing `bonmin` and `ipopt`; for examples that use sampling, such as the
-small-batch runner, solver paths can be omitted unless you switch the global
-search method back to a solver-backed mode. Case-study BAM runners accept
-`--bam-license-file` and default to `BAM_LICENSE_FILE` when it is set.
+containing `bonmin` and `ipopt`. The small-batch default combines the Gutmann
+algorithm with sampling, but Gutmann still uses Bonmin for its target-value
+subproblem, so its solver paths cannot be omitted. Case-study BAM runners
+accept `--bam-license-file` and default to `BAM_LICENSE_FILE` when it is set.
 
 To collect the reproducible three-method process case-study matrix in one
 audited CSV, run:
