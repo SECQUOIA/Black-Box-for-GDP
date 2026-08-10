@@ -329,6 +329,17 @@ def _rbfopt_defaults(case_name):
     return "MSRSM", "solver"
 
 
+def _rbfopt_requires_external_solvers(
+    case_name,
+    algorithm,
+    global_search_method,
+):
+    default_algorithm, default_global_search = _rbfopt_defaults(case_name)
+    effective_algorithm = algorithm or default_algorithm
+    effective_global_search = global_search_method or default_global_search
+    return effective_algorithm == "Gutmann" or effective_global_search == "solver"
+
+
 def _case_csv_name(row):
     case_name = row["case_name"]
     if case_name == "cstr":
@@ -1129,6 +1140,7 @@ def _prepare_external_dependencies(
     solver_dir,
     minlp_solver_path,
     nlp_solver_path,
+    algorithm,
     global_search_method,
     bam_license_file,
     rbfopt_module,
@@ -1136,7 +1148,11 @@ def _prepare_external_dependencies(
 ):
     if "rbfopt" in methods and rbfopt_module is None:
         needs_solver = any(
-            (global_search_method or _rbfopt_defaults(row["case_name"])[1]) == "solver"
+            _rbfopt_requires_external_solvers(
+                row["case_name"],
+                algorithm=algorithm,
+                global_search_method=global_search_method,
+            )
             for row in matrix
         )
         if needs_solver:
@@ -1275,6 +1291,7 @@ def run_case_study_benchmark(
             solver_dir=solver_dir,
             minlp_solver_path=minlp_solver_path,
             nlp_solver_path=nlp_solver_path,
+            algorithm=algorithm,
             global_search_method=global_search_method,
             bam_license_file=bam_license_file,
             rbfopt_module=rbfopt_module,

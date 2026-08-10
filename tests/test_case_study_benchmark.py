@@ -212,6 +212,54 @@ def test_small_batch_keeps_its_rbfopt_sampling_defaults(tmp_path):
     )
 
 
+def test_small_batch_default_requires_rbfopt_solvers_before_starting(
+    tmp_path,
+    monkeypatch,
+):
+    resolution_calls = []
+    runner_calls = []
+
+    def fail_solver_resolution(**kwargs):
+        resolution_calls.append(kwargs)
+        raise FileNotFoundError("required RBFOpt solver is missing")
+
+    monkeypatch.setattr(
+        case_study_benchmark,
+        "resolve_required_solver_paths",
+        fail_solver_resolution,
+    )
+    output_path = tmp_path / "small_batch.csv"
+
+    with pytest.raises(FileNotFoundError, match="required RBFOpt solver"):
+        case_study_benchmark.run_case_study_benchmark(
+            cases=("small_batch",),
+            methods=("rbfopt",),
+            seeds=(0,),
+            small_batch_budgets=(10,),
+            output=output_path,
+            runners={
+                "small_batch": {
+                    "rbfopt": _fake_runner(
+                        "rbfopt",
+                        runner_calls,
+                        "small_batch",
+                    )
+                }
+            },
+        )
+
+    assert resolution_calls == [
+        {
+            "solver_dir": None,
+            "minlp_solver_path": "",
+            "nlp_solver_path": "",
+        }
+    ]
+    assert runner_calls == []
+    assert not output_path.exists()
+    assert not case_study_benchmark.case_study_partial_path(output_path).exists()
+
+
 def test_real_small_batch_bam_requires_a_license_before_starting(
     tmp_path,
     monkeypatch,
