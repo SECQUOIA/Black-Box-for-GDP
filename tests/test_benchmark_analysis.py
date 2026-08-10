@@ -1,5 +1,7 @@
 """Tests for benchmark analysis helpers."""
 
+import math
+
 import matplotlib
 import pandas as pd
 import pytest
@@ -375,6 +377,10 @@ def test_three_method_comparisons_include_bam(tmp_path):
     assert {
         text.get_text() for text in performance_figure.axes[0].get_legend().get_texts()
     } == {"DSDA", "RBFOpt", "BAM"}
+    assert all(axis.get_legend()._loc == 2 for axis in performance_figure.axes)
+
+    data_profile_figure = benchmark_analysis.plot_data_profiles(results)
+    assert all(axis.get_legend()._loc == 2 for axis in data_profile_figure.axes)
 
     convergence_figure = benchmark_analysis.plot_convergence_curves(
         results,
@@ -415,6 +421,32 @@ def test_trajectory_means_carry_terminal_incumbents_to_budget():
     )
 
     assert means["incumbent"].tolist() == [5.0, 2.0, 1.5]
+
+
+def test_trajectory_helpers_skip_leading_nonfinite_incumbents():
+    trajectory = [None, math.inf, 5.0, 0.0]
+
+    assert benchmark_analysis.first_eval_within_tolerance(trajectory, 0.0, 1e-5) == 4
+
+    results = pd.DataFrame(
+        [
+            {
+                "csv_name": "alpha.csv",
+                "method": "BAM",
+                "seed": 0,
+                "max_evals": 4,
+                "incumbent_trajectory": trajectory,
+            }
+        ]
+    )
+    means = benchmark_analysis.trajectory_mean_frame(
+        results,
+        grid_name="alpha.csv",
+        budget=4,
+    )
+
+    assert means["incumbent"].isna().tolist() == [True, True, False, False]
+    assert means["incumbent"].iloc[2:].tolist() == [5.0, 0.0]
 
 
 def test_holm_and_friedman_report_correction_threshold(tmp_path):

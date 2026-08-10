@@ -8,6 +8,7 @@ schema.
 
 import csv
 import json
+import math
 import time
 from datetime import datetime
 from pathlib import Path
@@ -107,8 +108,13 @@ class TrackedObjective:
         return self._incumbent
 
     def _update_incumbent(self, value):
-        if self._incumbent is None:
+        value_is_nan = _is_nan(value)
+        incumbent_is_nan = _is_nan(self._incumbent)
+
+        if self._incumbent is None or incumbent_is_nan:
             self._incumbent = value
+            return
+        if value_is_nan:
             return
 
         if self._maximize:
@@ -201,7 +207,20 @@ def _validate_result_record(result):
 
 def _serialize_for_csv(value):
     if isinstance(value, (dict, list, tuple)):
-        return json.dumps(value)
+        return json.dumps(_json_safe(value), allow_nan=False)
+    return value
+
+
+def _json_safe(value):
+    if isinstance(value, dict):
+        return {key: _json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_json_safe(item) for item in value]
+    try:
+        if not math.isfinite(value):
+            return None
+    except TypeError:
+        pass
     return value
 
 
@@ -215,3 +234,12 @@ def _freeze_point(point):
             return float(point)
         except (TypeError, ValueError):
             return repr(point)
+
+
+def _is_nan(value):
+    if value is None:
+        return False
+    try:
+        return math.isnan(value)
+    except TypeError:
+        return False

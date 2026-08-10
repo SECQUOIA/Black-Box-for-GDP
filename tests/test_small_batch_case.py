@@ -3,6 +3,7 @@
 import math
 
 import numpy as np
+import pytest
 
 from case_studies.common import generate_lhc_starting_points
 from case_studies.small_batch_case import (
@@ -57,3 +58,37 @@ def test_small_batch_lhc_starting_points_are_within_bounds():
     for point in points:
         assert np.all(np.asarray(point) >= LOWER_BOUNDS)
         assert np.all(np.asarray(point) <= UPPER_BOUNDS)
+
+
+def test_lhc_respects_noninteger_lattice_bounds():
+    for seed in range(10):
+        points = generate_lhc_starting_points(
+            n_dims=1,
+            n_points=1,
+            lb=[1.2],
+            ub=[2.8],
+            seed=seed,
+        )
+
+        assert points == [(2,)]
+
+
+@pytest.mark.parametrize("seed", [8, 9])
+def test_small_batch_lhc_replaces_duplicate_rounded_points(seed):
+    points = generate_lhc_starting_points(
+        n_dims=3,
+        n_points=3,
+        lb=LOWER_BOUNDS,
+        ub=UPPER_BOUNDS,
+        seed=seed,
+    )
+
+    assert len(points) == 3
+    assert len(set(points)) == 3
+    assert points == generate_lhc_starting_points(
+        n_dims=3,
+        n_points=3,
+        lb=LOWER_BOUNDS,
+        ub=UPPER_BOUNDS,
+        seed=seed,
+    )

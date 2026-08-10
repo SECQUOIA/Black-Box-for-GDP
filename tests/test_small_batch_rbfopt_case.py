@@ -1,8 +1,12 @@
 """Tests for the small-batch RBFOpt runner."""
 
 import os
+from contextlib import contextmanager
 from types import SimpleNamespace
 
+import pytest
+
+import case_studies.small_batch_rbfopt as small_batch_rbfopt
 from case_studies.small_batch_rbfopt import (
     resolve_solver_paths,
     run_small_batch_rbfopt,
@@ -23,8 +27,27 @@ def test_resolve_small_batch_solver_paths_from_solver_dir(tmp_path, monkeypatch)
     assert str(tmp_path) in os.environ["PATH"].split(os.pathsep)
 
 
-def test_run_small_batch_rbfopt_uses_lhc_points_as_explicit_initial_nodes():
+@pytest.mark.parametrize("verbose", [False, True])
+def test_run_small_batch_rbfopt_uses_lhc_points_as_explicit_initial_nodes(
+    monkeypatch,
+    verbose,
+):
     captured = {}
+
+    @contextmanager
+    def fake_suppress_solver_output():
+        captured["suppression_requested"] = True
+        captured["suppression_active"] = True
+        try:
+            yield
+        finally:
+            captured["suppression_active"] = False
+
+    monkeypatch.setattr(
+        small_batch_rbfopt,
+        "suppress_solver_output",
+        fake_suppress_solver_output,
+    )
 
     class FakeBlackBox:
         def __init__(self, dimension, lower_bounds, upper_bounds, var_types, obj_fn):
@@ -55,6 +78,9 @@ def test_run_small_batch_rbfopt_uses_lhc_points_as_explicit_initial_nodes():
             captured["do_init_strategy"] = do_init_strategy
 
         def optimize(self):
+            captured["suppression_active_during_optimize"] = captured.get(
+                "suppression_active", False
+            )
             best_value = None
             best_point = None
             for point in captured["init_node_pos"]:
@@ -75,6 +101,7 @@ def test_run_small_batch_rbfopt_uses_lhc_points_as_explicit_initial_nodes():
         n_starts=3,
         max_evaluations=10,
         rbfopt_module=fake_rbfopt,
+        verbose=verbose,
     )
 
     assert result["starting_points"] == [(2, 3, 2), (3, 2, 2), (2, 2, 1)]
@@ -95,3 +122,5 @@ def test_run_small_batch_rbfopt_uses_lhc_points_as_explicit_initial_nodes():
     assert result["result_record"]["method"] == "RBFOpt"
     assert result["result_record"]["seed"] == 0
     assert result["result_record"]["n_starts"] == 3
+    assert captured.get("suppression_requested", False) is not verbose
+    assert captured["suppression_active_during_optimize"] is not verbose

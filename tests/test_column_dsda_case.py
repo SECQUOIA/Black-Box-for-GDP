@@ -70,4 +70,7 @@ def test_column_dsda_finds_known_best_from_default_seed():
     assert result["best_value"] == KNOWN_BEST_VALUE
     assert result["result_record"]["method"] == "DSDA"
     assert result["result_record"]["found_optimum"]
+    assert result["result_record"]["solver_iterations"] == result["run_result"][
+        "major_iterations"
+    ]
     assert result["tracked_evals"] <= 16
