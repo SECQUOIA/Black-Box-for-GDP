@@ -297,6 +297,11 @@ leading non-finite incumbent); the analysis also accepts legacy
 `NaN`/`Infinity` traces and explicitly marks an all-non-finite trace as a
 terminal-only fallback instead of reconstructing progress.
 
+The completed Dantzig run for [Issue #18](https://github.com/SECQUOIA/RBFopt_Test/issues/18)
+is available in [the case-study results bundle](results/case_studies/dantzig_20260910/README.md).
+It contains all 417 audited method runs, the original manifest, regenerated
+three-method static figures, summary tables, and the exact regeneration command.
+
 ## Benchmark Overview
 
 The `benchmark_grids/` directory contains normalized benchmark grids stored as
