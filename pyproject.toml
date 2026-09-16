@@ -47,6 +47,7 @@ py-modules = [
     "grid_dsda",
     "grid_rbfopt",
     "instrumentation",
+    "timing_analysis",
 ]
 packages = [
     "benchmark_grids",

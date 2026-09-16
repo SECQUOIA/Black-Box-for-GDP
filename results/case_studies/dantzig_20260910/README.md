@@ -25,6 +25,45 @@ across seeds, using the full configuration denominator at every evaluation:
 
 ![Convergence by black-box evaluation](analysis/evaluation_convergence.png)
 
+Time profiles and work tradeoffs
+
+The follow-up to [PR #23](https://github.com/SECQUOIA/RBFopt_Test/pull/23#issuecomment-5688291659)
+adds the following figures for all 14 case/budget configurations:
+
+![Time performance profiles](analysis/time_performance_profiles.png)
+
+![Successful completion versus wall time](analysis/completion_time_profiles.png)
+
+![Time versus evaluations and reported iterations](analysis/time_work_tradeoff.png)
+
+The time profiles use a terminal success tolerance of
+`1e-5 * max(1, abs(optimum))`. A successful run's cost is its recorded full wall
+time; an unsuccessful run's cost is infinity. The performance profile divides
+this cost by the fastest successful method on the same case/seed/initialization/
+budget. All-failed instances retain infinite ratios. Each panel's denominator
+includes every paired seed (nine for Column, ten otherwise), including failures.
+The second figure uses the same costs on a seconds axis. Each configuration is
+kept separate; neither figure pools the repeated Dynamic budgets or CSTR sizes.
+
+The archive contains no incumbent timestamps, so these are **completed-run time
+profiles**, not measured time-to-first-optimum curves. A solver can continue
+after finding the target; recorded total time is not prorated by evaluations.
+Exact first-hit times require a rerun with elapsed evaluation timestamps.
+
+Tradeoff points show median total evaluations or median reported solver
+iterations against median runtime, with marker area indicating the solved
+fraction. All seeds, including unsuccessful runs, enter each time/evaluation
+median. Solver iterations remain method-specific. Lines connect configurations,
+not within-run trajectories. For CSTR, both grid size and budget increase
+together according to the protocol table below; this is not a fixed-size budget
+sweep. The [grid benchmark bundle](../../grid_benchmarks/dantzig_20260910/README.md)
+documents the same definitions and provides the grid comparisons.
+
+Per-run costs and ratios are in [time_profile_runs.csv](analysis/time_profile_runs.csv),
+and plotted medians and success fractions in [time_work_summary.csv](analysis/time_work_summary.csv).
+The [timing analysis manifest](analysis/timing_analysis.manifest.json) records
+input/source checksums, tolerance, and plotting-library versions.
+
 Source data and scope
 
 - [Audited method runs](process_case_studies.csv): 417 rows, with 139 rows per method.
@@ -71,6 +110,20 @@ fields before producing the two tables and two PNGs. Analysis uses the saved
 results and does not invoke the optimizers or external solver executables.
 PNG appearance can vary with plotting-library and font versions.
 
+Regenerate the three timing figures and their source tables with:
+
+```bash
+MPLBACKEND=Agg python timing_analysis.py \
+  --dataset case \
+  --results-csv results/case_studies/dantzig_20260910/process_case_studies.csv \
+  --output-dir results/case_studies/dantzig_20260910/analysis
+```
+
+The optimality-gap plots retain exact zeros using a linear region below
+`0.001%` and a logarithmic scale above it. Their axes start at zero, eliminating
+negative automatic margins. Negative gap inputs raise an error rather than
+being hidden or converted to absolute values; signed audit tables are preserved.
+
 Observed results
 
 - Column at budget 16: DSDA reaches the optimum in 7/9 runs, RBFOpt in 4/9,
@@ -116,8 +169,11 @@ observed time to the first optimum or a calibrated probability guarantee.
 
 Validation confirmed complete planned-run coverage, unique run identifiers,
 evaluation-budget accounting, finite terminal values, consistent incumbent
-histories, and the CSV checksum. The recorded 22 source-file hashes and eight
-case-data hashes match the current inputs. Both regenerated summary tables were
+histories, and the CSV checksum. The recorded 22 source-file hashes were checked
+against the original experiment revision, and all eight case-data hashes match
+the inputs. This follow-up changes analysis/plotting code, so the experiment's
+original source hashes and the new timing analysis hashes describe different
+revisions. Both regenerated original summary tables were
 checked numerically against the original Dantzig analysis outputs. Both figures
 were visually inspected.
 
