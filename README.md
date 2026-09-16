@@ -302,6 +302,15 @@ is available in [the case-study results bundle](results/case_studies/dantzig_202
 It contains all 417 audited method runs, the original manifest, regenerated
 three-method static figures, summary tables, and the exact regeneration command.
 
+Time performance profiles, successful completions versus seconds, and
+time/evaluation/iteration tradeoffs are included in the
+[Dantzig grid results](results/grid_benchmarks/dantzig_20260910/README.md) and
+[process-case bundle](results/case_studies/dantzig_20260910/README.md).
+`timing_analysis.py` can read the archived ZIP directly. The profiles use
+successful runs' recorded completion times and retain failures in the
+denominator; first-hit timestamps were not recorded. Each bundle documents
+the tolerance, interpretation, source tables, and regeneration command.
+
 ## Benchmark Overview
 
 The `benchmark_grids/` directory contains normalized benchmark grids stored as
@@ -324,6 +333,8 @@ results.
   process case studies and all three methods.
 - `case_study_analysis.py`: reproducible process-case summary tables and static
   BAM/DSDA/RBFOpt comparison figures.
+- `timing_analysis.py`: completion-time performance profiles and time/work
+  tradeoffs from grid or process CSVs, including direct ZIP input.
 - `benchmark_grids/`: normalized benchmark grid data and notes about data provenance.
 - `case_study_data/`: completed enumeration CSV data for process case studies,
   grouped by column, CSTR, and small-batch examples.
@@ -356,7 +367,7 @@ python -m pytest tests/ -q
 Run the basic lint checks used by GitHub Actions with:
 
 ```bash
-python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py case_studies tests scripts
+python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py timing_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py case_studies tests scripts
 ```
 
 ## License

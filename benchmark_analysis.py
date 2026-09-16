@@ -389,6 +389,7 @@ def plot_performance_profiles(
 
         ax.set_title(f"max_evals = {budget}")
         ax.set_xlabel("performance ratio tau")
+        ax.set_xlim(left=1.0)
         ax.set_ylim(0.0, 1.02)
         handles, _ = ax.get_legend_handles_labels()
         if handles:
