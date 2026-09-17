@@ -311,6 +311,12 @@ successful runs' recorded completion times and retain failures in the
 denominator; first-hit timestamps were not recorded. Each bundle documents
 the tolerance, interpretation, source tables, and regeneration command.
 
+[Updated three-method profiles with BAM 5.0.0](results/bam_20260916/README.md)
+use the September 16 BAM rerun with the original DSDA/RBFOpt observations.
+The bundle includes replacement grid and process-case time-profile figures,
+their source tables, and a regeneration script. The earlier BAM 4.1.1 bundles
+remain available for comparison.
+
 ## Benchmark Overview
 
 The `benchmark_grids/` directory contains normalized benchmark grids stored as
