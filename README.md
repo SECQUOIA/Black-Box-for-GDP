@@ -93,6 +93,14 @@ RBFOpt; this repository does not call BAM from inside RBFOpt.
 
 ## Usage Examples
 
+To persist every evaluated integer point for Column, CSTR, Small Batch, and
+Dynamic, use `case_study_benchmark.py --trace-evaluations`. See the
+[evaluation tracing and GDP timing workflow](docs/evaluation_tracing.md) for
+the original-start audit, Dantzig rerun command, resume support, and point-cost
+inventory.
+The [completed 417-run coordinate audit](results/process_evaluation_traces_20260917/README.md)
+includes the evaluation CSVs, original trace bundle, and GDP model connection probes.
+
 For a lightweight DSDA run on one of the benchmark grids:
 
 ```python

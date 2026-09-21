@@ -47,6 +47,8 @@ py-modules = [
     "grid_dsda",
     "grid_rbfopt",
     "instrumentation",
+    "evaluation_trace",
+    "trace_analysis",
     "timing_analysis",
 ]
 packages = [
