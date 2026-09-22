@@ -28,6 +28,11 @@ dev = [
 bam = [
     "bam-solver>=4.0.0",
 ]
+gdp = [
+    "pyomo>=6.10,<6.11",
+    "sympy>=1.13,<2",
+    "networkx>=3.0",
+]
 lint = [
     "ruff>=0.4.0",
 ]
@@ -52,6 +57,7 @@ py-modules = [
     "timing_analysis",
 ]
 packages = [
+    "gdp_models",
     "benchmark_grids",
     "case_studies",
     "case_study_data",

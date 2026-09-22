@@ -370,6 +370,31 @@ workflow. Existing notebook/GIF trajectories do not include BAM and are
 qualitative demonstrations, not evidence for the three-method comparison; use
 the audited static outputs from `case_study_analysis.py` for Issue #18.
 
+## Original GDP Models
+
+Use `python -m gdp_models.dantzig setup` to initialize the original sources.
+The default matrix includes Column, CSTR30, Small Batch and Dynamic: 593
+external integer candidates per solver. Run through the Python entry point;
+server shell wrappers are local files and are not required.
+See [server setup, resume, and download instructions](docs/gdp_dantzig.md).
+
+The [Dantzig point timing dataset](results/gdp_point_timings_20260922/README.md)
+contains IPOPT, IPOPTH and CONOPT measurements for these four cases, with the
+seven successful CSTR30 IPOPT retries merged by coordinate. Original failures,
+retry costs, initialization policies and one-time Dynamic discretization are
+preserved separately. CSTR5–25 measurements are excluded from this dataset.
+
+The original Column, CSTR, Small Batch, and Dynamic GDP models are now linked
+as pinned submodules under `external/`. The optional `gdp_models` package fixes
+an integer point, solves its actual NLP, and records preparation and solve
+times. Existing lookup benchmarks and their performance profiles still exclude
+this NLP cost. See [setup, execution, and timing details](docs/original_gdp_models.md).
+
+To enumerate all external integer candidates for one case, use
+`python -m gdp_models.batch --case small_batch --solver ipopt --output-dir results/live_gdp/small_batch_all`.
+The batch saves per-point CSV/JSON results and supports `--resume` and
+`--dry-run`; see [enumeration options](docs/original_gdp_models.md#enumerate-all-integer-combinations).
+
 ## Development Checks
 
 Run the current regression tests with:
@@ -381,10 +406,11 @@ python -m pytest tests/ -q
 Run the basic lint checks used by GitHub Actions with:
 
 ```bash
-python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py timing_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py case_studies tests scripts
+python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py timing_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py case_studies gdp_models tests scripts
 ```
 
 ## License
 
-This project is distributed under the MIT License. See `LICENSE` for the full
-license text.
+This project's code is distributed under the MIT License. See `LICENSE` for
+the full license text. External source submodules retain their upstream terms;
+see [original GDP source attribution](docs/original_gdp_models.md#original-sources).
