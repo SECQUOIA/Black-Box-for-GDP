@@ -24,7 +24,7 @@ jobs:
           python -m pip install ".[lint]"
 
       - name: Run Ruff
-        run: python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py timing_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py case_studies tests scripts
+        run: python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py timing_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py cstr30_retry.py case_studies gdp_models tests scripts
 
   test:
     runs-on: ubuntu-latest
@@ -32,6 +32,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          submodules: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -42,7 +44,22 @@ jobs:
       - name: Install test dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install ".[test]"
+          python -m pip install ".[test,gdp]"
 
       - name: Run pytest
         run: python -m pytest tests/ -q
+
+  gdp-minimal-runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build and write original NLPs with only server dependencies
+        run: |
+          python -m venv /tmp/gdp-minimal-runtime
+          /tmp/gdp-minimal-runtime/bin/python -m pip install -r requirements-gdp.txt
+          /tmp/gdp-minimal-runtime/bin/python -m gdp_models.preflight
