@@ -384,6 +384,12 @@ seven successful CSTR30 IPOPT retries merged by coordinate. Original failures,
 retry costs, initialization policies and one-time Dynamic discretization are
 preserved separately. CSTR5–25 measurements are excluded from this dataset.
 
+For a full-model comparison of GDPopt RIC/GLOA (IPOPT subproblems) against
+Big-M/Hull + BARON with 30-minute limits per instance/method, see the
+[Dantzig GDP comparison runner](docs/gdp_comparison.md).
+This full-model comparison includes CSTR5/10/15/20/25/30, Column, Dynamic and
+Small Batch (36 jobs); the CSTR30-only scope above concerns point NLP timings.
+
 The original Column, CSTR, Small Batch, and Dynamic GDP models are now linked
 as pinned submodules under `external/`. The optional `gdp_models` package fixes
 an integer point, solves its actual NLP, and records preparation and solve
@@ -396,6 +402,15 @@ The batch saves per-point CSV/JSON results and supports `--resume` and
 `--dry-run`; see [enumeration options](docs/original_gdp_models.md#enumerate-all-integer-combinations).
 
 ## Development Checks
+
+For FMQA with local simulated annealing, the same original three-point designs
+and all 139 process-case conditions, see the
+[FMQA-SA Dantzig runner and comparison guide](docs/fmqa_benchmark.md).
+This uses pinned `bbo_via_fmqa` sources with a documented NumPy port of its
+legacy FM backend, and pairs results with DSDA, RBFOpt and BAM 5.0.0.
+The runner ZIP is self-contained; no quantum token or solver license is needed.
+For a separate 1,050-run experiment on the 21 QHDOpt-derived grids, use the
+[Grid-only FMQA-SA runner](docs/fmqa_grids.md).
 
 Run the current regression tests with:
 
