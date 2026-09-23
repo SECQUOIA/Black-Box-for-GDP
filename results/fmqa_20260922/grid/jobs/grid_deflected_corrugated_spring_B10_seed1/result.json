@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "deflected_corrugated_spring.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 1,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        25,
+        10
+      ],
+      [
+        19,
+        1
+      ],
+      [
+        7,
+        26
+      ]
+    ],
+    "initial_design_sha256": "bebf9886a56693cc167f427d4fe8a7924e93238d060de1f6b02d3bf82bf484c8",
+    "job_id": "grid_deflected_corrugated_spring_B10_seed1"
+  },
+  "status": "completed",
+  "best_value": 0.2108085966564208,
+  "best_point": [
+    25,
+    10
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.2108085966564208,
+    0.2108085966564208,
+    0.2108085966564208,
+    0.2108085966564208,
+    0.2108085966564208,
+    0.2108085966564208,
+    0.2108085966564208,
+    0.2108085966564208,
+    0.2108085966564208,
+    0.2108085966564208
+  ],
+  "wall_time_s": 1.5109154600650072,
+  "training_wall_s": 1.0492299553006887,
+  "annealing_wall_s": 0.321658905595541,
+  "objective_wall_s": 1.3889279216527939e-05,
+  "fallback_count": 0,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 2.736708009149879,
+  "worker_pid": 2255441,
+  "worker_returncode": 0
+}

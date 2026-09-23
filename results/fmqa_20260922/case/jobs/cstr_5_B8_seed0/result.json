@@ -1,0 +1,60 @@
+{
+  "spec": {
+    "case_name": "cstr",
+    "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+    "grid_size": 5,
+    "max_evaluations": 8,
+    "method": "fmqa_sa",
+    "n_starts": 3,
+    "seed": 0,
+    "starting_points": [
+      [
+        1,
+        2
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "initial_design_sha256": "b14e494257721b9ae8998c2f58ea4508efbb3ae437cc7bb2ba86c7a7c944b4d1",
+    "job_id": "cstr_5_B8_seed0"
+  },
+  "status": "completed",
+  "best_value": 3.06201457641079,
+  "best_point": [
+    5,
+    5
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 8,
+  "initial_evals": 3,
+  "adaptive_evals": 5,
+  "unique_evals": 8,
+  "incumbent_trajectory": [
+    1000000.0,
+    3.06201457641079,
+    3.06201457641079,
+    3.06201457641079,
+    3.06201457641079,
+    3.06201457641079,
+    3.06201457641079,
+    3.06201457641079
+  ],
+  "wall_time_s": 0.8140040775761008,
+  "training_wall_s": 0.5221767942421138,
+  "annealing_wall_s": 0.09982670983299613,
+  "objective_wall_s": 1.5848781913518906e-05,
+  "fallback_count": 4,
+  "bit_widths": [
+    3,
+    3
+  ],
+  "worker_wall_s": 1.334761903155595,
+  "worker_pid": 2236105,
+  "worker_returncode": 0
+}

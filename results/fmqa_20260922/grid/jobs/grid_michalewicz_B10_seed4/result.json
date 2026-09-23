@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "michalewicz.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 4,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        11,
+        5
+      ],
+      [
+        0,
+        19
+      ],
+      [
+        24,
+        26
+      ]
+    ],
+    "initial_design_sha256": "db1541ed5c9ef10b8f85161bfbe1fb3e66121d2f27771aec42eb0bc91e54fbbe",
+    "job_id": "grid_michalewicz_B10_seed4"
+  },
+  "status": "completed",
+  "best_value": 0.7301225198658111,
+  "best_point": [
+    24,
+    26
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.9999999908957128,
+    0.999989872687019,
+    0.7301225198658111,
+    0.7301225198658111,
+    0.7301225198658111,
+    0.7301225198658111,
+    0.7301225198658111,
+    0.7301225198658111,
+    0.7301225198658111,
+    0.7301225198658111
+  ],
+  "wall_time_s": 1.467282679863274,
+  "training_wall_s": 1.0617079278454185,
+  "annealing_wall_s": 0.2668571933172643,
+  "objective_wall_s": 1.8808525055646896e-05,
+  "fallback_count": 1,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 2.7359101162292063,
+  "worker_pid": 2269037,
+  "worker_returncode": 0
+}

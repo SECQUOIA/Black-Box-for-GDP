@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "alpine1.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 7,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        14,
+        1
+      ],
+      [
+        22,
+        28
+      ],
+      [
+        7,
+        11
+      ]
+    ],
+    "initial_design_sha256": "32199afc1cd29010040c4c76ef2edf8e69981f26f2212be505adb9240a9bf1f0",
+    "job_id": "grid_alpine1_B10_seed7"
+  },
+  "status": "completed",
+  "best_value": 0.0274767967477038,
+  "best_point": [
+    0,
+    2
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.248857595295621,
+    0.248857595295621,
+    0.194603274033529,
+    0.0356466431175027,
+    0.0356466431175027,
+    0.0274767967477038,
+    0.0274767967477038,
+    0.0274767967477038,
+    0.0274767967477038,
+    0.0274767967477038
+  ],
+  "wall_time_s": 1.4866119297221303,
+  "training_wall_s": 1.0753284748643637,
+  "annealing_wall_s": 0.313987257424742,
+  "objective_wall_s": 1.409696415066719e-05,
+  "fallback_count": 2,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 2.786546796094626,
+  "worker_pid": 2245400,
+  "worker_returncode": 0
+}

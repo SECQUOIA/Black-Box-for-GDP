@@ -1,0 +1,102 @@
+{
+  "spec": {
+    "csv_name": "bohachevsky2.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 1,
+    "n_starts": 3,
+    "max_evaluations": 50,
+    "starting_points": [
+      [
+        25,
+        10
+      ],
+      [
+        19,
+        1
+      ],
+      [
+        7,
+        26
+      ]
+    ],
+    "initial_design_sha256": "bebf9886a56693cc167f427d4fe8a7924e93238d060de1f6b02d3bf82bf484c8",
+    "job_id": "grid_bohachevsky2_B50_seed1"
+  },
+  "status": "completed",
+  "best_value": 0.0,
+  "best_point": [
+    15,
+    15
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 50,
+  "initial_evals": 3,
+  "adaptive_evals": 47,
+  "unique_evals": 50,
+  "incumbent_trajectory": [
+    0.2222372222222223,
+    0.2222372222222223,
+    0.2222372222222223,
+    0.2222372222222223,
+    0.2222372222222223,
+    0.1274224074074074,
+    0.1274224074074074,
+    0.1274224074074074,
+    0.1274224074074074,
+    0.1274224074074074,
+    0.1274224074074074,
+    0.0607557407407407,
+    0.0014814814814814,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "wall_time_s": 10.48582056723535,
+  "training_wall_s": 7.496164884418249,
+  "annealing_wall_s": 2.178589900955558,
+  "objective_wall_s": 5.9548765420913696e-05,
+  "fallback_count": 8,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 11.797155821695924,
+  "worker_pid": 2246988,
+  "worker_returncode": 0
+}

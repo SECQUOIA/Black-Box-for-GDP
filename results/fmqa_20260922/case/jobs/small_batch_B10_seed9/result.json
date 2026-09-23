@@ -1,0 +1,67 @@
+{
+  "spec": {
+    "case_name": "small_batch",
+    "csv_name": "compl_enum_small_batch_baron.csv",
+    "max_evaluations": 10,
+    "method": "fmqa_sa",
+    "n_starts": 3,
+    "seed": 9,
+    "grid_size": null,
+    "starting_points": [
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ]
+    ],
+    "initial_design_sha256": "e2be57f90e363812e9445b4df2ddb364d81d05c2d64a3587b84758fe1a16ac94",
+    "job_id": "small_batch_B10_seed9"
+  },
+  "status": "completed",
+  "best_value": 167427.65711470306,
+  "best_point": [
+    2,
+    2,
+    1
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    209964.94866578083,
+    209964.94866578083,
+    185768.8125052478,
+    181201.6655117858,
+    181201.6655117858,
+    167427.65711470306,
+    167427.65711470306,
+    167427.65711470306,
+    167427.65711470306,
+    167427.65711470306
+  ],
+  "wall_time_s": 0.8998861229047179,
+  "training_wall_s": 0.7010301607660949,
+  "annealing_wall_s": 0.08680546749383211,
+  "objective_wall_s": 1.663854345679283e-05,
+  "fallback_count": 7,
+  "bit_widths": [
+    2,
+    2,
+    2
+  ],
+  "worker_wall_s": 1.4299523602239788,
+  "worker_pid": 2236552,
+  "worker_returncode": 0
+}
