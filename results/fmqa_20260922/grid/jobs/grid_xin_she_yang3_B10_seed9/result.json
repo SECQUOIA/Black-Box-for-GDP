@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "xin_she_yang3.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 9,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        11,
+        17
+      ],
+      [
+        24,
+        2
+      ],
+      [
+        3,
+        21
+      ]
+    ],
+    "initial_design_sha256": "f924a0d1ea685b0a2ee7681ce968cb3c9c950b16bbca0128814583b84b4cccba",
+    "job_id": "grid_xin_she_yang3_B10_seed9"
+  },
+  "status": "completed",
+  "best_value": 2.930826225391371e-246,
+  "best_point": [
+    26,
+    1
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    6.456577075685554e-17,
+    1.3496147252445742e-196,
+    1.3496147252445742e-196,
+    1.3496147252445742e-196,
+    1.3496147252445742e-196,
+    1.3496147252445742e-196,
+    1.3496147252445742e-196,
+    2.930826225391371e-246,
+    2.930826225391371e-246,
+    2.930826225391371e-246
+  ],
+  "wall_time_s": 1.0056658978573978,
+  "training_wall_s": 0.7285249447450042,
+  "annealing_wall_s": 0.18939207028597593,
+  "objective_wall_s": 1.2475065886974335e-05,
+  "fallback_count": 1,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 1.8859423082321882,
+  "worker_pid": 2277995,
+  "worker_returncode": 0
+}

@@ -1,0 +1,102 @@
+{
+  "spec": {
+    "csv_name": "sum_of_squares.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 1,
+    "n_starts": 3,
+    "max_evaluations": 50,
+    "starting_points": [
+      [
+        25,
+        10
+      ],
+      [
+        19,
+        1
+      ],
+      [
+        7,
+        26
+      ]
+    ],
+    "initial_design_sha256": "bebf9886a56693cc167f427d4fe8a7924e93238d060de1f6b02d3bf82bf484c8",
+    "job_id": "grid_sum_of_squares_B50_seed1"
+  },
+  "status": "completed",
+  "best_value": 0.0,
+  "best_point": [
+    15,
+    15
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 50,
+  "initial_evals": 3,
+  "adaptive_evals": 47,
+  "unique_evals": 50,
+  "incumbent_trajectory": [
+    0.2222222222222223,
+    0.2222222222222223,
+    0.2222222222222223,
+    0.2222222222222223,
+    0.2222222222222223,
+    0.1274074074074074,
+    0.1274074074074074,
+    0.1274074074074074,
+    0.1274074074074074,
+    0.1274074074074074,
+    0.1274074074074074,
+    0.0607407407407407,
+    0.0014814814814814,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "wall_time_s": 10.617863995023072,
+  "training_wall_s": 7.650251641403884,
+  "annealing_wall_s": 2.1506221131421626,
+  "objective_wall_s": 5.6619755923748016e-05,
+  "fallback_count": 7,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 11.896436413750052,
+  "worker_pid": 2276384,
+  "worker_returncode": 0
+}

@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "bohachevsky2.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 3,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        19,
+        28
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        29,
+        16
+      ]
+    ],
+    "initial_design_sha256": "003b186b9d6961f576ba3446e42c7baa4039e5b70f394c8556f69db1a32487b1",
+    "job_id": "grid_bohachevsky2_B10_seed3"
+  },
+  "status": "completed",
+  "best_value": 0.0029779629629629,
+  "best_point": [
+    15,
+    16
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.5244594444444443,
+    0.5244594444444443,
+    0.2933483333333334,
+    0.0029779629629629,
+    0.0029779629629629,
+    0.0029779629629629,
+    0.0029779629629629,
+    0.0029779629629629,
+    0.0029779629629629,
+    0.0029779629629629
+  ],
+  "wall_time_s": 1.4960229429416358,
+  "training_wall_s": 1.0571174873039126,
+  "annealing_wall_s": 0.296942749992013,
+  "objective_wall_s": 1.3385433703660965e-05,
+  "fallback_count": 1,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 2.794145124964416,
+  "worker_pid": 2247325,
+  "worker_returncode": 0
+}

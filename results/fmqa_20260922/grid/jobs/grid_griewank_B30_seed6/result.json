@@ -1,0 +1,82 @@
+{
+  "spec": {
+    "csv_name": "griewank.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 6,
+    "n_starts": 3,
+    "max_evaluations": 30,
+    "starting_points": [
+      [
+        15,
+        7
+      ],
+      [
+        6,
+        26
+      ],
+      [
+        20,
+        14
+      ]
+    ],
+    "initial_design_sha256": "4bd524744c42800da9cfa4c1d11e0a73922ca25ba21e8f78ff48d735df038218",
+    "job_id": "grid_griewank_B30_seed6"
+  },
+  "status": "completed",
+  "best_value": 0.0,
+  "best_point": [
+    15,
+    15
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 30,
+  "initial_evals": 3,
+  "adaptive_evals": 27,
+  "unique_evals": 30,
+  "incumbent_trajectory": [
+    0.1422302435522243,
+    0.1422302435522243,
+    0.0660353754813382,
+    0.0660353754813382,
+    0.0160523594498367,
+    0.0160523594498367,
+    0.0160523594498367,
+    0.0160523594498367,
+    0.0160523594498367,
+    0.0150566985588878,
+    0.0150566985588878,
+    0.0150566985588878,
+    0.0150566985588878,
+    0.0150566985588878,
+    0.0150566985588878,
+    0.0150566985588878,
+    0.0150566985588878,
+    0.0150566985588878,
+    0.0150566985588878,
+    0.0150566985588878,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "wall_time_s": 5.9322143429890275,
+  "training_wall_s": 4.364810400642455,
+  "annealing_wall_s": 1.1080224364995956,
+  "objective_wall_s": 4.239380359649658e-05,
+  "fallback_count": 5,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 7.2008977881632745,
+  "worker_pid": 2261355,
+  "worker_returncode": 0
+}

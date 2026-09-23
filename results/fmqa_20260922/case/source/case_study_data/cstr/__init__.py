@@ -1,0 +1,1 @@
+"""CSTR completed enumeration data."""

@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "camel3.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 2,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        27,
+        27
+      ],
+      [
+        2,
+        19
+      ],
+      [
+        14,
+        3
+      ]
+    ],
+    "initial_design_sha256": "91a30d07314e400b57f209edeac41dfdbb7f71a38e7174c578eb22db31091fbe",
+    "job_id": "grid_camel3_B10_seed2"
+  },
+  "status": "completed",
+  "best_value": 0.0004367582231264,
+  "best_point": [
+    12,
+    16
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.2333428280773143,
+    0.2333428280773143,
+    0.0085661792307359,
+    0.0004367582231264,
+    0.0004367582231264,
+    0.0004367582231264,
+    0.0004367582231264,
+    0.0004367582231264,
+    0.0004367582231264,
+    0.0004367582231264
+  ],
+  "wall_time_s": 1.5507376701571047,
+  "training_wall_s": 1.0164612871594727,
+  "annealing_wall_s": 0.3841887442395091,
+  "objective_wall_s": 1.2664590030908585e-05,
+  "fallback_count": 0,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 2.8355788132175803,
+  "worker_pid": 2248368,
+  "worker_returncode": 0
+}
