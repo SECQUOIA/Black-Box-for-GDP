@@ -159,7 +159,12 @@ worker. One-time template preparation is recorded separately; add it once to a
 standalone method's cost when comparing end-to-end solution workflows.
 
 OpenMP/BLAS thread limits are forced to one before importing numerical libraries.
-On Linux, the parent and inherited workers are pinned to the first allowed CPU.
+On Linux, the parent and inherited workers are pinned to `--cpu CPU_ID`, or the
+first allowed CPU if omitted. The effective affinity and physical-core topology
+are recorded in `run.json`. An unavailable CPU is an error, not a fallback.
+For the CPU 0 FMQA / CPU 2 GDP rerun, use the
+[upload and execution guide](dantzig_cpu_rerun.md), which verifies these are
+different physical cores before launching. Affinity is not an exclusive reservation.
 Every GAMS call explicitly receives `threads=1` and the remaining job budget.
 The configured GAMS executable is used directly (Pyomo 6.10's default shell
 constructor does not honor an `executable=` keyword on its own).

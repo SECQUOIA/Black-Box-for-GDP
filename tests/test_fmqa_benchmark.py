@@ -335,4 +335,16 @@ def test_grid_bundle_uses_separate_folder(tmp_path):
         names = archive.namelist()
         assert all(n.startswith("fmqa_grid_runner/") for n in names)
         assert "fmqa_grid_runner/fmqa_grid_benchmark.py" in names
+        assert "fmqa_grid_runner/cpu_affinity.py" in names
         assert sum(n.startswith("fmqa_grid_runner/benchmark_grids/") and n.endswith(".csv") for n in names) == 21
+
+
+def test_grid_runtime_note_does_not_assign_old_overlap_to_rerun():
+    from fmqa_compare import grid_runtime_note
+    old = {"created_utc": "2026-09-22T19:38:07.711180+00:00", "cpu": 0,
+           "runtime": {"host": "dantzig.ecn.purdue.edu"}}
+    assert "overlapped" in grid_runtime_note(old)
+    rerun = {**old, "created_utc": "2026-09-25T00:00:00+00:00"}
+    assert "overlapped" not in grid_runtime_note(rerun)
+    assert "pinned to CPU 0" in grid_runtime_note(rerun)
+    assert "not verified" in grid_runtime_note(rerun)

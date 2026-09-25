@@ -187,6 +187,86 @@ def grid_analysis(output, output_dir):
         figure = plot(results)
         figure.savefig(output_dir / name, dpi=180, bbox_inches="tight")
         plt.close(figure)
+    grid_tts_analysis(output, output_dir)
+
+
+def grid_runtime_note(run):
+    """Keep the audited old-run caveat without assigning it to a fresh rerun."""
+    if (run.get("created_utc") == "2026-09-22T19:38:07.711180+00:00"
+            and run.get("cpu") == 0
+            and run.get("runtime", {}).get("host") == "dantzig.ecn.purdue.edu"):
+        return "FMQA-SA and GDP jobs overlapped on CPU 0; timings reflect those recorded execution conditions."
+    cpu = run.get("cpu")
+    prefix = f"FMQA-SA pinned to CPU {cpu}. " if cpu is not None else ""
+    return prefix + "Recorded execution times; exclusive CPU access and equal background load are not verified."
+
+
+def grid_tts_analysis(output, output_dir):
+    """Create four-method Grid TTS99 artifacts from the audited comparison CSV."""
+    from benchmark_analysis import (
+        METHOD_COLORS, PRIMARY_TOLERANCE, attach_grid_metadata, configure_plot_style,
+        plot_tts99_comparison, tts99_summary,
+    )
+    from fmqa_benchmark.protocol import ROOT
+    import matplotlib.pyplot as plt
+    output, output_dir = Path(output), Path(output_dir)
+    manifest = json.loads(output.with_suffix(".manifest.json").read_text())
+    runtime_note = grid_runtime_note(manifest["comparison"]["fmqa_protocol"])
+    results = attach_grid_metadata(load_results(output, "grid"), ROOT / "benchmark_grids")
+    methods = ("DSDA", "RBFOpt", "BAM 5.0.0", METHOD)
+    if set(results["method"]) != set(methods):
+        raise ValueError("Grid TTS99 requires DSDA, RBFOpt, BAM 5.0.0 and FMQA-SA only")
+    pairing = ["csv_name", "seed", "n_starts", "max_evals"]
+    if results.duplicated(pairing + ["method"]).any() or not results.groupby(pairing).size().eq(4).all():
+        raise ValueError("Grid TTS99 requires complete paired runs")
+    configure_plot_style()
+    METHOD_COLORS.update({"BAM 5.0.0": "#2ca02c", METHOD: "#9467bd"})
+    summary = tts99_summary(results, tolerance=PRIMARY_TOLERANCE)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    summary.to_csv(output_dir / "tts99_summary.csv", index=False)
+    figure = plot_tts99_comparison(
+        results, methods, tolerance=PRIMARY_TOLERANCE, log_scale=True, n_columns=3,
+        footnote=(
+            "Success: |f - target| <= 1e-5 × max(1, |target|). Full recorded completion times; no NLP cost.\n"
+            "Independent-restart estimate from 10 seeds per problem; zero observed hits give an infinite estimate.\n"
+            + runtime_note
+        ),
+    )
+    figure.suptitle("QHDOpt Grid — estimated TTS99", fontsize=16)
+    notes = figure.axes[-1]
+    if not notes.get_visible():
+        notes.set_visible(True)
+        notes.set_axis_off()
+        notes.text(.08, .90,
+                   "How to read this figure\n\n"
+                   "Each dot: one Grid problem\n"
+                   "21 problems per method and budget\n"
+                   "n = 10 paired runs, 3 initial points each\n\n"
+                   "Black bar: median across all 21 problems\n"
+                   "Red triangle: zero-hit problems (∞ × count)\n"
+                   "Infinite estimates remain in the median\n\n"
+                   "TTS99 = median run time × required runs\n"
+                   "Required runs = ceil[ln(0.01) / ln(1 - p)]\n"
+                   "p = observed target-hit fraction; p = 1 → 1 run",
+                   transform=notes.transAxes, va="top", fontsize=10, linespacing=1.4)
+    for ext in ("png", "pdf"):
+        figure.savefig(output_dir / f"tts99_comparison.{ext}", dpi=200, bbox_inches="tight")
+    plt.close(figure)
+    artifact_names = ("tts99_summary.csv", "tts99_comparison.png", "tts99_comparison.pdf")
+    save(output_dir / "tts99_manifest.json", {
+        "input_csv": str(output.resolve()), "input_sha256": sha(output),
+        "input_manifest_sha256": sha(output.with_suffix(".manifest.json")),
+        "source_sha256": {name: sha(ROOT / name) for name in ("benchmark_analysis.py", "fmqa_compare.py")},
+        "grid_sha256": {name: sha(ROOT / "benchmark_grids" / name) for name in sorted(results["csv_name"].unique())},
+        "methods": list(methods), "run_count": len(results), "problem_count": results["csv_name"].nunique(),
+        "tolerance": PRIMARY_TOLERANCE,
+        "success_criterion": "abs(best_value - grid_minimum) <= tolerance * max(1, abs(grid_minimum))",
+        "time_measure": "median full recorded completion time across all seeds, including failures",
+        "tts99": "median_run_time * ceil(log(0.01) / log(1 - hits / n)); p=0: infinity; p=1: one run",
+        "assumption": "independent restarts; empirical hit rates from 10 seeds; not a measured 99% guarantee",
+        "runtime_note": runtime_note,
+        "artifacts_sha256": {name: sha(output_dir / name) for name in artifact_names},
+    })
 
 
 def main():
