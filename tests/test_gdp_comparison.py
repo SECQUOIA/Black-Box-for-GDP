@@ -193,6 +193,7 @@ def test_comparison_bundle_is_small_and_contains_no_results_or_solver_licenses(t
     assert path.stat().st_size < 100_000
     with zipfile.ZipFile(path) as archive:
         assert all(name.startswith("gdp_comparison_runner/") for name in archive.namelist())
+        assert "gdp_comparison_runner/cpu_affinity.py" in archive.namelist()
         assert not any("/results/" in name or name.endswith(".lic") for name in archive.namelist())
         for line in archive.read("gdp_comparison_runner/COMPARISON_RUNNER_SHA256SUMS").decode().splitlines():
             expected, name = line.split("  ", 1)

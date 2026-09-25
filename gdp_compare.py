@@ -16,6 +16,8 @@ import tempfile
 from time import monotonic
 import zipfile
 
+from cpu_affinity import affinity_record, pin_cpu
+
 
 ROOT = Path(__file__).resolve().parent
 MCPP_COMMIT = "c8ae9800d02b09bee0012aed593de92c9cf10fa7"
@@ -75,9 +77,9 @@ def result_key(record):
 
 
 def source_files():
-    return [ROOT / "gdp_compare.py", *sorted((ROOT / "gdp_models").glob("*.py")),
+    return [ROOT / "gdp_compare.py", ROOT / "cpu_affinity.py", *sorted((ROOT / "gdp_models").glob("*.py")),
             ROOT / "requirements-gdp.txt", ROOT / "requirements-gdp-comparison.txt",
-            ROOT / "docs/gdp_comparison.md", ROOT / "LICENSE",
+            ROOT / "docs/gdp_comparison.md", ROOT / "docs/dantzig_cpu_rerun.md", ROOT / "LICENSE",
             *(p for p in (ROOT / "run_gdp_comparison_dantzig.sh",) if p.is_file())]
 
 
@@ -100,14 +102,6 @@ def setup_mcpp():
     from pyomo.contrib.mcpp.build import build_mcpp
     build_mcpp()
     print(f"MC++ ready: {MCPP_COMMIT}; PYOMO_CONFIG_DIR={base}")
-
-
-def pin_cpu():
-    if hasattr(os, "sched_getaffinity"):
-        cpu = min(os.sched_getaffinity(0))
-        os.sched_setaffinity(0, {cpu})
-        return cpu
-    return None
 
 
 def check(config, directory):
@@ -313,6 +307,7 @@ def main():
                         help="CSTR reactor counts, default: 5,10,15,20,25,30")
     parser.add_argument("--methods", default=",".join(METHODS))
     parser.add_argument("--time-limit", type=int, default=1800, help="Total seconds per case/method worker")
+    parser.add_argument("--cpu", type=int, help="Linux logical CPU ID; default: first allowed CPU")
     parser.add_argument("--relative-gap", type=float, default=1e-5)
     parser.add_argument("--baron-column-hull-lbtt", type=int, choices=(0, 1), default=0,
                         help="Column/Hull linear range reduction: 0 avoids a reproduced false infeasibility; 1 is BARON's default")
@@ -358,12 +353,14 @@ def main():
                   "relative_gap": args.relative_gap, "executable": executable,
                   "baron_column_hull_lbtt": args.baron_column_hull_lbtt,
                   "expected_gams_version": args.expected_gams_version}
-        cpu = pin_cpu()
+        cpu = pin_cpu(args.cpu)
+        affinity = affinity_record(cpu)
+        print(f"CPU_AFFINITY={json.dumps(affinity)}", flush=True)
         args.output_root.mkdir(parents=True, exist_ok=True)
         stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
         directory = Path(tempfile.mkdtemp(prefix=f"dantzig_gdp_compare_{stamp}_", dir=args.output_root)).resolve()
         print(f"RESULT_DIR={directory}", flush=True)
-        protocol = {"kind": KIND, "config": config, "cpu": cpu, "thread_environment": THREAD_ENV,
+        protocol = {"kind": KIND, "config": config, "cpu": cpu, "cpu_affinity": affinity, "thread_environment": THREAD_ENV,
                     "host": os.uname().nodename, "created_utc": datetime.now(timezone.utc).isoformat(),
                     "source_sha256": {p.relative_to(ROOT).as_posix(): sha(p) for p in source_files()},
                     "time_policy": "1800s default per method worker; shared templates/preflight separate; up to 6s termination cleanup"}

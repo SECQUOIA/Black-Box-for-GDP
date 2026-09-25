@@ -17,6 +17,8 @@ import tempfile
 from time import monotonic
 import zipfile
 
+from cpu_affinity import affinity_record, pin_cpu
+
 
 ROOT = Path(__file__).resolve().parent
 THREAD_ENV = {k: "1" for k in ("OMP_NUM_THREADS", "OMP_THREAD_LIMIT", "OPENBLAS_NUM_THREADS",
@@ -50,9 +52,9 @@ def save(path, obj):
 
 
 def source_files():
-    paths = [ROOT / n for n in ("fmqa_benchmark_runner.py", "fmqa_grid_benchmark.py", "fmqa_compare.py", "requirements-fmqa.txt",
+    paths = [ROOT / n for n in ("fmqa_benchmark_runner.py", "fmqa_grid_benchmark.py", "fmqa_compare.py", "cpu_affinity.py", "requirements-fmqa.txt",
              "instrumentation.py", "evaluation_trace.py", "benchmark_analysis.py", "case_study_analysis.py",
-             "timing_analysis.py", "grid_dsda.py", "docs/fmqa_benchmark.md", "docs/fmqa_grids.md", "LICENSE")]
+             "timing_analysis.py", "grid_dsda.py", "docs/fmqa_benchmark.md", "docs/fmqa_grids.md", "docs/dantzig_cpu_rerun.md", "LICENSE")]
     for directory in ("fmqa_benchmark", "case_study_data", "benchmark_grids"):
         paths.extend(p for p in (ROOT / directory).rglob("*") if p.is_file()
                      and "__pycache__" not in p.parts and p.suffix != ".pyc")
@@ -328,6 +330,7 @@ def main():
     parser.add_argument("--num-reads", type=int, default=100)
     parser.add_argument("--num-sweeps", type=int, default=1000)
     parser.add_argument("--time-limit", type=int, default=1800, help="Safety wall limit per run; evaluation budgets match original")
+    parser.add_argument("--cpu", type=int, help="Linux logical CPU ID; default: first allowed CPU")
     parser.add_argument("--output-root", type=Path, default=ROOT / "results")
     parser.add_argument("--run-dir", type=Path)
     parser.add_argument("--resume", type=Path)
@@ -372,11 +375,9 @@ def main():
         if args.mode == "plan":
             print(json.dumps({"runs": len(plan), "config": config, "plan": plan}, indent=2))
             return 0
-        cpu = None
-        if hasattr(os, "sched_getaffinity"):
-            cpu = min(os.sched_getaffinity(0))
-            os.sched_setaffinity(0, {cpu})
+        cpu = pin_cpu(args.cpu)
         runtime = preflight(args.dataset)
+        runtime["cpu_affinity"] = affinity_record(cpu)
         if args.mode == "check":
             print(json.dumps({"preflight": "passed", "runs": len(plan), "runtime": runtime}, indent=2))
             return 0
@@ -385,8 +386,9 @@ def main():
             directory = args.resume.resolve()
             previous = json.loads((directory / "run.json").read_text())
             if (previous["kind"] != kind or previous["plan"] != plan or previous["config"] != config
-                    or previous["source_sha256"] != hashes or previous["runtime"] != runtime):
-                raise ValueError("Resume requires identical plan, options, sources, dependencies and host")
+                    or previous["source_sha256"] != hashes or previous["runtime"] != runtime
+                    or previous.get("cpu") != cpu):
+                raise ValueError("Resume requires identical plan, options, sources, dependencies, host and CPU")
         else:
             args.output_root.mkdir(parents=True, exist_ok=True)
             stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
@@ -399,6 +401,7 @@ def main():
                 dest = directory / "source" / p.relative_to(ROOT)
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(p, dest)
+        print(f"CPU_AFFINITY={json.dumps(runtime['cpu_affinity'])}", flush=True)
         print(f"RESULT_DIR={directory}", flush=True)
         try:
             for i, spec in enumerate(plan, 1):
