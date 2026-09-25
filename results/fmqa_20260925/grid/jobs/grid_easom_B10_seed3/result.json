@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "easom.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 3,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        19,
+        28
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        29,
+        16
+      ]
+    ],
+    "initial_design_sha256": "003b186b9d6961f576ba3446e42c7baa4039e5b70f394c8556f69db1a32487b1",
+    "job_id": "grid_easom_B10_seed3"
+  },
+  "status": "completed",
+  "best_value": 0.990638096196484,
+  "best_point": [
+    27,
+    21
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.9906380961992768,
+    0.9906380961992768,
+    0.9906380961992768,
+    0.9906380961992768,
+    0.9906380961992768,
+    0.9906380961992768,
+    0.9906380961992768,
+    0.9906380961992768,
+    0.9906380961992768,
+    0.990638096196484
+  ],
+  "wall_time_s": 0.5127621339634061,
+  "training_wall_s": 0.386030666064471,
+  "annealing_wall_s": 0.11581720598042011,
+  "objective_wall_s": 1.1571217328310013e-05,
+  "fallback_count": 0,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 0.9658023254014552,
+  "worker_pid": 2644036,
+  "worker_returncode": 0
+}

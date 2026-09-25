@@ -5,6 +5,10 @@ OsiDefaultName_start
 # Local benchmark review notes and full archive extraction
 /results/dantzig_review/
 
+# Generated FMQA figures stay local; publish raw data, tables and manifests.
+/results/fmqa_*/analysis/**/*.png
+/results/fmqa_*/analysis/**/*.pdf
+
 # Local solver licenses
 bamlice.txt
 *.lic

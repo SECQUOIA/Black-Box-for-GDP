@@ -1,0 +1,17 @@
+{
+  "independent_tts99_estimates_checked": 420,
+  "completion_profile_ratios_checked": 4756,
+  "run_policy_rows_checked": 1112,
+  "evaluation_policy_rows_checked": 25556,
+  "selected_successful_costs_checked": 14335,
+  "zero_cost_infeasible_rows_checked": 8326,
+  "independent_complete_totals_checked": 912,
+  "point_cost_inventory_unchanged": true,
+  "tests": "92 passed",
+  "ruff": "passed",
+  "nlp_policy": "selected successful evaluations only; infeasible points zero; Dynamic preparation once",
+  "current_fmqa_archives": [
+    "results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip",
+    "results/archives/dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip"
+  ]
+}

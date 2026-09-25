@@ -1,0 +1,74 @@
+{
+  "spec": {
+    "case_name": "cstr",
+    "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+    "grid_size": 15,
+    "max_evaluations": 22,
+    "method": "fmqa_sa",
+    "n_starts": 3,
+    "seed": 5,
+    "starting_points": [
+      [
+        7,
+        2
+      ],
+      [
+        13,
+        9
+      ],
+      [
+        5,
+        13
+      ]
+    ],
+    "initial_design_sha256": "0d59a43dbff44cc13168398043ae746762cad62e28bdecdca878ffd15451e8cd",
+    "job_id": "cstr_15_B22_seed5"
+  },
+  "status": "completed",
+  "best_value": 3.1301981328018202,
+  "best_point": [
+    5,
+    4
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 22,
+  "initial_evals": 3,
+  "adaptive_evals": 19,
+  "unique_evals": 22,
+  "incumbent_trajectory": [
+    3.2871513550984637,
+    3.2871513550984637,
+    3.2871513550984637,
+    3.2871513550984637,
+    3.2871513550984637,
+    3.2009765942425252,
+    3.200915338673712,
+    3.200915338673712,
+    3.1769743506412698,
+    3.1769743506412698,
+    3.1769743506412698,
+    3.1769743506412698,
+    3.1769743506412698,
+    3.1769743506412698,
+    3.1769743506412698,
+    3.1769743506412698,
+    3.1769743506412698,
+    3.1301981328018202,
+    3.1301981328018202,
+    3.1301981328018202,
+    3.1301981328018202,
+    3.1301981328018202
+  ],
+  "wall_time_s": 1.3349748738110065,
+  "training_wall_s": 1.0695483982563019,
+  "annealing_wall_s": 0.23713765619322658,
+  "objective_wall_s": 3.3667776733636856e-05,
+  "fallback_count": 2,
+  "bit_widths": [
+    4,
+    4
+  ],
+  "worker_wall_s": 1.616132496856153,
+  "worker_pid": 2643512,
+  "worker_returncode": 0
+}

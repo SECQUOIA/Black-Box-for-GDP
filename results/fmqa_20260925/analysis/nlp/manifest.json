@@ -1,0 +1,122 @@
+{
+  "traced_runs": 556,
+  "objective_callbacks": 12778,
+  "exact_model_scenario_runs": 356,
+  "exact_model_runs_with_all_required_costs": 356,
+  "exact_model_unmeasured_runs": 200,
+  "infeasible_zero_calls": 4163,
+  "measured_cost_directory": "/Users/albertlee0125/Repos/RBFopt_Test/results/gdp_point_timings_20260922",
+  "solver": "gams_ipopt",
+  "sources": [
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/dsda_bam.csv",
+      "sha256": "6a0c5e04c23c45494a54ec39e720b184d9c5005c434cd760c15c08743b0eb43c"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_validated_prefix.csv",
+      "sha256": "68f44c86afca2b3de787a7c6a24427ae9b9289cacfc970c40b10bdd7b20792d8"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed3.csv",
+      "sha256": "61e82257ac5400b45cbe1b53e9d884843d8617dc45d190600a70c08882e11bef"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed4.csv",
+      "sha256": "5775cfdd45ffcfae10789d4be45a2902de1b641970b22b86e021e5a2d547efc0"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed5.csv",
+      "sha256": "8e742e98a861ee6a734dd664f0019dfbfa6a87061ae35a4556a3c6f8d063501b"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed6.csv",
+      "sha256": "9592437d393a21b5324fa9f68132fc33db251cbabc21f5904c5388a6ac274fde"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed7.csv",
+      "sha256": "2453f7adf733017dc4404ec5f2c2d590701846eccc356f95c539f2fddf366bc7"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed8.csv",
+      "sha256": "bdee12ed48ad2536d1bd230c0567327465daf0c1591c40da941cdb05fca4cddb"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed9.csv",
+      "sha256": "58fb73c8ace39586a7960cf21c1f3ff8f140f96a33118c098387e8c8539c980e"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed0.csv",
+      "sha256": "5cb33e6b6c280e5763dce93181126ec2af8ea29a9a0bcb38567c10e91e8bb4d7"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed1.csv",
+      "sha256": "5eadc67e80b624f8183c6749d8064ff1dcce8763337dd41a7dd3d7e6c81d1c7c"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed2.csv",
+      "sha256": "34f05561a070716d70bb7fc193ad8238542355a04255c96d62beccc48496834d"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed3.csv",
+      "sha256": "d412dffb234720d968d49876abba359fb548c4a254181215bd129f24db522ac5"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed4.csv",
+      "sha256": "04b3a68c6d52debdd2d499ef255c860af8a8e9a7ab4e40d2a875a62801f876a0"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed5.csv",
+      "sha256": "cbd9a8c6237672ba9a79a96b39d13bc7b8ba7f5f70e981dd78648721ad745d15"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed6.csv",
+      "sha256": "fcc8245f358866a63e5c75265d2d2e61e2930608c2232000157990534cc538ff"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed7.csv",
+      "sha256": "06a16391ef53b2fe32e3897b7a060be23bf0f7f490b2d060ec20138ab1e4d8b1"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed8.csv",
+      "sha256": "fc3343a1c9a545f8192ff7c6342fadca0bafc2f458c123c29a58ee040a073c6a"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed9.csv",
+      "sha256": "7aaacfa2e7aee540fc44eb1d3234c5935849aa26c3bef6c73932dd604c4965b0"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip",
+      "sha256": "ccf0d6c0e265159f3ca5561f11a25165ef983f8288a15ef10947a3e6be3ea79d",
+      "method": "FMQA-SA",
+      "created_utc": "2026-09-25T17:41:50.203292+00:00",
+      "cpu": 4,
+      "cpu_affinity": {
+        "cpu": 4,
+        "physical_package_id": "0",
+        "core_id": "4",
+        "thread_siblings_list": "4,52",
+        "effective_cpus": [
+          4
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "host": "dantzig.ecn.purdue.edu"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/completed_benchmarks_20260923/dantzig_gdp_compare_20260922_181805_4u7k1d0n/summary.json",
+      "sha256": "0acbc7bd96763874b25a76c5e28c847c9075acd41ef5a8145ce496cc77b861e4"
+    }
+  ],
+  "cost_inventory_sha256": "76ad4f0ed80441c49a2b6dfb9bf9d555cc5e459a2c4867f1840761eb674adce9",
+  "analysis_source_sha256": "91989754518d7d128ab3bf3bde0966cee727e9e752e1803aa13e0c932014212b",
+  "assumptions": [
+    "each actual callback charged; no implicit cross-run cache",
+    "only the selected successful NLP evaluation is charged; earlier failed attempts excluded by user instruction",
+    "Dynamic shared preparation added once per run",
+    "user-specified zero evaluation cost for all lookup-infeasible points; recorded costs remain in the ledger",
+    "CSTR30 transfer is separate from the exact-model analysis",
+    "optimizer clocks belong to the same recorded trace, not old Dantzig runs",
+    "lookup success preserved; measured-objective agreement and fixed-path target hits reported separately",
+    "no online GDP execution or quantum hardware claim"
+  ]
+}

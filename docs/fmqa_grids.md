@@ -1,5 +1,8 @@
 # QHDOpt Grid-only FMQA-SA benchmark
 
+Current data and figures: [September 25 FMQA rerun](../results/fmqa_20260925/README.md).
+The previous September 22 FMQA results were removed because of same-CPU overlap.
+
 Use `fmqa_grid_benchmark.py` or `run_fmqa_grid_dantzig.sh` to run only the
 QHDOpt-derived grids in `benchmark_grids/`. No Column, CSTR, Small Batch or
 Dynamic jobs are included. This evaluates FMQA-SA on the same sampled surfaces
@@ -52,6 +55,14 @@ benchmark. This preprocessing is shared by all methods; the FM's additional
 training-target scaling uses observed evaluations only.
 
 ## Upload and execute
+
+For a fresh CPU-separated rerun, use the
+[September 25 upload and execution guide](dantzig_cpu_rerun.md).
+The Python runner accepts `--cpu 0` and records the effective affinity and
+physical-core topology. Check the pair with `python cpu_affinity.py --check-pair 0 2`
+before concurrently launching GDP on CPU 2. Invalid/unavailable CPUs are errors;
+the default without `--cpu` remains the first allowed CPU. Resume requires the
+same CPU. Start a new run when replacing the old overlapping-run timings.
 
 On the Mac:
 
@@ -129,11 +140,28 @@ python fmqa_compare.py --dataset grid \
 
 Full results pair to **4,200 rows across four methods**, with 210 paired
 instances per budget. Outputs include `benchmark.csv`, `solved_fraction_summary.csv`,
-evaluation performance profiles, convergence curves and, with `--time-profiles`,
+evaluation performance profiles, convergence curves, `tts99_comparison.png/.pdf`,
+`tts99_summary.csv`, `tts99_manifest.json` and, with `--time-profiles`,
 completed-run time profiles and supporting tables under `timing/`.
 These times cover lookup optimization overhead (including FM training/SA and
 logging), not GDP/NLP subproblem solves. Historical completion times are not
 first-hit times. Keep load and hardware comparable when interpreting runtimes.
+
+TTS99 is estimated separately for each Grid problem, method and evaluation
+budget using the ten seeds. Success uses the same `1e-5 * max(1, abs(target))`
+window as the performance profiles, recomputed from the objective values.
+The estimate is the median full run time (including unsuccessful runs) times
+`ceil(log(0.01) / log(1 - p))`, where `p` is the observed success fraction.
+For `p=1`, one run is charged; for `p=0`, the estimate is infinite. This is an
+independent-restart estimate from ten observations, not a measured 99% guarantee.
+The logarithmic plot retains zero-hit problems in the across-problem medians.
+
+For an existing audited four-method `benchmark.csv`, regenerate only the TTS
+artifacts without rerunning any optimizer:
+
+```bash
+python -c 'from pathlib import Path; from fmqa_compare import grid_tts_analysis; p = Path("results/fmqa_20260925/analysis/grid"); grid_tts_analysis(p / "benchmark.csv", p)'
+```
 
 To rebuild a distinct Grid-only execution ZIP:
 

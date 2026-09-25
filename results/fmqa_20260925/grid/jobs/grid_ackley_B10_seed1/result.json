@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "ackley.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 1,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        25,
+        10
+      ],
+      [
+        19,
+        1
+      ],
+      [
+        7,
+        26
+      ]
+    ],
+    "initial_design_sha256": "bebf9886a56693cc167f427d4fe8a7924e93238d060de1f6b02d3bf82bf484c8",
+    "job_id": "grid_ackley_B10_seed1"
+  },
+  "status": "completed",
+  "best_value": 0.5954935305407969,
+  "best_point": [
+    13,
+    6
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.7233013683819157,
+    0.7233013683819157,
+    0.7233013683819157,
+    0.7233013683819157,
+    0.622063616028189,
+    0.622063616028189,
+    0.622063616028189,
+    0.622063616028189,
+    0.622063616028189,
+    0.5954935305407969
+  ],
+  "wall_time_s": 0.5051948479376733,
+  "training_wall_s": 0.39771384419873357,
+  "annealing_wall_s": 0.09580291993916035,
+  "objective_wall_s": 1.23525969684124e-05,
+  "fallback_count": 1,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 0.91517114918679,
+  "worker_pid": 2636719,
+  "worker_returncode": 0
+}

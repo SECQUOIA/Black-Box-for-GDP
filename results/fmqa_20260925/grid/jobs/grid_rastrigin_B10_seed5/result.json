@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "rastrigin.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 5,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        12,
+        2
+      ],
+      [
+        25,
+        17
+      ],
+      [
+        9,
+        26
+      ]
+    ],
+    "initial_design_sha256": "958df4cb60037c226bc7592d8cc43ceacfa856c17edd4f4dae5b62f61612ec02",
+    "job_id": "grid_rastrigin_B10_seed5"
+  },
+  "status": "completed",
+  "best_value": 0.1938201988916816,
+  "best_point": [
+    9,
+    24
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.5149270033741867,
+    0.5149270033741867,
+    0.3654491849558925,
+    0.3654491849558925,
+    0.3654491849558925,
+    0.1938201988916816,
+    0.1938201988916816,
+    0.1938201988916816,
+    0.1938201988916816,
+    0.1938201988916816
+  ],
+  "wall_time_s": 0.49178072810173035,
+  "training_wall_s": 0.38250058982521296,
+  "annealing_wall_s": 0.09787989174947143,
+  "objective_wall_s": 1.1462252587080002e-05,
+  "fallback_count": 0,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 0.9153801640495658,
+  "worker_pid": 2647208,
+  "worker_returncode": 0
+}
