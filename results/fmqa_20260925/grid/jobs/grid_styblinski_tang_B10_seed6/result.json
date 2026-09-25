@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "styblinski_tang.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 6,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        15,
+        7
+      ],
+      [
+        6,
+        26
+      ],
+      [
+        20,
+        14
+      ]
+    ],
+    "initial_design_sha256": "4bd524744c42800da9cfa4c1d11e0a73922ca25ba21e8f78ff48d735df038218",
+    "job_id": "grid_styblinski_tang_B10_seed6"
+  },
+  "status": "completed",
+  "best_value": 0.0022207166516109,
+  "best_point": [
+    6,
+    7
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.1211231556760012,
+    0.0944745558566698,
+    0.0944745558566698,
+    0.0944745558566698,
+    0.0944745558566698,
+    0.0944745558566698,
+    0.0944745558566698,
+    0.0944745558566698,
+    0.0944745558566698,
+    0.0022207166516109
+  ],
+  "wall_time_s": 0.5095599526539445,
+  "training_wall_s": 0.3883985001593828,
+  "annealing_wall_s": 0.11032447451725602,
+  "objective_wall_s": 1.1523254215717316e-05,
+  "fallback_count": 0,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 0.9651968316175044,
+  "worker_pid": 2653034,
+  "worker_returncode": 0
+}

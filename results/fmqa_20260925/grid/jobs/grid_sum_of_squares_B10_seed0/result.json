@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "sum_of_squares.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 0,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        4,
+        7
+      ],
+      [
+        30,
+        30
+      ],
+      [
+        12,
+        11
+      ]
+    ],
+    "initial_design_sha256": "4a0fd17a901ceafc17fd349a53f77dec5cc2465a07e66d90823e760884d98b53",
+    "job_id": "grid_sum_of_squares_B10_seed0"
+  },
+  "status": "completed",
+  "best_value": 0.0533333333333333,
+  "best_point": [
+    13,
+    11
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.3688888888888889,
+    0.3688888888888889,
+    0.0607407407407407,
+    0.0607407407407407,
+    0.0533333333333333,
+    0.0533333333333333,
+    0.0533333333333333,
+    0.0533333333333333,
+    0.0533333333333333,
+    0.0533333333333333
+  ],
+  "wall_time_s": 0.4942505839280784,
+  "training_wall_s": 0.3879574714228511,
+  "annealing_wall_s": 0.09571826318278909,
+  "objective_wall_s": 1.0799616575241089e-05,
+  "fallback_count": 0,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 0.9152472810819745,
+  "worker_pid": 2653837,
+  "worker_returncode": 0
+}

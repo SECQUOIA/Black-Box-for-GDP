@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "rosenbrock.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 7,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        14,
+        1
+      ],
+      [
+        22,
+        28
+      ],
+      [
+        7,
+        11
+      ]
+    ],
+    "initial_design_sha256": "32199afc1cd29010040c4c76ef2edf8e69981f26f2212be505adb9240a9bf1f0",
+    "job_id": "grid_rosenbrock_B10_seed7"
+  },
+  "status": "completed",
+  "best_value": 0.0006613246332403,
+  "best_point": [
+    22,
+    15
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.0316868974269748,
+    0.0316868974269748,
+    0.0196507891019998,
+    0.0196507891019998,
+    0.0196507891019998,
+    0.0085405352635614,
+    0.0023996636691865,
+    0.0023996636691865,
+    0.0006613246332403,
+    0.0006613246332403
+  ],
+  "wall_time_s": 0.5199372759088874,
+  "training_wall_s": 0.40085234120488167,
+  "annealing_wall_s": 0.10804703598842025,
+  "objective_wall_s": 1.1411961168050766e-05,
+  "fallback_count": 0,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 0.9651550920680165,
+  "worker_pid": 2649134,
+  "worker_returncode": 0
+}

@@ -1,0 +1,78 @@
+{
+  "datasets": [
+    {
+      "dataset": "case",
+      "source_run": "dantzig_fmqa_20260925_174150_2m7pmr0d",
+      "source_archive": "results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip",
+      "source_archive_sha256": "ccf0d6c0e265159f3ca5561f11a25165ef983f8288a15ef10947a3e6be3ea79d",
+      "verified_internal_checksums": 660,
+      "source_checksums_sha256": "67985f6dfc19baad6cab1336a82f4a3c47aa5415dad42626cf814496204f6e49",
+      "planned_runs": 139,
+      "completed_runs": 139,
+      "worker_errors": 0,
+      "incomplete_evaluation_budgets": 0,
+      "cpu_affinity": {
+        "cpu": 4,
+        "physical_package_id": "0",
+        "core_id": "4",
+        "thread_siblings_list": "4,52",
+        "effective_cpus": [
+          4
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "host": "dantzig.ecn.purdue.edu",
+      "created_utc": "2026-09-25T17:41:50.203292+00:00",
+      "prior_plan_and_hyperparameters_match": true,
+      "changed_coordinate_traces": 0,
+      "changed_incumbent_trajectories": 0,
+      "raw_files_policy": "Exact archive contents, with original checksums; no generated figures or shell wrappers"
+    },
+    {
+      "dataset": "grid",
+      "source_run": "dantzig_fmqa_grid_20260925_172020_9n7j9oh1",
+      "source_archive": "results/archives/dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip",
+      "source_archive_sha256": "494e8ef5689016ee8892d82d2a65cbc6cc9ad6e70f1d01452d04d9faced1eced",
+      "verified_internal_checksums": 4304,
+      "source_checksums_sha256": "8dfc5c4e55b393c43cc8db03516917beb98a43fcfd371f3b791aaa8f75d727d6",
+      "planned_runs": 1050,
+      "completed_runs": 1050,
+      "worker_errors": 0,
+      "incomplete_evaluation_budgets": 0,
+      "cpu_affinity": {
+        "cpu": 0,
+        "physical_package_id": "0",
+        "core_id": "0",
+        "thread_siblings_list": "0,48",
+        "effective_cpus": [
+          0
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "host": "dantzig.ecn.purdue.edu",
+      "created_utc": "2026-09-25T17:20:20.928861+00:00",
+      "prior_plan_and_hyperparameters_match": true,
+      "changed_coordinate_traces": 0,
+      "changed_incumbent_trajectories": 0,
+      "raw_files_policy": "Exact archive contents, with original checksums; no generated figures or shell wrappers"
+    }
+  ],
+  "replaces": "September 22 FMQA runs removed by user instruction due to same-CPU overlap",
+  "gdp_baseline_status": "September 25 CPU 2 GDP comparison archive has not been supplied",
+  "removed_obsolete_paths": [
+    "results/fmqa_20260922",
+    "results/nlp_cost_comparison_20260923_infeasible0",
+    "results/dantzig_review/nlp_cost_comparison_20260923_infeasible0.zip",
+    "results/dantzig_review/nlp_cost_before_layout_polish_20260923",
+    "results/archives/dantzig_fmqa_20260922_190404_srlq79h8.zip",
+    "results/dantzig_review/nlp_cost_initial_draft_20260923",
+    "results/dantzig_review/fmqa_grid_validation.json",
+    "results/dantzig_review/fmqa_validation.json",
+    "results/dantzig_review/fmqa_20260922_190404_comparison",
+    "results/dantzig_review/fmqa_grid_20260922_193807_comparison",
+    "results/archives/dantzig_fmqa_grid_20260922_193807_xee_59ti.zip",
+    "results/dantzig_review/original_archives_from_downloads/dantzig_fmqa_grid_20260922_193807_xee_59ti.zip",
+    "results/dantzig_review/completed_benchmarks_20260923/dantzig_fmqa_grid_20260922_193807_xee_59ti",
+    "results/dantzig_review/original_archives_from_downloads/dantzig_fmqa_20260922_190404_srlq79h8.zip"
+  ]
+}

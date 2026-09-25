@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "hosaki.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 4,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        11,
+        5
+      ],
+      [
+        0,
+        19
+      ],
+      [
+        24,
+        26
+      ]
+    ],
+    "initial_design_sha256": "db1541ed5c9ef10b8f85161bfbe1fb3e66121d2f27771aec42eb0bc91e54fbbe",
+    "job_id": "grid_hosaki_B10_seed4"
+  },
+  "status": "completed",
+  "best_value": 0.435444974104954,
+  "best_point": [
+    6,
+    12
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.596816017029007,
+    0.596816017029007,
+    0.5886135946488238,
+    0.5886135946488238,
+    0.5000000000000007,
+    0.5000000000000007,
+    0.435444974104954,
+    0.435444974104954,
+    0.435444974104954,
+    0.435444974104954
+  ],
+  "wall_time_s": 0.49891417380422354,
+  "training_wall_s": 0.38774330308660865,
+  "annealing_wall_s": 0.09980190731585026,
+  "objective_wall_s": 1.087132841348648e-05,
+  "fallback_count": 0,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 0.9151798542588949,
+  "worker_pid": 2645321,
+  "worker_returncode": 0
+}

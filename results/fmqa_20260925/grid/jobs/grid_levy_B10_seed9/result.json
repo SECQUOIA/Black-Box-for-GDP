@@ -1,0 +1,62 @@
+{
+  "spec": {
+    "csv_name": "levy.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 9,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        11,
+        17
+      ],
+      [
+        24,
+        2
+      ],
+      [
+        3,
+        21
+      ]
+    ],
+    "initial_design_sha256": "f924a0d1ea685b0a2ee7681ce968cb3c9c950b16bbca0128814583b84b4cccba",
+    "job_id": "grid_levy_B10_seed9"
+  },
+  "status": "completed",
+  "best_value": 0.005095724948089,
+  "best_point": [
+    15,
+    16
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 10,
+  "initial_evals": 3,
+  "adaptive_evals": 7,
+  "unique_evals": 10,
+  "incumbent_trajectory": [
+    0.0884611508724725,
+    0.0884611508724725,
+    0.0884611508724725,
+    0.0884611508724725,
+    0.0848378879431079,
+    0.009469317327823,
+    0.009469317327823,
+    0.005095724948089,
+    0.005095724948089,
+    0.005095724948089
+  ],
+  "wall_time_s": 0.5061415531672537,
+  "training_wall_s": 0.39434587163850665,
+  "annealing_wall_s": 0.100663211196661,
+  "objective_wall_s": 1.1231284588575363e-05,
+  "fallback_count": 0,
+  "bit_widths": [
+    5,
+    5
+  ],
+  "worker_wall_s": 0.9152735839597881,
+  "worker_pid": 2646317,
+  "worker_returncode": 0
+}

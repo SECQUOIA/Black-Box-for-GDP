@@ -1,0 +1,67 @@
+{
+  "spec": {
+    "case_name": "dynamic",
+    "csv_name": "dynamic",
+    "max_evaluations": 15,
+    "method": "fmqa_sa",
+    "n_starts": 3,
+    "seed": 2,
+    "grid_size": null,
+    "starting_points": [
+      [
+        8,
+        8
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501",
+    "job_id": "dynamic_B15_seed2"
+  },
+  "status": "completed",
+  "best_value": -196.93118428995865,
+  "best_point": [
+    1,
+    6
+  ],
+  "has_feasible_solution": true,
+  "total_evals": 15,
+  "initial_evals": 3,
+  "adaptive_evals": 12,
+  "unique_evals": 15,
+  "incumbent_trajectory": [
+    1000000.0,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865,
+    -196.93118428995865
+  ],
+  "wall_time_s": 0.8185668610967696,
+  "training_wall_s": 0.6647267793305218,
+  "annealing_wall_s": 0.13634358067065477,
+  "objective_wall_s": 2.376548945903778e-05,
+  "fallback_count": 9,
+  "bit_widths": [
+    4,
+    4
+  ],
+  "worker_wall_s": 1.1158311692997813,
+  "worker_pid": 2643706,
+  "worker_returncode": 0
+}

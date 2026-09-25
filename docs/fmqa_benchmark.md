@@ -1,5 +1,10 @@
 # FMQA with simulated annealing on Dantzig
 
+Use the [September 25 results and figure index](../results/fmqa_20260925/README.md)
+for current comparisons. The reruns contain 139 process cases on CPU 4 and
+1,050 Grid runs on CPU 0, on distinct recorded physical cores. The previous
+same-CPU-overlap FMQA result files have been removed.
+
 This runner adds **FMQA-SA** to the existing process-case lookup benchmark.
 It uses the same ordered three-point initialization, seeds, integer bounds,
 objective tables, and total evaluation budgets as the original September 10
