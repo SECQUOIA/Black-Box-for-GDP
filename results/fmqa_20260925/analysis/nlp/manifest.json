@@ -103,12 +103,34 @@
       "host": "dantzig.ecn.purdue.edu"
     },
     {
-      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/completed_benchmarks_20260923/dantzig_gdp_compare_20260922_181805_4u7k1d0n/summary.json",
-      "sha256": "0acbc7bd96763874b25a76c5e28c847c9075acd41ef5a8145ce496cc77b861e4"
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/gdp_comparison_20260925/raw/summary.json",
+      "sha256": "594bea8a3367499a70de190884d8bb6aa6ebdc28cc4f7b4fe855de2e9fd2566f"
+    },
+    {
+      "kind": "full_gdp",
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/gdp_comparison_20260925/raw/run.json",
+      "sha256": "fe6b2b4184ac2fc42ce232381e22bfe156e70a7704ae425bccfccbb7d069c511",
+      "host": "dantzig.ecn.purdue.edu",
+      "created_utc": "2026-09-25T17:20:20.457694+00:00",
+      "cpu_affinity": {
+        "cpu": 2,
+        "physical_package_id": "0",
+        "core_id": "2",
+        "thread_siblings_list": "2,50",
+        "effective_cpus": [
+          2
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "bound_conflicts": [
+        "column/bigm",
+        "cstr_10/hull",
+        "cstr_30/hull"
+      ]
     }
   ],
   "cost_inventory_sha256": "76ad4f0ed80441c49a2b6dfb9bf9d555cc5e459a2c4867f1840761eb674adce9",
-  "analysis_source_sha256": "91989754518d7d128ab3bf3bde0966cee727e9e752e1803aa13e0c932014212b",
+  "analysis_source_sha256": "42d18a182deb49639b3a9fae53d49220ec36cbbbc3da5e5c6e8a02fc6009b317",
   "assumptions": [
     "each actual callback charged; no implicit cross-run cache",
     "only the selected successful NLP evaluation is charged; earlier failed attempts excluded by user instruction",

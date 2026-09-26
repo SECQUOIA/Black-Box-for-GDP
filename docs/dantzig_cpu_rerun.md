@@ -1,8 +1,12 @@
 # FMQA and GDP rerun on separate physical cores
 
 The September 22 FMQA Grid run and full-GDP comparison both used CPU 0 and
-overlapped. Preserve those archives and create fresh runs; do not resume the
-old FMQA run or combine its old timings with the new run.
+overlapped. Those contaminated result archives and derived comparisons were
+removed by user instruction after verification of the replacement runs.
+Do not resume the old runs or combine their timings with the new measurements.
+
+The September 25 replacements are now available: [FMQA results](../results/fmqa_20260925/README.md)
+and [GDPopt/BARON results](../results/gdp_comparison_20260925/analysis/README.md).
 
 Use FMQA Grid on logical CPU 0, GDP comparison on CPU 2, and FMQA process cases
 on CPU 4 **only if the topology checks below confirm three different physical cores**.

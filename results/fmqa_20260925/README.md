@@ -9,7 +9,7 @@ Current FMQA data replace the contaminated September 22 runs. The old FMQA raw d
 | QHDOpt Grid | 1,050 / 1,050 | 0 / 0 / 48 | [benchmark.csv](grid/benchmark.csv) | [Grid archive](../archives/dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip) |
 | GDP process cases | 139 / 139 | 4 / 4 / 52 | [process_case_studies.csv](case/process_case_studies.csv) | [Case archive](../archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip) |
 
-Both ran on Dantzig with one-thread settings. The two FMQA jobs used distinct physical cores. CPU affinity is not an exclusive reservation; no claim of an otherwise idle server is made. The CPU 2 GDPopt/BARON rerun archive has not yet been supplied. Any full-GDP baseline below is explicitly the prior September 22 measurement, with its CPU-overlap qualification.
+Both ran on Dantzig with one-thread settings. The two FMQA jobs and the September 25 full-GDP rerun used distinct physical cores (0, 4 and 2 respectively). CPU affinity is not an exclusive reservation; no claim of an otherwise idle server is made. The [GDPopt/BARON rerun](../gdp_comparison_20260925/analysis/README.md) now supplies all full-GDP baselines below. Its 36 saved solutions passed independent original-GDP feasibility checks; the contaminated September 22 full-GDP files were removed.
 
 All 4,964 internal checksums, source snapshots, objective traces, initial designs and CSV records passed validation. All runs completed their evaluation budgets with no worker errors. The plans, hyperparameters, evaluated coordinates and incumbent sequences match the previous experiment; completion and callback clocks are new. See [publication.json](publication.json) and [validation.json](validation.json).
 
@@ -34,7 +34,7 @@ The evaluation-based conclusions are unchanged. Timing profiles, time/work plots
 - Charge only the selected successful NLP evaluation; exclude earlier failed attempts. Infeasible points cost zero by the specified assumption. Charge Dynamic preparation once per run.
 - CSTR5–25 do not have exact-model point costs in the curated table; show their CSTR30 transfer scenario separately.
 - FMQA clocks use the September 25 CPU 4 run. Other DFO search clocks in the NLP reconstruction are the recorded Mac trace reruns; the totals are component-based estimates, not measured online GDP executions.
-- The eight-method completion/quality figure still contains the prior full-GDP baseline; it does not claim refreshed CPU 2 measurements.
+- The eight-method completion/quality figure uses the new CPU 2 full-GDP measurements. It remains an exploratory comparison against reconstructed DFO times and original lookup objectives. BARON bound conflicts for Column/Big-M, CSTR10/Hull and CSTR30/Hull are flagged in the full-GDP audit and comparison tables.
 
 ## Figure index
 
@@ -57,7 +57,7 @@ All 17 figure types have been regenerated locally. PNG/PDF files are excluded fr
 | GDP cases: NLP-inclusive completion-time profiles | [Open](analysis/nlp/completion_time_profiles.png) |
 | GDP cases: target-hit fraction versus NLP-inclusive seconds | [Open](analysis/nlp/success_vs_time.png) |
 | GDP cases: search overhead and successful NLP costs | [Open](analysis/nlp/cost_breakdown.png) |
-| GDP cases: DFO versus prior GDPopt/BARON completion and quality | [Open](analysis/nlp/completion_vs_quality.png) |
+| GDP cases: DFO versus September 25 GDPopt/BARON completion and quality | [Open](analysis/nlp/completion_vs_quality.png) |
 | CSTR5–25: explicitly labelled CSTR30 cost-transfer scenario | [Open](analysis/nlp/cstr30_transfer_time_profiles.png) |
 
 ## Reproduce
@@ -70,14 +70,7 @@ python fmqa_compare.py --dataset case --fmqa-results results/archives/dantzig_fm
 python nlp_cost_analysis.py --output results/fmqa_rebuilt/analysis/nlp
 ```
 
-The NLP command uses the original trace bundle, curated point costs and prior full-GDP directory recorded in its manifest. Original ZIPs are available under `results/archives/`.
-
-If the prior full-GDP directory is absent on a fresh checkout, extract its
-archive before running the NLP command:
-
-```bash
-unzip results/archives/dantzig_gdp_compare_20260922_181805_4u7k1d0n.zip -d results/dantzig_review/completed_benchmarks_20260923
-```
+The NLP command uses the original trace bundle, curated point costs and the tracked full-GDP results under `results/gdp_comparison_20260925/raw/`. Original ZIPs are available under `results/archives/`. Run `python gdp_comparison_analysis.py` to independently recheck the full-GDP saved solutions and regenerate its summary table without solving.
 
 ```bash
 (cd results/fmqa_20260925/case && shasum -a 256 -c SHA256SUMS)
