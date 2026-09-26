@@ -116,3 +116,21 @@ def test_killed_gdp_job_retains_watchdog_clock_and_no_solution():
     assert result["clock_source"] == "worker_wall_s_watchdog"
     assert not result["target_hit"]
     assert result["objective"] is None
+
+
+def test_conflicting_baron_certificate_is_flagged_without_changing_objective():
+    rows = [
+        {"instance_id": "cstr_30", "method": "bigm", "objective": 2.76957,
+         "has_feasible_solution": True, "reported_lower_bound": .094, "global_optimality_certified": False},
+        {"instance_id": "cstr_30", "method": "hull", "objective": 2.809386,
+         "has_feasible_solution": True, "reported_lower_bound": 2.809386, "global_optimality_certified": True},
+        {"instance_id": "other", "method": "hull", "objective": 2.809386,
+         "has_feasible_solution": True, "reported_lower_bound": 2.809386, "global_optimality_certified": True},
+    ]
+    analysis.flag_bound_conflicts(rows)
+    assert rows[1]["bound_conflict_with_saved_solution"]
+    assert rows[1]["solver_reported_global_optimality_certified"]
+    assert not rows[1]["global_optimality_certified"]
+    assert rows[1]["objective"] == 2.809386
+    assert not rows[0]["bound_conflict_with_saved_solution"]
+    assert rows[2]["global_optimality_certified"]

@@ -1,5 +1,10 @@
 # Full GDP comparison on Dantzig
 
+The [current results and audit](../results/gdp_comparison_20260925/analysis/README.md)
+use the September 25 CPU 2 rerun. All 36 saved solutions passed an independent
+original-GDP feasibility check. The previous CPU-overlap dataset was removed.
+Run `python gdp_comparison_analysis.py` to regenerate the audit without solving.
+
 Nine original model instances (CSTR5/10/15/20/25/30, Column 17, nine-stage
 Dynamic, Small Batch) are solved by four methods: GDPopt RIC, GDPopt GLOA,
 Big-M + BARON, Hull + BARON.

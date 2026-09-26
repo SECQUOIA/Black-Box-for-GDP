@@ -1,0 +1,161 @@
+--- Job model.gms Start 09/25/26 16:03:35 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/cstr_25/hull/gams-mdmrwtbg/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/cstr_25/hull/gams-mdmrwtbg/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/cstr_25/hull/gams-mdmrwtbg/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/cstr_25/hull/gams-mdmrwtbg/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:59119 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(9051) 3 Mb
+--- Starting execution: elapsed 0:00:00.015
+--- model.gms(6005) 4 Mb
+--- Generating MINLP model GAMS_MODEL
+--- model.gms(6009) 7 Mb
+--- Reset Solvelink = 2
+---   2,032 rows  957 columns  4,863 non-zeroes
+---   1,114 nl-code  233 nl-non-zeroes
+---   125 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E-02, 1.000E+01] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 1.000E+01] - Zero values observed as well
+--- Matrix    [min, max] : [ 9.500E-01, 1.000E+01] - Zero values observed as well
+--- model.gms(6009) 5 Mb
+--- Executing BARON (Solvelink=2): elapsed 0:00:00.025
+
+GAMS/BARON       52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- Using Option File
+Reading parameter(s) from "/local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/cstr_25/hull/gams-mdmrwtbg/baron.opt"
+>>  LPSol 3
+>>  NLPSol 9
+Finished reading from "/local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/cstr_25/hull/gams-mdmrwtbg/baron.opt"
+===========================================================================
+ BARON version 25.11.17. Built: LNX-int-64 2025-11-17 22:27:04           
+ Running on machine dantzig.ecn.purdue.edu
+
+ BARON is a product of The Optimization Firm.
+ For information on BARON, see https://minlp.com/about-baron
+
+ If you publish work using this software, please cite publications from
+ https://minlp.com/baron-publications, such as: 
+
+ Zhang, Y. and N. V. Sahinidis, Solving continuous and discrete
+ nonlinear programs with BARON, Comput Optim Appl (2024). 
+ https://doi.org/10.1007/s10589-024-00633-0
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP/QP: ILOG CPLEX                                      
+ For NLP: IPOPT                                           
+===========================================================================
+ Doing local search
+ Preprocessing found feasible solution with value 3.47990
+ Solving bounding LP
+ Starting multi-start local search
+ Preprocessing found feasible solution with value 3.35618
+ Done with local search
+===========================================================================
+  Iteration       Time (s)     Mem   Lower bound     Upper bound   Progress
+*         1           4.95    28MB     0.940000E-01    2.78148        1.99%
+          1           9.02    28MB     0.940000E-01    2.78148        1.99%
+         61+         38.92    85MB     0.940000E-01    2.78148        5.10%
+        140          68.82    85MB     0.940000E-01    2.78148        5.91%
+        328          98.74    85MB     0.940000E-01    2.78148        6.93%
+       3458         128.64    95MB     0.940000E-01    2.78148        8.40%
+       7054         158.54    95MB     0.127081        2.78148        8.97%
+      10808         188.42    95MB     0.197730        2.78148        9.39%
+      14905         218.32    95MB     0.402569        2.78148       10.15%
+      18120         248.22    95MB     0.483018        2.78148       10.88%
+      18686         278.13    95MB     0.486471        2.78148       11.01%
+      20896+        308.04   105MB     0.492382        2.78148       11.46%
+      21059+        337.92   105MB     0.492586        2.78148       11.48%
+      21254+        367.84   105MB     0.493930        2.78148       11.51%
+      21401         397.74   105MB     0.493937        2.78148       11.52%
+      21587+        427.65   105MB     0.497564        2.78148       11.56%
+      21714         457.55   105MB     0.497564        2.78148       11.57%
+      21855+        487.43   105MB     0.499322        2.78148       11.59%
+      22053+        517.33   105MB     0.499359        2.78148       11.62%
+      24454         547.24   105MB     0.510933        2.78148       11.98%
+      27420         577.15   115MB     0.517973        2.78148       12.30%
+      30376         607.05   115MB     0.544371        2.78148       12.66%
+      33106         636.95   124MB     0.557773        2.78148       12.93%
+      35897         666.84   124MB     0.589170        2.78148       13.24%
+      37270+        696.75   124MB     0.601881        2.78148       13.38%
+      37483+        726.65   124MB     0.604857        2.78148       13.40%
+      37657+        756.57   124MB     0.607222        2.78148       13.42%
+      40406         786.48   124MB     0.643487        2.78148       13.72%
+      42256         816.38   134MB     0.655512        2.78148       13.88%
+      42364+        846.29   134MB     0.655512        2.78148       13.89%
+      42500+        876.22   134MB     0.656263        2.78148       13.90%
+      42667+        906.12   134MB     0.656543        2.78148       13.91%
+      42857+        936.05   134MB     0.656968        2.78148       13.93%
+      42983         965.97   134MB     0.657603        2.78148       13.94%
+      43101+        995.85   134MB     0.659361        2.78148       13.95%
+      43234+       1025.76   134MB     0.660949        2.78148       13.96%
+      43357+       1055.69   134MB     0.662543        2.78148       13.96%
+      43465+       1085.61   134MB     0.664308        2.78148       13.98%
+      43584+       1115.54   134MB     0.665406        2.78148       14.00%
+      43731+       1145.42   134MB     0.667855        2.78148       14.02%
+      43860+       1175.35   134MB     0.668069        2.78148       14.02%
+      43987+       1205.28   134MB     0.669874        2.78148       14.03%
+      44111+       1235.19   134MB     0.671646        2.78148       14.05%
+      44254+       1265.11   134MB     0.674203        2.78148       14.07%
+      44468+       1295.02   134MB     0.677137        2.78148       14.09%
+      44587        1324.92   134MB     0.678803        2.78148       14.11%
+      44718        1354.84   134MB     0.680283        2.78148       14.13%
+      44916+       1384.74   134MB     0.680809        2.78148       14.15%
+      45036        1414.65   134MB     0.681973        2.78148       14.16%
+      47177        1444.55   134MB     0.711206        2.78148       14.42%
+      49748        1474.42   134MB     0.740696        2.78148       14.72%
+      52465        1504.32   134MB     0.786450        2.78148       15.05%
+      54989        1534.22   134MB     0.821098        2.78148       15.32%
+      57184        1564.12   144MB     0.833823        2.78148       15.47%
+      59304        1594.04   144MB     0.840997        2.78148       15.62%
+      61659        1623.91   144MB     0.858962        2.78148       15.78%
+      63897        1653.81   154MB     0.871700        2.78148       15.93%
+      66117        1683.71   154MB     0.886923        2.78148       16.11%
+      67140+       1713.63   154MB     0.899633        2.78148       16.20%
+      67267+       1743.54   154MB     0.901050        2.78148       16.21%
+      67391+       1773.44   154MB     0.901668        2.78148       16.22%
+      67465        1789.58   154MB     0.903636        2.78148       16.23%
+
+                    *** Max. allowable time exceeded ***      
+
+ Wall clock time:                  1796.12
+ Total CPU time used:              1789.58
+
+ Total no. of BaR iterations:   67465
+ Best solution found at node:       7
+ Max. no. of nodes in memory:    4413
+ 
+ All done
+===========================================================================
+
+Solution      = 2.78148261882051  found at node 7
+Best possible = 0.903635565082982
+Absolute gap  = 1.87784705373753  optca = 1E-9
+Relative gap  = 0.675124496925252  optcr = 1E-5
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:29:56.314
+--- model.gms(6012) 5 Mb
+--- model.gms(9051) 7 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/cstr_25/hull/gams-mdmrwtbg/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/cstr_25/hull/gams-mdmrwtbg/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 16:33:32 elapsed 0:29:56.319
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/cstr_25/hull/gams-mdmrwtbg
+

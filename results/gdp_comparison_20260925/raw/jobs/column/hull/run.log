@@ -1,0 +1,166 @@
+--- Job model.gms Start 09/25/26 17:51:36 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/column/hull/gams-iebqwa83/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/column/hull/gams-iebqwa83/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/column/hull/gams-iebqwa83/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/column/hull/gams-iebqwa83/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:38333 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(14024) 4 Mb
+--- Starting execution: elapsed 0:00:00.023
+--- model.gms(9360) 5 Mb
+--- Generating MINLP model GAMS_MODEL
+--- model.gms(9364) 8 Mb
+--- Reset Solvelink = 2
+---   3,026 rows  1,577 columns  8,828 non-zeroes
+---   8,667 nl-code  1,079 nl-non-zeroes
+---   58 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E-03, 1.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E-03, 1.000E+03] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E-04, 1.000E+03] - Zero values observed as well
+--- model.gms(9364) 6 Mb
+--- Executing BARON (Solvelink=2): elapsed 0:00:00.038
+
+GAMS/BARON       52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- Using Option File
+Reading parameter(s) from "/local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/column/hull/gams-iebqwa83/baron.opt"
+>>  LPSol 3
+>>  NLPSol 9
+>>  LBTTDo 0
+Finished reading from "/local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/column/hull/gams-iebqwa83/baron.opt"
+===========================================================================
+ BARON version 25.11.17. Built: LNX-int-64 2025-11-17 22:27:04           
+ Running on machine dantzig.ecn.purdue.edu
+
+ BARON is a product of The Optimization Firm.
+ For information on BARON, see https://minlp.com/about-baron
+
+ If you publish work using this software, please cite publications from
+ https://minlp.com/baron-publications, such as: 
+
+ Zhang, Y. and N. V. Sahinidis, Solving continuous and discrete
+ nonlinear programs with BARON, Comput Optim Appl (2024). 
+ https://doi.org/10.1007/s10589-024-00633-0
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP/QP: ILOG CPLEX                                      
+ For NLP: IPOPT                                           
+===========================================================================
+ Doing local search
+ Solving bounding LP
+ Starting multi-start local search
+ Done with local search
+===========================================================================
+  Iteration       Time (s)     Mem   Lower bound     Upper bound   Progress
+          1          27.62    46MB     8701.35        0.100000E+52    NA
+*         3          38.42   102MB     8701.35         20837.0        NA
+         38          68.49   103MB     15701.3         20837.0       14.67%
+        136          98.40   103MB     15701.3         20837.0       15.05%
+        227         131.67   103MB     15701.3         20837.0       15.34%
+        338         161.60   103MB     15701.3         20837.0       15.53%
+        510         191.60   113MB     15701.3         20837.0       15.80%
+        699         221.55   113MB     15701.3         20837.0       15.86%
+        875         251.49   113MB     15701.3         20837.0       15.92%
+       1026         281.42   122MB     15701.3         20837.0       15.96%
+       1176         311.62   122MB     15701.3         20837.0       16.00%
+       1393         341.52   122MB     15701.3         20837.0       16.05%
+       1547         371.58   132MB     15701.3         20837.0       16.08%
+       1707         402.12   132MB     15701.3         20837.0       16.12%
+       1922         432.07   132MB     15701.3         20837.0       16.14%
+       2077         462.08   142MB     15701.3         20837.0       16.18%
+       2232         491.97   142MB     15701.3         20837.0       16.20%
+       2387         521.91   142MB     15701.3         20837.0       16.23%
+       2550         551.99   151MB     15701.3         20837.0       16.25%
+       2706         581.92   151MB     15701.3         20837.0       16.27%
+       2876         611.90   151MB     15701.3         20837.0       16.29%
+       3035         641.99   161MB     15701.3         20837.0       16.31%
+       3161         672.16   161MB     15701.3         20837.0       16.32%
+       3320         702.15   161MB     15701.3         20837.0       16.33%
+       3463         732.12   171MB     15701.3         20837.0       16.35%
+       3643         762.64   171MB     15701.3         20837.0       16.37%
+       3811         792.65   171MB     15701.3         20837.0       16.39%
+       3968         822.93   180MB     15701.3         20837.0       16.40%
+       4102         853.06   180MB     15701.3         20837.0       16.41%
+       4289         883.04   180MB     15701.3         20837.0       16.43%
+       4499         913.01   190MB     15701.3         20837.0       16.44%
+       4704         943.19   190MB     15701.3         20837.0       16.45%
+       4893         973.13   190MB     15701.3         20837.0       16.46%
+       5073        1003.15   200MB     15701.3         20837.0       16.47%
+       5275        1033.19   200MB     15701.3         20837.0       16.48%
+       5454        1063.46   210MB     15701.3         20837.0       16.48%
+       5612        1093.40   210MB     15701.3         20837.0       16.49%
+       5808        1123.34   210MB     15701.3         20837.0       16.50%
+       5979        1153.30   219MB     15701.3         20837.0       16.51%
+       6149        1183.26   219MB     15701.3         20837.0       16.52%
+       6308        1213.67   219MB     15701.3         20837.0       16.53%
+       6466        1243.78   229MB     15701.3         20837.0       16.53%
+       6612        1273.89   229MB     15701.3         20837.0       16.55%
+       6795        1303.83   229MB     15701.3         20837.0       16.56%
+       6989        1333.79   239MB     15701.3         20837.0       16.58%
+       7166        1364.73   239MB     15701.3         20837.0       16.58%
+       7320        1395.44   239MB     15701.3         20837.0       16.59%
+       7453        1425.44   248MB     15701.3         20837.0       16.60%
+       7647        1455.43   248MB     15701.3         20837.0       16.60%
+       7842        1485.40   248MB     15701.3         20837.0       16.61%
+       8012        1515.31   258MB     15701.3         20837.0       16.62%
+       8206+       1545.34   258MB     15701.3         20837.0       16.63%
+       8394        1575.48   268MB     15701.3         20837.0       16.64%
+       8545        1606.18   268MB     15701.3         20837.0       16.64%
+       8715        1636.20   268MB     15701.3         20837.0       16.65%
+       8865        1666.16   268MB     15701.3         20837.0       16.65%
+       9049        1696.11   277MB     15701.3         20837.0       16.66%
+       9250        1726.04   277MB     15701.3         20837.0       16.67%
+       9406        1755.98   277MB     15701.3         20837.0       16.68%
+       9543        1785.93   289MB     15701.3         20837.0       16.69%
+       9555        1789.31   290MB     15701.3         20837.0       16.69%
+
+                    *** Max. allowable time exceeded ***      
+
+ Wall clock time:                  1795.45
+ Total CPU time used:              1789.31
+
+ Total no. of BaR iterations:    9555
+ Best solution found at node:       3
+ Max. no. of nodes in memory:    3888
+ 
+ All done
+===========================================================================
+
+Solution      = 20837.0804819148  found at node 3
+Best possible = 15701.3454183412
+Absolute gap  = 5135.73506357368  optca = 1E-9
+Relative gap  = 0.246470952014182  optcr = 1E-5
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:29:55.697
+--- model.gms(9367) 6 Mb
+--- model.gms(14024) 8 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/column/hull/gams-iebqwa83/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/column/hull/gams-iebqwa83/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 18:21:31 elapsed 0:29:55.706
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/column/hull/gams-iebqwa83
+
+WARNING: DEPRECATED: Relying on core.logical_to_linear to transform
+BooleanVars that do not appear in LogicalConstraints is deprecated. Please
+associate your own binaries if you have BooleanVars not used in logical
+expressions.  (deprecated in 6.2) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:246)

@@ -8,6 +8,8 @@ OsiDefaultName_start
 # Generated FMQA figures stay local; publish raw data, tables and manifests.
 /results/fmqa_*/analysis/**/*.png
 /results/fmqa_*/analysis/**/*.pdf
+/results/gdp_comparison_*/analysis/*.png
+/results/gdp_comparison_*/analysis/*.pdf
 
 # Local solver licenses
 bamlice.txt

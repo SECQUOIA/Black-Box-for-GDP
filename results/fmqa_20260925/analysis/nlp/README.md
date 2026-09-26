@@ -65,7 +65,7 @@ The complete Mac reruns can also have different search outcomes from the old Dan
 
 4. **Objective values.** The existing lookup trajectory is preserved. IPOPT is a local solver and some CSTR point objectives differ. Per-point discrepancies and a separate measured-NLP incumbent along the *fixed original path* are included. That second sequence does not simulate how the optimizer would react to changed observations. Neither sequence certifies a global optimum.
 
-5. **GDP baselines.** `gdp_baseline_comparison.csv` retains measured full-GDP completion times separately, plus one shared template preparation cost. Missing saved solutions remain missing. These are completion records, not first-hit records, and are not merged into first-hit performance profiles. The previously identified CSTR initialization, lost-incumbent, Column bound and CPU-overlap qualifications still apply.
+5. **GDP baselines.** `gdp_baseline_comparison.csv` retains measured full-GDP completion times separately, plus one shared template preparation cost. Missing saved solutions remain missing. These are completion records, not first-hit records, and are not merged into first-hit performance profiles. The full-GDP run's CPU affinity and timestamp are recorded in the manifest and comparison CSV. Local IPOPT failures in GDPopt and BARON bounds that conflict with better saved feasible solutions remain explicit qualifications. Solver-reported certificates and cross-method bound consistency are recorded separately.
 
 ## Figures and data
 

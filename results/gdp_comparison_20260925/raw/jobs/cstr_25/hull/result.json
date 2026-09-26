@@ -1,0 +1,661 @@
+{
+  "case": "cstr",
+  "cstr_size": 25,
+  "instance_id": "cstr_25",
+  "source": {
+    "repository": "https://github.com/SECQUOIA/dsda-gdp",
+    "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+    "files_sha256": {
+      "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+      "gdp/dsda/cstr_25_initialization.json": "98e8ceaf048d8e1d1835f3b13489da34fb78b4b955f38cd3731d5ef9b856e397",
+      "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+    }
+  },
+  "initialization": "gdp/dsda/cstr_25_initialization.json",
+  "dynamic_preparation": null,
+  "global_fbbt_wall_s": 0.02564675034955144,
+  "globally_implied_bounds": {
+    "Q[1]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[2]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[3]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[4]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[5]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[6]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[7]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[8]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[9]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[10]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[11]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[12]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[13]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[14]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[15]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[16]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[17]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[18]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[19]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[20]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[21]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[22]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[23]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[24]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[25]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "QFR[1]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[2]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[3]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[4]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[5]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[6]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[7]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[8]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[9]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[10]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[11]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[12]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[13]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[14]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[15]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[16]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[17]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[18]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[19]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[20]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[21]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[22]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[23]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[24]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[25]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9
+      ]
+    },
+    "P[B]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.5
+      ]
+    }
+  },
+  "template_wall_s": 0.21585711184889078,
+  "template_policy": "built once, independent unsolved clone per method",
+  "method": "hull",
+  "time_limit_s": 1800,
+  "threads": 1,
+  "status": "finished",
+  "objective": 2.781482618820502,
+  "has_feasible_solution": true,
+  "global_optimality_certified": false,
+  "global_bound_valid": true,
+  "solver_policy": {
+    "minlp": "baron",
+    "baron_lp_subsolver": "cplex",
+    "baron_nlp_subsolver": "ipopt",
+    "warmstart": false,
+    "options": [
+      "LPSol 3",
+      "NLPSol 9"
+    ]
+  },
+  "certificate_note": "Certificate requires BARON optimal termination and original GDP feasibility.",
+  "reformulation_wall_s": 0.2388005848042667,
+  "model_variables": 1181,
+  "model_constraints": 2031,
+  "solve_wall_s": 1796.7518399511464,
+  "candidate_objective": 2.781482618820502,
+  "max_primal_violation": 6.445226574669505e-10,
+  "invalid_or_undefined": [],
+  "selected_disjuncts": [
+    "YR_is_recycle[25]",
+    "YR_is_not_recycle[1]",
+    "YR_is_not_recycle[2]",
+    "YR_is_not_recycle[3]",
+    "YR_is_not_recycle[4]",
+    "YR_is_not_recycle[5]",
+    "YR_is_not_recycle[6]",
+    "YR_is_not_recycle[7]",
+    "YR_is_not_recycle[8]",
+    "YR_is_not_recycle[9]",
+    "YR_is_not_recycle[10]",
+    "YR_is_not_recycle[11]",
+    "YR_is_not_recycle[12]",
+    "YR_is_not_recycle[13]",
+    "YR_is_not_recycle[14]",
+    "YR_is_not_recycle[15]",
+    "YR_is_not_recycle[16]",
+    "YR_is_not_recycle[17]",
+    "YR_is_not_recycle[18]",
+    "YR_is_not_recycle[19]",
+    "YR_is_not_recycle[20]",
+    "YR_is_not_recycle[21]",
+    "YR_is_not_recycle[22]",
+    "YR_is_not_recycle[23]",
+    "YR_is_not_recycle[24]",
+    "YP_is_cstr[1]",
+    "YP_is_cstr[2]",
+    "YP_is_cstr[3]",
+    "YP_is_cstr[4]",
+    "YP_is_cstr[5]",
+    "YP_is_cstr[6]",
+    "YP_is_cstr[7]",
+    "YP_is_cstr[8]",
+    "YP_is_cstr[9]",
+    "YP_is_cstr[10]",
+    "YP_is_cstr[11]",
+    "YP_is_cstr[12]",
+    "YP_is_cstr[13]",
+    "YP_is_cstr[14]",
+    "YP_is_cstr[15]",
+    "YP_is_cstr[16]",
+    "YP_is_cstr[17]",
+    "YP_is_cstr[18]",
+    "YP_is_cstr[19]",
+    "YP_is_cstr[20]",
+    "YP_is_cstr[21]",
+    "YP_is_cstr[22]",
+    "YP_is_cstr[23]",
+    "YP_is_cstr[24]",
+    "YP_is_cstr[25]"
+  ],
+  "selected_booleans": [
+    "YF[25]",
+    "YR[25]",
+    "YP[1]",
+    "YP[2]",
+    "YP[3]",
+    "YP[4]",
+    "YP[5]",
+    "YP[6]",
+    "YP[7]",
+    "YP[8]",
+    "YP[9]",
+    "YP[10]",
+    "YP[11]",
+    "YP[12]",
+    "YP[13]",
+    "YP[14]",
+    "YP[15]",
+    "YP[16]",
+    "YP[17]",
+    "YP[18]",
+    "YP[19]",
+    "YP[20]",
+    "YP[21]",
+    "YP[22]",
+    "YP[23]",
+    "YP[24]",
+    "YP[25]"
+  ],
+  "incumbent_elapsed_s": 1797.188367778901,
+  "termination": "maxTimeLimit",
+  "solver_status": "ok",
+  "reported_lower_bound": 0.903635565082982,
+  "reported_upper_bound": 2.781482618820512,
+  "gams_statistics": {
+    "MODELSTAT": 8.0,
+    "SOLVESTAT": 3.0,
+    "OBJEST": 0.903635565082982,
+    "OBJVAL": 2.781482618820512,
+    "NUMVAR": 957.0,
+    "NUMEQU": 2032.0,
+    "NUMDVAR": 125.0,
+    "NUMNZ": 4863.0,
+    "ETSOLVE": 1796.297999820672
+  },
+  "method_wall_s": 1797.196586261969,
+  "solver_calls": 1,
+  "sum_solver_call_wall_s": 1796.7493929439224,
+  "worker_pid": 2673716,
+  "worker_returncode": 0,
+  "worker_wall_s": 1797.211792550981,
+  "hard_time_limit_reached": false
+}

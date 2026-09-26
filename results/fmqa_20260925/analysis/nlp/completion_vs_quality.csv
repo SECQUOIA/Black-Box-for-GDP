@@ -35,10 +35,10 @@ column,FMQA-SA,6,11.807543930131942,0.02037685549059939,reconstructed_completion
 column,FMQA-SA,7,25.19810159225017,0.010472057065327004,reconstructed_completion,original_lookup_incumbent
 column,FMQA-SA,8,9.070742213632911,0.011358130639950935,reconstructed_completion,original_lookup_incumbent
 column,FMQA-SA,9,25.18100801249966,0.005361580224960956,reconstructed_completion,original_lookup_incumbent
-column,Big-M + BARON,,34.406136168632656,0.026237711383967716,measured_completion,validated_saved_gdp_solution
-column,GLOA + IPOPT,,8.77148839412257,0.08116703015435815,measured_completion,validated_saved_gdp_solution
-column,Hull + BARON,,1797.2578268628567,0.07706741152111614,measured_completion,validated_saved_gdp_solution
-column,RIC + IPOPT,,69.41193099413067,3.871915785449783e-09,measured_completion,validated_saved_gdp_solution
+column,Big-M + BARON,,34.358111490961164,0.026237711383967716,measured_completion,validated_saved_gdp_solution
+column,GLOA + IPOPT,,9.003798325080425,0.08116703015435815,measured_completion,validated_saved_gdp_solution
+column,Hull + BARON,,1797.165404516738,0.07706741152676864,measured_completion,validated_saved_gdp_solution
+column,RIC + IPOPT,,82.20703451801091,3.871915785449783e-09,measured_completion,validated_saved_gdp_solution
 cstr,DSDA,0,4.459766093408689,0.0,reconstructed_completion,original_lookup_incumbent
 cstr,BAM 5.0.0,0,22.59449909988325,0.0,reconstructed_completion,original_lookup_incumbent
 cstr,DSDA,1,46.08465083851479,0.0,reconstructed_completion,original_lookup_incumbent
@@ -79,8 +79,10 @@ cstr,FMQA-SA,6,35.52389622479677,0.016493921755938626,reconstructed_completion,o
 cstr,FMQA-SA,7,58.822609443217516,0.010770811049641997,reconstructed_completion,original_lookup_incumbent
 cstr,FMQA-SA,8,70.5904297158122,0.010770811049641997,reconstructed_completion,original_lookup_incumbent
 cstr,FMQA-SA,9,78.40060952911153,0.01888621038421652,reconstructed_completion,original_lookup_incumbent
-cstr,GLOA + IPOPT,,15.111986977048218,0.3246518792783786,measured_completion,validated_saved_gdp_solution
-cstr,RIC + IPOPT,,1789.6090111616068,0.0007407971764998617,measured_completion,validated_saved_gdp_solution
+cstr,Big-M + BARON,,1797.3095920998603,2.9074832244579678e-08,measured_completion,validated_saved_gdp_solution
+cstr,GLOA + IPOPT,,6.413661017548293,0.3246518792783786,measured_completion,validated_saved_gdp_solution
+cstr,Hull + BARON,,1466.5967152435333,0.014376426794563024,measured_completion,validated_saved_gdp_solution
+cstr,RIC + IPOPT,,1287.6379341296852,0.0007407971764998617,measured_completion,validated_saved_gdp_solution
 small_batch,DSDA,0,7.952935194829479,0.0,reconstructed_completion,original_lookup_incumbent
 small_batch,BAM 5.0.0,0,7.958571883384138,0.0,reconstructed_completion,original_lookup_incumbent
 small_batch,DSDA,1,7.909142695600167,0.0,reconstructed_completion,original_lookup_incumbent
@@ -121,10 +123,10 @@ small_batch,FMQA-SA,6,8.343723465222865,0.0,reconstructed_completion,original_lo
 small_batch,FMQA-SA,7,8.357518630102277,0.0,reconstructed_completion,original_lookup_incumbent
 small_batch,FMQA-SA,8,8.366376405581832,0.0,reconstructed_completion,original_lookup_incumbent
 small_batch,FMQA-SA,9,8.352597186341882,0.0,reconstructed_completion,original_lookup_incumbent
-small_batch,Big-M + BARON,,0.560040351934731,0.0,measured_completion,validated_saved_gdp_solution
-small_batch,GLOA + IPOPT,,10.727059456985444,0.0,measured_completion,validated_saved_gdp_solution
-small_batch,Hull + BARON,,0.5269698048941791,0.0,measured_completion,validated_saved_gdp_solution
-small_batch,RIC + IPOPT,,13.957620038185269,0.0,measured_completion,validated_saved_gdp_solution
+small_batch,Big-M + BARON,,0.5486130681820214,0.0,measured_completion,validated_saved_gdp_solution
+small_batch,GLOA + IPOPT,,10.798653833102435,0.0,measured_completion,validated_saved_gdp_solution
+small_batch,Hull + BARON,,0.5705898562446237,0.0,measured_completion,validated_saved_gdp_solution
+small_batch,RIC + IPOPT,,12.842204682063311,0.0,measured_completion,validated_saved_gdp_solution
 dynamic,DSDA,0,18.11444892792497,0.0,reconstructed_completion,original_lookup_incumbent
 dynamic,BAM 5.0.0,0,31.90273353178054,0.0,reconstructed_completion,original_lookup_incumbent
 dynamic,DSDA,1,26.475592042086646,0.0,reconstructed_completion,original_lookup_incumbent
@@ -165,7 +167,7 @@ dynamic,FMQA-SA,6,38.000047555658966,0.020672118894070238,reconstructed_completi
 dynamic,FMQA-SA,7,34.29315754538402,0.0,reconstructed_completion,original_lookup_incumbent
 dynamic,FMQA-SA,8,33.094666067976505,0.026642171825183344,reconstructed_completion,original_lookup_incumbent
 dynamic,FMQA-SA,9,34.06727034365758,0.0,reconstructed_completion,original_lookup_incumbent
-dynamic,Big-M + BARON,,1798.006976896897,0.0206721200324258,measured_completion,validated_saved_gdp_solution
-dynamic,GLOA + IPOPT,,155.74008846189827,0.07013226295205506,measured_completion,validated_saved_gdp_solution
-dynamic,Hull + BARON,,1798.3841108335182,0.8651153116013939,measured_completion,validated_saved_gdp_solution
-dynamic,RIC + IPOPT,,109.72624917607754,1.6253031627765088e-10,measured_completion,validated_saved_gdp_solution
+dynamic,Big-M + BARON,,1797.5074724140577,0.0206721200324258,measured_completion,validated_saved_gdp_solution
+dynamic,GLOA + IPOPT,,147.02934219921008,0.07013226295205506,measured_completion,validated_saved_gdp_solution
+dynamic,Hull + BARON,,1797.7749852971174,0.8651153116013939,measured_completion,validated_saved_gdp_solution
+dynamic,RIC + IPOPT,,103.99728136323392,1.6253031627765088e-10,measured_completion,validated_saved_gdp_solution

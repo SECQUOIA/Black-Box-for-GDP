@@ -1,0 +1,120 @@
+--- Job model.gms Start 09/25/26 18:25:43 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/dynamic/bigm/gams-vfhuguef/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/dynamic/bigm/gams-vfhuguef/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/dynamic/bigm/gams-vfhuguef/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/dynamic/bigm/gams-vfhuguef/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:38937 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(23395) 6 Mb
+--- Starting execution: elapsed 0:00:00.047
+--- model.gms(15836) 7 Mb
+--- Generating MINLP model GAMS_MODEL
+--- model.gms(15840) 11 Mb
+--- Reset Solvelink = 2
+---   5,830 rows  1,672 columns  24,221 non-zeroes
+---   36,812 nl-code  5,733 nl-non-zeroes
+---   24 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E+00, 8.133E+04] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 3.000E+02] - Zero values observed as well
+--- Matrix    [min, max] : [ 5.168E-03, 8.133E+04] - Zero values observed as well
+--- model.gms(15840) 9 Mb
+--- Executing BARON (Solvelink=2): elapsed 0:00:00.076
+
+GAMS/BARON       52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- Using Option File
+Reading parameter(s) from "/local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/dynamic/bigm/gams-vfhuguef/baron.opt"
+>>  LPSol 3
+>>  NLPSol 9
+Finished reading from "/local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/dynamic/bigm/gams-vfhuguef/baron.opt"
+===========================================================================
+ BARON version 25.11.17. Built: LNX-int-64 2025-11-17 22:27:04           
+ Running on machine dantzig.ecn.purdue.edu
+
+ BARON is a product of The Optimization Firm.
+ For information on BARON, see https://minlp.com/about-baron
+
+ If you publish work using this software, please cite publications from
+ https://minlp.com/baron-publications, such as: 
+
+ Zhang, Y. and N. V. Sahinidis, Solving continuous and discrete
+ nonlinear programs with BARON, Comput Optim Appl (2024). 
+ https://doi.org/10.1007/s10589-024-00633-0
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP/QP: ILOG CPLEX                                      
+ For NLP: IPOPT                                           
+===========================================================================
+ Doing local search
+ Preprocessing found feasible solution with value -28.5967
+ Solving bounding LP
+ Starting multi-start local search
+ Done with local search
+===========================================================================
+  Iteration       Time (s)     Mem   Lower bound     Upper bound   Progress
+*         1          45.41    62MB    -896.040        -54.2122        0.30%
+          1          54.62    62MB    -677.070        -54.2122        0.76%
+*         4          74.88   119MB    -677.070        -197.140        0.89%
+          4         678.85   121MB    -677.070        -197.140        1.05%
+          7         712.71   122MB    -677.070        -197.140        1.83%
+*         8         720.88   122MB    -677.070        -207.626        4.58%
+          8         767.01   125MB    -677.070        -207.626        4.88%
+         12         800.03   125MB    -677.070        -207.626        6.36%
+         12         839.27   125MB    -677.070        -207.626        6.65%
+         13         873.49   126MB    -677.070        -207.626        7.21%
+         13         926.46   130MB    -677.070        -207.626        7.49%
+         14+        956.62   132MB    -677.070        -207.626        8.07%
+         14         993.97   133MB    -677.070        -207.626        8.37%
+         14        1038.39   133MB    -677.070        -207.626        8.66%
+         15        1082.60   134MB    -677.070        -207.626        9.30%
+         15        1115.23   134MB    -677.070        -207.626        9.65%
+         16        1180.07   134MB    -677.070        -207.626       10.34%
+         17        1213.68   134MB    -677.070        -207.626       11.04%
+         25        1247.21   134MB    -677.070        -207.626       11.04%
+         36        1278.16   134MB    -677.070        -207.626       11.04%
+         42        1308.10   134MB    -677.070        -207.626       11.05%
+         42        1789.60   134MB    -677.070        -207.626       11.05%
+
+                    *** Max. allowable time exceeded ***      
+
+ Wall clock time:                  1795.48
+ Total CPU time used:              1789.60
+
+ Total no. of BaR iterations:      42
+ Best solution found at node:       8
+ Max. no. of nodes in memory:      21
+ 
+ All done
+===========================================================================
+
+Solution      = -207.626116094379  found at node 8
+Best possible = -677.069679491585
+Absolute gap  = 469.443563397206  optca = 1E-9
+Relative gap  = 0.693346013883998  optcr = 1E-5
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:29:55.797
+--- model.gms(15843) 9 Mb
+--- model.gms(23395) 11 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/dynamic/bigm/gams-vfhuguef/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/dynamic/bigm/gams-vfhuguef/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 18:55:39 elapsed 0:29:55.811
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/dynamic/bigm/gams-vfhuguef
+

@@ -13,5 +13,37 @@
   "current_fmqa_archives": [
     "results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip",
     "results/archives/dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip"
-  ]
+  ],
+  "full_gdp_refresh": {
+    "archive_sha256": "bdc20c0e4349721c25a38fa929c2e0eb263884e91c4ae4d2626ace4073c91e91",
+    "checksums_checked": 204,
+    "saved_solutions_rechecked": 36,
+    "distinct_physical_cores": true,
+    "unchanged_dfo_reconstruction_csvs": 6,
+    "tests": "41 passed (NLP accounting, GDP comparison, CPU affinity)",
+    "ruff": "passed",
+    "bound_conflicts": [
+      {
+        "instance_id": "column",
+        "method": "bigm",
+        "reported_lower_bound": 19853.722966464,
+        "best_saved_feasible_objective": 19346.124801099686,
+        "solver_reported_global_optimality_certified": false
+      },
+      {
+        "instance_id": "cstr_10",
+        "method": "hull",
+        "reported_lower_bound": 2.889535836078951,
+        "best_saved_feasible_objective": 2.8894834524326347,
+        "solver_reported_global_optimality_certified": true
+      },
+      {
+        "instance_id": "cstr_30",
+        "method": "hull",
+        "reported_lower_bound": 2.809386231078974,
+        "best_saved_feasible_objective": 2.7695697953461833,
+        "solver_reported_global_optimality_certified": true
+      }
+    ]
+  }
 }

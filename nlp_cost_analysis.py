@@ -481,7 +481,9 @@ def report(output, rows, events, sources, costs_dir, solver):
               "Neither sequence certifies a global optimum.", "",
               "5. **GDP baselines.** `gdp_baseline_comparison.csv` retains measured full-GDP completion times separately, plus one shared template preparation cost. "
               "Missing saved solutions remain missing. These are completion records, not first-hit records, and are not merged into first-hit performance profiles. "
-              "The previously identified CSTR initialization, lost-incumbent, Column bound and CPU-overlap qualifications still apply.", "",
+              "The full-GDP run's CPU affinity and timestamp are recorded in the manifest and comparison CSV. "
+              "Local IPOPT failures in GDPopt and BARON bounds that conflict with better saved feasible solutions remain explicit qualifications. "
+              "Solver-reported certificates and cross-method bound consistency are recorded separately.", "",
               "## Figures and data", "",
               "- `time_performance_profiles.{png,pdf}`: exact-model cases, estimated first-hit time to the original lookup target.",
               "- `completion_time_profiles.{png,pdf}`: full completion time, using the same reconstructed costs.",
@@ -518,13 +520,34 @@ def baseline_record(row, target):
 
 def baseline_comparison(directory, output, trace_runs):
     summary = read_json(Path(directory) / "summary.json")
+    run = read_json(Path(directory) / "run.json")
     records = []
     targets = {(r["spec"]["case_name"], r["spec"]["grid_size"]): r["target"] for r in trace_runs}
     for row in summary["results"]:
         target = targets[(row["case"], row["cstr_size"])]
-        records.append(baseline_record(row, target))
+        record = baseline_record(row, target)
+        record.update({"reported_lower_bound": row.get("reported_lower_bound"),
+                       "source_cpu": run.get("cpu"), "source_host": run.get("host"),
+                       "source_created_utc": run.get("created_utc")})
+        records.append(record)
+    flag_bound_conflicts(records)
     write_csv(output / "gdp_baseline_comparison.csv", records)
     return records
+
+
+def flag_bound_conflicts(records):
+    """Retain reported flags; reject certificates contradicted by saved incumbents."""
+    for row in records:
+        peers = [r for r in records if r["instance_id"] == row["instance_id"]
+                 and r["has_feasible_solution"] and r["objective"] is not None]
+        best = min((r["objective"] for r in peers), default=None)
+        lower = row.get("reported_lower_bound")
+        conflict = (row["method"] in {"bigm", "hull"} and lower is not None and best is not None
+                    and lower > best + TOLERANCE * max(1, abs(best)))
+        row["best_saved_feasible_objective"] = best
+        row["bound_conflict_with_saved_solution"] = conflict
+        row["solver_reported_global_optimality_certified"] = row["global_optimality_certified"]
+        row["global_optimality_certified"] = bool(row["global_optimality_certified"] and not conflict)
 
 
 def completion_quality_figure(output, native, baselines):
@@ -577,9 +600,12 @@ def completion_quality_figure(output, native, baselines):
     handles += [Line2D([], [], color=c, marker="D", linestyle="", label=m) for m, c in baseline_styles.values()]
     fig.suptitle("Completion time and solution quality — exploratory comparison", fontsize=16)
     fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(.5, .96), ncol=4, frameon=False)
+    cpu = baselines[0].get("source_cpu")
+    cpu_note = f"GDP pinned to CPU {cpu}" if cpu is not None else "GDP CPU not recorded"
     fig.text(.5, .018,
              "Circles: reconstructed DFO times, original lookup incumbents. Diamonds: measured full-GDP completion and saved solutions.\n"
-             "Successful NLP evaluation costs only; infeasible queries cost 0 s. Mixed clocks; GDP CPU overlap remains. No speedup claim.",
+             f"Successful NLP costs only; infeasible queries: 0 s. {cpu_note}; mixed DFO clocks. No controlled speedup claim.\n"
+             "BARON bound inconsistencies are flagged in the audit; solver termination alone does not establish global optimality.",
              ha="center", fontsize=9)
     fig.tight_layout(rect=(0, .065, 1, .87))
     for ext in ("png", "pdf"):
@@ -594,7 +620,7 @@ def main():
     parser.add_argument("--fmqa", type=Path, default=ROOT / "results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip")
     parser.add_argument("--costs", type=Path, default=ROOT / "results/gdp_point_timings_20260922")
     parser.add_argument("--solver", choices=("gams_ipopt", "ipopth", "conopt"), default="gams_ipopt")
-    parser.add_argument("--gdp-results", type=Path, default=ROOT / "results/dantzig_review/completed_benchmarks_20260923/dantzig_gdp_compare_20260922_181805_4u7k1d0n")
+    parser.add_argument("--gdp-results", type=Path, default=ROOT / "results/gdp_comparison_20260925/raw")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.output.exists() and any(args.output.iterdir()):
@@ -619,6 +645,12 @@ def main():
     baselines = baseline_comparison(args.gdp_results, args.output, runs)
     completion_quality_figure(args.output, native, baselines)
     sources.append({"path": str(args.gdp_results / "summary.json"), "sha256": sha(args.gdp_results / "summary.json")})
+    gdp_run = read_json(args.gdp_results / "run.json")
+    sources.append({"kind": "full_gdp", "path": str(args.gdp_results / "run.json"),
+                    "sha256": sha(args.gdp_results / "run.json"), "host": gdp_run.get("host"),
+                    "created_utc": gdp_run.get("created_utc"), "cpu_affinity": gdp_run.get("cpu_affinity"),
+                    "bound_conflicts": [f"{r['instance_id']}/{r['method']}" for r in baselines
+                                        if r["bound_conflict_with_saved_solution"]]})
     overview = report(args.output, summaries, ledger, sources, args.costs, args.solver)
     print(json.dumps({k: v for k, v in overview.items() if k not in {"sources", "assumptions"}}, indent=2))
 

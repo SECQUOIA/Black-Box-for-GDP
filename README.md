@@ -395,6 +395,10 @@ Big-M/Hull + BARON with 30-minute limits per instance/method, see the
 [Dantzig GDP comparison runner](docs/gdp_comparison.md).
 This full-model comparison includes CSTR5/10/15/20/25/30, Column, Dynamic and
 Small Batch (36 jobs); the CSTR30-only scope above concerns point NLP timings.
+The [current full-GDP results](results/gdp_comparison_20260925/analysis/README.md)
+use the September 25 CPU 2 rerun: all 36 saved solutions passed an independent
+original-GDP feasibility check. Nine jobs reached the solver time limit.
+Three cross-method BARON bound conflicts are flagged explicitly.
 
 The [NLP-inclusive cost comparison](results/fmqa_20260925/analysis/nlp/README.md)
 joins 556 recorded black-box paths to these point costs. It includes first-hit
@@ -424,8 +428,9 @@ use the September 25 reruns: 1,050 Grid runs on CPU 0 and 139 process-case runs
 on CPU 4, with different recorded physical cores. Raw archives, comparison
 tables, Grid TTS99, timing profiles and NLP-inclusive estimates use these new
 measurements. The contaminated September 22 FMQA archives and derived results
-have been removed. The full GDPopt/BARON baseline still uses its separately
-labelled September 22 run pending the CPU 2 rerun archive.
+have been removed. The full GDPopt/BARON baseline now uses the September 25
+CPU 2 rerun, on a different physical core from both FMQA jobs. The contaminated
+September 22 GDP comparison archive and its derived results have also been removed.
 
 For FMQA with local simulated annealing, the same original three-point designs
 and all 139 process-case conditions, see the

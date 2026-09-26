@@ -1,0 +1,3636 @@
+Starting GDPopt version 22.5.13 using RIC algorithm
+iterlim: None
+time_limit: 1789
+tee: true
+logger: <Logger pyomo.contrib.gdpopt (INFO)>
+mip_solver: _rbfopt_comparison_gams
+mip_solver_args:
+  mtype: mip
+  solver: cplex
+nlp_solver: _rbfopt_comparison_gams
+nlp_solver_args:
+  mtype: nlp
+  solver: ipopt
+minlp_solver: baron
+minlp_solver_args:
+local_minlp_solver: bonmin
+local_minlp_solver_args:
+small_dual_tolerance: 1e-08
+bound_tolerance: 1e-05
+integer_tolerance: 1e-05
+constraint_tolerance: 1e-06
+variable_tolerance: 1e-08
+subproblem_initialization_method: <function restore_vars_to_original_values at 0x7f6a50a55b20>
+call_before_subproblem_solve: <class 'type'>
+call_after_subproblem_solve: <class 'type'>
+call_after_subproblem_feasible: <function solve_method.<locals>.feasible at 0x7f6a4084d080>
+force_subproblem_nlp: true
+subproblem_presolve: true
+tighten_nlp_var_bounds: false
+round_discrete_vars: true
+max_fbbt_iterations: 3
+init_strategy: None
+init_algorithm: set_covering
+custom_init_disjuncts: []
+max_slack: 1000.0
+OA_penalty_factor: 1000.0
+set_cover_iterlim: 8
+discrete_problem_transformation: gdp.bigm
+call_before_discrete_problem_solve: <class 'type'>
+call_after_discrete_problem_solve: <class 'type'>
+call_before_master_solve: <class 'type'>
+call_after_master_solve: <class 'type'>
+mip_presolve: true
+calc_disjunctive_bounds: false
+obbt_disjunctive_bounds: false
+
+If you use this software, you may cite the following:
+            - Implementation:
+            Chen, Q; Johnson, ES; Bernal, DE; Valentin, R; Kale, S;
+            Bates, J; Siirola, JD; Grossmann, IE.
+            Pyomo.GDP: an ecosystem for logic based modeling and optimization
+            development.
+            Optimization and Engineering, 2021.
+Original model has 37 constraints (1 nonlinear) and 9 disjunctions, with 37 variables, of which 18 are binary, 0 are integer, and 19 are continuous.
+Objective is nonlinear. Moving it to constraint set.
+---Starting GDPopt initialization---
+Starting set covering initialization.
+=============================================================================================
+Iteration | Subproblem Type | Lower Bound | Upper Bound |   Gap    | Time(s)
+
+Initialization complete.
+Finished discrete problem initialization in 0.01s and 0 iterations 
+
+=============================================================================================
+Iteration | Subproblem Type | Lower Bound | Upper Bound |   Gap    | Time(s)
+
+--- Job model.gms Start 09/25/26 19:25:37 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0ztcj030/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0ztcj030/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0ztcj030/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0ztcj030/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:56901 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(401) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(241) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(245) 3 Mb
+---   64 rows  39 columns  122 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 2.996E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.008
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1789.9482265990227
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 2 times.
+MIP Presolve eliminated 48 rows and 24 columns.
+MIP Presolve modified 9 coefficients.
+Aggregator did 15 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.06 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.07 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.07 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.07 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1789.9482265990227
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 63 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.04 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.030
+--- model.gms(401) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0ztcj030/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0ztcj030/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:37 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0ztcj030
+
+        1          discrete   31786.18707           inf       nan%      0.42  
+--- Job model.gms Start 09/25/26 19:25:37 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-3gr17tfe/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-3gr17tfe/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-3gr17tfe/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-3gr17tfe/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:54979 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(422) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(261) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(265) 3 Mb
+---   65 rows  39 columns  140 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.007
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1789.532915905118
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 3 times.
+MIP Presolve eliminated 46 rows and 21 columns.
+MIP Presolve modified 32 coefficients.
+Aggregator did 18 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.10 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.11 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.11 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.11 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1789.532915905118
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 64 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.04 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.029
+--- model.gms(422) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-3gr17tfe/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-3gr17tfe/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:37 elapsed 0:00:00.030
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-3gr17tfe
+
+        2          discrete   31786.18707           inf       nan%      0.83  
+--- Job model.gms Start 09/25/26 19:25:38 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-j57gk982/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-j57gk982/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-j57gk982/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-j57gk982/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:42613 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.004
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   27 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 2.877E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 6.544E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.006
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 1.94e+05 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2099580e+04 1.91e+05 7.28e+00  -1.0 3.17e+02    -  1.11e-01 1.41e-02f  1
+   2  3.2099655e+04 1.91e+05 7.00e+04   2.9 4.00e+03    -  2.82e-01 4.89e-05f  1
+   3  2.8869275e+05 9.28e+03 5.73e+05   3.6 2.57e+05    -  4.80e-02 1.00e+00h  1
+   4  2.8869275e+05 0.00e+00 8.87e+04   2.7 9.59e-02   6.0 9.90e-01 1.00e+00h  1
+   5  2.7322145e+05 4.62e+02 6.39e+04   3.3 5.93e+04    -  1.00e+00 2.61e-01f  1
+   6  2.5586715e+05 3.55e+01 1.55e+04   3.2 1.99e+04    -  9.98e-01 8.73e-01f  1
+   7  2.4409652e+05 3.70e+02 1.55e+03   2.8 1.19e+04    -  9.80e-01 9.86e-01f  1
+   8  2.4162844e+05 6.66e+00 9.63e+01   1.5 2.47e+03    -  9.92e-01 1.00e+00f  1
+   9  2.4138926e+05 0.00e+00 6.72e-01  -0.3 2.39e+02    -  9.99e-01 1.00e+00f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  2.4138475e+05 0.00e+00 6.56e-03  -6.2 4.56e+00    -  9.90e-01 9.90e-01f  1
+  11  2.4138470e+05 0.00e+00 6.13e-07  -8.2 4.42e-02    -  1.00e+00 1.00e+00f  1
+
+Number of Iterations....: 11
+
+                                   (scaled)                 (unscaled)
+Objective...............:   2.4138470149672695e+05    2.4138470149672695e+05
+Dual infeasibility......:   6.1347999257346797e-07    6.1347999257346797e-07
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   8.5079594656358172e-07    8.5079594656358172e-07
+Overall NLP error.......:   8.7687326840446503e-09    8.5079594656358172e-07
+
+
+Number of objective function evaluations             = 12
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 12
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 12
+Number of Lagrangian Hessian evaluations             = 11
+Total seconds in IPOPT                               = 0.022
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.042
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-j57gk982/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-j57gk982/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:38 elapsed 0:00:00.043
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-j57gk982
+
+        2        subproblem   31786.18707   241384.70150     86.83%      1.23  *
+--- Job model.gms Start 09/25/26 19:25:38 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-yhfnxgvv/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-yhfnxgvv/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-yhfnxgvv/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-yhfnxgvv/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:56853 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(425) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(263) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(267) 3 Mb
+---   66 rows  39 columns  158 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.016
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1788.739205526188
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 3 times.
+MIP Presolve eliminated 45 rows and 16 columns.
+MIP Presolve modified 58 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 4 rows, 7 columns, and 12 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.12 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.13 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.13 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.13 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.13 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1788.739205526188
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 65 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.04 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.039
+--- model.gms(425) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-yhfnxgvv/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-yhfnxgvv/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:38 elapsed 0:00:00.040
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-yhfnxgvv
+
+        3          discrete   31786.18707   241384.70150     86.83%      1.66  
+--- Job model.gms Start 09/25/26 19:25:39 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_0qc9iu4/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_0qc9iu4/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_0qc9iu4/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_0qc9iu4/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:37683 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.004
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   27 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.055E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 6.544E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.007
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 1.78e+05 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2104079e+04 1.78e+05 6.44e+04   2.9 9.05e+02    -  8.56e-01 3.27e-05f  1
+   2  2.2843297e+05 0.00e+00 1.86e+04   3.3 1.96e+05    -  5.65e-01 1.00e+00h  1
+   3  2.1239617e+05 3.14e+02 7.92e+01   2.5 1.60e+04    -  9.86e-01 1.00e+00f  1
+   4  2.1064521e+05 1.57e+01 3.19e+01   0.7 1.79e+03    -  9.92e-01 9.78e-01f  1
+   5  2.1058181e+05 1.78e-02 1.39e-01  -1.1 6.37e+01    -  9.94e-01 9.95e-01f  1
+   6  2.1058084e+05 6.18e-05 4.62e-04  -6.9 9.72e-01    -  9.97e-01 9.97e-01f  1
+   7  2.1058084e+05 2.33e-10 4.98e-09  -9.4 3.24e-03    -  1.00e+00 1.00e+00f  1
+
+Number of Iterations....: 7
+
+                                   (scaled)                 (unscaled)
+Objective...............:   2.1058083834664698e+05    2.1058083834664698e+05
+Dual infeasibility......:   4.9758455133996904e-09    4.9758455133996904e-09
+Constraint violation....:   3.5579531421483324e-13    2.3283064365386963e-10
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   1.0725024525487201e-08    1.0725024525487201e-08
+Overall NLP error.......:   1.2666534309115788e-10    1.0725024525487201e-08
+
+
+Number of objective function evaluations             = 8
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 8
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 8
+Number of Lagrangian Hessian evaluations             = 7
+Total seconds in IPOPT                               = 0.019
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.041
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_0qc9iu4/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_0qc9iu4/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:39 elapsed 0:00:00.041
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_0qc9iu4
+
+        3        subproblem   31786.18707   210580.83835     84.91%      2.08  *
+--- Job model.gms Start 09/25/26 19:25:39 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-tjif1r6v/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-tjif1r6v/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-tjif1r6v/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-tjif1r6v/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:60871 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(428) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(265) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(269) 3 Mb
+---   67 rows  39 columns  176 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.008
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1787.8880044561811
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 3 times.
+MIP Presolve eliminated 45 rows and 16 columns.
+MIP Presolve modified 81 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 5 rows, 7 columns, and 15 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.14 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.15 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.15 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.15 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.15 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1787.8880044561811
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 66 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.04 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.031
+--- model.gms(428) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-tjif1r6v/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-tjif1r6v/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:39 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-tjif1r6v
+
+        4          discrete   31786.18707   210580.83835     84.91%      2.46  
+--- Job model.gms Start 09/25/26 19:25:39 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-cqg2v3m3/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-cqg2v3m3/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-cqg2v3m3/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-cqg2v3m3/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:55603 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(431) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(267) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(271) 3 Mb
+---   68 rows  39 columns  194 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.008
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1787.4953571548685
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 3 times.
+MIP Presolve eliminated 45 rows and 16 columns.
+MIP Presolve modified 105 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 6 rows, 7 columns, and 18 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.15 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.18 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.18 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.18 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.18 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1787.4953571548685
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 67 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.02 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.04 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.034
+--- model.gms(431) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-cqg2v3m3/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-cqg2v3m3/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:40 elapsed 0:00:00.035
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-cqg2v3m3
+
+        5          discrete   31786.18707   210580.83835     84.91%      2.91  
+--- Job model.gms Start 09/25/26 19:25:40 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-zbrzve_t/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-zbrzve_t/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-zbrzve_t/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-zbrzve_t/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:42393 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.004
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   26 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 4.363E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.007
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 1.13e+05 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2104083e+04 1.13e+05 4.26e+04   2.9 1.03e+03    -  6.38e-01 3.34e-05f  1
+   2  1.5171467e+05 3.34e+04 1.32e+04   3.2 1.63e+05    -  1.00e+00 7.35e-01h  1
+   3  1.6644976e+05 1.94e+04 3.49e+04   3.1 3.63e+04    -  9.23e-01 4.06e-01h  1
+   4  1.8739064e+05 0.00e+00 6.41e+02   2.1 2.09e+04    -  1.00e+00 1.00e+00h  1
+   5  1.8588432e+05 0.00e+00 2.43e+02   1.1 1.62e+03    -  9.82e-01 9.31e-01f  1
+   6  1.8577473e+05 1.73e-02 1.20e+03  -0.4 1.23e+02    -  1.00e+00 8.87e-01f  1
+   7  1.8576936e+05 0.00e+00 1.99e-02  -1.2 5.37e+00    -  1.00e+00 1.00e+00f  1
+   8  1.8576881e+05 0.00e+00 6.42e-04  -7.2 5.50e-01    -  9.99e-01 9.99e-01f  1
+   9  1.8576881e+05 0.00e+00 1.91e-09 -10.5 3.05e-04    -  1.00e+00 1.00e+00f  1
+
+Number of Iterations....: 9
+
+                                   (scaled)                 (unscaled)
+Objective...............:   1.8576881250524873e+05    1.8576881250524873e+05
+Dual infeasibility......:   1.9063008949160576e-09    1.9063008949160576e-09
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   2.0807914361371709e-10    2.0807914361371709e-10
+Overall NLP error.......:   1.0559486272372768e-11    1.9063008949160576e-09
+
+
+Number of objective function evaluations             = 10
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 10
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 10
+Number of Lagrangian Hessian evaluations             = 9
+Total seconds in IPOPT                               = 0.020
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.041
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-zbrzve_t/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-zbrzve_t/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:40 elapsed 0:00:00.042
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-zbrzve_t
+
+        5        subproblem   31786.18707   185768.81251     82.89%      3.31  *
+--- Job model.gms Start 09/25/26 19:25:40 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-nzumxwre/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-nzumxwre/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-nzumxwre/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-nzumxwre/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:36843 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(434) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(269) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(273) 3 Mb
+---   69 rows  39 columns  212 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.007
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1786.6530216429383
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 132 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 7 rows, 7 columns, and 21 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.19 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.22 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.22 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.22 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.22 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1786.6530216429383
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 68 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.04 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.030
+--- model.gms(434) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-nzumxwre/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-nzumxwre/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:40 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-nzumxwre
+
+        6          discrete   31786.18707   185768.81251     82.89%      3.70  
+--- Job model.gms Start 09/25/26 19:25:41 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0y5hd8q9/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0y5hd8q9/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0y5hd8q9/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0y5hd8q9/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:43985 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   27 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 2.877E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 5.288E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.008
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 1.72e+05 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2099400e+04 1.69e+05 1.21e+01  -1.0 3.17e+02    -  1.85e-01 1.47e-02f  1
+   2  3.2098021e+04 1.68e+05 9.10e+02  -1.1 2.98e+02    -  3.03e-01 4.62e-03f  1
+   3  3.2100966e+04 1.67e+05 5.77e+04  -1.2 6.20e+02    -  3.09e-01 4.75e-03h  1
+   4  2.4701781e+05 3.72e+04 2.46e+06   3.7 2.55e+05    -  1.60e-03 8.43e-01f  1
+   5  2.7837141e+05 0.00e+00 8.00e+04   2.5 3.14e+04    -  1.00e+00 1.00e+00h  1
+   6  2.7249022e+05 0.00e+00 1.20e+04   3.3 6.98e+03    -  1.00e+00 8.82e-01H  1
+   7  2.6686434e+05 0.00e+00 1.22e+03   2.8 5.63e+03    -  9.65e-01 1.00e+00f  1
+   8  2.6102893e+05 1.33e+02 5.68e+03   1.0 5.84e+03    -  7.26e-01 1.00e+00f  1
+   9  2.6020058e+05 9.82e+00 6.04e+01   0.9 8.28e+02    -  1.00e+00 1.00e+00f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  2.6011934e+05 1.97e+00 6.51e+02  -0.8 1.00e+02    -  1.00e+00 8.10e-01f  1
+  11  2.6011868e+05 9.43e-01 8.60e+02  -1.1 1.32e+00    -  1.00e+00 5.00e-01f  2
+  12  2.6011746e+05 5.50e-03 7.05e+00  -2.7 1.23e+00    -  1.00e+00 9.92e-01f  1
+  13  2.6011743e+05 8.06e-06 6.35e-02  -4.5 2.88e-02    -  1.00e+00 9.93e-01f  1
+  14  2.6011743e+05 0.00e+00 2.95e-10  -6.4 4.88e-04    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 14
+
+                                   (scaled)                 (unscaled)
+Objective...............:   2.6011743353691656e+05    2.6011743353691656e+05
+Dual infeasibility......:   2.9471594838066651e-10    2.9471594838066651e-10
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   3.9756987410793725e-07    3.9756987410793725e-07
+Overall NLP error.......:   2.9621137302215778e-09    3.9756987410793725e-07
+
+
+Number of objective function evaluations             = 17
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 17
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 15
+Number of Lagrangian Hessian evaluations             = 14
+Total seconds in IPOPT                               = 0.009
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.031
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0y5hd8q9/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0y5hd8q9/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:41 elapsed 0:00:00.032
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-0y5hd8q9
+
+        6        subproblem   31786.18707   185768.81251     82.89%      4.09  
+--- Job model.gms Start 09/25/26 19:25:41 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rq9hh8dg/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rq9hh8dg/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rq9hh8dg/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rq9hh8dg/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:44357 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(437) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(271) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(275) 3 Mb
+---   70 rows  39 columns  230 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.007
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1785.8797950912267
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 156 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 8 rows, 7 columns, and 24 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.21 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.24 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.24 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.24 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.24 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1785.8797950912267
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 69 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.05 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.030
+--- model.gms(437) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rq9hh8dg/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rq9hh8dg/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:41 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rq9hh8dg
+
+        7          discrete   31786.18707   185768.81251     82.89%      4.48  
+--- Job model.gms Start 09/25/26 19:25:41 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-mlpuwdyi/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-mlpuwdyi/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-mlpuwdyi/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-mlpuwdyi/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:60317 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.004
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   27 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 2.877E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 5.288E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.007
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 1.57e+05 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2099650e+04 1.55e+05 7.56e+00  -1.0 3.17e+02    -  1.15e-01 1.39e-02f  1
+   2  3.2098079e+04 1.54e+05 4.82e+02  -1.0 3.04e+02    -  2.72e-01 5.17e-03f  1
+   3  3.2098680e+04 1.54e+05 2.58e+04  -1.2 2.74e+02    -  2.86e-01 3.62e-03h  1
+   4  3.2307078e+04 1.53e+05 3.62e+04  -1.3 7.11e+04    -  4.33e-03 2.93e-03h  1
+   5  2.4487007e+05 9.22e+03 3.39e+05   3.1 2.13e+05    -  1.99e-02 1.00e+00h  1
+   6  2.4236958e+05 4.53e+03 1.73e+05   2.6 4.90e+03    -  9.89e-01 5.10e-01h  1
+   7  2.4453046e+05 1.06e+00 5.92e+02   2.4 2.16e+03    -  1.00e+00 1.00e+00h  1
+   8  2.4234587e+05 5.25e+01 3.46e+02   1.5 2.18e+03    -  9.95e-01 1.00e+00f  1
+   9  2.4182135e+05 1.34e+01 4.91e+01   0.5 5.25e+02    -  9.92e-01 1.00e+00f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  2.4177503e+05 1.02e+00 4.55e+01  -1.1 4.88e+01    -  1.00e+00 9.49e-01f  1
+  11  2.4177650e+05 0.00e+00 6.06e-02  -1.6 1.47e+00    -  1.00e+00 1.00e+00h  1
+  12  2.4177628e+05 0.00e+00 4.85e-04  -7.6 2.21e-01    -  1.00e+00 9.99e-01f  1
+  13  2.4177628e+05 0.00e+00 1.72e-09 -10.9 1.12e-04    -  1.00e+00 1.00e+00f  1
+
+Number of Iterations....: 13
+
+                                   (scaled)                 (unscaled)
+Objective...............:   2.4177627814284625e+05    2.4177627814284625e+05
+Dual infeasibility......:   1.7171259969472885e-09    1.7171259969472885e-09
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   6.1379780013787486e-11    6.1379780013787486e-11
+Overall NLP error.......:   1.1043493018508552e-11    1.7171259969472885e-09
+
+
+Number of objective function evaluations             = 14
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 14
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 14
+Number of Lagrangian Hessian evaluations             = 13
+Total seconds in IPOPT                               = 0.020
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.041
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-mlpuwdyi/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-mlpuwdyi/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:42 elapsed 0:00:00.042
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-mlpuwdyi
+
+        7        subproblem   31786.18707   185768.81251     82.89%      4.91  
+--- Job model.gms Start 09/25/26 19:25:42 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4x5nx49r/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4x5nx49r/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4x5nx49r/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4x5nx49r/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:46671 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(440) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(273) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(277) 3 Mb
+---   71 rows  39 columns  248 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.008
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1785.0551319038495
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 180 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 9 rows, 7 columns, and 27 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.22 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.25 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.25 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.25 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.25 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1785.0551319038495
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 70 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.05 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.031
+--- model.gms(440) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4x5nx49r/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4x5nx49r/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:42 elapsed 0:00:00.032
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4x5nx49r
+
+        8          discrete   31786.18707   185768.81251     82.89%      5.33  
+--- Job model.gms Start 09/25/26 19:25:42 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-fsi7rqnv/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-fsi7rqnv/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-fsi7rqnv/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-fsi7rqnv/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:34375 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   27 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 2.877E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 6.544E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.007
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 2.08e+05 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2099206e+04 2.05e+05 1.22e+01  -1.0 3.17e+02    -  1.91e-01 1.53e-02f  1
+   2  3.2097409e+04 2.03e+05 7.99e+02  -1.1 3.03e+02    -  3.42e-01 5.93e-03f  1
+   3  3.2098862e+04 2.02e+05 4.44e+04  -1.2 2.42e+02    -  3.40e-01 6.05e-03h  1
+   4  3.2563894e+04 2.02e+05 2.98e+04  -1.4 1.71e+05    -  1.81e-03 2.73e-03h  1
+   5  3.3500051e+05 9.43e+03 4.18e+06   4.1 3.02e+05    -  5.27e-03 1.00e+00f  1
+   6  3.3500051e+05 0.00e+00 1.34e+05   3.4 1.51e-01   6.0 9.92e-01 1.00e+00f  1
+   7  3.1965054e+05 0.00e+00 1.21e+05   3.9 5.29e+04    -  8.56e-01 2.90e-01f  2
+   8  2.6161642e+05 1.41e+03 2.20e+04   3.5 7.43e+04    -  9.89e-01 7.81e-01f  1
+   9  2.4733240e+05 6.94e+01 8.11e+02   3.0 1.43e+04    -  9.52e-01 1.00e+00f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  2.4055686e+05 8.07e+01 2.86e+02   1.8 6.78e+03    -  9.60e-01 1.00e+00f  1
+  11  2.3997453e+05 1.13e+00 2.34e+00   0.1 5.83e+02    -  9.98e-01 9.99e-01f  1
+  12  2.3996016e+05 1.37e-02 2.73e-02  -5.7 1.45e+01    -  9.90e-01 9.90e-01f  1
+  13  2.3996001e+05 9.48e-06 1.89e-05  -7.7 1.52e-01    -  9.99e-01 9.99e-01f  1
+  14  2.3996001e+05 0.00e+00 3.27e-11 -10.9 1.03e-04    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 14
+
+                                   (scaled)                 (unscaled)
+Objective...............:   2.3996001118143022e+05    2.3996001118143022e+05
+Dual infeasibility......:   3.2741809263825417e-11    3.2741809263825417e-11
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   2.1875454667630716e-11    2.1875454667630716e-11
+Overall NLP error.......:   2.4893192094557396e-13    3.2741809263825417e-11
+
+
+Number of objective function evaluations             = 18
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 18
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 15
+Number of Lagrangian Hessian evaluations             = 14
+Total seconds in IPOPT                               = 0.022
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.043
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-fsi7rqnv/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-fsi7rqnv/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:42 elapsed 0:00:00.043
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-fsi7rqnv
+
+        8        subproblem   31786.18707   185768.81251     82.89%      5.78  
+--- Job model.gms Start 09/25/26 19:25:43 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4cuppte7/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4cuppte7/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4cuppte7/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4cuppte7/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:38311 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(443) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(275) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(279) 3 Mb
+---   72 rows  39 columns  266 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.008
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1784.1855562939309
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 204 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 10 rows, 7 columns, and 30 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.24 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.27 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.27 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.27 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.27 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1784.1855562939309
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 71 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.05 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.030
+--- model.gms(443) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4cuppte7/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4cuppte7/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:43 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-4cuppte7
+
+        9          discrete   31786.18707   185768.81251     82.89%      6.19  
+--- Job model.gms Start 09/25/26 19:25:43 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-46h0xawd/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-46h0xawd/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-46h0xawd/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-46h0xawd/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:48957 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(446) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(277) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(281) 3 Mb
+---   73 rows  39 columns  284 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.007
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1783.7617230690084
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 228 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 11 rows, 7 columns, and 33 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.25 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.29 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.29 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.29 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.29 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1783.7617230690084
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 72 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.05 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.030
+--- model.gms(446) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-46h0xawd/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-46h0xawd/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:43 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-46h0xawd
+
+       10          discrete   31786.18707   185768.81251     82.89%      6.62  
+--- Job model.gms Start 09/25/26 19:25:44 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-65bcer40/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-65bcer40/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-65bcer40/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-65bcer40/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:46255 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(449) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(279) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(283) 3 Mb
+---   74 rows  39 columns  302 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.007
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1783.33575251
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 252 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 12 rows, 7 columns, and 36 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.27 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.31 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.31 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.31 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.31 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1783.33575251
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 73 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.05 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.030
+--- model.gms(449) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-65bcer40/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-65bcer40/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:44 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-65bcer40
+
+       11          discrete   31786.18707   185768.81251     82.89%      7.03  
+--- Job model.gms Start 09/25/26 19:25:44 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-xh3_64sc/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-xh3_64sc/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-xh3_64sc/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-xh3_64sc/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:41669 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.004
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   26 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 4.363E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.006
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 9.85e+04 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2104081e+04 9.85e+04 3.74e+04   2.9 1.15e+03    -  5.11e-01 2.74e-05f  1
+   2  7.3604843e+04 9.72e+04 2.03e+05   4.6 8.98e+05    -  6.27e-03 4.62e-02f  1
+   3  7.3604843e+04 8.99e+04 1.56e+06   3.9 1.10e+00   6.0 9.95e-01 7.54e-02h  1
+   4  1.3132386e+05 5.89e+04 2.64e+05   4.6 1.74e+05    -  1.00e+00 3.31e-01f  1
+   5  2.0310245e+05 0.00e+00 1.56e+04   4.1 7.18e+04    -  9.72e-01 1.00e+00h  1
+   6  1.8959603e+05 0.00e+00 3.59e+04   3.3 1.35e+04    -  8.96e-01 1.00e+00f  1
+   7  1.7898839e+05 0.00e+00 7.64e+02   3.1 1.06e+04    -  9.93e-01 1.00e+00f  1
+   8  1.7079303e+05 1.26e+00 3.11e+03   2.4 8.20e+03    -  8.52e-01 1.00e+00f  1
+   9  1.6802371e+05 0.00e+00 4.04e+01   1.8 2.77e+03    -  9.97e-01 1.00e+00f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  1.6746811e+05 1.12e-03 6.83e+02   0.4 6.37e+02    -  9.97e-01 8.72e-01f  1
+  11  1.6742867e+05 8.25e-03 2.51e+02  -1.3 4.19e+01    -  1.00e+00 9.42e-01f  1
+  12  1.6742774e+05 0.00e+00 1.05e-03  -2.0 9.36e-01    -  1.00e+00 1.00e+00f  1
+  13  1.6742766e+05 0.00e+00 1.18e-05  -8.0 8.19e-02    -  1.00e+00 1.00e+00f  1
+In iteration 13, 4 Slacks too small, adjusting variable bounds
+  14  1.6742766e+05 8.98e-13 2.37e-11 -11.0 6.84e-06    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 14
+
+                                   (scaled)                 (unscaled)
+Objective...............:   1.6742765711470306e+05    1.6742765711470306e+05
+Dual infeasibility......:   2.3675781306062232e-11    2.3675781306062232e-11
+Constraint violation....:   2.8421709430404007e-14    8.9752766622330854e-13
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   1.7353231731660097e-11    1.7353231731660097e-11
+Overall NLP error.......:   1.5107916632098754e-13    2.3675781306062232e-11
+
+
+Number of objective function evaluations             = 15
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 15
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 15
+Number of Lagrangian Hessian evaluations             = 14
+Total seconds in IPOPT                               = 0.022
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.042
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-xh3_64sc/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-xh3_64sc/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:44 elapsed 0:00:00.043
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-xh3_64sc
+
+       11        subproblem   31786.18707   167427.65711     81.01%      7.47  *
+--- Job model.gms Start 09/25/26 19:25:44 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-wimpzz2o/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-wimpzz2o/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-wimpzz2o/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-wimpzz2o/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:55345 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(452) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(281) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(285) 3 Mb
+---   75 rows  39 columns  320 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.008
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1782.4941625460051
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 276 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 13 rows, 7 columns, and 39 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.29 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.33 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.33 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.33 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.33 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1782.4941625460051
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 74 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.05 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.030
+--- model.gms(452) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-wimpzz2o/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-wimpzz2o/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:45 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-wimpzz2o
+
+       12          discrete   31786.18707   167427.65711     81.01%      7.90  
+--- Job model.gms Start 09/25/26 19:25:45 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-98lw_buu/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-98lw_buu/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-98lw_buu/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-98lw_buu/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:41609 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   26 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 6.544E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.007
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 1.49e+05 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2104080e+04 1.49e+05 5.43e+04   2.9 9.78e+02    -  7.14e-01 3.19e-05f  1
+   2  1.9728991e+05 0.00e+00 6.77e+03   3.2 1.65e+05    -  7.58e-01 1.00e+00h  1
+   3  1.8317755e+05 1.86e+02 4.77e+02   2.6 1.41e+04    -  9.87e-01 1.00e+00f  1
+   4  1.8127815e+05 9.96e+00 9.57e+00   1.0 1.91e+03    -  9.94e-01 9.96e-01f  1
+   5  1.8120263e+05 1.54e-01 1.68e-01  -4.8 7.65e+01    -  9.89e-01 9.87e-01f  1
+   6  1.8120167e+05 1.37e-03 1.52e-03  -6.8 9.61e-01    -  9.91e-01 9.91e-01f  1
+   7  1.8120167e+05 1.04e-07 1.13e-07  -8.8 8.50e-03    -  1.00e+00 1.00e+00f  1
+
+Number of Iterations....: 7
+
+                                   (scaled)                 (unscaled)
+Objective...............:   1.8120166551245810e+05    1.8120166551245810e+05
+Dual infeasibility......:   1.1322845239192247e-07    1.1322845239192247e-07
+Constraint violation....:   1.5926287752541473e-10    1.0422081686556339e-07
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   4.4108383836869415e-07    4.4108383836869415e-07
+Overall NLP error.......:   6.0514013385605756e-09    4.4108383836869415e-07
+
+
+Number of objective function evaluations             = 8
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 8
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 8
+Number of Lagrangian Hessian evaluations             = 7
+Total seconds in IPOPT                               = 0.007
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.029
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-98lw_buu/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-98lw_buu/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:45 elapsed 0:00:00.029
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-98lw_buu
+
+       12        subproblem   31786.18707   167427.65711     81.01%      8.32  
+--- Job model.gms Start 09/25/26 19:25:45 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vm9o5vjh/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vm9o5vjh/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vm9o5vjh/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vm9o5vjh/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:42149 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(455) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(283) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(287) 3 Mb
+---   76 rows  39 columns  338 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.008
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1781.6465139389038
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 300 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 14 rows, 7 columns, and 42 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.31 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.35 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.35 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.35 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.35 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1781.6465139389038
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 75 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.05 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.031
+--- model.gms(455) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vm9o5vjh/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vm9o5vjh/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:45 elapsed 0:00:00.032
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vm9o5vjh
+
+       13          discrete   31786.18707   167427.65711     81.01%      8.71  
+--- Job model.gms Start 09/25/26 19:25:46 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-p_f0bo0q/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-p_f0bo0q/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-p_f0bo0q/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-p_f0bo0q/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:40335 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   27 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.055E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 4.363E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.007
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 1.42e+05 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2104082e+04 1.42e+05 5.28e+04   2.9 9.21e+02    -  8.20e-01 3.64e-05f  1
+   2  2.0464467e+05 2.71e+04 1.23e+04   3.3 2.02e+05    -  5.82e-01 8.53e-01h  1
+   3  2.1362569e+05 1.14e+04 1.58e+04   2.6 1.56e+04    -  9.97e-01 5.75e-01h  1
+   4  2.2367971e+05 1.25e+00 5.73e+02   1.9 1.01e+04    -  1.00e+00 1.00e+00h  1
+   5  2.2306944e+05 3.47e-01 2.54e+03   0.9 8.25e+02    -  1.00e+00 7.40e-01f  1
+   6  2.2295355e+05 9.65e-02 2.04e+03  -0.3 1.36e+02    -  1.00e+00 8.50e-01f  1
+   7  2.2294382e+05 0.00e+00 8.34e-02  -1.1 9.72e+00    -  1.00e+00 1.00e+00f  1
+   8  2.2294312e+05 0.00e+00 1.91e-03  -7.1 7.02e-01    -  9.99e-01 9.99e-01f  1
+   9  2.2294312e+05 0.00e+00 1.90e-08 -10.2 6.03e-04    -  1.00e+00 1.00e+00f  1
+
+Number of Iterations....: 9
+
+                                   (scaled)                 (unscaled)
+Objective...............:   2.2294312301932552e+05    2.2294312301932552e+05
+Dual infeasibility......:   1.8990249373018742e-08    1.8990249373018742e-08
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   1.3039099238108624e-09    1.3039099238108624e-09
+Overall NLP error.......:   1.0575214456391829e-10    1.8990249373018742e-08
+
+
+Number of objective function evaluations             = 10
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 10
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 10
+Number of Lagrangian Hessian evaluations             = 9
+Total seconds in IPOPT                               = 0.020
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.041
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-p_f0bo0q/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-p_f0bo0q/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:46 elapsed 0:00:00.041
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-p_f0bo0q
+
+       13        subproblem   31786.18707   167427.65711     81.01%      9.12  
+--- Job model.gms Start 09/25/26 19:25:46 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-791lq6ny/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-791lq6ny/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-791lq6ny/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-791lq6ny/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:34765 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(458) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(285) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(289) 3 Mb
+---   77 rows  39 columns  356 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.007
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1780.8449797248468
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 324 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 15 rows, 7 columns, and 45 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.32 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.37 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.37 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.37 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.37 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1780.8449797248468
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 76 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.06 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.030
+--- model.gms(458) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-791lq6ny/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-791lq6ny/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:46 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-791lq6ny
+
+       14          discrete   31786.18707   167427.65711     81.01%      9.54  
+--- Job model.gms Start 09/25/26 19:25:47 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-gtmke0p9/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-gtmke0p9/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-gtmke0p9/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-gtmke0p9/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:34649 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   26 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 6.544E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.007
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 1.35e+05 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2104078e+04 1.35e+05 4.91e+04   2.9 1.05e+03    -  6.08e-01 2.77e-05f  1
+   2  8.0794325e+04 1.29e+05 2.70e+05   4.5 7.99e+05    -  7.61e-03 6.09e-02f  1
+   3  8.0794325e+04 1.14e+05 3.26e+05   3.2 1.34e+00   6.0 9.91e-01 1.22e-01h  1
+   4  1.0333678e+05 8.75e+04 1.68e+05   3.7 1.02e+05    -  9.65e-01 2.21e-01h  1
+   5  1.4058420e+05 4.81e+04 1.04e+05   3.4 8.45e+04    -  9.94e-01 4.41e-01h  1
+   6  1.8483609e+05 0.00e+00 1.12e+03   2.8 4.43e+04    -  9.97e-01 1.00e+00h  1
+   7  1.7934849e+05 6.71e+01 6.14e+01   0.7 6.01e+03    -  9.23e-01 9.13e-01f  1
+   8  1.7855770e+05 1.39e+00 7.74e-01   0.2 7.91e+02    -  9.99e-01 1.00e+00f  1
+   9  1.7854532e+05 1.47e-02 7.59e-03  -5.8 1.25e+01    -  9.89e-01 9.90e-01f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  1.7854520e+05 7.02e-06 3.63e-06  -7.8 1.26e-01    -  1.00e+00 1.00e+00f  1
+  11  1.7854520e+05 4.44e-16 6.09e-11 -11.0 5.99e-05    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 11
+
+                                   (scaled)                 (unscaled)
+Objective...............:   1.7854519583897744e+05    1.7854519583897744e+05
+Dual infeasibility......:   6.0929608412169155e-11    6.0929608412169155e-11
+Constraint violation....:   4.4408920985006262e-16    4.4408920985006262e-16
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   1.6024925293674113e-11    1.6024925293674113e-11
+Overall NLP error.......:   6.2209871490750797e-13    6.0929608412169155e-11
+
+
+Number of objective function evaluations             = 12
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 12
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 12
+Number of Lagrangian Hessian evaluations             = 11
+Total seconds in IPOPT                               = 0.009
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.030
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-gtmke0p9/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-gtmke0p9/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:47 elapsed 0:00:00.030
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-gtmke0p9
+
+       14        subproblem   31786.18707   167427.65711     81.01%      9.95  
+--- Job model.gms Start 09/25/26 19:25:47 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vn_rfdhe/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vn_rfdhe/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vn_rfdhe/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vn_rfdhe/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:58831 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(461) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(287) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(291) 3 Mb
+---   78 rows  39 columns  374 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.007
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1780.0086654741317
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 348 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 16 rows, 7 columns, and 48 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.34 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.39 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.39 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.39 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.39 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1780.0086654741317
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 77 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.06 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.030
+--- model.gms(461) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vn_rfdhe/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vn_rfdhe/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:47 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-vn_rfdhe
+
+       15          discrete   31786.18707   167427.65711     81.01%     10.34  
+--- Job model.gms Start 09/25/26 19:25:47 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-dy9l955m/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-dy9l955m/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-dy9l955m/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-dy9l955m/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:60451 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.004
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   27 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.055E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 4.363E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.007
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 1.28e+05 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2099844e+04 1.26e+05 1.44e+01  -1.0 3.17e+02    -  1.97e-01 1.33e-02f  1
+   2  3.2097750e+04 1.25e+05 8.60e+02  -1.1 2.98e+02    -  3.58e-01 7.02e-03f  1
+   3  3.2104361e+04 1.25e+05 4.83e+04   2.6 2.82e+03    -  1.15e-01 2.35e-03f  1
+   4  1.9044252e+05 2.57e+04 1.11e+05   3.3 1.86e+05    -  1.97e-01 8.53e-01h  1
+   5  1.8909293e+05 1.99e+04 1.07e+05   2.5 5.88e+03    -  9.88e-01 2.29e-01h  1
+   6  2.1575988e+05 0.00e+00 5.39e+03   3.1 2.67e+04    -  9.00e-01 1.00e+00h  1
+   7  2.0917674e+05 0.00e+00 3.80e+02   2.6 6.58e+03    -  1.00e+00 1.00e+00f  1
+   8  2.0496000e+05 5.25e+01 1.45e+02   1.5 4.22e+03    -  9.96e-01 1.00e+00f  1
+   9  2.0462189e+05 8.73e+00 6.39e+02   0.2 4.03e+02    -  9.96e-01 8.39e-01f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  2.0460215e+05 2.48e-01 1.73e+02  -0.9 2.06e+01    -  1.00e+00 9.58e-01f  1
+  11  2.0460204e+05 0.00e+00 7.21e-04  -2.1 1.03e-01    -  1.00e+00 1.00e+00h  1
+  12  2.0460197e+05 0.00e+00 1.47e-05  -8.1 7.58e-02    -  1.00e+00 1.00e+00f  1
+In iteration 12, 3 Slacks too small, adjusting variable bounds
+  13  2.0460197e+05 2.91e-11 5.28e-11 -11.0 6.60e-06    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 13
+
+                                   (scaled)                 (unscaled)
+Objective...............:   2.0460196762877444e+05    2.0460196762877444e+05
+Dual infeasibility......:   5.2779605349644795e-11    5.2779605349644795e-11
+Constraint violation....:   6.6711621415281238e-14    2.9103830456733704e-11
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   2.3817935950880266e-11    2.3817935950880266e-11
+Overall NLP error.......:   3.4079565198098855e-13    5.2779605349644795e-11
+
+
+Number of objective function evaluations             = 14
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 14
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 14
+Number of Lagrangian Hessian evaluations             = 13
+Total seconds in IPOPT                               = 0.021
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.041
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-dy9l955m/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-dy9l955m/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:47 elapsed 0:00:00.042
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-dy9l955m
+
+       15        subproblem   31786.18707   167427.65711     81.01%     10.75  
+--- Job model.gms Start 09/25/26 19:25:48 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-s07nfb2f/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-s07nfb2f/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-s07nfb2f/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-s07nfb2f/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:40611 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(464) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(289) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(293) 3 Mb
+---   79 rows  39 columns  392 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.007
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1779.2106612408534
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 372 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 17 rows, 7 columns, and 51 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.36 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.41 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.41 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.41 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.41 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1779.2106612408534
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 78 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.03 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.06 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.030
+--- model.gms(464) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-s07nfb2f/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-s07nfb2f/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:48 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-s07nfb2f
+
+       16          discrete   31786.18707   167427.65711     81.01%     11.14  
+--- Job model.gms Start 09/25/26 19:25:48 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-a2m713nl/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-a2m713nl/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-a2m713nl/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-a2m713nl/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:57529 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(168) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(87) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(91) 5 Mb
+---   15 rows  9 columns  28 non-zeroes
+---   27 nl-code  7 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.055E-01, 6.000E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 2.759E+00, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.000E+00, 6.544E+04]
+--- model.gms(91) 3 Mb
+--- Executing IPOPT (Solvelink=5): elapsed 0:00:00.007
+
+COIN-OR Ipopt    52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+COIN-OR Interior Point Optimizer (Ipopt Library 3.14.19)
+written by A. Waechter.
+
+Note: This is the free version IPOPT, but you could also use the commercially supported and potentially higher performance version IPOPTH.
+WARNING: Tried to set option "max_iter" to a value of "2147483647",
+         but the previous value is set to disallow clobbering.
+         The setting will remain as: "max_iter 10000"
+
+List of user-set options:
+
+                                    Name   Value                used
+                      bound_relax_factor = 0                     yes
+                           linear_solver = mumps                 yes
+                                max_iter = 10000                 yes
+                                     tol = 1e-08                 yes
+                   warm_start_init_point = no                    yes
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:       26
+Number of nonzeros in Lagrangian Hessian.............:        9
+
+Total number of variables............................:        8
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        8
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:       14
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:       14
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  3.2104049e+04 1.64e+05 1.00e+00   0.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  3.2099689e+04 1.62e+05 1.49e+01  -1.0 3.17e+02    -  2.08e-01 1.37e-02f  1
+   2  3.2097419e+04 1.61e+05 8.52e+02  -1.1 3.02e+02    -  3.85e-01 7.52e-03f  1
+   3  3.2102799e+04 1.60e+05 5.94e+04   2.6 2.01e+03    -  1.62e-01 2.67e-03f  1
+   4  2.2766305e+05 1.15e+03 5.53e+04   3.3 1.96e+05    -  1.64e-01 1.00e+00h  1
+   5  2.1208378e+05 8.04e+02 1.37e+04   2.5 1.96e+04    -  9.84e-01 7.96e-01f  1
+   6  2.1015911e+05 1.99e+01 7.02e+01   1.2 1.92e+03    -  9.91e-01 1.00e+00f  1
+   7  2.0996767e+05 6.85e-02 2.45e+00  -0.7 1.91e+02    -  9.92e-01 1.00e+00f  1
+   8  2.0996500e+05 0.00e+00 8.37e-02  -2.3 2.67e+00    -  9.95e-01 9.96e-01f  1
+   9  2.0996495e+05 0.00e+00 6.08e-05  -8.2 5.55e-02    -  9.99e-01 9.99e-01f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  2.0996495e+05 5.82e-11 2.76e-11 -11.0 4.04e-05    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 10
+
+                                   (scaled)                 (unscaled)
+Objective...............:   2.0996494866578095e+05    2.0996494866578095e+05
+Dual infeasibility......:   2.7588797350355142e-11    2.7588797350355142e-11
+Constraint violation....:   8.8948828553708309e-14    5.8207660913467407e-11
+Variable bound violation:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   1.8844935036469529e-11    1.8844935036469529e-11
+Overall NLP error.......:   2.3964174507057181e-13    5.8207660913467407e-11
+
+
+Number of objective function evaluations             = 11
+Number of objective gradient evaluations             = 1
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 11
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 11
+Number of Lagrangian Hessian evaluations             = 10
+Total seconds in IPOPT                               = 0.020
+
+EXIT: Optimal Solution Found.
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.042
+--- model.gms(168) 4 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-a2m713nl/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-a2m713nl/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:48 elapsed 0:00:00.042
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-a2m713nl
+
+       16        subproblem   31786.18707   167427.65711     81.01%     11.56  
+--- Job model.gms Start 09/25/26 19:25:49 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_czuo8su/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_czuo8su/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_czuo8su/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_czuo8su/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:57627 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(467) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(291) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(295) 3 Mb
+---   80 rows  39 columns  410 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.008
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1778.3969389158301
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 396 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 18 rows, 7 columns, and 54 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.38 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.43 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.43 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.43 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.43 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1778.3969389158301
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 79 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.04 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.06 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.031
+--- model.gms(467) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_czuo8su/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_czuo8su/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:49 elapsed 0:00:00.032
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-_czuo8su
+
+       17          discrete   31786.18707   167427.65711     81.01%     11.96  
+--- Job model.gms Start 09/25/26 19:25:49 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rehw7f28/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rehw7f28/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rehw7f28/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rehw7f28/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:55893 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(470) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(293) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(297) 3 Mb
+---   81 rows  39 columns  428 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.007
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1777.9878619699739
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 420 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 19 rows, 7 columns, and 57 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.40 ticks)
+Found incumbent of value 31786.187068 after 0.00 sec. (0.45 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.45 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.45 ticks)
+
+--- MIP status (101): integer optimal solution.
+--- Cplex Time: 0.00sec (det. 0.45 ticks)
+
+--- Returning a primal only solution to GAMS (marginals all set to NA).
+--- Fixing integer variables and solving final LP...
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 2
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1777.9878619699739
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Tried aggregator 1 time.
+LP Presolve eliminated 80 rows and 39 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.04 ticks)
+
+--- Fixed MIP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.06 ticks)
+
+
+Proven optimal solution
+MIP Solution:        31786.187068    (0 iterations, 0 nodes)
+Final Solve:         31786.187068    (0 iterations)
+
+Best possible:       31786.187068
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.031
+--- model.gms(470) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rehw7f28/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rehw7f28/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:49 elapsed 0:00:00.031
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-rehw7f28
+
+       18          discrete   31786.18707   167427.65711     81.01%     12.37  
+--- Job model.gms Start 09/25/26 19:25:49 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-6x7zrfeu/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-6x7zrfeu/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-6x7zrfeu/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-6x7zrfeu/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:51071 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(473) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(295) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(299) 3 Mb
+---   82 rows  39 columns  446 non-zeroes
+---   18 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 6.931E-01, 8.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.264E-01, 3.218E+06] - Zero values observed as well
+--- Matrix    [min, max] : [ 4.055E-01, 1.099E+00]
+--- Executing CPLEX (Solvelink=5): elapsed 0:00:00.007
+
+IBM ILOG CPLEX   52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- GAMS/CPLEX licensed for continuous and discrete problems.
+--- GMO setup time: 0.00s
+--- GMO memory 0.51 Mb (peak 0.51 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Advance                                 0
+CPXPARAM_Threads                                 1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_TimeLimit                               1777.5853763371706
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   1.0000000000000001e-05
+Generic callback                                 0x50
+Tried aggregator 4 times.
+MIP Presolve eliminated 46 rows and 16 columns.
+MIP Presolve modified 444 coefficients.
+Aggregator did 16 substitutions.
+Reduced MIP has 20 rows, 7 columns, and 60 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.41 ticks)
+Probing time = 0.00 sec. (0.01 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 20 rows, 7 columns, and 60 nonzeros.
+Reduced MIP has 7 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.05 ticks)
+Probing time = 0.00 sec. (0.01 ticks)
+Clique table members: 2.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Tried aggregator 1 time.
+No LP presolve or aggregator reductions.
+Presolve time = 0.00 sec. (0.01 ticks)
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =         31786.187068
+Root relaxation solution time = 0.00 sec. (0.02 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    31786.1871     5                  31786.1871        5         
+      0     0    31786.1871     5                     Cuts: 7        9         
+      0     0    31786.1871     6                     Cuts: 4       13         
+      0     0        cutoff                                         13         
+Elapsed time = 0.01 sec. (3.10 ticks, tree = 0.01 MB)
+
+Zero-half cuts applied:  3
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    0.01 sec. (3.10 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =    0.01 sec. (3.10 ticks)
+
+--- MIP status (103): integer infeasible.
+--- Cplex Time: 0.01sec (det. 3.10 ticks)
+
+CPLEX Error  1217: No solution exists.
+--- Problem is integer infeasible
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.033
+--- model.gms(473) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-6x7zrfeu/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-6x7zrfeu/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 09/25/26 19:25:49 elapsed 0:00:00.034
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/cpu_split_20260925/dantzig_gdp_compare_20260925_172020_5m9m_kxx/jobs/small_batch/ric/gams-6x7zrfeu
+
+MILP discrete problem is now infeasible. GDPopt has explored or cut off all feasible discrete configurations.
+       19                     167427.65711   167427.65711      0.00%     12.79  
+GDPopt exiting--bounds have converged or crossed.
+
+Solved in 19 iterations and 12.78550 seconds
+Optimal objective value 167427.6571147031
+Relative optimality gap 0.00000%
