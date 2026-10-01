@@ -30,15 +30,15 @@ The evaluation-based conclusions are unchanged. Timing profiles, time/work plots
 ## GDP case and NLP-inclusive comparisons
 
 - [Lookup comparison](analysis/case/README.md): 556 paired rows for DSDA, RBFOpt, BAM 5.0.0 and FMQA-SA.
-- [NLP-inclusive reconstruction](analysis/nlp/README.md): 556 coordinate traces and 12,778 callbacks; 356 exact-model runs have every required feasible-point cost.
-- Charge only the selected successful NLP evaluation; exclude earlier failed attempts. Infeasible points cost zero by the specified assumption. Charge Dynamic preparation once per run.
-- CSTR5–25 do not have exact-model point costs in the curated table; show their CSTR30 transfer scenario separately.
-- FMQA clocks use the September 25 CPU 4 run. Other DFO search clocks in the NLP reconstruction are the recorded Mac trace reruns; the totals are component-based estimates, not measured online GDP executions.
-- The eight-method completion/quality figure uses the new CPU 2 full-GDP measurements. It remains an exploratory comparison against reconstructed DFO times and original lookup objectives. BARON bound conflicts for Column/Big-M, CSTR10/Hull and CSTR30/Hull are flagged in the full-GDP audit and comparison tables.
+- [Corrected Dantzig timing comparison](analysis/nlp/README.md): all 556 original server completion clocks and outcomes, with archive identity checks and no Mac traces.
+- **October 1 correction:** withdraw the mixed Mac/Dantzig NLP totals, first-hit profiles, CSTR30 cost-transfer profiles and DFO-versus-GDP completion/quality chart.
+- The original DSDA/RBFOpt/BAM archives have completion times but lack complete ordered evaluation coordinates and first-hit timestamps. Their NLP-inclusive totals remain missing; they are not filled using Mac paths.
+- FMQA's original Dantzig traces support separate NLP-cost estimates. Successful evaluations are charged, failed attempts excluded, infeasible lookups cost zero by the stated assumption, and Dynamic preparation is added once. Exact costs for CSTR5–25 remain missing.
+- Full-GDP completion times remain available separately in the [GDP audit](../gdp_comparison_20260925/analysis/README.md). Lookup-only runtimes are not compared with full-GDP runtimes as an end-to-end speedup.
 
 ## Figure index
 
-All 17 figure types have been regenerated locally. PNG/PDF files are excluded from Git by user instruction; raw data, comparison tables, code and manifests are committed. Local links below open the images; on a fresh checkout regenerate them first.
+The figure index below lists the current, supported comparisons. PNG/PDF files are excluded from Git by user instruction; raw data, comparison tables, code and manifests are committed. Local links below open the images; on a fresh checkout regenerate them first.
 
 | Figure | Local PNG |
 |---|---|
@@ -53,12 +53,10 @@ All 17 figure types have been regenerated locally. PNG/PDF files are excluded fr
 | GDP cases: lookup completion-time performance profiles | [Open](analysis/case/timing/time_performance_profiles.png) |
 | GDP cases: absolute lookup completion times | [Open](analysis/case/timing/completion_time_profiles.png) |
 | GDP cases: lookup time versus evaluations/iterations | [Open](analysis/case/timing/time_work_tradeoff.png) |
-| GDP cases: NLP-inclusive first-hit time profiles | [Open](analysis/nlp/time_performance_profiles.png) |
-| GDP cases: NLP-inclusive completion-time profiles | [Open](analysis/nlp/completion_time_profiles.png) |
-| GDP cases: target-hit fraction versus NLP-inclusive seconds | [Open](analysis/nlp/success_vs_time.png) |
-| GDP cases: search overhead and successful NLP costs | [Open](analysis/nlp/cost_breakdown.png) |
-| GDP cases: DFO versus September 25 GDPopt/BARON completion and quality | [Open](analysis/nlp/completion_vs_quality.png) |
-| CSTR5–25: explicitly labelled CSTR30 cost-transfer scenario | [Open](analysis/nlp/cstr30_transfer_time_profiles.png) |
+| GDP cases: corrected Dantzig relative completion-time profiles | [Open](analysis/nlp/time_performance_profiles.png) |
+| GDP cases: corrected Dantzig absolute completion times | [Open](analysis/nlp/completion_time_profiles.png) |
+| GDP cases: original Dantzig mean lookup runtimes (replaces cost breakdown) | [Open](analysis/nlp/cost_breakdown.png) |
+| GDP cases: corrected Dantzig time/work comparison | [Open](analysis/nlp/time_work_tradeoff.png) |
 
 ## Reproduce
 
@@ -70,7 +68,7 @@ python fmqa_compare.py --dataset case --fmqa-results results/archives/dantzig_fm
 python nlp_cost_analysis.py --output results/fmqa_rebuilt/analysis/nlp
 ```
 
-The NLP command uses the original trace bundle, curated point costs and the tracked full-GDP results under `results/gdp_comparison_20260925/raw/`. Original ZIPs are available under `results/archives/`. Run `python gdp_comparison_analysis.py` to independently recheck the full-GDP saved solutions and regenerate its summary table without solving.
+The timing command verifies the original Dantzig and BAM archives, reads the September 25 FMQA archive, and retains the curated point costs and tracked full-GDP results under `results/gdp_comparison_20260925/raw/`. Original ZIPs are available under `results/archives/`. Run `python gdp_comparison_analysis.py` to independently recheck the full-GDP saved solutions and regenerate its summary table without solving.
 
 ```bash
 (cd results/fmqa_20260925/case && shasum -a 256 -c SHA256SUMS)
