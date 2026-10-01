@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import subprocess
 import time
 from types import SimpleNamespace
 import zipfile
@@ -148,6 +149,126 @@ def test_baron_records_numerical_options_and_preserves_failure_diagnostics(tmp_p
     assert result.solver.termination_condition == tc.internalSolverError
     assert context.calls[0]["solver_option_file"] == list(context.baron_options)
     assert (tmp_path / "call_00001_diagnostic.lst").read_text() == "diagnostic listing"
+
+
+def test_highs_mip_can_be_exported_by_pinned_pyomo(tmp_path):
+    model = toy()
+    impl.reformulate(model, "bigm")
+    path = tmp_path / "highs.gms"
+    model.write(str(path), format="gams", io_options={"solver": "highs", "mtype": "mip"})
+    assert "option mip=highs;" in path.read_text().lower()
+
+
+@pytest.mark.parametrize("value,bound,solvestat,complete", [
+    (3.130198133083248, 3.130166831886921, 1, True),
+    (-100, -100.0009, 1, True), (0, 0, 1, True),
+    (3, 2, 1, False), (3, 4, 1, False), (3, None, 1, False),
+    (3, 3, 3, False),
+])
+def test_baron_local_status_requires_normal_termination_and_global_bound(value, bound, solvestat, complete):
+    call = {"solver": "baron", "gams_statistics": {"SOLVESTAT": solvestat,
+            "MODELSTAT": 2, "OBJVAL": value, "OBJEST": bound}}
+    assert impl.subproblem_complete(call, 1e-5) == complete
+
+
+@pytest.mark.parametrize("solver,modelstat,solvestat,stops", [
+    ("baron", 1, 1, False), ("baron", 4, 1, False),
+    ("baron", 2, 1, True), ("baron", 5, 1, True),
+    ("baron", 2, 3, True), ("baron", 19, 4, True),
+    ("highs", 1, 1, False), ("highs", 4, 1, False), ("highs", 8, 3, True),
+    ("highs", 19, 1, False), ("highs", 10, 1, False),
+    ("baron", 19, 1, False),
+])
+def test_global_profile_stops_unproven_subproblems_before_gdpopt_can_cut_them(
+        tmp_path, monkeypatch, solver, modelstat, solvestat, stops):
+    context = impl.SolveContext("/explicit/gams", tmp_path, time.monotonic() + 20,
+                                baron_options=("LPSol 8", "NLPSol 9"), strict_subproblems=True)
+    monkeypatch.setattr(impl, "CONTEXT", context)
+
+    def solve(self, model, **kw):
+        path = Path(kw["tmpdir"])
+        if solver == "baron":
+            assert (path / "baron.opt").read_text() == "LPSol 8\nNLPSol 9\n"
+        assert "option threads=1;" in kw["add_options"]
+        (path / "resultsstat.dat").write_text(f"name value\nSOLVESTAT {solvestat}\nMODELSTAT {modelstat}\n")
+        result = SolverResults()
+        result.solver.termination_condition = tc.optimal
+        result.solver.status = "ok"
+        return result
+
+    monkeypatch.setattr(impl.GAMSShell, "solve", solve)
+    if stops:
+        with pytest.raises(impl.IncompleteSubproblem):
+            impl.TimedGAMS().solve(toy(), solver=solver, mtype="nlp" if solver == "baron" else "mip")
+    else:
+        impl.TimedGAMS().solve(toy(), solver=solver, mtype="nlp" if solver == "baron" else "mip")
+    recorded = json.loads((tmp_path / "solver_calls.jsonl").read_text())
+    assert recorded["gams_statistics"]["MODELSTAT"] == modelstat
+
+
+@pytest.mark.parametrize("method", ["ric", "gloa"])
+@pytest.mark.parametrize("global_profile", [False, True])
+def test_gdpopt_routes_selected_solvers_and_records_policy(tmp_path, monkeypatch, method, global_profile):
+    config = {"executable": "/explicit/gams", "time_limit": 30, "relative_gap": 1e-5}
+    nlp, mip = ("baron", "highs") if global_profile else ("ipopt", "cplex")
+    if global_profile:
+        config.update(nlp_solver=nlp, mip_solver=mip, baron_lp_solver="clp")
+
+    class Algorithm:
+        iteration = 1
+
+        def solve(self, model, **kw):
+            assert kw["nlp_solver_args"] == {"solver": nlp, "mtype": "nlp"}
+            assert kw["mip_solver_args"] == {"solver": mip, "mtype": "mip"}
+            assert kw["force_subproblem_nlp"]
+            assert impl.CONTEXT.strict_subproblems == global_profile
+            kw["call_after_subproblem_feasible"](self, model, None)
+            result = SolverResults()
+            result.solver.termination_condition = tc.optimal
+            result.solver.status = "ok"
+            result.problem.lower_bound = result.problem.upper_bound = 1
+            return result
+
+    original = pyo.SolverFactory
+    monkeypatch.setattr(pyo, "SolverFactory", lambda name: Algorithm() if name == "gdpopt." + method else original(name))
+    template = impl.Template(toy(), {"case": "small_batch"})
+    report = impl.solve_method(template, method, tmp_path, config, time.monotonic() + 30)
+    assert report["status"] == "finished" and report["has_feasible_solution"]
+    assert report["solver_policy"]["nlp"] == nlp and report["solver_policy"]["mip"] == mip
+    assert not report["global_optimality_certified"]  # solver choice alone is not an audit
+    if global_profile:
+        assert report["solver_policy"]["options"] == ["LPSol 8", "NLPSol 9"]
+
+
+def test_incomplete_baron_incumbent_is_saved_without_continuing_gdpopt(tmp_path, monkeypatch):
+    class Algorithm:
+        def solve(self, model, **kw):
+            raise impl.IncompleteSubproblem(model, {"index": 1, "solver": "baron",
+                "termination": "maxTimeLimit", "gams_statistics": {"SOLVESTAT": 3, "MODELSTAT": 2}})
+
+    monkeypatch.setattr(pyo, "SolverFactory", lambda name: Algorithm())
+    config = {"executable": "/explicit/gams", "time_limit": 30, "relative_gap": 1e-5,
+              "nlp_solver": "baron", "mip_solver": "highs", "baron_lp_solver": "clp"}
+    report = impl.solve_method(impl.Template(toy(), {"case": "small_batch"}), "ric",
+                               tmp_path, config, time.monotonic() + 30)
+    assert report["status"] == "time_limit" and report["objective"] == 1
+    assert report["has_feasible_solution"] and not report["global_optimality_certified"]
+    assert json.loads((tmp_path / "solution.json").read_text())["objective"] == 1
+
+
+def test_dantzig_wrapper_selects_all_18_jobs_and_separate_output(tmp_path):
+    fake_python = tmp_path / "python"
+    fake_python.write_text("#!/bin/sh\nprintf '%s\\n' \"$@\"\n")
+    fake_python.chmod(0o755)
+    args = subprocess.check_output(["bash", str(runner.ROOT / "run_gdpopt_baron_highs_dantzig.sh"), "run"],
+             text=True, env={**os.environ, "GDP_PYTHON": str(fake_python), "GDP_REPOSITORY": str(tmp_path)}).splitlines()
+    opts = dict(zip(args[2::2], args[3::2]))
+    assert opts["--nlp-solver"] == "baron" and opts["--mip-solver"] == "highs"
+    assert opts["--baron-lp-solver"] == "clp"
+    assert opts["--methods"] == "ric,gloa"
+    config = {"cases": opts["--cases"].split(","), "cstr_sizes": [int(n) for n in opts["--cstr-sizes"].split(",")]}
+    assert len(runner.planned_instances(config)) * len(opts["--methods"].split(",")) == 18
+    assert opts["--output-root"] == str(tmp_path / "results/gdpopt_baron_highs")
 
 
 def stalled_worker(template, method, directory, config, deadline):

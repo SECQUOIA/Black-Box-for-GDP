@@ -5,6 +5,11 @@ use the September 25 CPU 2 rerun. All 36 saved solutions passed an independent
 original-GDP feasibility check. The previous CPU-overlap dataset was removed.
 Run `python gdp_comparison_analysis.py` to regenerate the audit without solving.
 
+For the 18-job RIC/GLOA rerun with BARON NLP subproblems and HiGHS MILP
+masters, use the [Dantzig BARON + HiGHS guide](gdpopt_baron_highs.md) and
+`run_gdpopt_baron_highs_dantzig.sh`. The settings below describe the original
+IPOPT/CPLEX experiment and remain the general Python runner's defaults.
+
 Nine original model instances (CSTR5/10/15/20/25/30, Column 17, nine-stage
 Dynamic, Small Batch) are solved by four methods: GDPopt RIC, GDPopt GLOA,
 Big-M + BARON, Hull + BARON.
