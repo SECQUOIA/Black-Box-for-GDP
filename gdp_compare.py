@@ -1,4 +1,4 @@
-"""Dantzig: GDPopt RIC/GLOA (IPOPT) versus Big-M/Hull (BARON), 30 min/job."""
+"""Dantzig GDP comparisons with selectable NLP/MIP solvers, 30 min/job."""
 
 import argparse
 import csv
@@ -79,7 +79,8 @@ def result_key(record):
 def source_files():
     return [ROOT / "gdp_compare.py", ROOT / "cpu_affinity.py", *sorted((ROOT / "gdp_models").glob("*.py")),
             ROOT / "requirements-gdp.txt", ROOT / "requirements-gdp-comparison.txt",
-            ROOT / "docs/gdp_comparison.md", ROOT / "docs/dantzig_cpu_rerun.md", ROOT / "LICENSE",
+            ROOT / "docs/gdp_comparison.md", ROOT / "docs/gdpopt_baron_highs.md",
+            ROOT / "docs/dantzig_cpu_rerun.md", ROOT / "run_gdpopt_baron_highs_dantzig.sh", ROOT / "LICENSE",
             *(p for p in (ROOT / "run_gdp_comparison_dantzig.sh",) if p.is_file())]
 
 
@@ -129,10 +130,12 @@ def check(config, directory):
         library = Path(find_library("mcppInterface"))
         mcpp = {"library": str(library), "sha256": sha(library),
                 "expected_source_commit": MCPP_COMMIT}
-    solvers = (["ipopt", "cplex"] if set(config["methods"]) & {"ric", "gloa"} else [])
+    policy = impl.solver_policy(config, "ric")
+    solvers = (["baron_nlp" if policy["nlp"] == "baron" else "ipopt", policy["mip"]]
+               if set(config["methods"]) & {"ric", "gloa"} else [])
     if set(config["methods"]) & {"bigm", "hull"}:
         solvers.append("baron")
-    solver_checks = impl.smoke_solvers(config["executable"], directory / "solver_checks", solvers)
+    solver_checks = impl.smoke_solvers(config["executable"], directory / "solver_checks", solvers, config=config)
     templates = {spec["instance_id"]: impl.build_template(
         spec["case"], cstr_size=spec["cstr_size"] or 30, instance_id=spec["instance_id"])
         for spec in planned_instances(config)}
@@ -309,6 +312,12 @@ def main():
     parser.add_argument("--time-limit", type=int, default=1800, help="Total seconds per case/method worker")
     parser.add_argument("--cpu", type=int, help="Linux logical CPU ID; default: first allowed CPU")
     parser.add_argument("--relative-gap", type=float, default=1e-5)
+    parser.add_argument("--nlp-solver", choices=("ipopt", "baron"), default="ipopt",
+                        help="GDPopt NLP subproblem solver through GAMS")
+    parser.add_argument("--mip-solver", choices=("cplex", "highs"), default="cplex",
+                        help="GDPopt MILP master solver through GAMS")
+    parser.add_argument("--baron-lp-solver", choices=("cplex", "clp"), default="cplex",
+                        help="BARON internal LP/MIP solver: clp selects CLP/CBC (LPSol 8)")
     parser.add_argument("--baron-column-hull-lbtt", type=int, choices=(0, 1), default=0,
                         help="Column/Hull linear range reduction: 0 avoids a reproduced false infeasibility; 1 is BARON's default")
     parser.add_argument("--executable", default=os.environ.get("GAMS_BIN", "/package/gams/52.2/gams"))
@@ -351,6 +360,8 @@ def main():
             raise ValueError("GAMS executable not found; set GAMS_BIN or --executable")
         config = {"cases": cases, "cstr_sizes": cstr_sizes, "methods": methods, "time_limit": args.time_limit,
                   "relative_gap": args.relative_gap, "executable": executable,
+                  "nlp_solver": args.nlp_solver, "mip_solver": args.mip_solver,
+                  "baron_lp_solver": args.baron_lp_solver,
                   "baron_column_hull_lbtt": args.baron_column_hull_lbtt,
                   "expected_gams_version": args.expected_gams_version}
         cpu = pin_cpu(args.cpu)

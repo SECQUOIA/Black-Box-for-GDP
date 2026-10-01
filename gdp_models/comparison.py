@@ -13,6 +13,7 @@ from pyomo.core.plugins.transform.logical_to_linear import update_boolean_vars_f
 from pyomo.gdp import Disjunct, Disjunction
 from pyomo.opt import SolverFactory, TerminationCondition as tc
 from pyomo.solvers.plugins.solvers.GAMS import GAMSShell
+from pyomo.repn.plugins.gams_writer import valid_solvers
 
 from ._sources import provenance
 from .models import MODELS, _initialize, build_gdp, dynamic_template
@@ -24,10 +25,37 @@ CASES = ("cstr", "column", "dynamic", "small_batch")
 SOLVER_NAME = "_rbfopt_comparison_gams"
 DESCEND = (pyo.Block, Disjunct)
 CONTEXT = None
+# Pyomo 6.10's static GAMS writer list predates GAMS/HiGHS. Register only
+# documented linear model types; GAMS preflight still checks actual support.
+valid_solvers.setdefault("HIGHS", {"LP", "MIP", "RMIP"})
 
 
 class BudgetExpired(RuntimeError):
     pass
+
+
+class IncompleteSubproblem(RuntimeError):
+    def __init__(self, model, call):
+        self.model, self.call = model, call
+        super().__init__(f"GAMS/{call['solver']} subproblem did not prove optimality within "
+                         f"the configured gap or infeasibility: {call.get('gams_statistics')}")
+
+
+def solver_policy(config, method):
+    baron = {"baron_lp_subsolver": config.get("baron_lp_solver", "cplex"),
+             "baron_nlp_subsolver": "ipopt", "warmstart": False}
+    if method in {"ric", "gloa"}:
+        policy = {"nlp": config.get("nlp_solver", "ipopt"),
+                  "mip": config.get("mip_solver", "cplex")}
+        if policy["nlp"] == "baron":
+            policy.update(baron)
+        return policy
+    return {"minlp": "baron", **baron}
+
+
+def baron_options(config):
+    lp = {"cplex": 3, "clp": 8}[config.get("baron_lp_solver", "cplex")]
+    return (f"LPSol {lp}", "NLPSol 9")
 
 
 def finite(value):
@@ -36,6 +64,28 @@ def finite(value):
         return number if math.isfinite(number) else None
     except (TypeError, ValueError):
         return None
+
+
+def subproblem_complete(call, relative_gap):
+    """Accept a global solver's normal termination with a proven gap/infeasibility.
+
+    GAMS can label a BARON NLP 'locallyOptimal' (MODELSTAT 2) when the
+    *global* bound reaches optcr. Check the raw bound, not just that label.
+    All benchmark objectives minimize; OBJEST is their lower bound.
+    """
+    stats = call.get("gams_statistics", {})
+    if stats.get("SOLVESTAT") != 1:
+        return False
+    status = stats.get("MODELSTAT")
+    if status in {1, 4, 10, 19}:
+        return True
+    allowed = {2, 8} if call["solver"] == "baron" else {8}
+    value, bound = finite(stats.get("OBJVAL")), finite(stats.get("OBJEST"))
+    if status not in allowed or value is None or bound is None:
+        return False
+    # Allow only output rounding and BARON's minimum absolute tolerance.
+    slack = 1e-9 * max(1, abs(value), abs(bound))
+    return -slack <= value - bound <= relative_gap * abs(value) + slack
 
 
 def save_json(path, obj):
@@ -64,6 +114,7 @@ class SolveContext:
     relative_gap: float = 1e-5
     calls: list = field(default_factory=list)
     baron_options: tuple = ("LPSol 3", "NLPSol 9")
+    strict_subproblems: bool = False
 
     def remaining(self):
         # Leave a small part of the worker budget for reading/checking results.
@@ -97,10 +148,10 @@ class TimedGAMS(GAMSShell):
         context = CONTEXT
         seconds = context.remaining()
         solver = kwargs.pop("solver")
-        if solver not in {"ipopt", "cplex", "baron"}:
+        if solver not in {"ipopt", "cplex", "highs", "baron"}:
             raise ValueError(f"Unsupported comparison solver: {solver}")
         load = kwargs.pop("load_solutions", True)
-        call = {"index": len(context.calls) + 1, "solver": solver,
+        call = {"index": len(context.calls) + 1, "solver": solver, "mtype": kwargs.get("mtype"),
                 "limit_s": seconds, "threads": 1, "status": "running"}
         started = monotonic()
         with tempfile.TemporaryDirectory(prefix="gams-", dir=context.directory) as tmp:
@@ -147,6 +198,8 @@ class TimedGAMS(GAMSShell):
                             solver_status=str(result.solver.status),
                             lower_bound=finite(result.problem.lower_bound),
                             upper_bound=finite(result.problem.upper_bound))
+                if context.strict_subproblems:
+                    call["global_subproblem_complete"] = subproblem_complete(call, context.relative_gap)
             except BaseException as error:
                 call.update(status="error", message=f"{type(error).__name__}: {error}")
                 if (path / "output.lst").exists():
@@ -158,6 +211,12 @@ class TimedGAMS(GAMSShell):
                 call["wall_s"] = monotonic() - started
                 context.calls.append(call)
                 append_event(context.directory / "solver_calls.jsonl", call)
+        if context.strict_subproblems:
+            # GDPopt accepts local/incomplete NLPs and can cut their discrete
+            # configuration off. Stop before that happens in the BARON run.
+            if not call["global_subproblem_complete"]:
+                candidate = model if solver == "baron" and load and len(result.solution) else None
+                raise IncompleteSubproblem(candidate, call)
         return result
 
 
@@ -280,7 +339,10 @@ def solve_method(template, method, directory, config, deadline):
     global CONTEXT
     directory = Path(directory)
     started = monotonic()
-    CONTEXT = SolveContext(config["executable"], directory, deadline, config["relative_gap"])
+    policy = solver_policy(config, method)
+    CONTEXT = SolveContext(config["executable"], directory, deadline, config["relative_gap"],
+                           baron_options=baron_options(config),
+                           strict_subproblems=policy.get("nlp") == "baron")
     if template.metadata["case"] == "column" and method == "hull":
         # BARON's linear range reduction falsely rejected a feasible Column Hull
         # model in local validation. Keep the model unchanged and record this
@@ -290,12 +352,13 @@ def solve_method(template, method, directory, config, deadline):
               "threads": 1, "status": "running", "objective": None,
               "has_feasible_solution": False, "global_optimality_certified": False,
               "global_bound_valid": method in {"bigm", "hull"},
-                  "solver_policy": {"nlp": "ipopt", "mip": "cplex"} if method in {"ric", "gloa"}
-                               else {"minlp": "baron", "baron_lp_subsolver": "cplex",
-                                     "baron_nlp_subsolver": "ipopt", "warmstart": False,
-                                     "options": list(CONTEXT.baron_options)},
+              "solver_policy": {**policy, **({"options": list(CONTEXT.baron_options)}
+                                  if "baron" in policy.values() else {})},
               "certificate_note": "Local IPOPT subproblems: GDPopt bounds/termination do not certify global optimality."
-                                  if method in {"ric", "gloa"} else "Certificate requires BARON optimal termination and original GDP feasibility."}
+                                  if policy.get("nlp") == "ipopt" else
+                                  "BARON subproblems: GDPopt bounds and global certificate require a separate audit."
+                                  if method in {"ric", "gloa"} else
+                                  "Certificate requires BARON optimal termination and original GDP feasibility."}
     report_path = directory / "result.json"
     save_json(report_path, report)
     reference = template.model.clone()
@@ -341,8 +404,8 @@ def solve_method(template, method, directory, config, deadline):
             result = algorithm.solve(
                 model, time_limit=max(1, int(CONTEXT.remaining())), tee=True,
                 mip_solver=SOLVER_NAME, nlp_solver=SOLVER_NAME,
-                mip_solver_args={"solver": "cplex", "mtype": "mip"},
-                nlp_solver_args={"solver": "ipopt", "mtype": "nlp"},
+                mip_solver_args={"solver": policy["mip"], "mtype": "mip"},
+                nlp_solver_args={"solver": policy["nlp"], "mtype": "nlp"},
                 force_subproblem_nlp=True, init_algorithm="set_covering",
                 bound_tolerance=config["relative_gap"],
                 call_after_subproblem_feasible=feasible)
@@ -359,6 +422,12 @@ def solve_method(template, method, directory, config, deadline):
             report["gams_statistics"] = stats
             report["global_optimality_certified"] = bool(
                 report["has_feasible_solution"] and stats.get("SOLVESTAT") == 1 and stats.get("MODELSTAT") == 1)
+    except IncompleteSubproblem as error:
+        if error.model is not None:
+            record_incumbent(error.model, "incomplete_subproblem")
+        report.update(status="time_limit" if error.call["termination"] == "maxTimeLimit"
+                      else "subproblem_incomplete", termination=error.call["termination"],
+                      incomplete_subproblem_call=error.call["index"], message=str(error))
     except BudgetExpired as error:
         report.update(status="time_limit", termination="maxTimeLimit", message=str(error))
     except Exception as error:
@@ -374,26 +443,38 @@ def solve_method(template, method, directory, config, deadline):
     return report
 
 
-def smoke_solvers(executable, directory, solvers=("ipopt", "cplex", "baron")):
+def smoke_solvers(executable, directory, solvers=("ipopt", "cplex", "baron"), *, config=None):
     """Actual tiny MIP/NLP/MINLP solves; version/availability alone are insufficient."""
     global CONTEXT
     output = {}
     for name in solvers:
         path = Path(directory) / name
         path.mkdir(parents=True, exist_ok=True)
-        CONTEXT = SolveContext(executable, path, monotonic() + 30)
+        CONTEXT = SolveContext(executable, path, monotonic() + 30,
+                               baron_options=baron_options(config or {}))
         model = pyo.ConcreteModel()
         model.x = pyo.Var(bounds=(0, 3), initialize=0.5)
-        if name == "ipopt":
+        if name == "baron_nlp":
+            # Boundary local minimum x=0 (f=0), global minimum
+            # x=(3+sqrt(3))/2. Test actual nonconvex continuous NLP support.
+            model.obj = pyo.Objective(expr=model.x**4 - 4*model.x**3 + 3*model.x**2)
+        elif name == "ipopt":
             model.obj = pyo.Objective(expr=(model.x - 1) ** 2)
         else:
             model.y = pyo.Var(domain=pyo.Binary)
             model.c = pyo.Constraint(expr=model.x >= 1 + model.y)
-            model.obj = pyo.Objective(expr=model.x + model.y if name == "cplex" else model.x**2 + model.y)
-        result = TimedGAMS().solve(model, solver=name, mtype={"ipopt": "nlp", "cplex": "mip", "baron": "minlp"}[name])
+            model.obj = pyo.Objective(expr=model.x + model.y if name in {"cplex", "highs"} else model.x**2 + model.y)
+        result = TimedGAMS().solve(model, solver="baron" if name == "baron_nlp" else name,
+                                  mtype={"ipopt": "nlp", "baron_nlp": "nlp", "cplex": "mip",
+                                         "highs": "mip", "baron": "minlp"}[name])
         expected = 0 if name == "ipopt" else 1
+        if name == "baron_nlp":
+            x = (3 + math.sqrt(3)) / 2
+            expected = x**4 - 4*x**3 + 3*x**2
         stats = CONTEXT.calls[-1].get("gams_statistics", {})
-        if stats.get("SOLVESTAT") != 1 or stats.get("MODELSTAT") not in {1, 2} or abs(pyo.value(model.obj)-expected) > 1e-5:
+        complete = subproblem_complete(CONTEXT.calls[-1], CONTEXT.relative_gap) if name.startswith("baron") else (
+            stats.get("SOLVESTAT") == 1 and stats.get("MODELSTAT") in {1, 2})
+        if not complete or abs(pyo.value(model.obj)-expected) > 1e-5:
             raise RuntimeError(f"GAMS/{name} execution/license test failed: {result.solver}")
         output[name] = CONTEXT.calls[-1]
     return output
