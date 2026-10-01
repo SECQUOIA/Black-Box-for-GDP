@@ -400,15 +400,16 @@ use the September 25 CPU 2 rerun: all 36 saved solutions passed an independent
 original-GDP feasibility check. Nine jobs reached the solver time limit.
 Three cross-method BARON bound conflicts are flagged explicitly.
 
-The [NLP-inclusive cost comparison](results/fmqa_20260925/analysis/nlp/README.md)
-joins 556 recorded black-box paths to these point costs. It includes first-hit
-and completion-time profiles, cost components, and a separately marked comparison
-with measured full-GDP results. Infeasible evaluations cost zero by the declared
-accounting assumption. Feasible points use only the selected successful NLP
-evaluation time; earlier failed attempts are excluded.
-Run `python nlp_cost_analysis.py --output results/new_nlp_cost_comparison` to
-reproduce it with the source archives available. Exact-model results and the
-separate CSTR30 cost-transfer scenario retain their clock and model provenance.
+The [corrected Dantzig timing comparison](results/fmqa_20260925/analysis/nlp/README.md)
+uses the original 556 Dantzig lookup completion times and outcomes. The earlier
+Mac-trace-based NLP-inclusive totals and first-hit profiles were withdrawn.
+The original DSDA/RBFOpt/BAM records lack complete evaluation coordinates and
+first-hit timestamps, so their NLP-inclusive and first-hit times remain missing.
+FMQA's available Dantzig traces retain a separate NLP cost table, using only
+successful evaluations and zero cost for infeasible lookups under the stated
+assumption. No Mac paths or clocks are substituted.
+Run `python nlp_cost_analysis.py --output results/new_dantzig_timing_comparison`
+to reproduce the corrected figures and tables from the original archives.
 
 The original Column, CSTR, Small Batch, and Dynamic GDP models are now linked
 as pinned submodules under `external/`. The optional `gdp_models` package fixes

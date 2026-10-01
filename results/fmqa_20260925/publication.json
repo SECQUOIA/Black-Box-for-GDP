@@ -98,5 +98,26 @@
     "host": "dantzig.ecn.purdue.edu",
     "created_utc": "2026-09-25T17:20:20.457694+00:00",
     "audit": "results/gdp_comparison_20260925/analysis/audit.json"
+  },
+  "process_timing_correction": {
+    "date": "2026-10-01",
+    "original_dantzig_clocks_and_objectives_checked": 556,
+    "independent_completion_ratios_checked": 556,
+    "missing_original_nlp_and_first_hit_records": 417,
+    "mac_trace_runs_used": 0,
+    "tests": "51 passed (Dantzig provenance, NLP cost accounting, FMQA and timing analysis)",
+    "ruff": "passed",
+    "figure_visual_check": "cost_breakdown.png inspected",
+    "original_raw_datasets_unchanged": true,
+    "point_cost_inventory_unchanged": true,
+    "withdrawn_outputs": [
+      "evaluation_costs.csv",
+      "cache_sensitivity.csv",
+      "completion_vs_quality.csv",
+      "unmeasured_coordinates.csv",
+      "success_vs_time.png/pdf",
+      "cstr30_transfer_time_profiles.png/pdf",
+      "completion_vs_quality.png/pdf"
+    ]
   }
 }
