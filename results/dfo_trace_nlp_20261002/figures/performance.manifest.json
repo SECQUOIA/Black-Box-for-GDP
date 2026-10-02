@@ -1,0 +1,105 @@
+{
+  "panels": [
+    [
+      "column",
+      "",
+      16,
+      "Column"
+    ],
+    [
+      "cstr",
+      "30",
+      43,
+      "CSTR 30"
+    ],
+    [
+      "small_batch",
+      "",
+      10,
+      "Small Batch"
+    ],
+    [
+      "dynamic",
+      "",
+      12,
+      "Dynamic"
+    ],
+    [
+      "dynamic",
+      "",
+      15,
+      "Dynamic"
+    ],
+    [
+      "dynamic",
+      "",
+      20,
+      "Dynamic"
+    ],
+    [
+      "dynamic",
+      "",
+      30,
+      "Dynamic"
+    ],
+    [
+      "dynamic",
+      "",
+      37,
+      "Dynamic"
+    ],
+    [
+      "dynamic",
+      "",
+      50,
+      "Dynamic"
+    ]
+  ],
+  "runs": 356,
+  "time_kind": "fixed_path_completion_estimate",
+  "measured_online_runtime": false,
+  "time_formula": "DFO runtime - lookup calls + selected point costs + one Dynamic preparation per run",
+  "target_definition": "Frozen lookup target within 1e-5 * max(1, abs(target))",
+  "profile_definition": "Successful completion time / fastest successful method on the paired start; failures have infinite ratios and stay in the denominator",
+  "tts99_definition": "Median completion time over all seeds * ceil(log(0.01) / log(1 - observed hit rate)); p=0: infinity, p=1: one run",
+  "tts99_assumption": "Independent restarts with the observed hit probability; an estimate from 9 or 10 runs, not a 99% confidence guarantee",
+  "point_cost_policy": "Each callback uses one selected point measurement. For successful CSTR30 retries, use only the retry result and time; exclude the initial failed attempt cost. Repeated calls reuse the same measurement.",
+  "dynamic_preparation_reference": {
+    "preparation_id": "9306cbf705cf48a19806eeadd48107e2",
+    "created_utc": "2026-09-22T05:00:25.498273+00:00",
+    "scope": "once_per_process",
+    "model_build_wall_s": 0.0647380743175745,
+    "dae_wall_s": 0.044268236961215734,
+    "total_preparation_wall_s": 0.10900631127879024,
+    "included_in_point_total_wall_s": false
+  },
+  "sources": {
+    "results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv": "9d6f11365ff775cb6905be1f57d44981ac2474e8deda7822993b3123f4bfaf53",
+    "results/dfo_trace_nlp_20261002/analysis/evaluation_timings.csv": "271f00c684698e2c1ef74f3e0d27c2918a0139795fe4d37de6a934a815053d89",
+    "results/dfo_trace_nlp_20261002/analysis/manifest.json": "0c2264ce6cdbd6dea33cc84c5ac6c964888e8ea95ad8d4eb424de36d97c4ea37",
+    "results/dfo_trace_nlp_20261002/analysis/dynamic_preparations.json": "01e12be1c21c14df536ac965d62850887ff15c0700d8cba35145270875000500"
+  },
+  "gdp_minlp_source": {
+    "results/gdp_comparison_current/analysis/comparison.csv": "9405b9e5690015917ca1c8f01548c6c5efe384d98f190d17664527d399cd1024"
+  },
+  "gdp_minlp_runs": 45,
+  "all_method_comparison_rows": 81,
+  "gdp_minlp_policy": "Single measured completion per method/model; preserve time limits, target attainment and bound conflicts; no restart probability or TTS99 inferred from one run",
+  "scripts": {
+    "scripts/plot_dantzig_performance.py": "8b32ae4ae377aef99a63040d1da8f1b74b5c5b2fbe0a83d03c3fa59cab3bccaf",
+    "scripts/plot_dantzig_cost_breakdown.py": "8169f166914d87004e6470492bb2616131e378779d97cbc5350214abea5abd0c",
+    "benchmark_analysis.py": "cd03c8058cfbc965aba08a79e838fda50a5eaa5fcee504d6a7669d99b316628e"
+  },
+  "artifacts": {
+    "performance_profile_runs.csv": "e5391eb5c820382217a7de0093c78c2f307753e5843c85e1959b9cd5d92d1ccd",
+    "tts99_summary.csv": "8d412529e9a8eb66f6cea0a509a14ffd944920882f984c1218a85d4d9488461f",
+    "all_method_completion_times.csv": "055b1b59f51d22e3e1551ae4581b9c9e463ad7bf3a2f0f95e9d2df4e328a180a",
+    "gdp_minlp_runs.csv": "9405b9e5690015917ca1c8f01548c6c5efe384d98f190d17664527d399cd1024",
+    "performance_profiles.png": "89d0fbb017ea41aef40768defe840c2daaceffd1219925c1edab343dec189cd1",
+    "performance_profiles.pdf": "8f0522c4930c4659c64b96a31a39ee759b98bd83ef66f9e8ff5e61e4f5be9c04",
+    "tts99.png": "59d09d1ba64ca4ec6f19c1243691300c7431e79e798a2c0b59f5c55497d9eee1",
+    "tts99.pdf": "b9fb8e6a752d586192526af4e32b9dfea34063172c30a78781b105dca0395c01",
+    "all_method_completion_times.png": "ef0afdbfd8b2e49fb152ee8dc90f6c03d9f1a88ae61ee16abd5addbef38dcec0",
+    "all_method_completion_times.pdf": "21d6f2c7fc952eba07c6c665f32ef1bf466776a6b10ac258fc9595010862137a"
+  }
+}
