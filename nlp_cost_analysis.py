@@ -1,8 +1,7 @@
-"""Dantzig-only timing publication and fixed-coordinate NLP cost accounting.
+"""Dantzig timing publication and fixed-coordinate NLP cost accounting.
 
-The CLI publishes archived Dantzig completion times. NLP reconstruction helpers
-are used only for the original FMQA Dantzig trace, in separate cost tables.
-Missing original coordinates are never replaced with Mac rerun paths.
+The default CLI publishes the verified October 2 traces and all-outcome point
+costs. Historical lookup-only comparisons require --legacy-lookup-only.
 """
 
 import argparse
@@ -111,10 +110,9 @@ def target_hit(value, target):
 def reconstruct(run, costs, preparation, *, cstr_policy="exact", cache=False):
     """Charge each actual callback by default; repeated callbacks are not cache hits.
 
-    Lookup-infeasible evaluations are free by explicit user assumption.
-    Only the selected successful evaluation is charged at feasible points;
-    earlier failed attempts are excluded. Missing successful measurements stay
-    missing, rather than being treated as zero. strict_* require the exact size.
+    Every selected recorded evaluation is charged regardless of lookup or NLP
+    feasibility. Distinct retry attempts are not an observed callback retry
+    sequence. Missing measurements stay missing. strict_* require exact size.
     Neither path replaces objectives or changes the original search path.
     """
     spec, events = run["spec"], run["events"]
@@ -128,11 +126,11 @@ def reconstruct(run, costs, preparation, *, cstr_policy="exact", cache=False):
                 "method": METHOD_NAMES[spec["method"]], "seed": spec["seed"],
                 "n_starts": spec["n_starts"], "max_evals": spec["max_evaluations"],
                 "cstr_cost_policy": cstr_policy, "cache_policy": "unique_point_cache" if cache else "each_callback",
-                "point_cost_policy": "selected_successful_evaluation_only",
+                "point_cost_policy": "selected_recorded_evaluation_all_outcomes",
                 "overhead_host": run["overhead_host"]}
     setup = preparation if case == "dynamic" else 0.0
     counters = Counter()
-    cumulative_lookup = measured_total = screen_total = waived = 0.0
+    cumulative_lookup = measured_total = screen_total = 0.0
     first_hit = first_measured_hit = None
     lookup_best = measured_best = None
     seen, ledger = set(), []
@@ -154,26 +152,23 @@ def reconstruct(run, costs, preparation, *, cstr_policy="exact", cache=False):
         logic_reject = point in box and point not in logical
         if logic_reject and feasible:
             raise ValueError("GDP logic contradicts a finite lookup value")
-        if not feasible:
-            status, cost, chosen = "infeasible_zero_assumption", 0.0, 0.0
-            counters["infeasible_zero_calls"] += 1
-            if known:
-                waived += row["all_attempts_total_wall_s"]
-        elif cache_hit:
+        if cache_hit:
             status, cost, chosen = "cache_lookup_proxy", event["objective_wall_s"], 0.0
             screen_total += cost
             counters["cache_hit_calls"] += 1
-        elif known and row["accepted"]:
+        elif known:
             status = "cstr30_transferred_measurement" if case == "cstr" and size != measured_size else "exact_model_measurement"
             cost = chosen = row["total_wall_s"]
+            if not math.isfinite(cost) or cost <= 0:
+                raise ValueError("Recorded point evaluation time must be positive")
             measured_total += cost
             counters["measured_calls"] += 1
+            counters["unsuccessful_point_calls"] += not row["accepted"]
             counters["cstr30_transferred_calls"] += status == "cstr30_transferred_measurement"
         else:
-            status = "missing_successful_point_measurement" if known else "unmeasured_logical_point"
+            status = "unmeasured_point"
             cost = chosen = None
             counters["unmeasured_calls"] += 1
-            counters["unsuccessful_point_calls"] += known
         if feasible:
             lookup_best = value if lookup_best is None else min(lookup_best, value)
         accepted_value = row["objective"] if known and row["accepted"] else None
@@ -189,6 +184,7 @@ def reconstruct(run, costs, preparation, *, cstr_policy="exact", cache=False):
                 "cost_model_cstr_size": measured_size, "recorded_lookup_wall_s": event["objective_wall_s"],
                 "measured_point_all_attempts_s": row["all_attempts_total_wall_s"] if known else None,
                 "charged_cost_s": cost, "selected_attempt_cost_s": chosen,
+                "charged_attempt_id": row["selected_attempt_id"] if known and not cache_hit else None,
                 "charged_successful_attempt_id": row["selected_attempt_id"] if feasible and known and row["accepted"] and not cache_hit else None,
                 "attempt_ids": row["attempt_ids"] if known else [],
                 "lookup_objective": value if feasible else None,
@@ -221,12 +217,11 @@ def reconstruct(run, costs, preparation, *, cstr_policy="exact", cache=False):
                "lookup_first_hit_s": fh.get("lookup_elapsed_s"),
                "scenario_first_hit_s": fh.get("scenario_elapsed_s"),
                "strict_first_hit_s": fh.get("strict_elapsed_s"),
-               "waived_measured_infeasible_cost_s": waived,
                "measured_path_first_hit_s": first_measured_hit.get("scenario_elapsed_s") if first_measured_hit else None,
                "source": run["source"],
                **{name: counters[name] for name in ("measured_calls", "repeated_calls", "cache_hit_calls",
                    "cstr30_transferred_calls", "unsuccessful_point_calls",
-                   "infeasible_zero_calls", "unmeasured_calls", "objective_disagreement_calls")}}
+                   "unmeasured_calls", "objective_disagreement_calls")}}
     return summary, ledger
 
 
@@ -326,8 +321,11 @@ def flag_bound_conflicts(records, evidence=None):
 
 
 def main():
-    from dantzig_timing_analysis import build
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--legacy-lookup-only", action="store_true",
+                        help="Rebuild September lookup clocks only; no separate NLP estimates")
+    parser.add_argument("--trace-archive", type=Path,
+                        default=ROOT / "results/archives/dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p.zip")
     parser.add_argument("--original-archive", type=Path, default=ROOT / "results/archives/dantzig_20260910_170759_slN8tv.zip")
     parser.add_argument("--bam-archive", type=Path, default=ROOT / "dantzig_bam_20260916_231228_FNzbAA.zip")
     parser.add_argument("--fmqa", type=Path, default=ROOT / "results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip")
@@ -336,7 +334,14 @@ def main():
     parser.add_argument("--gdp-results", type=Path, default=ROOT / "results/gdp_comparison_current")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    build(args)
+    if args.legacy_lookup_only:
+        from dantzig_timing_analysis import build
+        build(args)
+    else:
+        if args.solver != "gams_ipopt":
+            parser.error("The current trace report uses recorded GAMS/IPOPT measurements only")
+        from dfo_trace_analysis import build
+        build(args.trace_archive, args.output)
 
 
 if __name__ == "__main__":

@@ -36,8 +36,8 @@
   ],
   "mac_trace_runs_used": 0,
   "original_rows_without_coordinate_traces": 417,
-  "complete_fmqa_nlp_cost_estimates": 89,
-  "cost_inventory_sha256": "76ad4f0ed80441c49a2b6dfb9bf9d555cc5e459a2c4867f1840761eb674adce9",
+  "separate_nlp_estimates_published": false,
+  "current_trace_analysis": "results/dfo_trace_nlp_20261002/analysis",
   "gdp_completed_baseline_rows": 45,
   "gdp_source_directory": "results/gdp_comparison_current",
   "gdp_sources": [
@@ -55,8 +55,8 @@
     ]
   ],
   "analysis_source_sha256": {
-    "dantzig_timing_analysis.py": "04bd2ea2a7c954d64f23f5979bb632e20b32a18a095f13385afcb14900a8e147",
-    "nlp_cost_analysis.py": "746b7cabda00b25de6793ebc077d5b966f610934b9856ab492d045deb5077627"
+    "dantzig_timing_analysis.py": "eab6cf934b112946d3b9c09d6fe4faf074cdc08959cf2f3d92e3bfedfb85cd71",
+    "nlp_cost_analysis.py": "0adc5f7c651fd4953476a7b8b25f708ac9bef0951260e20dac0f58ab917f6429"
   },
   "comparison_time": "Original archived wall_time_s, including lookup calls; no added NLP costs",
   "first_hit_comparison_available": false,

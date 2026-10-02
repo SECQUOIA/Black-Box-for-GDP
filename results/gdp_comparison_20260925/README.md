@@ -7,7 +7,7 @@ The September 25 GDPopt/BARON run replaces the contaminated September 22 CPU 0 r
 - [Original ZIP](../archives/dantzig_gdp_compare_20260925_172020_5m9m_kxx.zip) and [checksums](raw/SHA256SUMS).
 - `raw/`: unmodified server records, all 204 internal checksums verified.
 - `analysis/`: 36 independently rechecked saved solutions, objective/time tables, NLP statuses and bound conflicts.
-- [Updated DFO/GDP comparison](../fmqa_20260925/analysis/nlp/README.md).
+- [Current DFO traces and separate NLP costs](../dfo_trace_nlp_20261002/analysis/README.md).
 
 GDP used CPU 2, FMQA Grid CPU 0, and FMQA cases CPU 4; their recorded physical cores are distinct. One-thread settings are retained. No exclusive server reservation is claimed.
 

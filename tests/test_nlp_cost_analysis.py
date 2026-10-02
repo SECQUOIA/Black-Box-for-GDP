@@ -22,23 +22,22 @@ def fake_run(monkeypatch, case="small_batch", size=None):
     return run, costs
 
 
-def test_only_successful_cost_charged_per_callback_infeasible_free(monkeypatch):
+def test_all_recorded_outcomes_charged_per_callback(monkeypatch):
     run, costs = fake_run(monkeypatch)
     result, ledger = analysis.reconstruct(run, costs, 7)
-    assert result["scenario_total_s"] == pytest.approx(13.7)
+    assert result["scenario_total_s"] == pytest.approx(15.7)
     assert result["scenario_first_hit_s"] == pytest.approx(2.9)
-    assert result["nlp_selected_attempts_s"] == 4
-    assert result["point_cost_policy"] == "selected_successful_evaluation_only"
-    assert [row["charged_cost_s"] for row in ledger] == [2, 0, 2]
+    assert result["nlp_selected_attempts_s"] == 6
+    assert result["point_cost_policy"] == "selected_recorded_evaluation_all_outcomes"
+    assert [row["charged_cost_s"] for row in ledger] == [2, 2, 2]
     assert ledger[0]["charged_successful_attempt_id"] == "retry"
-    assert ledger[1]["charged_cost_s"] == 0
+    assert ledger[1]["charged_cost_s"] == 2
     assert ledger[1]["measured_point_all_attempts_s"] == 5
-    assert result["waived_measured_infeasible_cost_s"] == 5
-    assert result["infeasible_zero_calls"] == 1
+    assert result["unsuccessful_point_calls"] == 1
     assert result["preparation_s"] == 0
 
 
-def test_failed_attempt_duration_does_not_change_any_reconstructed_time(monkeypatch):
+def test_other_retry_attempts_are_not_an_observed_callback_retry_sequence(monkeypatch):
     run, costs = fake_run(monkeypatch)
     before, before_ledger = analysis.reconstruct(run, costs, 0)
     costs[("small_batch", None, (2, 2, 1))]["all_attempts_total_wall_s"] = 5000
@@ -52,9 +51,9 @@ def test_failed_attempt_duration_does_not_change_any_reconstructed_time(monkeypa
 def test_dynamic_preparation_once_and_cache_is_explicit(monkeypatch):
     run, costs = fake_run(monkeypatch, "dynamic")
     result, ledger = analysis.reconstruct(run, costs, .25, cache=True)
-    assert result["scenario_total_s"] == pytest.approx(12.05)
+    assert result["scenario_total_s"] == pytest.approx(14.05)
     assert result["scenario_first_hit_s"] == pytest.approx(3.15)
-    assert result["nlp_selected_attempts_s"] == 2
+    assert result["nlp_selected_attempts_s"] == 4
     assert result["cache_hit_calls"] == 1
     assert ledger[2]["charged_cost_s"] == .1
 
@@ -75,25 +74,34 @@ def test_cstr30_transfer_is_separate_from_exact_model(monkeypatch):
     exact, _ = analysis.reconstruct(run, costs, 0)
     proxy, _ = analysis.reconstruct(run, costs, 0, cstr_policy="cstr30_transfer")
     assert exact["scenario_total_s"] is None
-    assert proxy["scenario_total_s"] == pytest.approx(13.7)
+    assert proxy["scenario_total_s"] == pytest.approx(15.7)
     assert proxy["strict_total_s"] is None
-    assert proxy["cstr30_transferred_calls"] == 2
+    assert proxy["cstr30_transferred_calls"] == 3
 
 
-def test_feasible_lookup_without_successful_nlp_measurement_stays_missing(monkeypatch):
+def test_rejected_nlp_measurement_is_charged_even_when_lookup_is_feasible(monkeypatch):
     run, costs = fake_run(monkeypatch)
     costs[("small_batch", None, (2, 2, 1))].update(accepted=False, objective=None)
     result, ledger = analysis.reconstruct(run, costs, 0)
-    assert result["scenario_total_s"] is None
-    assert result["scenario_first_hit_s"] is None
-    assert result["nlp_selected_attempts_s"] == 0
-    assert ledger[0]["charged_cost_s"] is None
-    assert ledger[0]["cost_status"] == "missing_successful_point_measurement"
+    assert result["scenario_total_s"] == pytest.approx(15.7)
+    assert result["scenario_first_hit_s"] == pytest.approx(2.9)
+    assert result["nlp_selected_attempts_s"] == 6
+    assert ledger[0]["charged_cost_s"] == 2
+    assert ledger[0]["cost_status"] == "exact_model_measurement"
     assert result["lookup_solved"]
     assert not result["measured_path_target_hit"]
-    assert result["unsuccessful_point_calls"] == 2
-    assert result["unmeasured_calls"] == 2
+    assert result["unsuccessful_point_calls"] == 3
+    assert result["unmeasured_calls"] == 0
     assert result["objective_disagreement_calls"] == 2
+
+
+def test_missing_infeasible_measurement_is_not_waived(monkeypatch):
+    run, costs = fake_run(monkeypatch)
+    costs.pop(("small_batch", None, (1, 1, 1)))
+    result, ledger = analysis.reconstruct(run, costs, 0)
+    assert result["scenario_total_s"] is None
+    assert ledger[1]["charged_cost_s"] is None
+    assert result["unmeasured_calls"] == 1
 
 
 def test_profiles_retain_all_failed_instances_and_pairing():

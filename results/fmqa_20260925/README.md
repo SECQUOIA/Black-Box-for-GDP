@@ -27,18 +27,17 @@ The comparison contains 21 problems × 10 seeds × 5 budgets × 4 methods = 4,20
 
 The evaluation-based conclusions are unchanged. Timing profiles, time/work plots and TTS99 now use the new FMQA measurements. TTS99 is estimated per problem/budget from ten seeds using median full-run time times the required independent restart count; zero observed successes give an infinite estimate, not proof of impossibility.
 
-## GDP case and NLP-inclusive comparisons
+## GDP case comparisons and separate NLP costs
 
-- [Lookup comparison](analysis/case/README.md): 556 paired rows for DSDA, RBFOpt, BAM 5.0.0 and FMQA-SA.
-- [Corrected Dantzig timing comparison](analysis/nlp/README.md): all 556 original server completion clocks and outcomes, with archive identity checks and no Mac traces.
-- **October 1 correction:** withdraw the mixed Mac/Dantzig NLP totals, first-hit profiles, CSTR30 cost-transfer profiles and DFO-versus-GDP completion/quality chart.
-- The original DSDA/RBFOpt/BAM archives have completion times but lack complete ordered evaluation coordinates and first-hit timestamps. Their NLP-inclusive totals remain missing; they are not filled using Mac paths.
-- FMQA's original Dantzig traces support separate NLP-cost estimates. Successful evaluations are charged, failed attempts excluded, infeasible lookups cost zero by the stated assumption, and Dynamic preparation is added once. Exact costs for CSTR5–25 remain missing.
-- Full-GDP completion times remain available separately in the [current GDP audit](../gdp_comparison_current/analysis/README.md). Lookup-only runtimes are not compared with full-GDP runtimes as an end-to-end speedup.
+- [Current Dantzig trace and NLP cost report](../dfo_trace_nlp_20261002/analysis/README.md): 417 October 2 DSDA/RBFOpt/BAM traces plus the original 139 FMQA traces, 12,778 callbacks and complete measurement coverage of all 1,779 visited coordinates.
+- Every point evaluation cost is retained, including preprocessing rejection, solver-reported infeasibility and other rejected attempts. DFO runtime and separately measured point costs remain distinct.
+- [September lookup comparison](analysis/case/README.md) and [historical Dantzig timing report](analysis/nlp/README.md) preserve the original September runs. These original DSDA/RBFOpt/BAM archives lack full callback coordinates; the October 2 rerun traces are a separately identified dataset.
+- The previous mixed Mac/Dantzig reconstructed totals and the later zero-cost infeasible-point estimates are withdrawn. No Mac paths or clocks enter the current report.
+- Full-GDP completion times remain separate in the [current GDP audit](../gdp_comparison_current/analysis/README.md). Lookup runtime is not presented as an online full-GDP speedup.
 
 ## Figure index
 
-The figure index below lists the current, supported comparisons. At the user's latest publication request, the verified PNG/PDF figures are committed together with raw data, comparison tables, code and manifests.
+The figure index includes the current October 2 timing/cost figures and the explicitly dated historical lookup figures. At the user's latest publication request, the verified PNG/PDF figures are committed together with raw data, comparison tables, code and manifests.
 
 | Figure | Published PNG |
 |---|---|
@@ -53,10 +52,12 @@ The figure index below lists the current, supported comparisons. At the user's l
 | GDP cases: lookup completion-time performance profiles | [Open](analysis/case/timing/time_performance_profiles.png) |
 | GDP cases: absolute lookup completion times | [Open](analysis/case/timing/completion_time_profiles.png) |
 | GDP cases: lookup time versus evaluations/iterations | [Open](analysis/case/timing/time_work_tradeoff.png) |
-| GDP cases: corrected Dantzig relative completion-time profiles | [Open](analysis/nlp/time_performance_profiles.png) |
-| GDP cases: corrected Dantzig absolute completion times | [Open](analysis/nlp/completion_time_profiles.png) |
-| GDP cases: original Dantzig mean lookup runtimes (replaces cost breakdown) | [Open](analysis/nlp/cost_breakdown.png) |
-| GDP cases: corrected Dantzig time/work comparison | [Open](analysis/nlp/time_work_tradeoff.png) |
+| September GDP cases: historical relative completion-time profiles | [Open](analysis/nlp/time_performance_profiles.png) |
+| September GDP cases: historical absolute completion times | [Open](analysis/nlp/completion_time_profiles.png) |
+| September GDP cases: historical Dantzig mean lookup runtimes | [Open](analysis/nlp/cost_breakdown.png) |
+| September GDP cases: historical time/work comparison | [Open](analysis/nlp/time_work_tradeoff.png) |
+| October 2: measured DFO runtime and all-outcome NLP costs | [Open](../dfo_trace_nlp_20261002/analysis/runtime_and_nlp_costs.png) |
+| October 2: all six CSTR sizes, measured DFO runtime and NLP costs | [Open](../dfo_trace_nlp_20261002/analysis/cstr_sizes.png) |
 | Full GDP: RIC/GLOA/LOA/Big-M/Hull objectives and completion times, 45 completed jobs | [Open](../gdp_comparison_current/analysis/gdp_objectives_and_times.png) |
 
 ## Reproduce
@@ -66,10 +67,10 @@ From the repository root (choose a new output root for the NLP analysis):
 ```bash
 python fmqa_compare.py --dataset grid --fmqa-results results/archives/dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip --output-dir results/fmqa_rebuilt/analysis/grid --time-profiles
 python fmqa_compare.py --dataset case --fmqa-results results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip --output-dir results/fmqa_rebuilt/analysis/case --time-profiles
-python nlp_cost_analysis.py --output results/fmqa_rebuilt/analysis/nlp
+python dfo_trace_analysis.py --output results/fmqa_rebuilt/analysis/nlp
 ```
 
-The timing command verifies the original Dantzig and BAM archives, reads the September 25 FMQA archive, and retains the curated point costs. Full-GDP sources are selected explicitly in `results/gdp_comparison_current/selection.json`. Original archives are available under `results/archives/`. Run `python gdp_current_analysis.py` to independently recheck the selected full-GDP saved solutions and regenerate the current table without solving.
+The timing command verifies the October 2 Dantzig trace archive, the September 25 FMQA archive and the compatible original point measurements. It includes all recorded outcomes. Full-GDP sources are selected explicitly in `results/gdp_comparison_current/selection.json`. Original archives are available under `results/archives/`. Run `python gdp_current_analysis.py` to independently recheck the selected full-GDP saved solutions and regenerate the current table without solving.
 
 ```bash
 (cd results/fmqa_20260925/case && shasum -a 256 -c SHA256SUMS)

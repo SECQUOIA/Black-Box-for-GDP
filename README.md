@@ -98,8 +98,11 @@ Dynamic, use `case_study_benchmark.py --trace-evaluations`. See the
 [evaluation tracing and GDP timing workflow](docs/evaluation_tracing.md) for
 the original-start audit, Dantzig rerun command, resume support, and point-cost
 inventory.
-The [completed 417-run coordinate audit](results/process_evaluation_traces_20260917/README.md)
-includes the evaluation CSVs, original trace bundle, and GDP model connection probes.
+The [verified October 2 Dantzig trace report](results/dfo_trace_nlp_20261002/analysis/README.md)
+contains 417 new DSDA/RBFOpt/BAM traces plus 139 original Dantzig FMQA traces,
+with every visited coordinate linked to a separate NLP measurement. The
+[September 17 local coordinate audit](results/process_evaluation_traces_20260917/README.md)
+is historical and is not used for Dantzig runtime claims.
 
 For a lightweight DSDA run on one of the benchmark grids:
 
@@ -406,16 +409,22 @@ improving the target. See the [LOA-only runner](docs/gdpopt_loa_baron_highs.md)
 and [published runner ZIPs](results/runners/README.md). The earlier six-job
 follow-up is unnecessary because the original RIC/GLOA process finished.
 
-The [corrected Dantzig timing comparison](results/fmqa_20260925/analysis/nlp/README.md)
-uses the original 556 Dantzig lookup completion times and outcomes. The earlier
-Mac-trace-based NLP-inclusive totals and first-hit profiles were withdrawn.
-The original DSDA/RBFOpt/BAM records lack complete evaluation coordinates and
-first-hit timestamps, so their NLP-inclusive and first-hit times remain missing.
-FMQA's available Dantzig traces retain a separate NLP cost table, using only
-successful evaluations and zero cost for infeasible lookups under the stated
-assumption. No Mac paths or clocks are substituted.
-Run `python nlp_cost_analysis.py --output results/new_dantzig_timing_comparison`
-to reproduce the corrected figures and tables from the original archives.
+The [current Dantzig DFO/NLP timing report](results/dfo_trace_nlp_20261002/analysis/README.md)
+uses 417 completed October 2 DSDA/RBFOpt/BAM traces and 139 original September 25
+FMQA traces. All **12,778 callbacks** and **1,779 visited coordinates** are
+accounted for, with **zero missing point measurements**. There are 1,076
+compatible historical point attempts and 703 new preprocessing measurements.
+Every rejected/infeasible point retains its positive measured evaluation cost.
+DFO clocks and separately attached NLP costs appear in different columns and
+figure panels; the latter are fixed-path estimates, not measured online runtimes.
+Lookup/NLP outcome disagreements are flagged without changing the DFO results.
+All current reports, figures and instructions are in English.
+
+Run `python dfo_trace_analysis.py` to verify the source archives and rebuild the
+report without running any optimizer or solver. The previous
+[September lookup comparison](results/fmqa_20260925/analysis/nlp/README.md)
+remains historical; its zero-cost infeasible-point estimates have been withdrawn.
+See the [original-DFO tracing runner guide](docs/dfo_trace_nlp_dantzig.md).
 
 The original Column, CSTR, Small Batch, and Dynamic GDP models are now linked
 as pinned submodules under `external/`. The optional `gdp_models` package fixes
@@ -433,8 +442,8 @@ The batch saves per-point CSV/JSON results and supports `--resume` and
 The [current FMQA results and figure index](results/fmqa_20260925/README.md)
 use the September 25 reruns: 1,050 Grid runs on CPU 0 and 139 process-case runs
 on CPU 4, with different recorded physical cores. Raw archives, comparison
-tables, Grid TTS99, timing profiles and NLP-inclusive estimates use these new
-measurements. The contaminated September 22 FMQA archives and derived results
+tables, Grid TTS99 and timing profiles use these FMQA measurements. The
+October 2 trace report adds complete separate NLP costs for the process cases. The contaminated September 22 FMQA archives and derived results
 have been removed. The full-GDP baseline uses the completed October 1
 BARON/HiGHS RIC/GLOA on CPU 2, LOA on CPU 6, and September 25 Big-M/Hull on
 CPU 2. All 45 selected jobs are complete. The contaminated

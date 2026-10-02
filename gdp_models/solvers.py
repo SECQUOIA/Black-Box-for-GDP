@@ -4,6 +4,7 @@ from functools import lru_cache
 import math
 from pathlib import Path
 import tempfile
+import zipfile
 
 import pyomo.environ as pyo
 
@@ -65,17 +66,40 @@ def read_gams_statistics(path):
     return stats
 
 
-def solve_gams(optimizer, model, solver, time_limit, tee=False):
+def solve_gams(optimizer, model, solver, time_limit, tee=False, *, artifact_dir=None,
+               baron_lp_solver=None):
     # DAT output avoids requiring the proprietary GAMS Python/GDX packages.
-    with tempfile.TemporaryDirectory(prefix="gdp-gams-") as directory:
+    if artifact_dir is not None:
+        artifact_dir = Path(artifact_dir)
+        artifact_dir.mkdir(parents=True, exist_ok=True)
+    # A killed worker leaves its in-flight GAMS files inside the result tree.
+    # Successful calls compress the files before TemporaryDirectory cleanup.
+    with tempfile.TemporaryDirectory(prefix="gdp-gams-", dir=artifact_dir) as directory:
         path = Path(directory)
         lines = option_file_lines(solver)
+        options = solve_options(solver, time_limit)
+        if solver == "baron" and baron_lp_solver is not None:
+            lines = [f"LPSol {dict(clp=8, cplex=3)[baron_lp_solver]}", "NLPSol 9"]
+            options["add_options"].append("GAMS_MODEL.optfile=1;")
         if lines:
             (path / f"{GAMS_SOLVERS[solver]}.opt").write_text("\n".join(lines) + "\n")
-        result = optimizer.solve(model, tee=tee, load_solutions=False,
-                                 keepfiles=True, tmpdir=directory,
-                                 **solve_options(solver, time_limit))
-        statistics = read_gams_statistics(path / "resultsstat.dat")
+        # Opt-in durable evidence for separate point timings; existing batches
+        # retain their exact options and do not pay this additional I/O cost.
+        if artifact_dir is not None:
+            artifact_dir = Path(artifact_dir)
+            artifact_dir.mkdir(parents=True, exist_ok=True)
+            options["logfile"] = str(artifact_dir / "solver.log")
+        try:
+            result = optimizer.solve(model, tee=tee, load_solutions=False,
+                                     keepfiles=True, tmpdir=directory, **options)
+            statistics = read_gams_statistics(path / "resultsstat.dat")
+        finally:
+            if artifact_dir is not None:
+                with zipfile.ZipFile(artifact_dir / "gams_files.zip", "w",
+                                     compression=zipfile.ZIP_DEFLATED) as archive:
+                    for item in sorted(path.iterdir()):
+                        if item.is_file():
+                            archive.write(item, item.name)
     if not {"SOLVESTAT", "MODELSTAT"} <= statistics.keys():
         raise RuntimeError("GAMS did not return raw solve/model status codes")
     if statistics["SOLVESTAT"] == 7 or str(result.solver.termination_condition) == "licensingProblems":

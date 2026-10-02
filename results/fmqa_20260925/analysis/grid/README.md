@@ -13,4 +13,4 @@ See the [current dataset, timing qualifications and complete figure index](../..
 
 The timing plots measure full lookup-run completion, not first-hit time or original NLP costs. Initial-point and objective-table pairing is audited before creating the comparison CSV.
 
-For NLP-inclusive process-case results, use the [separate reconstruction](../nlp/README.md). Grid has no GDP/NLP cost to add.
+For process-case DFO times and separate NLP costs, use the [October 2 trace report](../../../dfo_trace_nlp_20261002/analysis/README.md). Grid has no GDP/NLP cost to add.
