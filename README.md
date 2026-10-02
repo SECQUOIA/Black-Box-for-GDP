@@ -415,6 +415,12 @@ FMQA traces. All **12,778 callbacks** and **1,779 visited coordinates** are
 accounted for, with **zero missing point measurements**. There are 1,076
 compatible historical point attempts and 703 new preprocessing measurements.
 Every rejected/infeasible point retains its positive measured evaluation cost.
+For the six visited CSTR30 coordinates with successful retries, the current
+analysis uses only the successful retry result and its measured time, excluding
+the initial failed attempt cost. Figures group all remaining no-solution outcomes together; detailed
+preprocessing and solver statuses remain in the data. Dynamic's 37 and Small
+Batch's 12 feasible lookup coordinates all match the accepted NLP results
+within the benchmark objective tolerance.
 DFO clocks and separately attached NLP costs appear in different columns and
 figure panels; the latter are fixed-path estimates, not measured online runtimes.
 Lookup/NLP outcome disagreements are flagged without changing the DFO results.

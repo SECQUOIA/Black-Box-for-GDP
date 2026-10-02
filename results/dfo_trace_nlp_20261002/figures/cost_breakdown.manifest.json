@@ -1,0 +1,147 @@
+{
+  "kind": "fixed_path_all_outcome_time_estimate",
+  "measured_online_runtime": false,
+  "formula": "recorded DFO runtime minus recorded lookup calls plus all linked point costs plus one reference Dynamic preparation per run",
+  "selected_runs": 156,
+  "all_target_failures_included": true,
+  "point_cost_policy": "Each callback uses one selected point measurement. For successful CSTR30 retries, use only the retry result and time; exclude the initial failed attempt cost. Repeated calls reuse the same measurement.",
+  "successful_retry_audit": {
+    "policy": "Use only the successful retry result and its measured evaluation time; exclude the initial failed attempt cost.",
+    "available_successful_retries": 7,
+    "visited_successful_retries": 6,
+    "applied": [
+      {
+        "case": "cstr",
+        "cstr_size": 30,
+        "point": [
+          5,
+          1
+        ],
+        "evaluation_s": 1.8747676881030202,
+        "source": "dantzig_cstr30_retry_20260922_153133_ld1g1zau/records/point_05_01.json",
+        "source_sha256": "f27567146735c0a83e6598f2abe41fe6d6b6410a4bc5aab7539d8e57e9bc242c",
+        "initialization": "mass_balance_zero_recycle",
+        "excluded_initial_source": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/cstr_30/records/point_000011.json"
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 30,
+        "point": [
+          5,
+          3
+        ],
+        "evaluation_s": 1.8906524130143225,
+        "source": "dantzig_cstr30_retry_20260922_153133_ld1g1zau/records/point_05_03.json",
+        "source_sha256": "b57233196e3200e82baecb7767a6d1c0cc73a41037c86e0423c681498a7d322d",
+        "initialization": "mass_balance_zero_recycle",
+        "excluded_initial_source": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/cstr_30/records/point_000013.json"
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 30,
+        "point": [
+          6,
+          2
+        ],
+        "evaluation_s": 1.8499835701659322,
+        "source": "dantzig_cstr30_retry_20260922_153133_ld1g1zau/records/point_06_02.json",
+        "source_sha256": "7dac734f88bf248cd940d16ba98bd27839271ffc080232ec6b1d3a24a1508d7d",
+        "initialization": "mass_balance_zero_recycle",
+        "excluded_initial_source": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/cstr_30/records/point_000017.json"
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 30,
+        "point": [
+          23,
+          2
+        ],
+        "evaluation_s": 1.8748231744393706,
+        "source": "dantzig_cstr30_retry_20260922_153133_ld1g1zau/records/point_23_02.json",
+        "source_sha256": "ce073c3284d62c7d95d7852997867439c820296d7c00fb0bba4fead0744d8d91",
+        "initialization": "mass_balance_zero_recycle",
+        "excluded_initial_source": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/cstr_30/records/point_000255.json"
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 30,
+        "point": [
+          26,
+          2
+        ],
+        "evaluation_s": 1.8503443179652095,
+        "source": "dantzig_cstr30_retry_20260922_153133_ld1g1zau/records/point_26_02.json",
+        "source_sha256": "7bb9c531d9fe7947ad7259adbc32f3df859c4283a55f98be15ec4f011eaf2c9b",
+        "initialization": "mass_balance_zero_recycle",
+        "excluded_initial_source": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/cstr_30/records/point_000327.json"
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 30,
+        "point": [
+          29,
+          3
+        ],
+        "evaluation_s": 1.8640018049627542,
+        "source": "dantzig_cstr30_retry_20260922_153133_ld1g1zau/records/point_29_03.json",
+        "source_sha256": "37f3ac67ac3e26089a23ea8134a8d8e6d3e47b78f0fea5a682989ca569478ed5",
+        "initialization": "mass_balance_zero_recycle",
+        "excluded_initial_source": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/cstr_30/records/point_000409.json"
+      }
+    ],
+    "source_directory": "results/gdp_point_timings_20260922",
+    "source_checksums": {
+      "attempts.jsonl": "386a4e2ae2cc0570c777b897c0ee01618ce7d6ffa67420044221c8e0b49e1a33",
+      "dynamic_preparation.json": "8c755147c21aca206e7ed3151226c8214504faff09f543f69cbdf64f466ca2f9",
+      "points.jsonl": "358bbdc93e63e72aedcbeb91c436212be5a3e9c90c0e0b3aa2f0df1c48292f4b",
+      "provenance.json": "cef1d7fd7413951ec592d30ba26076ab8125a901dbdd2a7a3d8979bc60457da9",
+      "sources/dantzig_cstr30_retry_20260922_153133_ld1g1zau/LICENSE": "1d34d50a6a4c138f091f62dc8428ad0177658a8a81758424683823673d48f813",
+      "sources/dantzig_cstr30_retry_20260922_153133_ld1g1zau/cstr30_retry.py": "d2db2fef052749fc39f0ca5d4f0639eb749f2af532584175acbe58cd2c3c2bc3",
+      "sources/dantzig_cstr30_retry_20260922_153133_ld1g1zau/gdp_models/__init__.py": "5ebb20b8f7249a66ace212cebabf47949e8f40d3a9ddea464b11a7eb55a47705",
+      "sources/dantzig_cstr30_retry_20260922_153133_ld1g1zau/gdp_models/_sources.py": "d5363100698e69c829918b850c0fb39481b64eb9c4e2d7c987bee3b628e2fd29",
+      "sources/dantzig_cstr30_retry_20260922_153133_ld1g1zau/gdp_models/batch.py": "01e82b9c62ac196be5fb9feab739e3b122b9a08babb5af7f546565f114227117",
+      "sources/dantzig_cstr30_retry_20260922_153133_ld1g1zau/gdp_models/domains.py": "bb2a9f2783fdf32f25d327c417521ecae73b2dc60fc6e579d8c0afe187493394",
+      "sources/dantzig_cstr30_retry_20260922_153133_ld1g1zau/gdp_models/evaluation.py": "88be8eaa7c84530b1861c5cc27a2cb24e459da7d5d617b843b384b35a42fb099",
+      "sources/dantzig_cstr30_retry_20260922_153133_ld1g1zau/gdp_models/models.py": "1257294f4b90ddf7ee0bfa3b23e3df576890433a103f49789e624499fe698396",
+      "sources/dantzig_cstr30_retry_20260922_153133_ld1g1zau/gdp_models/preflight.py": "f82c7da2fcde8f2e1d3175c3517747661f45d94938b89aac6ed1ccdb5e8f3dc9",
+      "sources/dantzig_cstr30_retry_20260922_153133_ld1g1zau/gdp_models/solvers.py": "6832d692177b2b9533606a2af3b32604e52553d74a975ea5f3da51c3a9cab3c6",
+      "sources/dantzig_cstr30_retry_20260922_153133_ld1g1zau/requirements-gdp.txt": "c59b628e0e07c2b9e86d4ee065a29ed0c211b419b4f99d1cea8d958100731bc8",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/LICENSE": "1d34d50a6a4c138f091f62dc8428ad0177658a8a81758424683823673d48f813",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/gdp_models/__init__.py": "5ebb20b8f7249a66ace212cebabf47949e8f40d3a9ddea464b11a7eb55a47705",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/gdp_models/__main__.py": "3637c973071961beeb01876a23eb3bbf172d2fe3a493cbbc9e0fd29d623e6dc4",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/gdp_models/_sources.py": "d5363100698e69c829918b850c0fb39481b64eb9c4e2d7c987bee3b628e2fd29",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/gdp_models/batch.py": "01e82b9c62ac196be5fb9feab739e3b122b9a08babb5af7f546565f114227117",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/gdp_models/dantzig.py": "9b7c1a77a556c46fa45540eb30d92c4056938a22c3b8dd545f4014946d6d0851",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/gdp_models/domains.py": "bb2a9f2783fdf32f25d327c417521ecae73b2dc60fc6e579d8c0afe187493394",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/gdp_models/evaluation.py": "88be8eaa7c84530b1861c5cc27a2cb24e459da7d5d617b843b384b35a42fb099",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/gdp_models/models.py": "1257294f4b90ddf7ee0bfa3b23e3df576890433a103f49789e624499fe698396",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/gdp_models/preflight.py": "f82c7da2fcde8f2e1d3175c3517747661f45d94938b89aac6ed1ccdb5e8f3dc9",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/gdp_models/solvers.py": "6832d692177b2b9533606a2af3b32604e52553d74a975ea5f3da51c3a9cab3c6",
+      "sources/dantzig_gdp_gams_20260922_050038_p4q8hy54/requirements-gdp.txt": "c59b628e0e07c2b9e86d4ee065a29ed0c211b419b4f99d1cea8d958100731bc8",
+      "summary.json": "fb8f6325d771ccd71056d6fb2f5e05902ec49681817d3770ac6877e10621570b"
+    }
+  },
+  "dynamic_preparation_policy": "One historical reference preparation per Dynamic run; a scenario assumption, not a new measured setup",
+  "dynamic_preparation_reference": {
+    "preparation_id": "9306cbf705cf48a19806eeadd48107e2",
+    "created_utc": "2026-09-22T05:00:25.498273+00:00",
+    "scope": "once_per_process",
+    "model_build_wall_s": 0.0647380743175745,
+    "dae_wall_s": 0.044268236961215734,
+    "total_preparation_wall_s": 0.10900631127879024,
+    "included_in_point_total_wall_s": false
+  },
+  "sources": {
+    "results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv": "9d6f11365ff775cb6905be1f57d44981ac2474e8deda7822993b3123f4bfaf53",
+    "results/dfo_trace_nlp_20261002/analysis/evaluation_timings.csv": "271f00c684698e2c1ef74f3e0d27c2918a0139795fe4d37de6a934a815053d89",
+    "results/dfo_trace_nlp_20261002/analysis/manifest.json": "0c2264ce6cdbd6dea33cc84c5ac6c964888e8ea95ad8d4eb424de36d97c4ea37",
+    "results/dfo_trace_nlp_20261002/analysis/dynamic_preparations.json": "01e12be1c21c14df536ac965d62850887ff15c0700d8cba35145270875000500"
+  },
+  "script_sha256": "8169f166914d87004e6470492bb2616131e378779d97cbc5350214abea5abd0c",
+  "artifacts": {
+    "cost_breakdown.png": "5b6ed3a0f63608d03f4d9aad575dddc77f501011c4098d2ce0b5fc9e6fd3261d",
+    "cost_breakdown.pdf": "b8553fb19f7315f48d11600fb49b3f0855a10571d6aa1c1f6d220e36e1ed6c2a",
+    "cost_breakdown_runs.csv": "2d5616574c5f41482ed5dd4ea041e42a5cc5ae76a3cf16c90558593de8284cc5",
+    "cost_breakdown_means.csv": "19aa1de20bccda7a8447a768884f0d3812a997d2b16475c936496241f5bf7b19"
+  }
+}
