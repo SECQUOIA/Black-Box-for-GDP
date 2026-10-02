@@ -1,5 +1,10 @@
 # GDPopt rerun on Dantzig: BARON + HiGHS
 
+The final October 1 archive contains all 18 completed RIC/GLOA jobs; the
+separate CPU 6 archive contains nine LOA jobs. Both are verified in the
+[current audit](../results/gdp_comparison_current/analysis/README.md).
+The original process survived the SSH disconnect; no six-job restart was needed.
+
 This rerun covers all nine existing instances: CSTR5/10/15/20/25/30,
 Column 17, nine-stage Dynamic, and Small Batch. Each runs RIC and GLOA,
 for **18 sequential jobs at 1,800 seconds each** (up to about nine hours,
@@ -118,8 +123,9 @@ independently feasible incumbents for both CSTR5 and Small Batch:
 These are local wiring checks, not Dantzig benchmark results. In particular,
 CSTR5 GLOA still returns a worse solution than RIC despite an `optimal` label;
 changing the subsolvers has not resolved every GDPopt bound/termination issue.
-Do not treat that label as a global certificate. The Dantzig run still needs
-its own GAMS 52.2 preflight and all 18 measured jobs.
+Do not treat that label as a global certificate. The returned October 1
+Dantzig final archive passed its GAMS 52.2 preflight and contains all 18
+completed jobs, including time-limited incumbents. See the current audit above.
 
 Sources: [GAMS 52 HiGHS](https://www.gams.com/52/docs/S_HIGHS.html),
 [GAMS 52 BARON](https://www.gams.com/52/docs/S_BARON.html),

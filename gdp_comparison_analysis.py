@@ -18,6 +18,29 @@ METHODS = ("ric", "gloa", "bigm", "hull")
 INSTANCES = tuple(f"cstr_{n}" for n in (5, 10, 15, 20, 25, 30)) + ("column", "dynamic", "small_batch")
 
 
+def recheck_saved_solution(template, job, row):
+    """Evaluate the archived vector in the original GDP without solving."""
+    solution = read_json(Path(job) / "solution.json")
+    model = template.model.clone()
+    logic = list(model.component_data_objects(pyo.LogicalConstraint, active=True, descend_into=DESCEND))
+    pyo.TransformationFactory("core.logical_to_linear").apply_to(model)
+    for constraint in logic:
+        constraint.activate()
+    for var in model.component_data_objects(pyo.Var, descend_into=DESCEND):
+        if not var.fixed:
+            var.set_value(None)
+    for name, value in solution["variables"].items():
+        var = model.find_component(name)
+        assert var is not None, name
+        var.set_value(value, skip_validation=True)
+    update_boolean_vars_from_binary(model, integer_tolerance=1e-5)
+    checked = validate_original(model)
+    assert checked["has_feasible_solution"], (row["instance_id"], row["method"], checked)
+    assert math.isclose(checked["candidate_objective"], row["objective"], rel_tol=1e-12, abs_tol=1e-9)
+    assert math.isclose(solution["objective"], row["objective"], rel_tol=1e-12, abs_tol=1e-9)
+    return {"instance_id": row["instance_id"], "method": row["method"], **checked}
+
+
 def audit(directory, output):
     directory, output = Path(directory), Path(output)
     output.mkdir(parents=True, exist_ok=True)
@@ -47,25 +70,7 @@ def audit(directory, output):
             assert row["threads"] == 1 and row["time_limit_s"] == run["config"]["time_limit"]
             assert row["status"] != "running"
             if row["has_feasible_solution"]:
-                solution = read_json(job / "solution.json")
-                model = template.model.clone()
-                logic = list(model.component_data_objects(pyo.LogicalConstraint, active=True, descend_into=DESCEND))
-                pyo.TransformationFactory("core.logical_to_linear").apply_to(model)
-                for constraint in logic:
-                    constraint.activate()
-                for var in model.component_data_objects(pyo.Var, descend_into=DESCEND):
-                    if not var.fixed:
-                        var.set_value(None)
-                for name, value in solution["variables"].items():
-                    var = model.find_component(name)
-                    assert var is not None, name
-                    var.set_value(value, skip_validation=True)
-                update_boolean_vars_from_binary(model, integer_tolerance=1e-5)
-                checked = validate_original(model)
-                assert checked["has_feasible_solution"], (instance, method, checked)
-                assert math.isclose(checked["candidate_objective"], row["objective"], rel_tol=1e-12, abs_tol=1e-9)
-                assert math.isclose(solution["objective"], row["objective"], rel_tol=1e-12, abs_tol=1e-9)
-                rechecks.append({"instance_id": instance, "method": method, **checked})
+                rechecks.append(recheck_saved_solution(template, job, row))
             call_path = job / "solver_calls.jsonl"
             entries = [json.loads(line) for line in call_path.read_text().splitlines()] if call_path.exists() else []
             assert len(entries) == row.get("solver_calls", len(entries))

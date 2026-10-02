@@ -38,9 +38,25 @@
   "original_rows_without_coordinate_traces": 417,
   "complete_fmqa_nlp_cost_estimates": 89,
   "cost_inventory_sha256": "76ad4f0ed80441c49a2b6dfb9bf9d555cc5e459a2c4867f1840761eb674adce9",
+  "gdp_completed_baseline_rows": 45,
+  "gdp_source_directory": "results/gdp_comparison_current",
+  "gdp_sources": [
+    [
+      "results/gdp_comparison_20260925/raw",
+      "2026-09-25T17:20:20.457694+00:00"
+    ],
+    [
+      "results/gdp_comparison_20261001/raw",
+      "2026-10-01T17:52:49.020069+00:00"
+    ],
+    [
+      "results/gdp_comparison_loa_20261001/raw",
+      "2026-10-01T20:48:01.619285+00:00"
+    ]
+  ],
   "analysis_source_sha256": {
-    "dantzig_timing_analysis.py": "0cec3ebe81fa9684385fe34f17b914100b345fa6248d9b0fb16e61918b649b01",
-    "nlp_cost_analysis.py": "e7d32a894bf860462006e31508a10b68dc83e540f1f47ec7c9ab4f436e783357"
+    "dantzig_timing_analysis.py": "04bd2ea2a7c954d64f23f5979bb632e20b32a18a095f13385afcb14900a8e147",
+    "nlp_cost_analysis.py": "746b7cabda00b25de6793ebc077d5b966f610934b9856ab492d045deb5077627"
   },
   "comparison_time": "Original archived wall_time_s, including lookup calls; no added NLP costs",
   "first_hit_comparison_available": false,

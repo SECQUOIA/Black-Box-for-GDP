@@ -20,7 +20,7 @@ from .models import MODELS, _initialize, build_gdp, dynamic_template
 from .solvers import read_gams_statistics
 
 
-METHODS = ("ric", "gloa", "bigm", "hull")
+METHODS = ("ric", "gloa", "loa", "bigm", "hull")
 CASES = ("cstr", "column", "dynamic", "small_batch")
 SOLVER_NAME = "_rbfopt_comparison_gams"
 DESCEND = (pyo.Block, Disjunct)
@@ -44,7 +44,7 @@ class IncompleteSubproblem(RuntimeError):
 def solver_policy(config, method):
     baron = {"baron_lp_subsolver": config.get("baron_lp_solver", "cplex"),
              "baron_nlp_subsolver": "ipopt", "warmstart": False}
-    if method in {"ric", "gloa"}:
+    if method in {"ric", "gloa", "loa"}:
         policy = {"nlp": config.get("nlp_solver", "ipopt"),
                   "mip": config.get("mip_solver", "cplex")}
         if policy["nlp"] == "baron":
@@ -354,10 +354,12 @@ def solve_method(template, method, directory, config, deadline):
               "global_bound_valid": method in {"bigm", "hull"},
               "solver_policy": {**policy, **({"options": list(CONTEXT.baron_options)}
                                   if "baron" in policy.values() else {})},
-              "certificate_note": "Local IPOPT subproblems: GDPopt bounds/termination do not certify global optimality."
+              "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with BARON NLP subproblems."
+                                  if method == "loa" else
+                                  "Local IPOPT subproblems: GDPopt bounds/termination do not certify global optimality."
                                   if policy.get("nlp") == "ipopt" else
                                   "BARON subproblems: GDPopt bounds and global certificate require a separate audit."
-                                  if method in {"ric", "gloa"} else
+                                  if method in {"ric", "gloa", "loa"} else
                                   "Certificate requires BARON optimal termination and original GDP feasibility."}
     report_path = directory / "result.json"
     save_json(report_path, report)

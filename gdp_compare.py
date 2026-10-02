@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parent
 MCPP_COMMIT = "c8ae9800d02b09bee0012aed593de92c9cf10fa7"
 KIND = "full_gdp_method_comparison"
 METHODS = ("ric", "gloa", "bigm", "hull")
+SUPPORTED_METHODS = (*METHODS, "loa")
 CASES = ("cstr", "column", "dynamic", "small_batch")
 CSTR_SIZES = (5, 10, 15, 20, 25, 30)
 THREAD_ENV = {name: "1" for name in (
@@ -80,6 +81,8 @@ def source_files():
     return [ROOT / "gdp_compare.py", ROOT / "cpu_affinity.py", *sorted((ROOT / "gdp_models").glob("*.py")),
             ROOT / "requirements-gdp.txt", ROOT / "requirements-gdp-comparison.txt",
             ROOT / "docs/gdp_comparison.md", ROOT / "docs/gdpopt_baron_highs.md",
+            ROOT / "docs/gdpopt_loa_baron_highs.md", ROOT / "run_gdpopt_loa_baron_highs_dantzig.sh",
+            ROOT / "docs/gdpopt_followup.md", ROOT / "run_gdpopt_followup_dantzig.sh",
             ROOT / "docs/dantzig_cpu_rerun.md", ROOT / "run_gdpopt_baron_highs_dantzig.sh", ROOT / "LICENSE",
             *(p for p in (ROOT / "run_gdp_comparison_dantzig.sh",) if p.is_file())]
 
@@ -132,7 +135,7 @@ def check(config, directory):
                 "expected_source_commit": MCPP_COMMIT}
     policy = impl.solver_policy(config, "ric")
     solvers = (["baron_nlp" if policy["nlp"] == "baron" else "ipopt", policy["mip"]]
-               if set(config["methods"]) & {"ric", "gloa"} else [])
+               if set(config["methods"]) & {"ric", "gloa", "loa"} else [])
     if set(config["methods"]) & {"bigm", "hull"}:
         solvers.append("baron")
     solver_checks = impl.smoke_solvers(config["executable"], directory / "solver_checks", solvers, config=config)
@@ -308,7 +311,8 @@ def main():
     parser.add_argument("--cases", default=",".join(CASES))
     parser.add_argument("--cstr-sizes", "--cstr-grid-sizes", default=",".join(map(str, CSTR_SIZES)),
                         help="CSTR reactor counts, default: 5,10,15,20,25,30")
-    parser.add_argument("--methods", default=",".join(METHODS))
+    parser.add_argument("--methods", default=",".join(METHODS),
+                        help="Comma-separated ric,gloa,loa,bigm,hull; LOA is opt-in")
     parser.add_argument("--time-limit", type=int, default=1800, help="Total seconds per case/method worker")
     parser.add_argument("--cpu", type=int, help="Linux logical CPU ID; default: first allowed CPU")
     parser.add_argument("--relative-gap", type=float, default=1e-5)
@@ -337,7 +341,7 @@ def main():
     if any(size <= 0 for size in cstr_sizes) or len(set(cstr_sizes)) != len(cstr_sizes):
         parser.error("CSTR sizes must be distinct positive integers")
     if (not set(cases) <= set(CASES) or len(set(cases)) != len(cases) or
-            not set(methods) <= set(METHODS) or len(set(methods)) != len(methods)):
+            not set(methods) <= set(SUPPORTED_METHODS) or len(set(methods)) != len(methods)):
         parser.error("Choose distinct supported cases/methods")
     try:
         if args.mode == "setup":

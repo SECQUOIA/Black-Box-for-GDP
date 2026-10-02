@@ -1,9 +1,14 @@
 # Full GDP comparison on Dantzig
 
-The [current results and audit](../results/gdp_comparison_20260925/analysis/README.md)
-use the September 25 CPU 2 rerun. All 36 saved solutions passed an independent
-original-GDP feasibility check. The previous CPU-overlap dataset was removed.
-Run `python gdp_comparison_analysis.py` to regenerate the audit without solving.
+The [current results and audit](../results/gdp_comparison_current/analysis/README.md)
+include 27 completed October 1 BARON/HiGHS GDPopt jobs (RIC, GLOA and LOA)
+and 18 September 25 Big-M/Hull jobs. All 45 selected saved solutions pass
+original-GDP feasibility checks. Run
+`python gdp_current_analysis.py` to recheck these saved solutions without solving.
+The [LOA bundle](gdpopt_loa_baron_highs.md) runs nine LOA jobs on CPU 6.
+The earlier six-job follow-up is obsolete: the original RIC/GLOA run completed.
+The September 25 IPOPT comparison remains historical;
+`python gdp_comparison_analysis.py` reproduces its original 36-job audit.
 
 For the 18-job RIC/GLOA rerun with BARON NLP subproblems and HiGHS MILP
 masters, use the [Dantzig BARON + HiGHS guide](gdpopt_baron_highs.md) and

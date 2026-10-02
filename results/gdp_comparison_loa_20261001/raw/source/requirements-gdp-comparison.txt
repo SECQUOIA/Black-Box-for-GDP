@@ -1,0 +1,3 @@
+-r requirements-gdp.txt
+# Build Pyomo's MC++ interface for GDPopt GLOA; a C++ compiler is also required.
+setuptools>=65

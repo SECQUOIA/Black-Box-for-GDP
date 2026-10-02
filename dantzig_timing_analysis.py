@@ -136,7 +136,7 @@ def build(args):
     write_csv(output / 'run_costs.csv', rows)
     write_csv(output / 'fmqa_nlp_run_costs.csv', fmqa_costs)
     write_csv(output / 'fmqa_nlp_evaluation_costs.csv', evaluations)
-    baseline_comparison(args.gdp_results, output, targets)
+    gdp_records = baseline_comparison(args.gdp_results, output, targets)
 
     import matplotlib
     matplotlib.use('Agg')
@@ -162,6 +162,9 @@ def build(args):
                 'original_rows_without_coordinate_traces': sum(r['method'] != 'FMQA-SA' for r in rows),
                 'complete_fmqa_nlp_cost_estimates': sum(r['strict_total_s'] is not None for r in fmqa_costs),
                 'cost_inventory_sha256': sha(args.costs / 'SHA256SUMS'),
+                'gdp_completed_baseline_rows': len(gdp_records),
+                'gdp_source_directory': str(args.gdp_results.relative_to(ROOT)) if args.gdp_results.is_relative_to(ROOT) else str(args.gdp_results),
+                'gdp_sources': sorted({(r['source_directory'], r['source_created_utc']) for r in gdp_records}),
                 'analysis_source_sha256': {p: sha(ROOT / p) for p in ('dantzig_timing_analysis.py', 'nlp_cost_analysis.py')},
                 'comparison_time': 'Original archived wall_time_s, including lookup calls; no added NLP costs',
                 'first_hit_comparison_available': False,
@@ -197,7 +200,11 @@ def build(args):
         'NLP evaluations charged, infeasible lookups zero by the stated accounting assumption, '
         'earlier failed attempts excluded, Dynamic preparation once. Missing CSTR5–25 costs '
         'remain missing. These estimates are not compared with NLP-exclusive DFO clocks.\n\n'
-        '`gdp_baseline_comparison.csv` retains measured full-GDP results separately. A fair '
+        '`gdp_baseline_comparison.csv` retains measured full-GDP results separately, using the '
+        'completed October 1 BARON/HiGHS RIC/GLOA/LOA jobs and September 25 Big-M/Hull: '
+        '45 completed jobs across five methods and nine models. Absolute target matching and '
+        'at-or-better target attainment are separate columns. See the '
+        '[current GDP audit](../../../gdp_comparison_current/analysis/README.md). A fair '
         'NLP-inclusive four-method comparison needs complete Dantzig coordinate traces for '
         'the other methods. The original lookup timings are not online NLP solve timings.\n\n'
         '## Reproduce\n\n```bash\n'
@@ -205,6 +212,7 @@ def build(args):
         'This reads archived results only; no optimizer or NLP is rerun.\n')
     # Inventory the published tables so later edits cannot silently mix sources.
     write_json(output / 'artifact_checksums.json', {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-               for p in sorted(output.iterdir()) if p.is_file() and p.suffix in {'.csv', '.json', '.md'}})
+               for p in sorted(output.iterdir()) if p.is_file() and p.name != 'artifact_checksums.json'
+               and p.suffix in {'.csv', '.json', '.md', '.png', '.pdf'}})
     print(json.dumps({k: v for k, v in overview.items() if k not in {'sources', 'analysis_source_sha256'}}, indent=2))
     return overview

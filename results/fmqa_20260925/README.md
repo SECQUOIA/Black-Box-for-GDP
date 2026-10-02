@@ -9,7 +9,7 @@ Current FMQA data replace the contaminated September 22 runs. The old FMQA raw d
 | QHDOpt Grid | 1,050 / 1,050 | 0 / 0 / 48 | [benchmark.csv](grid/benchmark.csv) | [Grid archive](../archives/dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip) |
 | GDP process cases | 139 / 139 | 4 / 4 / 52 | [process_case_studies.csv](case/process_case_studies.csv) | [Case archive](../archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip) |
 
-Both ran on Dantzig with one-thread settings. The two FMQA jobs and the September 25 full-GDP rerun used distinct physical cores (0, 4 and 2 respectively). CPU affinity is not an exclusive reservation; no claim of an otherwise idle server is made. The [GDPopt/BARON rerun](../gdp_comparison_20260925/analysis/README.md) now supplies all full-GDP baselines below. Its 36 saved solutions passed independent original-GDP feasibility checks; the contaminated September 22 full-GDP files were removed.
+Both ran on Dantzig with one-thread settings. The two FMQA jobs and the September 25 full-GDP rerun used distinct physical cores (0, 4 and 2 respectively). CPU affinity is not an exclusive reservation; no claim of an otherwise idle server is made. The [current GDP audit](../gdp_comparison_current/analysis/README.md) includes all 27 completed October 1 BARON/HiGHS GDPopt jobs (RIC/GLOA on CPU 2, LOA on CPU 6) and 18 September 25 Big-M/Hull jobs. All 45 selected saved solutions passed independent original-GDP feasibility checks.
 
 All 4,964 internal checksums, source snapshots, objective traces, initial designs and CSV records passed validation. All runs completed their evaluation budgets with no worker errors. The plans, hyperparameters, evaluated coordinates and incumbent sequences match the previous experiment; completion and callback clocks are new. See [publication.json](publication.json) and [validation.json](validation.json).
 
@@ -34,13 +34,13 @@ The evaluation-based conclusions are unchanged. Timing profiles, time/work plots
 - **October 1 correction:** withdraw the mixed Mac/Dantzig NLP totals, first-hit profiles, CSTR30 cost-transfer profiles and DFO-versus-GDP completion/quality chart.
 - The original DSDA/RBFOpt/BAM archives have completion times but lack complete ordered evaluation coordinates and first-hit timestamps. Their NLP-inclusive totals remain missing; they are not filled using Mac paths.
 - FMQA's original Dantzig traces support separate NLP-cost estimates. Successful evaluations are charged, failed attempts excluded, infeasible lookups cost zero by the stated assumption, and Dynamic preparation is added once. Exact costs for CSTR5–25 remain missing.
-- Full-GDP completion times remain available separately in the [GDP audit](../gdp_comparison_20260925/analysis/README.md). Lookup-only runtimes are not compared with full-GDP runtimes as an end-to-end speedup.
+- Full-GDP completion times remain available separately in the [current GDP audit](../gdp_comparison_current/analysis/README.md). Lookup-only runtimes are not compared with full-GDP runtimes as an end-to-end speedup.
 
 ## Figure index
 
-The figure index below lists the current, supported comparisons. PNG/PDF files are excluded from Git by user instruction; raw data, comparison tables, code and manifests are committed. Local links below open the images; on a fresh checkout regenerate them first.
+The figure index below lists the current, supported comparisons. At the user's latest publication request, the verified PNG/PDF figures are committed together with raw data, comparison tables, code and manifests.
 
-| Figure | Local PNG |
+| Figure | Published PNG |
 |---|---|
 | Grid: first-hit evaluation-count performance profiles | [Open](analysis/grid/evaluation_performance_profiles.png) |
 | Grid: convergence by evaluation count | [Open](analysis/grid/convergence_curves.png) |
@@ -57,6 +57,7 @@ The figure index below lists the current, supported comparisons. PNG/PDF files a
 | GDP cases: corrected Dantzig absolute completion times | [Open](analysis/nlp/completion_time_profiles.png) |
 | GDP cases: original Dantzig mean lookup runtimes (replaces cost breakdown) | [Open](analysis/nlp/cost_breakdown.png) |
 | GDP cases: corrected Dantzig time/work comparison | [Open](analysis/nlp/time_work_tradeoff.png) |
+| Full GDP: RIC/GLOA/LOA/Big-M/Hull objectives and completion times, 45 completed jobs | [Open](../gdp_comparison_current/analysis/gdp_objectives_and_times.png) |
 
 ## Reproduce
 
@@ -68,7 +69,7 @@ python fmqa_compare.py --dataset case --fmqa-results results/archives/dantzig_fm
 python nlp_cost_analysis.py --output results/fmqa_rebuilt/analysis/nlp
 ```
 
-The timing command verifies the original Dantzig and BAM archives, reads the September 25 FMQA archive, and retains the curated point costs and tracked full-GDP results under `results/gdp_comparison_20260925/raw/`. Original ZIPs are available under `results/archives/`. Run `python gdp_comparison_analysis.py` to independently recheck the full-GDP saved solutions and regenerate its summary table without solving.
+The timing command verifies the original Dantzig and BAM archives, reads the September 25 FMQA archive, and retains the curated point costs. Full-GDP sources are selected explicitly in `results/gdp_comparison_current/selection.json`. Original archives are available under `results/archives/`. Run `python gdp_current_analysis.py` to independently recheck the selected full-GDP saved solutions and regenerate the current table without solving.
 
 ```bash
 (cd results/fmqa_20260925/case && shasum -a 256 -c SHA256SUMS)
