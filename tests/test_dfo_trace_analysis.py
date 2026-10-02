@@ -46,6 +46,32 @@ def test_attached_costs_count_rejections_and_repeats_without_changing_dfo(audite
     assert all("estimated_total_s" not in r for r in rows)
 
 
+def test_successful_retries_use_only_retry_cost_without_changing_lookup_runs(audited):
+    (_, traces, original, old_rows, _, _, _), _ = audited
+    costs, retry_audit = analysis.successful_retry_costs(original)
+    assert retry_audit["available_successful_retries"] == 7
+    assert retry_audit["visited_successful_retries"] == 6
+    key = ("cstr", 30, (5, 1))
+    assert not original[key]["record"]["accepted"]
+    assert costs[key]["record"]["accepted"]
+    assert costs[key]["cost_s"] == pytest.approx(1.8747676881030202)
+    changed = {k for k in costs if costs[k] != original[k]}
+    assert changed == {("cstr", 30, p) for p in ((5, 1), (5, 3), (6, 2), (23, 2), (26, 2), (29, 3))}
+    rows, ledger = analysis.timing_tables(traces, costs)
+    rows, ledger = analysis.attach_costs(traces, costs, rows, ledger)
+    assert [(r["dfo_wall_time_s"], r["recorded_best_point"], r["recorded_best_value"]) for r in rows] == [
+        (r["dfo_wall_time_s"], r["recorded_best_point"], r["recorded_best_value"]) for r in old_rows]
+    repaired = [e for e in ledger if e["nlp_measurement_source_kind"] == "historical_successful_retry"]
+    assert repaired and all(e["nlp_accepted"] and e["accepted_objective_matches_lookup"] for e in repaired)
+    for event in repaired:
+        record = costs[analysis.point_key(event["case"], event["cstr_size"], event["point"])]["record"]
+        assert event["nlp_evaluation_wall_s"] == record["total_wall_s"]
+        assert event["nlp_solve_wall_s"] == record["solve_wall_s"]
+    comparison = analysis.lookup_comparison(costs)
+    assert Counter(r["case"] for r in comparison) == {"dynamic": 37, "small_batch": 12}
+    assert all(r["matches_tolerance"] for r in comparison)
+
+
 def test_changed_internal_file_is_rejected_even_with_matching_outer_digest(tmp_path):
     path = tmp_path / "tampered.zip"
     with zipfile.ZipFile(path, "w") as archive:

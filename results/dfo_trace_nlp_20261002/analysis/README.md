@@ -8,8 +8,9 @@ The original DSDA, RBFOpt and BAM lookup searches completed 139 runs each on Dan
 
 - [Run results](dfo_runs.csv): actual DFO clocks, final solutions, target attainment and separate attached NLP cost sums.
 - [Ordered callback ledger](evaluation_timings.csv): every visited coordinate, DFO timestamps, point duration, outcome and source checksum.
-- [Unique point measurements](point_timings.csv): one original attempt per exact model/size/coordinate.
+- [Unique point measurements](point_timings.csv): one selected result and measured cost per exact model/size/coordinate.
 - [Comparison by model and budget](comparison_summary.csv) and [outcome totals](point_outcome_summary.csv).
+- [Dynamic and Small Batch lookup/NLP comparison](lookup_nlp_comparison.csv): all 37 and 12 feasible coordinates, respectively.
 - [Main comparison figure](runtime_and_nlp_costs.png) ([PDF](runtime_and_nlp_costs.pdf)); [all six CSTR sizes](cstr_sizes.png) ([PDF](cstr_sizes.pdf)).
 - [Audit and provenance](manifest.json), [Dynamic preparations](dynamic_preparations.json), and [new measurement collection overhead](measurement_collection.csv).
 
@@ -17,14 +18,13 @@ The original DSDA, RBFOpt and BAM lookup searches completed 139 runs each on Dan
 
 The point timer (`nlp_evaluation_wall_s`) includes point-specific model setup, preprocessing, the solver invocation when required, and validation. `nlp_solve_wall_s` is already inside that duration and is never added twice. Preprocessing can reject an integer configuration before an NLP solver is called: its solver time is zero, but its actual evaluation time is positive and is included. Solver-reported infeasibility is an IPOPT outcome, not a global infeasibility proof.
 
-There are 1,076 compatible historical original measurements from September 22 and 703 new October 2 measurements. All 703 new points were rejected during preprocessing; none required a new solver invocation. The historical measurements include 592 solver-reported infeasible points and three other rejected attempts. Those three returned feasible candidates but solver warning/termination status failed the original acceptance policy; they are not relabelled infeasible. Successful retries with changed initialization do not replace the original attempt.
+There are 1,076 compatible historical original measurements from September 22 and 703 new October 2 measurements. All 703 new points were rejected during preprocessing; none required a new solver invocation. The historical measurements include 592 solver-reported infeasible points and three other rejected attempts. Those three returned feasible candidates but solver warning/termination status failed the original acceptance policy; they are not relabelled infeasible. The seven recorded CSTR30 retries found accepted solutions; six of these coordinates occur in the recorded DFO paths. For those six points, use only the successful retry result and its measured time. The initial failed attempt is excluded from the comparison cost and retained in the raw records. The seventh repaired point, (6, 4), is not visited and contributes no callback cost. Retry initialization is mass_balance_zero_recycle. Other points retain their selected measured costs.
 
 | Point outcome | Unique coordinates | Total measured evaluation seconds | Minimum seconds | Maximum seconds |
 |---|---:|---:|---:|---:|
-| accepted | 456 | 789.994013 | 0.760220 | 43.140607 |
+| accepted | 462 | 801.198586 | 0.760220 | 43.140607 |
 | preprocessing infeasible | 728 | 293.049476 | 0.101831 | 0.824788 |
-| solver reported infeasible | 592 | 1135.020957 | 0.832127 | 45.265725 |
-| other rejected | 3 | 3.802578 | 1.136397 | 1.465952 |
+| solver reported infeasible | 589 | 1131.481849 | 0.832127 | 45.265725 |
 
 These totals count each distinct measured coordinate once. Run-level attached sums count every actual callback, including repeats, against its separate point measurement. They are fixed-path cost estimates, not 12,778 independent NLP solves. The 384 repeated callbacks remain visible. Missing times are never zero-filled.
 
@@ -36,11 +36,13 @@ Dynamic template/discretization preparation is recorded separately because it is
 
 NLP acceptance/objective differences from the frozen lookup are flagged in the callback ledger. These observations do not change the recorded DFO solution or its target attainment. The full GDPopt RIC/GLOA/LOA and Big-M/Hull results remain [separate](../../gdp_comparison_current/analysis/README.md); no direct online speed comparison is inferred.
 
-The audit found 589 distinct CSTR coordinates (2,651 callbacks) where the lookup is feasible but the original IPOPT attempt was not accepted. Among accepted attempts, 26 CSTR coordinates (188 callbacks) differ from the lookup objective beyond the benchmark tolerance `1e-5 * max(1, abs(lookup))`. The cost coverage audit therefore does not certify reproduction of every lookup objective by IPOPT. These measured attempts remain in the timing totals, with their actual outcomes.
+The audit found 583 distinct CSTR coordinates (2,631 callbacks) where the lookup is feasible but the available IPOPT result was not accepted. Among accepted attempts, 26 CSTR coordinates (188 callbacks) differ from the lookup objective beyond the benchmark tolerance `1e-5 * max(1, abs(lookup))`. The cost coverage audit therefore does not certify reproduction of every lookup objective by IPOPT. These measured attempts remain in the timing totals, with their actual outcomes.
+
+Dynamic's DFO reference is the fixed dictionary in `case_studies/dynamic_case.py`, not a CSV file. All 37 reference coordinates have accepted NLP solutions; the maximum absolute objective difference is 7.7046e-8 at (5, 8). Both select (1, 4) as best. Small Batch uses `compl_enum_small_batch_baron.csv`: all 12 feasible coordinates have accepted NLP solutions, with maximum absolute difference 6.7722e-7 at (3, 3, 3). Both select (2, 2, 1) as best. All 49 comparisons pass the relative tolerance above. No new NLP solves were run for this comparison.
 
 ## Comparison
 
-All runs, including target failures, enter the means. Seconds are rounded here; CSVs retain full precision. Unaccepted NLP cost includes preprocessing rejection, solver-reported infeasibility and other rejected attempts.
+All runs, including target failures, enter the means. Seconds are rounded here; CSVs retain full precision. Figures combine preprocessing rejection, solver-reported infeasibility and other rejected attempts into one no-accepted-solution category. This is a recorded outcome, not a claim of mathematical infeasibility. Detailed diagnostic statuses remain in the CSVs. Successful-retry points use the retry cost alone. Lookup data alone determine search paths and target attainment.
 
 | Model | Budget | Method | Target hits / runs | Mean DFO s | Mean attached NLP s | Of which unaccepted s |
 |---|---:|---|---:|---:|---:|---:|
@@ -64,10 +66,10 @@ All runs, including target failures, enter the means. Seconds are rounded here; 
 | CSTR 25 | 36 | DSDA | 3 / 10 | 0.001084 | 46.303353 | 45.386557 |
 | CSTR 25 | 36 | FMQA-SA | 1 / 10 | 2.401297 | 49.778061 | 48.650562 |
 | CSTR 25 | 36 | RBFOpt | 10 / 10 | 35.370289 | 64.440987 | 61.733008 |
-| CSTR 30 | 43 | BAM 5.0.0 | 2 / 10 | 2.379396 | 31.276630 | 6.408946 |
-| CSTR 30 | 43 | DSDA | 5 / 10 | 0.001279 | 50.647780 | 1.238739 |
-| CSTR 30 | 43 | FMQA-SA | 2 / 10 | 2.910601 | 61.792760 | 4.473042 |
-| CSTR 30 | 43 | RBFOpt | 10 / 10 | 55.786598 | 41.876105 | 4.305716 |
+| CSTR 30 | 43 | BAM 5.0.0 | 2 / 10 | 2.379396 | 31.491868 | 6.061754 |
+| CSTR 30 | 43 | DSDA | 5 / 10 | 0.001279 | 51.130458 | 0.418987 |
+| CSTR 30 | 43 | FMQA-SA | 2 / 10 | 2.910601 | 62.146987 | 3.702962 |
+| CSTR 30 | 43 | RBFOpt | 10 / 10 | 55.786598 | 42.126982 | 3.812683 |
 | CSTR 5 | 8 | BAM 5.0.0 | 10 / 10 | 0.191965 | 24.609647 | 23.777158 |
 | CSTR 5 | 8 | DSDA | 3 / 10 | 0.000425 | 21.724553 | 21.283817 |
 | CSTR 5 | 8 | FMQA-SA | 2 / 10 | 0.327215 | 19.678442 | 19.154457 |

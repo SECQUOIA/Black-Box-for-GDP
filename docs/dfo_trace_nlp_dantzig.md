@@ -26,7 +26,7 @@ The runner also saves `dfo_time_summary.csv`, an English `analysis/README.md`, a
 - `nlp_solve_wall_s` is a subset of evaluation time, not an additional cost.
 - A preprocessing rejection can have zero solver time and a positive measured evaluation time. The evaluation time is included.
 - Repeated callback coordinates remain in the ledger and link to the same separately measured attempt.
-- A successful retry with different initialization does not replace the original attempt. Missing costs remain blank.
+- For CSTR30 points with a successful retry, the current report uses only that retry's result and measured time. Initial failed attempts remain in the raw archive but are excluded from these points' comparison costs. Missing costs remain blank.
 - Dynamic template preparation is recorded separately in `dynamic_preparations.json`.
 - Premeasurement warmup/model checks and process overhead are preserved separately from the point timer.
 - A local solver's infeasibility report is not a global infeasibility certificate. Other rejected/failed attempts remain distinct.

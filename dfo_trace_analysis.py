@@ -29,6 +29,7 @@ ARCHIVE = ROOT / "results/archives/dantzig_dfo_trace_nlp_20261002_012137_ttd0c14
 ARCHIVE_SHA = "c1c8939a96ed9fe945074e71c7aa7043f251e6e26024866e6f45a00ed8914be8"
 OUTPUT = ROOT / "results/dfo_trace_nlp_20261002/analysis"
 OUTCOMES = ("accepted", "preprocessing_infeasible", "solver_reported_infeasible", "other_rejected")
+POINT_DATA = ROOT / "results/gdp_point_timings_20260922"
 
 
 @contextmanager
@@ -190,8 +191,51 @@ def audit(directory):
     return run, traces, costs, rows, ledger, collection, expected
 
 
+def successful_retry_costs(costs):
+    """Use only the successful CSTR30 retry's result and measured cost."""
+    from scripts.merge_gdp_timings import select_points
+    checks = {}
+    for line in (POINT_DATA / "SHA256SUMS").read_text().splitlines():
+        digest, name = line.split("  ", 1)
+        if sha(POINT_DATA / name) != digest:
+            raise ValueError(f"Published point checksum mismatch: {name}")
+        checks[name] = digest
+    attempts = jsonl(POINT_DATA / "attempts.jsonl")
+    selected = select_points(attempts)
+    if selected != jsonl(POINT_DATA / "points.jsonl"):
+        raise ValueError("Selected point records differ from attempt history")
+    by_id = {a["attempt_id"]: a for a in attempts}
+    updated, applied = dict(costs), []
+    for point in selected:
+        if point["selection"] != "successful_retry":
+            continue
+        key = point_key(point["case"], point["cstr_size"], point["point"])
+        initial, retry = [by_id[name] for name in point["attempt_ids"]]
+        if key not in costs:
+            continue
+        original = costs[key]
+        if (original["source_sha256"] != initial["source_record_sha256"]
+                or original["record"] != initial["record"]):
+            raise ValueError("Retry parent differs from the audited point measurement")
+        record = retry["record"]
+        if record["total_wall_s"] != point["total_wall_s"]:
+            raise ValueError("Retry cost does not reconcile")
+        updated[key] = {"record": record, "cost_s": record["total_wall_s"],
+                        "source": retry["attempt_id"], "source_sha256": retry["source_record_sha256"],
+                        "source_kind": "historical_successful_retry"}
+        applied.append({"case": key[0], "cstr_size": key[1], "point": list(key[2]),
+                        "evaluation_s": record["total_wall_s"], "source": retry["attempt_id"],
+                        "source_sha256": retry["source_record_sha256"],
+                        "initialization": record["initialization"],
+                        "excluded_initial_source": initial["attempt_id"]})
+    return updated, {"policy": "Use only the successful retry result and its measured evaluation time; exclude the initial failed attempt cost.",
+                     "available_successful_retries": sum(p["selection"] == "successful_retry" for p in selected),
+                     "visited_successful_retries": len(applied), "applied": applied,
+                     "source_directory": str(POINT_DATA.relative_to(ROOT)), "source_checksums": checks}
+
+
 def attach_costs(traces, costs, rows, ledger):
-    """One separately measured original attempt per callback, irrespective of outcome."""
+    """Attach one selected point measurement per callback."""
     from fmqa_benchmark.protocol import problem
     oracles = {t["spec"]["job_id"]: problem(t["spec"])["objective"] for t in traces}
     by_job = defaultdict(list)
@@ -244,11 +288,36 @@ def summarize(rows):
     return summary
 
 
+def lookup_comparison(costs):
+    """Compare every Dynamic and Small Batch lookup coordinate to its NLP result."""
+    from case_studies.dynamic_case import DYNAMIC_FEASIBLE_OBJECTIVES
+    from case_studies.small_batch_case import SMALL_BATCH_FEASIBLE_OBJECTIVES
+    rows = []
+    for case, lookup, source in (
+            ("dynamic", DYNAMIC_FEASIBLE_OBJECTIVES, "case_studies/dynamic_case.py"),
+            ("small_batch", SMALL_BATCH_FEASIBLE_OBJECTIVES,
+             "case_study_data/small_batch/compl_enum_small_batch_baron.csv")):
+        for point, reference in sorted(lookup.items()):
+            item = costs[point_key(case, None, point)]
+            record = item["record"]
+            objective = record["objective"] if record["accepted"] else None
+            delta = objective - reference if objective is not None else None
+            rows.append({"case": case, "point": list(point), "lookup_objective": reference,
+                         "nlp_accepted": record["accepted"], "nlp_objective": objective,
+                         "nlp_minus_lookup": delta,
+                         "relative_error": abs(delta) / max(1, abs(reference)) if delta is not None else None,
+                         "matches_tolerance": delta is not None and abs(delta) <= 1e-5 * max(1, abs(reference)),
+                         "lookup_source": source, "lookup_source_sha256": sha(ROOT / source),
+                         "nlp_source": item["source"], "nlp_source_sha256": item["source_sha256"]})
+    return rows
+
+
 def figures(output, summary):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    colors = ("#527d9b", "#e1ad50", "#c95b4b", "#8c73ad")
+    components = (("accepted", "Solution found (including retries)", "#527d9b"),
+                  ("unaccepted", "No accepted solution (all checks/attempts)", "#c95b4b"))
     for name, selected in (("runtime_and_nlp_costs", [("column", None, 16), ("cstr", 30, 43),
                             ("small_batch", None, 10), ("dynamic", None, 50)]),
                            ("cstr_sizes", [("cstr", size, None) for size in (5, 10, 15, 20, 25, 30)])):
@@ -269,9 +338,9 @@ def figures(output, summary):
             for i, value in enumerate(times):
                 left.annotate(f"{value:.4g}", (i, value), xytext=(0, 5), textcoords="offset points", ha="center", fontsize=9)
             base = [0.] * 4
-            for label, color in zip(OUTCOMES, colors):
+            for label, caption, color in components:
                 values = [s[f"mean_attached_{label}_s"] for s in group]
-                right.bar(x, values, bottom=base, color=color, label=label.replace("_", " "))
+                right.bar(x, values, bottom=base, color=color, label=caption)
                 base = [a + b for a, b in zip(base, values)]
             right.set_ylim(0, max(base) * 1.2)
             for i, value in enumerate(base):
@@ -284,7 +353,7 @@ def figures(output, summary):
             right.set_ylabel("Mean attached NLP cost (s)", fontsize=10)
         fig.suptitle("Dantzig: measured DFO time and separately measured NLP costs", fontsize=15, y=.995)
         handles, labels = axes[0, 1].get_legend_handles_labels()
-        fig.legend(handles, labels, loc="upper center", bbox_to_anchor=(.5, .968), ncol=4, fontsize=9)
+        fig.legend(handles, labels, loc="upper center", bbox_to_anchor=(.5, .968), ncol=2, fontsize=9)
         fig.text(.5, .008, "All runs included. Right: per-callback cost estimates, including unaccepted outcomes; no online NLP timing claim.\n"
                  "DSDA/RBFOpt/BAM: Oct 2; FMQA: Sep 25. Dynamic preparation and measurement setup reported separately.",
                  ha="center", fontsize=9)
@@ -306,8 +375,9 @@ def report(output, manifest, summary, outcome_rows):
         "## Read these results", "",
         "- [Run results](dfo_runs.csv): actual DFO clocks, final solutions, target attainment and separate attached NLP cost sums.",
         "- [Ordered callback ledger](evaluation_timings.csv): every visited coordinate, DFO timestamps, point duration, outcome and source checksum.",
-        "- [Unique point measurements](point_timings.csv): one original attempt per exact model/size/coordinate.",
+        "- [Unique point measurements](point_timings.csv): one selected result and measured cost per exact model/size/coordinate.",
         "- [Comparison by model and budget](comparison_summary.csv) and [outcome totals](point_outcome_summary.csv).",
+        "- [Dynamic and Small Batch lookup/NLP comparison](lookup_nlp_comparison.csv): all 37 and 12 feasible coordinates, respectively.",
         "- [Main comparison figure](runtime_and_nlp_costs.png) ([PDF](runtime_and_nlp_costs.pdf)); [all six CSTR sizes](cstr_sizes.png) ([PDF](cstr_sizes.pdf)).",
         "- [Audit and provenance](manifest.json), [Dynamic preparations](dynamic_preparations.json), "
         "and [new measurement collection overhead](measurement_collection.csv).", "",
@@ -320,7 +390,11 @@ def report(output, manifest, summary, outcome_rows):
         "All 703 new points were rejected during preprocessing; none required a new solver invocation. "
         "The historical measurements include 592 solver-reported infeasible points and three other rejected attempts. "
         "Those three returned feasible candidates but solver warning/termination status failed the original acceptance policy; "
-        "they are not relabelled infeasible. Successful retries with changed initialization do not replace the original attempt.", "",
+        "they are not relabelled infeasible. The seven recorded CSTR30 retries found accepted solutions; six of these coordinates "
+        "occur in the recorded DFO paths. For those six points, use only the successful retry result and its measured time. "
+        "The initial failed attempt is excluded from the comparison cost and retained in the raw records. "
+        "The seventh repaired point, (6, 4), is not visited and contributes no callback cost. "
+        "Retry initialization is mass_balance_zero_recycle. Other points retain their selected measured costs.", "",
         "| Point outcome | Unique coordinates | Total measured evaluation seconds | Minimum seconds | Maximum seconds |",
         "|---|---:|---:|---:|---:|"]
     for row in outcome_rows:
@@ -342,15 +416,24 @@ def report(output, manifest, summary, outcome_rows):
         "change the recorded DFO solution or its target attainment. The full GDPopt RIC/GLOA/LOA and Big-M/Hull results remain "
         "[separate](../../gdp_comparison_current/analysis/README.md); no direct online speed comparison is inferred.", "",
         f"The audit found {manifest['lookup_nlp_acceptance_disagreement_coordinates']} distinct CSTR coordinates "
-        f"({manifest['lookup_nlp_acceptance_disagreements']:,} callbacks) where the lookup is feasible but the original IPOPT attempt "
+        f"({manifest['lookup_nlp_acceptance_disagreements']:,} callbacks) where the lookup is feasible but the available IPOPT result "
         "was not accepted. Among accepted attempts, "
         f"{manifest['accepted_objective_mismatch_coordinates']} CSTR coordinates ({manifest['accepted_objective_mismatches']} callbacks) "
         "differ from the lookup objective beyond the benchmark tolerance `1e-5 * max(1, abs(lookup))`. "
         "The cost coverage audit therefore does not certify reproduction of every lookup objective by IPOPT. "
         "These measured attempts remain in the timing totals, with their actual outcomes.", "",
+        "Dynamic's DFO reference is the fixed dictionary in `case_studies/dynamic_case.py`, not a CSV file. "
+        "All 37 reference coordinates have accepted NLP solutions; the maximum absolute objective difference is "
+        "7.7046e-8 at (5, 8). Both select (1, 4) as best. Small Batch uses "
+        "`compl_enum_small_batch_baron.csv`: all 12 feasible coordinates have accepted NLP solutions, with maximum "
+        "absolute difference 6.7722e-7 at (3, 3, 3). Both select (2, 2, 1) as best. "
+        "All 49 comparisons pass the relative tolerance above. No new NLP solves were run for this comparison.", "",
         "## Comparison", "",
         "All runs, including target failures, enter the means. Seconds are rounded here; CSVs retain full precision. "
-        "Unaccepted NLP cost includes preprocessing rejection, solver-reported infeasibility and other rejected attempts.", "",
+        "Figures combine preprocessing rejection, solver-reported infeasibility and other rejected attempts into one "
+        "no-accepted-solution category. This is a recorded outcome, not a claim of mathematical infeasibility. "
+        "Detailed diagnostic statuses remain in the CSVs. Successful-retry points use the retry cost alone. "
+        "Lookup data alone determine search paths and target attainment.", "",
         "| Model | Budget | Method | Target hits / runs | Mean DFO s | Mean attached NLP s | Of which unaccepted s |",
         "|---|---:|---|---:|---:|---:|---:|"]
     for row in summary:
@@ -373,8 +456,11 @@ def build(archive=ARCHIVE, output=OUTPUT, expected_sha=ARCHIVE_SHA):
     output.mkdir(parents=True, exist_ok=True)
     with verified_snapshot(Path(archive), expected_sha) as (directory, source):
         run, traces, costs, rows, ledger, collection, coverage = audit(directory)
+        costs, retry_audit = successful_retry_costs(costs)
+        rows, ledger = timing_tables(traces, costs)
         rows, ledger = attach_costs(traces, costs, rows, ledger)
         summary = summarize(rows)
+        comparison = lookup_comparison(costs)
         point_rows = []
         for key, item in sorted(costs.items(), key=lambda x: repr(x[0])):
             record = item["record"]
@@ -405,13 +491,15 @@ def build(archive=ARCHIVE, output=OUTPUT, expected_sha=ARCHIVE_SHA):
                 for e in ledger if e["accepted_objective_matches_lookup"] is False}),
             "point_outcomes": outcome_rows, "source": source, "runtime": run["runtime"],
             "reference_archives": read(ROOT / "overnight_benchmark/reference_archives.json"),
-            "cost_policy": "Every actual callback linked to one compatible original point attempt, including all unaccepted outcomes; repeated calls reuse the same measurement.",
+            "cost_policy": "Each callback uses one selected point measurement. For successful CSTR30 retries, use only the retry result and time; exclude the initial failed attempt cost. Repeated calls reuse the same measurement.",
+            "successful_retry_audit": retry_audit,
             "combined_online_runtime_measured": False, "mac_trace_runs_used": 0,
             "analysis_source_sha256": {name: sha(ROOT / name) for name in ("dfo_trace_analysis.py",
                 "overnight_benchmark/analysis.py", "overnight_benchmark/common.py", "overnight_benchmark/references.py",
                 "overnight_benchmark/runner.py", "evaluation_trace.py", "fmqa_benchmark/protocol.py", "nlp_cost_analysis.py")}}
     for name, data in (("dfo_runs.csv", rows), ("evaluation_timings.csv", ledger), ("point_timings.csv", point_rows),
                        ("comparison_summary.csv", summary), ("point_outcome_summary.csv", outcome_rows),
+                       ("lookup_nlp_comparison.csv", comparison),
                        ("measurement_collection.csv", collection)):
         csv_file(output / name, data)
     save(output / "dynamic_preparations.json", preparations)
