@@ -18,7 +18,7 @@ The original 417 DSDA/RBFOpt/BAM rows do not contain complete ordered callback c
 
 FMQA has original Dantzig coordinate traces. Its separate `fmqa_nlp_run_costs.csv` and `fmqa_nlp_evaluation_costs.csv` retain exact-model cost estimates only: successful NLP evaluations charged, infeasible lookups zero by the stated accounting assumption, earlier failed attempts excluded, Dynamic preparation once. Missing CSTR5–25 costs remain missing. These estimates are not compared with NLP-exclusive DFO clocks.
 
-`gdp_baseline_comparison.csv` retains measured full-GDP results separately. A fair NLP-inclusive four-method comparison needs complete Dantzig coordinate traces for the other methods. The original lookup timings are not online NLP solve timings.
+`gdp_baseline_comparison.csv` retains measured full-GDP results separately, using the completed October 1 BARON/HiGHS RIC/GLOA/LOA jobs and September 25 Big-M/Hull: 45 completed jobs across five methods and nine models. Absolute target matching and at-or-better target attainment are separate columns. See the [current GDP audit](../../../gdp_comparison_current/analysis/README.md). A fair NLP-inclusive four-method comparison needs complete Dantzig coordinate traces for the other methods. The original lookup timings are not online NLP solve timings.
 
 ## Reproduce
 

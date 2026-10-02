@@ -11,6 +11,14 @@ OsiDefaultName_start
 /results/gdp_comparison_*/analysis/*.png
 /results/gdp_comparison_*/analysis/*.pdf
 
+# Publish the verified figures explicitly requested with the final GDP import.
+!/results/fmqa_20260925/analysis/**/*.png
+!/results/fmqa_20260925/analysis/**/*.pdf
+!/results/gdp_comparison_current/analysis/*.png
+!/results/gdp_comparison_current/analysis/*.pdf
+!/results/gdp_comparison_20260925/analysis/*.png
+!/results/gdp_comparison_20260925/analysis/*.pdf
+
 # Local solver licenses
 bamlice.txt
 *.lic

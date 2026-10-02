@@ -1,0 +1,4 @@
+# Preserve the completed Dantzig archives byte-for-byte, including solver log
+# spacing and the server's CSV line endings. These are evidence, not source edits.
+results/gdp_comparison_20261001/raw/** -text -whitespace
+results/gdp_comparison_loa_20261001/raw/** -text -whitespace

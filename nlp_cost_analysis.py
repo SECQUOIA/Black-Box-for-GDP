@@ -259,6 +259,10 @@ def baseline_record(row, target):
     if duration is None or not math.isfinite(duration) or duration < 0:
         raise ValueError("Invalid GDP completion clock")
     record.update({"target_value": target, "target_hit": target_hit(objective, target),
+                   "target_attained": objective is not None and math.isfinite(objective)
+                                      and objective <= target + TOLERANCE * max(1, abs(target)),
+                   "target_hit_definition": "absolute objective match within tolerance",
+                   "target_attained_definition": "minimization objective at or below target plus tolerance",
                    "measured_total_with_preparation_s": duration + row.get("template_wall_s", 0),
                    "clock_source": "method_wall_s" if "method_wall_s" in row else "worker_wall_s_watchdog",
                    "time_kind": "measured_completion_not_first_hit"})
@@ -266,32 +270,56 @@ def baseline_record(row, target):
 
 
 def baseline_comparison(directory, output, trace_runs):
-    summary = read_json(Path(directory) / "summary.json")
-    run = read_json(Path(directory) / "run.json")
-    records = []
+    directory = Path(directory)
+    selection = directory / "selection.json"
+    sources = (read_json(selection)["sources"] if selection.exists()
+               else [{"directory": str(directory), "methods": None}])
+    records, evidence = [], []
     targets = {(r["spec"]["case_name"], r["spec"]["grid_size"]): r["target"] for r in trace_runs}
-    for row in summary["results"]:
-        target = targets[(row["case"], row["cstr_size"])]
-        record = baseline_record(row, target)
-        record.update({"reported_lower_bound": row.get("reported_lower_bound"),
-                       "source_cpu": run.get("cpu"), "source_host": run.get("host"),
-                       "source_created_utc": run.get("created_utc")})
-        records.append(record)
-    flag_bound_conflicts(records)
+    for source in sources:
+        path = Path(source["directory"])
+        if selection.exists() and not path.is_absolute():
+            path = ROOT / path
+        summary = read_json(path / "summary.json")
+        run = read_json(path / "run.json")
+        for row in summary["results"]:
+            if row.get("status") == "running":
+                continue
+            target = targets[(row["case"], row["cstr_size"])]
+            record = baseline_record(row, target)
+            record.update({"reported_lower_bound": row.get("reported_lower_bound"),
+                           "source_cpu": run.get("cpu"), "source_host": run.get("host"),
+                           "source_created_utc": run.get("created_utc"),
+                           "source_directory": str(source["directory"]),
+                           "nlp_solver": row.get("solver_policy", {}).get("nlp"),
+                           "mip_solver": row.get("solver_policy", {}).get("mip"),
+                           "solver_policy": row.get("solver_policy", {})})
+            evidence.append(record)
+            if source["methods"] is None or row["method"] in source["methods"]:
+                records.append(record)
+    keys = [(r["instance_id"], r["method"]) for r in records]
+    if len(keys) != len(set(keys)):
+        raise ValueError("Duplicate GDP instance/method across selected sources")
+    flag_bound_conflicts(records, evidence)
     write_csv(output / "gdp_baseline_comparison.csv", records)
     return records
 
 
-def flag_bound_conflicts(records):
+def flag_bound_conflicts(records, evidence=None):
     """Retain reported flags; reject certificates contradicted by saved incumbents."""
+    if evidence is None:
+        evidence = records
     for row in records:
-        peers = [r for r in records if r["instance_id"] == row["instance_id"]
+        peers = [r for r in evidence if r["instance_id"] == row["instance_id"]
                  and r["has_feasible_solution"] and r["objective"] is not None]
         best = min((r["objective"] for r in peers), default=None)
         lower = row.get("reported_lower_bound")
         conflict = (row["method"] in {"bigm", "hull"} and lower is not None and best is not None
                     and lower > best + TOLERANCE * max(1, abs(best)))
         row["best_saved_feasible_objective"] = best
+        witness = min(peers, key=lambda r: r["objective"]) if peers else {}
+        row["bound_evidence_method"] = witness.get("method")
+        row["bound_evidence_source_directory"] = witness.get("source_directory")
         row["bound_conflict_with_saved_solution"] = conflict
         row["solver_reported_global_optimality_certified"] = row["global_optimality_certified"]
         row["global_optimality_certified"] = bool(row["global_optimality_certified"] and not conflict)
@@ -305,7 +333,7 @@ def main():
     parser.add_argument("--fmqa", type=Path, default=ROOT / "results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip")
     parser.add_argument("--costs", type=Path, default=ROOT / "results/gdp_point_timings_20260922")
     parser.add_argument("--solver", choices=("gams_ipopt", "ipopth", "conopt"), default="gams_ipopt")
-    parser.add_argument("--gdp-results", type=Path, default=ROOT / "results/gdp_comparison_20260925/raw")
+    parser.add_argument("--gdp-results", type=Path, default=ROOT / "results/gdp_comparison_current")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     build(args)

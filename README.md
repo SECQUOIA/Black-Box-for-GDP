@@ -395,10 +395,16 @@ Big-M/Hull + BARON with 30-minute limits per instance/method, see the
 [Dantzig GDP comparison runner](docs/gdp_comparison.md).
 This full-model comparison includes CSTR5/10/15/20/25/30, Column, Dynamic and
 Small Batch (36 jobs); the CSTR30-only scope above concerns point NLP timings.
-The [current full-GDP results](results/gdp_comparison_20260925/analysis/README.md)
-use the September 25 CPU 2 rerun: all 36 saved solutions passed an independent
-original-GDP feasibility check. Nine jobs reached the solver time limit.
-Three cross-method BARON bound conflicts are flagged explicitly.
+The [current full-GDP results](results/gdp_comparison_current/analysis/README.md)
+use the completed October 1 BARON/HiGHS RIC/GLOA (18 jobs, CPU 2) and LOA
+(9 jobs, CPU 6) archives. Big-M/Hull retain the September 25 results. All
+45 selected solutions passed an independent original-GDP feasibility check;
+23 jobs ended at a time limit. The old IPOPT results remain historical and
+their feasible vectors remain evidence when auditing reported bounds.
+The table preserves absolute target matches separately from reaching or
+improving the target. See the [LOA-only runner](docs/gdpopt_loa_baron_highs.md)
+and [published runner ZIPs](results/runners/README.md). The earlier six-job
+follow-up is unnecessary because the original RIC/GLOA process finished.
 
 The [corrected Dantzig timing comparison](results/fmqa_20260925/analysis/nlp/README.md)
 uses the original 556 Dantzig lookup completion times and outcomes. The earlier
@@ -429,8 +435,9 @@ use the September 25 reruns: 1,050 Grid runs on CPU 0 and 139 process-case runs
 on CPU 4, with different recorded physical cores. Raw archives, comparison
 tables, Grid TTS99, timing profiles and NLP-inclusive estimates use these new
 measurements. The contaminated September 22 FMQA archives and derived results
-have been removed. The full GDPopt/BARON baseline now uses the September 25
-CPU 2 rerun, on a different physical core from both FMQA jobs. The contaminated
+have been removed. The full-GDP baseline uses the completed October 1
+BARON/HiGHS RIC/GLOA on CPU 2, LOA on CPU 6, and September 25 Big-M/Hull on
+CPU 2. All 45 selected jobs are complete. The contaminated
 September 22 GDP comparison archive and its derived results have also been removed.
 
 For FMQA with local simulated annealing, the same original three-point designs

@@ -1,0 +1,988 @@
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[1].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[1].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[2].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[2].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[3].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[3].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[4].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[4].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[5].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[5].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[6].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[6].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[7].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[7].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[8].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[8].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[9].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[9].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[10].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[10].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[11].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[11].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[12].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[12].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[13].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[13].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[14].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[14].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[15].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[15].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[1].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:308)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[2].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[3].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[4].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[5].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[6].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[7].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[8].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[9].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[10].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[11].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[12].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[13].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[14].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[15].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[1].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:277)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[2].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[3].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[4].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[5].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[6].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[7].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[8].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[9].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[10].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[11].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[12].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[13].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[14].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[15].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-
+gdp/lib/python3.11/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+Starting GDPopt version 22.5.13 using GLOA algorithm
+iterlim: None
+time_limit: 1789
+tee: true
+logger: <Logger pyomo.contrib.gdpopt (INFO)>
+integer_tolerance: 1e-05
+constraint_tolerance: 1e-06
+variable_tolerance: 1e-08
+subproblem_initialization_method: <function restore_vars_to_original_values at 0x7fb017ebdd00>
+call_before_subproblem_solve: <class 'type'>
+call_after_subproblem_solve: <class 'type'>
+call_after_subproblem_feasible: <function solve_method.<locals>.feasible at 0x7fb00b84b420>
+force_subproblem_nlp: true
+subproblem_presolve: true
+tighten_nlp_var_bounds: false
+round_discrete_vars: true
+max_fbbt_iterations: 3
+init_strategy: None
+init_algorithm: set_covering
+custom_init_disjuncts: []
+max_slack: 1000.0
+OA_penalty_factor: 1000.0
+set_cover_iterlim: 8
+discrete_problem_transformation: gdp.bigm
+call_before_discrete_problem_solve: <class 'type'>
+call_after_discrete_problem_solve: <class 'type'>
+call_before_master_solve: <class 'type'>
+call_after_master_solve: <class 'type'>
+mip_presolve: true
+calc_disjunctive_bounds: false
+obbt_disjunctive_bounds: false
+mip_solver: _rbfopt_comparison_gams
+mip_solver_args:
+  mtype: mip
+  solver: highs
+nlp_solver: _rbfopt_comparison_gams
+nlp_solver_args:
+  mtype: nlp
+  solver: baron
+minlp_solver: baron
+minlp_solver_args:
+local_minlp_solver: bonmin
+local_minlp_solver_args:
+small_dual_tolerance: 1e-08
+bound_tolerance: 1e-05
+
+If you use this software, you may cite the following:
+            - Implementation:
+            Chen, Q; Johnson, ES; Bernal, DE; Valentin, R; Kale, S;
+            Bates, J; Siirola, JD; Grossmann, IE.
+            Pyomo.GDP: an ecosystem for logic based modeling and optimization
+            development.
+            Optimization and Engineering, 2021.
+
+- GLOA algorithm:
+        Lee, S; Grossmann, IE.
+        A Global Optimization Algorithm for Nonconvex Generalized
+        Disjunctive Programming and Applications to Process Systems.
+        Comp. and Chem. Eng. 2001, 25, 1675-1697.
+        DOI: 10.1016/S0098-1354(01)00732-3.
+Original model has 441 constraints (47 nonlinear) and 30 disjunctions, with 231 variables, of which 75 are binary, 0 are integer, and 156 are continuous.
+---Starting GDPopt initialization---
+Starting set covering initialization.
+=============================================================================================
+Iteration | Subproblem Type | Lower Bound | Upper Bound |   Gap    | Time(s)
+
+--- Job model.gms Start 10/01/26 14:27:05 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-u3e8ifrn/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-u3e8ifrn/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-u3e8ifrn/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-u3e8ifrn/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:60861 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(2700) 2 Mb
+--- Starting execution: elapsed 0:00:00.008
+--- model.gms(1804) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(1808) 3 Mb
+---   635 rows  204 columns  1,612 non-zeroes
+---   75 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E+00, 2.000E+01] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 1.000E+01] - Zero values observed as well
+--- Matrix    [min, max] : [ 9.500E-01, 4.600E+01]
+--- Executing HIGHS (Solvelink=5): elapsed 0:00:00.013
+
+HIGHS            52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+Running HiGHS 1.12.0 (git hash: 9fa8db6f9): Copyright (c) 2025 HiGHS under MIT licence terms
+Options set:
+  time_limit           = 1789.68
+  threads              = 1
+  mip_rel_gap          = 1e-05
+  mip_abs_gap          = 0
+  pdlp_e_restart_method = 0
+Assessing feasibility of MIP using primal feasibility and integrality tolerance of       1e-06
+WARNING: Row     48 has         infeasibility of           1 from [lower, value, upper] = [              1;               0;               1]
+Solution has               num          max          sum
+Col     infeasibilities      0            0            0
+Integer infeasibilities      0            0            0
+Row     infeasibilities     45            1           45
+Row     residuals            0            0            0
+Initial variable level values are not feasible.
+MIP has 634 rows; 203 cols; 1551 nonzeros; 75 integer variables (73 binary)
+Coefficient ranges:
+  Matrix  [9e-01, 2e+01]
+  Cost    [1e+00, 5e+01]
+  Bound   [1e+00, 1e+01]
+  RHS     [1e+00, 2e+01]
+Presolving model
+473 rows, 155 cols, 1330 nonzeros  0s
+437 rows, 136 cols, 1256 nonzeros  0s
+Presolve reductions: rows 437(-197); columns 136(-67); nonzeros 1256(-295) 
+Objective function is integral with scale 0.0222222
+
+Solving MIP model with:
+   437 rows
+   136 cols (42 binary, 0 integer, 0 implied int., 94 continuous, 0 domain fixed)
+   1256 nonzeros
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic;
+     I => Shifting; J => Feasibility jump; L => Sub-MIP; P => Empty MIP; R => Randomized rounding;
+     S => Solve LP; T => Evaluate node; U => Unbounded; X => User solution; Y => HiGHS solution;
+     Z => ZI Round; l => Trivial lower; p => Trivial point; u => Trivial upper; z => Trivial zero
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   705             -inf                 inf        0      0      0         0     0.0s
+ R       0       0         0 100.00%   705             705                0.00%        0      0      0        17     0.0s
+         1       0         1 100.00%   705             705                0.00%        0      0      0        17     0.0s
+
+Solving report
+  Status            Optimal
+  Primal bound      705
+  Dual bound        705
+  Gap               0% (tolerance: 0.001%)
+  P-D integral      0
+  Solution status   feasible
+                    705 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            0.01
+  Max sub-MIP depth 0
+  Nodes             1
+  Repair LPs        0
+  LP iterations     17
+                    0 (strong br.)
+                    0 (separation)
+                    0 (heuristics)
+--- Reading solution for model GAMS_MODEL
+***
+*** Solver did not provide marginals for model GAMS_MODEL
+***
+--- Executing after solve: elapsed 0:00:00.040
+--- model.gms(2700) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-u3e8ifrn/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-u3e8ifrn/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 10/01/26 14:27:05 elapsed 0:00:00.042
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-u3e8ifrn
+
+--- Job model.gms Start 10/01/26 14:27:05 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-m5znz3nw/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-m5znz3nw/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-m5znz3nw/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-m5znz3nw/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:54417 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(807) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(523) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(527) 5 Mb
+--- Reset Solvelink = 2
+---   113 rows  114 columns  336 non-zeroes
+---   265 nl-code  126 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E-02, 1.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 1.000E+01] - Zero values observed as well
+--- Matrix    [min, max] : [ 9.500E-01, 1.000E+00] - Zero values observed as well
+--- model.gms(527) 3 Mb
+--- Executing BARON (Solvelink=2): elapsed 0:00:00.010
+
+GAMS/BARON       52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- Using Option File
+Reading parameter(s) from "/local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-m5znz3nw/baron.opt"
+>>  LPSol 8
+>>  NLPSol 9
+Finished reading from "/local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-m5znz3nw/baron.opt"
+===========================================================================
+ BARON version 25.11.17. Built: LNX-int-64 2025-11-17 22:27:04           
+ Running on machine dantzig.ecn.purdue.edu
+
+ BARON is a product of The Optimization Firm.
+ For information on BARON, see https://minlp.com/about-baron
+
+ If you publish work using this software, please cite publications from
+ https://minlp.com/baron-publications, such as: 
+
+ Zhang, Y. and N. V. Sahinidis, Solving continuous and discrete
+ nonlinear programs with BARON, Comput Optim Appl (2024). 
+ https://doi.org/10.1007/s10589-024-00633-0
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP/QP: CLP/CBC                                         
+ For NLP: IPOPT                                           
+===========================================================================
+ Doing local search
+ Preprocessing found feasible solution with value 3.52259
+ Solving bounding LP
+ Starting multi-start local search
+ Preprocessing found feasible solution with value 3.52255
+ Done with local search
+===========================================================================
+  Iteration       Time (s)     Mem   Lower bound     Upper bound   Progress
+          1           0.37    12MB     0.130705        3.52255        0.70%
+       6959          22.75    12MB     3.52255         3.52255      100.00%
+
+                         *** Normal completion ***            
+
+ Wall clock time:                    22.86
+ Total CPU time used:                22.75
+
+ Total no. of BaR iterations:    6959
+ Best solution found at node:    3460
+ Max. no. of nodes in memory:      85
+ 
+ All done
+===========================================================================
+
+Solution      = 3.52255200780319  found at node 3460
+Best possible = 3.52255200780319
+Absolute gap  = 0  optca = 1E-9
+Relative gap  = 0  optcr = 1E-5
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:22.906
+--- model.gms(530) 3 Mb
+--- model.gms(807) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-m5znz3nw/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-m5znz3nw/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 10/01/26 14:27:28 elapsed 0:00:22.907
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-m5znz3nw
+
+        0        subproblem          -inf       3.52255       inf%     24.15  *
+Initialization complete.
+Finished discrete problem initialization in 24.14s and 1 iterations 
+
+=============================================================================================
+Iteration | Subproblem Type | Lower Bound | Upper Bound |   Gap    | Time(s)
+
+--- Job model.gms Start 10/01/26 14:27:29 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-ijt3wz65/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-ijt3wz65/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-ijt3wz65/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-ijt3wz65/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:59781 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(3172) 2 Mb
+--- Starting execution: elapsed 0:00:00.008
+--- model.gms(2153) 3 Mb
+--- Generating MIP model GAMS_MODEL
+--- model.gms(2157) 3 Mb
+---   730 rows  232 columns  2,004 non-zeroes
+---   75 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.441E-16, 1.310E+03] - Zero values observed as well
+--- Bound     [min, max] : [ 1.001E-01, 1.000E+01] - Zero values observed as well
+--- Matrix    [min, max] : [ 9.500E-01, 1.200E+03]
+--- Executing HIGHS (Solvelink=5): elapsed 0:00:00.013
+
+HIGHS            52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+Running HiGHS 1.12.0 (git hash: 9fa8db6f9): Copyright (c) 2025 HiGHS under MIT licence terms
+Options set:
+  time_limit           = 1765.5
+  threads              = 1
+  mip_rel_gap          = 1e-05
+  mip_abs_gap          = 0
+  pdlp_e_restart_method = 0
+Assessing feasibility of MIP using primal feasibility and integrality tolerance of       1e-06
+WARNING: Row    184 has         infeasibility of           1 from [lower, value, upper] = [           -inf;              31;              30]
+Solution has               num          max          sum
+Col     infeasibilities      0            0            0
+Integer infeasibilities      0            0            0
+Row     infeasibilities      1            1            1
+Row     residuals            0            0            0
+Initial variable level values are not feasible.
+MIP has 729 rows; 231 cols; 1988 nonzeros; 75 integer variables (73 binary)
+Coefficient ranges:
+  Matrix  [9e-01, 1e+03]
+  Cost    [1e+00, 1e+00]
+  Bound   [1e-01, 1e+01]
+  RHS     [4e-16, 1e+03]
+WARNING: Problem has some excessively small row bounds
+Presolving model
+564 rows, 184 cols, 1729 nonzeros  0s
+498 rows, 167 cols, 1525 nonzeros  0s
+Presolve reductions: rows 498(-231); columns 167(-64); nonzeros 1525(-463) 
+
+Solving MIP model with:
+   498 rows
+   167 cols (42 binary, 0 integer, 0 implied int., 125 continuous, 0 domain fixed)
+   1525 nonzeros
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic;
+     I => Shifting; J => Feasibility jump; L => Sub-MIP; P => Empty MIP; R => Randomized rounding;
+     S => Solve LP; T => Evaluate node; U => Unbounded; X => User solution; Y => HiGHS solution;
+     Z => ZI Round; l => Trivial lower; p => Trivial point; u => Trivial upper; z => Trivial zero
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.0s
+ R       0       0         0   0.00%   0               0.00626666667    100.00%        0      0      0        43     0.0s
+
+2.4% inactive integer columns, restarting
+Model after restart has 460 rows, 159 cols (39 bin., 0 int., 0 impl., 120 cont., 0 dom.fix.), and 1404 nonzeros
+
+         0       0         0   0.00%   0               0.00626666667    100.00%        5      0      0       397     0.1s
+         0       0         0   0.00%   0               0.00626666667    100.00%        5      1      0       425     0.1s
+
+7.7% inactive integer columns, restarting
+Model after restart has 393 rows, 139 cols (34 bin., 0 int., 0 impl., 105 cont., 0 dom.fix.), and 1184 nonzeros
+
+         0       0         0   0.00%   0               0.00626666667    100.00%        7      0      0       698     0.2s
+         0       0         0   0.00%   0               0.00626666667    100.00%        7      3      0       714     0.2s
+
+11.8% inactive integer columns, restarting
+Model after restart has 334 rows, 126 cols (29 bin., 0 int., 0 impl., 97 cont., 0 dom.fix.), and 978 nonzeros
+
+         0       0         0   0.00%   0               0.00626666667    100.00%       11      0      0       873     0.3s
+         0       0         0   0.00%   0               0.00626666667    100.00%       11      4      0       893     0.3s
+        23       0        12 100.00%   0.00626666667   0.00626666667      0.00%      801     13     24      1539     0.4s
+
+Solving report
+  Status            Optimal
+  Primal bound      0.00626666666667
+  Dual bound        0.00626666666667
+  Gap               0% (tolerance: 0.001%)
+  P-D integral      0.353847503662
+  Solution status   feasible
+                    0.00626666666667 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            0.37
+  Max sub-MIP depth 3
+  Nodes             23
+  Repair LPs        0
+  LP iterations     1539
+                    0 (strong br.)
+                    339 (separation)
+                    799 (heuristics)
+--- Reading solution for model GAMS_MODEL
+***
+*** Solver did not provide marginals for model GAMS_MODEL
+***
+--- Executing after solve: elapsed 0:00:00.397
+--- model.gms(2160) 3 Mb
+--- model.gms(3172) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-ijt3wz65/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-ijt3wz65/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 10/01/26 14:27:29 elapsed 0:00:00.399
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-ijt3wz65
+
+        1          discrete       0.00627       3.52255     99.82%     25.15  
+--- Job model.gms Start 10/01/26 14:27:30 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-hw0f8pjz/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-hw0f8pjz/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-hw0f8pjz/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-hw0f8pjz/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:59791 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(515) 2 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- model.gms(319) 3 Mb
+--- Generating NLP model GAMS_MODEL
+--- model.gms(323) 5 Mb
+--- Reset Solvelink = 2
+---   69 rows  70 columns  151 non-zeroes
+---   31 nl-code  16 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.000E-02, 1.000E+00] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E+00, 1.000E+01] - Zero values observed as well
+--- Matrix    [min, max] : [ 9.500E-01, 1.000E+00] - Zero values observed as well
+--- model.gms(323) 3 Mb
+--- Executing BARON (Solvelink=2): elapsed 0:00:00.010
+
+GAMS/BARON       52.2.0 d8e408be Dec 8, 2025           LEG x86 64bit/Linux    
+
+--- Using Option File
+Reading parameter(s) from "/local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-hw0f8pjz/baron.opt"
+>>  LPSol 8
+>>  NLPSol 9
+Finished reading from "/local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-hw0f8pjz/baron.opt"
+===========================================================================
+ BARON version 25.11.17. Built: LNX-int-64 2025-11-17 22:27:04           
+ Running on machine dantzig.ecn.purdue.edu
+
+ BARON is a product of The Optimization Firm.
+ For information on BARON, see https://minlp.com/about-baron
+
+ If you publish work using this software, please cite publications from
+ https://minlp.com/baron-publications, such as: 
+
+ Zhang, Y. and N. V. Sahinidis, Solving continuous and discrete
+ nonlinear programs with BARON, Comput Optim Appl (2024). 
+ https://doi.org/10.1007/s10589-024-00633-0
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP/QP: CLP/CBC                                         
+ For NLP: IPOPT                                           
+===========================================================================
+ Doing local search
+ Preprocessing found feasible solution with value 9.89474
+ Solving bounding LP
+ Starting multi-start local search
+ Preprocessing found feasible solution with value 9.89464
+ Done with local search
+===========================================================================
+  Iteration       Time (s)     Mem   Lower bound     Upper bound   Progress
+          1           0.11    12MB     9.89464         9.89464      100.00%
+
+                         *** Normal completion ***            
+
+ Wall clock time:                     0.11
+ Total CPU time used:                 0.11
+
+ Total no. of BaR iterations:       1
+ Best solution found at node:      -1
+ Max. no. of nodes in memory:       1
+ 
+ All done
+===========================================================================
+
+Solution      = 9.89473684210525  best solution found during preprocessing
+Best possible = 9.8946378966879
+Absolute gap  = 9.8945417345675E-5  optca = 1E-9
+Relative gap  = 9.99980281685014E-6  optcr = 1E-5
+
+--- Reading solution for model GAMS_MODEL
+--- Executing after solve: elapsed 0:00:00.155
+--- model.gms(515) 5 Mb
+--- Putfile results /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-hw0f8pjz/results.dat
+--- Putfile statresults /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-hw0f8pjz/resultsstat.dat
+*** Status: Normal completion
+--- Job model.gms Stop 10/01/26 14:27:30 elapsed 0:00:00.156
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/cstr_15/gloa/gams-hw0f8pjz
+
+        1        subproblem       0.00627       3.52255     99.82%     25.85  
+        2                         3.52255       3.52255      0.00%     25.89  
+GDPopt exiting--bounds have converged or crossed.
+
+Solved in 2 iterations and 25.89331 seconds
+Optimal objective value 3.5225520078
+Relative optimality gap 0.00000%
