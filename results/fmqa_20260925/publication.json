@@ -149,5 +149,26 @@
     "host": "dantzig.ecn.purdue.edu",
     "created_utc": "2026-09-25T17:20:20.457694+00:00",
     "audit": "results/gdp_comparison_20260925/analysis/audit.json"
+  },
+  "process_trace_refresh_20261002": {
+    "report": "results/dfo_trace_nlp_20261002/analysis/README.md",
+    "archive": "results/archives/dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p.zip",
+    "archive_sha256": "c1c8939a96ed9fe945074e71c7aa7043f251e6e26024866e6f45a00ed8914be8",
+    "new_dfo_runs": 417,
+    "original_fmqa_traces_reused": 139,
+    "callbacks": 12778,
+    "visited_coordinates": 1779,
+    "missing_point_measurements": 0,
+    "historical_original_point_measurements": 1076,
+    "new_preprocessing_measurements": 703,
+    "all_unaccepted_outcomes_charged": true,
+    "combined_online_runtime_measured": false,
+    "tests": "419 passed; 27 affected accounting/provenance tests rechecked after final formatting changes",
+    "report_language": "English",
+    "original_raw_datasets_unchanged": true,
+    "withdrawn_zero_cost_tables": [
+      "analysis/nlp/fmqa_nlp_run_costs.csv",
+      "analysis/nlp/fmqa_nlp_evaluation_costs.csv"
+    ]
   }
 }

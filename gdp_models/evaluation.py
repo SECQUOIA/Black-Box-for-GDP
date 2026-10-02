@@ -48,7 +48,7 @@ def accepted_solution(termination, objective, violation, tolerance):
 
 def evaluate_point(case, point, *, solver, cstr_size=5, initialization="auto",
                    time_limit=60.0, feasibility_tolerance=1e-5, executable=None,
-                   tee=False):
+                   tee=False, artifact_dir=None, baron_lp_solver=None):
     """Return a JSON-compatible result; solver choice is deliberately explicit.
 
     ``objective`` is populated only for accepted solutions. A time-limited or
@@ -92,12 +92,21 @@ def evaluate_point(case, point, *, solver, cstr_size=5, initialization="auto",
     report["solver_options"] = options
     if via_gams:
         report["solver_option_file"] = option_file_lines(solver)
+        if solver == "baron" and baron_lp_solver is not None:
+            report["solver_option_file"] = [
+                f"LPSol {dict(clp=8, cplex=3)[baron_lp_solver]}", "NLPSol 9"]
+            report["solver_options"]["add_options"].append("GAMS_MODEL.optfile=1;")
     if executable:
         report["solver_executable"] = str(executable)
     solve_started = perf_counter()
     try:
         if via_gams:
-            result, stats = solve_gams(optimizer, m, solver, time_limit, tee=tee)
+            extra = {}
+            if artifact_dir is not None:
+                extra["artifact_dir"] = artifact_dir
+            if baron_lp_solver is not None:
+                extra["baron_lp_solver"] = baron_lp_solver
+            result, stats = solve_gams(optimizer, m, solver, time_limit, tee=tee, **extra)
             report.update(gams_statistics=stats, gams_solve_status=stats["SOLVESTAT"],
                           gams_model_status=stats["MODELSTAT"])
             if str(result.solver.status) not in {"error", "aborted"} and len(result.solution):

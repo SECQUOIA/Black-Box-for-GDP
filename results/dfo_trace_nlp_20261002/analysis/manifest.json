@@ -1,0 +1,250 @@
+{
+  "analysis_kind": "dantzig_dfo_and_separate_all_outcome_point_costs",
+  "new_dfo_runs_planned": 417,
+  "original_fmqa_traces_reused": 139,
+  "dfo_jobs_finished": 417,
+  "visited_coordinates": 1779,
+  "coordinates_with_nlp_measurement": 1779,
+  "missing_coordinate_measurements": 0,
+  "reused_coordinate_measurements": 1076,
+  "point_reuse_audit": {
+    "reused": 1318,
+    "excluded_manifests": [],
+    "preparations": [
+      {
+        "preparation_id": "9306cbf705cf48a19806eeadd48107e2",
+        "created_utc": "2026-09-22T05:00:25.498273+00:00",
+        "scope": "once_per_process",
+        "model_build_wall_s": 0.0647380743175745,
+        "dae_wall_s": 0.044268236961215734,
+        "total_preparation_wall_s": 0.10900631127879024,
+        "included_in_point_total_wall_s": false
+      }
+    ],
+    "note": "Mixed-date fixed-path cost estimates; not online runtime or a fallback/retry sequence."
+  },
+  "runs": 556,
+  "runs_per_method": {
+    "dsda": 139,
+    "rbfopt": 139,
+    "bam": 139,
+    "fmqa_sa": 139
+  },
+  "callbacks": 12778,
+  "repeated_callbacks": 384,
+  "new_point_measurements": 703,
+  "new_point_solver_invocations": 0,
+  "new_measurement_setup_total_s": 1075.8189026224427,
+  "lookup_nlp_acceptance_disagreements": 2651,
+  "accepted_objective_mismatches": 188,
+  "lookup_nlp_acceptance_disagreement_coordinates": 589,
+  "accepted_objective_mismatch_coordinates": 26,
+  "point_outcomes": [
+    {
+      "outcome": "accepted",
+      "coordinates": 456,
+      "callbacks": 5993,
+      "total_evaluation_s": 789.9940128675662,
+      "min_evaluation_s": 0.7602203590795398,
+      "max_evaluation_s": 43.14060664642602
+    },
+    {
+      "outcome": "preprocessing_infeasible",
+      "coordinates": 728,
+      "callbacks": 4120,
+      "total_evaluation_s": 293.049476491753,
+      "min_evaluation_s": 0.10183117166161537,
+      "max_evaluation_s": 0.8247880898416042
+    },
+    {
+      "outcome": "solver_reported_infeasible",
+      "coordinates": 592,
+      "callbacks": 2658,
+      "total_evaluation_s": 1135.0209565209225,
+      "min_evaluation_s": 0.8321266029961407,
+      "max_evaluation_s": 45.26572532579303
+    },
+    {
+      "outcome": "other_rejected",
+      "coordinates": 3,
+      "callbacks": 7,
+      "total_evaluation_s": 3.80257824761793,
+      "min_evaluation_s": 1.1363966367207468,
+      "max_evaluation_s": 1.4659519968554378
+    }
+  ],
+  "source": {
+    "archive": "results/archives/dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p.zip",
+    "sha256": "c1c8939a96ed9fe945074e71c7aa7043f251e6e26024866e6f45a00ed8914be8",
+    "root": "dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p",
+    "verified_files": 7968
+  },
+  "runtime": {
+    "host": "dantzig.ecn.purdue.edu",
+    "platform": "Linux-5.15.0-323.211.3.4.el9uek.x86_64-x86_64-with-glibc2.34",
+    "python": "3.11.16",
+    "versions": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "rbfopt": "4.3.0",
+      "bam-solver": "5.0.0",
+      "pyomo": "6.10.0",
+      "sympy": "1.14.0",
+      "networkx": "3.6.1",
+      "pandas": "2.3.3",
+      "matplotlib": "3.10.9"
+    },
+    "affinity": {
+      "cpu": 6,
+      "physical_package_id": "0",
+      "core_id": "8",
+      "thread_siblings_list": "6,54",
+      "effective_cpus": [
+        6
+      ],
+      "policy": "one logical CPU; not an exclusive reservation"
+    },
+    "external_sources": {
+      "column_5": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/column/gdp_column.py": "c5fea7ff6286d2b6c1055a4e602b08648a03853aea24e6552f5921b36e205bab",
+          "gdp/dsda/column_17_initialization.json": "60cd7d1f7a7f08b59d9b0d7fca6e8920313ca7722c94d829e388a009ae4acfd7",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+          "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+          "main_column.py": "09a4ff167d87c15bb0e2323567f1f59be7ece61b325ea9cf84900bd7aaa2800a"
+        }
+      },
+      "small_batch_5": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+          "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+          "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+          "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+        }
+      },
+      "dynamic_5": {
+        "repository": "https://github.com/SECQUOIA/LD-SDA-Dynamic",
+        "commit": "482e14ebf9caabbd35d959986942cb028778a1d7",
+        "files_sha256": {
+          "models/nine_stage_dynamic_model_switching_nonlinear.py": "70653536e48a2a6a05c23a8f0337a43e36307c554569982767afa1c1c623ed98"
+        }
+      },
+      "cstr_5": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+          "gdp/dsda/cstr_5_initialization.json": "2f8180fe245f7ec8af8fb9fd2fc549c43aaecc6d6dfc735eb2c89715a8d09ce2",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+          "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+          "main_cstr.py": "b26b3895196716b0424d8aecb703a75e5c1d368fb2cbc9934bb299d836bb8183"
+        }
+      },
+      "cstr_10": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+          "gdp/dsda/cstr_10_initialization.json": "c7ed746a610656af44d7382b3656158efecd61d62785a713da4a8b0a7f3b6cb4",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+          "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+          "main_cstr.py": "b26b3895196716b0424d8aecb703a75e5c1d368fb2cbc9934bb299d836bb8183"
+        }
+      },
+      "cstr_15": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+          "gdp/dsda/cstr_15_initialization.json": "de9eec42abb1f5ba587546239e9520e8ffc2ddffc9518f777227564f4c1b3104",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+          "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+          "main_cstr.py": "b26b3895196716b0424d8aecb703a75e5c1d368fb2cbc9934bb299d836bb8183"
+        }
+      },
+      "cstr_20": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+          "gdp/dsda/cstr_20_initialization.json": "bafdb05180118d08876f662ab43f87a09a7c2bd4b9e3d6c6289367ca40030f86",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+          "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+          "main_cstr.py": "b26b3895196716b0424d8aecb703a75e5c1d368fb2cbc9934bb299d836bb8183"
+        }
+      },
+      "cstr_25": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+          "gdp/dsda/cstr_25_initialization.json": "98e8ceaf048d8e1d1835f3b13489da34fb78b4b955f38cd3731d5ef9b856e397",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+          "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+          "main_cstr.py": "b26b3895196716b0424d8aecb703a75e5c1d368fb2cbc9934bb299d836bb8183"
+        }
+      },
+      "cstr_30": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+          "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+          "main_cstr.py": "b26b3895196716b0424d8aecb703a75e5c1d368fb2cbc9934bb299d836bb8183"
+        }
+      }
+    },
+    "gams_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+    "bonmin_sha256": "76eff68e4e3178a98213f98ad4d858f337b0668e49122b195238e60616153f66",
+    "ipopt_sha256": "938c17f31b2cf9fe91cef527bef3c62f303a3012851ad8498f91cd7501d1c9d2",
+    "bam_license_sha256": "4bbb6f002f4a62ad21243155b81841fc4006a8a304fbea821c3a25157bc82563",
+    "bam_native": [
+      2026,
+      9,
+      10
+    ],
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OMP_THREAD_LIMIT": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "reference_archives": {
+    "fmqa": {
+      "path": "results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip",
+      "sha256": "ccf0d6c0e265159f3ca5561f11a25165ef983f8288a15ef10947a3e6be3ea79d"
+    },
+    "points": {
+      "path": "results/archives/dantzig_gdp_gams_20260922_050038_p4q8hy54.zip",
+      "sha256": "e406b8fae2a90191835eb7332d483c719ebb1675d14d3b0e6d3bf5f7789a197b"
+    }
+  },
+  "cost_policy": "Every actual callback linked to one compatible original point attempt, including all unaccepted outcomes; repeated calls reuse the same measurement.",
+  "combined_online_runtime_measured": false,
+  "mac_trace_runs_used": 0,
+  "analysis_source_sha256": {
+    "dfo_trace_analysis.py": "98702805406f2edf9394f61ad481655060c6685a6faf2af10b3b1904287487e9",
+    "overnight_benchmark/analysis.py": "ec3fa4b8a9865fb8960ef4b7cb59f601683b9ec12d1bc713ff1183fd3c04b91e",
+    "overnight_benchmark/common.py": "ad831d1672c6a59b0b6330061c171f6fe27588c4f3d333b6c5f9ca66ea25d427",
+    "overnight_benchmark/references.py": "d96655074802eacc68e7999db3c3a0560c638ca1d5b374c59a4fa451f5b9e3c6",
+    "overnight_benchmark/runner.py": "082d2a7ab4ddb9cc2e9bfce8c614b72cef33f01c65e7ab1025b424d57f8d320b",
+    "evaluation_trace.py": "446af7d5548aa60fa9c56750be5cb584cd3baef50073048e93a80f9c9a5abb85",
+    "fmqa_benchmark/protocol.py": "48f9479ca49adb0a74d731dce1351a1f48f029846278aec9789536e37d614e8d",
+    "nlp_cost_analysis.py": "0adc5f7c651fd4953476a7b8b25f708ac9bef0951260e20dac0f58ab917f6429"
+  }
+}

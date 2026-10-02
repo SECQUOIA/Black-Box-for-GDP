@@ -9,8 +9,8 @@ import zipfile
 from fmqa_benchmark.protocol import REFERENCE, key, problem
 from fmqa_compare import audit_fmqa, combine, result_directory
 from nlp_cost_analysis import (
-    METHODS, ROOT, baseline_comparison, jsonl, load_costs, normalize_run,
-    read_json, reconstruct, sha, target_hit, write_csv, write_json,
+    METHODS, ROOT, baseline_comparison,
+    read_json, sha, target_hit, write_csv, write_json,
 )
 
 
@@ -53,7 +53,7 @@ def measured_rows(csv_path, plan, source_by_method):
             'time_kind': 'measured_dantzig_lookup_completion',
             'source': source_by_method[record['method']], 'host': 'dantzig.ecn.purdue.edu',
             'nlp_inclusive_estimate_s': None, 'nlp_selected_attempts_s': None,
-            'nlp_cost_status': 'missing_original_dantzig_evaluation_coordinates',
+            'nlp_cost_status': 'not_published_in_historical_lookup_report',
             'first_hit_time_s': None,
         })
     if len(rows) != 4 * len(plan):
@@ -101,7 +101,6 @@ def build(args):
         verify_dantzig_reference(args.original_archive, 'original'),
         verify_dantzig_reference(args.bam_archive, 'bam5'),
     ]
-    costs, preparation = load_costs(args.costs, args.solver)
     with result_directory(args.fmqa) as directory:
         protocol = audit_fmqa(directory)
         if protocol['runtime']['host'] != 'dantzig.ecn.purdue.edu':
@@ -116,26 +115,8 @@ def build(args):
         source_by_method = dict(zip(METHODS, (str(args.original_archive), str(args.original_archive),
                                              str(args.bam_archive), str(args.fmqa))))
         rows = measured_rows(combined, protocol['plan'], source_by_method)
-        by_key = {(key(r), r['method']): r for r in rows}
-        fmqa_costs, evaluations = [], []
-        for spec in protocol['plan']:
-            job = directory / 'jobs' / spec['job_id']
-            trace = normalize_run(spec, jsonl(job / 'evaluations.jsonl'),
-                                  read_json(job / 'result.json')['wall_time_s'],
-                                  str(args.fmqa) + ':' + spec['job_id'], protocol['runtime']['host'])
-            cost, ledger = reconstruct(trace, costs, preparation)
-            fmqa_costs.append(cost)
-            evaluations.extend(ledger)
-            row = by_key[key(spec), 'FMQA-SA']
-            row.update(nlp_inclusive_estimate_s=cost['strict_total_s'],
-                       nlp_selected_attempts_s=cost['nlp_selected_attempts_s'],
-                       nlp_cost_status='exact_model_cost_estimate' if cost['strict_total_s'] is not None
-                       else 'missing_exact_model_point_costs',
-                       first_hit_time_s=cost['lookup_first_hit_s'])
         targets = [{'spec': s, 'target': problem(s)['target']} for s in protocol['plan']]
     write_csv(output / 'run_costs.csv', rows)
-    write_csv(output / 'fmqa_nlp_run_costs.csv', fmqa_costs)
-    write_csv(output / 'fmqa_nlp_evaluation_costs.csv', evaluations)
     gdp_records = baseline_comparison(args.gdp_results, output, targets)
 
     import matplotlib
@@ -160,8 +141,8 @@ def build(args):
                 'runs_per_method': {m: sum(r['method'] == m for r in rows) for m in METHODS},
                 'sources': sources, 'mac_trace_runs_used': 0,
                 'original_rows_without_coordinate_traces': sum(r['method'] != 'FMQA-SA' for r in rows),
-                'complete_fmqa_nlp_cost_estimates': sum(r['strict_total_s'] is not None for r in fmqa_costs),
-                'cost_inventory_sha256': sha(args.costs / 'SHA256SUMS'),
+                'separate_nlp_estimates_published': False,
+                'current_trace_analysis': 'results/dfo_trace_nlp_20261002/analysis',
                 'gdp_completed_baseline_rows': len(gdp_records),
                 'gdp_source_directory': str(args.gdp_results.relative_to(ROOT)) if args.gdp_results.is_relative_to(ROOT) else str(args.gdp_results),
                 'gdp_sources': sorted({(r['source_directory'], r['source_created_utc']) for r in gdp_records}),
@@ -171,8 +152,11 @@ def build(args):
                 'correction': 'Withdraw mixed Mac/Dantzig reconstructed totals and first-hit/cost-transfer/DFO-vs-GDP speed comparisons.'}
     write_json(output / 'manifest.json', overview)
     (output / 'README.md').write_text(
-        '# Dantzig process timing comparison — corrected October 1\n\n'
-        'All 556 comparison rows now use the original Dantzig completion clocks and outcomes: '
+        '# Historical Dantzig lookup timing comparison\n\n'
+        '**Current trace and all-outcome NLP cost report:** '
+        '[October 2 results](../../../dfo_trace_nlp_20261002/analysis/README.md). '
+        'This directory preserves the earlier September lookup clocks.\n\n'
+        'All 556 comparison rows use the original Dantzig completion clocks and outcomes: '
         'DSDA/RBFOpt from the September 10 archive, BAM 5.0.0 from the September 16 archive, '
         'and FMQA-SA from the September 25 archive. The baseline CSVs and manifests were '
         'checked byte-for-byte against their archives, including the recorded Dantzig host. '
@@ -195,20 +179,19 @@ def build(args):
         'are **missing, not zero**. Identical starts do not establish identical Mac/server paths, '
         'so neither Mac paths nor prorated clocks are substituted. All four lookup comparisons '
         'exclude NLP solves consistently.\n\n'
-        'FMQA has original Dantzig coordinate traces. Its separate `fmqa_nlp_run_costs.csv` '
-        'and `fmqa_nlp_evaluation_costs.csv` retain exact-model cost estimates only: successful '
-        'NLP evaluations charged, infeasible lookups zero by the stated accounting assumption, '
-        'earlier failed attempts excluded, Dynamic preparation once. Missing CSTR5–25 costs '
-        'remain missing. These estimates are not compared with NLP-exclusive DFO clocks.\n\n'
+        'The previous FMQA cost tables were withdrawn because they assigned zero cost to '
+        'infeasible lookups and omitted rejected attempts. They are not regenerated. '
+        'Use the [October 2 trace and all-outcome cost report](../../../dfo_trace_nlp_20261002/analysis/README.md) '
+        'for 417 new Dantzig traces, the original 139 FMQA traces and complete point coverage.\n\n'
         '`gdp_baseline_comparison.csv` retains measured full-GDP results separately, using the '
         'completed October 1 BARON/HiGHS RIC/GLOA/LOA jobs and September 25 Big-M/Hull: '
         '45 completed jobs across five methods and nine models. Absolute target matching and '
         'at-or-better target attainment are separate columns. See the '
-        '[current GDP audit](../../../gdp_comparison_current/analysis/README.md). A fair '
-        'NLP-inclusive four-method comparison needs complete Dantzig coordinate traces for '
-        'the other methods. The original lookup timings are not online NLP solve timings.\n\n'
+        '[current GDP audit](../../../gdp_comparison_current/analysis/README.md). '
+        'The October 2 report provides the new traces and separate point costs. The original lookup timings '
+        'are not online NLP solve timings.\n\n'
         '## Reproduce\n\n```bash\n'
-        'python nlp_cost_analysis.py --output results/new_dantzig_timing_comparison\n```\n\n'
+        'python nlp_cost_analysis.py --legacy-lookup-only --output results/new_historical_lookup_comparison\n```\n\n'
         'This reads archived results only; no optimizer or NLP is rerun.\n')
     # Inventory the published tables so later edits cannot silently mix sources.
     write_json(output / 'artifact_checksums.json', {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
