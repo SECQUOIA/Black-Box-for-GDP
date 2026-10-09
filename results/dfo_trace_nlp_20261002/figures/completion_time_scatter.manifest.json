@@ -1,0 +1,429 @@
+{
+  "kind": "individual_run_completion_time_scatter",
+  "runs": 356,
+  "panels": [
+    [
+      "column",
+      "",
+      16,
+      "Column"
+    ],
+    [
+      "cstr",
+      "30",
+      43,
+      "CSTR 30"
+    ],
+    [
+      "small_batch",
+      "",
+      10,
+      "Small Batch"
+    ],
+    [
+      "dynamic",
+      "",
+      12,
+      "Dynamic"
+    ],
+    [
+      "dynamic",
+      "",
+      15,
+      "Dynamic"
+    ],
+    [
+      "dynamic",
+      "",
+      20,
+      "Dynamic"
+    ],
+    [
+      "dynamic",
+      "",
+      30,
+      "Dynamic"
+    ],
+    [
+      "dynamic",
+      "",
+      37,
+      "Dynamic"
+    ],
+    [
+      "dynamic",
+      "",
+      50,
+      "Dynamic"
+    ]
+  ],
+  "groups": [
+    {
+      "case": "column",
+      "cstr_size": "",
+      "budget": 16,
+      "method": "dsda",
+      "runs": 9,
+      "target_hits": 7,
+      "median_completion_s": 50.80909897433594
+    },
+    {
+      "case": "column",
+      "cstr_size": "",
+      "budget": 16,
+      "method": "rbfopt",
+      "runs": 9,
+      "target_hits": 4,
+      "median_completion_s": 40.04983842605725
+    },
+    {
+      "case": "column",
+      "cstr_size": "",
+      "budget": 16,
+      "method": "bam",
+      "runs": 9,
+      "target_hits": 0,
+      "median_completion_s": 50.071138081140816
+    },
+    {
+      "case": "column",
+      "cstr_size": "",
+      "budget": 16,
+      "method": "fmqa_sa",
+      "runs": 9,
+      "target_hits": 4,
+      "median_completion_s": 15.448321561329067
+    },
+    {
+      "case": "cstr",
+      "cstr_size": "30",
+      "budget": 43,
+      "method": "dsda",
+      "runs": 10,
+      "target_hits": 5,
+      "median_completion_s": 46.69893496436998
+    },
+    {
+      "case": "cstr",
+      "cstr_size": "30",
+      "budget": 43,
+      "method": "rbfopt",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 87.59073590557091
+    },
+    {
+      "case": "cstr",
+      "cstr_size": "30",
+      "budget": 43,
+      "method": "bam",
+      "runs": 10,
+      "target_hits": 2,
+      "median_completion_s": 31.949821955291554
+    },
+    {
+      "case": "cstr",
+      "cstr_size": "30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "runs": 10,
+      "target_hits": 2,
+      "median_completion_s": 60.201830187113956
+    },
+    {
+      "case": "small_batch",
+      "cstr_size": "",
+      "budget": 10,
+      "method": "dsda",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 7.947104691993445
+    },
+    {
+      "case": "small_batch",
+      "cstr_size": "",
+      "budget": 10,
+      "method": "rbfopt",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 8.802378989988938
+    },
+    {
+      "case": "small_batch",
+      "cstr_size": "",
+      "budget": 10,
+      "method": "bam",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 7.968798876274377
+    },
+    {
+      "case": "small_batch",
+      "cstr_size": "",
+      "budget": 10,
+      "method": "fmqa_sa",
+      "runs": 10,
+      "target_hits": 9,
+      "median_completion_s": 8.35505790822208
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 12,
+      "method": "dsda",
+      "runs": 10,
+      "target_hits": 4,
+      "median_completion_s": 12.903000578982756
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 12,
+      "method": "rbfopt",
+      "runs": 10,
+      "target_hits": 9,
+      "median_completion_s": 15.079466035822406
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 12,
+      "method": "bam",
+      "runs": 10,
+      "target_hits": 0,
+      "median_completion_s": 10.21236279932782
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 12,
+      "method": "fmqa_sa",
+      "runs": 10,
+      "target_hits": 2,
+      "median_completion_s": 9.772730063879862
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 15,
+      "method": "dsda",
+      "runs": 10,
+      "target_hits": 5,
+      "median_completion_s": 16.050505094928667
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 15,
+      "method": "rbfopt",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 21.47462329058908
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 15,
+      "method": "bam",
+      "runs": 10,
+      "target_hits": 3,
+      "median_completion_s": 12.596444156952202
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 15,
+      "method": "fmqa_sa",
+      "runs": 10,
+      "target_hits": 3,
+      "median_completion_s": 11.454432881902903
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 20,
+      "method": "dsda",
+      "runs": 10,
+      "target_hits": 9,
+      "median_completion_s": 21.872483934042975
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 20,
+      "method": "rbfopt",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 34.326547373784706
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 20,
+      "method": "bam",
+      "runs": 10,
+      "target_hits": 3,
+      "median_completion_s": 15.20018539740704
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 20,
+      "method": "fmqa_sa",
+      "runs": 10,
+      "target_hits": 3,
+      "median_completion_s": 15.058526451466605
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 30,
+      "method": "dsda",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 26.69367551873438
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 30,
+      "method": "rbfopt",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 75.81808003457263
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 30,
+      "method": "bam",
+      "runs": 10,
+      "target_hits": 5,
+      "median_completion_s": 23.9293577587232
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 30,
+      "method": "fmqa_sa",
+      "runs": 10,
+      "target_hits": 5,
+      "median_completion_s": 22.95643712976016
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 37,
+      "method": "dsda",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 26.693715404486284
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 37,
+      "method": "rbfopt",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 133.0335075405892
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 37,
+      "method": "bam",
+      "runs": 10,
+      "target_hits": 7,
+      "median_completion_s": 27.58154992875643
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 37,
+      "method": "fmqa_sa",
+      "runs": 10,
+      "target_hits": 6,
+      "median_completion_s": 27.664165273541585
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 50,
+      "method": "dsda",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 26.69370770128444
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 50,
+      "method": "rbfopt",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 309.3931114759762
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 50,
+      "method": "bam",
+      "runs": 10,
+      "target_hits": 10,
+      "median_completion_s": 38.74829601449892
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": "",
+      "budget": 50,
+      "method": "fmqa_sa",
+      "runs": 10,
+      "target_hits": 7,
+      "median_completion_s": 37.38893303088844
+    }
+  ],
+  "y_metric": "estimated_total_s; no per-run TTS99 is claimed",
+  "legacy_figure_aliases": {
+    "tts99.png": "completion_time_scatter.png",
+    "tts99.pdf": "completion_time_scatter.pdf"
+  },
+  "formula": "DFO runtime - lookup time + separate NLP point costs + one Dynamic preparation",
+  "target_definition": "Recorded lookup target within 1e-5 * max(1, abs(target))",
+  "markers": {
+    "circle": "lookup target hit",
+    "cross": "lookup target missed",
+    "black_line": "median completion estimate across all runs"
+  },
+  "horizontal_offsets": "Seed order, fixed across methods within each panel",
+  "all_target_failures_included": true,
+  "measured_online_runtime": false,
+  "point_cost_policy": "Each callback uses one selected point measurement. For successful CSTR30 retries, use only the retry result and time; exclude the initial failed attempt cost. Repeated calls reuse the same measurement.",
+  "dynamic_preparation_reference": {
+    "preparation_id": "9306cbf705cf48a19806eeadd48107e2",
+    "created_utc": "2026-09-22T05:00:25.498273+00:00",
+    "scope": "once_per_process",
+    "model_build_wall_s": 0.0647380743175745,
+    "dae_wall_s": 0.044268236961215734,
+    "total_preparation_wall_s": 0.10900631127879024,
+    "included_in_point_total_wall_s": false
+  },
+  "sources": {
+    "results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv": "9d6f11365ff775cb6905be1f57d44981ac2474e8deda7822993b3123f4bfaf53",
+    "results/dfo_trace_nlp_20261002/analysis/evaluation_timings.csv": "271f00c684698e2c1ef74f3e0d27c2918a0139795fe4d37de6a934a815053d89",
+    "results/dfo_trace_nlp_20261002/analysis/manifest.json": "0c2264ce6cdbd6dea33cc84c5ac6c964888e8ea95ad8d4eb424de36d97c4ea37",
+    "results/dfo_trace_nlp_20261002/analysis/dynamic_preparations.json": "01e12be1c21c14df536ac965d62850887ff15c0700d8cba35145270875000500"
+  },
+  "scripts": {
+    "scripts/plot_dantzig_performance.py": "eacfc1b7c575d3226ec721e753fa8bda123c2113f5a8d92c6608980720675646",
+    "scripts/plot_dantzig_cost_breakdown.py": "8169f166914d87004e6470492bb2616131e378779d97cbc5350214abea5abd0c",
+    "scripts/plot_dantzig_run_scatter.py": "c5930ccd8400c1de2fffdf278a2fd53107528112989b091a0b4a064dce6712ef"
+  },
+  "artifacts": {
+    "completion_time_scatter.png": "347f111770b39dfaad52cf53589cdfca866de46f0451856cc84509dfd041b2c5",
+    "completion_time_scatter.pdf": "054e4f227f1fa501302dc8064daa29b14b74387e2f47e856229118e4907c974c",
+    "completion_time_scatter_runs.csv": "23bd26350f78960191196353fee62f617805b3bc6669cd31fd8969b3975d23f3",
+    "tts99.png": "347f111770b39dfaad52cf53589cdfca866de46f0451856cc84509dfd041b2c5",
+    "tts99.pdf": "054e4f227f1fa501302dc8064daa29b14b74387e2f47e856229118e4907c974c"
+  }
+}
