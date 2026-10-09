@@ -17,6 +17,7 @@ scripts present in the server archive.
 | FMQA-SA Grid, September 25, CPU 0 | [dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip](dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip) |
 | RIC/GLOA BARON + HiGHS, October 1, CPU 2, 18 completed jobs | [dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip](dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip) |
 | LOA BARON + HiGHS, October 1, CPU 6, 9 completed jobs | [dantzig_gdp_compare_20261001_204801_1gfd4d02.zip](dantzig_gdp_compare_20261001_204801_1gfd4d02.zip) |
+| Grid GDP, October 9, CPU 6, 20,181 point timings and 105 benchmark outcomes | [grid_gdp_run_20261008_210901_dw5vq37s.zip](grid_gdp_run_20261008_210901_dw5vq37s.zip) |
 | Superseded partial RIC/GLOA snapshot, not a comparison input | [gdpopt_baron_highs_20261001_partial.tar.gz](gdpopt_baron_highs_20261001_partial.tar.gz) |
 
 Verify from the repository root:
@@ -40,7 +41,7 @@ all 189 internal file checksums. Their 27 saved solutions pass independent
 original-GDP feasibility checks. The partial tar.gz is retained as historical
 evidence only; all 12 CSTR records already complete in it match the final ZIP.
 
-These eleven ZIPs contain the current FMQA runs and the other supplied benchmark
+These ZIPs contain the current FMQA runs and the other supplied benchmark
 archives. Earlier GDP point failures remain part of their provenance; archiving a run does
 not make every outcome a successful or globally certified solution. The
 unmodified GDP archives retain all originally run CSTR sizes. The curated
@@ -57,5 +58,12 @@ and `run_cstr30_retry_dantzig.sh`.
 The September 25 FMQA and full-GDP archives use Python entry points and contain
 no shell wrappers. The October 1 GDPopt archives include their runner wrappers
 in the source snapshots.
+
+The October 9 Grid GDP archive passes CRC validation and all 807 internal
+checksums. All 20,181 fixed-point evaluations succeeded. The 105 full-GDP
+outcomes include 32 unsupported cases, 21 errors and one hard timeout; saved
+feasible incumbents do not imply successful termination. The
+[Grid GDP timing summary](../grid_gdp_20261009/README.md) includes exact exported
+tables, per-method times and a reproducible analysis without new solver runs.
 The original September 10 and BAM ZIPs do not contain the local
 `run_dantzig.sh` or `run_bam_dantzig.sh` wrappers.
