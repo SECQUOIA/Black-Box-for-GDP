@@ -11,10 +11,16 @@ python dfo_trace_analysis.py
 ```
 
 The updated [cost breakdown](figures/cost_breakdown.png), [performance profiles](figures/performance_profiles.png)
-and [TTS99 plot](figures/tts99.png) use Dantzig DFO clocks and separately measured point costs.
+and [individual-run scatter](figures/completion_time_scatter.png) use Dantzig DFO clocks and separately measured point costs.
 Successful CSTR30 retry points use the retry time alone. Failed evaluations keep their measured costs.
 The profiles use completed-run time and keep all paired starts in the denominator, including target failures.
-TTS99 uses the observed hit rate and the median completion cost across all runs:
+The scatter shows all 356 individual completion-time estimates: nine runs per
+method for Column and ten for every other panel. Circles mark target hits,
+crosses mark target misses, and black lines mark medians across all runs.
+Horizontal offsets follow seed order. The existing `tts99.png` and `tts99.pdf`
+URLs now show this scatter; the figure's axis is completion time in seconds.
+
+The retained TTS99 summary table uses the observed hit rate and the median completion cost across all runs:
 `ceil(log(0.01) / log(1-p)) * median_time`. For `p=1`, one run is used; `p=0` is infinite.
 This assumes independent restarts and is not a 99% statistical confidence guarantee.
 
@@ -24,11 +30,15 @@ GDPopt/MINLP values are single measured completions, including preparation. Thei
 target attainment and bound conflicts remain visible. No TTS99 is inferred from these single solver runs.
 
 Full-precision data: [profile runs](figures/performance_profile_runs.csv), [TTS99 summary](figures/tts99_summary.csv),
+[scatter runs](figures/completion_time_scatter_runs.csv),
 [all-method times and objectives](figures/all_method_completion_times.csv),
 and [all 45 GDPopt/MINLP records](figures/gdp_minlp_runs.csv).
 PDF versions share the figure names. [Provenance and definitions](figures/performance.manifest.json).
+The [scatter manifest](figures/completion_time_scatter.manifest.json) records its inputs and all 36 group summaries.
 
 ```bash
 python -m scripts.plot_dantzig_cost_breakdown
 python -m scripts.plot_dantzig_performance
+# Update only the individual-run scatter and its legacy figure URLs:
+python -m scripts.plot_dantzig_run_scatter
 ```

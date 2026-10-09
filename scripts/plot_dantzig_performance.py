@@ -1,4 +1,4 @@
-"""Plot completion-time profiles and TTS99 from the current Dantzig point costs.
+"""Plot completion-time profiles and individual runs; retain aggregate TTS99 data.
 
 Run with: python -m scripts.plot_dantzig_performance
 No optimizer or NLP solver is executed.
@@ -91,31 +91,132 @@ def plot_profiles(ratios):
     return fig
 
 
-def plot_tts99(summary):
-    fig, axes = plt.subplots(3, 3, figsize=(13.8, 10))
+def plot_scatter(runs):
+    fig, axes = plt.subplots(3, 3, figsize=(14.8, 10.4))
+    plotted, summaries = [], []
     for ax, panel in zip(axes.flat, PANELS):
-        group = panel_rows(summary, panel)
-        finite = [r["tts99_s"] for r in group if math.isfinite(r["tts99_s"])]
-        ax.set(yscale="log", ylim=(min(finite) / 3, max(finite) * 3.5), xlim=(-.6, 3.6),
-               xticks=range(4), xticklabels=LABELS, ylabel="Estimated TTS99 (s, log scale)")
+        group = panel_rows(runs, panel)
+        values = [r['estimated_total_s'] for r in group]
+        lower, upper = min(values) / 1.22, max(values) * 1.6
+        seeds = sorted({r['seed'] for r in group})
+        offsets = {seed: -.28 + .56 * rank / (len(seeds) - 1)
+                   for rank, seed in enumerate(seeds)}
         for i, (method, color) in enumerate(zip(METHODS, COLORS)):
-            row = next(r for r in group if r["method"] == method)
-            value = row["tts99_s"]
-            if math.isfinite(value):
-                ax.plot(i, value, "o", color=color, markersize=8)
-                ax.annotate(f"{value:.2f}", (i, value), xytext=(0, 9), textcoords="offset points",
-                            ha="center", fontsize=10)
-                ax.annotate(f"{row['target_hits']}/{row['runs']}", (i, value), xytext=(0, -16),
-                            textcoords="offset points", ha="center", color="#606060", fontsize=9)
-            else:
-                ax.text(i, .85, f"∞\n0/{row['runs']}", transform=ax.get_xaxis_transform(),
-                        ha="center", va="center", color=color, fontsize=12)
-        ax.set_title(f"{panel[3]}, B={panel[2]}\n{group[0]['runs']} runs per method", fontsize=11)
-        ax.grid(axis="y", alpha=.2, linewidth=.6)
-        ax.tick_params(axis="x", labelsize=9)
-    decorate(fig, "NLP-inclusive TTS99 estimates",
-             "TTS99 = median completion time × ceil[log(0.01) / log(1 − hit rate)].  p=1: one run; p=0: ∞.  Labels: hits/runs.")
-    return fig
+            selected = sorted((r for r in group if r['method'] == method), key=lambda r: r['seed'])
+            for hit, marker in ((True, 'o'), (False, 'x')):
+                subset = [r for r in selected if r['lookup_target_hit'] == hit]
+                xs = [i + offsets[r['seed']] for r in subset]
+                ys = [r['estimated_total_s'] for r in subset]
+                if subset:
+                    ax.scatter(xs, ys, color=color, marker=marker, s=30 if hit else 38,
+                               linewidths=0 if hit else 1.5, alpha=.88, zorder=3)
+                    plotted.extend(r['job_id'] for r in subset)
+            median = statistics.median(r['estimated_total_s'] for r in selected)
+            ax.hlines(median, i - .34, i + .34, color='#222222', linewidth=1.1,
+                      alpha=.85, zorder=2)
+            hits = sum(r['lookup_target_hit'] for r in selected)
+            ax.text(i, .96, f'{hits}/{len(selected)}', transform=ax.get_xaxis_transform(),
+                    ha='center', va='top', color='#555555', fontsize=9)
+            summaries.append({'case': panel[0], 'cstr_size': panel[1], 'budget': panel[2],
+                              'method': method, 'runs': len(selected), 'target_hits': hits,
+                              'median_completion_s': median})
+        ticks = [m * 10**p for p in range(-2, 6) for m in (1, 2, 5)
+                 if lower <= m * 10**p <= upper]
+        if len(ticks) < 2:
+            exponent = math.floor(math.log10(min(values)))
+            ticks = [m * 10**exponent for m in range(1, 21)
+                     if lower <= m * 10**exponent <= upper]
+        ax.set(yscale='log', ylim=(lower, upper), xlim=(-.6, 3.6),
+               xticks=range(4), xticklabels=LABELS, ylabel='Estimated completion time (s)')
+        ax.yaxis.set_major_locator(FixedLocator(ticks))
+        ax.yaxis.set_major_formatter(FuncFormatter(lambda value, _: f'{value:g}'))
+        ax.yaxis.set_minor_locator(NullLocator())
+        ax.set_title(f'{panel[3]}, B={panel[2]}\n{len(seeds)} runs per method', fontsize=11, pad=11)
+        ax.tick_params(axis='x', labelsize=9, length=0, pad=7)
+        ax.tick_params(axis='y', labelsize=9)
+        ax.grid(axis='y', color='#dce1e5', linewidth=.6, alpha=.8)
+        ax.set_axisbelow(True)
+    expected = [r['job_id'] for r in runs]
+    if len(plotted) != len(set(plotted)) or set(plotted) != set(expected):
+        raise ValueError('Scatter omitted or duplicated runs')
+    _, tts_summary = performance_tables(runs)
+    for row in summaries:
+        ref = next(r for r in tts_summary if all(r[k] == row[k] for k in
+                   ('case', 'cstr_size', 'budget', 'method')))
+        if any(row[k] != ref[k] for k in ('runs', 'target_hits', 'median_completion_s')):
+            raise ValueError('Scatter summary differs from the TTS99 source groups')
+    fig.subplots_adjust(left=.065, right=.985, bottom=.095, top=.83, hspace=.61, wspace=.30)
+    fig.suptitle('NLP-inclusive completion times by run', fontsize=18, y=.982)
+    fig.text(.5, .94, 'One point per start; all target outcomes included', ha='center',
+             fontsize=11, color='#444444')
+    handles = [Line2D([], [], color='#555555', marker='o', linestyle='none', markersize=6,
+                      label='Target reached'),
+               Line2D([], [], color='#555555', marker='x', linestyle='none', markersize=7,
+                      markeredgewidth=1.5, label='Target missed'),
+               Line2D([], [], color='#222222', linewidth=1.1, label='Median across runs')]
+    fig.legend(handles=handles, loc='upper center', bbox_to_anchor=(.5, .918), ncol=3,
+               frameon=False, fontsize=10, columnspacing=2.5)
+    fig.text(.5, .052, 'Logarithmic y-axes. Labels: hits/runs. Horizontal offsets follow seed order.',
+             ha='center', fontsize=9, color='#444444')
+    fig.text(.5, .027, 'Fixed-path time estimates from DFO traces and separate NLP point timings; target outcomes from recorded searches.',
+             ha='center', fontsize=9, color='#555555')
+    return fig, summaries
+
+
+def build_run_scatter(output=OUTPUT):
+    runs, _, preparation, inputs, source_manifest = load_runs(PANELS)
+    output.mkdir(parents=True, exist_ok=True)
+    prefix = 'completion_time_scatter'
+    with plt.rc_context({'font.family': 'DejaVu Sans', 'font.size': 9,
+                         'axes.spines.top': False, 'axes.spines.right': False,
+                         'axes.edgecolor': '#555555', 'axes.linewidth': .7,
+                         'pdf.fonttype': 42}):
+        fig, summaries = plot_scatter(runs)
+        for ext in ('png', 'pdf'):
+            fig.savefig(output / f'{prefix}.{ext}', dpi=220, facecolor='white',
+                        metadata={'CreationDate': None} if ext == 'pdf' else None)
+        plt.close(fig)
+    for ext in ('png', 'pdf'):
+        # Keep existing published URLs, with the figure labeled as completion time.
+        (output / f'tts99.{ext}').write_bytes((output / f'{prefix}.{ext}').read_bytes())
+    write_csv(output / f'{prefix}_runs.csv', runs)
+    artifacts = [f'{prefix}.{ext}' for ext in ('png', 'pdf')] + [f'{prefix}_runs.csv', 'tts99.png', 'tts99.pdf']
+    manifest = {
+        'kind': 'individual_run_completion_time_scatter', 'runs': len(runs),
+        'panels': [list(p) for p in PANELS], 'groups': summaries,
+        'y_metric': 'estimated_total_s; no per-run TTS99 is claimed',
+        'legacy_figure_aliases': {'tts99.png': f'{prefix}.png', 'tts99.pdf': f'{prefix}.pdf'},
+        'formula': 'DFO runtime - lookup time + separate NLP point costs + one Dynamic preparation',
+        'target_definition': 'Recorded lookup target within 1e-5 * max(1, abs(target))',
+        'markers': {'circle': 'lookup target hit', 'cross': 'lookup target missed',
+                    'black_line': 'median completion estimate across all runs'},
+        'horizontal_offsets': 'Seed order, fixed across methods within each panel',
+        'all_target_failures_included': True, 'measured_online_runtime': False,
+        'point_cost_policy': source_manifest['cost_policy'],
+        'dynamic_preparation_reference': preparation,
+        'sources': {str((SOURCE / name).relative_to(ROOT)): sha(SOURCE / name) for name in inputs},
+        'scripts': {str(p.relative_to(ROOT)): sha(p) for p in
+                    (Path(__file__), ROOT / 'scripts/plot_dantzig_cost_breakdown.py',
+                     ROOT / 'scripts/plot_dantzig_run_scatter.py')},
+        'artifacts': {name: sha(output / name) for name in artifacts},
+    }
+    scatter_manifest_path = output / f'{prefix}.manifest.json'
+    scatter_manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
+    performance_manifest_path = output / 'performance.manifest.json'
+    if performance_manifest_path.exists():
+        performance_manifest = json.loads(performance_manifest_path.read_text())
+        performance_manifest['completion_time_scatter'] = {
+            'manifest': scatter_manifest_path.name, 'runs': len(runs),
+            'y_metric': 'estimated_total_s', 'legacy_filenames': ['tts99.png', 'tts99.pdf'],
+        }
+        performance_manifest['scripts'].update(manifest['scripts'])
+        performance_manifest['artifacts'].update(manifest['artifacts'])
+        performance_manifest['artifacts'][scatter_manifest_path.name] = sha(scatter_manifest_path)
+        performance_manifest_path.write_text(json.dumps(performance_manifest, indent=2) + '\n')
+    print(json.dumps({'runs_plotted': len(runs), 'groups': len(summaries),
+                      'output': str(output)}, indent=2))
+
+    return manifest
 
 
 def decorate(fig, title, note):
@@ -220,10 +321,12 @@ def build(output=OUTPUT):
     benchmark = full_benchmark()
     write_csv(output / "all_method_completion_times.csv", benchmark)
     (output / "gdp_minlp_runs.csv").write_bytes((GDP_SOURCE / "comparison.csv").read_bytes())
-    artifacts = ["performance_profile_runs.csv", "tts99_summary.csv", "all_method_completion_times.csv", "gdp_minlp_runs.csv"]
+    scatter_manifest = build_run_scatter(output)
+    artifacts = ["performance_profile_runs.csv", "tts99_summary.csv", "all_method_completion_times.csv", "gdp_minlp_runs.csv",
+                 "completion_time_scatter.manifest.json", *scatter_manifest["artifacts"]]
     with plt.rc_context({"font.family": "DejaVu Sans", "font.size": 9,
                          "axes.spines.top": False, "axes.spines.right": False}):
-        for name, fig in (("performance_profiles", plot_profiles(ratios)), ("tts99", plot_tts99(summary)),
+        for name, fig in (("performance_profiles", plot_profiles(ratios)),
                           ("all_method_completion_times", plot_full_benchmark(benchmark))):
             for ext in ("png", "pdf"):
                 filename = f"{name}.{ext}"
@@ -238,13 +341,17 @@ def build(output=OUTPUT):
                 "profile_definition": "Successful completion time / fastest successful method on the paired start; failures have infinite ratios and stay in the denominator",
                 "tts99_definition": "Median completion time over all seeds * ceil(log(0.01) / log(1 - observed hit rate)); p=0: infinity, p=1: one run",
                 "tts99_assumption": "Independent restarts with the observed hit probability; an estimate from 9 or 10 runs, not a 99% confidence guarantee",
+                "completion_time_scatter": {"manifest": "completion_time_scatter.manifest.json",
+                                            "runs": len(runs), "y_metric": "estimated_total_s",
+                                            "legacy_filenames": ["tts99.png", "tts99.pdf"]},
                 "point_cost_policy": source_manifest["cost_policy"], "dynamic_preparation_reference": preparation,
                 "sources": {str((SOURCE / name).relative_to(ROOT)): sha(SOURCE / name) for name in inputs},
                 "gdp_minlp_source": {str((GDP_SOURCE / "comparison.csv").relative_to(ROOT)): sha(GDP_SOURCE / "comparison.csv")},
                 "gdp_minlp_runs": 45, "all_method_comparison_rows": len(benchmark),
                 "gdp_minlp_policy": "Single measured completion per method/model; preserve time limits, target attainment and bound conflicts; no restart probability or TTS99 inferred from one run",
                 "scripts": {str(path.relative_to(ROOT)): sha(path) for path in
-                            (Path(__file__), ROOT / "scripts/plot_dantzig_cost_breakdown.py", ROOT / "benchmark_analysis.py")},
+                            (Path(__file__), ROOT / "scripts/plot_dantzig_run_scatter.py",
+                             ROOT / "scripts/plot_dantzig_cost_breakdown.py", ROOT / "benchmark_analysis.py")},
                 "artifacts": {name: sha(output / name) for name in artifacts}}
     (output / "performance.manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(json.dumps({"output": str(output), "panels": len(PANELS), "runs": len(runs)}, indent=2))
