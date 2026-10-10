@@ -1,0 +1,86 @@
+{
+  "archives": [
+    {
+      "archive": "archives/grid_gdp_run_20261008_210901_dw5vq37s.zip",
+      "sha256": "fb5d962307731a84d5833b1065cd5e94772bdb15c8a4a7f5d05b3ff0b67a7c94",
+      "verified_member_hashes": 807
+    },
+    {
+      "archive": "archives/grid_gdp_retry_all_20261009_153057_czhvd9w7.zip",
+      "sha256": "059453681d8c2b326dcd622d97f6ddb59e815ca8d78ff798e5775f90e42a84be",
+      "verified_member_hashes": 210
+    }
+  ],
+  "policy": "Replace only the 11 original GAMS network-session errors with their one normally terminated retry. Retain original records for repeated errors; retain every retry in retry_audited.csv and the original archive. No best-time or best-objective selection.",
+  "point_data": "grid_gdp_20261009/raw/point_timings.csv",
+  "point_data_sha256": "2490d8f8de368d9b54d6cd3d9082ace5c74dfa2ebb84fd266b0488a43a7fcd0f",
+  "ipopt_points": 20181,
+  "new_point_measurements": 0,
+  "retry_status_counts": {
+    "error": 10,
+    "finished": 11
+  },
+  "retry_normal_target_hits": 8,
+  "retry_errors": [
+    {
+      "grid_name": "alpine1",
+      "method": "loa",
+      "message": "DifferentiationException: Cannot differentiate abs(x) at x=0"
+    },
+    {
+      "grid_name": "camel3",
+      "method": "ric",
+      "message": "IntervalException: Cannot raise a negative variable to a fractional power."
+    },
+    {
+      "grid_name": "camel3",
+      "method": "gloa",
+      "message": "IntervalException: Cannot raise a negative variable to a fractional power."
+    },
+    {
+      "grid_name": "camel3",
+      "method": "loa",
+      "message": "IntervalException: Cannot raise a negative variable to a fractional power."
+    },
+    {
+      "grid_name": "dropwave",
+      "method": "ric",
+      "message": "IntervalException: Cannot raise a negative variable to a fractional power."
+    },
+    {
+      "grid_name": "dropwave",
+      "method": "gloa",
+      "message": "IntervalException: Cannot raise a negative variable to a fractional power."
+    },
+    {
+      "grid_name": "dropwave",
+      "method": "loa",
+      "message": "IntervalException: Cannot raise a negative variable to a fractional power."
+    },
+    {
+      "grid_name": "sum_of_squares",
+      "method": "ric",
+      "message": "IntervalException: Cannot raise a negative variable to a fractional power."
+    },
+    {
+      "grid_name": "sum_of_squares",
+      "method": "gloa",
+      "message": "IntervalException: Cannot raise a negative variable to a fractional power."
+    },
+    {
+      "grid_name": "sum_of_squares",
+      "method": "loa",
+      "message": "IntervalException: Cannot raise a negative variable to a fractional power."
+    }
+  ],
+  "current_status_counts": {
+    "finished": 62,
+    "unsupported_expression": 32,
+    "error": 10,
+    "hard_time_limit": 1
+  },
+  "current_gdpopt_target_hits": 45,
+  "current_gdpopt_cases": 63,
+  "retry_worker_total_s": 16641.43390088901,
+  "certificate_note": "Audited target hits validate saved feasible coordinates against the analytic expression and CSV minimum; they do not promote solver bounds to global certificates. Original target_hit fields are unchanged."
+}

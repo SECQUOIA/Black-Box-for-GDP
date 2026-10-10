@@ -18,6 +18,7 @@ scripts present in the server archive.
 | RIC/GLOA BARON + HiGHS, October 1, CPU 2, 18 completed jobs | [dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip](dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip) |
 | LOA BARON + HiGHS, October 1, CPU 6, 9 completed jobs | [dantzig_gdp_compare_20261001_204801_1gfd4d02.zip](dantzig_gdp_compare_20261001_204801_1gfd4d02.zip) |
 | Grid GDP, October 9, CPU 6, 20,181 point timings and 105 benchmark outcomes | [grid_gdp_run_20261008_210901_dw5vq37s.zip](grid_gdp_run_20261008_210901_dw5vq37s.zip) |
+| Grid GDP retry, October 9, CPU 6, 21 error retries | [grid_gdp_retry_all_20261009_153057_czhvd9w7.zip](grid_gdp_retry_all_20261009_153057_czhvd9w7.zip) |
 | Superseded partial RIC/GLOA snapshot, not a comparison input | [gdpopt_baron_highs_20261001_partial.tar.gz](gdpopt_baron_highs_20261001_partial.tar.gz) |
 
 Verify from the repository root:
