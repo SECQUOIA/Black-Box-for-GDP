@@ -26,8 +26,9 @@ candidate-set GDPopt smoke solves. Native HiGHS/MC++ smoke solves are not
 substitutes for the full Dantzig GAMS benchmark. The packaged dry run selects
 exactly ten benchmark pairs and zero points from the supplied retry archive.
 
-No corrected Dantzig run has been started by this publication. SSH rejected
-noninteractive authentication, so start it from an authenticated server shell.
+The [completed corrected Dantzig run](../grid_gdp_corrected_20261009/README.md)
+has ten saved CSV-minimum hits, seven optimal terminations and three time
+limits, with no errors. The commands below reproduce the selected retry.
 
 From the Mac:
 

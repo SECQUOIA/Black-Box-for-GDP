@@ -19,6 +19,7 @@ scripts present in the server archive.
 | LOA BARON + HiGHS, October 1, CPU 6, 9 completed jobs | [dantzig_gdp_compare_20261001_204801_1gfd4d02.zip](dantzig_gdp_compare_20261001_204801_1gfd4d02.zip) |
 | Grid GDP, October 9, CPU 6, 20,181 point timings and 105 benchmark outcomes | [grid_gdp_run_20261008_210901_dw5vq37s.zip](grid_gdp_run_20261008_210901_dw5vq37s.zip) |
 | Grid GDP retry, October 9, CPU 6, 21 error retries | [grid_gdp_retry_all_20261009_153057_czhvd9w7.zip](grid_gdp_retry_all_20261009_153057_czhvd9w7.zip) |
+| Corrected Grid GDP retry, October 9, CPU 6, ten cases | [grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip](grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip) |
 | Superseded partial RIC/GLOA snapshot, not a comparison input | [gdpopt_baron_highs_20261001_partial.tar.gz](gdpopt_baron_highs_20261001_partial.tar.gz) |
 
 Verify from the repository root:
@@ -66,5 +67,10 @@ outcomes include 32 unsupported cases, 21 errors and one hard timeout; saved
 feasible incumbents do not imply successful termination. The
 [Grid GDP timing summary](../grid_gdp_20261009/README.md) includes exact exported
 tables, per-method times and a reproducible analysis without new solver runs.
+The [corrected ten-case retry](../grid_gdp_corrected_20261009/README.md) passes
+all 130 internal hashes and independently matches every saved solution to the
+CSV minimum. It has seven optimal terminations and three time limits, with no
+errors. Its changed Pyomo processing profile is explicit; the earlier raw
+results and all 20,181 IPOPT point measurements remain intact.
 The original September 10 and BAM ZIPs do not contain the local
 `run_dantzig.sh` or `run_bam_dantzig.sh` wrappers.

@@ -1,5 +1,10 @@
 # Grid GDP retry results, October 9, 2026
 
+The [subsequent corrected-profile retry](../grid_gdp_corrected_20261009/README.md)
+resolved the ten repeated errors and saved ten CSV-minimum hits: seven optimal
+terminations and three time limits. Those results are published separately;
+the unchanged-profile records and counts below are preserved.
+
 The supplied Dantzig retry reran exactly 21 prior errors, with the original
 solver settings, CPU 6, one thread, and 1,800 s limit. **11 ended normally and
 10 repeated their earlier errors.** The ZIP passed CRC validation and all

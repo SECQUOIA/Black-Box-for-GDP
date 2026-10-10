@@ -1,0 +1,40 @@
+{
+  "archive": {
+    "archive": "archives/grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip",
+    "sha256": "2215cca4babfa79cf71b874c47218502b4937380cb38956c61e163a6b5436e1e",
+    "verified_member_hashes": 130
+  },
+  "parent_archive": {
+    "archive": "archives/grid_gdp_retry_all_20261009_153057_czhvd9w7.zip",
+    "sha256": "059453681d8c2b326dcd622d97f6ddb59e815ca8d78ff798e5775f90e42a84be",
+    "verified_member_hashes": 210
+  },
+  "original_archive": {
+    "archive": "archives/grid_gdp_run_20261008_210901_dw5vq37s.zip",
+    "sha256": "fb5d962307731a84d5833b1065cd5e94772bdb15c8a4a7f5d05b3ff0b67a7c94",
+    "verified_member_hashes": 807
+  },
+  "runner_package_sha256": "4374f607e0fb3893db0b1a8178b1f6b99dd857c8a100fa1a3fad4ab9ccc986f5",
+  "verified_source_files": 45,
+  "retry_fix_profile": "pyomo610-grid-v1",
+  "runtime_matches_parent": true,
+  "status_counts": {
+    "finished": 9,
+    "hard_time_limit": 1
+  },
+  "termination_counts": {
+    "optimal": 7,
+    "maxTimeLimit": 3
+  },
+  "audited_feasible": 10,
+  "audited_target_hits": 10,
+  "worker_total_s": 8327.631223140284,
+  "elapsed_to_final_summary_s": 8329.174197,
+  "created_utc": "2026-10-10T00:40:28.672284+00:00",
+  "final_summary_utc": "2026-10-10T02:59:17.846481+00:00",
+  "point_data": "grid_gdp_20261009/raw/point_timings.csv",
+  "point_data_sha256": "2490d8f8de368d9b54d6cd3d9082ace5c74dfa2ebb84fd266b0488a43a7fcd0f",
+  "ipopt_points": 20181,
+  "new_point_measurements": 0,
+  "policy": "Publish all ten corrected attempts separately. Do not overwrite original or unchanged-profile retry outcomes. Preserve original target flags; independently audit saved solutions, including the hard-timeout incumbent."
+}
