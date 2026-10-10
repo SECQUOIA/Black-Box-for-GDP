@@ -20,6 +20,7 @@ scripts present in the server archive.
 | Grid GDP, October 9, CPU 6, 20,181 point timings and 105 benchmark outcomes | [grid_gdp_run_20261008_210901_dw5vq37s.zip](grid_gdp_run_20261008_210901_dw5vq37s.zip) |
 | Grid GDP retry, October 9, CPU 6, 21 error retries | [grid_gdp_retry_all_20261009_153057_czhvd9w7.zip](grid_gdp_retry_all_20261009_153057_czhvd9w7.zip) |
 | Corrected Grid GDP retry, October 9, CPU 6, ten cases | [grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip](grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip) |
+| RBFOpt Grid trajectories, October 10, CPU 0, all 1,050 runs | [grid_trace_rbfopt_20261008_190603_og2app39.zip](grid_trace_rbfopt_20261008_190603_og2app39.zip) |
 | Superseded partial RIC/GLOA snapshot, not a comparison input | [gdpopt_baron_highs_20261001_partial.tar.gz](gdpopt_baron_highs_20261001_partial.tar.gz) |
 
 Verify from the repository root:
@@ -72,5 +73,9 @@ all 130 internal hashes and independently matches every saved solution to the
 CSV minimum. It has seven optimal terminations and three time limits, with no
 errors. Its changed Pyomo processing profile is explicit; the earlier raw
 results and all 20,181 IPOPT point measurements remain intact.
+The [complete RBFOpt Grid trajectories](../grid_trace_rbfopt_20261010/README.md)
+pass all 5,546 internal hashes and contain 1,050 complete runs, 54,600 ordered
+objective callbacks and 7,514 unique grid/coordinate pairs. Every original
+per-run JSONL is also extracted and indexed for use with the IPOPT point data.
 The original September 10 and BAM ZIPs do not contain the local
 `run_dantzig.sh` or `run_bam_dantzig.sh` wrappers.
