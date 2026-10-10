@@ -1,5 +1,10 @@
 # Grid GDP point timings and benchmarks, October 9, 2026
 
+The [October 9 retry publication](../grid_gdp_retry_20261009/README.md) combines
+the normally terminated network retries with the original benchmark records
+and links these unchanged IPOPT measurements. This directory preserves the
+original run without replacing its raw results.
+
 The Dantzig run measured all **21 × 961 = 20,181 fixed grid points** with
 GAMS/IPOPT on one thread, with no failed point attempts. It also finished
 processing all **105 scheduled GDP benchmark cases**. Processing a case does
