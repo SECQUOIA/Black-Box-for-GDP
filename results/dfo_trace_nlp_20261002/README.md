@@ -13,7 +13,13 @@ python dfo_trace_analysis.py
 The updated [cost breakdown](figures/cost_breakdown.png), [performance profiles](figures/performance_profiles.png)
 and [individual-run scatter](figures/completion_time_scatter.png) use Dantzig DFO clocks and separately measured point costs.
 Successful CSTR30 retry points use the retry time alone. Failed evaluations keep their measured costs.
-The profiles use completed-run time and keep all paired starts in the denominator, including target failures.
+The profiles show cumulative target success against **absolute completion time in seconds**
+(logarithmic x-axes), with no division by the fastest method. All paired starts remain
+in the denominator, including target failures. A successful run contributes at its
+NLP-inclusive completed-run time; this is not its first-hit time. The four DFO methods
+are compared here; GDPopt and MINLP remain in the separate all-method time table below.
+The profile CSV records `profile_completion_s` as the completion estimate for target
+hits and infinity for misses; `estimated_total_s` retains every run's actual estimated cost.
 The scatter shows all 356 individual completion-time estimates: nine runs per
 method for Column and ten for every other panel. Circles mark target hits,
 crosses mark target misses, and black lines mark medians across all runs.

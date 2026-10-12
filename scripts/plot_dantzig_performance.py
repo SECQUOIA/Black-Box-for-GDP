@@ -18,7 +18,7 @@ from scripts.plot_dantzig_cost_breakdown import (
 
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from matplotlib.ticker import FixedLocator, FuncFormatter, NullLocator
+from matplotlib.ticker import FixedLocator, FuncFormatter, MaxNLocator, NullLocator
 
 
 PANELS = (("column", "", 16, "Column"), ("cstr", "30", 43, "CSTR 30"),
@@ -41,14 +41,13 @@ def performance_tables(runs):
         key = row["case"], row["cstr_size"], row["budget"]
         pairs[(*key, row["seed"])].append(row)
         groups[(*key, row["method"])].append(row)
-    ratios = []
+    profiles = []
     for group in pairs.values():
         if Counter(r["method"] for r in group) != Counter(METHODS):
             raise ValueError("Profile requires one run per method and paired seed")
-        fastest = min((r["estimated_total_s"] for r in group if r["lookup_target_hit"]), default=math.inf)
         for row in group:
-            ratios.append({**row, "time_ratio": row["estimated_total_s"] / fastest
-                           if row["lookup_target_hit"] else math.inf})
+            profiles.append({**row, "profile_completion_s": row["estimated_total_s"]
+                             if row["lookup_target_hit"] else math.inf})
     summary = []
     for (case, size, budget, method), group in groups.items():
         hits = sum(r["lookup_target_hit"] for r in group)
@@ -58,35 +57,40 @@ def performance_tables(runs):
         summary.append({"case": case, "cstr_size": size, "budget": budget, "method": method,
                         "runs": len(group), "target_hits": hits, "hit_rate": rate,
                         "median_completion_s": median, "runs_99": repeats, "tts99_s": repeats * median})
-    return ratios, summary
+    return profiles, summary
 
 
 def panel_rows(rows, panel):
     return [r for r in rows if (r["case"], r["cstr_size"], r["budget"]) == panel[:3]]
 
 
-def plot_profiles(ratios):
+def plot_profiles(profiles):
     fig, axes = plt.subplots(3, 3, figsize=(13.8, 10))
     for ax, panel in zip(axes.flat, PANELS):
-        group = panel_rows(ratios, panel)
-        finite = [r["time_ratio"] for r in group if math.isfinite(r["time_ratio"])]
-        right = max(1.2, max(finite, default=1) * 1.04)
+        group = panel_rows(profiles, panel)
+        # Keep the recorded costs even when no method reaches the target.
+        costs = [r["estimated_total_s"] for r in group]
+        left, right = min(costs) / 1.15, max(costs) * 1.15
         for method, color in zip(METHODS, COLORS):
-            values = [r["time_ratio"] for r in group if r["method"] == method]
-            steps = sorted({1., right, *(v for v in values if math.isfinite(v))})
+            values = [r["profile_completion_s"] for r in group if r["method"] == method]
+            steps = sorted({left, right, *(v for v in values if math.isfinite(v))})
             ax.step(steps, [sum(v <= x for v in values) / len(values) for x in steps],
                     where="post", color=color, linewidth=1.8)
-        ax.set(xscale="log", xlim=(1, right), ylim=(0, 1.035),
-               yticks=(0, .25, .5, .75, 1), xlabel="Time / fastest successful method",
+        ax.set(xscale="log", xlim=(left, right), ylim=(0, 1.035),
+               yticks=(0, .25, .5, .75, 1), xlabel="Completion time (s, log scale)",
                ylabel="Fraction of all runs reaching target")
-        candidates = (1, 1.05, 1.1, 1.15, 1.2, 1.3, 1.4) if right < 1.5 else (1, 1.5, 2, 3, 5, 10, 20, 50, 100)
-        ticks = [x for x in candidates if x <= right]
+        candidates = [m * 10.**p
+                      for p in range(math.floor(math.log10(left)), math.ceil(math.log10(right)) + 1)
+                      for m in (1, 2, 5)]
+        ticks = [x for x in candidates if left <= x <= right]
+        if len(ticks) < 3:
+            ticks = [x for x in MaxNLocator(nbins=4).tick_values(left, right) if left <= x <= right]
         ax.xaxis.set_major_locator(FixedLocator(ticks))
         ax.xaxis.set_major_formatter(FuncFormatter(lambda x, _: f"{x:g}"))
         ax.xaxis.set_minor_locator(NullLocator())
         ax.set_title(f"{panel[3]}, B={panel[2]}\n{len(group) // 4} paired starts", fontsize=11)
         ax.grid(alpha=.2, linewidth=.6)
-    decorate(fig, "NLP-inclusive completion-time performance profiles",
+    decorate(fig, "Process GDP: success versus absolute completion time",
              "All paired starts remain in the denominator, including target failures.")
     return fig
 
@@ -220,14 +224,12 @@ def build_run_scatter(output=OUTPUT):
 
 
 def decorate(fig, title, note):
-    fig.subplots_adjust(left=.066, right=.984, bottom=.13, top=.84, hspace=.65, wspace=.32)
+    fig.subplots_adjust(left=.066, right=.984, bottom=.115, top=.84, hspace=.65, wspace=.32)
     fig.suptitle(title, fontsize=18, y=.98)
     fig.legend([Line2D([], [], color=c, linewidth=2) for c in COLORS], LABELS,
                loc="upper center", bbox_to_anchor=(.5, .948), ncol=4, frameon=False, fontsize=11)
-    fig.text(.5, .077, note, ha="center", fontsize=9.2)
-    fig.text(.5, .052, "Dantzig DFO traces + separate point costs; successful CSTR30 retry cost only. All unsuccessful evaluation costs included.",
-             ha="center", fontsize=9.2)
-    fig.text(.5, .027, "Fixed-path completion estimates, not first-hit or measured online NLP times. TTS99 assumes independent restarts with the observed hit rate.",
+    fig.text(.5, .055, note, ha="center", fontsize=9.2)
+    fig.text(.5, .027, "Fixed-path completion estimates from DFO traces and separate NLP point timings; completion times, not first-hit times.",
              ha="center", fontsize=9, color="#555555")
 
 
@@ -314,9 +316,9 @@ def plot_full_benchmark(rows):
 
 def build(output=OUTPUT):
     runs, _, preparation, inputs, source_manifest = load_runs(PANELS)
-    ratios, summary = performance_tables(runs)
+    profiles, summary = performance_tables(runs)
     output.mkdir(parents=True, exist_ok=True)
-    write_csv(output / "performance_profile_runs.csv", ratios)
+    write_csv(output / "performance_profile_runs.csv", profiles)
     write_csv(output / "tts99_summary.csv", summary)
     benchmark = full_benchmark()
     write_csv(output / "all_method_completion_times.csv", benchmark)
@@ -326,7 +328,7 @@ def build(output=OUTPUT):
                  "completion_time_scatter.manifest.json", *scatter_manifest["artifacts"]]
     with plt.rc_context({"font.family": "DejaVu Sans", "font.size": 9,
                          "axes.spines.top": False, "axes.spines.right": False}):
-        for name, fig in (("performance_profiles", plot_profiles(ratios)),
+        for name, fig in (("performance_profiles", plot_profiles(profiles)),
                           ("all_method_completion_times", plot_full_benchmark(benchmark))):
             for ext in ("png", "pdf"):
                 filename = f"{name}.{ext}"
@@ -338,7 +340,10 @@ def build(output=OUTPUT):
                 "time_kind": "fixed_path_completion_estimate", "measured_online_runtime": False,
                 "time_formula": "DFO runtime - lookup calls + selected point costs + one Dynamic preparation per run",
                 "target_definition": "Frozen lookup target within 1e-5 * max(1, abs(target))",
-                "profile_definition": "Successful completion time / fastest successful method on the paired start; failures have infinite ratios and stay in the denominator",
+                "profile_definition": "Fraction of all runs reaching the target with estimated completion time <= t seconds; target failures have infinite profile_completion_s and stay in the denominator",
+                "profile_metric": "profile_completion_s; absolute seconds, no relative normalization",
+                "profile_xscale": "log",
+                "profile_methods": list(METHODS),
                 "tts99_definition": "Median completion time over all seeds * ceil(log(0.01) / log(1 - observed hit rate)); p=0: infinity, p=1: one run",
                 "tts99_assumption": "Independent restarts with the observed hit probability; an estimate from 9 or 10 runs, not a 99% confidence guarantee",
                 "completion_time_scatter": {"manifest": "completion_time_scatter.manifest.json",
