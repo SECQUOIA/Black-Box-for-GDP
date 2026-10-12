@@ -41,5 +41,17 @@
     "styblinski_tang.csv": "6000c3e54804f1e87bf1b9dd4f9082028e958c6f95d89d0a3e651218f4a5906f",
     "sum_of_squares.csv": "f821c40aee52d021768e73cc4a383267cfac44a9657ae6bf1db12b59c766e0d3",
     "xin_she_yang3.csv": "f96827c10578a16a8b7c5bbcbe7445e17762d1dc0705175b9fa6edaefe2d2d0d"
+  },
+  "scope_after_20261011": {
+    "historical_outputs": [
+      "time_profile_runs.csv",
+      "time_work_summary.csv",
+      "time_work_tradeoff.png"
+    ],
+    "replaced_figures": [
+      "time_performance_profiles.png",
+      "completion_time_profiles.png"
+    ],
+    "current_figure_manifest": "../grid_gdp_figures.manifest.json"
   }
 }

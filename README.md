@@ -381,6 +381,11 @@ the audited static outputs from `case_study_analysis.py` for Issue #18.
 
 ## Original GDP Models
 
+The 21 grid benchmarks also have [analytic GDP models](docs/grid_gdp.md).
+`python -m gdp_models.grid validate` checks all 20,181 grid points and their
+minimizers against the existing CSVs. The models use the historical function
+expressions and two 31-way coordinate disjunctions per problem.
+
 Use `python -m gdp_models.dantzig setup` to initialize the original sources.
 The default matrix includes Column, CSTR30, Small Batch and Dynamic: 593
 external integer candidates per solver. Run through the Python entry point;
@@ -444,6 +449,12 @@ The batch saves per-point CSV/JSON results and supports `--resume` and
 `--dry-run`; see [enumeration options](docs/original_gdp_models.md#enumerate-all-integer-combinations).
 
 ## Development Checks
+
+The [October 11 Grid GDP comparison](results/grid_gdp_dfo_20261011/README.md)
+adds individually measured IPOPT point costs along all 4,200 DSDA/RBFOpt/BAM/FMQA
+paths. Updated TTS99 and absolute time/evaluation success profiles are available
+as PNG and PDF, alongside the [naïve GDP formulation](docs/grid_gdp.md).
+Rebuild with `python scripts/analyze_grid_gdp_paths.py --update-published`.
 
 The [current FMQA results and figure index](results/fmqa_20260925/README.md)
 use the September 25 reruns: 1,050 Grid runs on CPU 0 and 139 process-case runs

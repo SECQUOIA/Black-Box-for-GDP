@@ -1,0 +1,103 @@
+{
+  "analysis_sha256": "d6a1c0e7ff403a2b46bc819ca79d083fe00b3711aab7ba71f9df8d038fa7ac75",
+  "sources": {
+    "point_timings_sha256": "2490d8f8de368d9b54d6cd3d9082ace5c74dfa2ebb84fd266b0488a43a7fcd0f",
+    "reference_grids_sha256": {
+      "benchmark_grids/ackley.csv": "6a607107c82492852bed244357cf56a96aa347754b3e14f67b73833e6a0ef67f",
+      "benchmark_grids/alpine1.csv": "ae33130fa2fc3325c4c7e1e9112fed6bc90bfa2971b32fae022b5fd90382e770",
+      "benchmark_grids/alpine2.csv": "ff8cfd7f8ca3a8e595b9ef406b51bad46068574d126e9deb665de985f577722e",
+      "benchmark_grids/bohachevsky2.csv": "999858033dfbc7d0084923abe5246d5c6273b22f7300b79a101d49448170a291",
+      "benchmark_grids/camel3.csv": "16fc6c3f64fe31e952a072b44d19ff6984c508bcfa2509f740bcc7e80211cc8f",
+      "benchmark_grids/csendes.csv": "2b197da228ae88301368acb01e34222a6a88a0d5c215991b248c0f32777ed15e",
+      "benchmark_grids/deflected_corrugated_spring.csv": "63ed8e5447773c569d87a272d9243e1bdcecbd2d6f34e2005a9ee8784fd1c048",
+      "benchmark_grids/dropwave.csv": "5af484dd952252f35138c00720bab3f19d5ac0b6402e4e8885f22b22a0e687e8",
+      "benchmark_grids/easom.csv": "04a20282270ea465edb3cb434f97bd6030b53a0aff199837298a1a20c917d2c1",
+      "benchmark_grids/griewank.csv": "67390481014ae59ee0cddd4078bdbacba4c29bf417a8eb709da6e4353364358b",
+      "benchmark_grids/holder_table.csv": "7546c9484d35eb13341d396c80f7a9d436fa5d071710eafd51f7691b2dc64f21",
+      "benchmark_grids/hosaki.csv": "d69f02c3f1b4f3371dfca3370b566ba39aaa6863737c230141b5ede81622b358",
+      "benchmark_grids/levy.csv": "fe5b30f3fcae2f33e271a97f316117ca7e03355e30f6d612bdc1db7dff8e22ce",
+      "benchmark_grids/levy13.csv": "d577e1fa4310b19d530bfeb348a7f88bbb4561285e8ffea87f85eecb90014800",
+      "benchmark_grids/michalewicz.csv": "2a6adca0a6d7889043a086016e4fb0e5f022fccbcca03b12cf2567bfb95cc25a",
+      "benchmark_grids/rastrigin.csv": "af132657e70812320c8171a1996dd120f33eb81147cd138c1d36e9e0ccaf39c8",
+      "benchmark_grids/rosenbrock.csv": "e2e5fdee4fa872c8cd54350b3a8065d3b7167d3f18e5d0fb269a3c3f7b6451f4",
+      "benchmark_grids/shubert.csv": "79bf42e84bd8ab312a7ba7a6b58d4f9d49922e328604c07073d02d101ec146b3",
+      "benchmark_grids/styblinski_tang.csv": "6000c3e54804f1e87bf1b9dd4f9082028e958c6f95d89d0a3e651218f4a5906f",
+      "benchmark_grids/sum_of_squares.csv": "f821c40aee52d021768e73cc4a383267cfac44a9657ae6bf1db12b59c766e0d3",
+      "benchmark_grids/xin_she_yang3.csv": "f96827c10578a16a8b7c5bbcbe7445e17762d1dc0705175b9fa6edaefe2d2d0d"
+    },
+    "designs_sha256": "05a14d26efa9288c27b10685736585942d313d45714f16ffa8286869afea7d43"
+  },
+  "archives": {
+    "dsda": {
+      "archive": "dantzig_20260910_170759_slN8tv.zip",
+      "sha256": "c5b706aa20f5577446d84f829910b5825221a9f6c5713ffc1fd854e7315d6e98",
+      "member_hashes_checked": 0
+    },
+    "rbfopt": {
+      "archive": "grid_trace_rbfopt_20261008_190603_og2app39.zip",
+      "sha256": "e02bf06a097b47340c93e04abefd25e97cc61d20eae9b23dee830505fffbcb38",
+      "member_hashes_checked": 5546
+    },
+    "bam": {
+      "archive": "grid_trace_bam_20261008_190603_5bh3y_t5.zip",
+      "sha256": "bd4d9bf56deafa864ecdd2e676fc24bd25a6037bdb02a772ebd800eb1a935374",
+      "member_hashes_checked": 5304
+    },
+    "fmqa_sa": {
+      "archive": "dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip",
+      "sha256": "494e8ef5689016ee8892d82d2a65cbc6cc9ad6e70f1d01452d04d9faced1eced",
+      "member_hashes_checked": 4304
+    }
+  },
+  "gdp_sources": {
+    "results/grid_gdp_retry_20261009/benchmark_current.csv": "589249b077afba94ce3e972ec65df0bd1e099780142d0f4ca65017895d4848a1",
+    "results/grid_gdp_corrected_20261009/results.csv": "a7c97c12d133b5317b6ddfdbbd79136170cad3ae9ed2b8ce5fc52a4a876df1da"
+  },
+  "runs": 4200,
+  "callbacks": 201833,
+  "timed_points": 20181,
+  "callbacks_by_method": {
+    "dsda": 38033,
+    "rbfopt": 54600,
+    "bam": 54600,
+    "fmqa_sa": 54600
+  },
+  "repeated_callbacks_by_method": {
+    "dsda": 7575
+  },
+  "figures": [
+    "evaluation_profiles",
+    "performance_profiles",
+    "tts99",
+    "gdp_minlp_comparison"
+  ],
+  "target_tolerance": 1e-05,
+  "profile_methods": [
+    "dsda",
+    "rbfopt",
+    "bam",
+    "fmqa_sa"
+  ],
+  "gdp_figure": "Separate per-grid time/outcome matrix in gdp_minlp_comparison; excluded from performance profiles",
+  "time_metric": "Full successful-run completion; lookup replacement plus sum of point_wall_s",
+  "dsda_exception": "Original log has no lookup clocks; entire historical runtime retained (lookup cost not subtracted)",
+  "gdp_selection": "Original + 11 unchanged-profile network retries + 10 explicitly labelled corrected error retries; not selected by speed or objective",
+  "unsupported_policy": "Keep all 21 grids in each GDP/MINLP denominator; unsupported = infinite cost",
+  "evaluation_metric": "First target-hit callback index, including initial/repeated callbacks; DFO only",
+  "tts99_definition": "Median total completion over all 10 seeds times ceil(log(.01)/log(1-hits/10)); 0 hits => infinity; 10 hits => one run",
+  "artifacts_sha256": {
+    "budget_summary.csv": "219d4889fc42707c1c2a0e6138deb94d4bc06177f4b8700b3a6bdb8d10f84fb4",
+    "evaluation_profiles.pdf": "686baf84686b93beecc105f94c71ac7f9daecb6a8cb153b5ff56e65231ca2502",
+    "evaluation_profiles.png": "b412bca21f40dd6ef9c36ff65a72e058f24fb52c9e455778dc2c3df405cedc47",
+    "gdp_minlp_comparison.pdf": "3fd61c0e6d0778489c4d7f4b2c6a57772f187f91ced58ad01038874962b43917",
+    "gdp_minlp_comparison.png": "74fc4b48c680a22a46f7f593d53cf9830f8d45e21e93cec635ff77dce3b9d73a",
+    "gdp_runs.csv": "c7836874aa5e6d835bf39bc161f775fda9585b0f95700a409cb646d1e5d9947e",
+    "performance_profiles.pdf": "fe01e08f1c50c38064270d63715c27c5df0049e57d147b7a2cbd52e1f9d3c6b7",
+    "performance_profiles.png": "889927636fd28eecb08b5af6c7017ad1dd7ade2dfa395641cc5f412dbb90e862",
+    "point_charges.csv.gz": "49ab8e4d0c07c2f031077358ba176b6beec4f908bfb3c10c196db61cc9b35b5f",
+    "runs.csv": "22b5410ae9cdaed631e21ec5ba593363ae7192e885227351c811e709d6ef661e",
+    "tts99.pdf": "ac98d167269e38ef653d8000381d312dcc52728e056272c81810127fee23c7c8",
+    "tts99.png": "3a0fb23e8f31eb7a1a4a5c49ab7e950777fabb712cc22dea45438f7ae529b389",
+    "tts99_summary.csv": "a65b44e76dc554f5f29502e9732453387f6e04c5c132d4ff63df01213a388159"
+  }
+}
