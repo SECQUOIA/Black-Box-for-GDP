@@ -10,8 +10,10 @@ The archive was extracted locally under `results/dantzig_review/dantzig_dfo_trac
 python dfo_trace_analysis.py
 ```
 
-The updated [cost breakdown](figures/cost_breakdown.png), [performance profiles](figures/performance_profiles.png)
-and [individual-run scatter](figures/completion_time_scatter.png) use Dantzig DFO clocks and separately measured point costs.
+The [performance profiles](figures/performance_profiles.png) and
+[individual-run scatter](figures/completion_time_scatter.png) use Dantzig DFO clocks and separately measured point costs.
+The earlier [cost breakdown](figures/cost_breakdown.png) retains its original run selection;
+its source loader now supports the current selection when regenerated.
 Successful CSTR30 retry points use the retry time alone. Failed evaluations keep their measured costs.
 The profiles show cumulative target success against **absolute completion time in seconds**
 (logarithmic x-axes), with no division by the fastest method. All paired starts remain
@@ -20,8 +22,28 @@ NLP-inclusive completed-run time; this is not its first-hit time. The four DFO m
 are compared here; GDPopt and MINLP remain in the separate all-method time table below.
 The profile CSV records `profile_completion_s` as the completion estimate for target
 hits and infinity for misses; `estimated_total_s` retains every run's actual estimated cost.
-The scatter shows all 356 individual completion-time estimates: nine runs per
-method for Column and ten for every other panel. Circles mark target hits,
+The profiles and scatter include the verified October 12 follow-ups:
+Column adds seed 10 for all four methods. Small Batch replaces all four methods
+with ten runs each on the original GDP domain `{1,2,3}^3` (27 points, 12 feasible),
+using budget 10 and seeds 0–9. RBFOpt uses MSRSM + sampling.
+The [full-domain report](../small_batch_full_domain_20261012/README.md) and
+[audit](../small_batch_full_domain_20261012/audit.json) verify all 400 callbacks,
+including 197 infeasible evaluations and seven repeated evaluations.
+Small Batch target counts are DSDA 8/10, RBFOpt 5/10, BAM 2/10, and FMQA-SA 7/10.
+Infeasible point costs include measured preprocessing rejection time;
+they are charged even though IPOPT was not invoked for those configurations.
+The [follow-up audit](../process_followup_20261012/audit.json) and
+[callback cost ledger](../process_followup_20261012/nlp_costs.json) preserve the
+Column supplement and earlier restricted-domain RBFOpt runs. Those restricted
+Small Batch runs are retained as evidence and are excluded from current plots.
+Every callback uses its measured point cost, including Column
+`(8,5)` from the original GAMS/IPOPT-profile preprocessing measurement.
+For consistency with the original figures, plot costs use each method's
+`result_record.wall_time_s`; the follow-up ledger also retains the outer runner
+clock. Original archived runs remain available as historical evidence.
+
+The scatter shows all 360 individual completion-time estimates: ten runs per
+method for every panel. Circles mark target hits,
 crosses mark target misses, and black lines mark medians across all runs.
 Horizontal offsets follow seed order. The existing `tts99.png` and `tts99.pdf`
 URLs now show this scatter; the figure's axis is completion time in seconds.
