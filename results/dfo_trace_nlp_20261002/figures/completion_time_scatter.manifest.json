@@ -1,6 +1,6 @@
 {
   "kind": "individual_run_completion_time_scatter",
-  "runs": 356,
+  "runs": 360,
   "panels": [
     [
       "column",
@@ -18,7 +18,7 @@
       "small_batch",
       "",
       10,
-      "Small Batch"
+      "Small Batch (27 points)"
     ],
     [
       "dynamic",
@@ -63,36 +63,36 @@
       "cstr_size": "",
       "budget": 16,
       "method": "dsda",
-      "runs": 9,
-      "target_hits": 7,
-      "median_completion_s": 50.80909897433594
+      "runs": 10,
+      "target_hits": 8,
+      "median_completion_s": 50.96961331903003
     },
     {
       "case": "column",
       "cstr_size": "",
       "budget": 16,
       "method": "rbfopt",
-      "runs": 9,
-      "target_hits": 4,
-      "median_completion_s": 40.04983842605725
+      "runs": 10,
+      "target_hits": 5,
+      "median_completion_s": 39.448786990949884
     },
     {
       "case": "column",
       "cstr_size": "",
       "budget": 16,
       "method": "bam",
-      "runs": 9,
+      "runs": 10,
       "target_hits": 0,
-      "median_completion_s": 50.071138081140816
+      "median_completion_s": 50.351955795194954
     },
     {
       "case": "column",
       "cstr_size": "",
       "budget": 16,
       "method": "fmqa_sa",
-      "runs": 9,
-      "target_hits": 4,
-      "median_completion_s": 15.448321561329067
+      "runs": 10,
+      "target_hits": 5,
+      "median_completion_s": 16.194525556406006
     },
     {
       "case": "cstr",
@@ -136,8 +136,8 @@
       "budget": 10,
       "method": "dsda",
       "runs": 10,
-      "target_hits": 10,
-      "median_completion_s": 7.947104691993445
+      "target_hits": 8,
+      "median_completion_s": 3.8306284009013325
     },
     {
       "case": "small_batch",
@@ -145,8 +145,8 @@
       "budget": 10,
       "method": "rbfopt",
       "runs": 10,
-      "target_hits": 10,
-      "median_completion_s": 8.802378989988938
+      "target_hits": 5,
+      "median_completion_s": 5.0820489609614015
     },
     {
       "case": "small_batch",
@@ -154,8 +154,8 @@
       "budget": 10,
       "method": "bam",
       "runs": 10,
-      "target_hits": 10,
-      "median_completion_s": 7.968798876274377
+      "target_hits": 2,
+      "median_completion_s": 4.226849746890366
     },
     {
       "case": "small_batch",
@@ -163,8 +163,8 @@
       "budget": 10,
       "method": "fmqa_sa",
       "runs": 10,
-      "target_hits": 9,
-      "median_completion_s": 8.35505790822208
+      "target_hits": 7,
+      "median_completion_s": 4.682544339913875
     },
     {
       "case": "dynamic",
@@ -412,18 +412,148 @@
     "results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv": "9d6f11365ff775cb6905be1f57d44981ac2474e8deda7822993b3123f4bfaf53",
     "results/dfo_trace_nlp_20261002/analysis/evaluation_timings.csv": "271f00c684698e2c1ef74f3e0d27c2918a0139795fe4d37de6a934a815053d89",
     "results/dfo_trace_nlp_20261002/analysis/manifest.json": "0c2264ce6cdbd6dea33cc84c5ac6c964888e8ea95ad8d4eb424de36d97c4ea37",
-    "results/dfo_trace_nlp_20261002/analysis/dynamic_preparations.json": "01e12be1c21c14df536ac965d62850887ff15c0700d8cba35145270875000500"
+    "results/dfo_trace_nlp_20261002/analysis/dynamic_preparations.json": "01e12be1c21c14df536ac965d62850887ff15c0700d8cba35145270875000500",
+    "results/process_followup_20261012/audit.json": "8b57a15f63c13e5b1056a179808b5a9117f2167c625780999e0f103e129220a6",
+    "results/process_followup_20261012/column_8_5_historical_point.json": "a40b042d2ccd10ca0f15d299b4f3b5b96f30a9a3ca8bef801291b59996f9376e",
+    "results/process_followup_20261012/nlp_costs.json": "3642e72b3e85fd95c36c7b0bd40ee6f9bfc02b2364158163e9cb7b0a69153f18",
+    "results/process_followup_20261012/run.json": "c4b3c8f31ff95e13ed80b95e5ecb84efccadc26b8b7472a3006aea01fdd3b31d",
+    "results/process_followup_20261012/runs.csv": "8d9fe79c317543997609d4345e8f1e30c62897a48359d0708a2b6de4f23e8dcb",
+    "results/process_followup_20261012/summary.json": "a41f09fa149962936c076b1e8ef673201aee008a819fa020960bfb06c68c5f5f",
+    "results/process_followup_20261012/trajectories.csv": "ca47b83ade537f1f0a3147543956dd69e547909e95232118728c298f06a344b1",
+    "results/archives/process_followup_20261012_015823_k6eq6mg0.zip": "02ad6cf4fe78f94f6890a7b4b354f21019bf18b34fd76f5dc8d59dfc48b5d9cd",
+    "results/dfo_trace_nlp_20261002/analysis/point_timings.csv": "7a1a17177367796ad288eac9721f612f514697673b71a223347d7b43b9b294ea",
+    "results/small_batch_full_domain_20261012/audit.json": "8f6ff327e240fa0912961eaa129e5b1f9277ed0ca5f84852bac99bdebe803277",
+    "results/small_batch_full_domain_20261012/run.json": "3a86ffece3d28bec32f15ebb5e57c7804e9fdc9fd66fd86c78bf91f98b0cd22f",
+    "results/small_batch_full_domain_20261012/summary.json": "f100887676bb22295d766dbce8ee31c3159d5a1aa3e50d55a4aea10d9f83082c",
+    "results/small_batch_full_domain_20261012/runs.csv": "ba148fd573300d99323b1565480d9a003b091f752afb4bf91715d7f717a3bca9",
+    "results/small_batch_full_domain_20261012/trajectories.csv": "5db4146393c27000ef6998aa2698771fe292f3c52aa4a3fcf857f08150ab3f67",
+    "results/small_batch_full_domain_20261012/evaluation_costs.csv": "a87bc413795cbde9407e682fd53d3e295bc323d70bf9b02601c0f3bf1c4e3475",
+    "results/small_batch_full_domain_20261012/completion_estimates.csv": "c9bfd26201b4f5548ce2f8fb38ce23030cce6c8bf14f73eb9661ef1327d83623",
+    "results/small_batch_full_domain_20261012/runtime_dfo.json": "beeeca3db2b8f05871722e509bfb912169ab0a4e6c0397199ff83f64f51bcbe9",
+    "results/small_batch_full_domain_20261012/runtime_fmqa.json": "ab71d1fe3f3ce7a141f62b86f927a1e530cdc6c5d69b951fe6dcaa032c064eaa",
+    "results/small_batch_full_domain_20261012/method_summary.csv": "ccd2959987e93dd84d1757450b76d2cfd24819e2d2e9565274600f17108f48d2",
+    "results/archives/small_batch_full_domain_20261012_024647_d4390oed.zip": "26fc9acc428cd429fe9cd021345c63e28a2d0ff0265f9918a7b474161cedbda4",
+    "benchmark_protocols/small_batch_full_domain.json": "4fabd04e5023d0517cc6e749b8fee1e3de6d3bfc9e17491d3ec90d055f4045f3"
+  },
+  "followup_selection": {
+    "column": "Original seeds 1-9 plus seed 10 for all four methods",
+    "small_batch": "Replace all four methods with full-domain {1,2,3}^3 runs, seeds 0-9, budget 10",
+    "small_batch_rbfopt": "MSRSM + sampling; restricted-domain follow-up retained only as historical evidence",
+    "small_batch_domain": {
+      "lower": [
+        1,
+        1,
+        1
+      ],
+      "upper": [
+        3,
+        3,
+        3
+      ],
+      "points": 27,
+      "feasible": 12
+    },
+    "added_job_ids": [
+      "column_B16_seed10_dsda",
+      "column_B16_seed10_rbfopt",
+      "column_B16_seed10_bam",
+      "column_B16_seed10_fmqa_sa",
+      "small_batch_full_B10_seed0_dsda",
+      "small_batch_full_B10_seed0_rbfopt",
+      "small_batch_full_B10_seed0_bam",
+      "small_batch_full_B10_seed0_fmqa_sa",
+      "small_batch_full_B10_seed1_dsda",
+      "small_batch_full_B10_seed1_rbfopt",
+      "small_batch_full_B10_seed1_bam",
+      "small_batch_full_B10_seed1_fmqa_sa",
+      "small_batch_full_B10_seed2_dsda",
+      "small_batch_full_B10_seed2_rbfopt",
+      "small_batch_full_B10_seed2_bam",
+      "small_batch_full_B10_seed2_fmqa_sa",
+      "small_batch_full_B10_seed3_dsda",
+      "small_batch_full_B10_seed3_rbfopt",
+      "small_batch_full_B10_seed3_bam",
+      "small_batch_full_B10_seed3_fmqa_sa",
+      "small_batch_full_B10_seed4_dsda",
+      "small_batch_full_B10_seed4_rbfopt",
+      "small_batch_full_B10_seed4_bam",
+      "small_batch_full_B10_seed4_fmqa_sa",
+      "small_batch_full_B10_seed5_dsda",
+      "small_batch_full_B10_seed5_rbfopt",
+      "small_batch_full_B10_seed5_bam",
+      "small_batch_full_B10_seed5_fmqa_sa",
+      "small_batch_full_B10_seed6_dsda",
+      "small_batch_full_B10_seed6_rbfopt",
+      "small_batch_full_B10_seed6_bam",
+      "small_batch_full_B10_seed6_fmqa_sa",
+      "small_batch_full_B10_seed7_dsda",
+      "small_batch_full_B10_seed7_rbfopt",
+      "small_batch_full_B10_seed7_bam",
+      "small_batch_full_B10_seed7_fmqa_sa",
+      "small_batch_full_B10_seed8_dsda",
+      "small_batch_full_B10_seed8_rbfopt",
+      "small_batch_full_B10_seed8_bam",
+      "small_batch_full_B10_seed8_fmqa_sa",
+      "small_batch_full_B10_seed9_dsda",
+      "small_batch_full_B10_seed9_rbfopt",
+      "small_batch_full_B10_seed9_bam",
+      "small_batch_full_B10_seed9_fmqa_sa"
+    ],
+    "replaced_job_ids": [
+      "small_batch_B10_seed0_dsda",
+      "small_batch_B10_seed0_rbfopt",
+      "small_batch_B10_seed0_bam",
+      "small_batch_B10_seed1_dsda",
+      "small_batch_B10_seed1_rbfopt",
+      "small_batch_B10_seed1_bam",
+      "small_batch_B10_seed2_dsda",
+      "small_batch_B10_seed2_rbfopt",
+      "small_batch_B10_seed2_bam",
+      "small_batch_B10_seed3_dsda",
+      "small_batch_B10_seed3_rbfopt",
+      "small_batch_B10_seed3_bam",
+      "small_batch_B10_seed4_dsda",
+      "small_batch_B10_seed4_rbfopt",
+      "small_batch_B10_seed4_bam",
+      "small_batch_B10_seed5_dsda",
+      "small_batch_B10_seed5_rbfopt",
+      "small_batch_B10_seed5_bam",
+      "small_batch_B10_seed6_dsda",
+      "small_batch_B10_seed6_rbfopt",
+      "small_batch_B10_seed6_bam",
+      "small_batch_B10_seed7_dsda",
+      "small_batch_B10_seed7_rbfopt",
+      "small_batch_B10_seed7_bam",
+      "small_batch_B10_seed8_dsda",
+      "small_batch_B10_seed8_rbfopt",
+      "small_batch_B10_seed8_bam",
+      "small_batch_B10_seed9_dsda",
+      "small_batch_B10_seed9_rbfopt",
+      "small_batch_B10_seed9_bam",
+      "small_batch_B10_seed0",
+      "small_batch_B10_seed1",
+      "small_batch_B10_seed2",
+      "small_batch_B10_seed3",
+      "small_batch_B10_seed4",
+      "small_batch_B10_seed5",
+      "small_batch_B10_seed6",
+      "small_batch_B10_seed7",
+      "small_batch_B10_seed8",
+      "small_batch_B10_seed9"
+    ],
+    "dfo_clock": "result_record.wall_time_s for every method, matching the original figures",
+    "point_costs": "Every callback charged its measured point cost, including repeated and rejected evaluations"
   },
   "scripts": {
-    "scripts/plot_dantzig_performance.py": "fc20275a8ee76f0aee968c9f0e287548236c2cfaf2ab55eac5a427f5ca5a71aa",
-    "scripts/plot_dantzig_cost_breakdown.py": "8169f166914d87004e6470492bb2616131e378779d97cbc5350214abea5abd0c",
+    "scripts/plot_dantzig_performance.py": "d66c2c5ed615d70dde12aece316ce6efeb47faf78d33c80f8fd2f3f8656c1f9d",
+    "scripts/plot_dantzig_cost_breakdown.py": "bac8d11f856def5967e5ebc195eff0cd2ad5a44d7a0a30872b7350f71634c2aa",
     "scripts/plot_dantzig_run_scatter.py": "c5930ccd8400c1de2fffdf278a2fd53107528112989b091a0b4a064dce6712ef"
   },
   "artifacts": {
-    "completion_time_scatter.png": "347f111770b39dfaad52cf53589cdfca866de46f0451856cc84509dfd041b2c5",
-    "completion_time_scatter.pdf": "054e4f227f1fa501302dc8064daa29b14b74387e2f47e856229118e4907c974c",
-    "completion_time_scatter_runs.csv": "23bd26350f78960191196353fee62f617805b3bc6669cd31fd8969b3975d23f3",
-    "tts99.png": "347f111770b39dfaad52cf53589cdfca866de46f0451856cc84509dfd041b2c5",
-    "tts99.pdf": "054e4f227f1fa501302dc8064daa29b14b74387e2f47e856229118e4907c974c"
+    "completion_time_scatter.png": "76eb2746861c2c718e76b124f043f7fd9968b885451f0b3be62b5a108940f429",
+    "completion_time_scatter.pdf": "8f79680750165887efcfab0bebebffb315fdf3aa04de171e0cffa04f38267c67",
+    "completion_time_scatter_runs.csv": "01dc23380c01955d1a1af96c76104e2d356a8a437edbc56723fcff26146055a3",
+    "tts99.png": "76eb2746861c2c718e76b124f043f7fd9968b885451f0b3be62b5a108940f429",
+    "tts99.pdf": "8f79680750165887efcfab0bebebffb315fdf3aa04de171e0cffa04f38267c67"
   }
 }

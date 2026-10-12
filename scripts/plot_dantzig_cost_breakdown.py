@@ -22,6 +22,8 @@ from matplotlib.patches import Patch
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "results/dfo_trace_nlp_20261002/analysis"
 OUTPUT = ROOT / "results/dfo_trace_nlp_20261002/figures"
+FOLLOWUP = ROOT / "results/process_followup_20261012"
+FULL_BATCH = ROOT / "results/small_batch_full_domain_20261012"
 METHODS = ("dsda", "rbfopt", "bam", "fmqa_sa")
 LABELS = ("DSDA", "RBFOpt", "BAM 5.0.0", "FMQA-SA")
 PANELS = (("column", "", 16, "Column"), ("cstr", "30", 43, "CSTR 30"),
@@ -50,7 +52,150 @@ def write_csv(path, rows):
         writer.writerows(rows)
 
 
-def load_runs(panels=PANELS):
+def followup_runs():
+    """Read the audited supplement; retain each method's original timer scope."""
+    audit = json.loads((FOLLOWUP / "audit.json").read_text())
+    for name, digest in audit["files_sha256"].items():
+        if sha(FOLLOWUP / name) != digest:
+            raise ValueError(f"Follow-up checksum mismatch: {name}")
+    if sha(ROOT / audit["archive"]) != audit["archive_sha256"]:
+        raise ValueError("Follow-up archive checksum mismatch")
+    cost = json.loads((FOLLOWUP / "nlp_costs.json").read_text())
+    if cost["missing_measurements"] or sha(ROOT / cost["point_table"]["path"]) != cost["point_table"]["sha256"]:
+        raise ValueError("Missing or changed follow-up point measurements")
+    extra = json.loads((FOLLOWUP / "column_8_5_historical_point.json").read_text())
+    if sha(FOLLOWUP / "column_8_5_historical_point.json") != cost["extra_point_source"]["sha256"]:
+        raise ValueError("Extra historical point checksum mismatch")
+    points = {(r["case"], tuple(json.loads(r["point"]))): r
+              for r in read_csv(ROOT / cost["point_table"]["path"])}
+    points["column", (8, 5)] = {"nlp_evaluation_wall_s": extra["total_wall_s"],
+                               "accepted": str(extra["accepted"]),
+                               "source_sha256": cost["extra_point_source"]["sha256"]}
+    records = {r["job_id"]: r for r in read_csv(FOLLOWUP / "runs.csv")}
+    verified = {r["job_id"]: r for r in audit["runs"]}
+    plan = json.loads((FOLLOWUP / "run.json").read_text())["plan"]
+    expected = {f"column_B16_seed10_{m}" for m in METHODS} | {
+        f"small_batch_B10_seed{s}_rbfopt_msrsm_sampling" for s in range(10)}
+    if (len(plan) != 14 or set(records) != expected or set(verified) != expected
+            or {s["job_id"] for s in plan} != expected):
+        raise ValueError("Unexpected follow-up run inventory")
+    callbacks = defaultdict(list)
+    for event in cost["callbacks"]:
+        callbacks[event["job_id"]].append(event)
+    if set(callbacks) != expected or sum(map(len, callbacks.values())) != 164:
+        raise ValueError("Incomplete follow-up callback ledger")
+    runs = []
+    for spec in plan:
+        identifier = spec["job_id"]
+        record, check, events = records[identifier], verified[identifier], callbacks[identifier]
+        case, method, seed = spec["case_name"], spec["method"], spec["seed"]
+        budget = 16 if case == "column" else 10
+        if (record["status"] != "completed" or len(events) != budget
+                or spec["max_evaluations"] != budget or int(record["total_evals"]) != budget
+                or [e["evaluation_index"] for e in events] != list(range(1, budget + 1))
+                or [e["point"] for e in events[:3]] != spec["starting_points"]):
+            raise ValueError("Follow-up budget, starts or callback sequence mismatch")
+        if case == "small_batch" and spec["settings"] != {
+                "algorithm": "MSRSM", "global_search_method": "sampling", "rbf": "auto"}:
+            raise ValueError("Small Batch must use the requested MSRSM/sampling runs")
+        for event in events:
+            point = points[case, tuple(event["point"])]
+            if (event["point_evaluation_s"] != float(point["nlp_evaluation_wall_s"])
+                    or event["source_sha256"] != point["source_sha256"]
+                    or event["accepted"] != (point["accepted"] == "True")):
+                raise ValueError("Follow-up callback cost differs from measured point source")
+        lookup = math.fsum(e["recorded_lookup_call_s"] for e in events)
+        # The October 2 figures use result_record.wall_time_s, not the outer
+        # trace runner clock. Apply that same scope to the new observations.
+        duration = float(record["wall_time_s"])
+        target, best = check["target"], float(record["best_value"])
+        hit = best <= target + 1e-5 * max(1, abs(target))
+        if hit != check["target_hit"] or not lookup <= duration <= check["search_wall_s"]:
+            raise ValueError("Follow-up result or method clock mismatch")
+        item = {"case": case, "cstr_size": "", "budget": budget, "method": method,
+                "job_id": identifier, "seed": seed, "lookup_target_hit": hit,
+                "recorded_dfo_s": duration, "recorded_lookup_s": lookup,
+                "search_overhead_s": duration - lookup,
+                "accepted_nlp_s": math.fsum(e["point_evaluation_s"] for e in events if e["accepted"]),
+                "unaccepted_nlp_s": math.fsum(e["point_evaluation_s"] for e in events if not e["accepted"]),
+                "dynamic_preparation_s": 0.}
+        item["estimated_total_s"] = math.fsum(item[field] for field, _, _ in COMPONENTS)
+        item.update(recorded_best_value=best, target_value=target,
+                    source=str((FOLLOWUP / "runs.csv").relative_to(ROOT)))
+        runs.append(item)
+    inputs = {str((FOLLOWUP / name).relative_to(ROOT)): sha(FOLLOWUP / name)
+              for name in ("audit.json", *audit["files_sha256"])}
+    inputs[audit["archive"]] = audit["archive_sha256"]
+    inputs[cost["point_table"]["path"]] = cost["point_table"]["sha256"]
+    return runs, inputs
+
+
+def input_hashes(inputs, source_manifest):
+    return {**{str((SOURCE / name).relative_to(ROOT)): sha(SOURCE / name) for name in inputs},
+            **source_manifest.get("followup_sources", {})}
+
+
+def full_batch_runs():
+    """Load full-domain runs and reattach every measured callback cost."""
+    audit = json.loads((FULL_BATCH / "audit.json").read_text())
+    for name, digest in audit["files_sha256"].items():
+        if sha(FULL_BATCH / name) != digest:
+            raise ValueError(f"Full-domain checksum mismatch: {name}")
+    if (sha(ROOT / audit["archive"]) != audit["archive_sha256"]
+            or sha(ROOT / audit["point_reference"]) != audit["point_reference_sha256"]):
+        raise ValueError("Full-domain archive or point reference changed")
+    ref = json.loads((ROOT / audit["point_reference"]).read_text())
+    points = {tuple(p["point"]): p for p in ref["points"]}
+    plan = json.loads((FULL_BATCH / "run.json").read_text())["plan"]
+    records = {r["job_id"]: r for r in read_csv(FULL_BATCH / "runs.csv")}
+    checked = {r["job_id"]: r for r in audit["runs"]}
+    expected = {f"small_batch_full_B10_seed{s}_{m}" for s in range(10) for m in METHODS}
+    if len(plan) != 40 or {s["job_id"] for s in plan} != expected or set(records) != expected or set(checked) != expected:
+        raise ValueError("Expected 40 full-domain Small Batch jobs")
+    callbacks = defaultdict(list)
+    for row in read_csv(FULL_BATCH / "evaluation_costs.csv"):
+        callbacks[row["job_id"]].append(row)
+    runs = []
+    for spec in plan:
+        identifier = spec["job_id"]
+        record, check, events = records[identifier], checked[identifier], callbacks[identifier]
+        if (record["status"] != "completed" or len(events) != 10 or int(record["total_evals"]) != 10
+                or spec["lower_bounds"] != [1, 1, 1] or spec["upper_bounds"] != [3, 3, 3]
+                or [int(e["evaluation_index"]) for e in events] != list(range(1, 11))
+                or [json.loads(e["point"]) for e in events[:3]] != spec["starting_points"]):
+            raise ValueError("Full-domain budget, bounds or initial design mismatch")
+        accepted, rejected, lookup = [], [], []
+        for event in events:
+            point = points[tuple(json.loads(event["point"]))]
+            measurement = point["measurement"]
+            if (float(event["point_evaluation_s"]) != measurement["total_wall_s"]
+                    or event["point_source_sha256"] != point["source_sha256"]
+                    or (event["lookup_feasible"] == "True") != measurement["accepted"]):
+                raise ValueError("Full-domain callback cost disagrees with point measurement")
+            (accepted if measurement["accepted"] else rejected).append(measurement["total_wall_s"])
+            lookup.append(float(event["objective_wall_s"]))
+        duration, lookup = float(record["wall_time_s"]), math.fsum(lookup)
+        best, target = float(record["best_value"]), check["target"]
+        hit = best <= target + 1e-5 * max(1, abs(target))
+        if hit != check["target_hit"] or duration < lookup or duration != check["recorded_method_s"]:
+            raise ValueError("Full-domain outcome or clock mismatch")
+        item = {"case": "small_batch", "cstr_size": "", "budget": 10,
+                "method": spec["method"], "job_id": identifier, "seed": spec["seed"], "lookup_target_hit": hit,
+                "recorded_dfo_s": duration, "recorded_lookup_s": lookup, "search_overhead_s": duration - lookup,
+                "accepted_nlp_s": math.fsum(accepted), "unaccepted_nlp_s": math.fsum(rejected), "dynamic_preparation_s": 0.}
+        item["estimated_total_s"] = math.fsum(item[field] for field, _, _ in COMPONENTS)
+        if not math.isclose(item["estimated_total_s"], check["estimated_completion_s"], rel_tol=1e-12):
+            raise ValueError("Full-domain completion estimate does not reconcile")
+        item.update(recorded_best_value=best, target_value=target,
+                    source=str((FULL_BATCH / "runs.csv").relative_to(ROOT)))
+        runs.append(item)
+    inputs = {str((FULL_BATCH / name).relative_to(ROOT)): sha(FULL_BATCH / name)
+              for name in ("audit.json", *audit["files_sha256"])}
+    inputs.update({audit["archive"]: audit["archive_sha256"], audit["point_reference"]: audit["point_reference_sha256"]})
+    return runs, inputs
+
+
+def load_runs(panels=PANELS, *, include_followup=True):
     """Load verified completion costs for the requested case/budget panels."""
     inventory = json.loads((SOURCE / "artifact_checksums.json").read_text())
     inputs = ("dfo_runs.csv", "evaluation_timings.csv", "manifest.json", "dynamic_preparations.json")
@@ -90,8 +235,36 @@ def load_runs(panels=PANELS):
         expected = item["recorded_dfo_s"] - lookup + float(row["attached_nlp_evaluation_s"]) + item["dynamic_preparation_s"]
         if not math.isclose(item["estimated_total_s"], expected, rel_tol=1e-12):
             raise ValueError("NLP outcome costs do not reconcile")
+        item.update(recorded_best_value=float(row["recorded_best_value"]),
+                    target_value=float(row["target_value"]),
+                    source=str((SOURCE / "dfo_runs.csv").relative_to(ROOT)))
         runs.append(item)
-        groups[(*key, row["method"])].append(item)
+    if include_followup:
+        additions, sources = followup_runs()
+        additions = [r for r in additions if r["case"] == "column"]
+        batch, batch_sources = full_batch_runs()
+        additions += batch
+        sources.update(batch_sources)
+        additions = [r for r in additions if (r["case"], r["cstr_size"], r["budget"]) in selected]
+        removed = [r for r in runs if (r["case"], r["budget"]) == ("small_batch", 10)]
+        if ("small_batch", "", 10) in selected and (len(removed) != 40
+                or {(r["method"], r["seed"]) for r in removed} != {(m, s) for m in METHODS for s in range(10)}):
+            raise ValueError("Expected forty original Small Batch runs to replace")
+        runs = [r for r in runs if r not in removed] + additions
+        if len({r["job_id"] for r in runs}) != len(runs):
+            raise ValueError("Duplicate follow-up job")
+        source_manifest["followup_sources"] = sources
+        source_manifest["followup_selection"] = {
+            "column": "Original seeds 1-9 plus seed 10 for all four methods",
+            "small_batch": "Replace all four methods with full-domain {1,2,3}^3 runs, seeds 0-9, budget 10",
+            "small_batch_rbfopt": "MSRSM + sampling; restricted-domain follow-up retained only as historical evidence",
+            "small_batch_domain": {"lower": [1, 1, 1], "upper": [3, 3, 3], "points": 27, "feasible": 12},
+            "added_job_ids": [r["job_id"] for r in additions],
+            "replaced_job_ids": [r["job_id"] for r in removed],
+            "dfo_clock": "result_record.wall_time_s for every method, matching the original figures",
+            "point_costs": "Every callback charged its measured point cost, including repeated and rejected evaluations"}
+    for row in runs:
+        groups[(row["case"], row["cstr_size"], row["budget"], row["method"])].append(row)
     summary = []
     for case, size, budget, _ in panels:
         seeds = None
@@ -101,7 +274,8 @@ def load_runs(panels=PANELS):
             if len(actual) != len(group) or (seeds is not None and seeds != actual):
                 raise ValueError("Unpaired method seeds")
             seeds = actual
-            if len(group) != (9 if case == "column" else 10):
+            expected_seeds = set(range(1, 11 if include_followup else 10)) if case == "column" else set(range(10))
+            if actual != expected_seeds:
                 raise ValueError("Unexpected selected run count")
             summary.append({"case": case, "cstr_size": size, "budget": budget, "method": method,
                 "runs": len(group), "lookup_target_hits": sum(row["lookup_target_hit"] for row in group),
@@ -159,7 +333,8 @@ def build(output):
         "successful_retry_audit": source_manifest["successful_retry_audit"],
         "dynamic_preparation_policy": "One historical reference preparation per Dynamic run; a scenario assumption, not a new measured setup",
         "dynamic_preparation_reference": preparation,
-        "sources": {str((SOURCE / name).relative_to(ROOT)): sha(SOURCE / name) for name in inputs},
+        "sources": input_hashes(inputs, source_manifest),
+        "followup_selection": source_manifest.get("followup_selection"),
         "script_sha256": sha(Path(__file__)),
         "artifacts": {name: sha(output / name) for name in
             ("cost_breakdown.png", "cost_breakdown.pdf", "cost_breakdown_runs.csv", "cost_breakdown_means.csv")}}

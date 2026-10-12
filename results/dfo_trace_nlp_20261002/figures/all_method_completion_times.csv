@@ -23,14 +23,14 @@ cstr,30,dsda,DFO,43,10,51.13168650940061,mean_fixed_path_estimate,5,0,0,2.859516
 cstr,30,rbfopt,DFO,43,10,97.91313792858273,mean_fixed_path_estimate,10,0,0,2.7695697148214085,mean,2.7695697148214085,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
 cstr,30,bam,DFO,43,10,33.87088297889568,mean_fixed_path_estimate,2,0,0,2.7766425156110834,mean,2.7695697148214085,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
 cstr,30,fmqa_sa,DFO,43,10,65.05750722093508,mean_fixed_path_estimate,2,0,0,2.8204136001867575,mean,2.7695697148214085,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
-column,,dsda,DFO,16,9,46.204629069090714,mean_fixed_path_estimate,7,0,0,19369.174903917916,mean,19346.12472619312,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
-column,,rbfopt,DFO,16,9,43.210745956334804,mean_fixed_path_estimate,4,0,0,19479.288248120487,mean,19346.12472619312,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
-column,,bam,DFO,16,9,40.621360027593454,mean_fixed_path_estimate,0,0,0,19537.733123611633,mean,19346.12472619312,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
-column,,fmqa_sa,DFO,16,9,28.97298177398948,mean_fixed_path_estimate,4,0,0,19470.887197735174,mean,19346.12472619312,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
-small_batch,,dsda,DFO,10,10,7.941651098197326,mean_fixed_path_estimate,10,0,0,167427.65711470306,mean,167427.65711470306,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
-small_batch,,rbfopt,DFO,10,10,8.783740840340034,mean_fixed_path_estimate,10,0,0,167427.65711470306,mean,167427.65711470306,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
-small_batch,,bam,DFO,10,10,8.036881037941203,mean_fixed_path_estimate,10,0,0,167427.65711470306,mean,167427.65711470306,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
-small_batch,,fmqa_sa,DFO,10,10,8.356180113367737,mean_fixed_path_estimate,9,0,0,168539.41098713034,mean,167427.65711470306,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
+column,,dsda,DFO,16,10,46.76746598496102,mean_fixed_path_estimate,8,0,0,19366.869886145436,mean,19346.12472619312,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv; results/process_followup_20261012/runs.csv
+column,,rbfopt,DFO,16,10,41.36566698998213,mean_fixed_path_estimate,5,0,0,19465.97189592775,mean,19346.12472619312,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv; results/process_followup_20261012/runs.csv
+column,,bam,DFO,16,10,41.735011630505326,mean_fixed_path_estimate,0,0,0,19538.831656082344,mean,19346.12472619312,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv; results/process_followup_20261012/runs.csv
+column,,fmqa_sa,DFO,16,10,27.80198370879516,mean_fixed_path_estimate,5,0,0,19458.41095058097,mean,19346.12472619312,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv; results/process_followup_20261012/runs.csv
+small_batch,,dsda,DFO,10,10,3.606060778815299,mean_fixed_path_estimate,8,0,0,174862.51921751734,mean,167427.65711470306,results/small_batch_full_domain_20261012/runs.csv
+small_batch,,rbfopt,DFO,10,10,5.3029061940964315,mean_fixed_path_estimate,5,0,0,175592.10365581932,mean,167427.65711470306,results/small_batch_full_domain_20261012/runs.csv
+small_batch,,bam,DFO,10,10,4.305241725686938,mean_fixed_path_estimate,2,0,0,178181.21686508827,mean,167427.65711470306,results/small_batch_full_domain_20261012/runs.csv
+small_batch,,fmqa_sa,DFO,10,10,4.451457817526534,mean_fixed_path_estimate,7,0,0,174356.60454487294,mean,167427.65711470306,results/small_batch_full_domain_20261012/runs.csv
 dynamic,,dsda,DFO,50,10,24.4684651626274,mean_fixed_path_estimate,10,0,0,-212.00878719112268,mean,-212.00878719112268,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
 dynamic,,rbfopt,DFO,50,10,316.62626326172614,mean_fixed_path_estimate,10,0,0,-212.00878719112268,mean,-212.00878719112268,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
 dynamic,,bam,DFO,50,10,37.90575186884962,mean_fixed_path_estimate,10,0,0,-212.00878719112268,mean,-212.00878719112268,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv

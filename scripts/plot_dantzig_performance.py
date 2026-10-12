@@ -13,7 +13,7 @@ import statistics
 
 from benchmark_analysis import runs_to_target_probability
 from scripts.plot_dantzig_cost_breakdown import (
-    LABELS, METHODS, OUTPUT, ROOT, SOURCE, load_runs, read_csv, sha, write_csv,
+    LABELS, METHODS, OUTPUT, ROOT, load_runs, read_csv, sha, write_csv, input_hashes,
 )
 
 import matplotlib.pyplot as plt
@@ -22,7 +22,7 @@ from matplotlib.ticker import FixedLocator, FuncFormatter, MaxNLocator, NullLoca
 
 
 PANELS = (("column", "", 16, "Column"), ("cstr", "30", 43, "CSTR 30"),
-          ("small_batch", "", 10, "Small Batch"),
+          ("small_batch", "", 10, "Small Batch (27 points)"),
           *(("dynamic", "", budget, "Dynamic") for budget in (12, 15, 20, 30, 37, 50)))
 COLORS = ("#1f77b4", "#ff7f0e", "#2ca02c", "#9467bd")
 BASELINES = ("ric", "gloa", "loa", "bigm", "hull")
@@ -198,7 +198,8 @@ def build_run_scatter(output=OUTPUT):
         'all_target_failures_included': True, 'measured_online_runtime': False,
         'point_cost_policy': source_manifest['cost_policy'],
         'dynamic_preparation_reference': preparation,
-        'sources': {str((SOURCE / name).relative_to(ROOT)): sha(SOURCE / name) for name in inputs},
+        'sources': input_hashes(inputs, source_manifest),
+        'followup_selection': source_manifest.get('followup_selection'),
         'scripts': {str(p.relative_to(ROOT)): sha(p) for p in
                     (Path(__file__), ROOT / 'scripts/plot_dantzig_cost_breakdown.py',
                      ROOT / 'scripts/plot_dantzig_run_scatter.py')},
@@ -244,10 +245,9 @@ def full_benchmark():
     if len(keys) != 45 or set(keys) != expected:
         raise ValueError("Expected all 45 unique selected GDPopt/MINLP jobs")
     runs, means, _, _, _ = load_runs(FULL_PANELS)
-    raw = {r["job_id"]: r for r in read_csv(SOURCE / "dfo_runs.csv")}
     rows = []
     for row in means:
-        group = [raw[r["job_id"]] for r in runs if
+        group = [r for r in runs if
                  (r["case"], r["cstr_size"], r["budget"], r["method"]) ==
                  (row["case"], row["cstr_size"], row["budget"], row["method"])]
         attained = sum(float(r["recorded_best_value"]) <= float(r["target_value"]) +
@@ -260,7 +260,7 @@ def full_benchmark():
                      "target_attained": attained, "time_limits": 0, "bound_conflicts": 0,
                      "final_objective": statistics.mean(float(r["recorded_best_value"]) for r in group),
                      "objective_statistic": "mean", "target_value": float(group[0]["target_value"]),
-                     "source": str((SOURCE / "dfo_runs.csv").relative_to(ROOT))})
+                     "source": "; ".join(sorted({r["source"] for r in group}))})
     for row in baseline:
         duration = float(row["measured_total_with_preparation_s"])
         if not math.isfinite(duration) or duration <= 0 or row["source_host"] != "dantzig.ecn.purdue.edu":
@@ -303,7 +303,7 @@ def plot_full_benchmark(rows):
     fig.suptitle("DFO, GDPopt and MINLP completion times — all nine models", fontsize=18, y=.97)
     fig.text(.5, .907, "Each cell: completion time / target attainment count. All 45 GDPopt and MINLP jobs are included.",
              ha="center", fontsize=11)
-    fig.text(.5, .128, "DFO: mean estimated completion time over 9 or 10 starts. GDPopt/MINLP: one measured run per model, including template preparation.",
+    fig.text(.5, .128, "DFO: mean estimated completion time over 10 starts. GDPopt/MINLP: one measured run per model, including template preparation.",
              ha="center", fontsize=10)
     fig.text(.5, .098, "Target attained: final objective ≤ lookup target + tolerance. TL: time limit. †: reported bound conflicts with a saved feasible solution.",
              ha="center", fontsize=10)
@@ -345,12 +345,13 @@ def build(output=OUTPUT):
                 "profile_xscale": "log",
                 "profile_methods": list(METHODS),
                 "tts99_definition": "Median completion time over all seeds * ceil(log(0.01) / log(1 - observed hit rate)); p=0: infinity, p=1: one run",
-                "tts99_assumption": "Independent restarts with the observed hit probability; an estimate from 9 or 10 runs, not a 99% confidence guarantee",
+                "tts99_assumption": "Independent restarts with the observed hit probability; an estimate from 10 runs, not a 99% confidence guarantee",
                 "completion_time_scatter": {"manifest": "completion_time_scatter.manifest.json",
                                             "runs": len(runs), "y_metric": "estimated_total_s",
                                             "legacy_filenames": ["tts99.png", "tts99.pdf"]},
                 "point_cost_policy": source_manifest["cost_policy"], "dynamic_preparation_reference": preparation,
-                "sources": {str((SOURCE / name).relative_to(ROOT)): sha(SOURCE / name) for name in inputs},
+                "sources": input_hashes(inputs, source_manifest),
+                "followup_selection": source_manifest.get("followup_selection"),
                 "gdp_minlp_source": {str((GDP_SOURCE / "comparison.csv").relative_to(ROOT)): sha(GDP_SOURCE / "comparison.csv")},
                 "gdp_minlp_runs": 45, "all_method_comparison_rows": len(benchmark),
                 "gdp_minlp_policy": "Single measured completion per method/model; preserve time limits, target attainment and bound conflicts; no restart probability or TTS99 inferred from one run",
