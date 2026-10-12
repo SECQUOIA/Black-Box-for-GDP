@@ -1,0 +1,1895 @@
+{
+  "kind": "small_batch_full_domain_reference_v1",
+  "bounds": [
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      3
+    ]
+  ],
+  "point_count": 27,
+  "feasible_points": 12,
+  "infeasible_points": 15,
+  "archive": "results/archives/dantzig_gdp_gams_20260922_050038_p4q8hy54.zip",
+  "archive_sha256": "e406b8fae2a90191835eb7332d483c719ebb1675d14d3b0e6d3bf5f7789a197b",
+  "lookup_csv": "case_study_data/small_batch/compl_enum_small_batch_baron.csv",
+  "lookup_csv_sha256": "93c1b3da9c0937e6db1cff6e19ebb8484d04d243b25463343527bd50efb0fe5f",
+  "initial_designs": [
+    {
+      "seed": 0,
+      "points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "sha256": "54ebed32866718f09dfc7a23f60de0982ce63cb0e90644fd7ef54f7e17860eb9",
+      "generator": "scipy 1.17.1 LatinHypercube + round; original shared generator, full 1..3 bounds"
+    },
+    {
+      "seed": 1,
+      "points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ],
+      "sha256": "d5e1123f980a50a86eb6ae47c871117f7f9305000e457f7ce605350d56ca6df9",
+      "generator": "scipy 1.17.1 LatinHypercube + round; original shared generator, full 1..3 bounds"
+    },
+    {
+      "seed": 2,
+      "points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          2
+        ]
+      ],
+      "sha256": "e4a51b79138cd8ba7d2d625fd9a1e4f24c3959f4a88336b413776e3e413570c0",
+      "generator": "scipy 1.17.1 LatinHypercube + round; original shared generator, full 1..3 bounds"
+    },
+    {
+      "seed": 3,
+      "points": [
+        [
+          3,
+          3,
+          2
+        ],
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "sha256": "92d58f83a7ac15c66175f72562cf906fa5abfc13127073871532d4689e94e905",
+      "generator": "scipy 1.17.1 LatinHypercube + round; original shared generator, full 1..3 bounds"
+    },
+    {
+      "seed": 4,
+      "points": [
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          2
+        ]
+      ],
+      "sha256": "f0b083593656e866d6aa475b5535875f2a20cbce73786042ca559780c4413917",
+      "generator": "scipy 1.17.1 LatinHypercube + round; original shared generator, full 1..3 bounds"
+    },
+    {
+      "seed": 5,
+      "points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "sha256": "2484b7466395db8c70a0ba87127253318f08ac75a5f43a9ee8c003fccca30aa2",
+      "generator": "scipy 1.17.1 LatinHypercube + round; original shared generator, full 1..3 bounds"
+    },
+    {
+      "seed": 6,
+      "points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "sha256": "811a220113c16e13945d5a48b041dd1e97efc114859d2d09cd004597afaf4302",
+      "generator": "scipy 1.17.1 LatinHypercube + round; original shared generator, full 1..3 bounds"
+    },
+    {
+      "seed": 7,
+      "points": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "sha256": "dbada8dcad56e66d2e6e7752f0a65220b286bcdbbc7755bb4ad4a9a5d9a8e839",
+      "generator": "scipy 1.17.1 LatinHypercube + round; original shared generator, full 1..3 bounds"
+    },
+    {
+      "seed": 8,
+      "points": [
+        [
+          3,
+          2,
+          3
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "sha256": "17d6bca8581623ea8715c9fd93a05f7a01ce4394aee8d8c9dd3f9248f1832e6c",
+      "generator": "scipy 1.17.1 LatinHypercube + round; original shared generator, full 1..3 bounds"
+    },
+    {
+      "seed": 9,
+      "points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "sha256": "47605741880f67ba519aac12d0e6d647cd6ff91691410711bcc9853e37f7ae4e",
+      "generator": "scipy 1.17.1 LatinHypercube + round; original shared generator, full 1..3 bounds"
+    }
+  ],
+  "points": [
+    {
+      "point": [
+        1,
+        1,
+        1
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000001.json",
+      "source_sha256": "7f5fc8258b45854fe024f37a8a6be25b2f8e846d9a83c2b5afccd5ffdd06bcb4",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          1,
+          1,
+          1
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: units[reactor]",
+        "total_wall_s": 0.04432200687006116,
+        "point_index": 1,
+        "completed_utc": "2026-09-22T05:39:13.125603+00:00"
+      }
+    },
+    {
+      "point": [
+        1,
+        1,
+        2
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000002.json",
+      "source_sha256": "c0940a7785b06a2938e044553e80d756a60b1655c47864da151fafc64a6ec367",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          1,
+          1,
+          2
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: units[reactor]",
+        "total_wall_s": 0.04410652397200465,
+        "point_index": 2,
+        "completed_utc": "2026-09-22T05:39:13.171656+00:00"
+      }
+    },
+    {
+      "point": [
+        1,
+        1,
+        3
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000003.json",
+      "source_sha256": "59afc19a75f72df3f430da407411a20887aeb07b0e2a8b7305cd546bfb685bc2",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          1,
+          1,
+          3
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: units[reactor]",
+        "total_wall_s": 0.04520602012053132,
+        "point_index": 3,
+        "completed_utc": "2026-09-22T05:39:13.218145+00:00"
+      }
+    },
+    {
+      "point": [
+        1,
+        2,
+        1
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000004.json",
+      "source_sha256": "f4a3eee4e89698f5cc7352958616ced56cf55564561de19ed11c2f066c21e142",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          1,
+          2,
+          1
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: cycle[b,mixer]",
+        "total_wall_s": 0.04672545101493597,
+        "point_index": 4,
+        "completed_utc": "2026-09-22T05:39:13.266145+00:00"
+      }
+    },
+    {
+      "point": [
+        1,
+        2,
+        2
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000005.json",
+      "source_sha256": "00124ddc1a78bc077fe3ed5c1588c04e331de15d1e3bf8e6374e79cf910b8de1",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          1,
+          2,
+          2
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: cycle[b,mixer]",
+        "total_wall_s": 0.046369488816708326,
+        "point_index": 5,
+        "completed_utc": "2026-09-22T05:39:13.313815+00:00"
+      }
+    },
+    {
+      "point": [
+        1,
+        2,
+        3
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000006.json",
+      "source_sha256": "ac681f3d0952fc004dba008617e9036bd8a078e8b06fb9e8f6c4cf5c5116ac13",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          1,
+          2,
+          3
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: cycle[b,mixer]",
+        "total_wall_s": 0.04697476839646697,
+        "point_index": 6,
+        "completed_utc": "2026-09-22T05:39:13.362219+00:00"
+      }
+    },
+    {
+      "point": [
+        1,
+        3,
+        1
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000007.json",
+      "source_sha256": "970d0859f7ab3c5c9562fa4640ac07fe37e86c0b2153a28bb9b7e33583a59acd",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          1,
+          3,
+          1
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: cycle[b,mixer]",
+        "total_wall_s": 0.04660328617319465,
+        "point_index": 7,
+        "completed_utc": "2026-09-22T05:39:13.410113+00:00"
+      }
+    },
+    {
+      "point": [
+        1,
+        3,
+        2
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000008.json",
+      "source_sha256": "c26a18d28267c75e8262f8acfcb653c436634421ca8a92f4859dc8c20709615a",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          1,
+          3,
+          2
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: cycle[b,mixer]",
+        "total_wall_s": 0.04832519497722387,
+        "point_index": 8,
+        "completed_utc": "2026-09-22T05:39:13.459761+00:00"
+      }
+    },
+    {
+      "point": [
+        1,
+        3,
+        3
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000009.json",
+      "source_sha256": "845cc1f8212c292a51868fb6754ac20f3fc405cceedaefe2560a5750bddbfe63",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          1,
+          3,
+          3
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: cycle[b,mixer]",
+        "total_wall_s": 0.046279596630483866,
+        "point_index": 9,
+        "completed_utc": "2026-09-22T05:39:13.507426+00:00"
+      }
+    },
+    {
+      "point": [
+        2,
+        1,
+        1
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000010.json",
+      "source_sha256": "41d6b79ebcfaa0b0e740e464967610da0b13f77f15d4f7f94995b274db0135a9",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          2,
+          1,
+          1
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: units[reactor]",
+        "total_wall_s": 0.043983398005366325,
+        "point_index": 10,
+        "completed_utc": "2026-09-22T05:39:13.552630+00:00"
+      }
+    },
+    {
+      "point": [
+        2,
+        1,
+        2
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000011.json",
+      "source_sha256": "b6a5e69eaeb93f38a2a52f9c313f7700f95a5c1167cfe434e402b4636c778515",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          2,
+          1,
+          2
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: units[reactor]",
+        "total_wall_s": 0.044060525950044394,
+        "point_index": 11,
+        "completed_utc": "2026-09-22T05:39:13.597963+00:00"
+      }
+    },
+    {
+      "point": [
+        2,
+        1,
+        3
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000012.json",
+      "source_sha256": "902402aaa5db954f71e41ebd71ebfd3051867ff63e2b2df494d30e1bbd6939fb",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          2,
+          1,
+          3
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: units[reactor]",
+        "total_wall_s": 0.0439685401506722,
+        "point_index": 12,
+        "completed_utc": "2026-09-22T05:39:13.643415+00:00"
+      }
+    },
+    {
+      "point": [
+        2,
+        2,
+        1
+      ],
+      "lookup_value": 167427.65711470306,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000013.json",
+      "source_sha256": "fb357a1a5a1a825764f745a6d86cc4d1a9dcdc2c6bb654719206edc403fc4009",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          2,
+          2,
+          1
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 167427.6571147878,
+        "candidate_objective": 167427.6571147878,
+        "max_primal_violation": 3.3306690738754696e-16,
+        "solve_wall_s": 0.7278557261452079,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.03952417615801096,
+        "preprocess_wall_s": 0.010595113970339298,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 167427.6571147879,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.035000313073397
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.7787550198845565,
+        "point_index": 13,
+        "completed_utc": "2026-09-22T05:39:14.423484+00:00"
+      }
+    },
+    {
+      "point": [
+        2,
+        2,
+        2
+      ],
+      "lookup_value": 204601.96762877452,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000014.json",
+      "source_sha256": "91990eefba75a511366ae34c05454b58e4a5354336cd315ae40eb2a4858d6fc4",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          2,
+          2,
+          2
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 204601.96762889723,
+        "candidate_objective": 204601.96762889723,
+        "max_primal_violation": 3.3306690738754696e-16,
+        "solve_wall_s": 0.7662816690281034,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.043968128971755505,
+        "preprocess_wall_s": 0.010771011002361774,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 204601.96762889723,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.025000493042171
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.8216909030452371,
+        "point_index": 14,
+        "completed_utc": "2026-09-22T05:39:15.246795+00:00"
+      }
+    },
+    {
+      "point": [
+        2,
+        2,
+        3
+      ],
+      "lookup_value": 241776.27814284601,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000015.json",
+      "source_sha256": "fa5ffcca31120d84383e8921d7d961577a70257fcd4a49a915e88d5b36486cd4",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          2,
+          2,
+          3
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 241776.2781429757,
+        "candidate_objective": 241776.2781429757,
+        "max_primal_violation": 3.3306690738754696e-16,
+        "solve_wall_s": 0.7070625680498779,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.04158998280763626,
+        "preprocess_wall_s": 0.010926909744739532,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 241776.27814297573,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.036000483669341
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.7602203590795398,
+        "point_index": 15,
+        "completed_utc": "2026-09-22T05:39:16.008785+00:00"
+      }
+    },
+    {
+      "point": [
+        2,
+        3,
+        1
+      ],
+      "lookup_value": 178545.19583897587,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000016.json",
+      "source_sha256": "c122f55e9e5a604bc43a81a8f2f88eec7292103eeffa63a78d722661c394b4a1",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          2,
+          3,
+          1
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 178545.19583944406,
+        "candidate_objective": 178545.19583944406,
+        "max_primal_violation": 3.3306690738754696e-16,
+        "solve_wall_s": 0.7495051338337362,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.04078762698918581,
+        "preprocess_wall_s": 0.010708141140639782,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 178545.19583944403,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.034000142477453
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.8016536827199161,
+        "point_index": 16,
+        "completed_utc": "2026-09-22T05:39:16.812084+00:00"
+      }
+    },
+    {
+      "point": [
+        2,
+        3,
+        2
+      ],
+      "lookup_value": 209964.94866578083,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000017.json",
+      "source_sha256": "984f9e502ed8eb58ed2706df2f683d8c0c4c6d482c3fd8dd271abf20c3707d74",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          2,
+          3,
+          2
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 209964.94866588985,
+        "candidate_objective": 209964.94866588985,
+        "max_primal_violation": 3.3306690738754696e-16,
+        "solve_wall_s": 0.7281163451261818,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.04211161285638809,
+        "preprocess_wall_s": 0.011057951021939516,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 209964.9486658899,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.023000151850283
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.7819548500701785,
+        "point_index": 17,
+        "completed_utc": "2026-09-22T05:39:17.595718+00:00"
+      }
+    },
+    {
+      "point": [
+        2,
+        3,
+        3
+      ],
+      "lookup_value": 241384.70149258256,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000018.json",
+      "source_sha256": "911da7d36f6fbf628d76bd22c9faac3d13dcecfbe6492ff61655d00ab51e37ad",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          2,
+          3,
+          3
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 241384.70149269345,
+        "candidate_objective": 241384.70149269345,
+        "max_primal_violation": 3.3306690738754696e-16,
+        "solve_wall_s": 0.719655018299818,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.04228955414146185,
+        "preprocess_wall_s": 0.013113298453390598,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 241384.70149269345,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.034000142477453
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.7757017728872597,
+        "point_index": 18,
+        "completed_utc": "2026-09-22T05:39:18.373127+00:00"
+      }
+    },
+    {
+      "point": [
+        3,
+        1,
+        1
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000019.json",
+      "source_sha256": "5b9d84015939f2ce3b1e9a13b83dc213613d913b8b0ef47a78520ab343eadddd",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          3,
+          1,
+          1
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: units[reactor]",
+        "total_wall_s": 0.04631195915862918,
+        "point_index": 19,
+        "completed_utc": "2026-09-22T05:39:18.421609+00:00"
+      }
+    },
+    {
+      "point": [
+        3,
+        1,
+        2
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000020.json",
+      "source_sha256": "dd285b518bc830c92e06ff88cfe7e36031955339dd1e4c36661ac06debef47d8",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          3,
+          1,
+          2
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: units[reactor]",
+        "total_wall_s": 0.04510016832500696,
+        "point_index": 20,
+        "completed_utc": "2026-09-22T05:39:18.467922+00:00"
+      }
+    },
+    {
+      "point": [
+        3,
+        1,
+        3
+      ],
+      "lookup_value": null,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000021.json",
+      "source_sha256": "d036c331ba0ca93ee3940c7aa02b4d436015658a798fd1b7b9f37327486ef8c1",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          3,
+          1,
+          3
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": false,
+        "objective": null,
+        "candidate_objective": null,
+        "max_primal_violation": null,
+        "solve_wall_s": 0.0,
+        "status": "preprocessing_infeasible",
+        "termination": "not_solved",
+        "message": "Detected an infeasible constraint during FBBT: units[reactor]",
+        "total_wall_s": 0.044540464878082275,
+        "point_index": 21,
+        "completed_utc": "2026-09-22T05:39:18.513686+00:00"
+      }
+    },
+    {
+      "point": [
+        3,
+        2,
+        1
+      ],
+      "lookup_value": 185768.8125052478,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000022.json",
+      "source_sha256": "57788a8e0d3a5bb3a40164df876173f9c9dbb8a712c4c435d172fbec50beafe8",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          3,
+          2,
+          1
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 185768.81250534637,
+        "candidate_objective": 185768.81250534637,
+        "max_primal_violation": 3.3306690738754696e-16,
+        "solve_wall_s": 0.7544270711950958,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.039965081959962845,
+        "preprocess_wall_s": 0.010866184253245592,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 185768.81250534643,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.023000151850283
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.8059228588826954,
+        "point_index": 22,
+        "completed_utc": "2026-09-22T05:39:19.320916+00:00"
+      }
+    },
+    {
+      "point": [
+        3,
+        2,
+        2
+      ],
+      "lookup_value": 222943.12301931926,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000023.json",
+      "source_sha256": "6679eb1f6c04c5fefe74cd4f5e1a7c4c9cf8451df944d460a9ec74ea94d8ba88",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          3,
+          2,
+          2
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 222943.12301957584,
+        "candidate_objective": 222943.12301957584,
+        "max_primal_violation": 3.3306690738754696e-16,
+        "solve_wall_s": 0.7486878680065274,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.041196650825440884,
+        "preprocess_wall_s": 0.013452627696096897,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 222943.12301957584,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.023999693803489
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.8039919822476804,
+        "point_index": 23,
+        "completed_utc": "2026-09-22T05:39:20.126481+00:00"
+      }
+    },
+    {
+      "point": [
+        3,
+        2,
+        3
+      ],
+      "lookup_value": 260117.43353339075,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000024.json",
+      "source_sha256": "6f7e961809949795e52ba056cb20a9667976cc3a65519677050475b0fc6ff19f",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          3,
+          2,
+          3
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 260117.43353351267,
+        "candidate_objective": 260117.43353351267,
+        "max_primal_violation": 3.3306690738754696e-16,
+        "solve_wall_s": 0.749386275652796,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.04143201094120741,
+        "preprocess_wall_s": 0.010796410031616688,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 260117.43353351275,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.023999693803489
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.8022644831798971,
+        "point_index": 24,
+        "completed_utc": "2026-09-22T05:39:20.930474+00:00"
+      }
+    },
+    {
+      "point": [
+        3,
+        3,
+        1
+      ],
+      "lookup_value": 181201.6655117858,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000025.json",
+      "source_sha256": "0259104b24053a13c2efc0ffb5906962b3feb6f1470e5d4ecbb97945797fde85",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          3,
+          3,
+          1
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 181201.66551189378,
+        "candidate_objective": 181201.66551189378,
+        "max_primal_violation": 2.220446049250313e-16,
+        "solve_wall_s": 0.7257071412168443,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.041708881966769695,
+        "preprocess_wall_s": 0.01098480075597763,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 181201.66551189378,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.034000142477453
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.7790555865503848,
+        "point_index": 25,
+        "completed_utc": "2026-09-22T05:39:21.711244+00:00"
+      }
+    },
+    {
+      "point": [
+        3,
+        3,
+        2
+      ],
+      "lookup_value": 210580.838346606,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000026.json",
+      "source_sha256": "c2848625cbc7a939fbe646302ae95ef75fc037376b123dbaf5d167d4724670f5",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          3,
+          3,
+          2
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 210580.83834671386,
+        "candidate_objective": 210580.83834671386,
+        "max_primal_violation": 3.3306690738754696e-16,
+        "solve_wall_s": 0.7402989086695015,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.041747334878891706,
+        "preprocess_wall_s": 0.010910708922892809,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 210580.83834671404,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.021999981254339
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.7936337292194366,
+        "point_index": 26,
+        "completed_utc": "2026-09-22T05:39:22.506549+00:00"
+      }
+    },
+    {
+      "point": [
+        3,
+        3,
+        3
+      ],
+      "lookup_value": 239960.0111814262,
+      "source_member": "dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/records/point_000027.json",
+      "source_sha256": "2d199c12074703136eb79905ea8846cd40529bfef1f41e99deef89a926aa079f",
+      "measurement": {
+        "case": "small_batch",
+        "point": [
+          3,
+          3,
+          3
+        ],
+        "solver": "gams_ipopt",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "cstr_size": null,
+        "initialization_requested": "auto",
+        "pyomo_version": "6.10.0",
+        "time_limit_s": 60,
+        "feasibility_tolerance": 1e-05,
+        "accepted": true,
+        "objective": 239960.01118210342,
+        "candidate_objective": 239960.01118210342,
+        "max_primal_violation": 3.892637323588133e-09,
+        "solve_wall_s": 0.7433481710031629,
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "warm_start": false,
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+          }
+        },
+        "discretization": null,
+        "preprocessing": "fbbt",
+        "setup_wall_s": 0.04110053740441799,
+        "preprocess_wall_s": 0.010749890934675932,
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "solver_executable": "/package/gams/52.2/gams",
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 239960.01118210342,
+          "NUMVAR": 20.0,
+          "NUMEQU": 26.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 56.0,
+          "ETSOLVE": 0.021999981254339
+        },
+        "gams_solve_status": 1.0,
+        "gams_model_status": 2.0,
+        "status": "accepted",
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "message": "None",
+        "total_wall_s": 0.7958483640104532,
+        "point_index": 27,
+        "completed_utc": "2026-09-22T05:39:23.304033+00:00"
+      }
+    }
+  ]
+}
