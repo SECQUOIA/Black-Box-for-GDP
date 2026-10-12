@@ -60,9 +60,26 @@
   "measured_online_runtime": false,
   "time_formula": "DFO runtime - lookup calls + selected point costs + one Dynamic preparation per run",
   "target_definition": "Frozen lookup target within 1e-5 * max(1, abs(target))",
-  "profile_definition": "Successful completion time / fastest successful method on the paired start; failures have infinite ratios and stay in the denominator",
+  "profile_definition": "Fraction of all runs reaching the target with estimated completion time <= t seconds; target failures have infinite profile_completion_s and stay in the denominator",
+  "profile_metric": "profile_completion_s; absolute seconds, no relative normalization",
+  "profile_xscale": "log",
+  "profile_methods": [
+    "dsda",
+    "rbfopt",
+    "bam",
+    "fmqa_sa"
+  ],
   "tts99_definition": "Median completion time over all seeds * ceil(log(0.01) / log(1 - observed hit rate)); p=0: infinity, p=1: one run",
   "tts99_assumption": "Independent restarts with the observed hit probability; an estimate from 9 or 10 runs, not a 99% confidence guarantee",
+  "completion_time_scatter": {
+    "manifest": "completion_time_scatter.manifest.json",
+    "runs": 356,
+    "y_metric": "estimated_total_s",
+    "legacy_filenames": [
+      "tts99.png",
+      "tts99.pdf"
+    ]
+  },
   "point_cost_policy": "Each callback uses one selected point measurement. For successful CSTR30 retries, use only the retry result and time; exclude the initial failed attempt cost. Repeated calls reuse the same measurement.",
   "dynamic_preparation_reference": {
     "preparation_id": "9306cbf705cf48a19806eeadd48107e2",
@@ -86,34 +103,25 @@
   "all_method_comparison_rows": 81,
   "gdp_minlp_policy": "Single measured completion per method/model; preserve time limits, target attainment and bound conflicts; no restart probability or TTS99 inferred from one run",
   "scripts": {
-    "scripts/plot_dantzig_performance.py": "eacfc1b7c575d3226ec721e753fa8bda123c2113f5a8d92c6608980720675646",
+    "scripts/plot_dantzig_performance.py": "fc20275a8ee76f0aee968c9f0e287548236c2cfaf2ab55eac5a427f5ca5a71aa",
+    "scripts/plot_dantzig_run_scatter.py": "c5930ccd8400c1de2fffdf278a2fd53107528112989b091a0b4a064dce6712ef",
     "scripts/plot_dantzig_cost_breakdown.py": "8169f166914d87004e6470492bb2616131e378779d97cbc5350214abea5abd0c",
-    "benchmark_analysis.py": "cd03c8058cfbc965aba08a79e838fda50a5eaa5fcee504d6a7669d99b316628e",
-    "scripts/plot_dantzig_run_scatter.py": "c5930ccd8400c1de2fffdf278a2fd53107528112989b091a0b4a064dce6712ef"
+    "benchmark_analysis.py": "cd03c8058cfbc965aba08a79e838fda50a5eaa5fcee504d6a7669d99b316628e"
   },
   "artifacts": {
-    "performance_profile_runs.csv": "e5391eb5c820382217a7de0093c78c2f307753e5843c85e1959b9cd5d92d1ccd",
+    "performance_profile_runs.csv": "0b232918409dc560b5bed0f1691e0dc219e91d7a765021a18dd4aa60d42326b8",
     "tts99_summary.csv": "8d412529e9a8eb66f6cea0a509a14ffd944920882f984c1218a85d4d9488461f",
     "all_method_completion_times.csv": "055b1b59f51d22e3e1551ae4581b9c9e463ad7bf3a2f0f95e9d2df4e328a180a",
     "gdp_minlp_runs.csv": "9405b9e5690015917ca1c8f01548c6c5efe384d98f190d17664527d399cd1024",
-    "performance_profiles.png": "10264e79687cbddc79924a936afc300f56bd347bdb9d540761758b41f06124de",
-    "performance_profiles.pdf": "292fe5011846ac37908476befc5a451c77d322d4893a5cf1d87e63362566ee9e",
-    "tts99.png": "347f111770b39dfaad52cf53589cdfca866de46f0451856cc84509dfd041b2c5",
-    "tts99.pdf": "054e4f227f1fa501302dc8064daa29b14b74387e2f47e856229118e4907c974c",
-    "all_method_completion_times.png": "ef0afdbfd8b2e49fb152ee8dc90f6c03d9f1a88ae61ee16abd5addbef38dcec0",
-    "all_method_completion_times.pdf": "21d6f2c7fc952eba07c6c665f32ef1bf466776a6b10ac258fc9595010862137a",
+    "completion_time_scatter.manifest.json": "331e5f0a65c1a83072d125e15559ba2c58780254d5b1780dc67411d0ce8f3e72",
     "completion_time_scatter.png": "347f111770b39dfaad52cf53589cdfca866de46f0451856cc84509dfd041b2c5",
     "completion_time_scatter.pdf": "054e4f227f1fa501302dc8064daa29b14b74387e2f47e856229118e4907c974c",
     "completion_time_scatter_runs.csv": "23bd26350f78960191196353fee62f617805b3bc6669cd31fd8969b3975d23f3",
-    "completion_time_scatter.manifest.json": "f25e2639e7d96b26609bb86df3572c5bbdbcf99d30b2a44bbdc6c727d9160d25"
-  },
-  "completion_time_scatter": {
-    "manifest": "completion_time_scatter.manifest.json",
-    "runs": 356,
-    "y_metric": "estimated_total_s",
-    "legacy_filenames": [
-      "tts99.png",
-      "tts99.pdf"
-    ]
+    "tts99.png": "347f111770b39dfaad52cf53589cdfca866de46f0451856cc84509dfd041b2c5",
+    "tts99.pdf": "054e4f227f1fa501302dc8064daa29b14b74387e2f47e856229118e4907c974c",
+    "performance_profiles.png": "ee8a84881c6f06d4ddaced4b9ed4ac59f630ccb721ee1ae8210864bf81a7772f",
+    "performance_profiles.pdf": "53fdc6aba2a7c6441dc29a968597171643c113bbbeb027077735a3f475cb8699",
+    "all_method_completion_times.png": "ef0afdbfd8b2e49fb152ee8dc90f6c03d9f1a88ae61ee16abd5addbef38dcec0",
+    "all_method_completion_times.pdf": "21d6f2c7fc952eba07c6c665f32ef1bf466776a6b10ac258fc9595010862137a"
   }
 }
