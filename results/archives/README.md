@@ -79,3 +79,10 @@ objective callbacks and 7,514 unique grid/coordinate pairs. Every original
 per-run JSONL is also extracted and indexed for use with the IPOPT point data.
 The original September 10 and BAM ZIPs do not contain the local
 `run_dantzig.sh` or `run_bam_dantzig.sh` wrappers.
+
+The October 8 BAM callback archive
+[`grid_trace_bam_20261008_190603_5bh3y_t5.zip`](grid_trace_bam_20261008_190603_5bh3y_t5.zip)
+is now retained for the [Grid GDP path-cost analysis](../grid_gdp_dfo_20261011/README.md).
+Its 5,304 member hashes and all 1,050 completed paths are verified; all 54,600
+callbacks are charged in order. Its earlier incomplete attempt is retained in
+the original ZIP and excluded in favor of the sealed completed replacement.

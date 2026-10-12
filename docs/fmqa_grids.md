@@ -1,5 +1,12 @@
 # QHDOpt Grid-only FMQA-SA benchmark
 
+For the current GDP comparison, use the
+[October 11 point-cost report](../results/grid_gdp_dfo_20261011/README.md) and
+`python scripts/analyze_grid_gdp_paths.py --update-published`. It combines these
+FMQA traces with measured IPOPT point times and the current RBFOpt/BAM/DSDA
+paths. The comparison commands below reproduce the historical lookup-only
+experiment; use a separate output directory for those historical figures.
+
 Current data and figures: [September 25 FMQA rerun](../results/fmqa_20260925/README.md).
 The previous September 22 FMQA results were removed because of same-CPU overlap.
 
@@ -156,11 +163,11 @@ For `p=1`, one run is charged; for `p=0`, the estimate is infinite. This is an
 independent-restart estimate from ten observations, not a measured 99% guarantee.
 The logarithmic plot retains zero-hit problems in the across-problem medians.
 
-For an existing audited four-method `benchmark.csv`, regenerate only the TTS
-artifacts without rerunning any optimizer:
+For an existing audited four-method `benchmark.csv`, regenerate historical
+lookup-only TTS artifacts in a separate directory without rerunning any optimizer:
 
 ```bash
-python -c 'from pathlib import Path; from fmqa_compare import grid_tts_analysis; p = Path("results/fmqa_20260925/analysis/grid"); grid_tts_analysis(p / "benchmark.csv", p)'
+python -c 'from pathlib import Path; from fmqa_compare import grid_tts_analysis; p = Path("results/fmqa_20260925/analysis/grid"); grid_tts_analysis(p / "benchmark.csv", Path("results/grid_lookup_tts_historical"))'
 ```
 
 To rebuild a distinct Grid-only execution ZIP:

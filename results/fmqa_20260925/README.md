@@ -15,6 +15,13 @@ All 4,964 internal checksums, source snapshots, objective traces, initial design
 
 ## Current Grid comparison
 
+**October 11 update:** [Grid GDP figures](../grid_gdp_dfo_20261011/README.md)
+now add the individual measured IPOPT point costs along the recorded paths.
+TTS99 and profile links in the index below use that analysis, including the
+new RBFOpt/BAM traces. Relative profiles are replaced by absolute cumulative
+success curves. The following September table and lookup comparison CSV remain
+historical; use the October report for current counts and timings.
+
 The comparison contains 21 problems × 10 seeds × 5 budgets × 4 methods = 4,200 rows. Each run starts from the same three ordered points. Target success uses `abs(f - target) <= 1e-5 * max(1, abs(target))`.
 
 | Budget | DSDA success | RBFOpt success | BAM 5.0.0 success | FMQA-SA success | FMQA median completion (s) |
@@ -41,12 +48,12 @@ The figure index includes the current October 2 timing/cost figures and the expl
 
 | Figure | Published PNG |
 |---|---|
-| Grid: first-hit evaluation-count performance profiles | [Open](analysis/grid/evaluation_performance_profiles.png) |
-| Grid: convergence by evaluation count | [Open](analysis/grid/convergence_curves.png) |
-| Grid: estimated TTS99 | [Open](analysis/grid/tts99_comparison.png) |
-| Grid: relative completion-time profiles | [Open](analysis/grid/timing/time_performance_profiles.png) |
-| Grid: absolute completion-time profiles | [Open](analysis/grid/timing/completion_time_profiles.png) |
-| Grid: completion time versus evaluations/iterations | [Open](analysis/grid/timing/time_work_tradeoff.png) |
+| Grid GDP: raw evaluations to target, cumulative success | [Open](analysis/grid/evaluation_performance_profiles.png) |
+| Grid: historical lookup convergence | [Open](analysis/grid/convergence_curves.png) |
+| Grid GDP: estimated TTS99 with IPOPT point costs | [Open](analysis/grid/tts99_comparison.png) |
+| Grid GDP: absolute completion time, cumulative success | [Open](analysis/grid/timing/time_performance_profiles.png) |
+| Grid GDP: separate GDPopt/MINLP comparison by problem | [Open](../grid_gdp_dfo_20261011/gdp_minlp_comparison.png) |
+| Grid: historical lookup time/work comparison | [Open](analysis/grid/timing/time_work_tradeoff.png) |
 | GDP cases: lookup target hits and run costs | [Open](analysis/case/case_study_overview.png) |
 | GDP cases: lookup convergence | [Open](analysis/case/evaluation_convergence.png) |
 | GDP cases: lookup completion-time performance profiles | [Open](analysis/case/timing/time_performance_profiles.png) |
