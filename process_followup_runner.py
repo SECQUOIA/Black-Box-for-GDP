@@ -70,6 +70,7 @@ def source_files():
              "overnight_benchmark/__init__.py", "overnight_benchmark/common.py",
              "overnight_benchmark/runner.py", "fmqa_benchmark/__init__.py",
              "fmqa_benchmark/protocol.py", "fmqa_benchmark/optimizer.py", "fmqa_benchmark/surrogate.py",
+             "fmqa_benchmark/qhd_surrogate.py",
              "fmqa_benchmark/reference/original.manifest.json", "fmqa_benchmark/reference/initial_designs.json"]
     files = [ROOT / name for name in names]
     for folder in ("case_studies", "case_study_data", "fmqa_benchmark/vendor"):
@@ -99,6 +100,8 @@ def frozen_starts(spec):
 
 
 def runtime(config, role):
+    if EXPERIMENT and hasattr(EXPERIMENT, "runtime"):
+        return EXPERIMENT.runtime(config, role)
     from cpu_affinity import affinity_record, pin_cpu
     from fmqa_benchmark.protocol import verify_lookup_sources
     if not platform.node().startswith("dantzig") and not config["allow_other_host"]:
@@ -245,11 +248,13 @@ def fmqa_lookup(spec, config, directory):
         events.append(entry)
         save(directory / "checkpoint.json", state)
 
+    from fmqa_benchmark.surrogate import train as legacy_train
+    trainer = {"trainer": EXPERIMENT.train if EXPERIMENT and hasattr(EXPERIMENT, "train") else legacy_train}
     state = optimize(oracle["objective"], oracle["lower"], oracle["upper"], spec["starting_points"],
                      spec["max_evaluations"], spec["seed"], spec["settings"], on_evaluation=evaluated,
-                     on_proposal=lambda event: append(directory / "proposals.jsonl", event))
+                     on_proposal=lambda event: append(directory / "proposals.jsonl", event), **trainer)
     record = make_result_record(
-        spec["csv_name"], "FMQA-SA", spec["seed"], spec["n_starts"], spec["max_evaluations"],
+        spec["csv_name"], getattr(EXPERIMENT, "RESULT_METHOD", "FMQA-SA"), spec["seed"], spec["n_starts"], spec["max_evaluations"],
         state["best_value"], state["best_point"], state["total_evals"], state["wall_time_s"],
         state["has_feasible_solution"] and math.isclose(state["best_value"], oracle["target"], rel_tol=0, abs_tol=1e-12),
         state["incumbent_trajectory"], initial_evals=state["initial_evals"], adaptive_evals=state["adaptive_evals"],
@@ -273,6 +278,8 @@ def worker(directory, identifier):
     job = directory / "jobs" / identifier
     pin_cpu(run["config"]["cpu"])
     try:
+        if EXPERIMENT and hasattr(EXPERIMENT, "worker_setup"):
+            EXPERIMENT.worker_setup()
         lookup = fmqa_lookup if spec["method"] == "fmqa_sa" else dfo_lookup
         result = lookup(spec, run["config"], job)
     except Exception as error:
@@ -295,7 +302,7 @@ def command(config, role, *arguments):
 
 def check_environments(directory, config):
     identities = {}
-    for role in ("dfo", "fmqa"):
+    for role in getattr(EXPERIMENT, "RUNTIME_ROLES", ("dfo", "fmqa")):
         output = directory / f"runtime_{role}.json"
         with (directory / f"check_{role}.log").open("w") as log:
             process = subprocess.Popen(command(config, role, "_check", "--run-dir", directory, "--role", role),
@@ -471,9 +478,15 @@ def main(argv=None):
     parser.add_argument("--retry-errors", action="store_true")
     parser.add_argument("--role", choices=("dfo", "fmqa"))
     parser.add_argument("--job-id")
-    parser.add_argument("--experiment", choices=("followup", "small_batch_full_domain"), default="followup")
+    parser.add_argument("--experiment", choices=("followup", "small_batch_full_domain", "fmqa_qhd"), default="followup")
+    parser.add_argument("--scope", choices=("small_batch", "process", "grid", "all"), default="small_batch")
+    parser.add_argument("--seeds", nargs="+", type=int)
     args = parser.parse_args(argv)
-    EXPERIMENT = importlib.import_module("small_batch_full_domain") if args.experiment == "small_batch_full_domain" else None
+    modules = {"small_batch_full_domain": "small_batch_full_domain", "fmqa_qhd": "fmqa_qhd_experiment"}
+    EXPERIMENT = importlib.import_module(modules[args.experiment]) if args.experiment in modules else None
+    if args.experiment == "fmqa_qhd":
+        selection = read(args.run_dir / "run.json")["config"] if args.run_dir else vars(args)
+        EXPERIMENT.configure(selection["scope"], selection.get("seeds"))
     os.environ.update(THREAD_ENV)
     os.environ.update(PYTHONPATH=str(ROOT), PYTHONUNBUFFERED="1", PYTHONNOUSERSITE="1")
     if args.mode == "plan":
@@ -506,10 +519,12 @@ def main(argv=None):
               "experiment": args.experiment,
               **{name: str(Path(getattr(args, name)).expanduser().absolute()) if getattr(args, name) else ""
                  for name in ("dfo_python", "fmqa_python", "conda", "bonmin", "ipopt", "bam_license")}}
+    if args.experiment == "fmqa_qhd":
+        config.update(scope=args.scope, seeds=args.seeds)
     if not math.isfinite(args.hard_seconds) or args.hard_seconds <= 0 or not args.fmqa_python:
         parser.error("A positive --hard-seconds and --fmqa-python are required")
     args.output_root.mkdir(parents=True, exist_ok=True)
-    prefix = "small_batch_full_domain_" if EXPERIMENT else "process_followup_"
+    prefix = getattr(EXPERIMENT, "RUN_PREFIX", "small_batch_full_domain_") if EXPERIMENT else "process_followup_"
     directory = Path(tempfile.mkdtemp(prefix=prefix + time.strftime("%Y%m%d_%H%M%S_"), dir=args.output_root)).resolve()
     print(f"RUN_DIR={directory}", flush=True)
     protocol = EXPERIMENT.PROTOCOL if EXPERIMENT else {
