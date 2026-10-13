@@ -24,10 +24,14 @@ hits and infinity for misses; `estimated_total_s` retains every run's actual est
 All FMQA-SA paths now come from the [current QHD PyTorch dataset](../fmqa_qhd_20261012/README.md). The other methods include the verified October 12 follow-ups:
 Column adds seed 10 for all four methods. Small Batch replaces all four methods
 with ten runs each on the original GDP domain `{1,2,3}^3` (27 points, 12 feasible),
-using budget 10 and seeds 0–9. RBFOpt uses MSRSM + sampling.
+using budget 10 and seeds 0–9. RBFOpt now uses **MSRSM + solver + rbf=auto** from
+the [October 13 solver-search supplement](../small_batch_rbfopt_solver_20261013/README.md),
+with the same frozen starts. Its 100 callbacks and 72 actual Bonmin invocations
+are audited; these ten runs replace the previous MSRSM/sampling results.
 The [full-domain report](../small_batch_full_domain_20261012/README.md) and
-[audit](../small_batch_full_domain_20261012/audit.json) verify all 400 callbacks,
-including 197 infeasible evaluations and seven repeated evaluations.
+[audit](../small_batch_full_domain_20261012/audit.json) preserve the historical 400 callbacks,
+including 197 infeasible evaluations and seven repeated evaluations. Current
+RBFOpt and FMQA-SA use their respective replacement datasets.
 Small Batch target counts are DSDA 8/10, RBFOpt 5/10, BAM 2/10, and FMQA-SA 6/10.
 Infeasible point costs include measured preprocessing rejection time;
 they are charged even though IPOPT was not invoked for those configurations.

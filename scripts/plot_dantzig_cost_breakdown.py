@@ -24,6 +24,7 @@ SOURCE = ROOT / "results/dfo_trace_nlp_20261002/analysis"
 OUTPUT = ROOT / "results/dfo_trace_nlp_20261002/figures"
 FOLLOWUP = ROOT / "results/process_followup_20261012"
 FULL_BATCH = ROOT / "results/small_batch_full_domain_20261012"
+SOLVER_BATCH = ROOT / "results/small_batch_rbfopt_solver_20261013"
 METHODS = ("dsda", "rbfopt", "bam", "fmqa_sa")
 LABELS = ("DSDA", "RBFOpt", "BAM 5.0.0", "FMQA-SA")
 PANELS = (("column", "", 16, "Column"), ("cstr", "30", 43, "CSTR 30"),
@@ -135,25 +136,32 @@ def input_hashes(inputs, source_manifest):
             **source_manifest.get("followup_sources", {}), **source_manifest.get("fmqa_sources", {})}
 
 
-def full_batch_runs():
+def full_batch_runs(directory=FULL_BATCH, *, solver_search=False):
     """Load full-domain runs and reattach every measured callback cost."""
-    audit = json.loads((FULL_BATCH / "audit.json").read_text())
+    audit = json.loads((directory / "audit.json").read_text())
     for name, digest in audit["files_sha256"].items():
-        if sha(FULL_BATCH / name) != digest:
+        if sha(directory / name) != digest:
             raise ValueError(f"Full-domain checksum mismatch: {name}")
     if (sha(ROOT / audit["archive"]) != audit["archive_sha256"]
             or sha(ROOT / audit["point_reference"]) != audit["point_reference_sha256"]):
         raise ValueError("Full-domain archive or point reference changed")
     ref = json.loads((ROOT / audit["point_reference"]).read_text())
     points = {tuple(p["point"]): p for p in ref["points"]}
-    plan = json.loads((FULL_BATCH / "run.json").read_text())["plan"]
-    records = {r["job_id"]: r for r in read_csv(FULL_BATCH / "runs.csv")}
+    plan = json.loads((directory / "run.json").read_text())["plan"]
+    records = {r["job_id"]: r for r in read_csv(directory / "runs.csv")}
     checked = {r["job_id"]: r for r in audit["runs"]}
-    expected = {f"small_batch_full_B10_seed{s}_{m}" for s in range(10) for m in METHODS}
-    if len(plan) != 40 or {s["job_id"] for s in plan} != expected or set(records) != expected or set(checked) != expected:
-        raise ValueError("Expected 40 full-domain Small Batch jobs")
+    expected = ({f"small_batch_full_B10_seed{s}_rbfopt_solver" for s in range(10)} if solver_search else
+                {f"small_batch_full_B10_seed{s}_{m}" for s in range(10) for m in METHODS})
+    if (len(plan) != len(expected) or {s["job_id"] for s in plan} != expected
+            or set(records) != expected or set(checked) != expected):
+        raise ValueError("Unexpected full-domain Small Batch jobs")
+    if solver_search:
+        from small_batch_rbfopt_solver import plan as solver_plan
+        if plan != solver_plan() or any(not r["auxiliary_solver_trace"]["calls_by_solver"].get("bonmin")
+                                        for r in checked.values()):
+            raise ValueError("Small Batch solver-search settings, starts or Bonmin evidence differ")
     callbacks = defaultdict(list)
-    for row in read_csv(FULL_BATCH / "evaluation_costs.csv"):
+    for row in read_csv(directory / "evaluation_costs.csv"):
         callbacks[row["job_id"]].append(row)
     runs = []
     for spec in plan:
@@ -187,9 +195,9 @@ def full_batch_runs():
         if not math.isclose(item["estimated_total_s"], check["estimated_completion_s"], rel_tol=1e-12):
             raise ValueError("Full-domain completion estimate does not reconcile")
         item.update(recorded_best_value=best, target_value=target,
-                    source=str((FULL_BATCH / "runs.csv").relative_to(ROOT)))
+                    source=str((directory / "runs.csv").relative_to(ROOT)))
         runs.append(item)
-    inputs = {str((FULL_BATCH / name).relative_to(ROOT)): sha(FULL_BATCH / name)
+    inputs = {str((directory / name).relative_to(ROOT)): sha(directory / name)
               for name in ("audit.json", *audit["files_sha256"])}
     inputs.update({audit["archive"]: audit["archive_sha256"], audit["point_reference"]: audit["point_reference_sha256"]})
     return runs, inputs
@@ -243,8 +251,12 @@ def load_runs(panels=PANELS, *, include_followup=True, fmqa_backend="qhd"):
         additions, sources = followup_runs()
         additions = [r for r in additions if r["case"] == "column"]
         batch, batch_sources = full_batch_runs()
+        solver_batch, solver_sources = full_batch_runs(SOLVER_BATCH, solver_search=True)
+        superseded_batch = [r["job_id"] for r in batch if r["method"] == "rbfopt"]
+        batch = [r for r in batch if r["method"] != "rbfopt"] + solver_batch
         additions += batch
         sources.update(batch_sources)
+        sources.update(solver_sources)
         additions = [r for r in additions if (r["case"], r["cstr_size"], r["budget"]) in selected]
         removed = [r for r in runs if (r["case"], r["budget"]) == ("small_batch", 10)]
         if ("small_batch", "", 10) in selected and (len(removed) != 40
@@ -257,7 +269,8 @@ def load_runs(panels=PANELS, *, include_followup=True, fmqa_backend="qhd"):
         source_manifest["followup_selection"] = {
             "column": "Original seeds 1-9 plus seed 10 for all four methods",
             "small_batch": "Replace all four methods with full-domain {1,2,3}^3 runs, seeds 0-9, budget 10",
-            "small_batch_rbfopt": "MSRSM + sampling; restricted-domain follow-up retained only as historical evidence",
+            "small_batch_rbfopt": "MSRSM + solver + rbf=auto; October 13 Dantzig supplement replaces the ten sampling runs",
+            "superseded_small_batch_rbfopt_job_ids": superseded_batch,
             "small_batch_domain": {"lower": [1, 1, 1], "upper": [3, 3, 3], "points": 27, "feasible": 12},
             "added_job_ids": [r["job_id"] for r in additions],
             "replaced_job_ids": [r["job_id"] for r in removed],

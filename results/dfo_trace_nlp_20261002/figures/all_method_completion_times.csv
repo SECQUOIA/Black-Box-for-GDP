@@ -28,7 +28,7 @@ column,,rbfopt,DFO,16,10,41.36566698998213,mean_fixed_path_estimate,5,0,0,19465.
 column,,bam,DFO,16,10,41.735011630505326,mean_fixed_path_estimate,0,0,0,19538.831656082344,mean,19346.12472619312,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv; results/process_followup_20261012/runs.csv
 column,,fmqa_sa,DFO,16,10,36.595847595076336,mean_fixed_path_estimate,5,0,0,19578.612729898592,mean,19346.12472619312,results/fmqa_qhd_20261012/process_runs.csv
 small_batch,,dsda,DFO,10,10,3.606060778815299,mean_fixed_path_estimate,8,0,0,174862.51921751734,mean,167427.65711470306,results/small_batch_full_domain_20261012/runs.csv
-small_batch,,rbfopt,DFO,10,10,5.3029061940964315,mean_fixed_path_estimate,5,0,0,175592.10365581932,mean,167427.65711470306,results/small_batch_full_domain_20261012/runs.csv
+small_batch,,rbfopt,DFO,10,10,6.388155420179828,mean_fixed_path_estimate,5,0,0,175592.10365581932,mean,167427.65711470306,results/small_batch_rbfopt_solver_20261013/runs.csv
 small_batch,,bam,DFO,10,10,4.305241725686938,mean_fixed_path_estimate,2,0,0,178181.21686508827,mean,167427.65711470306,results/small_batch_full_domain_20261012/runs.csv
 small_batch,,fmqa_sa,DFO,10,10,8.765486491844058,mean_fixed_path_estimate,6,0,0,175468.35841730025,mean,167427.65711470306,results/fmqa_qhd_20261012/process_runs.csv
 dynamic,,dsda,DFO,50,10,24.4684651626274,mean_fixed_path_estimate,10,0,0,-212.00878719112268,mean,-212.00878719112268,results/dfo_trace_nlp_20261002/analysis/dfo_runs.csv
