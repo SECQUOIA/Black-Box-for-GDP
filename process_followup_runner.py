@@ -209,6 +209,8 @@ def dfo_lookup(spec, config, directory):
     frozen_starts(spec)
     if EXPERIMENT:
         runner, kwargs = EXPERIMENT.run_dfo, {"spec": spec, "config": config}
+        if getattr(EXPERIMENT, "RECORD_AUXILIARY_SOLVERS", False):
+            kwargs["directory"] = directory
     else:
         module = importlib.import_module(f"case_studies.{spec['case_name']}_{spec['method']}")
         runner = getattr(module, f"run_{spec['case_name']}_{spec['method']}")
@@ -227,7 +229,8 @@ def dfo_lookup(spec, config, directory):
     return {"status": "completed", "result_record": record, "trace": artifact,
             "search_wall_s": elapsed, "lookup_wall_s": sum(e["objective_wall_s"] for e in trace.events),
             "clock_scope": "runner entry through optimizer return; includes trace writes; excludes validation/export",
-            "stop_reason": output.get("stop_reason")}
+            "stop_reason": output.get("stop_reason"),
+            **({"solver_trace": output["solver_trace"]} if "solver_trace" in output else {})}
 
 
 def fmqa_lookup(spec, config, directory):
@@ -342,6 +345,8 @@ def saved_result(job, spec):
                 or entries[-1]["event"] != "run_complete" or entries[-1]["result_record"] != result["result_record"]):
             raise ValueError("Trace header/footer/checksum mismatch")
         validate_trace(entries[1:-1], result["result_record"], spec)
+        if EXPERIMENT and hasattr(EXPERIMENT, "validate_saved_result"):
+            EXPERIMENT.validate_saved_result(job, result)
     return result
 
 
@@ -478,11 +483,13 @@ def main(argv=None):
     parser.add_argument("--retry-errors", action="store_true")
     parser.add_argument("--role", choices=("dfo", "fmqa"))
     parser.add_argument("--job-id")
-    parser.add_argument("--experiment", choices=("followup", "small_batch_full_domain", "fmqa_qhd"), default="followup")
+    parser.add_argument("--experiment", choices=("followup", "small_batch_full_domain", "fmqa_qhd",
+                                                "small_batch_rbfopt_solver"), default="followup")
     parser.add_argument("--scope", choices=("small_batch", "process", "grid", "all"), default="small_batch")
     parser.add_argument("--seeds", nargs="+", type=int)
     args = parser.parse_args(argv)
-    modules = {"small_batch_full_domain": "small_batch_full_domain", "fmqa_qhd": "fmqa_qhd_experiment"}
+    modules = {"small_batch_full_domain": "small_batch_full_domain", "fmqa_qhd": "fmqa_qhd_experiment",
+               "small_batch_rbfopt_solver": "small_batch_rbfopt_solver"}
     EXPERIMENT = importlib.import_module(modules[args.experiment]) if args.experiment in modules else None
     if args.experiment == "fmqa_qhd":
         selection = read(args.run_dir / "run.json")["config"] if args.run_dir else vars(args)
@@ -521,8 +528,11 @@ def main(argv=None):
                  for name in ("dfo_python", "fmqa_python", "conda", "bonmin", "ipopt", "bam_license")}}
     if args.experiment == "fmqa_qhd":
         config.update(scope=args.scope, seeds=args.seeds)
-    if not math.isfinite(args.hard_seconds) or args.hard_seconds <= 0 or not args.fmqa_python:
-        parser.error("A positive --hard-seconds and --fmqa-python are required")
+    if not math.isfinite(args.hard_seconds) or args.hard_seconds <= 0:
+        parser.error("A positive --hard-seconds is required")
+    for role in getattr(EXPERIMENT, "RUNTIME_ROLES", ("dfo", "fmqa")):
+        if not getattr(args, role + "_python"):
+            parser.error(f"--{role}-python is required")
     args.output_root.mkdir(parents=True, exist_ok=True)
     prefix = getattr(EXPERIMENT, "RUN_PREFIX", "small_batch_full_domain_") if EXPERIMENT else "process_followup_"
     directory = Path(tempfile.mkdtemp(prefix=prefix + time.strftime("%Y%m%d_%H%M%S_"), dir=args.output_root)).resolve()

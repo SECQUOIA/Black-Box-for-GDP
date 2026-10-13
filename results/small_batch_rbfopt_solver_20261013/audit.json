@@ -1,0 +1,389 @@
+{
+  "archived_files_verified": 180,
+  "executed_source_files_verified": 101,
+  "elapsed_run_s": 28.407325,
+  "methods": [
+    {
+      "method": "rbfopt",
+      "runs": 10,
+      "target_hits": 5,
+      "feasible_evaluations": 65,
+      "infeasible_evaluations": 35,
+      "repeated_evaluations": 0,
+      "median_completion_s": 6.015541430628218,
+      "runs_99": 7,
+      "tts99_s": 42.10879001439753
+    }
+  ],
+  "runs": [
+    {
+      "job_id": "small_batch_full_B10_seed0_rbfopt_solver",
+      "method": "rbfopt",
+      "seed": 0,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "feasible_evaluations": 6,
+      "infeasible_evaluations": 4,
+      "repeated_evaluations": 0,
+      "best_point": [
+        2,
+        3,
+        1
+      ],
+      "best_value": 178545.19583897587,
+      "target": 167427.65711470306,
+      "target_hit": false,
+      "first_hit_evaluation": null,
+      "recorded_method_s": 0.8911370720015839,
+      "lookup_s": 0.00011272606207057834,
+      "attached_point_s": 4.96216128161177,
+      "estimated_completion_s": 5.853185627551284,
+      "worker_wall_s": 2.4676890929986257,
+      "auxiliary_solver_trace": {
+        "path": "solver_calls.jsonl",
+        "sha256": "dd1563450ed419108046188d5e199e0ec0ba1354139ccb4f0db93d2e816327cd",
+        "calls": 7,
+        "calls_by_solver": {
+          "bonmin": 7
+        },
+        "exceptions": 0,
+        "nonoptimal_calls": 0
+      }
+    },
+    {
+      "job_id": "small_batch_full_B10_seed1_rbfopt_solver",
+      "method": "rbfopt",
+      "seed": 1,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "feasible_evaluations": 8,
+      "infeasible_evaluations": 2,
+      "repeated_evaluations": 0,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 3,
+      "recorded_method_s": 1.1173144970089197,
+      "lookup_s": 0.00011341602657921612,
+      "attached_point_s": 6.450446465518326,
+      "estimated_completion_s": 7.567647546500666,
+      "worker_wall_s": 2.7180065539869247,
+      "auxiliary_solver_trace": {
+        "path": "solver_calls.jsonl",
+        "sha256": "ff863ea6a8ed878b20e7d37e00cda7c07b1ac263b4484d71c8881f4f524677e9",
+        "calls": 7,
+        "calls_by_solver": {
+          "bonmin": 7
+        },
+        "exceptions": 0,
+        "nonoptimal_calls": 0
+      }
+    },
+    {
+      "job_id": "small_batch_full_B10_seed2_rbfopt_solver",
+      "method": "rbfopt",
+      "seed": 2,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "feasible_evaluations": 6,
+      "infeasible_evaluations": 4,
+      "repeated_evaluations": 0,
+      "best_point": [
+        2,
+        3,
+        1
+      ],
+      "best_value": 178545.19583897587,
+      "target": 167427.65711470306,
+      "target_hit": false,
+      "first_hit_evaluation": null,
+      "recorded_method_s": 0.8858763369935332,
+      "lookup_s": 0.00011856599303428084,
+      "attached_point_s": 4.96216128161177,
+      "estimated_completion_s": 5.847919052612269,
+      "worker_wall_s": 2.4677842450037133,
+      "auxiliary_solver_trace": {
+        "path": "solver_calls.jsonl",
+        "sha256": "7a55b8ab09a821e20dc8ee7764b1a38cf4476dab1dfdf1104d4989056876da34",
+        "calls": 7,
+        "calls_by_solver": {
+          "bonmin": 7
+        },
+        "exceptions": 0,
+        "nonoptimal_calls": 0
+      }
+    },
+    {
+      "job_id": "small_batch_full_B10_seed3_rbfopt_solver",
+      "method": "rbfopt",
+      "seed": 3,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "feasible_evaluations": 7,
+      "infeasible_evaluations": 3,
+      "repeated_evaluations": 0,
+      "best_point": [
+        2,
+        2,
+        2
+      ],
+      "best_value": 204601.96762877452,
+      "target": 167427.65711470306,
+      "target_hit": false,
+      "first_hit_evaluation": null,
+      "recorded_method_s": 1.1048756429954665,
+      "lookup_s": 0.00011158302368130535,
+      "attached_point_s": 5.698921677656472,
+      "estimated_completion_s": 6.803685737628257,
+      "worker_wall_s": 2.667939598002704,
+      "auxiliary_solver_trace": {
+        "path": "solver_calls.jsonl",
+        "sha256": "541fdef51a81ff54eb29daddec1c549b3b820924b7991953b9988019cf578431",
+        "calls": 7,
+        "calls_by_solver": {
+          "bonmin": 7
+        },
+        "exceptions": 0,
+        "nonoptimal_calls": 0
+      }
+    },
+    {
+      "job_id": "small_batch_full_B10_seed4_rbfopt_solver",
+      "method": "rbfopt",
+      "seed": 4,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "feasible_evaluations": 5,
+      "infeasible_evaluations": 5,
+      "repeated_evaluations": 0,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 2,
+      "recorded_method_s": 1.3510324450035114,
+      "lookup_s": 0.00012368799070827663,
+      "attached_point_s": 4.190858485177159,
+      "estimated_completion_s": 5.541767242189962,
+      "worker_wall_s": 2.918210749994614,
+      "auxiliary_solver_trace": {
+        "path": "solver_calls.jsonl",
+        "sha256": "ac4490355e8d9f5e8f77b8b92fb10205db645dd39ddebb169ca626c296580a5d",
+        "calls": 8,
+        "calls_by_solver": {
+          "bonmin": 8
+        },
+        "exceptions": 0,
+        "nonoptimal_calls": 0
+      }
+    },
+    {
+      "job_id": "small_batch_full_B10_seed5_rbfopt_solver",
+      "method": "rbfopt",
+      "seed": 5,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "feasible_evaluations": 6,
+      "infeasible_evaluations": 4,
+      "repeated_evaluations": 0,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 10,
+      "recorded_method_s": 1.066244330999325,
+      "lookup_s": 0.0001246410101884976,
+      "attached_point_s": 4.91415450675413,
+      "estimated_completion_s": 5.980274196743267,
+      "worker_wall_s": 2.61776360499789,
+      "auxiliary_solver_trace": {
+        "path": "solver_calls.jsonl",
+        "sha256": "42b3a0f4cbf061e8e10cdfcc6eaddb6767f5195ffbb782740c6bf394735cb298",
+        "calls": 7,
+        "calls_by_solver": {
+          "bonmin": 7
+        },
+        "exceptions": 0,
+        "nonoptimal_calls": 0
+      }
+    },
+    {
+      "job_id": "small_batch_full_B10_seed6_rbfopt_solver",
+      "method": "rbfopt",
+      "seed": 6,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "feasible_evaluations": 6,
+      "infeasible_evaluations": 4,
+      "repeated_evaluations": 0,
+      "best_point": [
+        2,
+        3,
+        1
+      ],
+      "best_value": 178545.19583897587,
+      "target": 167427.65711470306,
+      "target_hit": false,
+      "first_hit_evaluation": null,
+      "recorded_method_s": 0.9384386819874635,
+      "lookup_s": 0.00011053199705202132,
+      "attached_point_s": 4.961030916776508,
+      "estimated_completion_s": 5.89935906676692,
+      "worker_wall_s": 2.51801931198861,
+      "auxiliary_solver_trace": {
+        "path": "solver_calls.jsonl",
+        "sha256": "b4a4024cab4c8c747f9a4327399031a10f4f1cd31b1e182de7555d03dc2d782e",
+        "calls": 7,
+        "calls_by_solver": {
+          "bonmin": 7
+        },
+        "exceptions": 0,
+        "nonoptimal_calls": 0
+      }
+    },
+    {
+      "job_id": "small_batch_full_B10_seed7_rbfopt_solver",
+      "method": "rbfopt",
+      "seed": 7,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "feasible_evaluations": 6,
+      "infeasible_evaluations": 4,
+      "repeated_evaluations": 0,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 10,
+      "recorded_method_s": 1.1366738270007772,
+      "lookup_s": 0.00011165504110977054,
+      "attached_point_s": 4.914246492553502,
+      "estimated_completion_s": 6.05080866451317,
+      "worker_wall_s": 2.7179078049957752,
+      "auxiliary_solver_trace": {
+        "path": "solver_calls.jsonl",
+        "sha256": "8359ac86763eff5b6a239f318e1a3d05c1e9c7e55fa1c2f394da90d93f380f4f",
+        "calls": 7,
+        "calls_by_solver": {
+          "bonmin": 7
+        },
+        "exceptions": 0,
+        "nonoptimal_calls": 0
+      }
+    },
+    {
+      "job_id": "small_batch_full_B10_seed8_rbfopt_solver",
+      "method": "rbfopt",
+      "seed": 8,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "feasible_evaluations": 7,
+      "infeasible_evaluations": 3,
+      "repeated_evaluations": 0,
+      "best_point": [
+        2,
+        3,
+        1
+      ],
+      "best_value": 178545.19583897587,
+      "target": 167427.65711470306,
+      "target_hit": false,
+      "first_hit_evaluation": null,
+      "recorded_method_s": 1.0938571289880201,
+      "lookup_s": 0.00012995900760870427,
+      "attached_point_s": 5.720943296793848,
+      "estimated_completion_s": 6.81467046677426,
+      "worker_wall_s": 2.6681028220045846,
+      "auxiliary_solver_trace": {
+        "path": "solver_calls.jsonl",
+        "sha256": "5071d7665fdb5475ed37065e668a592623fbc5dabe4b66ef1dcbe3c26d2249f8",
+        "calls": 8,
+        "calls_by_solver": {
+          "bonmin": 8
+        },
+        "exceptions": 0,
+        "nonoptimal_calls": 0
+      }
+    },
+    {
+      "job_id": "small_batch_full_B10_seed9_rbfopt_solver",
+      "method": "rbfopt",
+      "seed": 9,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "feasible_evaluations": 8,
+      "infeasible_evaluations": 2,
+      "repeated_evaluations": 0,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 10,
+      "recorded_method_s": 1.075337326998124,
+      "lookup_s": 0.00011485899449326098,
+      "attached_point_s": 6.447014132514596,
+      "estimated_completion_s": 7.522236600518227,
+      "worker_wall_s": 2.6679425340116723,
+      "auxiliary_solver_trace": {
+        "path": "solver_calls.jsonl",
+        "sha256": "23f4c3390dd39ed28002f93195a1adaa7e3ca121c9367de1a84bf0608b5a6c29",
+        "calls": 7,
+        "calls_by_solver": {
+          "bonmin": 7
+        },
+        "exceptions": 0,
+        "nonoptimal_calls": 0
+      }
+    }
+  ],
+  "callback_counts": {
+    "rbfopt": 100
+  },
+  "checks": [
+    "ZIP CRC and complete SHA256 inventory",
+    "executed source snapshot and original point-enumeration records",
+    "10 sealed results, shared frozen starts, full bounds and method settings",
+    "100 callback coordinates, objectives, incumbents, clocks and repeats",
+    "aggregate CSVs regenerated byte-for-byte from raw traces",
+    "all point costs including infeasible and repeated callbacks",
+    "auxiliary solver trace checksums, matched start/end events and actual Bonmin invocations"
+  ],
+  "time_formula": "method wall time - lookup call time + measured point cost for every callback",
+  "measured_online_runtime": false,
+  "archive": "results/archives/small_batch_rbfopt_solver_20261013_172454_czzqkizx.zip",
+  "archive_sha256": "3de4a026eb78e9e962475dbd464af03e89cbcf0719466e9693b3c5b592fab07b",
+  "point_reference": "benchmark_protocols/small_batch_full_domain.json",
+  "point_reference_sha256": "4fabd04e5023d0517cc6e749b8fee1e3de6d3bfc9e17491d3ec90d055f4045f3",
+  "files_sha256": {
+    "run.json": "2fa6e39a46616713036ca1b890070304c42bca25d8b29d3c031cc4cd090a7c9c",
+    "summary.json": "65a516f1f3c823670db85660672a7a8b22a19e2a8f41fd37be0470dcb7e5fe12",
+    "runs.csv": "22a4e5c28c66c9bbba1fd714491bb40e92466b0231817ccc6db28b6aaa7762d2",
+    "trajectories.csv": "43d715f89d5b8dd27799d9e288cf38b8dfb93c4f3bd37d49c1616fe8c853a293",
+    "auxiliary_solver_calls.csv": "5a6b5a1c9407812bafec0d1999acfdde784367f08115ad63b581768bba8e83de",
+    "evaluation_costs.csv": "4495fe251878f2529a28b2563c9b14a229a83837805f5eca8c33ec72e2b97417",
+    "completion_estimates.csv": "a9245a46e9e8adea143428a44d49ecf00881ac7c6b86c82f7b9418ec914d343e",
+    "runtime_dfo.json": "f106e6cbd8aa7cd173f94dad90bee9e4e402ab87a56df0df8fc30b7c4703d38d",
+    "method_summary.csv": "df42896f837190cf1c3c6ad4280ca90d29fbf58d7fb7da41c9ad10ca75246332"
+  }
+}
