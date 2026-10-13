@@ -1,8 +1,12 @@
 # Original Dantzig result archives
 
-These are the original result ZIPs currently committed to the repository.
+These are the original result ZIPs retained in the repository.
 They retain their original bytes, including any source snapshots and shell
 scripts present in the server archive.
+
+Current default FMQA-SA: [QHD PyTorch, all 1,190 runs](fmqa_qhd_20261012_034123_8kcczd4b.zip). Previous comparison figures and tables: [NumPy legacy snapshot](fmqa_numpy_legacy_figures_20261012.zip). Both preserve their source identities and checksums.
+
+The [96-point logical-rejection supplement](fmqa_qhd_points_20261012_234651_f39la8cf.zip) completes current QHD timing coverage. All points were measured on Dantzig with one thread and zero solver calls; original ZIP bytes and the adjacent SHA256 file are retained.
 
 | Run | Original archive |
 |---|---|
@@ -13,8 +17,8 @@ scripts present in the server archive.
 | GAMS IPOPT / IPOPTH / CONOPT point runs, September 22 | [dantzig_gdp_gams_20260922_050038_p4q8hy54.zip](dantzig_gdp_gams_20260922_050038_p4q8hy54.zip) |
 | Seven CSTR30 retries, September 22 | [dantzig_cstr30_retry_20260922_153133_ld1g1zau.zip](dantzig_cstr30_retry_20260922_153133_ld1g1zau.zip) |
 | Full GDPopt / BARON comparison, September 25, CPU 2 | [dantzig_gdp_compare_20260925_172020_5m9m_kxx.zip](dantzig_gdp_compare_20260925_172020_5m9m_kxx.zip) |
-| FMQA-SA process cases, September 25, CPU 4 | [dantzig_fmqa_20260925_174150_2m7pmr0d.zip](dantzig_fmqa_20260925_174150_2m7pmr0d.zip) |
-| FMQA-SA Grid, September 25, CPU 0 | [dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip](dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip) |
+| FMQA-SA (NumPy legacy) process cases, September 25, CPU 4 | [dantzig_fmqa_20260925_174150_2m7pmr0d.zip](dantzig_fmqa_20260925_174150_2m7pmr0d.zip) |
+| FMQA-SA (NumPy legacy) Grid, September 25, CPU 0 | [dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip](dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip) |
 | RIC/GLOA BARON + HiGHS, October 1, CPU 2, 18 completed jobs | [dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip](dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip) |
 | LOA BARON + HiGHS, October 1, CPU 6, 9 completed jobs | [dantzig_gdp_compare_20261001_204801_1gfd4d02.zip](dantzig_gdp_compare_20261001_204801_1gfd4d02.zip) |
 | Grid GDP, October 9, CPU 6, 20,181 point timings and 105 benchmark outcomes | [grid_gdp_run_20261008_210901_dw5vq37s.zip](grid_gdp_run_20261008_210901_dw5vq37s.zip) |

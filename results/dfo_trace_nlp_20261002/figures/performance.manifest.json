@@ -115,7 +115,13 @@
     "results/small_batch_full_domain_20261012/runtime_fmqa.json": "ab71d1fe3f3ce7a141f62b86f927a1e530cdc6c5d69b951fe6dcaa032c064eaa",
     "results/small_batch_full_domain_20261012/method_summary.csv": "ccd2959987e93dd84d1757450b76d2cfd24819e2d2e9565274600f17108f48d2",
     "results/archives/small_batch_full_domain_20261012_024647_d4390oed.zip": "26fc9acc428cd429fe9cd021345c63e28a2d0ff0265f9918a7b474161cedbda4",
-    "benchmark_protocols/small_batch_full_domain.json": "4fabd04e5023d0517cc6e749b8fee1e3de6d3bfc9e17491d3ec90d055f4045f3"
+    "benchmark_protocols/small_batch_full_domain.json": "4fabd04e5023d0517cc6e749b8fee1e3de6d3bfc9e17491d3ec90d055f4045f3",
+    "results/archives/fmqa_qhd_20261012_034123_8kcczd4b.zip": "bdcb45af02cd8885b6740abbc00835cf6626a7921e8cafa06bcc85abb290b2e3",
+    "results/fmqa_qhd_20261012/process_runs.csv": "b6f5a56c717de907b00c55f65c7e131b3a3289084cfd02a9a9de291062ab76bc",
+    "results/fmqa_qhd_20261012/run.json": "2fff859bb83d7db02e1eceb4a6e2b2364b9ac71e6429d38662e1cda573065fbe",
+    "results/fmqa_qhd_20261012/publication_evaluation_costs.csv.gz": "ae39f9787be5027f3f4f8eef0a0bfc4a4f9e318c90ce25d2c10c2de45012eb22",
+    "results/fmqa_qhd_20261012/missing_unique_points.csv": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "results/fmqa_qhd_20261012/audit.json": "7ccfcc7f42982a4a6078641c3ec82c83a5038187b0208d1f2b6e34c617f0132d"
   },
   "followup_selection": {
     "column": "Original seeds 1-9 plus seed 10 for all four methods",
@@ -226,6 +232,8 @@
     "dfo_clock": "result_record.wall_time_s for every method, matching the original figures",
     "point_costs": "Every callback charged its measured point cost, including repeated and rejected evaluations"
   },
+  "fmqa_backend": "pytorch_qhd_data",
+  "missing_time_policy": "No aggregate time or time-profile curve for a group with missing measurements; all outcomes retained",
   "gdp_minlp_source": {
     "results/gdp_comparison_current/analysis/comparison.csv": "9405b9e5690015917ca1c8f01548c6c5efe384d98f190d17664527d399cd1024"
   },
@@ -233,25 +241,25 @@
   "all_method_comparison_rows": 81,
   "gdp_minlp_policy": "Single measured completion per method/model; preserve time limits, target attainment and bound conflicts; no restart probability or TTS99 inferred from one run",
   "scripts": {
-    "scripts/plot_dantzig_performance.py": "d66c2c5ed615d70dde12aece316ce6efeb47faf78d33c80f8fd2f3f8656c1f9d",
+    "scripts/plot_dantzig_performance.py": "247a793906b18801faa9e6f41e47c9c5e2bafe8700a12200d40ef07e2d3d8038",
     "scripts/plot_dantzig_run_scatter.py": "c5930ccd8400c1de2fffdf278a2fd53107528112989b091a0b4a064dce6712ef",
-    "scripts/plot_dantzig_cost_breakdown.py": "bac8d11f856def5967e5ebc195eff0cd2ad5a44d7a0a30872b7350f71634c2aa",
+    "scripts/plot_dantzig_cost_breakdown.py": "ca97acc5d021cde78aecf36a4af835dcf9a4a40ec32be88eda86d71b2debb8ac",
     "benchmark_analysis.py": "cd03c8058cfbc965aba08a79e838fda50a5eaa5fcee504d6a7669d99b316628e"
   },
   "artifacts": {
-    "performance_profile_runs.csv": "bc1fe1f110d46e1db71d6ca387461756ff983c3066979386e63a91108913637e",
-    "tts99_summary.csv": "bb7645c8695ad5b1cdb3c8fbba7189080282574912d60267f663742bf85c2f5e",
-    "all_method_completion_times.csv": "d6c33435cd1986bcec5bf78cc16966c699a921f4b8271d97ec73b3bda4c45c0d",
+    "performance_profile_runs.csv": "96565a84464514ff48eac8bb70d490461161312765dbcdce4d2b5cfe38da35b9",
+    "tts99_summary.csv": "fea981d9e8f782e0585e64b5061204ad610c56c32dfc6b8ad5c845cd517f0a4d",
+    "all_method_completion_times.csv": "78d21d9dec7eed3c305cc8c79c779754713cbc0d861f14994d21555408b397ca",
     "gdp_minlp_runs.csv": "9405b9e5690015917ca1c8f01548c6c5efe384d98f190d17664527d399cd1024",
-    "completion_time_scatter.manifest.json": "df220a13252e029706cbde54bed38d1b45417e0949611799e981d7790770043f",
-    "completion_time_scatter.png": "76eb2746861c2c718e76b124f043f7fd9968b885451f0b3be62b5a108940f429",
-    "completion_time_scatter.pdf": "8f79680750165887efcfab0bebebffb315fdf3aa04de171e0cffa04f38267c67",
-    "completion_time_scatter_runs.csv": "01dc23380c01955d1a1af96c76104e2d356a8a437edbc56723fcff26146055a3",
-    "tts99.png": "76eb2746861c2c718e76b124f043f7fd9968b885451f0b3be62b5a108940f429",
-    "tts99.pdf": "8f79680750165887efcfab0bebebffb315fdf3aa04de171e0cffa04f38267c67",
-    "performance_profiles.png": "84da01574f672c3e3b2e0377d03b666be4879a05a1a2f153d44031b09a961afe",
-    "performance_profiles.pdf": "3a71c9e7b864623de8beda51589a4388281ebd85258b84ea61632e971020e32e",
-    "all_method_completion_times.png": "05dca0f8ac2f2daa0d95307da4086c40014470a4b315befe530b5ecfd8a1c20f",
-    "all_method_completion_times.pdf": "c8e9cf1360181c84fbd27d878e9069b475136d04274252173e8981958201709c"
+    "completion_time_scatter.manifest.json": "74de4ff06dc4996cca94f8704e10035b3e1f3de192e05b2e7b15ab7a4899b0a1",
+    "completion_time_scatter.png": "98911d69d8b8cfdbbd5f48ec853db25c69483e96612443ea92897de264a0f3b4",
+    "completion_time_scatter.pdf": "5e4d3b798fd1de3fb128d25ee6baefb0f997b1981f2dc9c8dc4aff1cd31ddd73",
+    "completion_time_scatter_runs.csv": "c61a8f0370183bc32c1cd22d708f46e830d75c823bf87b95c3ff1b79612ba10d",
+    "tts99.png": "98911d69d8b8cfdbbd5f48ec853db25c69483e96612443ea92897de264a0f3b4",
+    "tts99.pdf": "5e4d3b798fd1de3fb128d25ee6baefb0f997b1981f2dc9c8dc4aff1cd31ddd73",
+    "performance_profiles.png": "a001ec8f5e0b37f4b735a108d15fcaba8705a062dc12f0f79c55dae117907a0c",
+    "performance_profiles.pdf": "9ec012a832156570d68d86f5ecb221e1f7a97be06656732a12e4e871f7fe13f5",
+    "all_method_completion_times.png": "815447fe0caf7822f7b547dd5305b2f9cb1b274ef426f54c041c800afec6efe4",
+    "all_method_completion_times.pdf": "afa07a48da195be2a06b3c5e37b504b2a8de451df28ced6be38601aca3b62e5f"
   }
 }

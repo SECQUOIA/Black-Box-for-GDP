@@ -37,7 +37,7 @@ NAMES = {
     "dsda": "dantzig_20260910_170759_slN8tv.zip",
     "rbfopt": "grid_trace_rbfopt_20261008_190603_og2app39.zip",
     "bam": "grid_trace_bam_20261008_190603_5bh3y_t5.zip",
-    "fmqa_sa": "dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip",
+    "fmqa_sa": "fmqa_qhd_20261012_034123_8kcczd4b.zip",
 }
 BAM_HASH = "bd4d9bf56deafa864ecdd2e676fc24bd25a6037bdb02a772ebd800eb1a935374"
 TOL = 1e-5
@@ -172,15 +172,22 @@ def traced_paths(method, path):
         result = json.loads(data[n])
         require(result["status"] == "completed", "Incomplete DFO result")
         spec = result["spec"]
+        if method == "fmqa_sa" and spec["case_name"] != "grid":
+            continue
         directory = n.removesuffix("result.json")
         if method == "fmqa_sa":
             trace_name = directory + "evaluations.jsonl"
-            events = [json.loads(l) for l in data[trace_name].splitlines()]
-            record, wall, lookup = result, result["wall_time_s"], result["objective_wall_s"]
+            entries = [json.loads(line) for line in data[trace_name].splitlines()]
+            require(spec["surrogate_backend"] == "pytorch_qhd_data", "Default FMQA must use QHD")
+            require(sha(data[trace_name]) == result["trace"]["sha256"], "QHD trace seal")
+            require(entries[0]["run_key"] == spec and entries[-1]["result_record"] == result["result_record"], "QHD trace identity")
+            events = [e for e in entries if e["event"] == "evaluation"]
+            record = result["result_record"]
+            wall, lookup = record["wall_time_s"], result["fmqa_state"]["objective_wall_s"]
         else:
             trace_name = directory + result["trace"]["path"]
             require(sha(data[trace_name]) == result["trace"]["sha256"], "Trace seal")
-            entries = [json.loads(l) for l in data[trace_name].splitlines()]
+            entries = [json.loads(line) for line in data[trace_name].splitlines()]
             require(entries[0]["run_key"] == spec and entries[-1]["event"] == "run_complete", "Trace identity")
             events = entries[1:-1]
             record = result["result_record"]
@@ -353,7 +360,6 @@ def plot_figures(runs, summary, gdp, output):
         note = ("21 grids × 10 seeds per method / budget\nMeasured IPOPT costs along recorded paths\nFull completion time; failures retained\nAbsolute seconds; no solver-relative ratios"
                 if timing else "21 grids × 10 seeds per method / budget\nInitial and repeated callbacks count\nFailures remain in the denominator\nRaw counts; no solver-relative ratios")
         legend.text(.02, .35, note, transform=legend.transAxes, fontsize=9, va="bottom", linespacing=1.6)
-        fig.text(.06, .025, "Target: normalized objective within 1e-5 of the CSV grid minimum.", fontsize=10)
         save(fig, name)
     fig, axes = panels("Grid GDP: estimated TTS99 with measured IPOPT point costs")
     finite = [r["tts99_s"] for r in summary if math.isfinite(r["tts99_s"])]
@@ -420,7 +426,7 @@ def plot_figures(runs, summary, gdp, output):
     for spine in ax.spines.values():
         spine.set_visible(False)
     fig.suptitle("Grid GDP: GDPopt and MINLP reformulations", fontsize=17, y=.982)
-    fig.legend(handles=[Patch(facecolor=c, label=l) for c, l in zip(palette, (
+    fig.legend(handles=[Patch(facecolor=c, label=label) for c, label in zip(palette, (
         "Target reached", "Target not reached", "Unsupported"))],
         loc="upper center", bbox_to_anchor=(.5, .955), frameon=False, ncol=3)
     fig.text(.04, .066, "Cell values: measured completion time (s). T: time limit; *: corrected Pyomo profile.", fontsize=10)
@@ -512,6 +518,7 @@ def main(argv=None):
                 "repeated_callbacks_by_method": dict(Counter(r["method"] for r in charges if r["repeated_point"])),
                 "figures": figures, "target_tolerance": TOL,
                 "profile_methods": list(METHODS),
+                "fmqa_backend": "pytorch_qhd_data",
                 "gdp_figure": "Separate per-grid time/outcome matrix in gdp_minlp_comparison; excluded from performance profiles",
                 "time_metric": "Full successful-run completion; lookup replacement plus sum of point_wall_s",
                 "dsda_exception": "Original log has no lookup clocks; entire historical runtime retained (lookup cost not subtracted)",

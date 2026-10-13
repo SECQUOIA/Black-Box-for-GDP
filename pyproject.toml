@@ -29,6 +29,7 @@ bam = [
     "bam-solver>=4.0.0",
 ]
 fmqa = [
+    "torch==2.8.0",
     "numpy==2.2.6",
     "dimod==0.12.21",
     "dwave-samplers==1.6.0",

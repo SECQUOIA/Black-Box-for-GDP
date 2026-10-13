@@ -7,7 +7,7 @@ from time import perf_counter
 
 import numpy as np
 
-from .surrogate import train
+from .qhd_surrogate import train
 
 
 PENALTY = 1e6

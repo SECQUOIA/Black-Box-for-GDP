@@ -92,7 +92,7 @@
       "method": "fmqa_sa",
       "runs": 10,
       "target_hits": 5,
-      "median_completion_s": 16.194525556406006
+      "median_completion_s": 23.851204580689227
     },
     {
       "case": "cstr",
@@ -127,8 +127,8 @@
       "budget": 43,
       "method": "fmqa_sa",
       "runs": 10,
-      "target_hits": 2,
-      "median_completion_s": 60.201830187113956
+      "target_hits": 1,
+      "median_completion_s": 66.20034448967999
     },
     {
       "case": "small_batch",
@@ -163,8 +163,8 @@
       "budget": 10,
       "method": "fmqa_sa",
       "runs": 10,
-      "target_hits": 7,
-      "median_completion_s": 4.682544339913875
+      "target_hits": 6,
+      "median_completion_s": 9.048958586994559
     },
     {
       "case": "dynamic",
@@ -200,7 +200,7 @@
       "method": "fmqa_sa",
       "runs": 10,
       "target_hits": 2,
-      "median_completion_s": 9.772730063879862
+      "median_completion_s": 14.666502838255838
     },
     {
       "case": "dynamic",
@@ -236,7 +236,7 @@
       "method": "fmqa_sa",
       "runs": 10,
       "target_hits": 3,
-      "median_completion_s": 11.454432881902903
+      "median_completion_s": 18.644924325635657
     },
     {
       "case": "dynamic",
@@ -272,7 +272,7 @@
       "method": "fmqa_sa",
       "runs": 10,
       "target_hits": 3,
-      "median_completion_s": 15.058526451466605
+      "median_completion_s": 25.491778936237097
     },
     {
       "case": "dynamic",
@@ -307,8 +307,8 @@
       "budget": 30,
       "method": "fmqa_sa",
       "runs": 10,
-      "target_hits": 5,
-      "median_completion_s": 22.95643712976016
+      "target_hits": 4,
+      "median_completion_s": 36.702571493340656
     },
     {
       "case": "dynamic",
@@ -343,8 +343,8 @@
       "budget": 37,
       "method": "fmqa_sa",
       "runs": 10,
-      "target_hits": 6,
-      "median_completion_s": 27.664165273541585
+      "target_hits": 5,
+      "median_completion_s": 46.91556322132237
     },
     {
       "case": "dynamic",
@@ -379,8 +379,8 @@
       "budget": 50,
       "method": "fmqa_sa",
       "runs": 10,
-      "target_hits": 7,
-      "median_completion_s": 37.38893303088844
+      "target_hits": 6,
+      "median_completion_s": 62.076370840193704
     }
   ],
   "y_metric": "estimated_total_s; no per-run TTS99 is claimed",
@@ -433,7 +433,13 @@
     "results/small_batch_full_domain_20261012/runtime_fmqa.json": "ab71d1fe3f3ce7a141f62b86f927a1e530cdc6c5d69b951fe6dcaa032c064eaa",
     "results/small_batch_full_domain_20261012/method_summary.csv": "ccd2959987e93dd84d1757450b76d2cfd24819e2d2e9565274600f17108f48d2",
     "results/archives/small_batch_full_domain_20261012_024647_d4390oed.zip": "26fc9acc428cd429fe9cd021345c63e28a2d0ff0265f9918a7b474161cedbda4",
-    "benchmark_protocols/small_batch_full_domain.json": "4fabd04e5023d0517cc6e749b8fee1e3de6d3bfc9e17491d3ec90d055f4045f3"
+    "benchmark_protocols/small_batch_full_domain.json": "4fabd04e5023d0517cc6e749b8fee1e3de6d3bfc9e17491d3ec90d055f4045f3",
+    "results/archives/fmqa_qhd_20261012_034123_8kcczd4b.zip": "bdcb45af02cd8885b6740abbc00835cf6626a7921e8cafa06bcc85abb290b2e3",
+    "results/fmqa_qhd_20261012/process_runs.csv": "b6f5a56c717de907b00c55f65c7e131b3a3289084cfd02a9a9de291062ab76bc",
+    "results/fmqa_qhd_20261012/run.json": "2fff859bb83d7db02e1eceb4a6e2b2364b9ac71e6429d38662e1cda573065fbe",
+    "results/fmqa_qhd_20261012/publication_evaluation_costs.csv.gz": "ae39f9787be5027f3f4f8eef0a0bfc4a4f9e318c90ce25d2c10c2de45012eb22",
+    "results/fmqa_qhd_20261012/missing_unique_points.csv": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "results/fmqa_qhd_20261012/audit.json": "7ccfcc7f42982a4a6078641c3ec82c83a5038187b0208d1f2b6e34c617f0132d"
   },
   "followup_selection": {
     "column": "Original seeds 1-9 plus seed 10 for all four methods",
@@ -544,16 +550,18 @@
     "dfo_clock": "result_record.wall_time_s for every method, matching the original figures",
     "point_costs": "Every callback charged its measured point cost, including repeated and rejected evaluations"
   },
+  "fmqa_backend": "pytorch_qhd_data",
+  "missing_time_policy": "No aggregate time or time-profile curve for a group with missing measurements; all outcomes retained",
   "scripts": {
-    "scripts/plot_dantzig_performance.py": "d66c2c5ed615d70dde12aece316ce6efeb47faf78d33c80f8fd2f3f8656c1f9d",
-    "scripts/plot_dantzig_cost_breakdown.py": "bac8d11f856def5967e5ebc195eff0cd2ad5a44d7a0a30872b7350f71634c2aa",
+    "scripts/plot_dantzig_performance.py": "247a793906b18801faa9e6f41e47c9c5e2bafe8700a12200d40ef07e2d3d8038",
+    "scripts/plot_dantzig_cost_breakdown.py": "ca97acc5d021cde78aecf36a4af835dcf9a4a40ec32be88eda86d71b2debb8ac",
     "scripts/plot_dantzig_run_scatter.py": "c5930ccd8400c1de2fffdf278a2fd53107528112989b091a0b4a064dce6712ef"
   },
   "artifacts": {
-    "completion_time_scatter.png": "76eb2746861c2c718e76b124f043f7fd9968b885451f0b3be62b5a108940f429",
-    "completion_time_scatter.pdf": "8f79680750165887efcfab0bebebffb315fdf3aa04de171e0cffa04f38267c67",
-    "completion_time_scatter_runs.csv": "01dc23380c01955d1a1af96c76104e2d356a8a437edbc56723fcff26146055a3",
-    "tts99.png": "76eb2746861c2c718e76b124f043f7fd9968b885451f0b3be62b5a108940f429",
-    "tts99.pdf": "8f79680750165887efcfab0bebebffb315fdf3aa04de171e0cffa04f38267c67"
+    "completion_time_scatter.png": "98911d69d8b8cfdbbd5f48ec853db25c69483e96612443ea92897de264a0f3b4",
+    "completion_time_scatter.pdf": "5e4d3b798fd1de3fb128d25ee6baefb0f997b1981f2dc9c8dc4aff1cd31ddd73",
+    "completion_time_scatter_runs.csv": "c61a8f0370183bc32c1cd22d708f46e830d75c823bf87b95c3ff1b79612ba10d",
+    "tts99.png": "98911d69d8b8cfdbbd5f48ec853db25c69483e96612443ea92897de264a0f3b4",
+    "tts99.pdf": "5e4d3b798fd1de3fb128d25ee6baefb0f997b1981f2dc9c8dc4aff1cd31ddd73"
   }
 }
