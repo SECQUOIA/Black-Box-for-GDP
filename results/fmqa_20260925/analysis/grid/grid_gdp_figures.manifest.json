@@ -1,39 +1,39 @@
 {
   "analysis": "results/grid_gdp_dfo_20261011",
-  "analysis_manifest_sha256": "f11f79385adb51fcf86e455b05d73474e21d8295e4909e70d471ea7e21b79f5a",
+  "analysis_manifest_sha256": "e21b5deeefe760f389622586d78beae8071f5eb3641a670dccef4ab0cc512592",
   "scope": "Current Grid GDP path-cost figures; historical lookup benchmark.csv is not their input",
   "aliases": {
     "results/fmqa_20260925/analysis/grid/tts99_comparison.png": {
       "source": "results/grid_gdp_dfo_20261011/tts99.png",
-      "sha256": "3a0fb23e8f31eb7a1a4a5c49ab7e950777fabb712cc22dea45438f7ae529b389"
+      "sha256": "11caf5d0f6fdfd0450a7b7e0ad16512a428e49dd7ff4a2a195096971c044fd83"
     },
     "results/fmqa_20260925/analysis/grid/tts99_comparison.pdf": {
       "source": "results/grid_gdp_dfo_20261011/tts99.pdf",
-      "sha256": "ac98d167269e38ef653d8000381d312dcc52728e056272c81810127fee23c7c8"
+      "sha256": "0951afe034e621f2dc188a7704b1af7b6b119d0b88d1181f54b2c61d2e3b0c7a"
     },
     "results/fmqa_20260925/analysis/grid/evaluation_performance_profiles.png": {
       "source": "results/grid_gdp_dfo_20261011/evaluation_profiles.png",
-      "sha256": "b412bca21f40dd6ef9c36ff65a72e058f24fb52c9e455778dc2c3df405cedc47"
+      "sha256": "a493ecf70ec42cdcabf92e0597f82c3cd3cec1df613be03030ec76fae94a990e"
     },
     "results/fmqa_20260925/analysis/grid/evaluation_performance_profiles.pdf": {
       "source": "results/grid_gdp_dfo_20261011/evaluation_profiles.pdf",
-      "sha256": "686baf84686b93beecc105f94c71ac7f9daecb6a8cb153b5ff56e65231ca2502"
+      "sha256": "ae13b1807d0cac6c9e53f74240f6f67b864cf2407e90f892973f08343a39fc56"
     },
     "results/fmqa_20260925/analysis/grid/timing/time_performance_profiles.png": {
       "source": "results/grid_gdp_dfo_20261011/performance_profiles.png",
-      "sha256": "889927636fd28eecb08b5af6c7017ad1dd7ade2dfa395641cc5f412dbb90e862"
+      "sha256": "e72f2a5ec10a5e78430c529e40a53e4a324900cdc6f16b5af1f7aefd92fdd910"
     },
     "results/fmqa_20260925/analysis/grid/timing/time_performance_profiles.pdf": {
       "source": "results/grid_gdp_dfo_20261011/performance_profiles.pdf",
-      "sha256": "fe01e08f1c50c38064270d63715c27c5df0049e57d147b7a2cbd52e1f9d3c6b7"
+      "sha256": "286ef8b9046ffe07e179426bee32109cdab6af9f9fd0906c1d60e22812393872"
     },
     "results/fmqa_20260925/analysis/grid/timing/completion_time_profiles.png": {
       "source": "results/grid_gdp_dfo_20261011/performance_profiles.png",
-      "sha256": "889927636fd28eecb08b5af6c7017ad1dd7ade2dfa395641cc5f412dbb90e862"
+      "sha256": "e72f2a5ec10a5e78430c529e40a53e4a324900cdc6f16b5af1f7aefd92fdd910"
     },
     "results/fmqa_20260925/analysis/grid/timing/completion_time_profiles.pdf": {
       "source": "results/grid_gdp_dfo_20261011/performance_profiles.pdf",
-      "sha256": "fe01e08f1c50c38064270d63715c27c5df0049e57d147b7a2cbd52e1f9d3c6b7"
+      "sha256": "286ef8b9046ffe07e179426bee32109cdab6af9f9fd0906c1d60e22812393872"
     }
   }
 }

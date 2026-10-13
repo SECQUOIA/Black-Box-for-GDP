@@ -153,7 +153,7 @@ def test_real_seeded_sa_repeats_trajectory():
 @pytest.fixture(scope="module")
 def archived_run(tmp_path_factory):
     root = tmp_path_factory.mktemp("fmqa-run")
-    command = [sys.executable, str(ROOT / "fmqa_benchmark_runner.py"), "run", "--cases", "cstr",
+    command = [sys.executable, str(ROOT / "fmqa_benchmark_runner.py"), "run", "--legacy-numpy", "--cases", "cstr",
                "--cstr-sizes", "5", "--seeds", "0", "--epochs", "5", "--num-reads", "5",
                "--num-sweeps", "20", "--output-root", str(root)]
     subprocess.run(command, check=True, capture_output=True, text=True, timeout=60)
@@ -270,7 +270,7 @@ def test_standalone_bundle(tmp_path):
     for line in (root / "RUNNER_SHA256SUMS").read_text().splitlines():
         digest, relative = line.split("  ", 1)
         assert sha(root / relative) == digest
-    result = subprocess.run([sys.executable, "fmqa_benchmark_runner.py", "check"], cwd=root,
+    result = subprocess.run([sys.executable, "fmqa_benchmark_runner.py", "check", "--legacy-numpy"], cwd=root,
                             check=True, capture_output=True, text=True, timeout=60)
     assert json.loads(result.stdout)["runs"] == 139
 
@@ -303,7 +303,7 @@ def test_grid_original_matrix_and_initial_coordinates():
 
 def test_grid_only_entry_result_archive_pairing_and_resume(tmp_path):
     from fmqa_benchmark_runner import GRID_KIND
-    command = [sys.executable, str(ROOT / "fmqa_grid_benchmark.py"), "run", "--grids", "ackley",
+    command = [sys.executable, str(ROOT / "fmqa_grid_benchmark.py"), "run", "--legacy-numpy", "--grids", "ackley",
                "--grid-budgets", "10", "--seeds", "0", "--epochs", "5", "--num-reads", "5",
                "--num-sweeps", "20", "--output-root", str(tmp_path / "runs")]
     subprocess.run(command, check=True, capture_output=True, text=True, timeout=60)

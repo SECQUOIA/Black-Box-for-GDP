@@ -36,7 +36,7 @@ def performance_tables(runs):
     """Keep failed paired runs in profiles and all run times in TTS99 medians."""
     pairs, groups = defaultdict(list), defaultdict(list)
     for row in runs:
-        if not math.isfinite(row["estimated_total_s"]) or row["estimated_total_s"] <= 0:
+        if (not math.isfinite(row["estimated_total_s"]) and not row.get("missing_point_costs")) or row["estimated_total_s"] <= 0:
             raise ValueError("Invalid completion cost")
         key = row["case"], row["cstr_size"], row["budget"]
         pairs[(*key, row["seed"])].append(row)
@@ -46,17 +46,19 @@ def performance_tables(runs):
         if Counter(r["method"] for r in group) != Counter(METHODS):
             raise ValueError("Profile requires one run per method and paired seed")
         for row in group:
-            profiles.append({**row, "profile_completion_s": row["estimated_total_s"]
-                             if row["lookup_target_hit"] else math.inf})
+            profiles.append({**row, "profile_completion_s": math.nan if not math.isfinite(row["estimated_total_s"])
+                             else row["estimated_total_s"] if row["lookup_target_hit"] else math.inf})
     summary = []
     for (case, size, budget, method), group in groups.items():
         hits = sum(r["lookup_target_hit"] for r in group)
         rate = hits / len(group)
         repeats = runs_to_target_probability(rate)
-        median = statistics.median(r["estimated_total_s"] for r in group)
+        complete = all(math.isfinite(r["estimated_total_s"]) for r in group)
+        median = statistics.median(r["estimated_total_s"] for r in group) if complete else math.nan
         summary.append({"case": case, "cstr_size": size, "budget": budget, "method": method,
                         "runs": len(group), "target_hits": hits, "hit_rate": rate,
-                        "median_completion_s": median, "runs_99": repeats, "tts99_s": repeats * median})
+                        "median_completion_s": median, "runs_99": repeats, "tts99_s": repeats * median,
+                        "timed_runs": sum(math.isfinite(r["estimated_total_s"]) for r in group)})
     return profiles, summary
 
 
@@ -69,10 +71,14 @@ def plot_profiles(profiles):
     for ax, panel in zip(axes.flat, PANELS):
         group = panel_rows(profiles, panel)
         # Keep the recorded costs even when no method reaches the target.
-        costs = [r["estimated_total_s"] for r in group]
+        costs = [r["estimated_total_s"] for r in group if math.isfinite(r["estimated_total_s"])]
         left, right = min(costs) / 1.15, max(costs) * 1.15
         for method, color in zip(METHODS, COLORS):
             values = [r["profile_completion_s"] for r in group if r["method"] == method]
+            if any(math.isnan(v) for v in values):
+                ax.text(.03, .93, f"{LABELS[METHODS.index(method)]}: N/A", transform=ax.transAxes,
+                        ha="left", color=color, fontsize=9)
+                continue
             steps = sorted({left, right, *(v for v in values if math.isfinite(v))})
             ax.step(steps, [sum(v <= x for v in values) / len(values) for x in steps],
                     where="post", color=color, linewidth=1.8)
@@ -100,7 +106,7 @@ def plot_scatter(runs):
     plotted, summaries = [], []
     for ax, panel in zip(axes.flat, PANELS):
         group = panel_rows(runs, panel)
-        values = [r['estimated_total_s'] for r in group]
+        values = [r['estimated_total_s'] for r in group if math.isfinite(r['estimated_total_s'])]
         lower, upper = min(values) / 1.22, max(values) * 1.6
         seeds = sorted({r['seed'] for r in group})
         offsets = {seed: -.28 + .56 * rank / (len(seeds) - 1)
@@ -108,16 +114,20 @@ def plot_scatter(runs):
         for i, (method, color) in enumerate(zip(METHODS, COLORS)):
             selected = sorted((r for r in group if r['method'] == method), key=lambda r: r['seed'])
             for hit, marker in ((True, 'o'), (False, 'x')):
-                subset = [r for r in selected if r['lookup_target_hit'] == hit]
+                subset = [r for r in selected if r['lookup_target_hit'] == hit and math.isfinite(r['estimated_total_s'])]
                 xs = [i + offsets[r['seed']] for r in subset]
                 ys = [r['estimated_total_s'] for r in subset]
                 if subset:
                     ax.scatter(xs, ys, color=color, marker=marker, s=30 if hit else 38,
                                linewidths=0 if hit else 1.5, alpha=.88, zorder=3)
                     plotted.extend(r['job_id'] for r in subset)
-            median = statistics.median(r['estimated_total_s'] for r in selected)
-            ax.hlines(median, i - .34, i + .34, color='#222222', linewidth=1.1,
-                      alpha=.85, zorder=2)
+            unavailable = sum(not math.isfinite(r['estimated_total_s']) for r in selected)
+            median = statistics.median(r['estimated_total_s'] for r in selected) if not unavailable else math.nan
+            if unavailable:
+                ax.text(i, .85, f'N/A: {unavailable}', transform=ax.get_xaxis_transform(), ha='center', color=color, fontsize=9)
+            else:
+                ax.hlines(median, i - .34, i + .34, color='#222222', linewidth=1.1,
+                          alpha=.85, zorder=2)
             hits = sum(r['lookup_target_hit'] for r in selected)
             ax.text(i, .96, f'{hits}/{len(selected)}', transform=ax.get_xaxis_transform(),
                     ha='center', va='top', color='#555555', fontsize=9)
@@ -140,14 +150,15 @@ def plot_scatter(runs):
         ax.tick_params(axis='y', labelsize=9)
         ax.grid(axis='y', color='#dce1e5', linewidth=.6, alpha=.8)
         ax.set_axisbelow(True)
-    expected = [r['job_id'] for r in runs]
+    expected = [r['job_id'] for r in runs if math.isfinite(r['estimated_total_s'])]
     if len(plotted) != len(set(plotted)) or set(plotted) != set(expected):
         raise ValueError('Scatter omitted or duplicated runs')
     _, tts_summary = performance_tables(runs)
     for row in summaries:
         ref = next(r for r in tts_summary if all(r[k] == row[k] for k in
                    ('case', 'cstr_size', 'budget', 'method')))
-        if any(row[k] != ref[k] for k in ('runs', 'target_hits', 'median_completion_s')):
+        if any(row[k] != ref[k] and not (isinstance(row[k], float) and math.isnan(row[k]) and math.isnan(ref[k]))
+               for k in ('runs', 'target_hits', 'median_completion_s')):
             raise ValueError('Scatter summary differs from the TTS99 source groups')
     fig.subplots_adjust(left=.065, right=.985, bottom=.095, top=.83, hspace=.61, wspace=.30)
     fig.suptitle('NLP-inclusive completion times by run', fontsize=18, y=.982)
@@ -160,10 +171,6 @@ def plot_scatter(runs):
                Line2D([], [], color='#222222', linewidth=1.1, label='Median across runs')]
     fig.legend(handles=handles, loc='upper center', bbox_to_anchor=(.5, .918), ncol=3,
                frameon=False, fontsize=10, columnspacing=2.5)
-    fig.text(.5, .052, 'Logarithmic y-axes. Labels: hits/runs. Horizontal offsets follow seed order.',
-             ha='center', fontsize=9, color='#444444')
-    fig.text(.5, .027, 'Fixed-path time estimates from DFO traces and separate NLP point timings; target outcomes from recorded searches.',
-             ha='center', fontsize=9, color='#555555')
     return fig, summaries
 
 
@@ -200,6 +207,8 @@ def build_run_scatter(output=OUTPUT):
         'dynamic_preparation_reference': preparation,
         'sources': input_hashes(inputs, source_manifest),
         'followup_selection': source_manifest.get('followup_selection'),
+        'fmqa_backend': source_manifest.get('fmqa_backend'),
+        'missing_time_policy': source_manifest.get('missing_time_policy'),
         'scripts': {str(p.relative_to(ROOT)): sha(p) for p in
                     (Path(__file__), ROOT / 'scripts/plot_dantzig_cost_breakdown.py',
                      ROOT / 'scripts/plot_dantzig_run_scatter.py')},
@@ -229,9 +238,6 @@ def decorate(fig, title, note):
     fig.suptitle(title, fontsize=18, y=.98)
     fig.legend([Line2D([], [], color=c, linewidth=2) for c in COLORS], LABELS,
                loc="upper center", bbox_to_anchor=(.5, .948), ncol=4, frameon=False, fontsize=11)
-    fig.text(.5, .055, note, ha="center", fontsize=9.2)
-    fig.text(.5, .027, "Fixed-path completion estimates from DFO traces and separate NLP point timings; completion times, not first-hit times.",
-             ha="center", fontsize=9, color="#555555")
 
 
 def full_benchmark():
@@ -285,7 +291,8 @@ def plot_full_benchmark(rows):
         for method in (*METHODS, *BASELINES):
             r = next(r for r in rows if (r["case"], r["cstr_size"], r["method"]) == (*panel[:2], method))
             markers = (" TL" if r["time_limits"] else "") + (" †" if r["bound_conflicts"] else "")
-            line.append(f"{r['completion_s']:.2f} s{markers}\n{r['target_attained']}/{r['runs']}")
+            duration = f"{r['completion_s']:.2f} s{markers}" if math.isfinite(r['completion_s']) else "N/A"
+            line.append(f"{duration}\n{r['target_attained']}/{r['runs']}")
         cells.append(line)
     table = ax.table(cellText=cells, colLabels=("Model", *LABELS, "RIC\nGDPopt", "GLOA\nGDPopt",
                     "LOA\nGDPopt", "Big-M\nMINLP", "Hull\nMINLP"), cellLoc="center",
@@ -303,14 +310,6 @@ def plot_full_benchmark(rows):
     fig.suptitle("DFO, GDPopt and MINLP completion times — all nine models", fontsize=18, y=.97)
     fig.text(.5, .907, "Each cell: completion time / target attainment count. All 45 GDPopt and MINLP jobs are included.",
              ha="center", fontsize=11)
-    fig.text(.5, .128, "DFO: mean estimated completion time over 10 starts. GDPopt/MINLP: one measured run per model, including template preparation.",
-             ha="center", fontsize=10)
-    fig.text(.5, .098, "Target attained: final objective ≤ lookup target + tolerance. TL: time limit. †: reported bound conflicts with a saved feasible solution.",
-             ha="center", fontsize=10)
-    fig.text(.5, .068, "GDPopt: BARON + HiGHS (Oct 1). Big-M/Hull: BARON (Sep 25). All on Dantzig; different dates/CPUs. Completion times, not first-hit times.",
-             ha="center", fontsize=10)
-    fig.text(.5, .038, "CSTR5–25 DFO costs include NLP attempts that did not reproduce feasible lookup outcomes; the recorded search targets remain lookup-based.",
-             ha="center", fontsize=9.5, color="#555555")
     return fig
 
 
@@ -352,6 +351,8 @@ def build(output=OUTPUT):
                 "point_cost_policy": source_manifest["cost_policy"], "dynamic_preparation_reference": preparation,
                 "sources": input_hashes(inputs, source_manifest),
                 "followup_selection": source_manifest.get("followup_selection"),
+                "fmqa_backend": source_manifest.get("fmqa_backend"),
+                "missing_time_policy": source_manifest.get("missing_time_policy"),
                 "gdp_minlp_source": {str((GDP_SOURCE / "comparison.csv").relative_to(ROOT)): sha(GDP_SOURCE / "comparison.csv")},
                 "gdp_minlp_runs": 45, "all_method_comparison_rows": len(benchmark),
                 "gdp_minlp_policy": "Single measured completion per method/model; preserve time limits, target attainment and bound conflicts; no restart probability or TTS99 inferred from one run",

@@ -47,7 +47,7 @@ def read_csv(path):
 
 def write_csv(path, rows):
     with path.open("w", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
+        writer = csv.DictWriter(stream, fieldnames=list(dict.fromkeys(k for r in rows for k in r)), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -132,7 +132,7 @@ def followup_runs():
 
 def input_hashes(inputs, source_manifest):
     return {**{str((SOURCE / name).relative_to(ROOT)): sha(SOURCE / name) for name in inputs},
-            **source_manifest.get("followup_sources", {})}
+            **source_manifest.get("followup_sources", {}), **source_manifest.get("fmqa_sources", {})}
 
 
 def full_batch_runs():
@@ -195,7 +195,7 @@ def full_batch_runs():
     return runs, inputs
 
 
-def load_runs(panels=PANELS, *, include_followup=True):
+def load_runs(panels=PANELS, *, include_followup=True, fmqa_backend="qhd"):
     """Load verified completion costs for the requested case/budget panels."""
     inventory = json.loads((SOURCE / "artifact_checksums.json").read_text())
     inputs = ("dfo_runs.csv", "evaluation_timings.csv", "manifest.json", "dynamic_preparations.json")
@@ -263,6 +263,16 @@ def load_runs(panels=PANELS, *, include_followup=True):
             "replaced_job_ids": [r["job_id"] for r in removed],
             "dfo_clock": "result_record.wall_time_s for every method, matching the original figures",
             "point_costs": "Every callback charged its measured point cost, including repeated and rejected evaluations"}
+    if fmqa_backend not in ("qhd", "numpy_legacy"):
+        raise ValueError("Unknown FMQA publication backend")
+    if include_followup and fmqa_backend == "qhd":
+        from fmqa_benchmark.publication import process_runs
+        current, sources = process_runs()
+        runs = [r for r in runs if r["method"] != "fmqa_sa"] + [
+            r for r in current if (r["case"], r["cstr_size"], r["budget"]) in selected]
+        source_manifest["fmqa_sources"] = sources
+        source_manifest["fmqa_backend"] = "pytorch_qhd_data"
+        source_manifest["missing_time_policy"] = "No aggregate time or time-profile curve for a group with missing measurements; all outcomes retained"
     for row in runs:
         groups[(row["case"], row["cstr_size"], row["budget"], row["method"])].append(row)
     summary = []
@@ -279,7 +289,9 @@ def load_runs(panels=PANELS, *, include_followup=True):
                 raise ValueError("Unexpected selected run count")
             summary.append({"case": case, "cstr_size": size, "budget": budget, "method": method,
                 "runs": len(group), "lookup_target_hits": sum(row["lookup_target_hit"] for row in group),
-                **{field: statistics.mean(row[field] for row in group)
+                **{field: (statistics.mean(row[field] for row in group)
+                           if field not in ("accepted_nlp_s", "unaccepted_nlp_s", "estimated_total_s")
+                           or all(math.isfinite(r["estimated_total_s"]) for r in group) else math.nan)
                    for field in ("recorded_dfo_s", "recorded_lookup_s", *(c[0] for c in COMPONENTS), "estimated_total_s")}})
 
     return runs, summary, preparation, inputs, source_manifest
@@ -299,10 +311,13 @@ def build(output):
             group = [next(row for row in summary if (row["case"], row["method"]) == (case, method)) for method in METHODS]
             base = [0.] * 4
             for field, _, color in COMPONENTS:
-                values = [row[field] for row in group]
+                values = [row[field] if math.isfinite(row["estimated_total_s"]) else 0. for row in group]
                 ax.bar(range(4), values, bottom=base, width=.77, color=color, edgecolor="none", zorder=3)
                 base = [a + b for a, b in zip(base, values)]
             for i, total in enumerate(base):
+                if not math.isfinite(group[i]["estimated_total_s"]):
+                    ax.text(i, .08, "N/A", transform=ax.get_xaxis_transform(), ha="center", color="#9467bd")
+                    continue
                 ax.annotate(f"{total:.2f}s", (i, total), xytext=(0, 5), textcoords="offset points",
                             ha="center", va="bottom", fontsize=10, color="#202020")
             ax.set(xticks=range(4), xticklabels=LABELS, ylim=(0, max(base) * 1.16),
@@ -317,12 +332,6 @@ def build(output):
         patches = [Patch(facecolor=color, label=label) for _, label, color in COMPONENTS]
         fig.legend(handles=patches, loc="upper center", bbox_to_anchor=(.5, .893), ncol=2,
                    frameon=False, fontsize=9.8, columnspacing=2.1, handlelength=1.7)
-        fig.text(.5, .094, "Estimate = DFO time − lookup-call time + all point-evaluation costs + Dynamic preparation once per run.",
-                 ha="center", fontsize=9.2, color="#303840")
-        fig.text(.5, .067, "CSTR30: successful retry cost only. Preprocessing and solver rejections share one category.",
-                 ha="center", fontsize=9.2, color="#303840")
-        fig.text(.5, .040, "Paths and target outcomes remain lookup-based; these totals are not measured online NLP runtimes. Dynamic reference setup: 0.109 s.",
-                 ha="center", fontsize=8.8, color="#505860")
         fig.savefig(output / "cost_breakdown.png", dpi=220, facecolor="white")
         fig.savefig(output / "cost_breakdown.pdf", facecolor="white", metadata={"CreationDate": None})
         plt.close(fig)
@@ -335,6 +344,8 @@ def build(output):
         "dynamic_preparation_reference": preparation,
         "sources": input_hashes(inputs, source_manifest),
         "followup_selection": source_manifest.get("followup_selection"),
+        "fmqa_backend": source_manifest.get("fmqa_backend"),
+        "missing_time_policy": source_manifest.get("missing_time_policy"),
         "script_sha256": sha(Path(__file__)),
         "artifacts": {name: sha(output / name) for name in
             ("cost_breakdown.png", "cost_breakdown.pdf", "cost_breakdown_runs.csv", "cost_breakdown_means.csv")}}

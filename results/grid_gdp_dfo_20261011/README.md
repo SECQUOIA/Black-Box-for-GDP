@@ -1,3 +1,5 @@
+The default FMQA-SA now uses the [QHD PyTorch dataset](../fmqa_qhd_20261012/README.md). Previous NumPy results and figures are preserved in the [legacy archive](../fmqa_numpy_legacy_20260925/README.md).
+
 # Grid GDP: measured point costs along recorded DFO paths
 
 The current comparison joins **4,200 runs and 201,833 objective evaluations**
@@ -91,7 +93,7 @@ optimality by the optimization algorithm.
 | DSDA | 1,050 | 38,033 | September 10 verbose neighbor/line-search logs plus frozen initial designs |
 | RBFOpt | 1,050 | 54,600 | October 8-10 callback traces |
 | BAM 5.0.0 | 1,050 | 54,600 | October 8 callback traces; sealed completed replacement for the interrupted attempt |
-| FMQA-SA | 1,050 | 54,600 | September 25 callback traces |
+| FMQA-SA | 1,050 | 54,600 | October 12 QHD PyTorch callback traces |
 
 All DSDA paths are recovered from the original log, without replaying its
 search. Coordinate counts, printed objective values and every reconstructed
@@ -136,7 +138,7 @@ At budget 100 (210 runs per DFO method):
 | DSDA | 104/210 | 24.14 s | 24.14 s |
 | RBFOpt | 172/210 | 365.74 s | 61.21 s |
 | BAM 5.0.0 | 147/210 | 64.42 s | 63.97 s |
-| FMQA-SA | 119/210 | 63.98 s | 56.48 s |
+| FMQA-SA | 129/210 | 124.13 s | 62.34 s |
 
 These medians include successful and unsuccessful runs; they are not TTS99.
 

@@ -121,6 +121,7 @@ def result_record(spec, state):
 
 def worker(directory, identifier):
     from fmqa_benchmark.optimizer import optimize
+    from fmqa_benchmark.surrogate import train as legacy_train
     from fmqa_benchmark.protocol import problem
     run = json.loads((directory / "run.json").read_text())
     spec = next(s for s in run["plan"] if s["job_id"] == identifier)
@@ -138,7 +139,7 @@ def worker(directory, identifier):
 
         state = optimize(oracle["objective"], oracle["lower"], oracle["upper"],
                          spec["starting_points"], spec["max_evaluations"], spec["seed"], run["config"],
-                         on_evaluation=evaluated, on_proposal=proposed)
+                         on_evaluation=evaluated, on_proposal=proposed, trainer=legacy_train)
     save(job / "result.json", {"spec": spec, **state})
 
 
@@ -168,7 +169,7 @@ def launch(directory, spec, config):
     started = monotonic()
     outcome = None
     with (job / "run.log").open("w") as log:
-        process = subprocess.Popen([sys.executable, str(ROOT / "fmqa_benchmark_runner.py"), "worker",
+        process = subprocess.Popen([sys.executable, str(ROOT / "fmqa_benchmark_runner.py"), "worker", "--legacy-numpy",
                                     "--run-dir", str(directory), "--job-id", spec["job_id"]],
                                    stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
         try:
@@ -317,6 +318,12 @@ def bundle(output, dataset="case"):
 
 
 def main():
+    # The public entry points now select the QHD experiment. Keep the original
+    # NumPy runner explicitly available for historical reproduction/auditing.
+    if "--legacy-numpy" not in sys.argv[1:]:
+        from fmqa_benchmark.current_runner import main as current_main
+        return current_main(sys.argv[1:])
+    sys.argv.remove("--legacy-numpy")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("mode", choices=("plan", "check", "run", "worker", "pack", "bundle"))
     parser.add_argument("--dataset", choices=("case", "grid"), default="case")
