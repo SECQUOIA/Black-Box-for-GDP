@@ -160,7 +160,7 @@ def test_extracted_bundle_is_independent_and_checksums_match(tmp_path):
                             capture_output=True, text=True, check=True)
     assert json.loads(result.stdout) == followup.plan()
     # Exercise data, imports and DSDA in the extracted directory, outside the repo.
-    code = "from fmqa_benchmark.protocol import verify_lookup_sources; verify_lookup_sources(); from process_followup_runner import plan, dfo_lookup; from pathlib import Path; d=Path('smoke'); d.mkdir(); r=dfo_lookup(plan()[0], {}, d); assert r['status']=='completed'"
+    code = "from fmqa_benchmark.optimizer import optimize; from fmqa_benchmark.protocol import verify_lookup_sources; verify_lookup_sources(); from process_followup_runner import plan, dfo_lookup; from pathlib import Path; d=Path('smoke'); d.mkdir(); r=dfo_lookup(plan()[0], {}, d); assert r['status']=='completed'"
     subprocess.run([sys.executable, "-c", code], cwd=root, capture_output=True, text=True, check=True)
 
 
