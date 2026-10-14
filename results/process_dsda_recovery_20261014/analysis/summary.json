@@ -1,0 +1,36 @@
+{
+  "kind": "process_dsda_fairness_verified_results",
+  "planned_runs": 140,
+  "completed_runs": 140,
+  "preserved_parent_jobs": 139,
+  "remeasured_job_ids": [
+    "cstr_15_B22_seed9_dsda"
+  ],
+  "errors": [],
+  "dantzig_matrix_complete": true,
+  "development_only": false,
+  "callbacks": 2611,
+  "missing_unique_points": 0,
+  "missing_callback_costs": 0,
+  "reused_cstr_rejection_callbacks": 4,
+  "cstr_rejection_cost_policy": "Keep existing costs; fill missing logical-rejection costs from the same coordinate, preferring CSTR30 then the largest measured CSTR size; retain measured size and source",
+  "timing_reconstruction_complete": true,
+  "candidate_selection_created": true,
+  "preserved_non_dsda_rows": 420,
+  "preserved_non_dsda_sha256": "863517690121aa30c7731e842545e35f8399ce527db2b9be9114ae98f2878ec7",
+  "official_results_modified": false,
+  "new_nlp_solves": 0,
+  "figures_status": "Generated; visual review pending",
+  "figure_files": [
+    "candidate_target_attainment.png",
+    "candidate_target_attainment.svg",
+    "candidate_completion_profiles.png",
+    "candidate_completion_profiles.svg",
+    "candidate_cost_breakdown.png",
+    "candidate_cost_breakdown.svg"
+  ],
+  "figure_error": null,
+  "timing_definition": "method time minus lookup callback time plus measured cost for every callback plus one reference Dynamic preparation",
+  "missing_cost_policy": "Keep search outcome; no subset median or aggregate TTS99 for incomplete groups",
+  "initialization_only_exception_policy": "No reseeding/restoration; failed initialization retained as job error with partial trace"
+}

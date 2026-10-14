@@ -1,5 +1,12 @@
 DSDA single-job recovery — 2026-10-14 v5
 
+COMPLETED: the returned 5ozwo5rx recovery has been independently verified.
+Do not rerun the job to obtain publication data. Current complete results:
+results/process_dsda_recovery_20261014/README.md
+Recovery ZIP SHA256:
+7201a5d49d216a9c1eea64ecf649ec4c185dd9c1dafcc41c70117edf600e51b3
+The commands below are retained as the procedure used for this measurement.
+
 Use this workflow for the verified pudvsttz result ZIP. It copies the 139 sealed
 completed jobs byte-for-byte into a new result directory and reruns ONLY
 cstr_15_B22_seed9_dsda. The original ZIP (including the failed trace and old
