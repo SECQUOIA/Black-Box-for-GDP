@@ -97,8 +97,70 @@
     "performance_profiles.png": "e72f2a5ec10a5e78430c529e40a53e4a324900cdc6f16b5af1f7aefd92fdd910",
     "point_charges.csv.gz": "5c514f338eb700aa8e83f385ca3724bb13e4a8351b98e1685f0f633536afa070",
     "runs.csv": "de2d8725777d66010cc87f9305c14cf54fff440c3b32cbd8fe06e913bd1ba015",
-    "tts99.pdf": "0951afe034e621f2dc188a7704b1af7b6b119d0b88d1181f54b2c61d2e3b0c7a",
-    "tts99.png": "11caf5d0f6fdfd0450a7b7e0ad16512a428e49dd7ff4a2a195096971c044fd83",
+    "tts99.pdf": "9ac63d7878cf30a2ba05f8df8e5539b8a383489048abd22bfd7c0f2d11ae2826",
+    "tts99.png": "8f59a0e4d7ebf33260ccda3d20969f43a215c73637568f13be055243276c77dd",
     "tts99_summary.csv": "fd0bb1a3bb3dc356ad2bf695b2633e98b756939822a48808e5e8803b5e55e07c"
+  },
+  "tts99_figure": {
+    "source": "tts99_summary.csv",
+    "source_sha256": "fd0bb1a3bb3dc356ad2bf695b2633e98b756939822a48808e5e8803b5e55e07c",
+    "plotting_script_sha256": "f1a949eb3f36c0355b3c40499afd7adc6b6e2dffebd776c4b77d7c2296c6d04e",
+    "layout": "one log axis; method groups with adjacent budget columns; no title or narrative",
+    "methods": [
+      "dsda",
+      "rbfopt",
+      "bam",
+      "fmqa_sa"
+    ],
+    "budgets": [
+      10,
+      30,
+      50,
+      70,
+      100
+    ],
+    "budget_markers": {
+      "10": "o",
+      "30": "s",
+      "50": "D",
+      "70": "^",
+      "100": "P"
+    },
+    "observations": 420,
+    "finite_observations": 329,
+    "infinite_counts": {
+      "dsda": [
+        17,
+        4,
+        4,
+        4,
+        4
+      ],
+      "rbfopt": [
+        7,
+        2,
+        0,
+        0,
+        0
+      ],
+      "bam": [
+        9,
+        7,
+        4,
+        3,
+        2
+      ],
+      "fmqa_sa": [
+        15,
+        6,
+        2,
+        1,
+        0
+      ]
+    },
+    "median": "Separate extended-real median of all 21 values in each method-budget subgroup",
+    "jitter": "Small fixed offsets by SHA256-sorted grid name; identical across subgroups",
+    "png_dpi": 600,
+    "pdf_fonttype": 42
   }
 }

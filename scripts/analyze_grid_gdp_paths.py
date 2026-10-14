@@ -41,6 +41,9 @@ NAMES = {
 }
 BAM_HASH = "bd4d9bf56deafa864ecdd2e676fc24bd25a6037bdb02a772ebd800eb1a935374"
 TOL = 1e-5
+TTS_MARKERS = dict(zip(BUDGETS, ("o", "s", "D", "^", "P")))
+TTS_INFINITE_COUNTS = dict(zip(METHODS, (
+    (17, 4, 4, 4, 4), (7, 2, 0, 0, 0), (9, 7, 4, 3, 2), (15, 6, 2, 1, 0))))
 
 
 def require(condition, message):
@@ -309,6 +312,137 @@ def gdp_runs():
     return rows, {str(p.relative_to(ROOT)): sha(p.read_bytes()) for p in (base_path, fixed_path)}
 
 
+def load_tts99_groups(path):
+    """Read the 420 published values verbatim; only subgroup medians are derived."""
+    rows = read_table(path)
+    names = {r["grid_name"] for r in rows}
+    keys = [(r["grid_name"], r["method"], int(r["max_evals"])) for r in rows]
+    expected = {(name, method, budget) for name in names for method in METHODS for budget in BUDGETS}
+    require(len(names) == 21 and len(rows) == len(set(keys)) == 420 and set(keys) == expected,
+            "TTS99 requires 420 unique combinations: 21 grids x 4 methods x 5 budgets")
+    values = {key: float(row["tts99_s"]) for key, row in zip(keys, rows)}
+    require(all(v > 0 and (math.isfinite(v) or v == math.inf) for v in values.values()),
+            "TTS99 values must be positive finite seconds or positive infinity")
+    groups = []
+    for method in METHODS:
+        for index, budget in enumerate(BUDGETS):
+            group = [values[name, method, budget] for name in sorted(names)]
+            infinite = sum(v == math.inf for v in group)
+            require(infinite == TTS_INFINITE_COUNTS[method][index],
+                    f"Unexpected infinite TTS99 count for {method}, B={budget}: {infinite}")
+            groups.append({"method": method, "budget": budget, "grids": sorted(names),
+                           "values": group, "infinite": infinite, "median": statistics.median(group)})
+    return groups
+
+
+def plot_tts99(groups):
+    """One shared log axis; infinities are annotations, never finite observations."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+    from matplotlib.ticker import LogLocator, NullFormatter
+
+    names = groups[0]["grids"]
+    # Stable, evenly spread offsets keyed by grid, independent of CSV row order.
+    ordering = sorted(names, key=lambda name: sha(name.encode()))
+    jitter = {name: -.21 + .42 * rank / (len(names) - 1) for rank, name in enumerate(ordering)}
+    finite = [v for group in groups for v in group["values"] if math.isfinite(v)]
+    with plt.rc_context({"font.family": "DejaVu Sans", "font.size": 9,
+                         "axes.spines.top": False, "axes.spines.right": False,
+                         "axes.edgecolor": "#555555", "axes.linewidth": .7}):
+        fig, ax = plt.subplots(figsize=(9, 4.7))
+        fig.subplots_adjust(left=.085, right=.985, bottom=.21, top=.82)
+        positions = []
+        for group in groups:
+            method, budget = group["method"], group["budget"]
+            x = 6 * METHODS.index(method) + BUDGETS.index(budget)
+            positions.append(x)
+            points = [(name, value) for name, value in zip(group["grids"], group["values"])
+                      if math.isfinite(value)]
+            collection = ax.scatter([x + jitter[name] for name, _ in points], [v for _, v in points],
+                                   marker=TTS_MARKERS[budget], color=COLORS[method], s=23,
+                                   alpha=.78, edgecolors="none", zorder=3)
+            collection.set_gid(f"tts99-points-{method}-{budget}")
+            if math.isfinite(group["median"]):
+                line = ax.hlines(group["median"], x - .31, x + .31, colors="black", linewidth=1.5, zorder=4)
+                line.set_gid(f"tts99-median-{method}-{budget}")
+            else:
+                label = ax.text(x, 1.125, "median = ∞", transform=ax.get_xaxis_transform(),
+                                ha="center", va="bottom", fontsize=8, clip_on=False)
+                label.set_gid(f"tts99-infinite-median-{method}-{budget}")
+            count = ax.text(x, 1.035, f"∞×{group['infinite']}", transform=ax.get_xaxis_transform(),
+                            ha="center", va="bottom", fontsize=8.5, color=COLORS[method], clip_on=False)
+            count.set_gid(f"tts99-infinity-{method}-{budget}")
+        ax.set(yscale="log", ylim=(min(finite) / 1.6, 10 ** math.ceil(math.log10(max(finite)))),
+               xlim=(-.65, 22.65), ylabel="Estimated TTS99 (s, log scale)")
+        ax.yaxis.label.set_fontsize(10)
+        ax.yaxis.set_major_locator(LogLocator(base=10))
+        ax.yaxis.set_minor_formatter(NullFormatter())
+        ax.set_xticks(positions, [str(b) for _ in METHODS for b in BUDGETS])
+        # Keep budget labels entirely below the spine, with method labels below them.
+        ax.tick_params(axis="x", length=0, pad=10, labelsize=9)
+        ax.tick_params(axis="y", which="both", labelsize=9)
+        ax.grid(axis="y", which="major", color="#dce1e5", linewidth=.6)
+        ax.set_axisbelow(True)
+        for index, method in enumerate(METHODS):
+            label = ax.text(index * 6 + 2, -.18, "BAM" if method == "bam" else LABELS[method],
+                            transform=ax.get_xaxis_transform(), ha="center", va="top",
+                            fontsize=11, fontweight="semibold", color=COLORS[method], clip_on=False)
+            label.set_gid(f"tts99-method-{method}")
+        handles = [Line2D([], [], color="#555555", marker=TTS_MARKERS[b], linestyle="none",
+                          markersize=5.5, markeredgewidth=0, label=f"B={b}") for b in BUDGETS]
+        handles.append(Line2D([], [], color="black", linewidth=1.5, label="Median"))
+        fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(.53, .995), ncol=6,
+                   frameon=False, fontsize=9, handlelength=1.5, columnspacing=1.5, handletextpad=.5)
+    return fig
+
+
+def render_tts99(output):
+    """Render only TTS99 from the existing CSV; do not run cost/summary analysis."""
+    import matplotlib.pyplot as plt
+    source = output / "tts99_summary.csv"
+    digest = sha(source.read_bytes())
+    groups = load_tts99_groups(source)
+    fig = plot_tts99(groups)
+    try:
+        with plt.rc_context({"pdf.fonttype": 42}):
+            fig.savefig(output / "tts99.png", dpi=600, facecolor="white")
+            fig.savefig(output / "tts99.pdf", facecolor="white",
+                        metadata={"CreationDate": None, "ModDate": None, "Title": None})
+    finally:
+        plt.close(fig)
+    require(sha(source.read_bytes()) == digest, "TTS99 source CSV changed while plotting")
+    return {"source": source.name, "source_sha256": digest,
+            "plotting_script_sha256": sha(Path(__file__).read_bytes()),
+            "layout": "one log axis; method groups with adjacent budget columns; no title or narrative",
+            "methods": list(METHODS), "budgets": list(BUDGETS),
+            "budget_markers": {str(b): marker for b, marker in TTS_MARKERS.items()},
+            "observations": 420, "finite_observations": sum(math.isfinite(v) for g in groups for v in g["values"]),
+            "infinite_counts": {m: list(TTS_INFINITE_COUNTS[m]) for m in METHODS},
+            "median": "Separate extended-real median of all 21 values in each method-budget subgroup",
+            "jitter": "Small fixed offsets by SHA256-sorted grid name; identical across subgroups",
+            "png_dpi": 600, "pdf_fonttype": 42}
+
+
+def regenerate_tts99(output, *, update_published=False):
+    path = output / "manifest.json"
+    manifest = json.loads(path.read_text())
+    for name, digest in manifest["artifacts_sha256"].items():
+        require(sha((output / name).read_bytes()) == digest, f"Published artifact changed: {name}")
+    # Preserve analysis_sha256: it identifies the unchanged numerical analysis.
+    # Record this figure-only renderer's source hash separately.
+    manifest["tts99_figure"] = render_tts99(output)
+    for ext in ("png", "pdf"):
+        name = f"tts99.{ext}"
+        manifest["artifacts_sha256"][name] = sha((output / name).read_bytes())
+    path.write_text(json.dumps(manifest, indent=2) + "\n")
+    if update_published:
+        update_published_aliases(output, tts99_only=True)
+    print(json.dumps({"output": str(output), "figure_only": "tts99", "observations": 420,
+                      "scientific_data_recomputed": False}))
+
+
 def plot_figures(runs, summary, gdp, output):
     import matplotlib
     matplotlib.use("Agg")
@@ -361,37 +495,8 @@ def plot_figures(runs, summary, gdp, output):
                 if timing else "21 grids × 10 seeds per method / budget\nInitial and repeated callbacks count\nFailures remain in the denominator\nRaw counts; no solver-relative ratios")
         legend.text(.02, .35, note, transform=legend.transAxes, fontsize=9, va="bottom", linespacing=1.6)
         save(fig, name)
-    fig, axes = panels("Grid GDP: estimated TTS99 with measured IPOPT point costs")
-    finite = [r["tts99_s"] for r in summary if math.isfinite(r["tts99_s"])]
-    lower, upper = min(finite) / 1.7, max(finite) * 2.5
-    for ax, budget in zip(axes.flat, BUDGETS):
-        for i, m in enumerate(METHODS):
-            group = [r for r in summary if r["method"] == m and r["max_evals"] == budget]
-            values = np.array([r["tts99_s"] for r in group])
-            good = np.isfinite(values)
-            jitter = np.linspace(-.19, .19, len(values))
-            ax.scatter(i + jitter[good], values[good], color=COLORS[m], s=25, alpha=.76)
-            median = float(np.median(values))
-            if math.isfinite(median):
-                ax.hlines(median, i - .25, i + .25, color="black", lw=2)
-            failed = sum(~good)
-            if failed:
-                ax.scatter(i, upper, marker="^", color=COLORS[m], s=30)
-                ax.annotate(f"∞ × {failed}", (i, upper), xytext=(0, 7), textcoords="offset points", ha="center", fontsize=9)
-            if math.isinf(median):
-                ax.annotate("median = ∞", (i, upper), xytext=(0, 22), textcoords="offset points", ha="center", fontsize=8)
-        ax.set_title(f"DFO budget = {budget}")
-        ax.set_xticks(range(4), ["DSDA", "RBFOpt", "BAM", "FMQA-SA"])
-        ax.set_xlim(-.5, 3.5)
-        ax.set_yscale("log")
-        ax.set_ylim(lower, upper * 8)
-        ax.grid(axis="y", alpha=.18)
-    for ax in axes[:, 0]:
-        ax.set_ylabel("Estimated TTS99 (s, log scale)")
-    axes.flat[-1].text(.03, .85,
-        "Each dot: one grid, 10 seed runs\nBlack bar: median over all 21 grids\n∞: no observed hit in 10 runs\n\nTTS99 = median completion cost × restarts\nRestarts = ceil[log(0.01) / log(1 - p)]\np = hits / 10; p = 1: one run\n\nFixed-path estimates using measured costs.\nIndependent restarts assumed.",
-        transform=axes.flat[-1].transAxes, va="top", fontsize=11, linespacing=1.8)
-    save(fig, "tts99")
+    render_tts99(output)
+    figures.append("tts99")
 
     # GDPopt/MINLP have one run per grid and different stopping rules. Show their
     # measured outcomes directly, separately from the four-method DFO profiles.
@@ -435,7 +540,7 @@ def plot_figures(runs, summary, gdp, output):
     return figures
 
 
-def update_published_aliases(output):
+def update_published_aliases(output, *, tts99_only=False):
     """Keep existing user-facing Grid figure links pointing to the new analysis."""
     legacy = RESULTS / "fmqa_20260925/analysis/grid"
     mapping = {
@@ -444,7 +549,13 @@ def update_published_aliases(output):
         "timing/time_performance_profiles": "performance_profiles",
         "timing/completion_time_profiles": "performance_profiles",
     }
-    aliases = {}
+    if tts99_only:
+        mapping = {"tts99_comparison": "tts99"}
+        aliases = json.loads((legacy / "grid_gdp_figures.manifest.json").read_text())["aliases"]
+        require((legacy / "tts99_summary.csv").read_bytes() == (output / "tts99_summary.csv").read_bytes(),
+                "Figure-only update cannot replace a different alias summary CSV")
+    else:
+        aliases = {}
     for target, source in mapping.items():
         for ext in ("png", "pdf"):
             data = (output / f"{source}.{ext}").read_bytes()
@@ -452,7 +563,8 @@ def update_published_aliases(output):
             path.write_bytes(data)
             aliases[str(path.relative_to(ROOT))] = {"source": str((output / f"{source}.{ext}").relative_to(ROOT)),
                                                     "sha256": sha(data)}
-    (legacy / "tts99_summary.csv").write_bytes((output / "tts99_summary.csv").read_bytes())
+    if not tts99_only:
+        (legacy / "tts99_summary.csv").write_bytes((output / "tts99_summary.csv").read_bytes())
     pointer = {"analysis": str(output.relative_to(ROOT)),
                "analysis_manifest_sha256": sha((output / "manifest.json").read_bytes()),
                "scope": "Current Grid GDP path-cost figures; historical lookup benchmark.csv is not their input",
@@ -463,6 +575,8 @@ def update_published_aliases(output):
         "time_measure": "Estimated completion cost with individually measured IPOPT point times",
         "summary_sha256": sha((legacy / "tts99_summary.csv").read_bytes()),
         "figure_aliases": {k: v for k, v in aliases.items() if "tts99_comparison" in k}}, indent=2) + "\n")
+    if tts99_only:
+        return
     old_timing_manifest = legacy / "timing/timing_analysis.manifest.json"
     timing = json.loads(old_timing_manifest.read_text())
     timing["scope_after_20261011"] = {
@@ -477,9 +591,15 @@ def main(argv=None):
     parser.add_argument("--bam-archive", type=Path, default=ARCHIVES / NAMES["bam"])
     parser.add_argument("--output", type=Path, default=OUTPUT)
     parser.add_argument("--no-figures", action="store_true")
+    parser.add_argument("--tts99-only", action="store_true",
+                        help="Redraw only TTS99 from the existing summary CSV; never recalculate data")
     parser.add_argument("--update-published", action="store_true", help="Update existing Grid figure links after generation")
     args = parser.parse_args(argv)
     require(not (args.no_figures and args.update_published), "Cannot publish aliases without regenerated figures")
+    require(not (args.no_figures and args.tts99_only), "--tts99-only cannot be combined with --no-figures")
+    if args.tts99_only:
+        regenerate_tts99(args.output, update_published=args.update_published)
+        return
     require(args.bam_archive.is_file(), f"BAM source ZIP required: {args.bam_archive}")
     grids, designs, costs, sources = reference_data()
     runs, charges, provenance = [], [], {}
