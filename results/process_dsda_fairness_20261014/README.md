@@ -1,5 +1,12 @@
 # Process DSDA budget-fairness return — October 14, 2026
 
+**Historical 139-run import.** The single-job Dantzig recovery has now been
+verified: all 140 runs and callback costs are complete. Use the
+[recovered result](../process_dsda_recovery_20261014/README.md) and its complete
+560-row publication selection for current analysis. This directory retains the
+original import unchanged; the pending-recovery descriptions below describe
+the original return, not the current matrix.
+
 The returned Dantzig matrix contains **139 validated runs out of 140 planned**,
 with **2,589 callbacks and 75 target hits**. Completion is distinct from target
 attainment. The original ZIP and all 1,056 internal hashes are verified; all 139

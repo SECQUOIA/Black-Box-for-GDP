@@ -1,3 +1,21 @@
+Completed single-job Dantzig recovery — October 14, 2026
+Current data: results/process_dsda_recovery_20261014/
+ZIP: process_dsda_recovered_20261014_5ozwo5rx_1792008943955816015.zip
+SHA256: 7201a5d49d216a9c1eea64ecf649ec4c185dd9c1dafcc41c70117edf600e51b3
+All931 internal hashes and67 executed source files verified. The139 parent
+jobs (834 files) are byte-identical; their derived values remain unchanged.
+Only cstr_15_B22_seed9_dsda was remeasured. Its22 callbacks match the original
+path exactly and target_hit remains false. The420 non-DSDA rows are unchanged.
+Final Dantzig method wall time:0.0009359719988424331s.
+Seed9 reconstructed completion cost:22.74697937973542s.
+CSTR15:10 seeds,2 target hits, median completion21.92685708485078s,
+99% restart count21, TTS99=460.4639987818664s.
+Full DSDA matrix:140 validated runs,2611 callbacks,75 target hits,zero missing
+callback costs. No new NLP solves or local development timings were used.
+The complete560-row selection supersedes recovery-pending publication inputs.
+All descriptions below of a still-missing method clock or pending recovery
+are historical. The same-coordinate CSTR cost-reuse policy remains in effect.
+
 Latest cost-policy correction (v5, user instruction on October14)
 The earlier four "missing" costs were missing exact-size joins, not four
 unmeasured coordinates. Reuse existing measurements for the same logically
