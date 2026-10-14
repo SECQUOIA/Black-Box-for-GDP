@@ -62,8 +62,8 @@ methods. [Group summaries](analysis/candidate_summary.csv),
 Candidate figures are drafts requiring manuscript layout and visual review;
 the original publication figures and the historical 139-run import were not
 overwritten. Earlier CSTR15 recovery-pending publication drafts are superseded
-by these data and should be regenerated using the
-[updated Work instructions](../../docs/process_dsda_overleaf_update_prompt.txt).
+by these data. Regenerate current manuscript artifacts from the complete
+560-row selection above; retain the historical import as evidence.
 
 - [Verification audit](audit.json)
 - [139-job file checksum evidence](preserved_job_files_sha256.json)
