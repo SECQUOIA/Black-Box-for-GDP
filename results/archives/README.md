@@ -90,3 +90,10 @@ is now retained for the [Grid GDP path-cost analysis](../grid_gdp_dfo_20261011/R
 Its 5,304 member hashes and all 1,050 completed paths are verified; all 54,600
 callbacks are charged in order. Its earlier incomplete attempt is retained in
 the original ZIP and excluded in favor of the sealed completed replacement.
+
+The October 14 process DSDA budget-fairness return is retained unchanged in
+`process_dsda_budget_fairness_20261014_pudvsttz_1792004864773526053.zip`.
+It has 139 validated jobs and one post-search validator error; all 1,056 member
+hashes pass. The [audited import](../process_dsda_fairness_20261014/README.md)
+records same-coordinate infeasible-cost reuse and the pending single-job
+recovery. Archiving this partial matrix does not make it a complete comparison.
