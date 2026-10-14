@@ -22,3 +22,9 @@ an experimental source. Repository scripts and current instructions are in
 The frozen [October 2 executed runner](dantzig_dfo_trace_nlp_20261002.zip) records 417 original lookup searches and separate visited-coordinate costs, reusing the original 139 FMQA traces. It is preserved byte-for-byte, including its historical instructions. Current instructions are [English](../../docs/dfo_trace_nlp_dantzig.md), and newly built bundles use `README.md` in English. The [completed result report](../dfo_trace_nlp_20261002/analysis/README.md) supersedes the runner's preliminary tables.
 
 The withdrawn expanded online experiment bundle is retained only in ignored local review storage and is not a published runner.
+
+The October 14 [DSDA v5 recovery ZIP](process_dsda_fairness_20261014_v5.zip)
+preserves 139 returned jobs and remeasures only CSTR15/B22/seed9. It repairs
+the audit tolerance check and reuses the four existing same-coordinate CSTR
+logical-rejection costs with explicit donor provenance. No NLP measurements
+are launched. See [upload/run/download commands](../../docs/process_dsda_fairness_dantzig.txt).
