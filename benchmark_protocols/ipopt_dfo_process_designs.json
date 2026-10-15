@@ -1,0 +1,3256 @@
+{
+  "kind": "fmqa_qhd_frozen_plan_v1",
+  "process": [
+    {
+      "case_name": "column",
+      "csv_name": "compl_enum_column_17_baron.csv",
+      "max_evaluations": 16,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": null,
+      "starting_points": [
+        [
+          14,
+          4
+        ],
+        [
+          12,
+          1
+        ],
+        [
+          9,
+          8
+        ]
+      ],
+      "initial_design_sha256": "e1e4c79ee05dbb3e9caaa05a41f1ee4463a310e01fc37b86c0c679b534915cb4"
+    },
+    {
+      "case_name": "column",
+      "csv_name": "compl_enum_column_17_baron.csv",
+      "max_evaluations": 16,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": null,
+      "starting_points": [
+        [
+          14,
+          8
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          11,
+          2
+        ]
+      ],
+      "initial_design_sha256": "1b55fe58e57693256dca09ef9a2c7ad0c82e42d56fcaaf6fbde6dbf7773d031e"
+    },
+    {
+      "case_name": "column",
+      "csv_name": "compl_enum_column_17_baron.csv",
+      "max_evaluations": 16,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": null,
+      "starting_points": [
+        [
+          12,
+          8
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          15,
+          5
+        ]
+      ],
+      "initial_design_sha256": "fef2943f341d268882c1a53cde4171ac321b8dd3cb8feb5abf09dcee2aeadf1e"
+    },
+    {
+      "case_name": "column",
+      "csv_name": "compl_enum_column_17_baron.csv",
+      "max_evaluations": 16,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": null,
+      "starting_points": [
+        [
+          10,
+          2
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          13,
+          8
+        ]
+      ],
+      "initial_design_sha256": "749508df94100e731f4f392451b4b05a4edeb1c7c355dd7529322d51f4cfb602"
+    },
+    {
+      "case_name": "column",
+      "csv_name": "compl_enum_column_17_baron.csv",
+      "max_evaluations": 16,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": null,
+      "starting_points": [
+        [
+          10,
+          2
+        ],
+        [
+          14,
+          6
+        ],
+        [
+          10,
+          8
+        ]
+      ],
+      "initial_design_sha256": "d3464e2711c7774f048954b083248ec9ce14e3b3240123760587c305165a6650"
+    },
+    {
+      "case_name": "column",
+      "csv_name": "compl_enum_column_17_baron.csv",
+      "max_evaluations": 16,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": null,
+      "starting_points": [
+        [
+          11,
+          3
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          12,
+          5
+        ]
+      ],
+      "initial_design_sha256": "63e5932b0ee51941fa66a6e4ecb0adb5078bce4572a7b0d951b8b0bedc7edad2"
+    },
+    {
+      "case_name": "column",
+      "csv_name": "compl_enum_column_17_baron.csv",
+      "max_evaluations": 16,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": null,
+      "starting_points": [
+        [
+          11,
+          1
+        ],
+        [
+          13,
+          8
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "initial_design_sha256": "bf1e32e607b724a3e85112dadaa3961bbf665bb37c13e5c1cec0df72fe58d146"
+    },
+    {
+      "case_name": "column",
+      "csv_name": "compl_enum_column_17_baron.csv",
+      "max_evaluations": 16,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": null,
+      "starting_points": [
+        [
+          11,
+          6
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          13,
+          5
+        ]
+      ],
+      "initial_design_sha256": "e5eda9088211ae9fea24da8ee1658056e41bbb3eae6b90e1750e4126c6a9513f"
+    },
+    {
+      "case_name": "column",
+      "csv_name": "compl_enum_column_17_baron.csv",
+      "max_evaluations": 16,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": null,
+      "starting_points": [
+        [
+          10,
+          6
+        ],
+        [
+          13,
+          2
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "initial_design_sha256": "c625de9aa99cd374b69ddf07dda86bf7643ae7b50030534b4f11f0b834385047"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+      "max_evaluations": 8,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": 5,
+      "starting_points": [
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "initial_design_sha256": "b14e494257721b9ae8998c2f58ea4508efbb3ae437cc7bb2ba86c7a7c944b4d1"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+      "max_evaluations": 8,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": 5,
+      "starting_points": [
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "initial_design_sha256": "b7e96d57285188b29c3364010ee89b30677320c8008f4d660b0557946148747d"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+      "max_evaluations": 8,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": 5,
+      "starting_points": [
+        [
+          5,
+          5
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "initial_design_sha256": "942890e30ba88e8d2b1870ba46cb01e8d9d6208c926c597ee0be371aa9bf0265"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+      "max_evaluations": 8,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": 5,
+      "starting_points": [
+        [
+          4,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "initial_design_sha256": "23e7243d08c92e29eeedce30be6432dd30e71bb9e44ad4ffcd152ee148e043b7"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+      "max_evaluations": 8,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": 5,
+      "starting_points": [
+        [
+          2,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "initial_design_sha256": "e6eabdb9062cf4c01fe52032180fb83987585d1bbe54ec111b1f5d1955ed8016"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+      "max_evaluations": 8,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": 5,
+      "starting_points": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "initial_design_sha256": "b0d42a851d8661588cb3d45fffd477975d3059dbf23e31fbca27d2730cbdbf82"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+      "max_evaluations": 8,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": 5,
+      "starting_points": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "initial_design_sha256": "3e8636d5b8d0a131afab446d6aa0111c1221341242ff93fa28d913817a9b425f"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+      "max_evaluations": 8,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": 5,
+      "starting_points": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "initial_design_sha256": "6b4ab03d322b57badb2f8ffa439d4ce0cf539eacb0434aad8ae80ebdac772a70"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+      "max_evaluations": 8,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": 5,
+      "starting_points": [
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "initial_design_sha256": "bd3f38337ea52fcaa176b7438c78d479574ab9b248829317877ff43d8df2a760"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+      "max_evaluations": 8,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": 5,
+      "starting_points": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "initial_design_sha256": "09e7be3225fbf7bd2a2e303f12f3afb71d61a71763e9b1458f49bf9eaaaa7151"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": 10,
+      "starting_points": [
+        [
+          2,
+          3
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "initial_design_sha256": "7c4752059060bb9a690d6b76d785f9c5f1776bc354e493a9151279354c8296dc"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": 10,
+      "starting_points": [
+        [
+          8,
+          4
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "initial_design_sha256": "90670d13bd85ab5528d101c5e1c1adcfc8c8c88afff649385bb770dcedc45551"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": 10,
+      "starting_points": [
+        [
+          9,
+          9
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "initial_design_sha256": "6bf71dd2db25615ba32ee644e2ea96936ee8354faacebc511f086029e0563126"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": 10,
+      "starting_points": [
+        [
+          7,
+          9
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          10,
+          6
+        ]
+      ],
+      "initial_design_sha256": "0c4c75ec8fe9d50c6a31138458d37303f436a253ff0418e6c54ad233fedb51e9"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": 10,
+      "starting_points": [
+        [
+          4,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "initial_design_sha256": "7152705eff1ee7353b0cf7390ed20a46f81421c5d3181bf2ad7aeaaf73c67deb"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": 10,
+      "starting_points": [
+        [
+          5,
+          2
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          4,
+          9
+        ]
+      ],
+      "initial_design_sha256": "ef506db33e23c694595e035b6f9c7110a820d93e2744c2006321389df21b48fa"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": 10,
+      "starting_points": [
+        [
+          5,
+          3
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          7,
+          5
+        ]
+      ],
+      "initial_design_sha256": "d63e8c51d020a9c0330a73b91c7e6ee9aa7677c79c8bddd02e49b277697c19e6"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": 10,
+      "starting_points": [
+        [
+          5,
+          1
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "initial_design_sha256": "5b2236c2d84bad4777f25a8df2efa161aa984eaf8c252d54d193b3bae7793891"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": 10,
+      "starting_points": [
+        [
+          6,
+          7
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "initial_design_sha256": "3e5986be117fc437808233013fa3595f3f4f8966a09a08b3556ac25d3cf258d4"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": 10,
+      "starting_points": [
+        [
+          4,
+          6
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "initial_design_sha256": "85b70f8f2297d196b01cdc1807e4db2f46ad20b01a4c7ce3cc7a5b10a0b91bf5"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+      "max_evaluations": 22,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": 15,
+      "starting_points": [
+        [
+          3,
+          4
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "initial_design_sha256": "0143d839bd4674a70afc7444415df8902c619a3ab64b697259e695f8bef0a30e"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+      "max_evaluations": 22,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": 15,
+      "starting_points": [
+        [
+          13,
+          6
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          4,
+          13
+        ]
+      ],
+      "initial_design_sha256": "ad060045e744fb88d7b71d9288197141288d64d9651bcb6eb6c01cfad0d56eba"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+      "max_evaluations": 22,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": 15,
+      "starting_points": [
+        [
+          14,
+          14
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          8,
+          2
+        ]
+      ],
+      "initial_design_sha256": "3de4bd20b0c5fb555cb000960672d1579c6f828b66ea15645621ea8dbc5aa0bf"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+      "max_evaluations": 22,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": 15,
+      "starting_points": [
+        [
+          10,
+          14
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          15,
+          8
+        ]
+      ],
+      "initial_design_sha256": "c1eb10fd1623834c510894a311c1dfe533868a34a32535e775a48ab23fef9831"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+      "max_evaluations": 22,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": 15,
+      "starting_points": [
+        [
+          6,
+          3
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "initial_design_sha256": "c2813688e308bea0d116479eb7c0a71d86ccdb9430272dbeb04627ecfd6accb4"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+      "max_evaluations": 22,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": 15,
+      "starting_points": [
+        [
+          7,
+          2
+        ],
+        [
+          13,
+          9
+        ],
+        [
+          5,
+          13
+        ]
+      ],
+      "initial_design_sha256": "0d59a43dbff44cc13168398043ae746762cad62e28bdecdca878ffd15451e8cd"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+      "max_evaluations": 22,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": 15,
+      "starting_points": [
+        [
+          8,
+          4
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          10,
+          7
+        ]
+      ],
+      "initial_design_sha256": "98ff8bb1bbd9fc12639e7cb03a6efd56038b5d2c37b3b5cdfa31b75130a73853"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+      "max_evaluations": 22,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": 15,
+      "starting_points": [
+        [
+          7,
+          1
+        ],
+        [
+          11,
+          14
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "initial_design_sha256": "990f4f6b7029cdcbbf8abedbd466c01700c6cb412d3c0decb4918a9ed86a8334"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+      "max_evaluations": 22,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": 15,
+      "starting_points": [
+        [
+          9,
+          10
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          11,
+          9
+        ]
+      ],
+      "initial_design_sha256": "2f63133eb130c43237f8802e5c1e4b0924917ffcae101d7689d76a491bf66ce1"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+      "max_evaluations": 22,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": 15,
+      "starting_points": [
+        [
+          6,
+          9
+        ],
+        [
+          12,
+          2
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "initial_design_sha256": "0750eca6447879914a99affb0e67d92ee8f6a1e0c3dcb926af42ee6812deb8e5"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+      "max_evaluations": 29,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": 20,
+      "starting_points": [
+        [
+          3,
+          6
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          9,
+          8
+        ]
+      ],
+      "initial_design_sha256": "f0ced9ef19b25cd93a519f754fe0e7e7022cc93f352c33e0cbc78b341d0d5755"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+      "max_evaluations": 29,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": 20,
+      "starting_points": [
+        [
+          17,
+          8
+        ],
+        [
+          13,
+          1
+        ],
+        [
+          5,
+          17
+        ]
+      ],
+      "initial_design_sha256": "6f1b1e6884426b2873e3808115ff155db21259afeb22195ae7bfefafa25a245e"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+      "max_evaluations": 29,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": 20,
+      "starting_points": [
+        [
+          18,
+          18
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          10,
+          3
+        ]
+      ],
+      "initial_design_sha256": "fd7137c541038148d00a140b6289f0cd19e116a71d47295815936479fcfd3e29"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+      "max_evaluations": 29,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": 20,
+      "starting_points": [
+        [
+          13,
+          19
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          19,
+          11
+        ]
+      ],
+      "initial_design_sha256": "19efbcde843060193d430d122b61fdf8ec508949b62f8c2eb46a6269a4dff766"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+      "max_evaluations": 29,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": 20,
+      "starting_points": [
+        [
+          8,
+          4
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          16,
+          18
+        ]
+      ],
+      "initial_design_sha256": "a1ed50343f3c1c25c9bed13e8708d9c2e5d43940bd278ea710ee290b3f59210f"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+      "max_evaluations": 29,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": 20,
+      "starting_points": [
+        [
+          9,
+          2
+        ],
+        [
+          17,
+          12
+        ],
+        [
+          7,
+          18
+        ]
+      ],
+      "initial_design_sha256": "381316c391a638162a6f44b31a9d57b8129cb996cb0a179b9b208822d355aa73"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+      "max_evaluations": 29,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": 20,
+      "starting_points": [
+        [
+          10,
+          5
+        ],
+        [
+          5,
+          18
+        ],
+        [
+          14,
+          10
+        ]
+      ],
+      "initial_design_sha256": "9137aca1cdc1ec7c8fac27bc3643083dbad94b815eba89cc7dd8e41a59d258d8"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+      "max_evaluations": 29,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": 20,
+      "starting_points": [
+        [
+          10,
+          2
+        ],
+        [
+          15,
+          19
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "initial_design_sha256": "6e2f2162b868c7d825e19aa0d3c50ffb4d889cc723bd8dea9ffdae82e4bb0fb4"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+      "max_evaluations": 29,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": 20,
+      "starting_points": [
+        [
+          12,
+          14
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          14,
+          11
+        ]
+      ],
+      "initial_design_sha256": "c186fe38de21ee2037edd906605b53da080c1c3bde607717efc07116f88056d9"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+      "max_evaluations": 29,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": 20,
+      "starting_points": [
+        [
+          8,
+          12
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          3,
+          14
+        ]
+      ],
+      "initial_design_sha256": "711ef8aea81484bad6a58204a9710b240db15cab053239d860b8773e9d851949"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+      "max_evaluations": 36,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": 25,
+      "starting_points": [
+        [
+          4,
+          7
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "initial_design_sha256": "7881f858e3bf5b14748dcdfd76a10be3abf705165d68dcccc06adf22d8c7e07b"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+      "max_evaluations": 36,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": 25,
+      "starting_points": [
+        [
+          21,
+          9
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          7,
+          22
+        ]
+      ],
+      "initial_design_sha256": "1c9166139962e1120f7757e63083909ffd30bd2e77d7b87a400ea09ed45cc31d"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+      "max_evaluations": 36,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": 25,
+      "starting_points": [
+        [
+          23,
+          23
+        ],
+        [
+          2,
+          16
+        ],
+        [
+          12,
+          3
+        ]
+      ],
+      "initial_design_sha256": "9a368d24a5caa9fcbcf75edce00d07f804a99c816fc3d827b2a086950d43e6e1"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+      "max_evaluations": 36,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": 25,
+      "starting_points": [
+        [
+          16,
+          23
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          24,
+          14
+        ]
+      ],
+      "initial_design_sha256": "a265352530c01fe239ea23d2c02825a4805beb06a3605a79c005126e667d1fd7"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+      "max_evaluations": 36,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": 25,
+      "starting_points": [
+        [
+          9,
+          5
+        ],
+        [
+          1,
+          16
+        ],
+        [
+          20,
+          22
+        ]
+      ],
+      "initial_design_sha256": "bcda1f7c907ae6d5bfcd9c72bb0874eb3c1ec79cf0d06cdf0b809edfc9a024ae"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+      "max_evaluations": 36,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": 25,
+      "starting_points": [
+        [
+          11,
+          3
+        ],
+        [
+          21,
+          15
+        ],
+        [
+          9,
+          22
+        ]
+      ],
+      "initial_design_sha256": "24ba28d6e73cc3987a2761355f2cdf49bda8987962bef44b1e80626fc3d5f390"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+      "max_evaluations": 36,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": 25,
+      "starting_points": [
+        [
+          13,
+          6
+        ],
+        [
+          6,
+          22
+        ],
+        [
+          17,
+          12
+        ]
+      ],
+      "initial_design_sha256": "7dae2bc5c4a65a3629a818138fcb6273ad75a952abe6f94e27f07130a57d00d4"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+      "max_evaluations": 36,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": 25,
+      "starting_points": [
+        [
+          12,
+          2
+        ],
+        [
+          19,
+          23
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "initial_design_sha256": "cca102c874a4507673b7ce8ba8b13a92d9e480a0e2a7b19e8d49a4c2a1abde88"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+      "max_evaluations": 36,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": 25,
+      "starting_points": [
+        [
+          14,
+          17
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          18,
+          14
+        ]
+      ],
+      "initial_design_sha256": "ba3da39ab6e539884aa0094de47d90f17d492990c2322aaf034d9b736bbaf91d"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+      "max_evaluations": 36,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": 25,
+      "starting_points": [
+        [
+          10,
+          15
+        ],
+        [
+          20,
+          3
+        ],
+        [
+          3,
+          18
+        ]
+      ],
+      "initial_design_sha256": "dd9a831e1a72056adfea6afe758bd7a423bed329a4a68444fc8bca49b93508b3"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+      "max_evaluations": 43,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": 30,
+      "starting_points": [
+        [
+          5,
+          8
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "initial_design_sha256": "fe26206badedd3df8ba242b98490bc6f8693cfdb0e9dc83688d58a513743fe7e"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+      "max_evaluations": 43,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": 30,
+      "starting_points": [
+        [
+          25,
+          11
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          8,
+          26
+        ]
+      ],
+      "initial_design_sha256": "75949ef4f74eca413ee8fad46c61566a2d7a2dccb80befeeaf6d4183d48d7610"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+      "max_evaluations": 43,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": 30,
+      "starting_points": [
+        [
+          27,
+          27
+        ],
+        [
+          3,
+          19
+        ],
+        [
+          15,
+          4
+        ]
+      ],
+      "initial_design_sha256": "4c5cc294184d909b210f20dd98ef5b01dcbe71b13969e338fdc6b428b874a07c"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+      "max_evaluations": 43,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": 30,
+      "starting_points": [
+        [
+          20,
+          28
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          29,
+          16
+        ]
+      ],
+      "initial_design_sha256": "e57c2bcf1837e09adfe127c1b72354b8eed96a77d08aac9545d32208b6a500dc"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+      "max_evaluations": 43,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": 30,
+      "starting_points": [
+        [
+          11,
+          6
+        ],
+        [
+          1,
+          20
+        ],
+        [
+          24,
+          26
+        ]
+      ],
+      "initial_design_sha256": "7c4f39f61b1753c868e0951e5f9faf919d752ed123b8fe447afb256e217792aa"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+      "max_evaluations": 43,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": 30,
+      "starting_points": [
+        [
+          13,
+          3
+        ],
+        [
+          25,
+          18
+        ],
+        [
+          10,
+          26
+        ]
+      ],
+      "initial_design_sha256": "27a67d5a1c665f85ee81ea56c1b5db54b7cff88ee0674b1ecea4b075ce94b604"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+      "max_evaluations": 43,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": 30,
+      "starting_points": [
+        [
+          15,
+          7
+        ],
+        [
+          7,
+          26
+        ],
+        [
+          20,
+          14
+        ]
+      ],
+      "initial_design_sha256": "a46c039472b3dc6360917b89ea25bbd797fa8f7e2afdda7fbb34cdb7cd794497"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+      "max_evaluations": 43,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": 30,
+      "starting_points": [
+        [
+          14,
+          2
+        ],
+        [
+          23,
+          28
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "initial_design_sha256": "a0c0ec4f2e483783ac44887c12d8ea3edfde50bd9a08de5e92a1bf950c309721"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+      "max_evaluations": 43,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": 30,
+      "starting_points": [
+        [
+          17,
+          20
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          22,
+          17
+        ]
+      ],
+      "initial_design_sha256": "ab9cdf74579f2cd9441342cf822a6037feeb42c590437179e461bf6483571cc8"
+    },
+    {
+      "case_name": "cstr",
+      "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+      "max_evaluations": 43,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": 30,
+      "starting_points": [
+        [
+          12,
+          18
+        ],
+        [
+          24,
+          3
+        ],
+        [
+          4,
+          21
+        ]
+      ],
+      "initial_design_sha256": "b35adffb6c91664f9986062925ab3ce40080383d28672955f3e4921b0e59ccbb"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 12,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": null,
+      "starting_points": [
+        [
+          2,
+          4
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 12,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          4
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 12,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          8
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 12,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": null,
+      "starting_points": [
+        [
+          6,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 12,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 12,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 12,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          6,
+          5
+        ]
+      ],
+      "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 12,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          2
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 12,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          7
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 12,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": null,
+      "starting_points": [
+        [
+          2,
+          4
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          4
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          8
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": null,
+      "starting_points": [
+        [
+          6,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          6,
+          5
+        ]
+      ],
+      "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          2
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          7
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 15,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 20,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": null,
+      "starting_points": [
+        [
+          2,
+          4
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 20,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          4
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 20,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          8
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 20,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": null,
+      "starting_points": [
+        [
+          6,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 20,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 20,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 20,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          6,
+          5
+        ]
+      ],
+      "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 20,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          2
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 20,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          7
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 20,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 30,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": null,
+      "starting_points": [
+        [
+          2,
+          4
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 30,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          4
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 30,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          8
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 30,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": null,
+      "starting_points": [
+        [
+          6,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 30,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 30,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 30,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          6,
+          5
+        ]
+      ],
+      "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 30,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          2
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 30,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          7
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 30,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 37,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": null,
+      "starting_points": [
+        [
+          2,
+          4
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 37,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          4
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 37,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          8
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 37,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": null,
+      "starting_points": [
+        [
+          6,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 37,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 37,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 37,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          6,
+          5
+        ]
+      ],
+      "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 37,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          2
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 37,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          7
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 37,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 50,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": null,
+      "starting_points": [
+        [
+          2,
+          4
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 50,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          4
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 50,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": null,
+      "starting_points": [
+        [
+          8,
+          8
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 50,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": null,
+      "starting_points": [
+        [
+          6,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 50,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 50,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 50,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          6,
+          5
+        ]
+      ],
+      "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 50,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          2
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 50,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": null,
+      "starting_points": [
+        [
+          5,
+          7
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf"
+    },
+    {
+      "case_name": "dynamic",
+      "csv_name": "dynamic",
+      "max_evaluations": 50,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": null,
+      "starting_points": [
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a"
+    },
+    {
+      "case_name": "column",
+      "csv_name": "compl_enum_column_17_baron.csv",
+      "max_evaluations": 16,
+      "n_starts": 3,
+      "seed": 10,
+      "grid_size": null,
+      "starting_points": [
+        [
+          10,
+          3
+        ],
+        [
+          13,
+          6
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "initial_design_sha256": "dfca46cac3ab1c4d3ca8410948e20b1364fd4241181d6be55b103cbba7974b20"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 0,
+      "grid_size": null,
+      "starting_points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "initial_design_sha256": "54ebed32866718f09dfc7a23f60de0982ce63cb0e90644fd7ef54f7e17860eb9"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 1,
+      "grid_size": null,
+      "starting_points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "d5e1123f980a50a86eb6ae47c871117f7f9305000e457f7ce605350d56ca6df9"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 2,
+      "grid_size": null,
+      "starting_points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "e4a51b79138cd8ba7d2d625fd9a1e4f24c3959f4a88336b413776e3e413570c0"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 3,
+      "grid_size": null,
+      "starting_points": [
+        [
+          3,
+          3,
+          2
+        ],
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "92d58f83a7ac15c66175f72562cf906fa5abfc13127073871532d4689e94e905"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 4,
+      "grid_size": null,
+      "starting_points": [
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          2
+        ]
+      ],
+      "initial_design_sha256": "f0b083593656e866d6aa475b5535875f2a20cbce73786042ca559780c4413917"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 5,
+      "grid_size": null,
+      "starting_points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "2484b7466395db8c70a0ba87127253318f08ac75a5f43a9ee8c003fccca30aa2"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 6,
+      "grid_size": null,
+      "starting_points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "811a220113c16e13945d5a48b041dd1e97efc114859d2d09cd004597afaf4302"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 7,
+      "grid_size": null,
+      "starting_points": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "initial_design_sha256": "dbada8dcad56e66d2e6e7752f0a65220b286bcdbbc7755bb4ad4a9a5d9a8e839"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 8,
+      "grid_size": null,
+      "starting_points": [
+        [
+          3,
+          2,
+          3
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "initial_design_sha256": "17d6bca8581623ea8715c9fd93a05f7a01ce4394aee8d8c9dd3f9248f1832e6c"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 9,
+      "grid_size": null,
+      "starting_points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "47605741880f67ba519aac12d0e6d647cd6ff91691410711bcc9853e37f7ae4e"
+    }
+  ],
+  "extraction_source": "Benchmark@ade6708:benchmark_protocols/fmqa_qhd_plan.json"
+}
