@@ -1,0 +1,21 @@
+Verified CSTR30 structural-rejection timing supplement
+
+Run: dantzig_cstr30_structural_20261015_214202_pgve882p
+Report: dantzig_cstr30_structural_20261015_214202_pgve882p/README.txt
+Original archive (local only, not published):
+../dantzig_review/cstr30_structural_returns/dantzig_cstr30_structural_20261015_214202_pgve882p.zip
+
+All435 x2>x1 coordinates have measured, finite, positive total_wall_s.
+The combined900-row table preserves every original field of the465 existing
+records. Solver calls and forbidden execution attempts are both0.
+
+All508 structural callbacks across40 CSTR30 DFO runs have reconstructed process
+costs. Time gaps decrease from515 to7. The remaining7 BAM B+1 protocol errors
+stay execution_failed with unknown costs. Original objectives, penalties,
+paths, budgets, categories, DFO clocks and lookup clocks remain unchanged.
+Use the added reconstructed timing columns; original timing fields retain
+their historical values. Repeated visits each incur their coordinate cost.
+
+Only necessary tables, manifests and audit records are exposed here. The
+unchanged local archive retains all individual checkpoints and execution sources.
+These are separate process-cost measurements, not a new DFO experiment.
