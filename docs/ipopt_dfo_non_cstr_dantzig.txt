@@ -1,0 +1,110 @@
+Column / Dynamic / Small Batch IPOPT lookup-only DFO experiment
+
+Scope
+  320 slots = (Column B16 + Dynamic B12/15/20/30/37/50 + Small Batch B10)
+  x four methods x seeds 0..9. CSTR is not included or modified.
+  Methods: RBFOpt MSRSM/solver/auto; BAM 5; budget-limited DSDA (diagonal,
+  first tie, tolerance 1e-12); FMQA-SA QHD_Data PyTorch with the original settings.
+  Model sizes: Column max_trays17,min_trays8,xD=xB0.95; Dynamic 9 stages,
+  nfe30/ncp3 Radau, mode_transfer=False; Small Batch original 3-stage model.
+  Search bounds: Column [7,1]..[15,9]; Dynamic [1,2]..[9,9]; Small Batch [1,1,1]..[3,3,3].
+
+Input selection
+  Original completed gams_ipopt enumeration from
+  results/dantzig_review/gams_cstr_audit_20260922/
+  dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/{case}/evaluations.csv.
+  Column64 rows/29 accepted; Dynamic37/37; Small Batch27/12.
+  Each CSV, manifest, summary and individual evaluation record is preserved.
+  provenance.json records original paths, hashes, sizes and acceptance.
+  Original source checksums and CSV-to-JSON objective/time agreement are checked
+  at build. Runtime verifies hashes and the entire declared logical domain.
+  There is one selected original attempt per point, no retries/best-of merging.
+  Column and Small Batch use saved upstream initialization. Dynamic uses
+  constructor defaults. Acceptance requires normal GAMS solve status 1,
+  model status 1/2, an optimal-class termination and primal residual <=1e-5.
+
+  The full search box is available to every method, without feasibility masks.
+  Column x1<8 or x2>8 and Dynamic !(x1<x2 || x1=x2=9) are model-logical
+  exclusions outside the enumeration tables. They produce failure responses,
+  marked logical_exclusion_unmeasured, with no invented solver status or time.
+  Missing rows inside the logical candidate domain make that case not_run.
+  Evaluated rejected/preprocessing rows keep their original status/reason.
+  Failure never means a global GDP infeasibility proof.
+
+Initialization and budget
+  Three ordered LHC integer starts, original case_studies.common procedure.
+  Original existing seeds are cross-checked; Column0 is generated, not replaced
+  by seed10. Starts do not depend on the IPOPT table or accepted values.
+  Same starts for all methods and all Dynamic budgets for each seed.
+  Every initial/failed/repeated callback counts; internal cache reuse does not.
+  Hard stop occurs in callback B after its value and cost are durably logged.
+  The terminal value is carried by the runner's observation ledger: callback B
+  raises BudgetStop instead of returning to the optimizer. Its
+  value_returned_to_optimizer=false and callback_exit=budget_stop are explicit.
+  This prevents restart batches from requesting B+1; final incumbent includes B.
+  No target-based early stopping or data-driven feasibility filtering is used.
+  DSDA fails if all three starts are unaccepted. Other methods may continue.
+  Failed seeds are preserved; no retries, seed replacement or deleted attempts.
+  Penalties: RBFOpt/DSDA1e6; BAM NaN; FMQA +inf (report1e6, observed training2).
+
+RBFOpt exception to the process-NLP prohibition
+  User authorized the original Bonmin/IPOPT surrogate optimization. Every
+  auxiliary call is logged separately. No GAMS smoke solves, process model
+  imports, process NLP evaluations, enumeration or GDPopt modifications occur.
+  Model source evidence is text only. No BARON objective data are bundled.
+
+Environment and timing
+  Uses existing .venv-dantzig-nlp-overnight and .venv-dantzig-fmqa-qhd.
+  Package versions checked per method; mismatch -> not_run, others proceed.
+  Environment overrides: IPOPT_DFO_PYTHON, IPOPT_FMQA_PYTHON, IPOPT_DFO_CONDA,
+  IPOPT_DFO_REPOSITORY, COIN_BIN, BAM_LICENSE_FILE. Nothing is installed/updated.
+  Sequential isolated workers, one logical CPU and numerical threads=1.
+  Running user-owned CSTR script CPU affinities and physical siblings are
+  excluded by read-only /proc checks. No CSTR processes are signalled/changed.
+  --cpu N requests a safe CPU. Failure to find one stops before searches.
+  CPU affinity is not an exclusive reservation against other users/jobs.
+  Hard watchdog:2100s/slot, original FMQA soft limit:1800s.
+  DFO wall clock starts before optimizer entry and includes callback/trace IO;
+  CSV loading and environment preflight are excluded. Worker process wall time
+  is separate. Watchdog/interruption may leave exact DFO time unknown, not zero.
+  Historical NLP setup/preprocess/solve/total fields come from the same row as
+  the objective. Per-callback sums charge repeats; unique-attempt sum is also
+  reported. They are historical cost estimates, not new NLP execution time.
+  Known partial sums are labeled; missing times make total comparison unavailable.
+  Dynamic one-time template preparation is retained separately, not added to
+  point totals. No other point/model supplies missing costs.
+
+Reporting
+  Target: each table's minimum accepted objective, computed only after search.
+  Published comparison tolerance, process_dsda_fairness.py:300:
+    abs(best_accepted-target) <= 1e-5*max(1,abs(target)).
+  Categories: target_reached, target_not_reached, execution_failed, not_run.
+  A failed execution with a prior target observation remains execution_failed;
+  target_observed_even_if_execution_failed records the separate observation.
+  Success denominator10 for every completed group, including failed seeds.
+  Any not_run -> group success rate unavailable; counts are still reported.
+
+On Dantzig inside the extracted ipopt_dfo_non_cstr_runner:
+  sha256sum -c SHA256SUMS
+  nohup bash run_ipopt_dfo_non_cstr_dantzig.sh run > launch.log 2>&1 < /dev/null &
+  tail -f launch.log
+  Optional check mode runs read-only input/environment checks, no optimizer or
+  solver. It creates a separate check directory; use run for a fresh experiment.
+
+Outputs: results/ipopt_dfo_non_cstr_TIMESTAMP_UNIQUE/
+  reproduction/: exact executable sources, immutable input copies and plan.json.
+  availability.json: case/method preflight blockers; run.json: execution config.
+  jobs/JOB/spec.json, actual_settings.json, runtime.json, callbacks.jsonl,
+  result.json, optimizer.log; FMQA proposals.jsonl; RBFOpt solver-call audit.
+  runs.csv: all320 slots; callbacks.csv: all actual evaluations including failures.
+  summary.csv/json: all32 groups of10; separate DFO and historical NLP times.
+  Full result ZIP and adjacent SHA256 on completion or controller interruption.
+  RESULT_DIR and RESULT_ZIP are printed to launch.log.
+
+After controller has stopped:
+  bash run_ipopt_dfo_non_cstr_dantzig.sh status --run-dir /absolute/RESULT_DIR
+  bash run_ipopt_dfo_non_cstr_dantzig.sh pack --run-dir /absolute/RESULT_DIR
+  bash run_ipopt_dfo_non_cstr_dantzig.sh resume --run-dir /absolute/RESULT_DIR
+  Resume preserves every saved failed/not_run/completed attempt; an interrupted
+  started slot is a failure. Only genuinely unstarted slots are launched.
+  To change unavailable inputs/environment, use a new independently identified run.
