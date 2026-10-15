@@ -16,15 +16,14 @@ Each job has one shared 1,800-second deadline, with one thread on CPU 6.
 Nine jobs can use up to about 4.5 hours plus preparation and cleanup.
 The wrapper verifies that CPUs 2 and 6 are allowed and are different physical
 cores before running alongside the existing CPU 2 RIC/GLOA experiment.
-It does not start or stop any RIC/GLOA job. `GDP_CPU` can override the default;
-the separate 15-job follow-up wrapper explicitly retains CPU 2 for both phases.
+It does not start or stop any RIC/GLOA job. `GDP_CPU` can override the default.
 LOA needs no MC++ relaxations; the existing `.venv-dantzig-gdp`, GAMS 52.2
 and pinned `external` model checkouts are reused.
 
 ## Upload from the Mac
 
 ```bash
-scp /Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/gdpopt_loa_cpu6_runner.zip \
+scp results/runners/gdpopt_loa_cpu6_runner.zip \
   lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/
 ```
 
