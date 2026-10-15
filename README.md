@@ -340,6 +340,15 @@ workflow. Existing notebook/GIF trajectories do not include BAM and are
 qualitative demonstrations, not evidence for the three-method comparison; use
 the audited static outputs from `case_study_analysis.py` for Issue #18.
 
+## Analytic Grid GDP Models
+
+The 21 existing 31-by-31 grids also have independent analytic Pyomo GDP
+formulations. Install with `python -m pip install ".[gdp,test]"`, then run
+`python -m gdp_models.grid validate` to check all 20,181 grid values.
+See [the formulation and API documentation](docs/grid_gdp.md) for coordinate
+selection, fixed-point models, historical function variants, and limitations.
+These checks require no optimization solver.
+
 ## Development Checks
 
 Run the current regression tests with:
@@ -351,7 +360,7 @@ python -m pytest tests/ -q
 Run the basic lint checks used by GitHub Actions with:
 
 ```bash
-python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py case_studies tests scripts
+python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py gdp_models case_studies tests scripts
 ```
 
 ## License
