@@ -1,0 +1,118 @@
+{
+  "slots": 80,
+  "counts": {
+    "target_not_reached": 51,
+    "target_reached": 29
+  },
+  "target_rule": "abs(best_accepted - table_accepted_minimum) <= 1e-5 * max(1, abs(table_accepted_minimum))",
+  "target_used_only_after_search": true,
+  "groups": [
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "bam",
+      "planned_seeds": 10,
+      "target_reached": 0,
+      "target_not_reached": 10,
+      "execution_failed": 0,
+      "not_run": 0,
+      "success_rate_denominator": 10,
+      "success_rate": 0.0,
+      "nlp_time_complete_runs": 0
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "bam",
+      "planned_seeds": 10,
+      "target_reached": 0,
+      "target_not_reached": 10,
+      "execution_failed": 0,
+      "not_run": 0,
+      "success_rate_denominator": 10,
+      "success_rate": 0.0,
+      "nlp_time_complete_runs": 0
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "bam",
+      "planned_seeds": 10,
+      "target_reached": 3,
+      "target_not_reached": 7,
+      "execution_failed": 0,
+      "not_run": 0,
+      "success_rate_denominator": 10,
+      "success_rate": 0.3,
+      "nlp_time_complete_runs": 0
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "bam",
+      "planned_seeds": 10,
+      "target_reached": 3,
+      "target_not_reached": 7,
+      "execution_failed": 0,
+      "not_run": 0,
+      "success_rate_denominator": 10,
+      "success_rate": 0.3,
+      "nlp_time_complete_runs": 0
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "bam",
+      "planned_seeds": 10,
+      "target_reached": 4,
+      "target_not_reached": 6,
+      "execution_failed": 0,
+      "not_run": 0,
+      "success_rate_denominator": 10,
+      "success_rate": 0.4,
+      "nlp_time_complete_runs": 0
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "bam",
+      "planned_seeds": 10,
+      "target_reached": 7,
+      "target_not_reached": 3,
+      "execution_failed": 0,
+      "not_run": 0,
+      "success_rate_denominator": 10,
+      "success_rate": 0.7,
+      "nlp_time_complete_runs": 0
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "bam",
+      "planned_seeds": 10,
+      "target_reached": 10,
+      "target_not_reached": 0,
+      "execution_failed": 0,
+      "not_run": 0,
+      "success_rate_denominator": 10,
+      "success_rate": 1.0,
+      "nlp_time_complete_runs": 0
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "bam",
+      "planned_seeds": 10,
+      "target_reached": 2,
+      "target_not_reached": 8,
+      "execution_failed": 0,
+      "not_run": 0,
+      "success_rate_denominator": 10,
+      "success_rate": 0.2,
+      "nlp_time_complete_runs": 10
+    }
+  ],
+  "input_errors": {},
+  "nlp_cost_scope": "Historical same-row costs, not NLP solves in this run; no borrowed/zero-filled missing times",
+  "dynamic_preparation": "Original one-time DAE/template cost retained in inputs/dynamic/preparation.json; not in per-row totals or DFO runtime"
+}

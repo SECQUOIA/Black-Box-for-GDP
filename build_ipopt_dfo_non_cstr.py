@@ -40,7 +40,11 @@ def plan():
     return rows
 
 
-def build(output):
+def build(output, methods=None):
+    selected = set(runner.METHODS if methods is None else methods)
+    if not selected or not selected <= set(runner.METHODS):
+        raise ValueError('Select one or more known methods')
+    selected_plan = [spec for spec in plan() if spec['method'] in selected]
     entries = {name: (ROOT / name).read_bytes() for name in FILES}
     entries['README.txt'] = entries['docs/ipopt_dfo_non_cstr_dantzig.txt']
     vendor = ROOT / 'fmqa_benchmark/vendor/qhd'
@@ -93,7 +97,7 @@ def build(output):
         p = SOURCE / 'source/gdp_models' / name
         assert runner.sha(p) == source_checks[p.relative_to(SOURCE).as_posix()]
         entries[f'evidence/{name}.txt'] = p.read_bytes()
-    entries['plan.json'] = (json.dumps(plan(), indent=2) + '\n').encode()
+    entries['plan.json'] = (json.dumps(selected_plan, indent=2) + '\n').encode()
     entries['build_provenance.json'] = (json.dumps({
         'git_head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
         'branch': subprocess.check_output(['git', 'branch', '--show-current'], cwd=ROOT, text=True).strip(),
@@ -131,4 +135,6 @@ def build(output):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
-    build(parser.parse_args().output)
+    parser.add_argument('--methods', nargs='+', choices=runner.METHODS, help='Default: all; use bam for the budget-fix rerun')
+    args = parser.parse_args()
+    build(args.output, methods=args.methods)

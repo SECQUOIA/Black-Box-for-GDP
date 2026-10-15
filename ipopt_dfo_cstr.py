@@ -35,7 +35,8 @@ TIMES = ('setup_wall_s', 'preprocess_wall_s', 'feasible_initialization_wall_s',
          'solve_wall_s', 'total_wall_s', 'worker_process_wall_s')
 SETTINGS = {
     'rbfopt': {'algorithm': 'MSRSM', 'global_search_method': 'solver', 'rbf': 'auto', 'num_cpus': 1},
-    'bam': {'integrality': 'all_integer', 'x0': None, 'print_to_screen': 1},
+    'bam': {'integrality': 'all_integer', 'x0': None, 'print_to_screen': 1,
+            'budget_stop_policy': 'native_max_evals_return_terminal_v2'},
     'dsda': {'diagonal': True, 'tie_break': 'first', 'tol': 1e-12},
     'fmqa_sa': {'epochs': 1000, 'learning_rate': 0.01, 'num_reads': 100,
                 'num_sweeps': 1000, 'time_limit': 1800},
@@ -251,8 +252,14 @@ class ProcessModelImportBlocker(importlib.abc.MetaPathFinder):
             raise ImportError(f'Process model/legacy objective import prohibited: {fullname}')
 
 
+def bam_native_budget(spec):
+    """Old frozen specs retain their original terminal-exception protocol."""
+    return (spec['method'] == 'bam' and
+            spec['settings'].get('budget_stop_policy') == 'native_max_evals_return_terminal_v2')
+
+
 class BudgetStop(Exception):
-    """The terminal callback is recorded; no B+1 callback is requested."""
+    """Stop non-BAM or legacy runs after recording evaluation B."""
 
 
 class MissingEvaluation(Exception):
@@ -293,6 +300,10 @@ class Oracle:
         value = float(row['objective']) if accepted else (
             math.nan if spec['method'] == 'bam' else math.inf)
         terminal = self.call_count + 1 == spec['budget']
+        # BAM must receive evaluation B. Its native max_evals already counts
+        # the remaining B-3 calls, including NaNs and repeated points. Raising
+        # here discards the last value and can trigger another native request.
+        stop_at_terminal = terminal and not bam_native_budget(spec)
         event = {'index': self.call_count + 1, 'phase': 'initial' if self.call_count < 3 else 'adaptive',
                  'point': list(point), 'cstr_size': CASES[spec['case']]['size'], 'callback_coordinates': raw_coordinates,
                  'budget_overrun': budget_overrun,
@@ -300,8 +311,8 @@ class Oracle:
                  'raw_objective': float(row['objective']) if accepted else None,
                  'method_value': value if math.isfinite(value) else None,
                  'method_value_kind': 'finite' if math.isfinite(value) else 'nan' if math.isnan(value) else '+inf',
-                 'value_returned_to_optimizer': not terminal and not protocol_error and state != 'not_evaluated',
-                 'callback_exit': 'protocol_error' if protocol_error else 'missing_data' if state == 'not_evaluated' else 'budget_stop' if terminal else 'return',
+                 'value_returned_to_optimizer': not stop_at_terminal and not protocol_error and state != 'not_evaluated',
+                 'callback_exit': 'protocol_error' if protocol_error else 'missing_data' if state == 'not_evaluated' else 'budget_stop' if stop_at_terminal else 'return',
                  'fmqa_reporting_penalty': 1e6 if spec['method'] == 'fmqa_sa' and not accepted else None,
                  'accepted': accepted, 'evaluation_state': state,
                  'failure_reason': protocol_error or (None if accepted else failure_reason(row) if row else state),
@@ -319,7 +330,7 @@ class Oracle:
             raise ValueError(protocol_error)
         if state == 'not_evaluated':
             raise MissingEvaluation(f'Unmeasured coordinate {point}; not declared infeasible')
-        if terminal:
+        if stop_at_terminal:
             raise BudgetStop()
         return value
 
@@ -399,7 +410,16 @@ def optimize(spec, oracle, config, directory):
         options = {'print_to_screen': 1, 'x_evaluated': np.array(spec['starts'], dtype=float),
                    'f_evaluated': values, 'max_evals': spec['budget'] - 3}
         write(directory / 'actual_settings.json', {'options': options, 'integrality': [1] * len(spec['lower']),
-              'x0': None, 'python_numpy_seed': spec['seed'], 'bam_seed_option': 'not exposed in original runner'})
+              'x0': None, 'python_numpy_seed': spec['seed'], 'bam_seed_option': 'not exposed in original runner',
+              'budget_stop_policy': spec['settings'].get('budget_stop_policy', 'terminal_exception_v1')})
+        if oracle.call_count == spec['budget']:
+            # Do not enter BAM when the shared initial design has already
+            # consumed the entire process-evaluation budget.
+            ranking = np.where(np.isfinite(values), values, np.inf)
+            best = int(np.argmin(ranking))
+            return {'x': spec['starts'][best], 'fun': clean(values[best]),
+                    'status': None, 'success': True, 'message': 'Budget exhausted by shared initialization',
+                    'nit': 0, 'nfev': 0}
         result = bam.minimize(oracle, x0=None, bounds=list(zip(spec['lower'], spec['upper'])),
                               integrality=[1] * len(spec['lower']), options=options)
         return {k: clean(getattr(result, k, None)) for k in ('x', 'fun', 'status', 'success', 'message', 'nit', 'nfev')}
@@ -463,6 +483,8 @@ def worker(directory):
             status, error = 'execution_failed', 'FMQA soft time limit'
         if spec['method'] == 'bam' and result.get('success') is False:
             status, error = 'execution_failed', f'BAM status={result.get("status")}: {result.get("message")}'
+        elif bam_native_budget(spec) and oracle.call_count == spec['budget']:
+            status = 'budget_completed'
     except BudgetStop as exc:
         status = 'budget_completed'
         result = {'backend_result_at_budget': clean(getattr(exc, 'result', None))}
@@ -709,7 +731,10 @@ def controller(args):
                 load_table(root, case)
             except Exception as error:
                 data_errors[case] = str(error)
+        selected_methods = {spec['method'] for spec in read(root / 'plan.json')}
         for method in METHODS:
+            if method not in selected_methods:
+                continue
             path = directory / f'preflight_{method}.json'
             executable = config['fmqa_python'] if method == 'fmqa_sa' else config['dfo_python']
             command = python_command(executable, config) + [str(root / 'ipopt_dfo_cstr.py'), '_preflight',

@@ -60,7 +60,8 @@ Algorithms, starts and budget
 
   Every original-process callback counts, including initial/failed/repeated
   calls. Internal surrogate evaluations and cache hits without callbacks do not.
-  Hard stop in callback B occurs after recording its objective, status and cost.
+  For RBFOpt, DSDA and FMQA-SA, the hard stop in callback B occurs after
+  recording its objective, status and cost.
   The terminal callback raises BudgetStop instead of returning a numeric value;
   value_returned_to_optimizer=false and callback_exit=budget_stop are explicit.
   Final best is the best accepted observation in the durable callback ledger,
@@ -134,3 +135,30 @@ Output: results/ipopt_dfo_cstr_TIMESTAMP_UNIQUE/
   Resume keeps completed/failed/not_run attempts, marks interrupted started slots
   failed, and launches only genuinely unstarted slots. No existing results are
   overwritten. Changed inputs or environments require a new identified run.
+
+BAM budget-stop correction (native_max_evals_return_terminal_v2)
+  BAM receives the Bth objective value normally, including NaN for an unaccepted
+  point. Its native max_evals=B-3 stops after the remaining adaptive evaluations.
+  The runner no longer throws BudgetStop at evaluation B for BAM. Other methods
+  retain the original terminal-exception behavior described above. When B=3,
+  shared initialization exhausts the budget and BAM is not invoked at all.
+  Every actual lookup, including repeated and rejected points, still counts.
+  A request beyond B is blocked before CSV access and remains an execution
+  failure; it is never silently accepted. Non-CSTR guard requests are now also
+  recorded in budget_overruns.jsonl, even if a backend suppresses the exception.
+  The policy is saved in the plan and actual_settings.json. Frozen specs without
+  this policy retain the legacy protocol for reproducibility. Historical result
+  archives and their failure classifications are not rewritten.
+  Validate this correction on the same cluster/software before replacing paper
+  results. Rerun all ten BAM seeds for each compared condition into a NEW run,
+  not only the formerly failing seeds; do not mix local smoke-test timing with
+  cluster timing. The historical import scripts remain pinned to their original
+  archives; a new return requires its own identified audit.
+
+  Build a new BAM-only bundle from the repository (all original seeds):
+    python build_ipopt_dfo_cstr.py --methods bam --output /new/path/bam_cstr_v2.zip
+  Transfer/extract this new ZIP, then use the normal run command above. The
+  controller checks and runs only methods present in its frozen plan. Never
+  resume the old bundle to apply this correction.
+  Previously measured structural-rejection cost supplements remain separate
+  evidence and must be joined by case/size/coordinate during result analysis.

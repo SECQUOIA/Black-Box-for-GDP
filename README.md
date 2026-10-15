@@ -518,3 +518,7 @@ python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py 
 This project's code is distributed under the MIT License. See `LICENSE` for
 the full license text. External source submodules retain their upstream terms;
 see [original GDP source attribution](docs/original_gdp_models.md#original-sources).
+
+### Corrected BAM process reruns (2026-10-15)
+
+All 140 BAM slots now use the audited native-budget reruns; the other 420 DFO runs are unchanged. Current combined results, figures, timing audit and manuscript source are in [results/process_ipopt_bam_v2_20261015](results/process_ipopt_bam_v2_20261015/REPORT.txt). The pinned importer is [scripts/import_bam_budget_v2.py](scripts/import_bam_budget_v2.py). Old archives remain unchanged for provenance.
