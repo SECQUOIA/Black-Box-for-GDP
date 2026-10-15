@@ -47,6 +47,9 @@ py-modules = [
     "grid_dsda",
     "grid_rbfopt",
     "instrumentation",
+    "evaluation_trace",
+    "trace_analysis",
+    "nlp_cost_analysis",
 ]
 packages = [
     "benchmark_grids",

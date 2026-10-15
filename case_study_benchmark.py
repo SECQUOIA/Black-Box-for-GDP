@@ -13,7 +13,7 @@ import subprocess
 import threading
 import time
 import uuid
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 from datetime import datetime, timezone
 from numbers import Integral
 from pathlib import Path
@@ -46,6 +46,7 @@ from case_studies.small_batch_case import UPPER_BOUNDS as SMALL_BATCH_UPPER_BOUN
 from case_studies.small_batch_dsda import run_small_batch_dsda
 from case_studies.small_batch_rbfopt import run_small_batch_rbfopt
 from instrumentation import RESULT_FIELDS, save_results_csv
+from evaluation_trace import EvaluationTrace, validate_trace_artifacts
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -572,6 +573,7 @@ def _provenance(matrix, cases, methods, n_starts):
         Path(__file__),
         BASE_DIR / "benchmark.py",
         BASE_DIR / "instrumentation.py",
+        BASE_DIR / "evaluation_trace.py",
         BASE_DIR / "case_studies" / "common.py",
     }
     for case_name in cases:
@@ -822,6 +824,7 @@ def _build_manifest(
     failed_run,
     software,
     provenance,
+    evaluation_traces=None,
 ):
     if status not in {"running", "failed", "completed"}:
         raise ValueError(f"Unsupported manifest status: {status}")
@@ -836,6 +839,8 @@ def _build_manifest(
     if not execution_context_history:
         raise ValueError("Execution context history must not be empty")
     return {
+        **({"evaluation_traces": evaluation_traces[:len(records)]}
+           if protocol.get("trace_evaluations") else {}),
         "manifest_version": MANIFEST_VERSION,
         "schema": _result_schema(),
         "protocol": protocol,
@@ -1044,6 +1049,7 @@ def _validate_resume_checkpoint(
     expected_prefix = planned_run_keys[: len(records)]
     if run_state.get("completed_run_keys") != expected_prefix:
         raise ValueError("Checkpoint completed run keys are not the planned prefix")
+    validate_trace_artifacts(manifest, partial_path, records)
     started_at = run_state.get("started_at_utc")
     if not isinstance(started_at, str) or not started_at:
         raise ValueError("Checkpoint manifest has no valid start timestamp")
@@ -1220,6 +1226,7 @@ def run_case_study_benchmark(
     resume=False,
     overwrite=False,
     max_run_seconds=None,
+    trace_evaluations=False,
 ):
     """Run or resume the matrix and save an audited CSV plus JSON manifest.
 
@@ -1335,6 +1342,8 @@ def run_case_study_benchmark(
         "bam_module": bam_module,
     }
     expected_protocol = _build_protocol(**protocol_context)
+    if trace_evaluations:
+        expected_protocol["trace_evaluations"] = True
 
     if resume:
         records, checkpoint_manifest = _load_resume_checkpoint(
@@ -1380,6 +1389,8 @@ def run_case_study_benchmark(
         "execution_context_history": execution_context_history,
         "software": software,
         "provenance": provenance,
+        "evaluation_traces": (list(checkpoint_manifest["evaluation_traces"])
+                              if resume and trace_evaluations else []),
     }
     _save_checkpoint(
         partial_path=partial_path,
@@ -1429,9 +1440,15 @@ def run_case_study_benchmark(
                 )
 
             try:
-                with _runner_deadline(max_run_seconds, current_run_key):
-                    result = runners[case_name][method](**kwargs)
-                result_record = result["result_record"]
+                trace_context = (EvaluationTrace(output_path, current_run_key)
+                                 if trace_evaluations else nullcontext())
+                with trace_context as trace:
+                    with _runner_deadline(max_run_seconds, current_run_key):
+                        result = runners[case_name][method](**kwargs)
+                    result_record = result["result_record"]
+                    if trace is not None:
+                        artifact = trace.complete(result_record)
+                        manifest_context["evaluation_traces"].append(artifact)
                 _validate_record_matches_run_key(
                     result_record,
                     current_run_key,
@@ -1583,6 +1600,10 @@ def build_parser():
     )
     parser.add_argument("--no-diagonal", action="store_true")
     parser.add_argument("--verbose", action="store_true")
+    parser.add_argument(
+        "--trace-evaluations", action="store_true",
+        help="Persist every objective callback in audited JSONL sidecars.",
+    )
     return parser
 
 
@@ -1616,6 +1637,7 @@ def main(argv=None, rbfopt_module=None, bam_module=None, runners=None):
         resume=args.resume,
         overwrite=args.overwrite,
         max_run_seconds=args.max_run_seconds,
+        trace_evaluations=args.trace_evaluations,
     )
     print(f"Process case-study benchmark completed: {len(records)} runs")
     print(f"Results saved in: {output_path}")
