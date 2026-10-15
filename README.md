@@ -358,3 +358,9 @@ python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py 
 
 This project is distributed under the MIT License. See `LICENSE` for the full
 license text.
+
+## IPOPT CSV-backed process DFO
+
+See [implementation scope and prerequisites](docs/issue_28_integration.md)
+for issue #28. Experimental results remain on the `Benchmark` branch and
+will be integrated separately from these implementation changes.

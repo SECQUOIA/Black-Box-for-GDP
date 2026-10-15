@@ -1,0 +1,164 @@
+CSTR-only IPOPT CSV DFO experiment for Dantzig
+
+240 slots: N/B = 5/8, 10/15, 15/22, 20/29, 25/36, 30/43;
+four methods (RBFOpt, BAM, budget-limited DSDA, FMQA-SA), seeds 0..9.
+Two integer coordinates each range from 1 through N. No feasibility mask.
+No non-CSTR runner, source, input or output is changed by this bundle.
+
+Inputs
+  N5/10/15: completed dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.
+  N20/25: completed dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.
+  N30: original completed gams_cstr_audit_20260922/
+    dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/cstr_30.
+  Raw CSV bytes, original manifests, summaries and per-coordinate JSON records
+  are frozen. Original paths, archive/file hashes, upstream commit and procedure
+  are in inputs/cstr_N/provenance.json. All original archive hashes and every
+  CSV-to-JSON objective/status/time pair are verified when building.
+  Runtime rechecks hashes, N, full required domain, initialization and acceptance.
+  Missing, pending, duplicate, mismatched or ambiguous inputs -> not_run for N.
+  A ready size proceeds even when another size is unavailable.
+
+  Accepted / processed unaccepted / unmeasured logical exclusions:
+    N5: 15 / 10 / 0; N10: 54 / 46 / 0; N15: 120 / 105 / 0;
+    N20: 210 / 190 / 0; N25: 325 / 300 / 0; N30: 458 / 7 / 435.
+  N10 [10,1] remains rejected. N30's seven original rejected points remain
+  rejected: [5,1], [5,3], [6,2], [6,4], [23,2], [26,2], [29,3].
+  Single original attempt per coordinate. No retries, best-of merging, relaxed
+  acceptance, reused N30 values for smaller models, or BARON objective data.
+  These completed rejections do not prove global mathematical infeasibility.
+
+  N5..25 initialization: mass_balance_zero_recycle after preprocessing, with
+  original constraints/bounds unchanged and initial primal residual <=1e-8.
+  N30 initialization: constructor_defaults (no upstream saved initialization).
+  This initialization difference is preserved and must accompany comparisons.
+  Accepted requires GAMS SOLVESTAT1, MODELSTAT1/2, optimal-class termination,
+  no error/aborted solver status, finite objective and primal residual <=1e-5.
+  The original solver options/limits and status are retained in raw JSON records.
+
+  y>x contradicts the CSTR active-reactor/recycle logic; frozen model and adapter
+  text evidence is in evidence/box_*/source/gdp_models/models.py.txt,
+  evidence/cstr_30/models.py.txt, and evidence/upstream/gdp/cstr/gdp_reactor.py.txt.
+  These coordinates stay in every search box and count as failed evaluations.
+  N5..25 have measured preprocessing_infeasible rows for them; N30 returns
+  logical_exclusion_unmeasured with no invented solver status or time.
+
+Algorithms, starts and budget
+  Original three ordered LatinHypercube integer starts for each N/seed. The
+  generated designs are checked against both frozen FMQA and DSDA reference
+  plans. Identical starts across all four methods; no feasibility resampling.
+  RBFOpt: MSRSM, global_search_method=solver, rbf=auto, rand_seed=seed.
+  BAM5: x0=None, integer variables, three pre-evaluated starts, max_evals=B-3;
+  native internal solver/defaults unchanged. Python/NumPy seeded; original BAM
+  runner exposes no separate native seed option. Native output is saved.
+  DSDA: full box, best accepted of the three observed starts, diagonal=True,
+  first tie, tolerance1e-12, max_points_explored=B-3. No accepted start -> failure.
+  FMQA-SA: original QHD_Data PyTorch surrogate, 1000 epochs, learning_rate=.01,
+  SA100 reads/1000 sweeps/geometric, three SeedSequence streams, 1800s soft limit.
+  Every method's actual options, environment and shared starts are saved.
+  Failure representation: RBFOpt/DSDA +inf, BAM NaN, FMQA +inf (report1e6,
+  observed-training penalty2). No new finite penalty introduced for CSTR.
+
+  Every original-process callback counts, including initial/failed/repeated
+  calls. Internal surrogate evaluations and cache hits without callbacks do not.
+  For RBFOpt, DSDA and FMQA-SA, the hard stop in callback B occurs after
+  recording its objective, status and cost.
+  The terminal callback raises BudgetStop instead of returning a numeric value;
+  value_returned_to_optimizer=false and callback_exit=budget_stop are explicit.
+  Final best is the best accepted observation in the durable callback ledger,
+  including observation B. This prevents restart batches from exceeding B.
+  Search paths are newly generated. No historical paths are relabeled.
+  Failed seeds remain failed; no replacement seeds or retries.
+
+Allowed solvers
+  RBFOpt's original Bonmin/IPOPT surrogate calls and BAM's native BARON-based
+  surrogate optimization remain enabled. Auxiliary solver cost is DFO time.
+  No original process GDP/NLP is built or solved, no IPOPT process reevaluation,
+  no enumeration, no GDPopt edits, no solver installation or environment updates.
+  Executable process models and legacy lookup tables are absent from the bundle.
+
+Time and reports
+  DFO wall time includes imports at optimizer entry, learning, candidate and
+  auxiliary solver work, callbacks and trace IO. Input loading and environment
+  checks are outside this clock. Worker process wall time is recorded separately.
+  Historical NLP setup/preprocess/feasible-initialization/solve/total/worker times
+  come only from the same CSV row and original attempt as the objective.
+  Repeated callbacks charge repeated historical costs; unique-attempt and all-
+  attempt sums are separately labeled. Here every coordinate has one attempt.
+  Missing breakdowns stay null. N30 unmeasured exclusions have no total time.
+  N5..25 logical exclusions have measured total and solver time0 (no NLP call),
+  but their missing setup/preprocess breakdowns are not filled with zeros.
+  CSV lookup time is never presented as newly measured NLP execution time.
+
+  Table accepted minima are reporting targets, never global GDP optimum claims:
+    N5 3.0620145766081155; N10 2.889536968602369;
+    N15 2.8293940630895253; N20 2.7994064251078212;
+    N25 2.7814825926752516; N30 2.7695697198995095. Each minimum is at [N,N].
+  Targets and full-table statistics are never passed to algorithm initialization,
+  candidate selection or stopping. Published report tolerance source:
+  process_dsda_fairness.py:300, abs(best-target)<=1e-5*max(1,abs(target)).
+  target_reached / target_not_reached / execution_failed / not_run are separate.
+  Failed execution with a prior target observation stays execution_failed.
+  Ten-seed denominator includes failures; any not_run leaves the group rate null.
+
+Dantzig execution
+  Use the existing .venv-dantzig-nlp-overnight and .venv-dantzig-fmqa-qhd.
+  Missing/mismatched method environment -> not_run; other methods proceed.
+  Overrides: IPOPT_DFO_REPOSITORY, IPOPT_DFO_PYTHON, IPOPT_FMQA_PYTHON,
+  IPOPT_DFO_CONDA, COIN_BIN, BAM_LICENSE_FILE. No license file is bundled.
+  Sequential isolated workers, one logical CPU, numerical threads1, CPU PyTorch.
+  Read-only /proc checks exclude running non-CSTR DFO and CSTR NLP jobs' CPU
+  affinities and all their physical-core siblings. Other jobs are never modified
+  or signalled. --cpu N must pass the same check. If separation is impossible,
+  no searches start. Affinity is not an exclusive reservation against other users.
+  Controller/children inherit the selected CPU. Hard watchdog2100s per slot.
+
+  Inside the extracted ipopt_dfo_cstr_runner directory:
+    sha256sum -c SHA256SUMS
+    nohup bash run_ipopt_dfo_cstr_dantzig.sh run > launch.log 2>&1 < /dev/null &
+    tail -f launch.log
+  Optional check mode verifies inputs/environments without any optimizer/solver.
+  It creates a separate check directory. Use run for the actual experiment.
+
+Output: results/ipopt_dfo_cstr_TIMESTAMP_UNIQUE/
+  reproduction/: frozen sources, read-only inputs and all240 plan slots.
+  run.json, availability.json, cpu_selection.json, inputs_report.csv/json.
+  jobs/cstr_N_.../: spec, actual settings, runtime, callbacks, result and log.
+  FMQA proposals and RBFOpt auxiliary solver-call audit are saved separately.
+  runs.csv all240 slots; callbacks.csv every actual process evaluation request;
+  summary.csv/json all24 groups; full result ZIP plus SHA256.
+  RESULT_DIR and RESULT_ZIP appear in launch.log.
+
+  After controller stops:
+    bash run_ipopt_dfo_cstr_dantzig.sh status --run-dir /absolute/RESULT_DIR
+    bash run_ipopt_dfo_cstr_dantzig.sh pack --run-dir /absolute/RESULT_DIR
+    bash run_ipopt_dfo_cstr_dantzig.sh resume --run-dir /absolute/RESULT_DIR
+  Resume keeps completed/failed/not_run attempts, marks interrupted started slots
+  failed, and launches only genuinely unstarted slots. No existing results are
+  overwritten. Changed inputs or environments require a new identified run.
+
+BAM budget-stop correction (native_max_evals_return_terminal_v2)
+  BAM receives the Bth objective value normally, including NaN for an unaccepted
+  point. Its native max_evals=B-3 stops after the remaining adaptive evaluations.
+  The runner no longer throws BudgetStop at evaluation B for BAM. Other methods
+  retain the original terminal-exception behavior described above. When B=3,
+  shared initialization exhausts the budget and BAM is not invoked at all.
+  Every actual lookup, including repeated and rejected points, still counts.
+  A request beyond B is blocked before CSV access and remains an execution
+  failure; it is never silently accepted. Non-CSTR guard requests are now also
+  recorded in budget_overruns.jsonl, even if a backend suppresses the exception.
+  The policy is saved in the plan and actual_settings.json. Frozen specs without
+  this policy retain the legacy protocol for reproducibility. Historical result
+  archives and their failure classifications are not rewritten.
+  Validate this correction on the same cluster/software before replacing paper
+  results. Rerun all ten BAM seeds for each compared condition into a NEW run,
+  not only the formerly failing seeds; do not mix local smoke-test timing with
+  cluster timing. The historical import scripts remain pinned to their original
+  archives; a new return requires its own identified audit.
+
+  Build a new BAM-only bundle from the repository (all original seeds):
+    python build_ipopt_dfo_cstr.py --methods bam --output /new/path/bam_cstr_v2.zip
+  Transfer/extract this new ZIP, then use the normal run command above. The
+  controller checks and runs only methods present in its frozen plan. Never
+  resume the old bundle to apply this correction.
+  Previously measured structural-rejection cost supplements remain separate
+  evidence and must be joined by case/size/coordinate during result analysis.
