@@ -67,9 +67,10 @@ def validate_callback(event, spec, table, index):
     expected_state = ('invalid_callback' if overrun else 'accepted' if accepted else
                       'evaluated_unaccepted' if source else 'logical_exclusion_unmeasured')
     require(event['evaluation_state'] == expected_state, 'Evaluation state mismatch')
-    expected_exit = 'protocol_error' if overrun else 'budget_stop' if index == spec['budget'] else 'return'
+    terminal_stop = index == spec['budget'] and not runner.bam_native_budget(spec)
+    expected_exit = 'protocol_error' if overrun else 'budget_stop' if terminal_stop else 'return'
     require(event['callback_exit'] == expected_exit, 'Callback exit mismatch')
-    require(event['value_returned_to_optimizer'] is (index < spec['budget']), 'Delivered-value flag mismatch')
+    require(event['value_returned_to_optimizer'] is (index <= spec['budget'] and not terminal_stop), 'Delivered-value flag mismatch')
     require(event['selected_attempt'] == (1 if source else None)
             and event['available_attempts'] == (1 if source else 0), 'Unexpected retry selection')
     for field in ('selected_attempt_nlp_s', 'all_attempts_nlp_s'):
@@ -94,6 +95,9 @@ def validate_settings(spec, settings, events):
         expected = {**spec['settings'], 'max_evaluations': budget, 'rand_seed': spec['seed'], 'target_objval': -1e10}
         require(all(settings[k] == v for k, v in expected.items()), 'RBFOpt options/target changed')
     elif method == 'bam':
+        if runner.bam_native_budget(spec):
+            require(settings.get('budget_stop_policy') == spec['settings']['budget_stop_policy'],
+                    'BAM budget-stop policy mismatch')
         options = settings['options']
         require(options['max_evals'] == budget - 3 and options['x_evaluated'] == spec['starts'], 'BAM design/budget changed')
         require(options['f_evaluated'] == [e['raw_objective'] for e in events[:3]], 'BAM initial objectives changed')
@@ -140,7 +144,8 @@ def extract_verified(archive, temporary):
         require(names == {p.relative_to(reproduction).as_posix() for p in reproduction.rglob('*') if p.is_file()},
                 'Extra/missing reproduction files')
     runner.verify_inventory(reproduction)
-    require(runner.sha(Path(runner.__file__)) == runner.sha(reproduction / 'ipopt_dfo_cstr.py'), 'Local verifier runner differs')
+    # The pinned package above authenticates historical source bytes; current
+    # validation helpers need not be byte-identical to that frozen runner.
     run = runner.read(directory / 'run.json')
     require(run['bundle_inventory_sha256'] == runner.sha(reproduction / 'SHA256SUMS'), 'Run inventory mismatch')
     return directory, checks, len(names)

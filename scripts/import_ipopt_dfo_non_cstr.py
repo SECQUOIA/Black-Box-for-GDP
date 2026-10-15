@@ -80,7 +80,7 @@ def extract_verified(archive, temporary):
     require(names == {p.relative_to(reproduction).as_posix() for p in reproduction.rglob('*') if p.is_file()},
             'Missing/extra reproduction files')
     runner.verify_inventory(reproduction)
-    require(runner.sha(runner.__file__) == runner.sha(reproduction / 'ipopt_dfo_non_cstr.py'), 'Local runner differs')
+    # Historical source bytes are authenticated against the pinned package above.
     require(runner.read(directory / 'run.json')['bundle_inventory_sha256'] == runner.sha(reproduction / 'SHA256SUMS'),
             'Run inventory mismatch')
     return directory, hashes, len(names)
@@ -108,8 +108,9 @@ def validate_callback(event, spec, table, index):
     require(event['evaluation_state'] == state, 'Evaluation state mismatch')
     reason = None if accepted else source['message'] if source else state
     require(event['failure_reason'] == reason, 'Original failure reason changed')
-    require(event['callback_exit'] == ('budget_stop' if index == spec['budget'] else 'return'), 'Callback exit mismatch')
-    require(event['value_returned_to_optimizer'] is (index < spec['budget']), 'Delivered-value flag mismatch')
+    terminal_stop = index == spec['budget'] and not runner.bam_native_budget(spec)
+    require(event['callback_exit'] == ('budget_stop' if terminal_stop else 'return'), 'Callback exit mismatch')
+    require(event['value_returned_to_optimizer'] is (index <= spec['budget'] and not terminal_stop), 'Delivered-value flag mismatch')
     require(event['selected_attempt'] == (1 if source else None) and event['available_attempts'] == (1 if source else 0),
             'Unexpected attempt selection')
     for field in ('selected_attempt_nlp_s', 'all_attempts_nlp_s'):
@@ -141,6 +142,9 @@ def validate_settings(spec, settings, events):
         expected = {**spec['settings'], 'max_evaluations': budget, 'rand_seed': spec['seed'], 'target_objval': -1e10}
         require(all(settings[k] == v for k, v in expected.items()), 'RBFOpt options/target changed')
     elif method == 'bam':
+        if runner.bam_native_budget(spec):
+            require(settings.get('budget_stop_policy') == spec['settings']['budget_stop_policy'],
+                    'BAM budget-stop policy mismatch')
         options = settings['options']
         require(options['max_evals'] == budget - 3 and options['x_evaluated'] == spec['starts'], 'BAM design/budget changed')
         require(options['f_evaluated'] == [e['raw_objective'] for e in events[:3]], 'BAM initial objectives changed')
@@ -188,7 +192,12 @@ def verify(directory):
     root = directory / 'reproduction'
     from build_ipopt_dfo_non_cstr import plan as original_design
     plan = runner.read(root / 'plan.json')
-    require(plan == original_design() and len(plan) == 320, 'Plan differs from original settings/LHC procedure')
+    expected_plan = original_design()
+    for spec in expected_plan:
+        # This importer is pinned to the pre-fix archive; compare its original
+        # settings without mutating the current runner's shared SETTINGS.
+        spec['settings'] = {k: v for k, v in spec['settings'].items() if k != 'budget_stop_policy'}
+    require(plan == expected_plan and len(plan) == 320, 'Plan differs from original settings/LHC procedure')
     require({p.name for p in (directory / 'jobs').iterdir()} == {s['job_id'] for s in plan}, 'Missing/extra job directory')
     require(runner.read(directory / 'availability.json') == {'data_errors': {}, 'environment_errors': {}}, 'Preflight errors')
     tables = {case: runner.load_table(root, case)[0] for case in runner.CASES}

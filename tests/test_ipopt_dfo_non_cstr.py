@@ -76,13 +76,17 @@ def test_failures_repeats_terminal_callback_and_missing_times(frozen, tmp_path, 
     for p in s['starts']:
         oracle(p)
     oracle([1, 4])
-    with pytest.raises(r.BudgetStop):
-        oracle([1, 4])
+    if method == 'bam':
+        assert oracle([1, 4]) == float(table[tuple([1, 4])]['objective'])
+    else:
+        with pytest.raises(r.BudgetStop):
+            oracle([1, 4])
     assert oracle.call_count == 5
     events = r.jsonl(tmp_path / 'callbacks.jsonl')
     assert events[0]['evaluation_state'] == 'logical_exclusion_unmeasured'
     assert events[0]['method_value_kind'] == kind and events[0]['selected_attempt_nlp_s'] is None
-    assert events[-1]['callback_exit'] == 'budget_stop' and not events[-1]['value_returned_to_optimizer']
+    assert events[-1]['callback_exit'] == ('return' if method == 'bam' else 'budget_stop')
+    assert events[-1]['value_returned_to_optimizer'] is (method == 'bam')
     assert events[-1]['source_row']['point'] == '[1, 4]'
     assert events[-1]['raw_objective'] == float(table[(1, 4)]['objective'])
     assert events[-1]['selected_attempt_nlp_s'] == float(table[(1, 4)]['total_wall_s'])
@@ -167,10 +171,13 @@ def test_bam_three_ordered_starts_and_remaining_budget(frozen, tmp_path, monkeyp
         assert kw['options']['x_evaluated'].tolist() == s['starts']
         assert oracle.call_count == 3
         objective([1, 4]); objective([1, 5])
+        return types.SimpleNamespace(status=35, success=True, nfev=2, fun=0, x=[1, 5])
     monkeypatch.setitem(sys.modules, 'bam', types.SimpleNamespace(set_license_file=lambda p: None, minimize=minimize))
-    with pytest.raises(r.BudgetStop):
-        r.optimize(s, oracle, {'bam_license': '/license'}, tmp_path)
+    result = r.optimize(s, oracle, {'bam_license': '/license'}, tmp_path)
+    assert result['status'] == 35 and result['success'] is True
     assert oracle.call_count == 5
+    assert oracle.events[-1]['value_returned_to_optimizer']
+    assert r.read(tmp_path / 'actual_settings.json')['budget_stop_policy'] == s['settings']['budget_stop_policy']
 
 
 def test_summary_keeps_320_slots_and_ten_seed_denominators(frozen, tmp_path):
@@ -234,3 +241,29 @@ def test_actual_rbfopt_initial_callbacks_no_auxiliary_solve(frozen, tmp_path, mo
         r.optimize(s, oracle, {'bonmin': '/not-used', 'ipopt': '/not-used'}, tmp_path)
     assert [e['point'] for e in oracle.events] == s['starts']
     assert not (tmp_path / 'auxiliary_solver_calls.jsonl').exists()
+
+
+def test_bam_only_bundle_keeps_every_seed_and_preflights_only_bam(tmp_path, monkeypatch):
+    archive = tmp_path / 'bam_runner.zip'
+    builder.build(archive, methods=['bam'])
+    with zipfile.ZipFile(archive) as z:
+        z.extractall(tmp_path)
+    frozen = tmp_path / ('ipopt_dfo_cstr_runner' if r.__name__.endswith('_cstr') and not r.__name__.endswith('non_cstr') else 'ipopt_dfo_non_cstr_runner')
+    r.verify_inventory(frozen)
+    plan = r.read(frozen / 'plan.json')
+    expected = [s for s in builder.plan() if s['method'] == 'bam']
+    assert plan == expected and {s['seed'] for s in plan} == set(range(10))
+    assert all(r.bam_native_budget(s) for s in plan)
+    monkeypatch.setattr(r, 'ROOT', frozen)
+    monkeypatch.setattr(r, 'select_cpu', lambda cpu: {'selected': cpu})
+    calls = []
+    def fake_launch(command, log, seconds):
+        calls.append(command)
+        assert command[command.index('--method') + 1] == 'bam'
+        return 1, .01, False
+    monkeypatch.setattr(r, 'launch', fake_launch)
+    args = types.SimpleNamespace(mode='check', run_dir=None, output_root=tmp_path / 'checks',
+             dfo_python='/not-installed', fmqa_python='/not-installed', conda='',
+             bonmin='/not-installed', ipopt='/not-installed', bam_license='/not-installed', cpu=4)
+    r.controller(args)
+    assert len(calls) == 1
