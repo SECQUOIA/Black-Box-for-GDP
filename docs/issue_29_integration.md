@@ -1,0 +1,30 @@
+# Issue #29: implementation extraction
+
+This branch extracts implementation, tests, and documentation from
+`AlbertLee125/RBFopt_Test:Benchmark` at `ade67082ad2b09583a8f5594b827c97417e0ea99`.
+It contains no experiment outputs or result archives. Existing results remain
+on [Benchmark](https://github.com/AlbertLee125/RBFopt_Test/tree/ade67082ad2b09583a8f5594b827c97417e0ea99)
+and are intended for a separate result merge from that branch.
+
+This is a reviewable implementation draft, not a claim that every acceptance
+criterion or production experiment has been completed on main. Historical
+launch guides preserve their original paths; frozen input archives must be
+restored separately before replaying those commands. Do not substitute other
+model sizes, evaluation procedures, or objective tables for absent inputs.
+
+## Dependencies and review boundaries
+
+Depends on #27 for process models and domain/batch helpers. Legacy publication adapters also require the separate FMQA protocol module; imports are deferred so callback instrumentation remains usable without it. Historical archive tests are explicitly skipped when the immutable inputs are absent. Existing tests are grouped under tests/trace_timing to avoid conflicting with other PR prerequisites. Grid trace runner and additional publication analysis integration remain follow-up work under #29.
+
+## Validation of this extraction
+
+- Full standalone suite: 214 passed, 51 explicitly skipped for absent #27 code or archives.
+- With the extracted #27 package on PYTHONPATH, cost-ledger and process-enumeration
+  tests: 21 passed, 4 historical-reference tests skipped.
+- Ruff passed for modified shared runtime, trace/cost modules and tests.
+- No production enumeration, process NLP solver, or DFO search was run.
+
+The historical source/manifest checks remain unchanged. Restoring arbitrary
+replacement tables does not satisfy archive replay prerequisites. Skipped tests
+are not evidence that archive replay succeeded. Reconcile the package-list
+addition with the other independent implementation PRs before merge.

@@ -358,3 +358,9 @@ python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py 
 
 This project is distributed under the MIT License. See `LICENSE` for the full
 license text.
+
+## Evaluation tracing and timing
+
+See [implementation scope and prerequisites](docs/issue_29_integration.md)
+for issue #29. Experimental results remain on the `Benchmark` branch and
+will be integrated separately from these implementation changes.
