@@ -23,11 +23,10 @@ regenerates the server's tables for exact comparison. Historical raw results
 remain in their original folders; use the combined tables in this directory
 for current reporting.
 
-overleaf_source.zip is the full verified 19-file Overleaf source snapshot;
-manuscript.pdf is its verified 27-page compilation (0 errors, 0 warnings).
-
-main.tex updates the process method description, process results, and dependent
-discussion without changing analytical-grid results or full-GDP raw results.
 The four active process figures and two supplemental plots are regenerated.
+The repository contains experimental data, analysis code and figures.
+Manuscript editing is managed in Overleaf.
+87 regression and pinned-archive integration tests passed.
+
 Eight conflicting algebraic solver optimality reports remain unresolved.
 Times are retrospective fixed-path estimates, not online optimizer-NLP times.
