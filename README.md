@@ -11,6 +11,29 @@ and visual outputs used to document selected optimization case studies on
 grid-based test problems. The repository is intended for regression testing and
 documentation of workflows involving RBFOpt and related discrete search methods.
 
+## Benchmark results
+
+Start with the retained result datasets:
+
+- [Full-box Column and Dynamic IPOPT measurements](results/column_dynamic_box_ipopt/INDEX.txt):
+  all 153 coordinates, including measured failure and logical-rejection times.
+- [Size-specific CSTR IPOPT measurements](results/cstr_box_ipopt/INDEX.txt):
+  completed sizes 5, 10, 15, 20 and 25, with original rejected records retained.
+- [Grid comparison](results/grid_gdp_dfo_20261011/README.md): 4,200 runs,
+  evaluation costs, tables and figures.
+- [Completed process comparison input](results/process_dsda_recovery_20261014/README.md):
+  560 selected runs, including all 140 corrected DSDA runs. Published figures
+  have not yet been replaced with this complete selection.
+- [GDPopt/MINLP comparison](results/gdp_comparison_current/analysis/README.md).
+- [Original result archives](results/archives/README.md) and
+  [executed runner packages](results/runners/README.md).
+
+Raw archives, source snapshots, evaluation traces, runtime records and checksums
+are retained as evidence. Analysis scripts rebuild tables from those inputs;
+the result reports document their commands. Obsolete work prompts and unused
+launch procedures are not required to use the results. Historical instructions
+inside executed archives remain unchanged.
+
 ## Installation
 
 From a source checkout, install the project and the development tools used in

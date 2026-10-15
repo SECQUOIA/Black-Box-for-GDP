@@ -33,7 +33,7 @@ older GAMS writer allowlist; actual availability is verified by solving a MIP.
 On the Mac, from the repository:
 
 ```bash
-scp results/dantzig_review/gdpopt_baron_highs_runner.zip \
+scp results/runners/gdpopt_baron_highs_runner.zip \
   lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/
 ```
 
