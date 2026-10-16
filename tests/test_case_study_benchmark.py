@@ -3,6 +3,7 @@
 import csv
 import hashlib
 import json
+import shutil
 import signal
 import time
 from datetime import datetime
@@ -749,6 +750,73 @@ def test_resume_names_reproducibility_critical_provenance_mismatch(tmp_path):
             runners={"cstr": {"dsda": _fake_runner("dsda", [])}},
             resume=True,
         )
+
+
+@pytest.mark.parametrize("change_helper", (False, True))
+def test_resume_checks_dsda_helper_source_before_runner_callbacks(
+    tmp_path, monkeypatch, change_helper
+):
+    source_root = tmp_path / "source"
+    for relative_path in (
+        "benchmark.py",
+        "instrumentation.py",
+        "grid_dsda.py",
+        "case_studies/common.py",
+        "case_studies/cstr_case.py",
+        "case_studies/cstr_dsda.py",
+        "case_studies/dsda_domain.py",
+        "case_study_data/cstr/compl_enum_cstr_5_baron_hull.csv",
+    ):
+        destination = source_root / relative_path
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(case_study_benchmark.BASE_DIR / relative_path, destination)
+    monkeypatch.setattr(case_study_benchmark, "BASE_DIR", source_root)
+
+    output_path = _create_one_row_checkpoint(tmp_path, "helper_source.csv")
+    partial_path = case_study_benchmark.case_study_partial_path(output_path)
+    manifest_path = case_study_benchmark.case_study_manifest_path(partial_path)
+    checkpoint_csv = partial_path.read_bytes()
+    checkpoint_manifest = manifest_path.read_bytes()
+    manifest = json.loads(checkpoint_manifest)
+    assert manifest["run"]["status"] == "failed"
+    assert manifest["run"]["completed_rows"] == 1
+    with partial_path.open(newline="") as handle:
+        assert [int(row["seed"]) for row in csv.DictReader(handle)] == [0]
+
+    if change_helper:
+        helper_path = source_root / "case_studies" / "dsda_domain.py"
+        original_helper = helper_path.read_text(encoding="utf-8")
+        changed_helper = original_helper.replace(
+            "valid.sort(key=lambda item: item[1])",
+            "valid.sort(key=lambda item: item[1], reverse=True)",
+        )
+        assert changed_helper != original_helper
+        helper_path.write_text(changed_helper, encoding="utf-8")
+
+    resume_calls = []
+
+    def resume():
+        return case_study_benchmark.run_case_study_benchmark(
+            cases=("cstr",),
+            methods=("dsda",),
+            seeds=(0, 1),
+            cstr_grid_sizes=(5,),
+            output=output_path,
+            runners={"cstr": {"dsda": _fake_runner("dsda", resume_calls)}},
+            resume=True,
+        )
+
+    if change_helper:
+        with pytest.raises(ValueError, match="provenance source_files_sha256"):
+            resume()
+        assert resume_calls == []
+        assert partial_path.read_bytes() == checkpoint_csv
+        assert manifest_path.read_bytes() == checkpoint_manifest
+        assert not output_path.exists()
+    else:
+        records, _ = resume()
+        assert [record["seed"] for record in records] == [0, 1]
+        assert [kwargs["seed"] for _, kwargs in resume_calls] == [1]
 
 
 def test_resume_requires_both_partial_csv_and_manifest(tmp_path):
