@@ -1,0 +1,98 @@
+Historical RBFOpt grid trajectory recovery
+
+Complete trajectories recovered: 54 / 1050
+Individually proven callback coordinates: 12387 / 54600
+
+Full recoveries by grid (out of 50 cases each):
+  ackley: 0 recovered, 50 unresolved
+  alpine1: 0 recovered, 50 unresolved
+  alpine2: 0 recovered, 50 unresolved
+  bohachevsky2: 0 recovered, 50 unresolved
+  camel3: 0 recovered, 50 unresolved
+  csendes: 0 recovered, 50 unresolved
+  deflected_corrugated_spring: 0 recovered, 50 unresolved
+  dropwave: 0 recovered, 50 unresolved
+  easom: 0 recovered, 50 unresolved
+  griewank: 0 recovered, 50 unresolved
+  holder_table: 0 recovered, 50 unresolved
+  hosaki: 2 recovered, 48 unresolved
+  levy: 0 recovered, 50 unresolved
+  levy13: 0 recovered, 50 unresolved
+  michalewicz: 0 recovered, 50 unresolved
+  rastrigin: 0 recovered, 50 unresolved
+  rosenbrock: 2 recovered, 48 unresolved
+  shubert: 50 recovered, 0 unresolved
+  styblinski_tang: 0 recovered, 50 unresolved
+  sum_of_squares: 0 recovered, 50 unresolved
+  xin_she_yang3: 0 recovered, 50 unresolved
+
+Fully recovered case IDs:
+  grid_hosaki_B10_seed1_rbfopt
+  grid_hosaki_B10_seed7_rbfopt
+  grid_rosenbrock_B10_seed4_rbfopt
+  grid_rosenbrock_B10_seed7_rbfopt
+  grid_shubert_B10_seed0_rbfopt
+  grid_shubert_B30_seed0_rbfopt
+  grid_shubert_B50_seed0_rbfopt
+  grid_shubert_B70_seed0_rbfopt
+  grid_shubert_B100_seed0_rbfopt
+  grid_shubert_B10_seed1_rbfopt
+  grid_shubert_B30_seed1_rbfopt
+  grid_shubert_B50_seed1_rbfopt
+  grid_shubert_B70_seed1_rbfopt
+  grid_shubert_B100_seed1_rbfopt
+  grid_shubert_B10_seed2_rbfopt
+  grid_shubert_B30_seed2_rbfopt
+  grid_shubert_B50_seed2_rbfopt
+  grid_shubert_B70_seed2_rbfopt
+  grid_shubert_B100_seed2_rbfopt
+  grid_shubert_B10_seed3_rbfopt
+  grid_shubert_B30_seed3_rbfopt
+  grid_shubert_B50_seed3_rbfopt
+  grid_shubert_B70_seed3_rbfopt
+  grid_shubert_B100_seed3_rbfopt
+  grid_shubert_B10_seed4_rbfopt
+  grid_shubert_B30_seed4_rbfopt
+  grid_shubert_B50_seed4_rbfopt
+  grid_shubert_B70_seed4_rbfopt
+  grid_shubert_B100_seed4_rbfopt
+  grid_shubert_B10_seed5_rbfopt
+  grid_shubert_B30_seed5_rbfopt
+  grid_shubert_B50_seed5_rbfopt
+  grid_shubert_B70_seed5_rbfopt
+  grid_shubert_B100_seed5_rbfopt
+  grid_shubert_B10_seed6_rbfopt
+  grid_shubert_B30_seed6_rbfopt
+  grid_shubert_B50_seed6_rbfopt
+  grid_shubert_B70_seed6_rbfopt
+  grid_shubert_B100_seed6_rbfopt
+  grid_shubert_B10_seed7_rbfopt
+  grid_shubert_B30_seed7_rbfopt
+  grid_shubert_B50_seed7_rbfopt
+  grid_shubert_B70_seed7_rbfopt
+  grid_shubert_B100_seed7_rbfopt
+  grid_shubert_B10_seed8_rbfopt
+  grid_shubert_B30_seed8_rbfopt
+  grid_shubert_B50_seed8_rbfopt
+  grid_shubert_B70_seed8_rbfopt
+  grid_shubert_B100_seed8_rbfopt
+  grid_shubert_B10_seed9_rbfopt
+  grid_shubert_B30_seed9_rbfopt
+  grid_shubert_B50_seed9_rbfopt
+  grid_shubert_B70_seed9_rbfopt
+  grid_shubert_B100_seed9_rbfopt
+
+recovered_cases.csv: complete usable historical trajectories.
+unresolved_cases.csv: cases whose entire callback path cannot be established from retained observations.
+recovered_coordinates.csv: all individually proven coordinates, including partial cases; evaluation_index is 1-based, x/y are grid indices 0..30.
+recovered_trajectories.jsonl: complete cases only, in original evaluation order.
+unresolved_candidates.jsonl.gz: unresolved candidate coordinates or post-restart log rows.
+ambiguity_witnesses.jsonl.gz: alternative sequences compatible with retained observations, NOT recovered historical coordinates.
+
+Log elapsed times are rounded to 0.01 seconds and have a different origin from newly instrumented callback clocks. Do not treat them as precise callback timings.
+Inference uses the accurate, serial RBFOpt 4.3 behavior: the first strict global minimum gives the returned best point, and pre-restart value rows correspond to objective calls. Final best-point indices are saved explicitly.
+The saved unique-evaluation counts are equal to total evaluations in every original run; this justifies the injective matching constraint. Initial three points come from the frozen design audit.
+Each claimed coordinate is forced under these retained constraints. A candidate set or ambiguity witness must not be used as an observed trajectory.
+A partial case is not declared impossible to recover by any future method; additional evidence or replay might resolve it.
+
+Reproduce: python recover_grid_rbfopt_trajectory.py

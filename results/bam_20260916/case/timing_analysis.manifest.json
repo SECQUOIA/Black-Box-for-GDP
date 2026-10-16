@@ -1,0 +1,62 @@
+{
+  "dataset": "case",
+  "sources": {
+    "baseline": {
+      "archive": "results/archives/dantzig_20260910_170759_slN8tv.zip",
+      "archive_sha256": "c5b706aa20f5577446d84f829910b5825221a9f6c5713ffc1fd854e7315d6e98",
+      "csv_member": "dantzig_20260910_170759_slN8tv/process_case_studies.csv",
+      "csv_sha256": "97c554d05cc7624203578bcc4496c77f6f3a04f7b25cf5cb8892611628d1bba6"
+    },
+    "bam_5.0.0": {
+      "archive": "dantzig_bam_20260916_231228_FNzbAA.zip",
+      "archive_sha256": "9e9f0084f79728157d1ca71ee76490b79e7df0aaaa90ff7b9797552d90a2ca00",
+      "csv_member": "dantzig_bam_20260916_231228_FNzbAA/process_case_studies.csv",
+      "csv_sha256": "1226a56693da65f85588160576713e2166ec715caea3e2ca91a87487f2a6971f"
+    }
+  },
+  "method_sources": {
+    "DSDA": "baseline",
+    "RBFOpt": "baseline",
+    "BAM 5.0.0": "bam_5.0.0"
+  },
+  "bam_version": {
+    "package": "5.0.0",
+    "native_solver": [
+      2026,
+      9,
+      10
+    ]
+  },
+  "n_runs": 417,
+  "paired_instances": 139,
+  "tolerance": 1e-05,
+  "success_rule": "abs(best_value - target_value) <= tolerance * max(1, abs(target_value))",
+  "time_measure": "full recorded successful-run wall time; failures have infinite cost",
+  "first_hit_timestamps_available": false,
+  "ratio_methods": [
+    "DSDA",
+    "RBFOpt",
+    "BAM 5.0.0"
+  ],
+  "checks": {
+    "run_keys_match": true,
+    "targets_match": true,
+    "source_csv_hashes_match_comparison_audit": true,
+    "process_initial_design_and_data_match": true,
+    "shared_benchmark_source_hashes_match": true,
+    "dsda_rbfopt_rows_retained_without_changes": true
+  },
+  "source_sha256": {
+    "results/bam_20260916/generate_profiles.py": "c869724a7d50567e10c7b581c313cbe78dbfe3a5c7d3fbb63a81f3d1cd4a1b11",
+    "timing_analysis.py": "5f8c8267f55a86d3dd06a1532d2f951e2ff2636817dde51b67f5c986bfb9f44e",
+    "benchmark_analysis.py": "51277e72469599507e7b8fb97ee9ac5cc2eadca7e4be9bd3bd452e1cc239013d",
+    "case_study_analysis.py": "35f947bf5d4276713401673cfac1d083fda8b878e968bf83493f4a4e4ddab2e2"
+  },
+  "python": "3.13.12",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.9",
+    "scipy": "1.17.1"
+  }
+}

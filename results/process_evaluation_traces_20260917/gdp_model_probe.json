@@ -1,0 +1,124 @@
+{
+  "purpose": "One-point model-connection probes, not a timing benchmark or global-optimality certificate",
+  "dsda_gdp_commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+  "dynamic_commit": "482e14ebf9caabbd35d959986942cb028778a1d7",
+  "policy": "IPOPT 3.12.13, max_cpu_time=30, max_iter=3000, bound_relax_factor=0, tol=1e-8 for Column/Small Batch/Dynamic. Static cases use upstream initialization and FBBT; Dynamic uses nfe=30,ncp=3. CSTR additionally uses stronger equivalent presolve and GAMS/BARON with reslim=60,optcr=1e-5.",
+  "compatibility": "Original function bodies loaded via AST; unused obsolete MasterProblemResult import bypassed. No mathematical model edits.",
+  "primary_attempts": [
+    {
+      "case": "cstr",
+      "point": [
+        3,
+        1
+      ],
+      "lookup_objective": 3.3148454030723515,
+      "objective": 9.894736842105251,
+      "absolute_gap": 6.5798914390329,
+      "termination": "other",
+      "solver_message": "Too few degrees of freedom (rethrown)!",
+      "setup_wall_s": 0.20845487504266202,
+      "solve_wall_s": 0.054456040961667895,
+      "total_wall_s": 0.2636677499394864,
+      "unfixed_discrete_variables": [],
+      "active_disjunctions": [],
+      "max_primal_violation": 9.894736842105251
+    },
+    {
+      "case": "small_batch",
+      "point": [
+        2,
+        2,
+        1
+      ],
+      "lookup_objective": 167427.65711470306,
+      "objective": 167427.6571499716,
+      "absolute_gap": 3.526854561641812e-05,
+      "termination": "optimal",
+      "solver_message": "Ipopt 3.12.13\\x3a Optimal Solution Found",
+      "setup_wall_s": 0.008768875035457313,
+      "solve_wall_s": 0.04249562497716397,
+      "total_wall_s": 0.05167395807802677,
+      "unfixed_discrete_variables": [],
+      "active_disjunctions": [],
+      "max_primal_violation": 0.0
+    },
+    {
+      "case": "column",
+      "point": [
+        13,
+        4
+      ],
+      "lookup_objective": 19346.12472619312,
+      "objective": 19346.124800525824,
+      "absolute_gap": 7.433270366163924e-05,
+      "termination": "optimal",
+      "solver_message": "Ipopt 3.12.13\\x3a Optimal Solution Found",
+      "setup_wall_s": 0.1162594580091536,
+      "solve_wall_s": 0.05342437501531094,
+      "total_wall_s": 0.17326945799868554,
+      "unfixed_discrete_variables": [],
+      "active_disjunctions": [],
+      "max_primal_violation": 6.478539926746407e-12
+    },
+    {
+      "case": "dynamic",
+      "point": [
+        1,
+        4
+      ],
+      "lookup_objective": -212.00878719112268,
+      "objective": -212.00878713425533,
+      "absolute_gap": 5.6867349940148415e-08,
+      "termination": "optimal",
+      "solver_message": "Ipopt 3.12.13\\x3a Optimal Solution Found",
+      "setup_wall_s": 0.02625154098495841,
+      "solve_wall_s": 0.16843958292156458,
+      "total_wall_s": 0.2077077500289306,
+      "unfixed_discrete_variables": [],
+      "active_disjunctions": [],
+      "max_primal_violation": 9.157119507108291e-13
+    }
+  ],
+  "cstr_full_presolve_attempt": [
+    {
+      "case": "cstr",
+      "point": [
+        3,
+        1
+      ],
+      "lookup_objective": 3.3148454030723515,
+      "objective": 29.999999695833196,
+      "absolute_gap": 26.685154292760846,
+      "termination": "infeasible",
+      "solver_message": "Ipopt 3.12.13\\x3a Converged to a locally infeasible point. Problem may be infeasible.",
+      "setup_wall_s": 0.21506754111032933,
+      "solve_wall_s": 0.11485741601791233,
+      "total_wall_s": 0.3304196250392124,
+      "unfixed_discrete_variables": [],
+      "active_disjunctions": [],
+      "max_primal_violation": 0.01978947367262513
+    }
+  ],
+  "cstr_gams_baron_attempt": [
+    {
+      "case": "cstr",
+      "point": [
+        3,
+        1
+      ],
+      "lookup_objective": 3.3148454030723515,
+      "solver": "GAMS/BARON",
+      "objective": 3.3148454030723995,
+      "absolute_gap": 4.796163466380676e-14,
+      "termination": "locallyOptimal",
+      "solver_message": "None",
+      "setup_wall_s": 0.22084887500386685,
+      "solve_wall_s": 1.3458777499618009,
+      "total_wall_s": 1.567229749984108,
+      "unfixed_discrete_variables": [],
+      "active_disjunctions": [],
+      "max_primal_violation": 5.551115123125783e-16
+    }
+  ],
+  "conclusion": "All four witness objectives match at relative tolerance 1e-5 with max primal violation below 1e-6. CSTR required BARON: IPOPT failed; GAMS worked after license-network access was permitted. Solver termination is retained verbatim, including locallyOptimal; these probes do not certify global optimality. No new objective replaces a lookup table value."
+}

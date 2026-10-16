@@ -90,7 +90,7 @@ def test_dynamic_dsda_does_not_re_evaluate_selected_start_after_ranking():
 
 
 def test_dynamic_dsda_raises_if_no_lhc_starts_are_feasible():
-    objective = TrackedObjective(lambda _point: 0.0)
+    objective = TrackedObjective(lambda _point: 1e6)
 
     with pytest.raises(ValueError, match="No feasible LHC starting points"):
         choose_best_feasible_start([(8, 4), (6, 2)], objective)

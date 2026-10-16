@@ -45,7 +45,7 @@ def test_small_batch_dsda_selects_lowest_feasible_lhc_start():
 
 
 def test_small_batch_dsda_raises_if_no_lhc_starts_are_feasible():
-    objective = TrackedObjective(lambda _point: 0.0)
+    objective = TrackedObjective(lambda _point: float("inf"))
 
     with pytest.raises(ValueError, match="No feasible LHC starting points"):
         choose_best_feasible_start([(1, 2, 1), (3, 3, 4)], objective)

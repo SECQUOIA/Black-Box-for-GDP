@@ -1,0 +1,3447 @@
+{
+  "archive": "results/archives/fmqa_qhd_points_20261012_234651_f39la8cf.zip",
+  "archive_sha256": "dfc7e1a9d37e2278b87ddf8d30f3d52c0cbf9007b85324b0d33822161f5396ba",
+  "verified_members": 507,
+  "runtime": {
+    "kind": "fmqa_qhd_logical_rejection_points_v1",
+    "created_utc": "2026-10-12T23:46:51.567053+00:00",
+    "host": "dantzig.ecn.purdue.edu",
+    "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34",
+    "versions": {
+      "pyomo": "6.10.0",
+      "sympy": "1.14.0",
+      "numpy": "2.4.6",
+      "networkx": "3.6.1",
+      "matplotlib": "3.11.1"
+    },
+    "cpu": 6,
+    "affinity": {
+      "cpu": 6,
+      "physical_package_id": "0",
+      "core_id": "8",
+      "thread_siblings_list": "6,54",
+      "effective_cpus": [
+        6
+      ],
+      "policy": "one logical CPU; not an exclusive reservation"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OMP_THREAD_LIMIT": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "plan": [
+      {
+        "case_name": "column",
+        "grid_size": null,
+        "point": [
+          12,
+          9
+        ],
+        "job_id": "column_12_9"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 10,
+        "point": [
+          1,
+          9
+        ],
+        "job_id": "cstr_10_1_9"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 10,
+        "point": [
+          2,
+          5
+        ],
+        "job_id": "cstr_10_2_5"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 10,
+        "point": [
+          2,
+          8
+        ],
+        "job_id": "cstr_10_2_8"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 10,
+        "point": [
+          3,
+          10
+        ],
+        "job_id": "cstr_10_3_10"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 15,
+        "point": [
+          10,
+          13
+        ],
+        "job_id": "cstr_15_10_13"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 15,
+        "point": [
+          11,
+          13
+        ],
+        "job_id": "cstr_15_11_13"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 15,
+        "point": [
+          13,
+          15
+        ],
+        "job_id": "cstr_15_13_15"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 15,
+        "point": [
+          1,
+          4
+        ],
+        "job_id": "cstr_15_1_4"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 15,
+        "point": [
+          1,
+          5
+        ],
+        "job_id": "cstr_15_1_5"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 15,
+        "point": [
+          2,
+          12
+        ],
+        "job_id": "cstr_15_2_12"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 15,
+        "point": [
+          2,
+          6
+        ],
+        "job_id": "cstr_15_2_6"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 15,
+        "point": [
+          3,
+          6
+        ],
+        "job_id": "cstr_15_3_6"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 15,
+        "point": [
+          5,
+          11
+        ],
+        "job_id": "cstr_15_5_11"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 15,
+        "point": [
+          7,
+          9
+        ],
+        "job_id": "cstr_15_7_9"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 15,
+        "point": [
+          8,
+          12
+        ],
+        "job_id": "cstr_15_8_12"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          10,
+          18
+        ],
+        "job_id": "cstr_20_10_18"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          11,
+          19
+        ],
+        "job_id": "cstr_20_11_19"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          12,
+          17
+        ],
+        "job_id": "cstr_20_12_17"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          13,
+          16
+        ],
+        "job_id": "cstr_20_13_16"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          15,
+          18
+        ],
+        "job_id": "cstr_20_15_18"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          15,
+          20
+        ],
+        "job_id": "cstr_20_15_20"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          16,
+          19
+        ],
+        "job_id": "cstr_20_16_19"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          3,
+          10
+        ],
+        "job_id": "cstr_20_3_10"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          4,
+          11
+        ],
+        "job_id": "cstr_20_4_11"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          4,
+          12
+        ],
+        "job_id": "cstr_20_4_12"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          4,
+          14
+        ],
+        "job_id": "cstr_20_4_14"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          5,
+          16
+        ],
+        "job_id": "cstr_20_5_16"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          5,
+          19
+        ],
+        "job_id": "cstr_20_5_19"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          6,
+          10
+        ],
+        "job_id": "cstr_20_6_10"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          6,
+          12
+        ],
+        "job_id": "cstr_20_6_12"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          6,
+          16
+        ],
+        "job_id": "cstr_20_6_16"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          6,
+          8
+        ],
+        "job_id": "cstr_20_6_8"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          7,
+          12
+        ],
+        "job_id": "cstr_20_7_12"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          8,
+          16
+        ],
+        "job_id": "cstr_20_8_16"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          8,
+          20
+        ],
+        "job_id": "cstr_20_8_20"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 20,
+        "point": [
+          9,
+          11
+        ],
+        "job_id": "cstr_20_9_11"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          10,
+          18
+        ],
+        "job_id": "cstr_25_10_18"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          10,
+          22
+        ],
+        "job_id": "cstr_25_10_22"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          11,
+          20
+        ],
+        "job_id": "cstr_25_11_20"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          12,
+          24
+        ],
+        "job_id": "cstr_25_12_24"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          13,
+          24
+        ],
+        "job_id": "cstr_25_13_24"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          14,
+          16
+        ],
+        "job_id": "cstr_25_14_16"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          17,
+          19
+        ],
+        "job_id": "cstr_25_17_19"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          18,
+          24
+        ],
+        "job_id": "cstr_25_18_24"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          19,
+          22
+        ],
+        "job_id": "cstr_25_19_22"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          19,
+          25
+        ],
+        "job_id": "cstr_25_19_25"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          23,
+          25
+        ],
+        "job_id": "cstr_25_23_25"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          2,
+          14
+        ],
+        "job_id": "cstr_25_2_14"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          2,
+          19
+        ],
+        "job_id": "cstr_25_2_19"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          3,
+          19
+        ],
+        "job_id": "cstr_25_3_19"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          4,
+          22
+        ],
+        "job_id": "cstr_25_4_22"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          4,
+          9
+        ],
+        "job_id": "cstr_25_4_9"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          5,
+          14
+        ],
+        "job_id": "cstr_25_5_14"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          5,
+          6
+        ],
+        "job_id": "cstr_25_5_6"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          5,
+          8
+        ],
+        "job_id": "cstr_25_5_8"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          6,
+          10
+        ],
+        "job_id": "cstr_25_6_10"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          6,
+          15
+        ],
+        "job_id": "cstr_25_6_15"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          7,
+          20
+        ],
+        "job_id": "cstr_25_7_20"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          7,
+          9
+        ],
+        "job_id": "cstr_25_7_9"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          8,
+          17
+        ],
+        "job_id": "cstr_25_8_17"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 25,
+        "point": [
+          8,
+          25
+        ],
+        "job_id": "cstr_25_8_25"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          10,
+          27
+        ],
+        "job_id": "cstr_30_10_27"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          11,
+          23
+        ],
+        "job_id": "cstr_30_11_23"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          11,
+          25
+        ],
+        "job_id": "cstr_30_11_25"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          13,
+          20
+        ],
+        "job_id": "cstr_30_13_20"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          13,
+          25
+        ],
+        "job_id": "cstr_30_13_25"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          14,
+          19
+        ],
+        "job_id": "cstr_30_14_19"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          17,
+          19
+        ],
+        "job_id": "cstr_30_17_19"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          17,
+          23
+        ],
+        "job_id": "cstr_30_17_23"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          17,
+          25
+        ],
+        "job_id": "cstr_30_17_25"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          17,
+          29
+        ],
+        "job_id": "cstr_30_17_29"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          18,
+          23
+        ],
+        "job_id": "cstr_30_18_23"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          19,
+          22
+        ],
+        "job_id": "cstr_30_19_22"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          19,
+          25
+        ],
+        "job_id": "cstr_30_19_25"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          19,
+          28
+        ],
+        "job_id": "cstr_30_19_28"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          21,
+          23
+        ],
+        "job_id": "cstr_30_21_23"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          21,
+          30
+        ],
+        "job_id": "cstr_30_21_30"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          22,
+          28
+        ],
+        "job_id": "cstr_30_22_28"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          23,
+          27
+        ],
+        "job_id": "cstr_30_23_27"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          26,
+          28
+        ],
+        "job_id": "cstr_30_26_28"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          27,
+          29
+        ],
+        "job_id": "cstr_30_27_29"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          2,
+          16
+        ],
+        "job_id": "cstr_30_2_16"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          2,
+          21
+        ],
+        "job_id": "cstr_30_2_21"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          2,
+          3
+        ],
+        "job_id": "cstr_30_2_3"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          3,
+          12
+        ],
+        "job_id": "cstr_30_3_12"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          3,
+          25
+        ],
+        "job_id": "cstr_30_3_25"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          3,
+          4
+        ],
+        "job_id": "cstr_30_3_4"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          3,
+          9
+        ],
+        "job_id": "cstr_30_3_9"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          4,
+          25
+        ],
+        "job_id": "cstr_30_4_25"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          5,
+          7
+        ],
+        "job_id": "cstr_30_5_7"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          6,
+          21
+        ],
+        "job_id": "cstr_30_6_21"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          7,
+          30
+        ],
+        "job_id": "cstr_30_7_30"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          8,
+          16
+        ],
+        "job_id": "cstr_30_8_16"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          8,
+          18
+        ],
+        "job_id": "cstr_30_8_18"
+      },
+      {
+        "case_name": "cstr",
+        "grid_size": 30,
+        "point": [
+          9,
+          26
+        ],
+        "job_id": "cstr_30_9_26"
+      }
+    ],
+    "source_sha256": {
+      "fmqa_qhd_point_runner.py": "780d2811d02d9706d7a0e5374b4d64f513d9ece9dbefddfc7c0c11654ddfc888",
+      "run_fmqa_qhd_points_dantzig.sh": "5fa2a9c6787f8a604bdaa4cdf56633f4b055286300ed1bb0c3178a2afe798f98",
+      "benchmark_protocols/fmqa_qhd_missing_points.json": "dd9cdccce29e3431b9711914eb49e1e968d9ee80b8ecf6ab3b249ed56d395ebe",
+      "docs/fmqa_qhd_points_dantzig.md": "9fa479e5082575271628c7f6371d956998ecc38d46bad95168095c381f9ec0ac",
+      "cpu_affinity.py": "fc6470e8db52df68935abdaa5ebe76602a1c7917d08b4ca35760a042aba73b60",
+      "evaluation_trace.py": "446af7d5548aa60fa9c56750be5cb584cd3baef50073048e93a80f9c9a5abb85",
+      "overnight_benchmark/__init__.py": "5429883334056a0f5924d042742224721106beadfd729cb1984d2eb0db3fe1c7",
+      "overnight_benchmark/common.py": "ad831d1672c6a59b0b6330061c171f6fe27588c4f3d333b6c5f9ca66ea25d427",
+      "overnight_benchmark/worker.py": "4100687f57a652ec955ebd81ec10404e3eb3cdb21325799cc7af4eb49b3c127f",
+      "requirements-gdp.txt": "c59b628e0e07c2b9e86d4ee065a29ed0c211b419b4f99d1cea8d958100731bc8",
+      "gdp_models/__init__.py": "5ebb20b8f7249a66ace212cebabf47949e8f40d3a9ddea464b11a7eb55a47705",
+      "gdp_models/__main__.py": "3637c973071961beeb01876a23eb3bbf172d2fe3a493cbbc9e0fd29d623e6dc4",
+      "gdp_models/_sources.py": "d5363100698e69c829918b850c0fb39481b64eb9c4e2d7c987bee3b628e2fd29",
+      "gdp_models/batch.py": "01e82b9c62ac196be5fb9feab739e3b122b9a08babb5af7f546565f114227117",
+      "gdp_models/comparison.py": "71725cccdae93fbccaa5071d547fa406ebf4819b1015f09939c67e444fb7d300",
+      "gdp_models/dantzig.py": "47533ff3b9436e4bc089ca7aecd43ca0c38924e379c2b3b4195a8cd60d48b3d4",
+      "gdp_models/domains.py": "bb2a9f2783fdf32f25d327c417521ecae73b2dc60fc6e579d8c0afe187493394",
+      "gdp_models/evaluation.py": "98eda90acea6fc70d26192020972d9b9917b5802a06239aa4a92ad42a9aa19f5",
+      "gdp_models/grid.py": "e0e65ec27d20be9f5cfe6419cb7cd176663a909614a6bb9be67db879d574c7c8",
+      "gdp_models/grid_benchmark.py": "55432472d647691166855f4ca479060789312a3e482a77edfa9980b7a0729137",
+      "gdp_models/grid_retry_fixes.py": "466d9b92b3247a6832ca88ebd00f8de719dccc0e4205b53ff0e6c67937243f0f",
+      "gdp_models/models.py": "1257294f4b90ddf7ee0bfa3b23e3df576890433a103f49789e624499fe698396",
+      "gdp_models/preflight.py": "fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56",
+      "gdp_models/solvers.py": "bdc1a4c52c65128cda618c9b64be28a53abea557f3f5a4e4e975a77e57085d1d"
+    },
+    "upstream": {
+      "repository": "https://github.com/SECQUOIA/dsda-gdp",
+      "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+      "files_sha256": {
+        "gdp/column/gdp_column.py": "c5fea7ff6286d2b6c1055a4e602b08648a03853aea24e6552f5921b36e205bab",
+        "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+        "gdp/dsda/column_17_initialization.json": "60cd7d1f7a7f08b59d9b0d7fca6e8920313ca7722c94d829e388a009ae4acfd7",
+        "gdp/dsda/cstr_10_initialization.json": "c7ed746a610656af44d7382b3656158efecd61d62785a713da4a8b0a7f3b6cb4",
+        "gdp/dsda/cstr_15_initialization.json": "de9eec42abb1f5ba587546239e9520e8ffc2ddffc9518f777227564f4c1b3104",
+        "gdp/dsda/cstr_20_initialization.json": "bafdb05180118d08876f662ab43f87a09a7c2bd4b9e3d6c6289367ca40030f86",
+        "gdp/dsda/cstr_25_initialization.json": "98e8ceaf048d8e1d1835f3b13489da34fb78b4b955f38cd3731d5ef9b856e397",
+        "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+        "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+        "main_column.py": "09a4ff167d87c15bb0e2323567f1f59be7ece61b325ea9cf84900bd7aaa2800a",
+        "main_cstr.py": "b26b3895196716b0424d8aecb703a75e5c1d368fb2cbc9934bb299d836bb8183"
+      }
+    },
+    "timing_scope": "Original evaluate_point total_wall_s; fresh preparation and logical rejection; model_check outside timer"
+  },
+  "points": [
+    {
+      "case": "column",
+      "point": [
+        12,
+        9
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": null,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Point contradicts original fixed GDP logic",
+      "total_wall_s": 0.31142528600321384,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/column_12_9/result.json",
+      "source_sha256": "3d675a8834db4ff13b334993715a38bf6317e81cc45cce8b3920cd308fae418a"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        1,
+        9
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 10,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[9]",
+      "total_wall_s": 0.16197046300658258,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_10_1_9/result.json",
+      "source_sha256": "fa3696aa49df70863c038c4be2c95d0f007f62e726fce20eaf8cd4248e0d9711"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        2,
+        5
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 10,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[5]",
+      "total_wall_s": 0.16356631999951787,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_10_2_5/result.json",
+      "source_sha256": "b17bdfb35a2aa0b21820afa27ec8ebe4cad39da6b2bb05836547a92f7134a989"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        2,
+        8
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 10,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[8]",
+      "total_wall_s": 0.16501627799880225,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_10_2_8/result.json",
+      "source_sha256": "956adea1c457cb259ac5fc07ecb36704c2e3ed2d18fbfc387f94a818ed6e0c67"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        3,
+        10
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 10,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[10]",
+      "total_wall_s": 0.16170370300096693,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_10_3_10/result.json",
+      "source_sha256": "a73768d8c7c99453d0f61e1220ddeb570e6ade34798fe2a425fa3272cc1b0609"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        10,
+        13
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 15,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[13]",
+      "total_wall_s": 0.2319260040021618,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_15_10_13/result.json",
+      "source_sha256": "fef5e8ecf8dde39919ac0d67574dc7bd3bdcaca00f0e9399275c7df915e25e37"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        11,
+        13
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 15,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[13]",
+      "total_wall_s": 0.2306909489998361,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_15_11_13/result.json",
+      "source_sha256": "185fd83fed4db3321f7150c01b8ba89d7d6043ab4190234e2b0833dc506e684c"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        13,
+        15
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 15,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[15]",
+      "total_wall_s": 0.23149918799754232,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_15_13_15/result.json",
+      "source_sha256": "0401fae8824741929ef497429525f1b1f7de26b53a6c12234701a6b5d35d3e63"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        1,
+        4
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 15,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[4]",
+      "total_wall_s": 0.2320470669947099,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_15_1_4/result.json",
+      "source_sha256": "baafab09fb75fb387cbafc72b4cd1408566e71aa1472a2a19487ac9a804bde76"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        1,
+        5
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 15,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[5]",
+      "total_wall_s": 0.2297201399996993,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_15_1_5/result.json",
+      "source_sha256": "dcc9e5f8f73e4e49fe33362ba9210aba473d29466bf177e2e4735d4fbf9f597a"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        2,
+        12
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 15,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[12]",
+      "total_wall_s": 0.23107640699890908,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_15_2_12/result.json",
+      "source_sha256": "e5d408369c410fec7946f651f56cbb639374f0e515978c7d474a8fcc4c21183b"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        2,
+        6
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 15,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[6]",
+      "total_wall_s": 0.23075712600257248,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_15_2_6/result.json",
+      "source_sha256": "e37eb3903ca3ffe41ad14078ae0f22b2fca3974b43b46ae3ea78dddf949d220a"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        3,
+        6
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 15,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[6]",
+      "total_wall_s": 0.23079249399597757,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_15_3_6/result.json",
+      "source_sha256": "aba0fe382044ade590e9473ed33c0a4342fd79eb5feac13792ed44a992ad977d"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        5,
+        11
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 15,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[11]",
+      "total_wall_s": 0.2320202050032094,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_15_5_11/result.json",
+      "source_sha256": "11ad23443d23dc75c16ac81ac6026c264370c6ada83f3974189cbc86daa37641"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        7,
+        9
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 15,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[9]",
+      "total_wall_s": 0.23046860299655236,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_15_7_9/result.json",
+      "source_sha256": "e63ee56a27d42285a3f252300c28af09ec26e835b3a01ca879de7c1e5c4590e7"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        8,
+        12
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 15,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[12]",
+      "total_wall_s": 0.23191363099613227,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_15_8_12/result.json",
+      "source_sha256": "ce0ed71851b5ced3077fcf7779438e0328b6af722e0be005b2bffea6817146ad"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        10,
+        18
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[18]",
+      "total_wall_s": 0.3065200199998799,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_10_18/result.json",
+      "source_sha256": "d2c76912b686e0ef740bc9f2d2fb020342b7ab4c756db62fe2d55fc18f12cc1f"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        11,
+        19
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[19]",
+      "total_wall_s": 0.31041851799818687,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_11_19/result.json",
+      "source_sha256": "039526d2ceed2f1732539d98952b1180ff61b286e1b934fae04bde22173b6f6f"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        12,
+        17
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[17]",
+      "total_wall_s": 0.30979127600585343,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_12_17/result.json",
+      "source_sha256": "ecdf7e9c8d829b300f2eda3de5a478e584081c25c039d3eebbd7659d16321e8f"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        13,
+        16
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[16]",
+      "total_wall_s": 0.3078974990057759,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_13_16/result.json",
+      "source_sha256": "cd9f91e1f27f074c8e8586e76276e65a4008e52c2276f82f545e6bc0d98542a1"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        15,
+        18
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[18]",
+      "total_wall_s": 0.30699295600061305,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_15_18/result.json",
+      "source_sha256": "e271e4e880b7fc64213e49bce271aa68cb3c1d1a6b881bf66be3e011b6d584b8"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        15,
+        20
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[20]",
+      "total_wall_s": 0.3091069259971846,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_15_20/result.json",
+      "source_sha256": "ef6fe604dfd82158f30249d9b609a8947769168f372a364c125d5ae2ec007944"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        16,
+        19
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[19]",
+      "total_wall_s": 0.30866974799573654,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_16_19/result.json",
+      "source_sha256": "e97331a3b74ace267eab9a0c62479be9516f9a124ae7ff6b302e2ca7379c3807"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        3,
+        10
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[10]",
+      "total_wall_s": 0.30608592800126644,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_3_10/result.json",
+      "source_sha256": "96eb9631883f7aac0855f8f50d44dc6ab9e60bdf296464e12bd2668ec27895f3"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        4,
+        11
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[11]",
+      "total_wall_s": 0.30312878499535145,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_4_11/result.json",
+      "source_sha256": "09b22799ebcb9da73132765ccfb9a8945adada99c9b08984e61a2d17d924a6f3"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        4,
+        12
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[12]",
+      "total_wall_s": 0.30901405699842144,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_4_12/result.json",
+      "source_sha256": "ceac3ddcce807fb77b6e8503237c59216e160efceb54a84ba3866304b3da0789"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        4,
+        14
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[14]",
+      "total_wall_s": 0.3090442249958869,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_4_14/result.json",
+      "source_sha256": "2e59fdb20312e140a0beedbe38ca8ed1c230e477c7ede34bded84d6cba069210"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        5,
+        16
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[16]",
+      "total_wall_s": 0.3070910839960561,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_5_16/result.json",
+      "source_sha256": "4bdc1dbb0656845be08c1fb311a1ebcf1f54805d589be902bf00d85089636e84"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        5,
+        19
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[19]",
+      "total_wall_s": 0.30563742000231287,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_5_19/result.json",
+      "source_sha256": "5ed8ef18dbd5e7ab3ea245424dc3bcb8a815b1ff9c8ca7032279c46ee7d7b60d"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        6,
+        10
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[10]",
+      "total_wall_s": 0.30378489199938485,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_6_10/result.json",
+      "source_sha256": "763009cde2b9c6de966121010439e10ebf1b4f4a3064b4a9e6b931f9b070d293"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        6,
+        12
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[12]",
+      "total_wall_s": 0.3079977110028267,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_6_12/result.json",
+      "source_sha256": "4934146d68c34a4962abb71adc6ca855bb86cf378e9f566f35a5fe28d06d9fce"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        6,
+        16
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[16]",
+      "total_wall_s": 0.30704098800197244,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_6_16/result.json",
+      "source_sha256": "f9ba28e448c01a73eacb1a8000b33ec740c7b3f818e756abf1ee33af8de03e62"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        6,
+        8
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[8]",
+      "total_wall_s": 0.30712403699726565,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_6_8/result.json",
+      "source_sha256": "7d36deccce61d80af2a73c28050b67d21bc41a60c0f32cbf7e818811fdbe063d"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        7,
+        12
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[12]",
+      "total_wall_s": 0.30569882199779386,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_7_12/result.json",
+      "source_sha256": "7ecd51bec4256813f73fa40d171b91b9c0f2e8ab822883e250487321a3ecb9f0"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        8,
+        16
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[16]",
+      "total_wall_s": 0.30918219500017585,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_8_16/result.json",
+      "source_sha256": "81c45c4dc361d147d1bbfb3fd13a7d4a35fa26e613dd1c108aaf4989bfdc050e"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        8,
+        20
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[20]",
+      "total_wall_s": 0.3052788380009588,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_8_20/result.json",
+      "source_sha256": "6bd4978ffa2a67f4fd595ba5f74b397576af228e338af2bd54b48a2b68c94131"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        9,
+        11
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[11]",
+      "total_wall_s": 0.3066306769978837,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_20_9_11/result.json",
+      "source_sha256": "6419062ec16bd8981c91e6d0c0c5e8886aac6d5c47b6148bbb4815dcd6029aa3"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        10,
+        18
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[18]",
+      "total_wall_s": 0.38657994299865095,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_10_18/result.json",
+      "source_sha256": "466821a9537258ab9f599d669a9c15947d5abb7bfe71a9c3ecc360ab5c3935d8"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        10,
+        22
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[22]",
+      "total_wall_s": 0.3891665679984726,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_10_22/result.json",
+      "source_sha256": "94ca35602586a8efd53d96daddbc88f54eb308a8e8bcb65cd63c0ac5d835816a"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        11,
+        20
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[20]",
+      "total_wall_s": 0.3867172969985404,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_11_20/result.json",
+      "source_sha256": "4929eb21244b9690cd8906c481007e3c8b8f77845e4d1d2cafe12a442d0f0cf0"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        12,
+        24
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[24]",
+      "total_wall_s": 0.3875480879942188,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_12_24/result.json",
+      "source_sha256": "960425751de3880329e5891be29d4a35262007f7f014e789896729e622b3568b"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        13,
+        24
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[24]",
+      "total_wall_s": 0.3889812630004599,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_13_24/result.json",
+      "source_sha256": "d8e013fadd152dea4e93da6f28e34a47e06f285610ac76470ea8b9c94e51f1b3"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        14,
+        16
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[16]",
+      "total_wall_s": 0.3876825249972171,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_14_16/result.json",
+      "source_sha256": "9800f24d7697c8a5db1109ef4eb4cbfab0793bff04d59ad3b4dd0038c55575f5"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        17,
+        19
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[19]",
+      "total_wall_s": 0.38973447600437794,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_17_19/result.json",
+      "source_sha256": "8823940c34b405a34847ee8be965d03b7da9ca2e7278f88c48a169c5e8b5cb43"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        18,
+        24
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[24]",
+      "total_wall_s": 0.38846686699980637,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_18_24/result.json",
+      "source_sha256": "ccc2abf69e6e28de76512c6908a58dd531565b5b7933a9766396619143a12aa4"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        19,
+        22
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[22]",
+      "total_wall_s": 0.3860158930037869,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_19_22/result.json",
+      "source_sha256": "426db2afdf84ed01ad7e1ab72216bf2565cdd6755c5b4a109b4e37ffd0611313"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        19,
+        25
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[25]",
+      "total_wall_s": 0.38650133299961453,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_19_25/result.json",
+      "source_sha256": "bc506c40622ade7470d9eac8e25d52a7644c27ac50be3298ccc696caf7878405"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        23,
+        25
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[25]",
+      "total_wall_s": 0.38958881700091297,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_23_25/result.json",
+      "source_sha256": "b34770e1f2a7857ccb9e108dae8de79ba8230bb25d82689c191d1eb8d7f44481"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        2,
+        14
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[14]",
+      "total_wall_s": 0.3885799239942571,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_2_14/result.json",
+      "source_sha256": "7a4e166dfabc32dd3c1d0bfada01fa47c495217fbfa7c723c552434f4daf8335"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        2,
+        19
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[19]",
+      "total_wall_s": 0.39399881399731385,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_2_19/result.json",
+      "source_sha256": "3d5e11bd332c69850bcf685b9ba1971c318645b6f4cfd64b06bfa00d1161eb20"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        3,
+        19
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[19]",
+      "total_wall_s": 0.38787629600119544,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_3_19/result.json",
+      "source_sha256": "f93317124d2770bcbc17dd820f427f8d6dc89ff3bc6c93ae43cbb27db038cc97"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        4,
+        22
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[22]",
+      "total_wall_s": 0.3909181429989985,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_4_22/result.json",
+      "source_sha256": "5cc73784e33e46d8a4319c89d4f024d11dac4932254214b4bd504d1778593129"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        4,
+        9
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[9]",
+      "total_wall_s": 0.3875724949975847,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_4_9/result.json",
+      "source_sha256": "b3205295a7e7668e9c13c2c075797bb961a588fb73b15b8a02187bac2149a2f7"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        5,
+        14
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[14]",
+      "total_wall_s": 0.3901800089952303,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_5_14/result.json",
+      "source_sha256": "85b6a7593cf23f5e7e163af3857753ec56020b2421b2982d2aea85243be49cce"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        5,
+        6
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[6]",
+      "total_wall_s": 0.38716730900341645,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_5_6/result.json",
+      "source_sha256": "83001a720964658e55e5989df4c664a3ffb30eea986d7f27aab53ba584367ff7"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        5,
+        8
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[8]",
+      "total_wall_s": 0.3908907700024429,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_5_8/result.json",
+      "source_sha256": "8d14455a7cd3bdc5e970e2f5fdc523b65bcbd8651e9266c43d45f4a3a8cad477"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        6,
+        10
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[10]",
+      "total_wall_s": 0.39124942800117424,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_6_10/result.json",
+      "source_sha256": "729e7d406b7e653c005fab53b74c3e7d04b9504d381031873ddd678f4b25847a"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        6,
+        15
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[15]",
+      "total_wall_s": 0.38620885300042573,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_6_15/result.json",
+      "source_sha256": "ee91d9f5bad0d2d5e4d088743353e1342f21ba5d5ad637007ace99fced145b97"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        7,
+        20
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[20]",
+      "total_wall_s": 0.39107117599633057,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_7_20/result.json",
+      "source_sha256": "b1c13e09a8fb930c56612c8ec0ffe9c88457a50d1608edd011e9741a5c5f5be4"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        7,
+        9
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[9]",
+      "total_wall_s": 0.38883474199974444,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_7_9/result.json",
+      "source_sha256": "ae48e3a5071c20e64ebf9e757d937b65ed03e375e004e517790654d0a8b7af2f"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        8,
+        17
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[17]",
+      "total_wall_s": 0.39059947300120257,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_8_17/result.json",
+      "source_sha256": "a5849186d3570c53e10218dda392a7ad68e89e3e35d85b5d85831f3b477ef835"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        8,
+        25
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 25,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[25]",
+      "total_wall_s": 0.39087194400053704,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_25_8_25/result.json",
+      "source_sha256": "fe1756289079320b4355920dc560c0b720834c5b2d2ee00c354279dda20f31d4"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        10,
+        27
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[27]",
+      "total_wall_s": 0.19909714400273515,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_10_27/result.json",
+      "source_sha256": "cd87a30bf7105331616319f00eb4a2b80da14643ad6761154b26335db9ef418a"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        11,
+        23
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[23]",
+      "total_wall_s": 0.19952030499553075,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_11_23/result.json",
+      "source_sha256": "d14db9d77db87f51bf5e89324858a0843d7c0c65f7fe59b3d4ca59610f32e792"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        11,
+        25
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[25]",
+      "total_wall_s": 0.19948413700331002,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_11_25/result.json",
+      "source_sha256": "7fae2a2f4814f8347e2bfc08b8055daf91c13b79789607c347fe881043707783"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        13,
+        20
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[20]",
+      "total_wall_s": 0.19896195599721977,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_13_20/result.json",
+      "source_sha256": "50a1e2c783265114c8deecc9502a967ef64f7fe1472695762ffe9f6430e6fafa"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        13,
+        25
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[25]",
+      "total_wall_s": 0.19897188500181073,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_13_25/result.json",
+      "source_sha256": "07c9efad72bca80516490e70f752165a53df57a897e63323692ea4cd914a0d3a"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        14,
+        19
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[19]",
+      "total_wall_s": 0.19784320300095715,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_14_19/result.json",
+      "source_sha256": "a5e691a934b9242a3b4b5ce4119759ce1af3f676461724d32c3350799681343a"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        17,
+        19
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[19]",
+      "total_wall_s": 0.1995336510008201,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_17_19/result.json",
+      "source_sha256": "af18f7e85bc85e8bf2caad374a86ac8eb1181a044f71ed56418ed4c368e68841"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        17,
+        23
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[23]",
+      "total_wall_s": 0.19806507799512474,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_17_23/result.json",
+      "source_sha256": "e3708c3f7a61e88346b602644c36d2fc6192acb672e2b6e61eb5d583586217ae"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        17,
+        25
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[25]",
+      "total_wall_s": 0.20010822200129041,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_17_25/result.json",
+      "source_sha256": "7238cce3839b508238d3628209ac6b591a00769f345d726fea3dc161daf1c6a4"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        17,
+        29
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[29]",
+      "total_wall_s": 0.20098021200101357,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_17_29/result.json",
+      "source_sha256": "19a93078ae97f935d9abbce80bbd44617313b05a7e14ae9d9e360958b8228118"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        18,
+        23
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[23]",
+      "total_wall_s": 0.19949592899502022,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_18_23/result.json",
+      "source_sha256": "ea023eb511995edcc53c95f8dc2f8bb29d6d88cf404792784f82e6f1f7d939d4"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        19,
+        22
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[22]",
+      "total_wall_s": 0.20156382999994094,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_19_22/result.json",
+      "source_sha256": "ffcc11ee5266fa454ca36cfb0b4bfdec5e4bbe4ef4d1424813903d5cd13a9e43"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        19,
+        25
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[25]",
+      "total_wall_s": 0.19859337999514537,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_19_25/result.json",
+      "source_sha256": "992b897988e8fce27f217f553a045f1ecc80f21cffbb8a82a11775bec86a8e4b"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        19,
+        28
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[28]",
+      "total_wall_s": 0.1999927509968984,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_19_28/result.json",
+      "source_sha256": "c43229676f4950a60c8abd320e11dc5e2fc0cd39f01d1f118332f99eb5c7e91a"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        21,
+        23
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[23]",
+      "total_wall_s": 0.19982122200599406,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_21_23/result.json",
+      "source_sha256": "f5809cda0bd2eb8faba7d3d4271022ddf92d79a0c410ae1cf63c1822081a646d"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        21,
+        30
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[30]",
+      "total_wall_s": 0.19826481099880766,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_21_30/result.json",
+      "source_sha256": "630187af16bbe1a346b1cba66220d436d54283ac819b0d65beb38acf1c2e04ec"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        22,
+        28
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[28]",
+      "total_wall_s": 0.19970733300579013,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_22_28/result.json",
+      "source_sha256": "147d86146e1a527fb972ef35a53b0621e5bfd06fd48aa7e016d0bf9bf527f4e3"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        23,
+        27
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[27]",
+      "total_wall_s": 0.19807663999381475,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_23_27/result.json",
+      "source_sha256": "052910d043354f4eca63b319875187f3dbe4521e2dc48ed325cce2af87139054"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        26,
+        28
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[28]",
+      "total_wall_s": 0.19855438500235323,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_26_28/result.json",
+      "source_sha256": "4c541ffdc34b5d9f8f108179094046a863df31de0f93ffe301ea0d4af29be54c"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        27,
+        29
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[29]",
+      "total_wall_s": 0.19853396600228734,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_27_29/result.json",
+      "source_sha256": "70bc24932f5d4e90989e4e9b4b85397f6ed3135f3ee52f98503e5bac46b54086"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        2,
+        16
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[16]",
+      "total_wall_s": 0.19700838399876375,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_2_16/result.json",
+      "source_sha256": "0b5e8c9ae48bd42e2616aec32df0a632fe5057ba0f7146b142a4204bce561d79"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        2,
+        21
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[21]",
+      "total_wall_s": 0.19921135399636114,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_2_21/result.json",
+      "source_sha256": "b319f7a55f12ac4b7e920f4c3761a80032bca2f6547be616b9a331cee1e5029a"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        2,
+        3
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[3]",
+      "total_wall_s": 0.19875535999744898,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_2_3/result.json",
+      "source_sha256": "ff6e7c299b4a969fc8997db92398153e673243be312063695e81dc86b3768114"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        3,
+        12
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[12]",
+      "total_wall_s": 0.19886779499938712,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_3_12/result.json",
+      "source_sha256": "7f0e77bddd894a9b44ccfa002db93e9f8016830d65ce01d44604e5647fb0c7a2"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        3,
+        25
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[25]",
+      "total_wall_s": 0.19735698099975707,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_3_25/result.json",
+      "source_sha256": "cff2ed80cd0b414c5518d73e52b703e9ce999cfd736fa4dd75263f9ae4d9fafa"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        3,
+        4
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[4]",
+      "total_wall_s": 0.19997126900125295,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_3_4/result.json",
+      "source_sha256": "ba72c44ce16af6208f934fa1a9a36423036c11550cdd1f5ba14c11744022fefe"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        3,
+        9
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[9]",
+      "total_wall_s": 0.19806810400041286,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_3_9/result.json",
+      "source_sha256": "c98f9afee869b63dcd3900d885c44a904aca6dcac1c571a7908fce88b4d3dbf1"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        4,
+        25
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[25]",
+      "total_wall_s": 0.20493712100142147,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_4_25/result.json",
+      "source_sha256": "bd96a0145c6d0555010749d4cfbf0b41dd254825df16a5d4da035201fc1ae0f0"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        5,
+        7
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[7]",
+      "total_wall_s": 0.1987004450056702,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_5_7/result.json",
+      "source_sha256": "51401d1fac09ff3317bb39e0ac7c092b99d9205866d22b8b01d6942721215afc"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        6,
+        21
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[21]",
+      "total_wall_s": 0.1977022630017018,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_6_21/result.json",
+      "source_sha256": "5f36e0fb3ac57cfe0c574e2bcb53ffc8024acbb48797dc30a90f6c5ba12914ed"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        7,
+        30
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[30]",
+      "total_wall_s": 0.19783351400110405,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_7_30/result.json",
+      "source_sha256": "82d391f0c36058a94739797923f976ccbf4edf4d9712781a473e0467fc1e1d30"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        8,
+        16
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[16]",
+      "total_wall_s": 0.19606943600228988,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_8_16/result.json",
+      "source_sha256": "da0db564733919a02b4f4307f43da8c2cce18730b9a1a0a0c50e57ecb0c919b4"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        8,
+        18
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[18]",
+      "total_wall_s": 0.19799456300097518,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_8_18/result.json",
+      "source_sha256": "8ca10d07142ac7631327ef818fe14f8acff32c5bc46f61f34cf9187879b99252"
+    },
+    {
+      "case": "cstr",
+      "point": [
+        9,
+        26
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[26]",
+      "total_wall_s": 0.199882870001602,
+      "source_member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_9_26/result.json",
+      "source_sha256": "7aed5e29ab326575bbf3bf2bcbaab644255ce857749faf6f38a3dcd051e3b16b"
+    }
+  ],
+  "measured_points": 96
+}

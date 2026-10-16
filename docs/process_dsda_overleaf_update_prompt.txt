@@ -1,0 +1,68 @@
+RBFopt_Test의 최신 process DSDA 재실행 데이터로 Overleaf를 갱신하는 작업 지시문.
+
+아래 작업을 실제로 수행하라. 설명이나 수정 제안만 남기지 말고, 데이터 검증,
+Results 본문·표·피겨 생성, 원고 반영과 컴파일 확인까지 진행하라.
+
+대상 저장소: SECQUOIA/RBFopt_Test, Benchmark 브랜치.
+입력: results/process_dsda_fairness_20261014/의 README.md, audit.json,
+analysis/runs.csv, callbacks_and_costs.csv, dsda_summary.csv,
+old_vs_new.csv, old_vs_new_summary.csv, reused_infeasible_costs.json.
+원본: results/archives/process_dsda_budget_fairness_20261014_pudvsttz_1792004864773526053.zip
+SHA256:3669558ab1b0197d0cf2b6ad4ff0df7c8b4f9b1a92a15747bff8909e6f5ef397
+파일이 아직 보이지 않으면 원격 최신 커밋을 확인하라. 없는 수치를 만들지 마라.
+
+현재 상태:
+140건 중139건 검증 완료. completed는 target hit가 아니다.
+cstr_15_B22_seed9_dsda는22개 콜백 완료 후 검증기 오류로 error 처리되었다.
+DSDA는1e-12 개선 허용오차를 사용하지만 검증기는 관측 최솟값과 정확한 일치를
+요구했다. 두 값 차이는 약2.55e-13이다. 해당 실행은 여전히 target miss다.
+최종 method time이 저장되지 않아 기존139건을 보존하고 이 한 건만 Dantzig에서
+재측정한다. 복구 ZIP이 제공되면 출처와139건 보존을 검증한 후 사용하라.
+로컬 개발 실행의 시간을 사용하지 마라. 복구 전 CSTR15의9개 결과로10-seed
+median, hit rate, TTS99를 계산하거나140건이 완성되었다고 쓰지 마라.
+
+DSDA 수정:
+Column/CSTR/Dynamic의 유한 lookup 값만을 이용한 후보 도메인 제한을 제거했다.
+공통 bounds 안의 unsuccessful/infeasible 평가도 실제 콜백과 예산에 포함한다.
+시드별 기존 순서의 초기점3개, 예산, 이웃 순서, tie-breaking, line search,
+엔진 tolerance를 유지한다. 초기 평가와 반복 콜백도 모두 과금한다.
+재시딩하거나 목표 도달 후 임의 종료하지 않는다. Small Batch는 기존
+full-domain 경로의 회귀 확인이며 도메인을 축소하지 않는다.
+
+CSTR infeasible 비용은 재측정하지 말고 기존 동일 좌표의 실측값을 재사용하라.
+기존 비용은 유지하고 아래 네 누락 연결을 채운다.
+- CSTR20 (6,7): CSTR30의0.20002566697075963초
+- CSTR20 (17,19): CSTR30의0.1995336510008201초
+- CSTR25 (22,24): CSTR30의0.2000632556155324초
+- CSTR30 (13,15): 현재 확인된 CSTR20의0.6212939228862524초
+마지막 항목을 CSTR30 직접 실측으로 표시하지 마라. 요청 크기·측정 크기,
+archive/member/SHA256을 남겨라. 네 항목은 preprocessing_infeasible이며
+solve_wall_s=0이지만 total_wall_s는 양수다.0초 대입, 임의 평균, 다른 좌표
+대체, 추가 NLP 실행을 하지 마라. 더 완전한 기존 CSTR30 자료가 발견되면
+검증 후 명시적으로 갱신하라.
+
+성공은 독립 lookup target 기준이다. 비용은 method time - lookup callback
+time + 모든 콜백의 선택된 실측 비용 + Dynamic 기준 preparation1회이다.
+반복 콜백도 방문 횟수대로 더한다. 고정 경로의 completion 비용 추정이며
+온라인 NLP 실행 시간이나 최초 목표 도달 시간으로 표현하지 마라.
+TTS99는 기존 정의를 유지한다: 실패 시드도 포함한10개 completion median에
+성공확률 기반 restart 수를 곱한다. 누락 그룹에서 subset median을 쓰지 마라.
+RBFOpt/BAM/FMQA의420개 선택 기록과 실행 결과를 보존하라.
+Grid DFO 및 GDPopt/BARON 결과와 이미 수정된 Grid GDP 표는 변경하지 마라.
+
+수행:
+1. 체크섬, 초기점, 콜백 예산, target hit, 비용 출처와139건 보존을 검증하라.
+2. 기존/수정 DSDA의 시드별·그룹별 결과를 비교하고 바뀐 결론을 정리하라.
+3. 실제 원고 label과 참조를 찾아 process Results, target-attainment 표,
+   평가 횟수 곡선, completion-time/TTS99, 비용 구성 피겨를 일관되게 수정하라.
+   Figure 번호를 추측하지 마라.
+4. 완전한 데이터가 있는 결과는 갱신하되 미완료 그룹을 완성된 것으로 쓰지
+   마라. 복구 대기로 교체할 수 없는 피겨는 별도 초안과 대기 사유를 남겨라.
+5. 원고 스타일에 맞는 PDF, plotting script, 사용 CSV, provenance manifest를
+   생성하라. 축·범례·캡션·본문 숫자가 같은 데이터에 근거하는지 검증하라.
+6. Overleaf에 반영하고 컴파일하라. 연결할 수 없다면 바로 적용할 LaTeX patch와
+   업로드할 figure 파일을 제공하라.
+7. 변경 파일, 핵심 수치 변화, 컴파일 결과, 남은 작업을 간결하게 보고하라.
+
+원본 ZIP/raw trace를 덮어쓰거나, 실패를 성공으로 바꾸거나, 없는 시간을
+추정해 넣지 마라. 최종 출판 선택은 검증된 서버 복구 결과가 온 뒤 확정하라.
