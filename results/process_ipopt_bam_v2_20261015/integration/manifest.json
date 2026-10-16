@@ -53,10 +53,10 @@
         {
           "path": "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_30/manifest.json",
           "sha256": "e21ecf2e992d483610cf663aebb4b0dbd6dfb053c5c7ea6c1357181dd1b20b82",
-          "source_revision": null,
-          "initialization": null,
-          "time_limit_s": null,
-          "feasibility_tolerance": null,
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "constructor_defaults (no upstream saved initialization)",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
           "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
         }
       ],
@@ -89,28 +89,28 @@
         {
           "path": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/column/manifest.json",
           "sha256": "433b5fe194358bf847f6e3a5263e7612ef871ea37be247792f2c0d1e5f07be4c",
-          "source_revision": null,
-          "initialization": null,
-          "time_limit_s": null,
-          "feasibility_tolerance": null,
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "gdp/dsda/column_17_initialization.json",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
           "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
         },
         {
           "path": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/dynamic/manifest.json",
           "sha256": "3f5c3d6a1307fcdb022ae51b5e15fd8c0699ff3064f856135f422951deba9747",
-          "source_revision": null,
-          "initialization": null,
-          "time_limit_s": null,
-          "feasibility_tolerance": null,
+          "source_revision": "482e14ebf9caabbd35d959986942cb028778a1d7",
+          "initialization": "constructor_defaults",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
           "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
         },
         {
           "path": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/small_batch/manifest.json",
           "sha256": "2a005c65b883b5ae1ad9944faf5db5209bed821ade4863bc4e1c150637955b58",
-          "source_revision": null,
-          "initialization": null,
-          "time_limit_s": null,
-          "feasibility_tolerance": null,
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "gdp/dsda/small_batch_initialization.json",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
           "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
         }
       ],
@@ -140,10 +140,10 @@
         {
           "path": "results/bam_budget_v2/ipopt_dfo_cstr_20261015_223017_ncd_12gx/inputs/cstr_30/manifest.json",
           "sha256": "e21ecf2e992d483610cf663aebb4b0dbd6dfb053c5c7ea6c1357181dd1b20b82",
-          "source_revision": null,
-          "initialization": null,
-          "time_limit_s": null,
-          "feasibility_tolerance": null,
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "constructor_defaults (no upstream saved initialization)",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
           "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
         }
       ],
@@ -176,28 +176,28 @@
         {
           "path": "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/inputs/column/manifest.json",
           "sha256": "433b5fe194358bf847f6e3a5263e7612ef871ea37be247792f2c0d1e5f07be4c",
-          "source_revision": null,
-          "initialization": null,
-          "time_limit_s": null,
-          "feasibility_tolerance": null,
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "gdp/dsda/column_17_initialization.json",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
           "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
         },
         {
           "path": "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/inputs/dynamic/manifest.json",
           "sha256": "3f5c3d6a1307fcdb022ae51b5e15fd8c0699ff3064f856135f422951deba9747",
-          "source_revision": null,
-          "initialization": null,
-          "time_limit_s": null,
-          "feasibility_tolerance": null,
+          "source_revision": "482e14ebf9caabbd35d959986942cb028778a1d7",
+          "initialization": "constructor_defaults",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
           "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
         },
         {
           "path": "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/inputs/small_batch/manifest.json",
           "sha256": "2a005c65b883b5ae1ad9944faf5db5209bed821ade4863bc4e1c150637955b58",
-          "source_revision": null,
-          "initialization": null,
-          "time_limit_s": null,
-          "feasibility_tolerance": null,
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "gdp/dsda/small_batch_initialization.json",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
           "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
         }
       ],

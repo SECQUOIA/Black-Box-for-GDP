@@ -10,9 +10,10 @@ import tempfile
 import zipfile
 
 import ipopt_dfo_non_cstr as runner
+from result_archives import archived_directory, datasets
 
 ROOT = Path(__file__).resolve().parent
-SOURCE = ROOT / 'results/dantzig_review/gams_cstr_audit_20260922/dantzig_gdp_gams_20260922_050038_p4q8hy54'
+ORIGINAL = datasets()['original-ipopt-evaluations']
 FILES = ['ipopt_dfo_non_cstr.py', 'run_ipopt_dfo_non_cstr_dantzig.sh', 'docs/ipopt_dfo_non_cstr_dantzig.txt',
          'grid_dsda.py', 'instrumentation.py', 'evaluation_trace.py', 'cpu_affinity.py', 'LICENSE',
          'case_studies/__init__.py', 'case_studies/common.py', 'fmqa_benchmark/__init__.py',
@@ -40,23 +41,10 @@ def plan():
     return rows
 
 
-def build(output, methods=None):
-    selected = set(runner.METHODS if methods is None else methods)
-    if not selected or not selected <= set(runner.METHODS):
-        raise ValueError('Select one or more known methods')
-    selected_plan = [spec for spec in plan() if spec['method'] in selected]
-    entries = {name: (ROOT / name).read_bytes() for name in FILES}
-    entries['README.txt'] = entries['docs/ipopt_dfo_non_cstr_dantzig.txt']
-    vendor = ROOT / 'fmqa_benchmark/vendor/qhd'
-    provenance = runner.read(vendor / 'provenance.json')
-    for name, digest in provenance['files_sha256'].items():
-        p = vendor / name
-        assert runner.sha(p) == digest
-        entries[str(p.relative_to(ROOT))] = p.read_bytes()
-    entries[str((vendor / 'provenance.json').relative_to(ROOT))] = (vendor / 'provenance.json').read_bytes()
-    source_checks = dict(line.split('  ', 1)[::-1] for line in (SOURCE / 'SHA256SUMS').read_text().splitlines())
+def add_original_inputs(entries, source):
+    source_checks = dict(line.split('  ', 1)[::-1] for line in (source / 'SHA256SUMS').read_text().splitlines())
     for case in runner.CASES:
-        d = SOURCE / 'gams_ipopt' / case
+        d = source / 'gams_ipopt' / case
         manifest = runner.read(d / 'manifest.json')
         paths = [d / name for name in ('evaluations.csv', 'manifest.json', 'summary.json')]
         paths += sorted((d / 'records').glob('*.json'))
@@ -65,7 +53,7 @@ def build(output, methods=None):
         checks = {}
         for p in paths:
             digest = runner.sha(p)
-            assert digest == source_checks[p.relative_to(SOURCE).as_posix()], p
+            assert digest == source_checks[p.relative_to(source).as_posix()], p
             name = p.relative_to(d).as_posix()
             entries[f'inputs/{case}/{name}'] = p.read_bytes()
             checks[name] = digest
@@ -77,7 +65,9 @@ def build(output, methods=None):
                 assert record['accepted'] == (row['accepted'] == 'True')
                 for field in ('objective', 'candidate_objective', *runner.TIMES):
                     assert (float(row[field]) if row[field] else None) == record.get(field), (case, row['point'], field)
-        info = {'source_directory': str(d.relative_to(ROOT)), 'source_csv_absolute_at_build': str(d / 'evaluations.csv'),
+        info = {'source_archive': ORIGINAL['archive'], 'source_archive_sha256': ORIGINAL['sha256'],
+                'source_directory': f"{ORIGINAL['archive']}!/{ORIGINAL['archive_root']}/gams_ipopt/{case}",
+                'source_csv_absolute_at_build': f"{ROOT / ORIGINAL['archive']}!/{ORIGINAL['archive_root']}/gams_ipopt/{case}/evaluations.csv",
                 'files_sha256': checks, 'attempt_selection': 'Original single enumeration attempt; no retries or best-of merging',
                 'model': {'column': '17 maximum trays; min_trays=8; xD=xB=0.95; feed tray 9',
                           'dynamic': '9 stages; mode_transfer=False; nfe=30,ncp=3,LAGRANGE-RADAU',
@@ -94,9 +84,27 @@ def build(output, methods=None):
             assert runner.sha(p) == digest, p
             entries[f'evidence/{case}/{name}.txt'] = p.read_bytes()
     for name in ('models.py', 'domains.py', 'evaluation.py', 'solvers.py'):
-        p = SOURCE / 'source/gdp_models' / name
-        assert runner.sha(p) == source_checks[p.relative_to(SOURCE).as_posix()]
+        p = source / 'source/gdp_models' / name
+        assert runner.sha(p) == source_checks[p.relative_to(source).as_posix()]
         entries[f'evidence/{name}.txt'] = p.read_bytes()
+
+
+def build(output, methods=None):
+    selected = set(runner.METHODS if methods is None else methods)
+    if not selected or not selected <= set(runner.METHODS):
+        raise ValueError('Select one or more known methods')
+    selected_plan = [spec for spec in plan() if spec['method'] in selected]
+    entries = {name: (ROOT / name).read_bytes() for name in FILES}
+    entries['README.txt'] = entries['docs/ipopt_dfo_non_cstr_dantzig.txt']
+    vendor = ROOT / 'fmqa_benchmark/vendor/qhd'
+    provenance = runner.read(vendor / 'provenance.json')
+    for name, digest in provenance['files_sha256'].items():
+        p = vendor / name
+        assert runner.sha(p) == digest
+        entries[str(p.relative_to(ROOT))] = p.read_bytes()
+    entries[str((vendor / 'provenance.json').relative_to(ROOT))] = (vendor / 'provenance.json').read_bytes()
+    with archived_directory(ROOT / ORIGINAL['archive']) as source:
+        add_original_inputs(entries, source)
     entries['plan.json'] = (json.dumps(selected_plan, indent=2) + '\n').encode()
     entries['build_provenance.json'] = (json.dumps({
         'git_head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),

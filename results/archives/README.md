@@ -4,6 +4,12 @@ These are the original result ZIPs retained in the repository.
 They retain their original bytes, including any source snapshots and shell
 scripts present in the server archive.
 
+The catalog key `original-ipopt-evaluations` also exposes the September 22
+GAMS return to the current CSTR and non-CSTR package builders. They verify the
+ZIP and every internal checksum, use a temporary extraction, and record archive
+member paths as provenance. A clean checkout no longer needs an ignored local
+`results/dantzig_review/` extraction. Existing submitted runner ZIPs are unchanged.
+
 The [October 15 full-box Column/Dynamic return](dantzig_column_dynamic_ipopt_20261015_205822_gG8bXK.zip)
 contains all 153 coordinate evaluations with measured failure and rejection
 times. The [verified import](../column_dynamic_box_ipopt/INDEX.txt) preserves

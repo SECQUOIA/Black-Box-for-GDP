@@ -12,6 +12,7 @@ import gzip
 import hashlib
 import importlib
 import json
+import math
 import os
 from pathlib import Path
 import subprocess
@@ -155,6 +156,43 @@ def verify_bam(core):
             "runtime_differences_expected_from_rerun": dict(differences)}
 
 
+def compare_table(actual, expected):
+    """Preserve strict data checks while reporting legacy Python sum roundoff.
+
+    Python 3.12 changed float sum. Only derived time aggregates may differ on
+    older interpreters, within 64 ULP (50 callbacks plus cost composition).
+    Input hashes, raw costs/objectives, outcomes and all other cells stay exact.
+    No retained or replayed table is rewritten to hide these differences.
+    """
+    if actual.read_bytes() == expected.read_bytes():
+        return []
+    allowed = {
+        "run_results.csv": {"historical_nlp_known_within_budget_s", "historical_accepted_cost_s",
+                            "historical_unaccepted_cost_s", "reconstructed_total_s", "supplemental_cost_s"},
+        "group_summary.csv": {"median_reconstructed_s", "tts99_s"},
+    }
+    require(sys.version_info < (3, 12) and actual.name in allowed,
+            f"Regenerated table differs: {actual.name}")
+    left, right = rows(actual), rows(expected)
+    require(len(left) == len(right), f"Row count differs: {actual.name}")
+    differences = []
+    for index, (a, b) in enumerate(zip(left, right), 1):
+        require(list(a) == list(b), f"Columns differ: {actual.name}")
+        for field in a:
+            if a[field] == b[field]:
+                continue
+            require(field in allowed[actual.name], f"Non-time cell changed: {actual.name}/{index}/{field}")
+            x, y = float(a[field]), float(b[field])
+            require(math.isfinite(x) and math.isfinite(y) and x > 0 and y > 0,
+                    f"Invalid cost: {actual.name}/{index}/{field}")
+            ulps = abs(x - y) / max(math.ulp(x), math.ulp(y))
+            require(ulps <= 64, f"Time difference exceeds sum roundoff: {actual.name}/{index}/{field}")
+            differences.append({"table": actual.name, "row": index, "field": field,
+                                "retained": b[field], "replayed": a[field], "ulps": ulps})
+    require(differences, f"Unexpected serialization change: {actual.name}")
+    return differences
+
+
 def replay(output, figures=False):
     """Execute only saved-record analysis, writing into a new directory."""
     os.environ.setdefault("MPLCONFIGDIR", str(output / ".mplcache"))
@@ -174,9 +212,13 @@ def replay(output, figures=False):
     require(all(r["reconstructed_total_s"] is not None for r in runs), "Missing reconstructed cost")
     require(summary["tts_statuses"] == {"available": 54, "zero_observed_hits": 2}, "TTS99 counts changed")
     regenerated = sorted((output / "tables").glob("*.csv"))
+    exact, roundoff = [], []
     for path in regenerated:
-        require(path.read_bytes() == (RESULT / "tables" / path.name).read_bytes(),
-                f"Regenerated table differs: {path.name}")
+        differences = compare_table(path, RESULT / "tables" / path.name)
+        if differences:
+            roundoff.extend(differences)
+        else:
+            exact.append(path.name)
     old_summary = read(RESULT / "timing_audit.json")
     require({k: v for k, v in summary.items() if k != "repository_head"} ==
             {k: v for k, v in old_summary.items() if k != "repository_head"}, "Timing summary changed")
@@ -185,7 +227,9 @@ def replay(output, figures=False):
         plot = importlib.import_module("build_figures")
         plot.build(runs, groups)
     return {"runs": len(runs), "outcomes": summary["outcomes"], "callbacks": len(events),
-            "selected_bam": bam, "tables_reproduced_byte_for_byte": [p.name for p in regenerated],
+            "selected_bam": bam, "tables_reproduced_byte_for_byte": exact,
+            "legacy_python_sum_roundoff": roundoff,
+            "python_version": sys.version,
             "complete_cost_runs": summary["timed_protocol_valid_runs"],
             "supplemented_callbacks": summary["supplemented_callbacks"],
             "remaining_time_gaps": summary["remaining_in_budget_time_gaps"],
