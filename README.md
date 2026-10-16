@@ -500,3 +500,9 @@ python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py 
 This project's code is distributed under the MIT License. See `LICENSE` for
 the full license text. External source submodules retain their upstream terms;
 see [original GDP source attribution](docs/original_gdp_models.md#original-sources).
+
+## Process DSDA domain fairness
+
+See [the process DSDA domain and callback-budget notes](docs/process_dsda_domain.md)
+for the implementation portion of Issue #24. Historical Dantzig execution and
+recovery evidence was incorporated into `main` through PR #23.
