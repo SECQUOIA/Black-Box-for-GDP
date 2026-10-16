@@ -16,7 +16,7 @@ each supplied point, without selecting a replacement.
 | Column | `{7,...,15} × {1,...,9}` |
 | CSTR N | `{1,...,N}²` |
 | Dynamic | `{1,...,9} × {2,...,9}` |
-| Small Batch legacy adapter | `{1,2,3}³` |
+| Small Batch legacy adapter | `{2,3} × {2,3} × {1,2,3}` (12 coordinates) |
 
 `starting_points=` accepts an ordered frozen design. Length, bounds, and the
 initial evaluation budget are validated before callbacks. Repeated supplied
