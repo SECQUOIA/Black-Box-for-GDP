@@ -64,13 +64,18 @@ and verify/extract the detailed records temporarily:
 python fmqa_compare.py --fmqa-results results/fmqa_20260925/grid \
   --output-dir results/dantzig_review/fmqa-grid-analysis --dataset grid
 python gdp_comparison_analysis.py --output results/dantzig_review/gdp-sep25-analysis
+python gdp_current_analysis.py --output results/dantzig_review/gdp-current-analysis
 python results/grid_trace_rbfopt_20261010/verify_archive.py
 ```
 
 These require the normal analysis/model dependencies, but run no optimizer or
 solver. The FMQA command rebuilds the historical NumPy lookup comparison, not
 current QHD figures. The GDP command checks saved vectors in the original
-model. RBFOpt's verifier checks all archived traces without local JSONLs; add
+model. The current-GDP command rechecks all 63 saved vectors, including the 45
+selected results; it retains the original logical source paths in provenance.
+Per-source regenerated audits are placed under the requested output directory
+(`sources/<dataset>/`), leaving published result directories unchanged.
+RBFOpt's verifier checks all archived traces without local JSONLs; add
 `--extract` to restore the 1,050 ignored trajectory copies. This storage change
 does not rewrite Git history.
 
