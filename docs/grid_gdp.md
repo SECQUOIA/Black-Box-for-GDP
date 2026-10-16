@@ -161,9 +161,12 @@ a different optimization problem. In this CSV, the center is a maximum.
 
 ## Build and validate
 
-Use a Python environment with Pyomo installed. Run from the repository root:
+Install the optional model and test dependencies, then run from the repository
+root (no optimization solver is required):
 
 ```bash
+python -m pip install ".[gdp,test]"
+python -m pytest tests/test_grid_gdp.py -q
 python -m gdp_models.grid list
 python -m gdp_models.grid validate
 python -m gdp_models.grid validate --names ackley rosenbrock --output /tmp/grid_audit.json

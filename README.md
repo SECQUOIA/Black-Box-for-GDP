@@ -507,3 +507,9 @@ See [the Issue #27 extraction notes](docs/issue_27_integration.md) for the origi
 implementation scope. This branch incorporates the shared Grid/GDP interfaces
 and historical results now present on `main`, while retaining the reviewed
 logical/preprocessing rejection metadata.
+
+## Process DSDA domain fairness
+
+See [the process DSDA domain and callback-budget notes](docs/process_dsda_domain.md)
+for the implementation portion of Issue #24. Historical Dantzig execution and
+recovery evidence was incorporated into `main` through PR #23.
