@@ -82,8 +82,8 @@ def problem(spec):
 
 
 def worker_setup():
-    cpu_settings()
-    upstream()
+    with cpu_settings():
+        upstream()
 
 
 def runtime(config, role):
@@ -99,7 +99,8 @@ def runtime(config, role):
         raise ValueError(f"QHD environment differs from the pinned requirements: {versions}")
     if platform.system() == "Linux" and (torch.version.cuda is not None or "+cpu" not in versions["torch"]):
         raise ValueError("Install the pinned official CPU-only PyTorch wheel")
-    settings = cpu_settings()
+    with cpu_settings() as settings:
+        settings = dict(settings)
     provenance = verify_sources()
     sources = verify_lookup_sources()
     if SCOPE in ("grid", "all"):

@@ -507,6 +507,12 @@ See [implementation scope and prerequisites](docs/issue_28_integration.md)
 for issue #28. These runners retain their frozen-input prerequisites; merging
 main does not replace the required IPOPT input archives.
 
+## FMQA-SA callback adapter
+
+Use `fmqa_benchmark.adapter.run_fmqa_sa` with an opaque objective callback,
+integer bounds, an ordered initial design, a budget and a seed. See the
+[adapter and upstream provenance documentation](docs/fmqa_adapter.md).
+
 ## Process DSDA domain fairness
 
 See [the process DSDA domain and callback-budget notes](docs/process_dsda_domain.md)
