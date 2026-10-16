@@ -170,6 +170,28 @@ def test_tts99_summary_uses_hit_rate_and_median_wall_time_across_seeds():
     assert summary.loc["sometimes.csv", "tts99_s"] == 21.0
 
 
+def test_tts99_tolerance_recomputes_hits_without_changing_original_flags():
+    results = pd.DataFrame([
+        {"csv_name": "grid.csv", "method": "FMQA-SA", "seed": seed,
+         "n_starts": 3, "max_evals": 10, "target_value": 0.0,
+         "best_value": value, "found_optimum": False, "wall_time_s": time}
+        for seed, (value, time) in enumerate(((2e-6, 2.0), (1e-3, 4.0)))
+    ])
+    raw = benchmark_analysis.tts99_summary(results).iloc[0]
+    corrected = benchmark_analysis.tts99_summary(results, tolerance=1e-5).iloc[0]
+    assert raw["tts99_s"] == float("inf")
+    assert corrected["hits"] == 1
+    assert corrected["runs_99"] == 7
+    assert corrected["tts99_s"] == 21
+    assert corrected["tolerance"] == 1e-5
+    assert not results["found_optimum"].any()
+    figure = benchmark_analysis.plot_tts99_comparison(
+        results, tolerance=1e-5, log_scale=True, n_columns=3,
+    )
+    assert figure.axes[0].get_yscale() == "log"
+    assert figure.axes[0].get_ylim()[0] > 0
+
+
 def test_tts99_plot_includes_failures_in_median_and_labels_run_count():
     results = pd.DataFrame(
         [

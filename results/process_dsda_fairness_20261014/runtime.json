@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-14T19:05:53.550693+00:00",
+  "host": "dantzig.ecn.purdue.edu",
+  "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34",
+  "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+  "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-nlp-overnight/bin/python",
+  "versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "3.0.5"
+  },
+  "environment_policy": "Pin NumPy/SciPy; record pandas without an exact pin. The process DSDA path supplies domain dictionaries and never calls pandas CSV/dataframe APIs. Required tests forbid those APIs on every configured process run.",
+  "affinity": {
+    "cpu": 7,
+    "physical_package_id": "0",
+    "core_id": "9",
+    "thread_siblings_list": "7,55",
+    "effective_cpus": [
+      7
+    ],
+    "policy": "one logical CPU; not an exclusive reservation"
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "development_only": false,
+  "repository_state": {
+    "path": "/local/scratch/a/lee4382/repository/RBFopt_Test",
+    "head": "7f110f9122298a4f492d8ad464e782b2435b167b",
+    "branch": "benchmark",
+    "working_tree": "?? .pyomo-gdp-comparison/\n?? GDP_RUNNER_SHA256SUMS\n?? cstr30_retry_runner.zip\n?? cstr30_retry_runner/\n?? dantzig_cpu_split_runner_20260925.zip\n?? dantzig_cpu_split_runner_20260925/\n?? dantzig_dfo_trace_nlp_20261002.zip\n?? dantzig_dfo_trace_nlp_20261002.zip.sha256\n?? dantzig_dfo_trace_nlp_20261002/\n?? dantzig_nlp_overnight_20261002.zip\n?? dantzig_nlp_overnight_20261002.zip.sha256\n?? dantzig_nlp_overnight_20261002/\n?? docs/\n?? external/\n?? fmqa_benchmark_runner.zip\n?? fmqa_dantzig.log\n?? fmqa_grid_dantzig.log\n?? fmqa_grid_runner.zip\n?? fmqa_grid_runner/\n?? fmqa_qhd_all.log\n?? fmqa_qhd_dantzig_20261012.zip\n?? fmqa_qhd_dantzig_20261012.zip.sha256\n?? fmqa_qhd_kernel_resume_20261012.py\n?? fmqa_qhd_points.log\n?? fmqa_qhd_points_dantzig_20261012.zip\n?? fmqa_qhd_points_dantzig_20261012.zip.sha256\n?? fmqa_qhd_points_runner/\n?? fmqa_qhd_runner/\n?? fmqa_qhd_small_batch.log\n?? fmqa_runner/\n?? gdp_comparison_runner.zip\n?? gdp_comparison_runner/\n?? gdp_dantzig_runner.zip\n?? gdp_gams_run.log\n?? gdp_models/\n?? gdp_rerun.log\n?? gdp_run.log\n?? gdpopt_baron_highs_runner.zip\n?? gdpopt_baron_highs_runner_c3r8OD/\n?? gdpopt_followup_runner.zip\n?? gdpopt_followup_runner_CPukTj/\n?? gdpopt_loa_cpu6_runner.zip\n?? gdpopt_loa_cpu6_runner_ETksdn/\n?? grid_certificate_revalidation_20261014.zip\n?? grid_certificate_revalidation_20261014.zip.sha256\n?? grid_certificate_revalidation_20261014/\n?? grid_dfo_trace_roundoff_fix.zip\n?? grid_dfo_trace_roundoff_fix.zip.sha256\n?? grid_dfo_trace_runner.zip\n?? grid_dfo_trace_runner.zip.sha256\n?? grid_dfo_trace_runner/\n?? grid_gdp_benchmark.log\n?? grid_gdp_error_fix_package/\n?? grid_gdp_error_fix_runner.zip\n?? grid_gdp_fixed_retry.log\n?? grid_gdp_retry_errors.log\n?? grid_gdp_retry_package/\n?? grid_gdp_retry_runner.zip\n?? grid_gdp_retry_runner.zip.sha256\n?? grid_gdp_runner.zip\n?? grid_gdp_runner.zip.sha256\n?? grid_gdp_runner/\n?? grid_trace_bam.log\n?? grid_trace_bam_resume.log\n?? grid_trace_rbfopt.log\n?? grid_trace_roundoff_fix/\n?? process_followup.log\n?? process_followup_dantzig_20261012.zip\n?? process_followup_dantzig_20261012.zip.sha256\n?? process_followup_runner/\n?? requirements-gdp.txt\n?? results/cpu_split_20260925/\n?? results/dantzig_20260910_002014_x164Lj/\n?? results/dantzig_20260910_100217_4T9Ipp/\n?? results/dantzig_20260910_170759_slN8tv/\n?? results/dantzig_bam_20260916_231228_FNzbAA.zip\n?? results/dantzig_bam_20260916_231228_FNzbAA/\n?? results/dantzig_cstr30_retry_20260922_153133_ld1g1zau.zip\n?? results/dantzig_cstr30_retry_20260922_153133_ld1g1zau.zip.sha256\n?? results/dantzig_cstr30_retry_20260922_153133_ld1g1zau/\n?? results/dantzig_fmqa_20260922_190404_srlq79h8.zip\n?? results/dantzig_fmqa_20260922_190404_srlq79h8.zip.sha256\n?? results/dantzig_fmqa_20260922_190404_srlq79h8/\n?? results/dantzig_fmqa_grid_20260922_193543_0n4wy6ii.zip\n?? results/dantzig_fmqa_grid_20260922_193543_0n4wy6ii.zip.sha256\n?? results/dantzig_fmqa_grid_20260922_193543_0n4wy6ii/\n?? results/dantzig_fmqa_grid_20260922_193807_xee_59ti.zip\n?? results/dantzig_fmqa_grid_20260922_193807_xee_59ti.zip.sha256\n?? results/dantzig_fmqa_grid_20260922_193807_xee_59ti/\n?? results/dantzig_gdp_20260922_030057_6tb50i44.zip\n?? results/dantzig_gdp_20260922_030057_6tb50i44.zip.sha256\n?? results/dantzig_gdp_20260922_030057_6tb50i44/\n?? results/dantzig_gdp_20260922_033846_u0tjt7i7.zip\n?? results/dantzig_gdp_20260922_033846_u0tjt7i7.zip.sha256\n?? results/dantzig_gdp_20260922_033846_u0tjt7i7/\n?? results/dantzig_gdp_compare_20260922_181805_4u7k1d0n.zip\n?? results/dantzig_gdp_compare_20260922_181805_4u7k1d0n.zip.sha256\n?? results/dantzig_gdp_compare_20260922_181805_4u7k1d0n/\n?? results/dantzig_gdp_gams_20260922_050038_p4q8hy54.zip\n?? results/dantzig_gdp_gams_20260922_050038_p4q8hy54.zip.sha256\n?? results/dantzig_gdp_gams_20260922_050038_p4q8hy54/\n?? results/dfo_trace_nlp/\n?? results/fmqa_qhd/\n?? results/fmqa_qhd_points/\n?? results/gdpopt_baron_highs.tar.gz\n?? results/gdpopt_baron_highs/\n?? results/gdpopt_loa_baron_highs_cpu6/\n?? results/grid_dfo_trace/\n?? results/grid_gdp_benchmark/\n?? results/nlp_overnight/\n?? results/process_followup/\n?? results/small_batch_full_domain/\n?? results/small_batch_rbfopt_solver/\n?? run_bam_dantzig.sh\n?? run_dantzig.sh\n?? run_gdp_dantzig.sh\n?? run_gdp_gams_dantzig.sh\n?? small_batch_full_domain.log\n?? small_batch_full_domain_dantzig_20261012.zip\n?? small_batch_full_domain_dantzig_20261012.zip.sha256\n?? small_batch_full_domain_runner/\n?? small_batch_rbfopt_solver.log\n?? small_batch_rbfopt_solver_dantzig_20261013.zip\n?? small_batch_rbfopt_solver_runner/"
+  }
+}

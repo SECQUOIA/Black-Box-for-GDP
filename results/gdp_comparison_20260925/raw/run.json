@@ -1,0 +1,6035 @@
+{
+  "kind": "full_gdp_method_comparison",
+  "config": {
+    "cases": [
+      "cstr",
+      "column",
+      "dynamic",
+      "small_batch"
+    ],
+    "cstr_sizes": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "methods": [
+      "ric",
+      "gloa",
+      "bigm",
+      "hull"
+    ],
+    "time_limit": 1800,
+    "relative_gap": 1e-05,
+    "executable": "/package/gams/52.2/gams",
+    "baron_column_hull_lbtt": 0,
+    "expected_gams_version": "52.2"
+  },
+  "cpu": 2,
+  "cpu_affinity": {
+    "cpu": 2,
+    "physical_package_id": "0",
+    "core_id": "2",
+    "thread_siblings_list": "2,50",
+    "effective_cpus": [
+      2
+    ],
+    "policy": "one logical CPU; not an exclusive reservation"
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "GOTO_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "NUMEXPR_MAX_THREADS": "1"
+  },
+  "host": "dantzig.ecn.purdue.edu",
+  "created_utc": "2026-09-25T17:20:20.457694+00:00",
+  "source_sha256": {
+    "gdp_compare.py": "03abbff22d0823adeb656f715720cd114ae51fb5bc2b3c3ae0d8bb27dd6d3070",
+    "cpu_affinity.py": "fc6470e8db52df68935abdaa5ebe76602a1c7917d08b4ca35760a042aba73b60",
+    "gdp_models/__init__.py": "5ebb20b8f7249a66ace212cebabf47949e8f40d3a9ddea464b11a7eb55a47705",
+    "gdp_models/__main__.py": "3637c973071961beeb01876a23eb3bbf172d2fe3a493cbbc9e0fd29d623e6dc4",
+    "gdp_models/_sources.py": "d5363100698e69c829918b850c0fb39481b64eb9c4e2d7c987bee3b628e2fd29",
+    "gdp_models/batch.py": "01e82b9c62ac196be5fb9feab739e3b122b9a08babb5af7f546565f114227117",
+    "gdp_models/comparison.py": "8282ea5e36cad881800d50432277baaa3d118ccf59e37f51902b27325c8fb45c",
+    "gdp_models/dantzig.py": "47533ff3b9436e4bc089ca7aecd43ca0c38924e379c2b3b4195a8cd60d48b3d4",
+    "gdp_models/domains.py": "bb2a9f2783fdf32f25d327c417521ecae73b2dc60fc6e579d8c0afe187493394",
+    "gdp_models/evaluation.py": "88be8eaa7c84530b1861c5cc27a2cb24e459da7d5d617b843b384b35a42fb099",
+    "gdp_models/models.py": "1257294f4b90ddf7ee0bfa3b23e3df576890433a103f49789e624499fe698396",
+    "gdp_models/preflight.py": "fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56",
+    "gdp_models/solvers.py": "6832d692177b2b9533606a2af3b32604e52553d74a975ea5f3da51c3a9cab3c6",
+    "requirements-gdp.txt": "c59b628e0e07c2b9e86d4ee065a29ed0c211b419b4f99d1cea8d958100731bc8",
+    "requirements-gdp-comparison.txt": "8b8411586e0460a5c6a9eb7b9901fd9240ea17198254bf747a1da23a895ef685",
+    "docs/gdp_comparison.md": "53713fe1a233ed55d428cb815e098d49a8e6bcb3ec3ff2dc6677863d18bdf87c",
+    "docs/dantzig_cpu_rerun.md": "3157ab430091bcb0998768b02b174959484583688f4a50eec2fca25a142b2182",
+    "LICENSE": "1d34d50a6a4c138f091f62dc8428ad0177658a8a81758424683823673d48f813"
+  },
+  "time_policy": "1800s default per method worker; shared templates/preflight separate; up to 6s termination cleanup",
+  "preflight_wall_s": 9.239960576873273,
+  "runtime": {
+    "gams_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "gams_executable_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+    "dependencies": {
+      "pyomo": "6.10.0",
+      "sympy": "1.14.0",
+      "numpy": "2.4.6",
+      "networkx": "3.6.1",
+      "matplotlib": "3.11.2"
+    },
+    "python_version": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+    "mcpp": {
+      "library": "/local/scratch/a/lee4382/repository/RBFopt_Test/.pyomo-gdp-comparison/lib/mcppInterface.so",
+      "sha256": "05082e93380fd595c65d1b5ecd5cd36a381ff6d28abb8023c556e52cf944c2c6",
+      "expected_source_commit": "c8ae9800d02b09bee0012aed593de92c9cf10fa7"
+    },
+    "solver_checks": {
+      "ipopt": {
+        "index": 1,
+        "solver": "ipopt",
+        "limit_s": 28.499834021017886,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 10000",
+          "linear_solver mumps",
+          "warm_start_init_point no"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 2.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": null,
+          "OBJVAL": 0.0,
+          "NUMVAR": 2.0,
+          "NUMEQU": 1.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 2.0,
+          "ETSOLVE": 0.019999640062451
+        },
+        "termination": "locallyOptimal",
+        "solver_status": "ok",
+        "lower_bound": null,
+        "upper_bound": 0.0,
+        "wall_s": 0.40221028588712215
+      },
+      "cplex": {
+        "index": 1,
+        "solver": "cplex",
+        "limit_s": 28.499672859092243,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [],
+        "gams_statistics": {
+          "MODELSTAT": 1.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": 0.999999999999999,
+          "OBJVAL": 1.0,
+          "NUMVAR": 3.0,
+          "NUMEQU": 2.0,
+          "NUMDVAR": 1.0,
+          "NUMNZ": 5.0,
+          "ETSOLVE": 0.024999864399433
+        },
+        "termination": "optimal",
+        "solver_status": "ok",
+        "lower_bound": 0.999999999999999,
+        "upper_bound": 1.0,
+        "wall_s": 0.39664847403764725
+      },
+      "baron": {
+        "index": 1,
+        "solver": "baron",
+        "limit_s": 28.499721963517366,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "LPSol 3",
+          "NLPSol 9"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 1.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": 1.0,
+          "OBJVAL": 1.0,
+          "NUMVAR": 3.0,
+          "NUMEQU": 2.0,
+          "NUMDVAR": 1.0,
+          "NUMNZ": 5.0,
+          "ETSOLVE": 0.075000221841037
+        },
+        "termination": "optimal",
+        "solver_status": "ok",
+        "lower_bound": 1.0,
+        "upper_bound": 1.0,
+        "wall_s": 0.41780619602650404
+      }
+    },
+    "transformation_checks": [
+      {
+        "case": "cstr",
+        "cstr_size": 5,
+        "instance_id": "cstr_5",
+        "method": "bigm",
+        "gams_written": true
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 5,
+        "instance_id": "cstr_5",
+        "method": "hull",
+        "gams_written": true
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 10,
+        "instance_id": "cstr_10",
+        "method": "bigm",
+        "gams_written": true
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 10,
+        "instance_id": "cstr_10",
+        "method": "hull",
+        "gams_written": true
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 15,
+        "instance_id": "cstr_15",
+        "method": "bigm",
+        "gams_written": true
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 15,
+        "instance_id": "cstr_15",
+        "method": "hull",
+        "gams_written": true
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 20,
+        "instance_id": "cstr_20",
+        "method": "bigm",
+        "gams_written": true
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 20,
+        "instance_id": "cstr_20",
+        "method": "hull",
+        "gams_written": true
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 25,
+        "instance_id": "cstr_25",
+        "method": "bigm",
+        "gams_written": true
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 25,
+        "instance_id": "cstr_25",
+        "method": "hull",
+        "gams_written": true
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 30,
+        "instance_id": "cstr_30",
+        "method": "bigm",
+        "gams_written": true
+      },
+      {
+        "case": "cstr",
+        "cstr_size": 30,
+        "instance_id": "cstr_30",
+        "method": "hull",
+        "gams_written": true
+      },
+      {
+        "case": "column",
+        "cstr_size": null,
+        "instance_id": "column",
+        "method": "bigm",
+        "gams_written": true
+      },
+      {
+        "case": "column",
+        "cstr_size": null,
+        "instance_id": "column",
+        "method": "hull",
+        "gams_written": true
+      },
+      {
+        "case": "dynamic",
+        "cstr_size": null,
+        "instance_id": "dynamic",
+        "method": "bigm",
+        "gams_written": true
+      },
+      {
+        "case": "dynamic",
+        "cstr_size": null,
+        "instance_id": "dynamic",
+        "method": "hull",
+        "gams_written": true
+      },
+      {
+        "case": "small_batch",
+        "cstr_size": null,
+        "instance_id": "small_batch",
+        "method": "bigm",
+        "gams_written": true
+      },
+      {
+        "case": "small_batch",
+        "cstr_size": null,
+        "instance_id": "small_batch",
+        "method": "hull",
+        "gams_written": true
+      }
+    ],
+    "templates": {
+      "cstr_5": {
+        "case": "cstr",
+        "cstr_size": 5,
+        "instance_id": "cstr_5",
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+            "gdp/dsda/cstr_5_initialization.json": "2f8180fe245f7ec8af8fb9fd2fc549c43aaecc6d6dfc735eb2c89715a8d09ce2",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+          }
+        },
+        "initialization": "gdp/dsda/cstr_5_initialization.json",
+        "dynamic_preparation": null,
+        "global_fbbt_wall_s": 0.007303498685359955,
+        "globally_implied_bounds": {
+          "Q[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "QFR[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9
+            ]
+          },
+          "P[B]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.5
+            ]
+          }
+        },
+        "template_wall_s": 0.5465743099339306,
+        "template_policy": "built once, independent unsolved clone per method"
+      },
+      "cstr_10": {
+        "case": "cstr",
+        "cstr_size": 10,
+        "instance_id": "cstr_10",
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+            "gdp/dsda/cstr_10_initialization.json": "c7ed746a610656af44d7382b3656158efecd61d62785a713da4a8b0a7f3b6cb4",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+          }
+        },
+        "initialization": "gdp/dsda/cstr_10_initialization.json",
+        "dynamic_preparation": null,
+        "global_fbbt_wall_s": 0.011495537124574184,
+        "globally_implied_bounds": {
+          "Q[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[10]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "QFR[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[10]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9
+            ]
+          },
+          "P[B]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.5
+            ]
+          }
+        },
+        "template_wall_s": 0.09902921691536903,
+        "template_policy": "built once, independent unsolved clone per method"
+      },
+      "cstr_15": {
+        "case": "cstr",
+        "cstr_size": 15,
+        "instance_id": "cstr_15",
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+            "gdp/dsda/cstr_15_initialization.json": "de9eec42abb1f5ba587546239e9520e8ffc2ddffc9518f777227564f4c1b3104",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+          }
+        },
+        "initialization": "gdp/dsda/cstr_15_initialization.json",
+        "dynamic_preparation": null,
+        "global_fbbt_wall_s": 0.016061843372881413,
+        "globally_implied_bounds": {
+          "Q[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[10]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[11]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[12]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[13]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[14]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[15]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "QFR[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[10]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[11]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[12]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[13]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[14]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[15]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9
+            ]
+          },
+          "P[B]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.5
+            ]
+          }
+        },
+        "template_wall_s": 0.13794285571202636,
+        "template_policy": "built once, independent unsolved clone per method"
+      },
+      "cstr_20": {
+        "case": "cstr",
+        "cstr_size": 20,
+        "instance_id": "cstr_20",
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+            "gdp/dsda/cstr_20_initialization.json": "bafdb05180118d08876f662ab43f87a09a7c2bd4b9e3d6c6289367ca40030f86",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+          }
+        },
+        "initialization": "gdp/dsda/cstr_20_initialization.json",
+        "dynamic_preparation": null,
+        "global_fbbt_wall_s": 0.020937561057507992,
+        "globally_implied_bounds": {
+          "Q[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[10]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[11]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[12]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[13]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[14]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[15]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[16]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[17]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[18]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[19]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[20]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "QFR[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[10]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[11]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[12]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[13]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[14]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[15]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[16]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[17]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[18]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[19]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[20]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9
+            ]
+          },
+          "P[B]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.5
+            ]
+          }
+        },
+        "template_wall_s": 0.17636337084695697,
+        "template_policy": "built once, independent unsolved clone per method"
+      },
+      "cstr_25": {
+        "case": "cstr",
+        "cstr_size": 25,
+        "instance_id": "cstr_25",
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+            "gdp/dsda/cstr_25_initialization.json": "98e8ceaf048d8e1d1835f3b13489da34fb78b4b955f38cd3731d5ef9b856e397",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+          }
+        },
+        "initialization": "gdp/dsda/cstr_25_initialization.json",
+        "dynamic_preparation": null,
+        "global_fbbt_wall_s": 0.02564675034955144,
+        "globally_implied_bounds": {
+          "Q[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[10]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[11]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[12]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[13]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[14]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[15]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[16]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[17]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[18]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[19]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[20]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[21]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[22]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[23]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[24]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[25]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "QFR[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[10]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[11]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[12]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[13]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[14]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[15]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[16]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[17]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[18]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[19]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[20]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[21]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[22]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[23]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[24]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[25]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9
+            ]
+          },
+          "P[B]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.5
+            ]
+          }
+        },
+        "template_wall_s": 0.21585711184889078,
+        "template_policy": "built once, independent unsolved clone per method"
+      },
+      "cstr_30": {
+        "case": "cstr",
+        "cstr_size": 30,
+        "instance_id": "cstr_30",
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6"
+          }
+        },
+        "initialization": "constructor_defaults (no upstream saved initialization)",
+        "dynamic_preparation": null,
+        "global_fbbt_wall_s": 0.02945296000689268,
+        "globally_implied_bounds": {
+          "Q[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[10]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[11]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[12]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[13]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[14]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[15]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[16]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[17]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[18]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[19]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[20]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[21]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[22]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[23]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[24]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[25]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[26]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[27]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[28]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[29]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "Q[30]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1.0,
+              10
+            ]
+          },
+          "QFR[1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[10]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[11]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[12]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[13]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[14]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[15]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[16]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[17]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[18]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[19]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[20]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[21]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[22]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[23]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[24]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[25]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[26]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[27]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[28]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[29]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.0
+            ]
+          },
+          "QFR[30]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9
+            ]
+          },
+          "P[B]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.5
+            ]
+          }
+        },
+        "template_wall_s": 0.0517622078768909,
+        "template_policy": "built once, independent unsolved clone per method"
+      },
+      "column": {
+        "case": "column",
+        "cstr_size": null,
+        "instance_id": "column",
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/column/gdp_column.py": "c5fea7ff6286d2b6c1055a4e602b08648a03853aea24e6552f5921b36e205bab",
+            "gdp/dsda/column_17_initialization.json": "60cd7d1f7a7f08b59d9b0d7fca6e8920313ca7722c94d829e388a009ae4acfd7",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+          }
+        },
+        "initialization": "gdp/dsda/column_17_initialization.json",
+        "dynamic_preparation": null,
+        "global_fbbt_wall_s": 0.042748333886265755,
+        "globally_implied_bounds": {
+          "T_feed": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              368,
+              368
+            ]
+          },
+          "feed_vap_frac": {
+            "before": [
+              0,
+              1
+            ],
+            "after": [
+              0.40395,
+              0.40395
+            ]
+          },
+          "feed[benzene]": {
+            "before": [
+              null,
+              null
+            ],
+            "after": [
+              50,
+              50
+            ]
+          },
+          "feed[toluene]": {
+            "before": [
+              null,
+              null
+            ],
+            "after": [
+              50,
+              50
+            ]
+          },
+          "L[benzene,1]": {
+            "before": [
+              0,
+              500
+            ],
+            "after": [
+              0,
+              100
+            ]
+          },
+          "L[toluene,1]": {
+            "before": [
+              0,
+              500
+            ],
+            "after": [
+              0,
+              100
+            ]
+          },
+          "liq[1]": {
+            "before": [
+              0,
+              500
+            ],
+            "after": [
+              0,
+              200
+            ]
+          },
+          "B[benzene]": {
+            "before": [
+              0,
+              500
+            ],
+            "after": [
+              0,
+              100
+            ]
+          },
+          "B[toluene]": {
+            "before": [
+              0,
+              500
+            ],
+            "after": [
+              0,
+              100
+            ]
+          },
+          "D[benzene]": {
+            "before": [
+              0,
+              500
+            ],
+            "after": [
+              0,
+              100
+            ]
+          },
+          "D[toluene]": {
+            "before": [
+              0,
+              500
+            ],
+            "after": [
+              0,
+              100
+            ]
+          },
+          "reflux_frac": {
+            "before": [
+              0,
+              0.999999
+            ],
+            "after": [
+              0.1,
+              0.999999
+            ]
+          },
+          "boilup_frac": {
+            "before": [
+              0,
+              0.999999
+            ],
+            "after": [
+              0.26,
+              0.999999
+            ]
+          },
+          "Kc[benzene,1]": {
+            "before": [
+              0,
+              1000
+            ],
+            "after": [
+              0.09069704412682228,
+              4.726753845725148
+            ]
+          },
+          "Kc[benzene,9]": {
+            "before": [
+              0,
+              1000
+            ],
+            "after": [
+              0.09069704412682228,
+              4.726753845725148
+            ]
+          },
+          "Kc[benzene,17]": {
+            "before": [
+              0,
+              1000
+            ],
+            "after": [
+              0.09069704412682011,
+              4.72675384572518
+            ]
+          },
+          "Kc[toluene,1]": {
+            "before": [
+              0,
+              1000
+            ],
+            "after": [
+              0.026514270835933103,
+              2.1592910806484555
+            ]
+          },
+          "Kc[toluene,9]": {
+            "before": [
+              0,
+              1000
+            ],
+            "after": [
+              0.026514270835933103,
+              2.1592910806484555
+            ]
+          },
+          "Kc[toluene,17]": {
+            "before": [
+              0,
+              1000
+            ],
+            "after": [
+              0.02651427083593242,
+              2.159291080648479
+            ]
+          },
+          "T[1]": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              300.0000000000007,
+              399.9999999999993
+            ]
+          },
+          "T[8]": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              300.00000000000045,
+              400
+            ]
+          },
+          "T[9]": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              300.0000000000007,
+              399.9999999999993
+            ]
+          },
+          "T[10]": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              300,
+              399.99999999999955
+            ]
+          },
+          "T[11]": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              300,
+              399.99999999999955
+            ]
+          },
+          "T[12]": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              300,
+              399.99999999999955
+            ]
+          },
+          "T[13]": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              300,
+              399.99999999999955
+            ]
+          },
+          "T[14]": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              300,
+              399.99999999999955
+            ]
+          },
+          "T[15]": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              300,
+              399.99999999999955
+            ]
+          },
+          "T[16]": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              300.0000000000002,
+              399.99999999999955
+            ]
+          },
+          "T[17]": {
+            "before": [
+              300,
+              400
+            ],
+            "after": [
+              300.0000000000002,
+              399.99999999999955
+            ]
+          },
+          "P": {
+            "before": [
+              0,
+              5
+            ],
+            "after": [
+              1.01,
+              1.01
+            ]
+          },
+          "gamma[benzene,1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1,
+              1
+            ]
+          },
+          "gamma[benzene,9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1,
+              1
+            ]
+          },
+          "gamma[benzene,17]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1,
+              1
+            ]
+          },
+          "gamma[toluene,1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1,
+              1
+            ]
+          },
+          "gamma[toluene,9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1,
+              1
+            ]
+          },
+          "gamma[toluene,17]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1,
+              1
+            ]
+          },
+          "Pvap[benzene,1]": {
+            "before": [
+              0.001,
+              5
+            ],
+            "after": [
+              0.0916040145680905,
+              4.7740213841824
+            ]
+          },
+          "Pvap[benzene,9]": {
+            "before": [
+              0.001,
+              5
+            ],
+            "after": [
+              0.0916040145680905,
+              4.7740213841824
+            ]
+          },
+          "Pvap[benzene,17]": {
+            "before": [
+              0.001,
+              5
+            ],
+            "after": [
+              0.09160401456808831,
+              4.774021384182432
+            ]
+          },
+          "Pvap[toluene,1]": {
+            "before": [
+              0.001,
+              5
+            ],
+            "after": [
+              0.026779413544292436,
+              2.18088399145494
+            ]
+          },
+          "Pvap[toluene,9]": {
+            "before": [
+              0.001,
+              5
+            ],
+            "after": [
+              0.026779413544292436,
+              2.18088399145494
+            ]
+          },
+          "Pvap[toluene,17]": {
+            "before": [
+              0.001,
+              5
+            ],
+            "after": [
+              0.026779413544291746,
+              2.180883991454964
+            ]
+          },
+          "Pvap_rel[benzene,1]": {
+            "before": [
+              0,
+              5
+            ],
+            "after": [
+              0.0906040145680905,
+              4.7730213841824
+            ]
+          },
+          "Pvap_rel[benzene,9]": {
+            "before": [
+              0,
+              5
+            ],
+            "after": [
+              0.0906040145680905,
+              4.7730213841824
+            ]
+          },
+          "Pvap_rel[benzene,17]": {
+            "before": [
+              0,
+              5
+            ],
+            "after": [
+              0.09060401456808831,
+              4.773021384182432
+            ]
+          },
+          "Pvap_rel[toluene,1]": {
+            "before": [
+              0,
+              5
+            ],
+            "after": [
+              0.025779413544292435,
+              2.17988399145494
+            ]
+          },
+          "Pvap_rel[toluene,9]": {
+            "before": [
+              0,
+              5
+            ],
+            "after": [
+              0.025779413544292435,
+              2.17988399145494
+            ]
+          },
+          "Pvap_rel[toluene,17]": {
+            "before": [
+              0,
+              5
+            ],
+            "after": [
+              0.025779413544291745,
+              2.179883991454964
+            ]
+          },
+          "Pvap_X[benzene,1]": {
+            "before": [
+              0.25,
+              0.5
+            ],
+            "after": [
+              0.2885094272500902,
+              0.4663820704375654
+            ]
+          },
+          "Pvap_X[benzene,9]": {
+            "before": [
+              0.25,
+              0.5
+            ],
+            "after": [
+              0.2885094272500902,
+              0.4663820704375654
+            ]
+          },
+          "Pvap_X[benzene,17]": {
+            "before": [
+              0.25,
+              0.5
+            ],
+            "after": [
+              0.28850942725008977,
+              0.46638207043756624
+            ]
+          },
+          "Pvap_X[toluene,1]": {
+            "before": [
+              0.25,
+              0.5
+            ],
+            "after": [
+              0.3240959783710725,
+              0.4930719837783023
+            ]
+          },
+          "Pvap_X[toluene,9]": {
+            "before": [
+              0.25,
+              0.5
+            ],
+            "after": [
+              0.3240959783710725,
+              0.4930719837783023
+            ]
+          },
+          "Pvap_X[toluene,17]": {
+            "before": [
+              0.25,
+              0.5
+            ],
+            "after": [
+              0.32409597837107196,
+              0.4930719837783031
+            ]
+          },
+          "H_V[benzene,1]": {
+            "before": [
+              30,
+              56
+            ],
+            "after": [
+              30,
+              50.82149374930038
+            ]
+          },
+          "H_V[benzene,9]": {
+            "before": [
+              30,
+              56
+            ],
+            "after": [
+              30,
+              50.82149374930038
+            ]
+          },
+          "H_V[toluene,1]": {
+            "before": [
+              30,
+              56
+            ],
+            "after": [
+              32.612022827497086,
+              56
+            ]
+          },
+          "H_V[toluene,9]": {
+            "before": [
+              30,
+              56
+            ],
+            "after": [
+              32.612022827497086,
+              56
+            ]
+          },
+          "H_L_spec_feed[benzene]": {
+            "before": [
+              0.1,
+              16
+            ],
+            "after": [
+              10.095361858131001,
+              10.095361858131001
+            ]
+          },
+          "H_L_spec_feed[toluene]": {
+            "before": [
+              0.1,
+              16
+            ],
+            "after": [
+              11.648028898909795,
+              11.648028898909795
+            ]
+          },
+          "H_V_spec_feed[benzene]": {
+            "before": [
+              30,
+              56
+            ],
+            "after": [
+              40.26569136667437,
+              40.26569136667437
+            ]
+          },
+          "H_V_spec_feed[toluene]": {
+            "before": [
+              30,
+              56
+            ],
+            "after": [
+              46.46228596773012,
+              46.46228596773012
+            ]
+          }
+        },
+        "template_wall_s": 0.27534480579197407,
+        "template_policy": "built once, independent unsolved clone per method"
+      },
+      "dynamic": {
+        "case": "dynamic",
+        "cstr_size": null,
+        "instance_id": "dynamic",
+        "source": {
+          "repository": "https://github.com/SECQUOIA/LD-SDA-Dynamic",
+          "commit": "482e14ebf9caabbd35d959986942cb028778a1d7",
+          "files_sha256": {
+            "models/nine_stage_dynamic_model_switching_nonlinear.py": "70653536e48a2a6a05c23a8f0337a43e36307c554569982767afa1c1c623ed98"
+          }
+        },
+        "initialization": "constructor_defaults",
+        "dynamic_preparation": {
+          "preparation_id": "a7e539f281654973bec6afc7b4417ab2",
+          "created_utc": "2026-09-25T17:20:23.448094+00:00",
+          "scope": "once_per_process",
+          "model_build_wall_s": 0.016276173293590546,
+          "dae_wall_s": 0.04440720099955797,
+          "total_preparation_wall_s": 0.06068337429314852,
+          "included_in_point_total_wall_s": false
+        },
+        "global_fbbt_wall_s": 0.1901482930406928,
+        "globally_implied_bounds": {
+          "x1[0]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              1,
+              1
+            ]
+          },
+          "x1[0.005168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              5.169792031196377
+            ]
+          },
+          "x1[0.066667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.166667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.266667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999995
+            ]
+          },
+          "x1[0.3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.354832]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.366667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.4]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.466667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999995
+            ]
+          },
+          "x1[0.5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.533333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999996
+            ]
+          },
+          "x1[0.554832]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.566667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.621498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.633333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.666667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999996
+            ]
+          },
+          "x1[0.721498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.733333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.766667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.788165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999996
+            ]
+          },
+          "x1[0.866667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.888165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.9]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999996
+            ]
+          },
+          "x1[0.933333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999996
+            ]
+          },
+          "x1[0.954832]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x1[0.966667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.021498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.033333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.066667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.088165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.105168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.166667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.188165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.221498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.233333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.266667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.288165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.3]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.321498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.333333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.366667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.371835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.421498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.433333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.466667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.488165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.5]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.521498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.533333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.566667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.588165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.605168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.666667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.688165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.721498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.733333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.766667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.788165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.8]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.821498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.833333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.866667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.871835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.921498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.933333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.966667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[1.988165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x2[2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.005168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.066667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.088165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.105168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.166667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.188165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.205168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.266667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.271835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.321498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.333333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.366667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.371835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.421498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.433333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.466667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.471835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.505168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.566667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.588165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.605168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.666667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.688165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.705168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.766667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.771835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.821498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.833333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.866667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.871835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.921498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.933333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.966667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x3[2.971835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.005168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.066667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.088165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.1]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.105168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.166667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.188165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.2]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.205168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.266667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.271835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.321498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.333333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.366667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.371835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.421498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.433333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.466667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.471835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.505168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.566667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.588165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.6]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.605168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.666667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.688165]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.7]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.705168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.766667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.771835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.821498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.833333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.866667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.871835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.921498]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.933333]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.966667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x4[3.971835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.005168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.066667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.071835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.166667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.171835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.205168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.266667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.271835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.305168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.366667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.405168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.466667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.471835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.505168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.566667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.571835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.666667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.671835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.705168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.766667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.771835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.805168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.866667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.905168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.966667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x5[4.971835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.005168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.066667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.071835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.166667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.171835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.205168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.266667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.271835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.305168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.366667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.405168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.466667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.471835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.505168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.566667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.571835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.666667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.671835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.705168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.766667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.771835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.805168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.866667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.905168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.966667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x6[5.971835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.005168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.066667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.071835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.166667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.171835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.205168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.266667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.271835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.305168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.366667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.405168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.466667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.471835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.505168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.566667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.571835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.666667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.671835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.705168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.766667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.771835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.805168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.866667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.905168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.966667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x7[6.971835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.005168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.066667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.071835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.166667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.171835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.205168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.266667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.271835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.305168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.366667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.405168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.466667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.471835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.505168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.566667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.571835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.666667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.671835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.705168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.766667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.771835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.805168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.866667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.905168]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.966667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x8[7.971835]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x9[8.066667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x9[8.166667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x9[8.266667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x9[8.366667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x9[8.466667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x9[8.566667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x9[8.666667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x9[8.766667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x9[8.866667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "x9[8.966667]": {
+            "before": [
+              0,
+              10
+            ],
+            "after": [
+              0,
+              9.999999999999998
+            ]
+          },
+          "dxdt1[0.005168]": {
+            "before": [
+              -300,
+              300
+            ],
+            "after": [
+              -200.14281159096453,
+              300
+            ]
+          }
+        },
+        "template_wall_s": 0.339347368106246,
+        "template_policy": "built once, independent unsolved clone per method"
+      },
+      "small_batch": {
+        "case": "small_batch",
+        "cstr_size": null,
+        "instance_id": "small_batch",
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+            "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+          }
+        },
+        "initialization": "gdp/dsda/small_batch_initialization.json",
+        "dynamic_preparation": null,
+        "global_fbbt_wall_s": 0.005425621289759874,
+        "globally_implied_bounds": {
+          "b[a]": {
+            "before": [
+              0,
+              null
+            ],
+            "after": [
+              3.568433301038069,
+              6.437751649736401
+            ]
+          },
+          "b[b]": {
+            "before": [
+              0,
+              null
+            ],
+            "after": [
+              3.273684061363196,
+              6.0322865416282365
+            ]
+          },
+          "tl[a]": {
+            "before": [
+              0,
+              null
+            ],
+            "after": [
+              0,
+              2.8693183486983322
+            ]
+          },
+          "tl[b]": {
+            "before": [
+              0,
+              null
+            ],
+            "after": [
+              0,
+              2.758602480265041
+            ]
+          },
+          "n[mixer]": {
+            "before": [
+              0,
+              null
+            ],
+            "after": [
+              0,
+              3.295836866004329
+            ]
+          },
+          "n[reactor]": {
+            "before": [
+              0,
+              null
+            ],
+            "after": [
+              0.1264139248556586,
+              3.295836866004329
+            ]
+          },
+          "n[centrifuge]": {
+            "before": [
+              0,
+              null
+            ],
+            "after": [
+              0,
+              3.295836866004329
+            ]
+          }
+        },
+        "template_wall_s": 0.0368636641651392,
+        "template_policy": "built once, independent unsolved clone per method"
+      }
+    }
+  },
+  "preflight_status": "passed"
+}

@@ -1,0 +1,107 @@
+{
+  "runs": 417,
+  "objective_calls": 9364,
+  "distinct_problem_points": 1353,
+  "runs_with_all_legacy_costs": 30,
+  "inputs": [
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/dsda_bam.csv",
+      "sha256": "6a0c5e04c23c45494a54ec39e720b184d9c5005c434cd760c15c08743b0eb43c",
+      "manifest_sha256": "8e7b858a490fda541b10431470ee55577fece22136383bd4cd07d3c688a20557"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_validated_prefix.csv",
+      "sha256": "68f44c86afca2b3de787a7c6a24427ae9b9289cacfc970c40b10bdd7b20792d8",
+      "manifest_sha256": "92fd3cc9725be6baabf33ac91a67aae6ef190411f7c3872d156121121c16d605"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed3.csv",
+      "sha256": "61e82257ac5400b45cbe1b53e9d884843d8617dc45d190600a70c08882e11bef",
+      "manifest_sha256": "ea468873511ce72a4230a5490e44e7164cd0988f4d4dd9c7baace460edaae2df"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed4.csv",
+      "sha256": "5775cfdd45ffcfae10789d4be45a2902de1b641970b22b86e021e5a2d547efc0",
+      "manifest_sha256": "5ee4652eb87d1bd096e4823463aa6d6df185bb0ebc205bd63ead208505949362"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed5.csv",
+      "sha256": "8e742e98a861ee6a734dd664f0019dfbfa6a87061ae35a4556a3c6f8d063501b",
+      "manifest_sha256": "c801d2be784125fe109b41f0982f9ca8546a95cd82a7d02de358a82cecade459"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed6.csv",
+      "sha256": "9592437d393a21b5324fa9f68132fc33db251cbabc21f5904c5388a6ac274fde",
+      "manifest_sha256": "fd3eee0b55f01f376a6b762fba1e01b530d017c091ec51d52cec9d35f04ded00"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed7.csv",
+      "sha256": "2453f7adf733017dc4404ec5f2c2d590701846eccc356f95c539f2fddf366bc7",
+      "manifest_sha256": "715b0f019b89f6241b25b94eb1e47fa797378d0af45451ba1bc7f571ae3beef4"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed8.csv",
+      "sha256": "bdee12ed48ad2536d1bd230c0567327465daf0c1591c40da941cdb05fca4cddb",
+      "manifest_sha256": "4a1a0b8ecc7cded9ba5dbda8b1137e455905f701ef05cd5f64cf4cca33d0d085"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B37_seed9.csv",
+      "sha256": "58fb73c8ace39586a7960cf21c1f3ff8f140f96a33118c098387e8c8539c980e",
+      "manifest_sha256": "08a4b4df37cb5aaa294414696d67103cd8d9d2eaa3b7b44f0876b26f02c6a87c"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed0.csv",
+      "sha256": "5cb33e6b6c280e5763dce93181126ec2af8ea29a9a0bcb38567c10e91e8bb4d7",
+      "manifest_sha256": "3af4a77168639260d96b1e42dae847d2047b6a92a210b6c38f759b0c431a893f"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed1.csv",
+      "sha256": "5eadc67e80b624f8183c6749d8064ff1dcce8763337dd41a7dd3d7e6c81d1c7c",
+      "manifest_sha256": "d047bf439f23a5a37f341976b59351257bcaa22ef03c160b4e9a0fa69abdf2f8"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed2.csv",
+      "sha256": "34f05561a070716d70bb7fc193ad8238542355a04255c96d62beccc48496834d",
+      "manifest_sha256": "b83d0bc112281900ac53d60ec104f002c43b1f0f3e99f7ce60841da0d3726616"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed3.csv",
+      "sha256": "d412dffb234720d968d49876abba359fb548c4a254181215bd129f24db522ac5",
+      "manifest_sha256": "ca882adb2695ea7a56eae60a614dcac3407df7dd9943aa3e44d892a225bb2791"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed4.csv",
+      "sha256": "04b3a68c6d52debdd2d499ef255c860af8a8e9a7ab4e40d2a875a62801f876a0",
+      "manifest_sha256": "79a9fa77fb1bb7f7d8881dc98807cae6c746c75e5b85c99d17a83aee5e2ffb40"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed5.csv",
+      "sha256": "cbd9a8c6237672ba9a79a96b39d13bc7b8ba7f5f70e981dd78648721ad745d15",
+      "manifest_sha256": "92c69ff0812bb5b10de5e17e059e2054c506b1d2ce4186d57502a2a4d5a669c8"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed6.csv",
+      "sha256": "fcc8245f358866a63e5c75265d2d2e61e2930608c2232000157990534cc538ff",
+      "manifest_sha256": "7315fe3c165e596ba02df9d70c0e17993fc291dff9b1318d7bb6403a73be511a"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed7.csv",
+      "sha256": "06a16391ef53b2fe32e3897b7a060be23bf0f7f490b2d060ec20138ab1e4d8b1",
+      "manifest_sha256": "314fdfdbe68b7dae4d0b3848a768a94f257d4f6c0e4826e99748079eb670beee"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed8.csv",
+      "sha256": "fc3343a1c9a545f8192ff7c6342fadca0bafc2f458c123c29a58ee040a073c6a",
+      "manifest_sha256": "f9fa107cf132183d66c6adf1ab0725a5cfb6c19956516643da7921ecb2a195b4"
+    },
+    {
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/dantzig_review/traced_local_20260917/rbfopt_remaining/dynamic_B50_seed9.csv",
+      "sha256": "7aaacfa2e7aee540fc44eb1d3234c5935849aa26c3bef6c73932dd604c4965b0",
+      "manifest_sha256": "eed6091aa7322cd35a234b4f91e26e681787b56966ec6b8b6944c11efa895b93"
+    }
+  ],
+  "analysis_source_sha256": "8d2eab92e14a34780524aa1aa2048adbfae493096be6b69d53573471d6a868f3",
+  "timing_note": "Legacy Time is solver user_time; sums are historical estimates, not measured GDP wall time. Missing/duplicate costs are not zero. First-hit timestamps measure new lookup runs only.",
+  "original_matrix_coverage": "417/417 distinct run keys; 89 initial designs verified",
+  "purpose": "New local lookup trajectories and NLP cost inventory; not a Dantzig timing comparison"
+}

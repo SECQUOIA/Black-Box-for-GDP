@@ -77,8 +77,9 @@ would replace the original-function objective with precomputed coefficients.
 Once both indices are fixed, no original continuous degree of freedom remains.
 The IPOPT measurements therefore characterize model preparation, GAMS/IPOPT
 invocation and solution verification for a fixed function point. They do not
-measure a difficult continuous subproblem. This model-only implementation does
-not include solver execution, timing experiments, or benchmark results.
+measure a difficult continuous subproblem. The
+[path-cost comparison](../results/grid_gdp_dfo_20261011/README.md) uses that
+explicit evaluation protocol consistently for every DFO callback.
 
 Let `f` be the analytic objective, and let `fmin` and `fmax` be its minimum and
 maximum obtained by evaluating all 961 grid points. The model exposes
@@ -240,12 +241,3 @@ is a floating-point property, not a claim that all 12 analytic values are
 mathematically equal. An absolute objective tolerance can also classify many
 other extremely small positive values as tied; interpret the reported indices
 and tolerance together.
-
-## Integration scope
-
-This is the model, validation, and formulation-documentation portion of
-[Issue #25](https://github.com/SECQUOIA/RBFopt_Test/issues/25). Full-model solver
-interfaces, returned-solution validation, fixed-point timing, and Dantzig
-runner packaging remain separate integration work. No benchmark results or
-process models are included. The initial implementation was developed in
-`Benchmark` commit `f0c03cd`; it is isolated here for review against `main`.
