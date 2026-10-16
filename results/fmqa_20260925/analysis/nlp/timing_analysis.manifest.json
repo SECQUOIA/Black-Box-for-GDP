@@ -1,0 +1,27 @@
+{
+  "csv": "process_case_studies.csv",
+  "csv_sha256": "53d4f74032ab372483136c0e5f564916c6f5a52016ead05d9adde34532c1bd40",
+  "dataset": "case",
+  "n_runs": 556,
+  "tolerance": 1e-05,
+  "success_rule": "abs(best_value - target_value) <= tolerance * max(1, abs(target_value))",
+  "time_measure": "recorded full run time, conditional on terminal success; failures have infinite cost",
+  "first_hit_timestamps_available": false,
+  "source_sha256": {
+    "timing_analysis.py": "5f8c8267f55a86d3dd06a1532d2f951e2ff2636817dde51b67f5c986bfb9f44e",
+    "benchmark_analysis.py": "cd03c8058cfbc965aba08a79e838fda50a5eaa5fcee504d6a7669d99b316628e",
+    "case_study_analysis.py": "35f947bf5d4276713401673cfac1d083fda8b878e968bf83493f4a4e4ddab2e2"
+  },
+  "python": "3.13.12",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.9",
+    "scipy": "1.17.1"
+  },
+  "input_validation": {
+    "verified": true,
+    "warning": null,
+    "manifest_filename": "process_case_studies.manifest.json"
+  }
+}

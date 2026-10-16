@@ -28,3 +28,13 @@ The historical source/manifest checks remain unchanged. Restoring arbitrary
 replacement tables does not satisfy archive replay prerequisites. Skipped tests
 are not evidence that archive replay succeeded. Reconcile the package-list
 addition with the other independent implementation PRs before merge.
+
+## Integration with main after #23
+
+Main at `a4db6d6` now includes the historical result archives and shared GDP,
+FMQA and tracing infrastructure through #23. The original extraction notes
+above describe the standalone draft before that merge. This branch retains
+the reviewed selected-attempt identity/objective checks and process-group
+cleanup. Its enumeration test double now exposes the effective executable
+required by the integrated GAMS adapter. The trace test package is namespaced
+to avoid colliding with main's existing test module names.
