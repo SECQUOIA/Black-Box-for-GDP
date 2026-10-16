@@ -33,6 +33,14 @@ fmqa = [
     "numpy==2.2.6",
     "dimod==0.12.21",
     "dwave-samplers==1.6.0",
+    "scipy==1.15.3",
+    "pandas==2.2.3",
+    "matplotlib==3.10.3",
+]
+gdp = [
+    "pyomo>=6.10,<6.11",
+    "sympy>=1.13,<2",
+    "networkx>=3.0",
 ]
 lint = [
     "ruff>=0.4.0",
@@ -56,9 +64,13 @@ py-modules = [
     "grid_dsda",
     "grid_rbfopt",
     "instrumentation",
+    "evaluation_trace",
+    "trace_analysis",
+    "timing_analysis",
 ]
 packages = [
     "fmqa_benchmark",
+    "gdp_models",
     "benchmark_grids",
     "case_studies",
     "case_study_data",
@@ -73,4 +85,4 @@ benchmark_grids = ["*.csv", "README.md"]
 "case_study_data.cstr" = ["*.csv"]
 "case_study_data.small_batch" = ["*.csv"]
 
-fmqa_benchmark = ["vendor/qhd/provenance.json", "vendor/qhd/LICENSE.SECQUOIA", "vendor/qhd/fmqa/LICENSE", "vendor/qhd/fmqa/setup.py", "vendor/qhd/fmqa/fmqa/*.py", "vendor/qhd/bbo_via_fmqa/ml_surrogate.py"]
+fmqa_benchmark = ["vendor/qhd/provenance.json", "vendor/qhd/LICENSE.SECQUOIA", "vendor/qhd/fmqa/LICENSE", "vendor/qhd/fmqa/setup.py", "vendor/qhd/fmqa/fmqa/*.py", "vendor/qhd/bbo_via_fmqa/*.py"]

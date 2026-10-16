@@ -1,0 +1,163 @@
+{
+  "attempt_records": 1786,
+  "groups": [
+    {
+      "accepted": 29,
+      "all_attempts_total_wall_s": 118.59642840875313,
+      "case": "column",
+      "cstr_size": null,
+      "points": 64,
+      "selected_total_wall_s": 118.59642840875313,
+      "solver": "conopt",
+      "statuses": {
+        "accepted": 29,
+        "preprocessing_infeasible": 28,
+        "rejected": 7
+      }
+    },
+    {
+      "accepted": 29,
+      "all_attempts_total_wall_s": 137.24132096907124,
+      "case": "column",
+      "cstr_size": null,
+      "points": 64,
+      "selected_total_wall_s": 137.24132096907124,
+      "solver": "gams_ipopt",
+      "statuses": {
+        "accepted": 29,
+        "preprocessing_infeasible": 28,
+        "rejected": 7
+      }
+    },
+    {
+      "accepted": 26,
+      "all_attempts_total_wall_s": 129.26775206346065,
+      "case": "column",
+      "cstr_size": null,
+      "points": 64,
+      "selected_total_wall_s": 129.26775206346065,
+      "solver": "ipopth",
+      "statuses": {
+        "accepted": 26,
+        "preprocessing_infeasible": 28,
+        "rejected": 10
+      }
+    },
+    {
+      "accepted": 464,
+      "all_attempts_total_wall_s": 1120.2999187684618,
+      "case": "cstr",
+      "cstr_size": 30,
+      "points": 465,
+      "selected_total_wall_s": 1120.2999187684618,
+      "solver": "conopt",
+      "statuses": {
+        "accepted": 464,
+        "solver_error": 1
+      }
+    },
+    {
+      "accepted": 465,
+      "all_attempts_total_wall_s": 840.487731944304,
+      "case": "cstr",
+      "cstr_size": 30,
+      "points": 465,
+      "selected_total_wall_s": 832.0176027934067,
+      "solver": "gams_ipopt",
+      "statuses": {
+        "accepted": 465
+      }
+    },
+    {
+      "accepted": 459,
+      "all_attempts_total_wall_s": 960.3892902503721,
+      "case": "cstr",
+      "cstr_size": 30,
+      "points": 465,
+      "selected_total_wall_s": 960.3892902503721,
+      "solver": "ipopth",
+      "statuses": {
+        "accepted": 459,
+        "rejected": 6
+      }
+    },
+    {
+      "accepted": 37,
+      "all_attempts_total_wall_s": 42.800149619113654,
+      "case": "dynamic",
+      "cstr_size": null,
+      "points": 37,
+      "selected_total_wall_s": 42.800149619113654,
+      "solver": "conopt",
+      "statuses": {
+        "accepted": 37
+      }
+    },
+    {
+      "accepted": 37,
+      "all_attempts_total_wall_s": 44.131987440399826,
+      "case": "dynamic",
+      "cstr_size": null,
+      "points": 37,
+      "selected_total_wall_s": 44.131987440399826,
+      "solver": "gams_ipopt",
+      "statuses": {
+        "accepted": 37
+      }
+    },
+    {
+      "accepted": 37,
+      "all_attempts_total_wall_s": 99.6233032126911,
+      "case": "dynamic",
+      "cstr_size": null,
+      "points": 37,
+      "selected_total_wall_s": 99.6233032126911,
+      "solver": "ipopth",
+      "statuses": {
+        "accepted": 37
+      }
+    },
+    {
+      "accepted": 12,
+      "all_attempts_total_wall_s": 9.863132684025913,
+      "case": "small_batch",
+      "cstr_size": null,
+      "points": 27,
+      "selected_total_wall_s": 9.863132684025913,
+      "solver": "conopt",
+      "statuses": {
+        "accepted": 12,
+        "preprocessing_infeasible": 15
+      }
+    },
+    {
+      "accepted": 12,
+      "all_attempts_total_wall_s": 10.183570985216647,
+      "case": "small_batch",
+      "cstr_size": null,
+      "points": 27,
+      "selected_total_wall_s": 10.183570985216647,
+      "solver": "gams_ipopt",
+      "statuses": {
+        "accepted": 12,
+        "preprocessing_infeasible": 15
+      }
+    },
+    {
+      "accepted": 12,
+      "all_attempts_total_wall_s": 19.502775031607598,
+      "case": "small_batch",
+      "cstr_size": null,
+      "points": 27,
+      "selected_total_wall_s": 19.502775031607598,
+      "solver": "ipopth",
+      "statuses": {
+        "accepted": 12,
+        "preprocessing_infeasible": 15
+      }
+    }
+  ],
+  "point_solver_records": 1779,
+  "retry_records": 7,
+  "schema_version": 1
+}

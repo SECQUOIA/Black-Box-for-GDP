@@ -1,0 +1,19 @@
+[
+  {
+    "record": {
+      "created_utc": "2026-09-22T05:00:25.498273+00:00",
+      "dae_wall_s": 0.044268236961215734,
+      "included_in_point_total_wall_s": false,
+      "model_build_wall_s": 0.0647380743175745,
+      "preparation_id": "9306cbf705cf48a19806eeadd48107e2",
+      "scope": "once_per_process",
+      "total_preparation_wall_s": 0.10900631127879024
+    },
+    "run_id": "dantzig_gdp_gams_20260922_050038_p4q8hy54",
+    "source_files": [
+      "conopt/dynamic/preparation.json",
+      "gams_ipopt/dynamic/preparation.json",
+      "ipopth/dynamic/preparation.json"
+    ]
+  }
+]

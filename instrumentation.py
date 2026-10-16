@@ -13,6 +13,8 @@ import time
 from datetime import datetime
 from pathlib import Path
 
+from evaluation_trace import ACTIVE_TRACE
+
 
 RESULT_FIELDS = (
     "csv_name",
@@ -65,15 +67,30 @@ class TrackedObjective:
         self._evaluation_points = []
 
     def __call__(self, *args, **kwargs):
+        observer = ACTIVE_TRACE.get()
+        point = _freeze_point(args[0]) if args else None
+        trace_start = observer.timer() if observer else None
         start_time = self._timer()
-        value = self._objective(*args, **kwargs)
+        try:
+            value = self._objective(*args, **kwargs)
+        except BaseException as exception:
+            if observer:
+                observer.record(
+                    point, None, self._incumbent, self._timer() - start_time,
+                    trace_start, observer.timer(), type(exception).__name__,
+                )
+            raise
         elapsed = self._timer() - start_time
+        trace_end = observer.timer() if observer else None
 
         self._call_count += 1
-        self._evaluation_points.append(_freeze_point(args[0]) if args else None)
+        self._evaluation_points.append(point)
         self._wall_times.append(elapsed)
         self._update_incumbent(value)
         self._incumbent_trajectory.append(self._incumbent)
+
+        if observer:
+            observer.record(point, value, self._incumbent, elapsed, trace_start, trace_end)
 
         return value
 
