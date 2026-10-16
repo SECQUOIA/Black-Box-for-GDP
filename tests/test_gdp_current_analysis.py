@@ -67,3 +67,47 @@ def test_better_than_lookup_counts_as_attainment_without_changing_historical_exa
     invalid["has_feasible_solution"] = False
     record = baseline_record(invalid, 2)
     assert not record["target_attained"] and not record["target_hit"]
+
+
+def test_current_selection_reopens_archives_and_preserves_published_evidence(tmp_path, monkeypatch):
+    """Exercise all 45 selected results and 63 saved vectors without a solver."""
+    pytest.importorskip("pyomo.environ")
+    pytest.importorskip("networkx")
+    import pyomo.environ as pyo
+    from gdp_current_analysis import ROOT, build
+    from result_archives import datasets
+    from nlp_cost_analysis import sha
+
+    if not all((ROOT / "external" / name / ".git").exists()
+               for name in ("dsda-gdp", "ld-sda-dynamic")):
+        pytest.skip("Initialize pinned GDP submodules for the saved-vector audit")
+    selection_dir = ROOT / "results/gdp_comparison_current"
+    sources = json.loads((selection_dir / "selection.json").read_text())["sources"]
+    paths = [selection_dir, *((ROOT / s["directory"]).parent for s in sources)]
+    archives = [ROOT / entry["archive"] for entry in datasets().values()
+                if entry["directory"] in {s["directory"] for s in sources}]
+
+    def snapshot():
+        files = [p for root in paths for p in root.rglob("*") if p.is_file()]
+        return {str(p): sha(p) for p in [*files, *archives]}
+
+    def no_solver(*args, **kwargs):
+        pytest.fail("Saved-vector analysis must not construct a solver")
+
+    monkeypatch.setattr(type(pyo.SolverFactory), "__call__", no_solver)
+    before = snapshot()
+    for source in sources:
+        assert not (ROOT / source["directory"] / "jobs").exists()
+    output = tmp_path / "analysis"
+    overview = build(selection_dir, output)
+    assert overview["complete"] and overview["completed_jobs"] == 45
+    assert overview["saved_solutions_independently_rechecked"] == 63
+    assert overview["selected_solutions_independently_rechecked"] == 45
+    assert overview["max_rechecked_primal_violation"] < 1e-6
+    assert [a["directory"] for a in overview["sources"]] == [s["directory"] for s in sources]
+    assert all(a["source_archive_verified_byte_for_byte"] for a in overview["sources"])
+    assert all(a["source_archive_sha256"] for a in overview["sources"])
+    assert (output / "sources/gdp_comparison_20261001/audit.json").is_file()
+    assert (output / "sources/gdp_comparison_loa_20261001/audit.json").is_file()
+    assert (output / "comparison.csv").read_bytes() == (selection_dir / "analysis/comparison.csv").read_bytes()
+    assert snapshot() == before
