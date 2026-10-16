@@ -87,6 +87,21 @@ an optimizer, process NLP or enumeration. Figure bytes can vary with plotting
 versions/PDF metadata; the retained six PDFs and six PNGs keep their original
 hashes. Generated copies do not replace them.
 
+Python 3.12+ reproduces all 15 CSV tables byte-for-byte in the checked local
+environment. Python 3.10/3.11 uses the earlier float `sum` implementation:
+the verifier reports any differences in derived time aggregates separately,
+with a 64-ULP ceiling covering the at-most-50-callback sum and cost composition.
+On Python 3.11, 78 cells across two tables differ by at most 2 ULP. All input
+hashes, raw point costs/objectives, outcome labels and other cells must still
+match exactly. This check does not change the target tolerance or rewrite data;
+the report distinguishes byte-identical tables from rounding differences.
+
+The current CSTR and non-CSTR package builders read the pinned original GAMS
+ZIP through `result_archives.py`, verifying its outer and member hashes before
+temporary extraction. They work in a clean recursive checkout without a local
+`results/dantzig_review/` tree. The submitted historical runner ZIPs remain
+unchanged; newly built packages identify their archive input explicitly.
+
 ## Revision history
 
 These artifacts were on **AlbertLee125/RBFopt_Test:Benchmark at `ade67082`**,
