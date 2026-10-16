@@ -54,6 +54,9 @@ python -m gdp_models --case dynamic --point 1,4 --solver ipopt
 
 Use `--executable /path/to/ipopt` (or `/path/to/gams` for `--solver baron`) if
 needed. Reports are printed as JSON; `--output` additionally saves one report.
+GAMS availability, version checks and solves use that executable even when a
+different GAMS is on `PATH`. Reports record the resolved effective GAMS path;
+batch manifests also hash that binary.
 Exit status is 0 for an accepted solution, 1 for a rejected/failed solve, and
 2 for invalid arguments or missing source/configuration. `--tee` sends solver
 output to stderr.
