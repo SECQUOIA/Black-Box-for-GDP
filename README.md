@@ -11,6 +11,11 @@ and visual outputs used to document selected optimization case studies on
 grid-based test problems. The repository is intended for regression testing and
 documentation of workflows involving RBFOpt and related discrete search methods.
 
+Benchmark summaries, figures and manifests remain directly readable under
+`results/`. Detailed per-run logs, proposals, callbacks and source snapshots
+are preserved in the original ZIPs. See the [archive review guide](results/archives/README.md#reviewing-detailed-records)
+for their contents, checksums, extraction and analysis commands.
+
 ## Installation
 
 From a source checkout, install the project and the development tools used in

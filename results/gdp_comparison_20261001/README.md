@@ -18,8 +18,10 @@ but it is not selected for comparisons and no six-job restart result is used.
 
 - [Original final ZIP](../archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip)
   and [server checksum](../archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip.sha256).
-- `raw/`: exact final archive contents, including logs, solver-call histories,
-  source snapshots and saved vectors. All **115** internal file hashes match.
+- `raw/`: exact run/summary records and the original checksum inventory.
+  Logs, solver-call histories, source snapshots and saved vectors are retained
+  in the ZIP. All **115** internal file hashes remain verifiable using the
+  [archive guide](../archives/README.md#reviewing-detailed-records).
 - `publication.json`: archive identity, completion count and CPU topology.
 - `analysis/`: derived comparisons and independent validation without solving.
 - [Five-method comparison](../gdp_comparison_current/analysis/README.md): these
