@@ -7,17 +7,17 @@ from pathlib import Path
 
 from grid_dsda import dsda_from_csv
 from instrumentation import TrackedObjective, make_result_record, save_results_csv
+from .dsda_domain import box_membership, rank_observed_starts, validate_design
 
-from .common import generate_lhc_starting_points, rank_starting_points
+from .common import generate_lhc_starting_points
 from .dynamic_case import (
     DEFAULT_MAX_EVALUATIONS,
-    DYNAMIC_FEASIBLE_OBJECTIVES,
     KNOWN_BEST_POINT,
     KNOWN_BEST_VALUE,
     LOWER_BOUNDS,
+    PENALTY,
     UPPER_BOUNDS,
     dynamic_objective,
-    is_dynamic_feasible,
 )
 
 
@@ -29,10 +29,8 @@ def choose_best_feasible_start(starting_points, tracked_objective):
     initial design accounting matches RBFOpt, then feasible starts are ranked
     for the DSDA descent run.
     """
-    return rank_starting_points(
-        starting_points,
-        tracked_objective,
-        is_dynamic_feasible,
+    return rank_observed_starts(
+        starting_points, tracked_objective, penalty=PENALTY
     )
 
 
@@ -43,15 +41,21 @@ def run_dynamic_dsda(
     diagonal=True,
     tie_break="first",
     verbose=False,
+    starting_points=None,
 ):
     """Run DSDA on the dynamic case from the best feasible LHC start."""
-    starting_points = generate_lhc_starting_points(
-        n_dims=2,
-        n_points=n_starts,
-        lb=LOWER_BOUNDS,
-        ub=UPPER_BOUNDS,
-        seed=seed,
+    if starting_points is None:
+        starting_points = generate_lhc_starting_points(
+            n_dims=2,
+            n_points=n_starts,
+            lb=LOWER_BOUNDS,
+            ub=UPPER_BOUNDS,
+            seed=seed,
+        )
+    starting_points = validate_design(
+        starting_points, LOWER_BOUNDS, UPPER_BOUNDS, n_starts, max_evaluations,
     )
+    domain = box_membership(LOWER_BOUNDS, UPPER_BOUNDS)
     tracked_objective = TrackedObjective(dynamic_objective)
     start_time = time.perf_counter()
     (
@@ -80,7 +84,7 @@ def run_dynamic_dsda(
             tie_break=tie_break,
             verbose=verbose,
             max_points_explored=remaining_budget,
-            grid=DYNAMIC_FEASIBLE_OBJECTIVES,
+            grid=domain,
             tracked_objective=tracked_objective,
             start_value=selected_start_value,
         )

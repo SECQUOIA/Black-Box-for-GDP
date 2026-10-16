@@ -1,0 +1,8 @@
+# Linux setup installs torch from the official CPU index separately.
+numpy==2.2.6
+dimod==0.12.21
+dwave-samplers==1.6.0
+scipy==1.15.3
+pandas==2.2.3
+matplotlib==3.10.3
+torch==2.8.0

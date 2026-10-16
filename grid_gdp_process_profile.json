@@ -1,0 +1,137 @@
+{
+  "description": "Frozen settings of the current selected process GDP comparison; no solver substitution",
+  "reference_manifests": {
+    "results/gdp_comparison_20260925/raw/run.json": {
+      "sha256": "fe6b2b4184ac2fc42ce232381e22bfe156e70a7704ae425bccfccbb7d069c511",
+      "config": {
+        "cases": [
+          "cstr",
+          "column",
+          "dynamic",
+          "small_batch"
+        ],
+        "cstr_sizes": [
+          5,
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "methods": [
+          "ric",
+          "gloa",
+          "bigm",
+          "hull"
+        ],
+        "time_limit": 1800,
+        "relative_gap": 1e-05,
+        "executable": "/package/gams/52.2/gams",
+        "baron_column_hull_lbtt": 0,
+        "expected_gams_version": "52.2"
+      }
+    },
+    "results/gdp_comparison_20261001/raw/run.json": {
+      "sha256": "9b48d5d3e86665ea6d2d180b2e80c81ca387b2c0d20bdfa08ef8a16af0977ec2",
+      "config": {
+        "cases": [
+          "cstr",
+          "column",
+          "dynamic",
+          "small_batch"
+        ],
+        "cstr_sizes": [
+          5,
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "methods": [
+          "ric",
+          "gloa"
+        ],
+        "time_limit": 1800,
+        "relative_gap": 1e-05,
+        "executable": "/package/gams/52.2/gams",
+        "nlp_solver": "baron",
+        "mip_solver": "highs",
+        "baron_lp_solver": "clp",
+        "baron_column_hull_lbtt": 0,
+        "expected_gams_version": "52.2"
+      }
+    },
+    "results/gdp_comparison_loa_20261001/raw/run.json": {
+      "sha256": "49dcf0058a315f95f8366d80ba3adcfcbd43d2171094ecd9c92c3d03b4155c65",
+      "config": {
+        "cases": [
+          "cstr",
+          "column",
+          "dynamic",
+          "small_batch"
+        ],
+        "cstr_sizes": [
+          5,
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "methods": [
+          "loa"
+        ],
+        "time_limit": 1800,
+        "relative_gap": 1e-05,
+        "executable": "/package/gams/52.2/gams",
+        "nlp_solver": "baron",
+        "mip_solver": "highs",
+        "baron_lp_solver": "clp",
+        "baron_column_hull_lbtt": 0,
+        "expected_gams_version": "52.2"
+      }
+    }
+  },
+  "methods": {
+    "ric": {
+      "nlp": "baron",
+      "mip": "highs",
+      "baron_lpsol": 8,
+      "baron_nlpsol": 9
+    },
+    "gloa": {
+      "nlp": "baron",
+      "mip": "highs",
+      "baron_lpsol": 8,
+      "baron_nlpsol": 9
+    },
+    "loa": {
+      "nlp": "baron",
+      "mip": "highs",
+      "baron_lpsol": 8,
+      "baron_nlpsol": 9
+    },
+    "bigm": {
+      "solver": "baron",
+      "baron_lpsol": 3,
+      "baron_nlpsol": 9
+    },
+    "hull": {
+      "solver": "baron",
+      "baron_lpsol": 3,
+      "baron_nlpsol": 9
+    }
+  },
+  "full_gdp_time_limit_s": 1800,
+  "relative_gap": 1e-05,
+  "absolute_gap": 0,
+  "threads": 1,
+  "pyomo": "6.10.0",
+  "gams": "52.2",
+  "point_solver": "gams_ipopt",
+  "point_linear_solver": "mumps",
+  "point_tol": 1e-08,
+  "point_max_iter": 3000,
+  "point_bound_relax_factor": 0
+}
