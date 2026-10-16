@@ -86,7 +86,16 @@ def load_costs(directory, solver):
         if selected_id not in row["attempt_ids"]:
             raise ValueError("Selected attempt missing from point history")
         selected_record = attempts[selected_id]["record"]
-        if (selected_record["accepted"] != row["accepted"] or
+        objective, source_objective = row["objective"], selected_record["objective"]
+        # These values describe one saved observation, not independent solves;
+        # use only serialization-scale tolerance, not the target-hit tolerance.
+        same_objective = ((objective is None and source_objective is None) or
+                          (objective is not None and source_objective is not None and
+                           math.isfinite(objective) and math.isfinite(source_objective) and
+                           math.isclose(objective, source_objective, rel_tol=1e-12, abs_tol=1e-12)))
+        if (any(selected_record.get(field) != row.get(field)
+                for field in ("case", "cstr_size", "point", "solver")) or
+                not same_objective or selected_record["accepted"] != row["accepted"] or
                 not math.isclose(selected_record["total_wall_s"], row["total_wall_s"], rel_tol=1e-12)):
             raise ValueError("Selected point cost differs from its source attempt")
     prep = read_json(directory / "dynamic_preparation.json")
