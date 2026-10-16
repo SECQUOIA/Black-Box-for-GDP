@@ -358,3 +358,10 @@ python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py 
 
 This project is distributed under the MIT License. See `LICENSE` for the full
 license text.
+
+## FMQA-SA adapter
+
+An optional [FMQA-SA benchmark adapter](docs/fmqa_adapter.md) reuses the pinned
+`bbo_via_fmqa` QHD FM core and separates the common experiment protocol from
+upstream numerical code. Install with `pip install ".[fmqa]"`. Existing Dantzig
+results remain on the `Benchmark` branch for separate results integration.
