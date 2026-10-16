@@ -1,6 +1,7 @@
 """Partial GDP updates cannot invent completion clocks or substitute old solvers."""
 
 import json
+import shutil
 
 import pytest
 
@@ -111,3 +112,23 @@ def test_current_selection_reopens_archives_and_preserves_published_evidence(tmp
     assert (output / "sources/gdp_comparison_loa_20261001/audit.json").is_file()
     assert (output / "comparison.csv").read_bytes() == (selection_dir / "analysis/comparison.csv").read_bytes()
     assert snapshot() == before
+
+
+def test_changed_retained_summary_is_rejected_before_job_audit(tmp_path, monkeypatch):
+    pytest.importorskip("pyomo.environ")
+    import gdp_current_analysis as analysis
+    import result_archives as storage
+
+    entry = storage.datasets()["gdp-oct01"]
+    retained = tmp_path / "raw"
+    shutil.copytree(storage.ROOT / entry["directory"], retained)
+    summary = retained / "summary.json"
+    summary.write_bytes(summary.read_bytes() + b"\n")
+    original_entry_for_path = storage.entry_for_path
+    monkeypatch.setattr(storage, "entry_for_path", lambda path: entry if path == retained
+                        else original_entry_for_path(path))
+    calls = []
+    monkeypatch.setattr(analysis, "_verify_source", lambda *args: calls.append(args))
+    with pytest.raises(ValueError, match="Retained GDP source differs from archive: summary.json"):
+        analysis.verify_source(retained, ["ric", "gloa"])
+    assert calls == []
