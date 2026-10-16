@@ -241,7 +241,13 @@ Each report separates:
   this excludes one-time template construction and DAE conversion.
 
 Logically or preprocessing-infeasible points return before calling a solver;
-their elapsed total time is still recorded. `time_limit_s` is the solver's
+their elapsed total time is still recorded. Both retain status
+`preprocessing_infeasible` and termination `not_solved`. The additive
+`rejection_phase` field in JSON and CSV distinguishes `logical` (original GDP
+Boolean rules) from `preprocessing` (FBBT or constraint propagation); it is
+null for other outcomes. For example, Column `(1,15)` is rejected by logic,
+while `(8,8)` fails FBBT on its minimum-tray constraint.
+`time_limit_s` is the solver's
 limit, not a strict limit on total wall time. A setup error or unavailable
 solver must not be treated as a zero-cost successful evaluation.
 
