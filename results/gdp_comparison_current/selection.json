@@ -1,0 +1,8 @@
+{
+  "description": "Completed October 1 BARON/HiGHS RIC/GLOA on CPU 2 and LOA on CPU 6; September 25 Big-M/Hull on CPU 2. Each of the five methods covers all nine models.",
+  "sources": [
+    {"directory": "results/gdp_comparison_20261001/raw", "methods": ["ric", "gloa"]},
+    {"directory": "results/gdp_comparison_loa_20261001/raw", "methods": ["loa"]},
+    {"directory": "results/gdp_comparison_20260925/raw", "methods": ["bigm", "hull"]}
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "csv": "results/case_studies/dantzig_20260910/process_case_studies.csv",
+  "csv_sha256": "97c554d05cc7624203578bcc4496c77f6f3a04f7b25cf5cb8892611628d1bba6",
+  "dataset": "case",
+  "n_runs": 417,
+  "tolerance": 1e-05,
+  "success_rule": "abs(best_value - target_value) <= tolerance * max(1, abs(target_value))",
+  "time_measure": "recorded full run time, conditional on terminal success; failures have infinite cost",
+  "first_hit_timestamps_available": false,
+  "source_sha256": {
+    "timing_analysis.py": "5f8c8267f55a86d3dd06a1532d2f951e2ff2636817dde51b67f5c986bfb9f44e",
+    "benchmark_analysis.py": "51277e72469599507e7b8fb97ee9ac5cc2eadca7e4be9bd3bd452e1cc239013d",
+    "case_study_analysis.py": "35f947bf5d4276713401673cfac1d083fda8b878e968bf83493f4a4e4ddab2e2"
+  },
+  "python": "3.13.12",
+  "packages": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "matplotlib": "3.10.9",
+    "scipy": "1.17.1"
+  },
+  "input_validation": {
+    "verified": true,
+    "warning": null,
+    "manifest_filename": "process_case_studies.manifest.json"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "analysis": "results/grid_gdp_dfo_20261011",
+  "analysis_manifest_sha256": "131402f7be7ddb6a636f293b1db439fec139852e56159c230db2c435733bc2af",
+  "scope": "Current Grid GDP path-cost figures; historical lookup benchmark.csv is not their input",
+  "aliases": {
+    "results/fmqa_20260925/analysis/grid/tts99_comparison.png": {
+      "source": "results/grid_gdp_dfo_20261011/tts99.png",
+      "sha256": "8f59a0e4d7ebf33260ccda3d20969f43a215c73637568f13be055243276c77dd"
+    },
+    "results/fmqa_20260925/analysis/grid/tts99_comparison.pdf": {
+      "source": "results/grid_gdp_dfo_20261011/tts99.pdf",
+      "sha256": "9ac63d7878cf30a2ba05f8df8e5539b8a383489048abd22bfd7c0f2d11ae2826"
+    },
+    "results/fmqa_20260925/analysis/grid/evaluation_performance_profiles.png": {
+      "source": "results/grid_gdp_dfo_20261011/evaluation_profiles.png",
+      "sha256": "a493ecf70ec42cdcabf92e0597f82c3cd3cec1df613be03030ec76fae94a990e"
+    },
+    "results/fmqa_20260925/analysis/grid/evaluation_performance_profiles.pdf": {
+      "source": "results/grid_gdp_dfo_20261011/evaluation_profiles.pdf",
+      "sha256": "ae13b1807d0cac6c9e53f74240f6f67b864cf2407e90f892973f08343a39fc56"
+    },
+    "results/fmqa_20260925/analysis/grid/timing/time_performance_profiles.png": {
+      "source": "results/grid_gdp_dfo_20261011/performance_profiles.png",
+      "sha256": "e72f2a5ec10a5e78430c529e40a53e4a324900cdc6f16b5af1f7aefd92fdd910"
+    },
+    "results/fmqa_20260925/analysis/grid/timing/time_performance_profiles.pdf": {
+      "source": "results/grid_gdp_dfo_20261011/performance_profiles.pdf",
+      "sha256": "286ef8b9046ffe07e179426bee32109cdab6af9f9fd0906c1d60e22812393872"
+    },
+    "results/fmqa_20260925/analysis/grid/timing/completion_time_profiles.png": {
+      "source": "results/grid_gdp_dfo_20261011/performance_profiles.png",
+      "sha256": "e72f2a5ec10a5e78430c529e40a53e4a324900cdc6f16b5af1f7aefd92fdd910"
+    },
+    "results/fmqa_20260925/analysis/grid/timing/completion_time_profiles.pdf": {
+      "source": "results/grid_gdp_dfo_20261011/performance_profiles.pdf",
+      "sha256": "286ef8b9046ffe07e179426bee32109cdab6af9f9fd0906c1d60e22812393872"
+    }
+  }
+}

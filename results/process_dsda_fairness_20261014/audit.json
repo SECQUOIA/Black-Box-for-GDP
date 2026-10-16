@@ -1,0 +1,44 @@
+{
+  "archive": "results/archives/process_dsda_budget_fairness_20261014_pudvsttz_1792004864773526053.zip",
+  "archive_sha256": "3669558ab1b0197d0cf2b6ad4ff0df7c8b4f9b1a92a15747bff8909e6f5ef397",
+  "verified_archive_members": 1056,
+  "verified_source_files": 66,
+  "independently_replayed_completed_jobs": 139,
+  "summary": {
+    "kind": "process_dsda_fairness_verified_results",
+    "planned_runs": 140,
+    "completed_runs": 139,
+    "preserved_parent_jobs": 0,
+    "remeasured_job_ids": [],
+    "errors": [
+      {
+        "job_id": "cstr_15_B22_seed9_dsda",
+        "status": "error",
+        "exception": "Final best disagrees with callbacks"
+      }
+    ],
+    "dantzig_matrix_complete": false,
+    "development_only": false,
+    "callbacks": 2589,
+    "missing_unique_points": 0,
+    "missing_callback_costs": 0,
+    "reused_cstr_rejection_callbacks": 4,
+    "cstr_rejection_cost_policy": "Keep existing costs; fill missing logical-rejection costs from the same coordinate, preferring CSTR30 then the largest measured CSTR size; retain measured size and source",
+    "timing_reconstruction_complete": false,
+    "candidate_selection_created": false,
+    "preserved_non_dsda_rows": null,
+    "preserved_non_dsda_sha256": "863517690121aa30c7731e842545e35f8399ce527db2b9be9114ae98f2878ec7",
+    "official_results_modified": false,
+    "new_nlp_solves": 0,
+    "figures_status": "Pending complete Dantzig matrix and all required costs",
+    "figure_files": [],
+    "figure_error": null,
+    "timing_definition": "method time minus lookup callback time plus measured cost for every callback plus one reference Dynamic preparation",
+    "missing_cost_policy": "Keep search outcome; no subset median or aggregate TTS99 for incomplete groups",
+    "initialization_only_exception_policy": "No reseeding/restoration; failed initialization retained as job error with partial trace"
+  },
+  "cost_policy_authorization": "User requested reuse of existing same-coordinate CSTR infeasible measurements; prefer CSTR30",
+  "cstr30_fallback": "(13,15) uses existing CSTR20 total_wall_s=0.6212939228862524; explicitly labelled",
+  "script_sha256": "cf0794a9ce16b3ae70730a7593718435461806cf2fd0cc2725912b4210662475",
+  "official_results_modified": false
+}
