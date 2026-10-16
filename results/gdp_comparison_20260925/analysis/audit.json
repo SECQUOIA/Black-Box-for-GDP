@@ -1,0 +1,244 @@
+{
+  "source_directory": "/Users/albertlee0125/Repos/RBFopt_Test/results/gdp_comparison_20260925/raw",
+  "source_summary_sha256": "594bea8a3367499a70de190884d8bb6aa6ebdc28cc4f7b4fe855de2e9fd2566f",
+  "source_run_sha256": "fe6b2b4184ac2fc42ce232381e22bfe156e70a7704ae425bccfccbb7d069c511",
+  "verified_internal_checksums": 204,
+  "completed_jobs": 36,
+  "saved_solutions_independently_rechecked": 36,
+  "termination_counts": {
+    "optimal": 27,
+    "maxTimeLimit": 9
+  },
+  "target_hits": 16,
+  "target_hits_by_method": {
+    "ric": 3,
+    "gloa": 1,
+    "bigm": 6,
+    "hull": 6
+  },
+  "max_rechecked_primal_violation": 8.796495490903666e-07,
+  "cpu_affinity": {
+    "cpu": 2,
+    "physical_package_id": "0",
+    "core_id": "2",
+    "thread_siblings_list": "2,50",
+    "effective_cpus": [
+      2
+    ],
+    "policy": "one logical CPU; not an exclusive reservation"
+  },
+  "fmqa_affinities": {
+    "case": {
+      "cpu": 4,
+      "physical_package_id": "0",
+      "core_id": "4",
+      "thread_siblings_list": "4,52",
+      "effective_cpus": [
+        4
+      ],
+      "policy": "one logical CPU; not an exclusive reservation"
+    },
+    "grid": {
+      "cpu": 0,
+      "physical_package_id": "0",
+      "core_id": "0",
+      "thread_siblings_list": "0,48",
+      "effective_cpus": [
+        0
+      ],
+      "policy": "one logical CPU; not an exclusive reservation"
+    }
+  },
+  "distinct_physical_cores_from_fmqa": true,
+  "single_thread_settings_verified": true,
+  "bound_conflicts": [
+    {
+      "instance_id": "column",
+      "method": "bigm",
+      "reported_lower_bound": 19853.722966464,
+      "best_saved_feasible_objective": 19346.124801099686,
+      "solver_reported_global_optimality_certified": false
+    },
+    {
+      "instance_id": "cstr_10",
+      "method": "hull",
+      "reported_lower_bound": 2.889535836078951,
+      "best_saved_feasible_objective": 2.8894834524326347,
+      "solver_reported_global_optimality_certified": true
+    },
+    {
+      "instance_id": "cstr_30",
+      "method": "hull",
+      "reported_lower_bound": 2.809386231078974,
+      "best_saved_feasible_objective": 2.7695697953461833,
+      "solver_reported_global_optimality_certified": true
+    }
+  ],
+  "gdpopt_nlp_statuses": [
+    {
+      "instance_id": "cstr_5",
+      "method": "ric",
+      "nlp_calls": 15,
+      "terminations": {
+        "infeasible": 14,
+        "locallyOptimal": 1
+      }
+    },
+    {
+      "instance_id": "cstr_5",
+      "method": "gloa",
+      "nlp_calls": 9,
+      "terminations": {
+        "infeasible": 8,
+        "locallyOptimal": 1
+      }
+    },
+    {
+      "instance_id": "cstr_10",
+      "method": "ric",
+      "nlp_calls": 55,
+      "terminations": {
+        "infeasible": 54,
+        "locallyOptimal": 1
+      }
+    },
+    {
+      "instance_id": "cstr_10",
+      "method": "gloa",
+      "nlp_calls": 15,
+      "terminations": {
+        "infeasible": 14,
+        "locallyOptimal": 1
+      }
+    },
+    {
+      "instance_id": "cstr_15",
+      "method": "ric",
+      "nlp_calls": 120,
+      "terminations": {
+        "infeasible": 119,
+        "locallyOptimal": 1
+      }
+    },
+    {
+      "instance_id": "cstr_15",
+      "method": "gloa",
+      "nlp_calls": 9,
+      "terminations": {
+        "infeasible": 8,
+        "locallyOptimal": 1
+      }
+    },
+    {
+      "instance_id": "cstr_20",
+      "method": "ric",
+      "nlp_calls": 210,
+      "terminations": {
+        "infeasible": 205,
+        "locallyOptimal": 1,
+        "internalSolverError": 4
+      }
+    },
+    {
+      "instance_id": "cstr_20",
+      "method": "gloa",
+      "nlp_calls": 9,
+      "terminations": {
+        "infeasible": 8,
+        "locallyOptimal": 1
+      }
+    },
+    {
+      "instance_id": "cstr_25",
+      "method": "ric",
+      "nlp_calls": 325,
+      "terminations": {
+        "infeasible": 322,
+        "locallyOptimal": 1,
+        "internalSolverError": 2
+      }
+    },
+    {
+      "instance_id": "cstr_25",
+      "method": "gloa",
+      "nlp_calls": 9,
+      "terminations": {
+        "infeasible": 8,
+        "locallyOptimal": 1
+      }
+    },
+    {
+      "instance_id": "cstr_30",
+      "method": "ric",
+      "nlp_calls": 465,
+      "terminations": {
+        "infeasible": 227,
+        "locallyOptimal": 236,
+        "internalSolverError": 2
+      }
+    },
+    {
+      "instance_id": "cstr_30",
+      "method": "gloa",
+      "nlp_calls": 3,
+      "terminations": {
+        "infeasible": 1,
+        "locallyOptimal": 2
+      }
+    },
+    {
+      "instance_id": "column",
+      "method": "ric",
+      "nlp_calls": 38,
+      "terminations": {
+        "locallyOptimal": 28,
+        "infeasible": 9,
+        "internalSolverError": 1
+      }
+    },
+    {
+      "instance_id": "column",
+      "method": "gloa",
+      "nlp_calls": 4,
+      "terminations": {
+        "locallyOptimal": 2,
+        "infeasible": 2
+      }
+    },
+    {
+      "instance_id": "dynamic",
+      "method": "ric",
+      "nlp_calls": 37,
+      "terminations": {
+        "locallyOptimal": 37
+      }
+    },
+    {
+      "instance_id": "dynamic",
+      "method": "gloa",
+      "nlp_calls": 18,
+      "terminations": {
+        "locallyOptimal": 18
+      }
+    },
+    {
+      "instance_id": "small_batch",
+      "method": "ric",
+      "nlp_calls": 12,
+      "terminations": {
+        "locallyOptimal": 12
+      }
+    },
+    {
+      "instance_id": "small_batch",
+      "method": "gloa",
+      "nlp_calls": 12,
+      "terminations": {
+        "locallyOptimal": 12
+      }
+    }
+  ],
+  "global_certificate_policy": "Raw flags retained; cross-method conflicts exclude a certificate from derived outputs. Remaining flags are solver reports, not independent proofs.",
+  "audit_source_sha256": "b7c9577cc7d1fc1011f9615f6a9353f6864bcf1330beda316e12cb9eb21d69ba",
+  "local_validation": "Saved vectors loaded into original GDP models; no solver run"
+}

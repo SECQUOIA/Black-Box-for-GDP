@@ -1,0 +1,64 @@
+{
+  "analysis_kind": "archived_dantzig_completion_times",
+  "runs": 556,
+  "runs_per_method": {
+    "DSDA": 139,
+    "RBFOpt": 139,
+    "BAM 5.0.0": 139,
+    "FMQA-SA": 139
+  },
+  "sources": [
+    {
+      "kind": "original",
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/archives/dantzig_20260910_170759_slN8tv.zip",
+      "sha256": "c5b706aa20f5577446d84f829910b5825221a9f6c5713ffc1fd854e7315d6e98",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux dantzig.ecn.purdue.edu 5.15.0-323.211.3.4.el9uek.x86_64 #2 SMP Thu Aug 13 03:29:17 PDT 2026 x86_64 x86_64 x86_64 GNU/Linux",
+      "csv_sha256": "97c554d05cc7624203578bcc4496c77f6f3a04f7b25cf5cb8892611628d1bba6",
+      "manifest_sha256": "12f4f9e2ae7594d116dfccb0036c530d8fa5ee9da18d4345ae4891799e741021"
+    },
+    {
+      "kind": "bam5",
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/dantzig_bam_20260916_231228_FNzbAA.zip",
+      "sha256": "9e9f0084f79728157d1ca71ee76490b79e7df0aaaa90ff7b9797552d90a2ca00",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux dantzig.ecn.purdue.edu 5.15.0-323.211.3.4.el9uek.x86_64 #2 SMP Thu Aug 13 03:29:17 PDT 2026 x86_64 x86_64 x86_64 GNU/Linux",
+      "csv_sha256": "1226a56693da65f85588160576713e2166ec715caea3e2ca91a87487f2a6971f",
+      "manifest_sha256": "5756c8add71edf9c27b1fda0fcb2e30d514d4e59ffb51ab66e74945b7dee2be9"
+    },
+    {
+      "kind": "fmqa",
+      "path": "/Users/albertlee0125/Repos/RBFopt_Test/results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip",
+      "sha256": "ccf0d6c0e265159f3ca5561f11a25165ef983f8288a15ef10947a3e6be3ea79d",
+      "host": "dantzig.ecn.purdue.edu",
+      "cpu": 4
+    }
+  ],
+  "mac_trace_runs_used": 0,
+  "original_rows_without_coordinate_traces": 417,
+  "separate_nlp_estimates_published": false,
+  "current_trace_analysis": "results/dfo_trace_nlp_20261002/analysis",
+  "gdp_completed_baseline_rows": 45,
+  "gdp_source_directory": "results/gdp_comparison_current",
+  "gdp_sources": [
+    [
+      "results/gdp_comparison_20260925/raw",
+      "2026-09-25T17:20:20.457694+00:00"
+    ],
+    [
+      "results/gdp_comparison_20261001/raw",
+      "2026-10-01T17:52:49.020069+00:00"
+    ],
+    [
+      "results/gdp_comparison_loa_20261001/raw",
+      "2026-10-01T20:48:01.619285+00:00"
+    ]
+  ],
+  "analysis_source_sha256": {
+    "dantzig_timing_analysis.py": "eab6cf934b112946d3b9c09d6fe4faf074cdc08959cf2f3d92e3bfedfb85cd71",
+    "nlp_cost_analysis.py": "0adc5f7c651fd4953476a7b8b25f708ac9bef0951260e20dac0f58ab917f6429"
+  },
+  "comparison_time": "Original archived wall_time_s, including lookup calls; no added NLP costs",
+  "first_hit_comparison_available": false,
+  "correction": "Withdraw mixed Mac/Dantzig reconstructed totals and first-hit/cost-transfer/DFO-vs-GDP speed comparisons."
+}

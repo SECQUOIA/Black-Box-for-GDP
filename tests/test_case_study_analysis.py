@@ -509,7 +509,28 @@ def test_overview_labels_solver_iterations_as_method_specific(tmp_path):
     }
     figure_notes = " ".join(text.get_text() for text in figure.texts)
     assert "method-specific and not directly comparable" in figure_notes
+    assert figure.axes[1].get_ylim()[0] == 0.0
     case_study_analysis._pyplot().close(figure)
+
+
+def test_gap_plots_keep_zero_visible_without_negative_axis_space(tmp_path):
+    results_path = tmp_path / "process_cases.csv"
+    save_results_csv(_summary_records(), results_path)
+    results = case_study_analysis.load_case_study_results(results_path)
+    convergence = case_study_analysis.evaluation_convergence_summary(results)
+    figure = case_study_analysis.plot_evaluation_convergence(convergence)
+    for axis in figure.axes:
+        if axis.get_visible():
+            assert axis.get_ylim()[0] == 0.0
+            assert axis.get_yscale() == "symlog"
+    case_study_analysis._pyplot().close(figure)
+    convergence.loc[0, "q25_normalized_gap_pct"] = -1.0
+    with pytest.raises(ValueError, match="Negative optimality gaps"):
+        case_study_analysis.plot_evaluation_convergence(convergence)
+    summary = case_study_analysis.summarize_case_study_results(results)
+    summary.loc[0, "median_normalized_gap_pct"] = -1.0
+    with pytest.raises(ValueError, match="Negative optimality gaps"):
+        case_study_analysis.plot_case_study_overview(summary)
 
 
 def test_default_sized_overview_keeps_configuration_labels_readable(tmp_path):

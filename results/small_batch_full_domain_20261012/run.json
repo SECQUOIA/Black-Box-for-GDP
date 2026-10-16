@@ -1,0 +1,1993 @@
+{
+  "kind": "small_batch_full_domain_dfo_v1",
+  "created_utc": "2026-10-12T06:46:47.919951+00:00",
+  "config": {
+    "cpu": 6,
+    "hard_seconds": 2100,
+    "allow_other_host": false,
+    "experiment": "small_batch_full_domain",
+    "dfo_python": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-nlp-overnight/bin/python",
+    "fmqa_python": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa/bin/python",
+    "conda": "/local/scratch/a/lee4382/miniconda3/bin/conda",
+    "bonmin": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/bonmin",
+    "ipopt": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/ipopt",
+    "bam_license": "/local/scratch/a/lee4382/bamlice.txt"
+  },
+  "plan": [
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 0,
+      "method": "dsda",
+      "settings": {
+        "diagonal": true,
+        "tie_break": "first"
+      },
+      "starting_points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "initial_design_sha256": "54ebed32866718f09dfc7a23f60de0982ce63cb0e90644fd7ef54f7e17860eb9",
+      "job_id": "small_batch_full_B10_seed0_dsda"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 0,
+      "method": "rbfopt",
+      "settings": {
+        "algorithm": "MSRSM",
+        "global_search_method": "sampling",
+        "rbf": "auto"
+      },
+      "starting_points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "initial_design_sha256": "54ebed32866718f09dfc7a23f60de0982ce63cb0e90644fd7ef54f7e17860eb9",
+      "job_id": "small_batch_full_B10_seed0_rbfopt"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 0,
+      "method": "bam",
+      "settings": {},
+      "starting_points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "initial_design_sha256": "54ebed32866718f09dfc7a23f60de0982ce63cb0e90644fd7ef54f7e17860eb9",
+      "job_id": "small_batch_full_B10_seed0_bam"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 0,
+      "method": "fmqa_sa",
+      "settings": {
+        "epochs": 1000,
+        "learning_rate": 0.01,
+        "num_reads": 100,
+        "num_sweeps": 1000,
+        "time_limit": 1800
+      },
+      "starting_points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "initial_design_sha256": "54ebed32866718f09dfc7a23f60de0982ce63cb0e90644fd7ef54f7e17860eb9",
+      "job_id": "small_batch_full_B10_seed0_fmqa_sa"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 1,
+      "method": "dsda",
+      "settings": {
+        "diagonal": true,
+        "tie_break": "first"
+      },
+      "starting_points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "d5e1123f980a50a86eb6ae47c871117f7f9305000e457f7ce605350d56ca6df9",
+      "job_id": "small_batch_full_B10_seed1_dsda"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 1,
+      "method": "rbfopt",
+      "settings": {
+        "algorithm": "MSRSM",
+        "global_search_method": "sampling",
+        "rbf": "auto"
+      },
+      "starting_points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "d5e1123f980a50a86eb6ae47c871117f7f9305000e457f7ce605350d56ca6df9",
+      "job_id": "small_batch_full_B10_seed1_rbfopt"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 1,
+      "method": "bam",
+      "settings": {},
+      "starting_points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "d5e1123f980a50a86eb6ae47c871117f7f9305000e457f7ce605350d56ca6df9",
+      "job_id": "small_batch_full_B10_seed1_bam"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 1,
+      "method": "fmqa_sa",
+      "settings": {
+        "epochs": 1000,
+        "learning_rate": 0.01,
+        "num_reads": 100,
+        "num_sweeps": 1000,
+        "time_limit": 1800
+      },
+      "starting_points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "d5e1123f980a50a86eb6ae47c871117f7f9305000e457f7ce605350d56ca6df9",
+      "job_id": "small_batch_full_B10_seed1_fmqa_sa"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 2,
+      "method": "dsda",
+      "settings": {
+        "diagonal": true,
+        "tie_break": "first"
+      },
+      "starting_points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "e4a51b79138cd8ba7d2d625fd9a1e4f24c3959f4a88336b413776e3e413570c0",
+      "job_id": "small_batch_full_B10_seed2_dsda"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 2,
+      "method": "rbfopt",
+      "settings": {
+        "algorithm": "MSRSM",
+        "global_search_method": "sampling",
+        "rbf": "auto"
+      },
+      "starting_points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "e4a51b79138cd8ba7d2d625fd9a1e4f24c3959f4a88336b413776e3e413570c0",
+      "job_id": "small_batch_full_B10_seed2_rbfopt"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 2,
+      "method": "bam",
+      "settings": {},
+      "starting_points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "e4a51b79138cd8ba7d2d625fd9a1e4f24c3959f4a88336b413776e3e413570c0",
+      "job_id": "small_batch_full_B10_seed2_bam"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 2,
+      "method": "fmqa_sa",
+      "settings": {
+        "epochs": 1000,
+        "learning_rate": 0.01,
+        "num_reads": 100,
+        "num_sweeps": 1000,
+        "time_limit": 1800
+      },
+      "starting_points": [
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "e4a51b79138cd8ba7d2d625fd9a1e4f24c3959f4a88336b413776e3e413570c0",
+      "job_id": "small_batch_full_B10_seed2_fmqa_sa"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 3,
+      "method": "dsda",
+      "settings": {
+        "diagonal": true,
+        "tie_break": "first"
+      },
+      "starting_points": [
+        [
+          3,
+          3,
+          2
+        ],
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "92d58f83a7ac15c66175f72562cf906fa5abfc13127073871532d4689e94e905",
+      "job_id": "small_batch_full_B10_seed3_dsda"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 3,
+      "method": "rbfopt",
+      "settings": {
+        "algorithm": "MSRSM",
+        "global_search_method": "sampling",
+        "rbf": "auto"
+      },
+      "starting_points": [
+        [
+          3,
+          3,
+          2
+        ],
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "92d58f83a7ac15c66175f72562cf906fa5abfc13127073871532d4689e94e905",
+      "job_id": "small_batch_full_B10_seed3_rbfopt"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 3,
+      "method": "bam",
+      "settings": {},
+      "starting_points": [
+        [
+          3,
+          3,
+          2
+        ],
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "92d58f83a7ac15c66175f72562cf906fa5abfc13127073871532d4689e94e905",
+      "job_id": "small_batch_full_B10_seed3_bam"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 3,
+      "method": "fmqa_sa",
+      "settings": {
+        "epochs": 1000,
+        "learning_rate": 0.01,
+        "num_reads": 100,
+        "num_sweeps": 1000,
+        "time_limit": 1800
+      },
+      "starting_points": [
+        [
+          3,
+          3,
+          2
+        ],
+        [
+          2,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "92d58f83a7ac15c66175f72562cf906fa5abfc13127073871532d4689e94e905",
+      "job_id": "small_batch_full_B10_seed3_fmqa_sa"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 4,
+      "method": "dsda",
+      "settings": {
+        "diagonal": true,
+        "tie_break": "first"
+      },
+      "starting_points": [
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          2
+        ]
+      ],
+      "initial_design_sha256": "f0b083593656e866d6aa475b5535875f2a20cbce73786042ca559780c4413917",
+      "job_id": "small_batch_full_B10_seed4_dsda"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 4,
+      "method": "rbfopt",
+      "settings": {
+        "algorithm": "MSRSM",
+        "global_search_method": "sampling",
+        "rbf": "auto"
+      },
+      "starting_points": [
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          2
+        ]
+      ],
+      "initial_design_sha256": "f0b083593656e866d6aa475b5535875f2a20cbce73786042ca559780c4413917",
+      "job_id": "small_batch_full_B10_seed4_rbfopt"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 4,
+      "method": "bam",
+      "settings": {},
+      "starting_points": [
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          2
+        ]
+      ],
+      "initial_design_sha256": "f0b083593656e866d6aa475b5535875f2a20cbce73786042ca559780c4413917",
+      "job_id": "small_batch_full_B10_seed4_bam"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 4,
+      "method": "fmqa_sa",
+      "settings": {
+        "epochs": 1000,
+        "learning_rate": 0.01,
+        "num_reads": 100,
+        "num_sweeps": 1000,
+        "time_limit": 1800
+      },
+      "starting_points": [
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          2
+        ]
+      ],
+      "initial_design_sha256": "f0b083593656e866d6aa475b5535875f2a20cbce73786042ca559780c4413917",
+      "job_id": "small_batch_full_B10_seed4_fmqa_sa"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 5,
+      "method": "dsda",
+      "settings": {
+        "diagonal": true,
+        "tie_break": "first"
+      },
+      "starting_points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "2484b7466395db8c70a0ba87127253318f08ac75a5f43a9ee8c003fccca30aa2",
+      "job_id": "small_batch_full_B10_seed5_dsda"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 5,
+      "method": "rbfopt",
+      "settings": {
+        "algorithm": "MSRSM",
+        "global_search_method": "sampling",
+        "rbf": "auto"
+      },
+      "starting_points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "2484b7466395db8c70a0ba87127253318f08ac75a5f43a9ee8c003fccca30aa2",
+      "job_id": "small_batch_full_B10_seed5_rbfopt"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 5,
+      "method": "bam",
+      "settings": {},
+      "starting_points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "2484b7466395db8c70a0ba87127253318f08ac75a5f43a9ee8c003fccca30aa2",
+      "job_id": "small_batch_full_B10_seed5_bam"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 5,
+      "method": "fmqa_sa",
+      "settings": {
+        "epochs": 1000,
+        "learning_rate": 0.01,
+        "num_reads": 100,
+        "num_sweeps": 1000,
+        "time_limit": 1800
+      },
+      "starting_points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          3,
+          1
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "2484b7466395db8c70a0ba87127253318f08ac75a5f43a9ee8c003fccca30aa2",
+      "job_id": "small_batch_full_B10_seed5_fmqa_sa"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 6,
+      "method": "dsda",
+      "settings": {
+        "diagonal": true,
+        "tie_break": "first"
+      },
+      "starting_points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "811a220113c16e13945d5a48b041dd1e97efc114859d2d09cd004597afaf4302",
+      "job_id": "small_batch_full_B10_seed6_dsda"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 6,
+      "method": "rbfopt",
+      "settings": {
+        "algorithm": "MSRSM",
+        "global_search_method": "sampling",
+        "rbf": "auto"
+      },
+      "starting_points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "811a220113c16e13945d5a48b041dd1e97efc114859d2d09cd004597afaf4302",
+      "job_id": "small_batch_full_B10_seed6_rbfopt"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 6,
+      "method": "bam",
+      "settings": {},
+      "starting_points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "811a220113c16e13945d5a48b041dd1e97efc114859d2d09cd004597afaf4302",
+      "job_id": "small_batch_full_B10_seed6_bam"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 6,
+      "method": "fmqa_sa",
+      "settings": {
+        "epochs": 1000,
+        "learning_rate": 0.01,
+        "num_reads": 100,
+        "num_sweeps": 1000,
+        "time_limit": 1800
+      },
+      "starting_points": [
+        [
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "initial_design_sha256": "811a220113c16e13945d5a48b041dd1e97efc114859d2d09cd004597afaf4302",
+      "job_id": "small_batch_full_B10_seed6_fmqa_sa"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 7,
+      "method": "dsda",
+      "settings": {
+        "diagonal": true,
+        "tie_break": "first"
+      },
+      "starting_points": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "initial_design_sha256": "dbada8dcad56e66d2e6e7752f0a65220b286bcdbbc7755bb4ad4a9a5d9a8e839",
+      "job_id": "small_batch_full_B10_seed7_dsda"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 7,
+      "method": "rbfopt",
+      "settings": {
+        "algorithm": "MSRSM",
+        "global_search_method": "sampling",
+        "rbf": "auto"
+      },
+      "starting_points": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "initial_design_sha256": "dbada8dcad56e66d2e6e7752f0a65220b286bcdbbc7755bb4ad4a9a5d9a8e839",
+      "job_id": "small_batch_full_B10_seed7_rbfopt"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 7,
+      "method": "bam",
+      "settings": {},
+      "starting_points": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "initial_design_sha256": "dbada8dcad56e66d2e6e7752f0a65220b286bcdbbc7755bb4ad4a9a5d9a8e839",
+      "job_id": "small_batch_full_B10_seed7_bam"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 7,
+      "method": "fmqa_sa",
+      "settings": {
+        "epochs": 1000,
+        "learning_rate": 0.01,
+        "num_reads": 100,
+        "num_sweeps": 1000,
+        "time_limit": 1800
+      },
+      "starting_points": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "initial_design_sha256": "dbada8dcad56e66d2e6e7752f0a65220b286bcdbbc7755bb4ad4a9a5d9a8e839",
+      "job_id": "small_batch_full_B10_seed7_fmqa_sa"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 8,
+      "method": "dsda",
+      "settings": {
+        "diagonal": true,
+        "tie_break": "first"
+      },
+      "starting_points": [
+        [
+          3,
+          2,
+          3
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "initial_design_sha256": "17d6bca8581623ea8715c9fd93a05f7a01ce4394aee8d8c9dd3f9248f1832e6c",
+      "job_id": "small_batch_full_B10_seed8_dsda"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 8,
+      "method": "rbfopt",
+      "settings": {
+        "algorithm": "MSRSM",
+        "global_search_method": "sampling",
+        "rbf": "auto"
+      },
+      "starting_points": [
+        [
+          3,
+          2,
+          3
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "initial_design_sha256": "17d6bca8581623ea8715c9fd93a05f7a01ce4394aee8d8c9dd3f9248f1832e6c",
+      "job_id": "small_batch_full_B10_seed8_rbfopt"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 8,
+      "method": "bam",
+      "settings": {},
+      "starting_points": [
+        [
+          3,
+          2,
+          3
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "initial_design_sha256": "17d6bca8581623ea8715c9fd93a05f7a01ce4394aee8d8c9dd3f9248f1832e6c",
+      "job_id": "small_batch_full_B10_seed8_bam"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 8,
+      "method": "fmqa_sa",
+      "settings": {
+        "epochs": 1000,
+        "learning_rate": 0.01,
+        "num_reads": 100,
+        "num_sweeps": 1000,
+        "time_limit": 1800
+      },
+      "starting_points": [
+        [
+          3,
+          2,
+          3
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "initial_design_sha256": "17d6bca8581623ea8715c9fd93a05f7a01ce4394aee8d8c9dd3f9248f1832e6c",
+      "job_id": "small_batch_full_B10_seed8_fmqa_sa"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 9,
+      "method": "dsda",
+      "settings": {
+        "diagonal": true,
+        "tie_break": "first"
+      },
+      "starting_points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "47605741880f67ba519aac12d0e6d647cd6ff91691410711bcc9853e37f7ae4e",
+      "job_id": "small_batch_full_B10_seed9_dsda"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 9,
+      "method": "rbfopt",
+      "settings": {
+        "algorithm": "MSRSM",
+        "global_search_method": "sampling",
+        "rbf": "auto"
+      },
+      "starting_points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "47605741880f67ba519aac12d0e6d647cd6ff91691410711bcc9853e37f7ae4e",
+      "job_id": "small_batch_full_B10_seed9_rbfopt"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 9,
+      "method": "bam",
+      "settings": {},
+      "starting_points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "47605741880f67ba519aac12d0e6d647cd6ff91691410711bcc9853e37f7ae4e",
+      "job_id": "small_batch_full_B10_seed9_bam"
+    },
+    {
+      "case_name": "small_batch",
+      "csv_name": "compl_enum_small_batch_baron.csv",
+      "domain": "full_1_to_3",
+      "lower_bounds": [
+        1,
+        1,
+        1
+      ],
+      "upper_bounds": [
+        3,
+        3,
+        3
+      ],
+      "grid_size": null,
+      "max_evaluations": 10,
+      "n_starts": 3,
+      "seed": 9,
+      "method": "fmqa_sa",
+      "settings": {
+        "epochs": 1000,
+        "learning_rate": 0.01,
+        "num_reads": 100,
+        "num_sweeps": 1000,
+        "time_limit": 1800
+      },
+      "starting_points": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ]
+      ],
+      "initial_design_sha256": "47605741880f67ba519aac12d0e6d647cd6ff91691410711bcc9853e37f7ae4e",
+      "job_id": "small_batch_full_B10_seed9_fmqa_sa"
+    }
+  ],
+  "source_files_sha256": {
+    "LICENSE": "1d34d50a6a4c138f091f62dc8428ad0177658a8a81758424683823673d48f813",
+    "benchmark_protocols/small_batch_full_domain.json": "4fabd04e5023d0517cc6e749b8fee1e3de6d3bfc9e17491d3ec90d055f4045f3",
+    "case_studies/__init__.py": "d3ff975baedf47284869c6a0a218035d6f9b806c344086f0a13b26c3dd445217",
+    "case_studies/bam_common.py": "5f39501284864cba282de95b73b43f167cadf71c412e22a987c145c467f9967d",
+    "case_studies/column_bam.py": "862c9f2d4d527c6094e1d2a339f809c16ab12e5b59762bcf10e14c28aa15e637",
+    "case_studies/column_case.py": "3af0083358ba622491960fc49460084e0d2b814072fda8a78715d74e87608d2c",
+    "case_studies/column_dsda.py": "f2770e64f06c6611ffbdb8f8b75f99503036f55b8686f375f0678c787d957fca",
+    "case_studies/column_rbfopt.py": "3109bde6540a14c6ec963b81908a9b23e51eb11623fae1aebbeb1a7e8e4b854e",
+    "case_studies/common.py": "2b8a34feaca677a71ea386dc3d6a5c10c710ca7918cb413c63acc18820d2a3e8",
+    "case_studies/cstr_bam.py": "87a8451490f7ea059d011a0dcb74362e960d18ae4ea79b2ace95baf58f329a13",
+    "case_studies/cstr_case.py": "a106f4eee73160289ab984e99a953a13f95b2bfc6eabf38006336aec6be7889d",
+    "case_studies/cstr_dsda.py": "612da2b2d03752a012c3cc42fd14a103f84e54a5c7783d8b733cdc3deb5997cf",
+    "case_studies/cstr_rbfopt.py": "db53ed9d8fd9789792fd72fb3728025652bc660b630b9269d486f629064bdfd8",
+    "case_studies/dynamic_bam.py": "5244d2bc40b303b8a87dedcff88aeaff3f158c6631890e2c181c7e5fa74150f9",
+    "case_studies/dynamic_case.py": "e868b892ebf19c8c1efa6d8452a1acb37f595a0b018d227506e2ebcf02c3b0af",
+    "case_studies/dynamic_dsda.py": "75424ccd14eb66207ce761fd2dcbee3b8eec0120648f364c92e8313635a08190",
+    "case_studies/dynamic_rbfopt.py": "da38153be3585d46522a939677827731488b5ea3e9a351e9f1a0b03f921e8498",
+    "case_studies/small_batch_bam.py": "22d3599d6c0fe473b358093b7cc6a6aa35b96bc6758b95834012ef9b4083b2a5",
+    "case_studies/small_batch_case.py": "8d1033c6664b024c19163a948269c0358b71e7ccef338944f77ac26116bcfc4b",
+    "case_studies/small_batch_dsda.py": "cb886abf8595deff9cdbfc4806ea44df989b14cbcf4c480043b15053333558f9",
+    "case_studies/small_batch_rbfopt.py": "cb1c6b40427ecc8f41f264952a42c7df9e5fd0bc76f537cef00656e6bd481a59",
+    "case_study_data/__init__.py": "ed4607b6bc6d8a9bb9bfa514b712e471512e621a88536cd806ec9d940c0be78a",
+    "case_study_data/column/__init__.py": "6a1fe0a3c2f71866350b31a42d89dcdbb4f2eff5c04666a93cc12e92adf655ea",
+    "case_study_data/column/compl_enum_column_17_baron.csv": "a09fcb62e56a73736b96bad051c13c04132f407a247cb84a6dbbced08d42cdae",
+    "case_study_data/cstr/__init__.py": "022a48f9dc41f07dfcb59ff5774ab2216a2a6f902dcee4185f9be9cfc45d548f",
+    "case_study_data/cstr/compl_enum_cstr_10_baron_hull.csv": "b42505bb83ce7ce92560f3cdbc16b4779b9152f026420e3d2295140c4d806df0",
+    "case_study_data/cstr/compl_enum_cstr_11_baron_hull.csv": "2dfb74962d5c133a00997923d2122f35ef2918b6802486fa4eaa6658f9b5e835",
+    "case_study_data/cstr/compl_enum_cstr_12_baron_hull.csv": "6b58cd03734a8a356427fe15522db4710446e54de2410816cbe6d80b741daf22",
+    "case_study_data/cstr/compl_enum_cstr_13_baron_hull.csv": "abf38db58a73ebf671ae3c3a4e64f64f27dd465f2a8f83be5317cbc0990c6a8b",
+    "case_study_data/cstr/compl_enum_cstr_14_baron_hull.csv": "8131bffe392b908b9b68ea5d7718b961ca1394d5c26176c896e4a4f281282140",
+    "case_study_data/cstr/compl_enum_cstr_15_baron_hull.csv": "da4b2bc8bad04ac0678ff23e18548adda8a8f8ed36cf402f1bc5cb7935d3e185",
+    "case_study_data/cstr/compl_enum_cstr_16_baron_hull.csv": "6a115f3150be5b2d20542e353130d0dc2a97c06aa19e77e923d7ce3b3564fa59",
+    "case_study_data/cstr/compl_enum_cstr_17_baron_hull.csv": "e7bc8f344d305460a4523af9cc17e7df97fbbe12ea9c316d2642b3252526f31e",
+    "case_study_data/cstr/compl_enum_cstr_18_baron_hull.csv": "ba8abf4e5b35421004e7abac103ad08ef4e8c5609ee6a2788531ee61e3d76d4a",
+    "case_study_data/cstr/compl_enum_cstr_19_baron_hull.csv": "0fc1f04747db273b6ed87101b984f98e6bd537d20a4fdd5c6c633c14a36ba077",
+    "case_study_data/cstr/compl_enum_cstr_20_baron_hull.csv": "204609481ee4860f543bdc36cf330ba07eac84590626523c6b4c6820a1adcd1c",
+    "case_study_data/cstr/compl_enum_cstr_21_baron_hull.csv": "7d1cf171f15f79857fce37d5f4941c2d4d27590f8be587a48ad990e1100b0597",
+    "case_study_data/cstr/compl_enum_cstr_22_baron_hull.csv": "16c69b78cf4f8e1dcdd38ab60f914fec6d36ae382fae9d15fcb82d7e16560956",
+    "case_study_data/cstr/compl_enum_cstr_23_baron_hull.csv": "366216c8d908c9b8f9efa295fa6ad3debbfa71fbebbe5afcc48a7b679059d9ac",
+    "case_study_data/cstr/compl_enum_cstr_24_baron_hull.csv": "4365d94935a11d542f9644c0655f7dcc4945b6c0b01f539745d57f1979b8af7e",
+    "case_study_data/cstr/compl_enum_cstr_25_baron_hull.csv": "4b60dea065c2dd771e10aa2de71279182fed3d3d915bee160029bc23f38ceff5",
+    "case_study_data/cstr/compl_enum_cstr_26_baron_hull.csv": "05d7fea87ae464b42ef058aa7e4e254e8661e124a9ce23c1ff14a9758b92c793",
+    "case_study_data/cstr/compl_enum_cstr_27_baron_hull.csv": "cdc50adbeca2c39361fc86eaced7432bd358b239b3a26ee89bd53319c066a241",
+    "case_study_data/cstr/compl_enum_cstr_28_baron_hull.csv": "f0f2407e9c2bb8f78a67a35d946270bb030214cb475bb0c9b84a286e16468c1c",
+    "case_study_data/cstr/compl_enum_cstr_29_baron_hull.csv": "bf6a4c03a9745e1e5cab68627dc7ae3140f86a700fa5e96cd82fc563fc8ea2d3",
+    "case_study_data/cstr/compl_enum_cstr_30_baron_hull.csv": "70f97c120f7299b70ac2978c3bf0d6fca69f7e89908e9b0385cfb95dd02ad05b",
+    "case_study_data/cstr/compl_enum_cstr_5_baron_hull.csv": "6b82e1e02fcecb60dba1b3705538d56b52528be18420f0db9d0539b55068574e",
+    "case_study_data/cstr/compl_enum_cstr_6_baron_hull.csv": "eb23a86221164a9ad30c56080c6a964c507f5c5f35dbf28947e0c11c4b45bad1",
+    "case_study_data/cstr/compl_enum_cstr_7_baron_hull.csv": "42476d1551d366afff520414c30514018e715933748a172d23f066584ae1c820",
+    "case_study_data/cstr/compl_enum_cstr_8_baron_hull.csv": "2381342e1e58c26310e69ae4e238d96f1a62b8d85e3d314bc502a20385b2d725",
+    "case_study_data/cstr/compl_enum_cstr_9_baron_hull.csv": "c0c1d75b13d724e1228bb3b5d1feb31d1033ba7b16bfed1afa759140bb8a14ea",
+    "case_study_data/small_batch/__init__.py": "7ef5b4d1b7c9c0babc445ae8ec34fda0b15182f1337e6a4bb990489d4b29f5cd",
+    "case_study_data/small_batch/compl_enum_small_batch_baron.csv": "93c1b3da9c0937e6db1cff6e19ebb8484d04d243b25463343527bd50efb0fe5f",
+    "cpu_affinity.py": "fc6470e8db52df68935abdaa5ebe76602a1c7917d08b4ca35760a042aba73b60",
+    "docs/process_followup_dantzig.md": "a607229a451d4f40ed340dcb94446a8a4319f0ada7b3cda5092d1cdb26f12371",
+    "docs/small_batch_full_domain.md": "a4df973fbb6143e81b7ad492e5c3ef15055cafb845cf2ed41c807bd5eeeb6162",
+    "evaluation_trace.py": "446af7d5548aa60fa9c56750be5cb584cd3baef50073048e93a80f9c9a5abb85",
+    "fmqa_benchmark/__init__.py": "8d3a0431eb274407dadc4063c0660598abf738169911673b0dc608962ebe32bc",
+    "fmqa_benchmark/optimizer.py": "98116708aba935b15f32b1169f7e6ceee5d469552c4e7bda833eb5cc170ddc53",
+    "fmqa_benchmark/protocol.py": "48f9479ca49adb0a74d731dce1351a1f48f029846278aec9789536e37d614e8d",
+    "fmqa_benchmark/reference/initial_designs.json": "7e66915534046c51ab801460c182f89f99fad1c136e0795e23a5ef34e32bd699",
+    "fmqa_benchmark/reference/original.manifest.json": "12f4f9e2ae7594d116dfccb0036c530d8fa5ee9da18d4345ae4891799e741021",
+    "fmqa_benchmark/surrogate.py": "e8a7da7d077daed7981d730f80ca178e2bdeae344f734ab9d0710db54eb6321c",
+    "fmqa_benchmark/vendor/bbo_via_fmqa/LICENSE": "65a269637eab5602b66d35341efe8613432d8a2706d54e61e5a7ca408c28ab5c",
+    "fmqa_benchmark/vendor/bbo_via_fmqa/bbo_via_fmqa/fmqa_simulated.py": "418617dbe318c0b0fb121dd17910adff6298deaea911d86802dc77203296105f",
+    "fmqa_benchmark/vendor/bbo_via_fmqa/bbo_via_fmqa/ising_machine.py": "a8b4a30a1ca4bd34979652f0d7e554ef9a3c4a1086e7e8346e6cff3601bec3be",
+    "fmqa_benchmark/vendor/bbo_via_fmqa/bbo_via_fmqa/ml_surrogate.py": "234e207dedf9f7354291fdb7e4c8427d3536c94876602174d9e9646a7835645c",
+    "fmqa_benchmark/vendor/bbo_via_fmqa/bbo_via_fmqa/read_grid.py": "dd2975ba2e74af8bc1643b4a374a735861a1a415eaa01ff79e27c58cbfbb62cf",
+    "fmqa_benchmark/vendor/provenance.json": "52bea4d0c07af5bd27680eb872dc200e8904fb5af14cc7b1fb9e558e8e75c856",
+    "fmqa_benchmark/vendor/tsudalab/LICENSE": "cb4fce95d1b191e92a94fedd57327d16de50bb936d01d687339fc57e4331ed0d",
+    "fmqa_benchmark/vendor/tsudalab/fmqa/factorization_machine.py": "32551e390a52a1753a7f60396654ba6406c381f9d590a0a04be4ab8e8fc397f5",
+    "fmqa_benchmark/vendor/tsudalab/fmqa/fm_binary_quadratic_model.py": "b42655a47798d18d6c4c3fa5eed32ed7d065bf6f6cd28937a339abe8462ef958",
+    "grid_dsda.py": "7873a2344eb9b40e9bc3f35354448494e9d8230d0879377e8934fa2cc517a77a",
+    "instrumentation.py": "df049a54b7d0a8846df2ddede6d3ba0dfe43f5c7715fe9a948e856637a8ea46c",
+    "overnight_benchmark/__init__.py": "5429883334056a0f5924d042742224721106beadfd729cb1984d2eb0db3fe1c7",
+    "overnight_benchmark/common.py": "ad831d1672c6a59b0b6330061c171f6fe27588c4f3d333b6c5f9ca66ea25d427",
+    "overnight_benchmark/runner.py": "082d2a7ab4ddb9cc2e9bfce8c614b72cef33f01c65e7ab1025b424d57f8d320b",
+    "process_followup_runner.py": "254d1d95ab284f124eedea0ca31400249f5106002f8a4898dfb904f058c16aa9",
+    "requirements-fmqa.txt": "10e20c05df2d280a17bc395233a1d5fdca8b99f206a8b1b0aeef0b182b6886e5",
+    "requirements-grid-trace.txt": "e0bcb5994d421e1c6fba72505d953498c9ab59f4f87a81e84f84a0d9e08244bb",
+    "run_process_followup_dantzig.sh": "016493a210381e4b25fe9b50200f3ccd2e0faba02e8d1e12b36c12efbfc98cee",
+    "run_small_batch_full_domain_dantzig.sh": "aa1033c4b092bdc578a7c1f58b7d52099249ec0a9dc4eb4c3c77b6b425961823",
+    "small_batch_full_domain.py": "8842f6f25b36907817655c62f4712d52143e7691d2105cfd2d157f00e767283d",
+    "tests/test_process_followup_runner.py": "5f782160b224131d7850225afbe7bc8236c7be4865d3c3033cfe11d860d8fc07",
+    "tests/test_small_batch_full_domain.py": "71e66bef59c744df915556f8b6fd5c978edc7ca862fe43896efcef12d93410ab"
+  },
+  "protocol": {
+    "domain": "{1,2,3}^3: original GDP unit-count choices",
+    "feasible_points": 12,
+    "preprocessing_infeasible_points": 15,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "n_starts": 3,
+    "total_evaluation_budget": 10,
+    "initial_evaluations_in_budget": true,
+    "initial_design": "Full-domain shared LHC, frozen under the original DFO SciPy; no rejection or reseeding",
+    "objective_mode": "Original lookup values; known infeasible configurations from audited GDP enumeration",
+    "infeasible_response": {
+      "dsda": 1000000.0,
+      "rbfopt": 1000000.0,
+      "bam": "NaN",
+      "fmqa_sa": "raw infinity; reported penalty 1e6"
+    },
+    "dsda_domain": "All 27 coordinate keys, no feasible-only neighbor filter; infeasible callbacks consume budget",
+    "rbfopt": "MSRSM + sampling + rbf=auto",
+    "trajectory": "Every actual callback, including infeasible and repeated evaluations; FMQA proposals separately saved",
+    "nlp_cost": "Reuse 27 measured Dantzig GAMS/IPOPT-profile point costs; include preprocessing rejection time",
+    "time_formula": "method wall time - lookup call time + measured point cost for every callback",
+    "measured_online_runtime": false
+  },
+  "runtime": {
+    "dfo": {
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-323.211.3.4.el9uek.x86_64-x86_64-with-glibc2.34",
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "pandas": "2.3.3",
+        "rbfopt": "4.3.0",
+        "bam-solver": "5.0.0",
+        "pyomo": "6.10.0"
+      },
+      "affinity": {
+        "cpu": 6,
+        "physical_package_id": "0",
+        "core_id": "8",
+        "thread_siblings_list": "6,54",
+        "effective_cpus": [
+          6
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "MKL_DYNAMIC": "FALSE"
+      },
+      "lookup_data_sha256": {
+        "case_study_data/column/compl_enum_column_17_baron.csv": "a09fcb62e56a73736b96bad051c13c04132f407a247cb84a6dbbced08d42cdae",
+        "case_study_data/cstr/compl_enum_cstr_10_baron_hull.csv": "b42505bb83ce7ce92560f3cdbc16b4779b9152f026420e3d2295140c4d806df0",
+        "case_study_data/cstr/compl_enum_cstr_15_baron_hull.csv": "da4b2bc8bad04ac0678ff23e18548adda8a8f8ed36cf402f1bc5cb7935d3e185",
+        "case_study_data/cstr/compl_enum_cstr_20_baron_hull.csv": "204609481ee4860f543bdc36cf330ba07eac84590626523c6b4c6820a1adcd1c",
+        "case_study_data/cstr/compl_enum_cstr_25_baron_hull.csv": "4b60dea065c2dd771e10aa2de71279182fed3d3d915bee160029bc23f38ceff5",
+        "case_study_data/cstr/compl_enum_cstr_30_baron_hull.csv": "70f97c120f7299b70ac2978c3bf0d6fca69f7e89908e9b0385cfb95dd02ad05b",
+        "case_study_data/cstr/compl_enum_cstr_5_baron_hull.csv": "6b82e1e02fcecb60dba1b3705538d56b52528be18420f0db9d0539b55068574e",
+        "case_study_data/small_batch/compl_enum_small_batch_baron.csv": "93c1b3da9c0937e6db1cff6e19ebb8484d04d243b25463343527bd50efb0fe5f",
+        "case_studies/dynamic_case.py": "e868b892ebf19c8c1efa6d8452a1acb37f595a0b018d227506e2ebcf02c3b0af"
+      },
+      "bonmin_sha256": "76eff68e4e3178a98213f98ad4d858f337b0668e49122b195238e60616153f66",
+      "ipopt_sha256": "938c17f31b2cf9fe91cef527bef3c62f303a3012851ad8498f91cd7501d1c9d2",
+      "bam_license_sha256": "4bbb6f002f4a62ad21243155b81841fc4006a8a304fbea821c3a25157bc82563",
+      "bam_native": [
+        2026,
+        9,
+        10
+      ]
+    },
+    "fmqa": {
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-323.211.3.4.el9uek.x86_64-x86_64-with-glibc2.34",
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa/bin/python",
+      "versions": {
+        "numpy": "2.2.6",
+        "dimod": "0.12.21",
+        "dwave-samplers": "1.6.0",
+        "scipy": "1.15.3",
+        "pandas": "2.2.3",
+        "matplotlib": "3.10.3"
+      },
+      "affinity": {
+        "cpu": 6,
+        "physical_package_id": "0",
+        "core_id": "8",
+        "thread_siblings_list": "6,54",
+        "effective_cpus": [
+          6
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "MKL_DYNAMIC": "FALSE"
+      },
+      "lookup_data_sha256": {
+        "case_study_data/column/compl_enum_column_17_baron.csv": "a09fcb62e56a73736b96bad051c13c04132f407a247cb84a6dbbced08d42cdae",
+        "case_study_data/cstr/compl_enum_cstr_10_baron_hull.csv": "b42505bb83ce7ce92560f3cdbc16b4779b9152f026420e3d2295140c4d806df0",
+        "case_study_data/cstr/compl_enum_cstr_15_baron_hull.csv": "da4b2bc8bad04ac0678ff23e18548adda8a8f8ed36cf402f1bc5cb7935d3e185",
+        "case_study_data/cstr/compl_enum_cstr_20_baron_hull.csv": "204609481ee4860f543bdc36cf330ba07eac84590626523c6b4c6820a1adcd1c",
+        "case_study_data/cstr/compl_enum_cstr_25_baron_hull.csv": "4b60dea065c2dd771e10aa2de71279182fed3d3d915bee160029bc23f38ceff5",
+        "case_study_data/cstr/compl_enum_cstr_30_baron_hull.csv": "70f97c120f7299b70ac2978c3bf0d6fca69f7e89908e9b0385cfb95dd02ad05b",
+        "case_study_data/cstr/compl_enum_cstr_5_baron_hull.csv": "6b82e1e02fcecb60dba1b3705538d56b52528be18420f0db9d0539b55068574e",
+        "case_study_data/small_batch/compl_enum_small_batch_baron.csv": "93c1b3da9c0937e6db1cff6e19ebb8484d04d243b25463343527bd50efb0fe5f",
+        "case_studies/dynamic_case.py": "e868b892ebf19c8c1efa6d8452a1acb37f595a0b018d227506e2ebcf02c3b0af"
+      },
+      "upstream": {
+        "bbo_via_fmqa": {
+          "repository": "https://github.com/SECQUOIA/bbo_via_fmqa",
+          "commit": "4bd0aa331cd2f996e7a0507e8fc236cf43ad4e63",
+          "files_sha256": {
+            "LICENSE": "65a269637eab5602b66d35341efe8613432d8a2706d54e61e5a7ca408c28ab5c",
+            "bbo_via_fmqa/ml_surrogate.py": "234e207dedf9f7354291fdb7e4c8427d3536c94876602174d9e9646a7835645c",
+            "bbo_via_fmqa/fmqa_simulated.py": "418617dbe318c0b0fb121dd17910adff6298deaea911d86802dc77203296105f",
+            "bbo_via_fmqa/ising_machine.py": "a8b4a30a1ca4bd34979652f0d7e554ef9a3c4a1086e7e8346e6cff3601bec3be",
+            "bbo_via_fmqa/read_grid.py": "dd2975ba2e74af8bc1643b4a374a735861a1a415eaa01ff79e27c58cbfbb62cf"
+          }
+        },
+        "tsudalab": {
+          "repository": "https://github.com/tsudalab/fmqa",
+          "commit": "51d827d1f88d602278dd0ab5e827ac4fbf8f0b29",
+          "files_sha256": {
+            "LICENSE": "cb4fce95d1b191e92a94fedd57327d16de50bb936d01d687339fc57e4331ed0d",
+            "fmqa/factorization_machine.py": "32551e390a52a1753a7f60396654ba6406c381f9d590a0a04be4ab8e8fc397f5",
+            "fmqa/fm_binary_quadratic_model.py": "b42655a47798d18d6c4c3fa5eed32ed7d065bf6f6cd28937a339abe8462ef958"
+          }
+        }
+      }
+    }
+  }
+}
