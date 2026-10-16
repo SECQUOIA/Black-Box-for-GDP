@@ -1,9 +1,6 @@
 """No process solves: data provenance, budgets, adapters and durable reporting."""
 import csv
-import hashlib
-import io
 import json
-from pathlib import Path
 import shutil
 import sys
 import types
@@ -173,7 +170,8 @@ def test_bam_three_ordered_starts_and_remaining_budget(frozen, tmp_path, monkeyp
         assert kw['options']['max_evals'] == 2
         assert kw['options']['x_evaluated'].tolist() == s['starts']
         assert oracle.call_count == 3
-        objective([1, 1]); objective([1, 5])
+        objective([1, 1])
+        objective([1, 5])
         return types.SimpleNamespace(status=35, success=True, nfev=2, fun=0, x=[1, 5])
     monkeypatch.setitem(sys.modules, 'bam', types.SimpleNamespace(set_license_file=lambda p: None, minimize=minimize))
     result = r.optimize(s, oracle, {'bam_license': '/license'}, tmp_path)
@@ -319,7 +317,8 @@ def test_swallowed_budget_stop_is_logged_as_protocol_failure(frozen, tmp_path):
     table, _ = r.load_table(frozen, 'cstr_30')
     s = spec(budget=3)
     oracle = r.Oracle(s, table, tmp_path)
-    oracle(s['starts'][0]); oracle(s['starts'][1])
+    oracle(s['starts'][0])
+    oracle(s['starts'][1])
     with pytest.raises(r.BudgetStop):
         oracle(s['starts'][2])
     with pytest.raises(ValueError, match='beyond B'):

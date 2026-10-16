@@ -15,7 +15,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-import ipopt_dfo_cstr as runner  # Standard-library validation/reporting only.
+import ipopt_dfo_cstr as runner  # Standard-library validation/reporting only.  # noqa: E402 -- repository path is established above
 
 RETURN_SHA256 = 'b91afb707229766adcdcfb1ee67406377d1d2ef44839b062ec9e0539893bfefa'
 PACKAGE = ROOT / 'results/runners/ipopt_dfo_cstr_20261015.zip'

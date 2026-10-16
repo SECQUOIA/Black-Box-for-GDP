@@ -5,7 +5,6 @@ Instrumentation measures failed preparation stages without bypassing them.
 No GDPopt enumeration, objective lookup, cross-coordinate warm start or retry.
 """
 import argparse
-from collections import Counter
 import csv
 import hashlib
 import itertools
@@ -34,6 +33,13 @@ APPROVED_CHANGED_ADAPTERS = {
     'evaluation.py': '98eda90acea6fc70d26192020972d9b9917b5802a06239aa4a92ad42a9aa19f5',
     'solvers.py': 'bdc1a4c52c65128cda618c9b64be28a53abea557f3f5a4e4e975a77e57085d1d',
     'preflight.py': 'fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56',
+}
+# PR #23/main commit 5a9e704 carries the reviewed GAMS executable routing fix.
+# Keep the original frozen-run profile above and admit only these exact newer
+# bytes. Models, initialization, options and acceptance checks are unchanged.
+MAIN_ROUTING_ADAPTERS = {
+    'evaluation.py': '1ee3dda18a4031a3c9c039c3270d8225da7bbd4eb8f8d31d844d8111667ffa84',
+    'solvers.py': 'cd1c88cb8ec66dceac2bb4f17dcd38e40fb5b3cf0891ad93298002f879040f06',
 }
 EXTRA_FIELDS = ['logical_allowed', 'reflux_tray', 'boilup_tray', 'legacy_status',
     'failure_stage', 'logic_wall_s', 'original_total_wall_s', 'instrumented_call_wall_s',
@@ -88,8 +94,11 @@ def verify_sources(case):
         digest = sha(ROOT / 'gdp_models' / name)
         old = prior['adapter_sha256'][name]
         if digest != old:
-            require(APPROVED_CHANGED_ADAPTERS.get(name) == digest, f'Unreviewed adapter change: {name}')
+            require(digest in {APPROVED_CHANGED_ADAPTERS.get(name), MAIN_ROUTING_ADAPTERS.get(name)},
+                    f'Unreviewed adapter change: {name}')
             differences[name] = {'historical_sha256': old, 'current_sha256': digest}
+            if MAIN_ROUTING_ADAPTERS.get(name) == digest:
+                differences[name]['reviewed_change'] = '5a9e704: effective GAMS executable routing and reporting'
     return baseline, differences
 
 

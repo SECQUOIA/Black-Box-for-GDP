@@ -48,3 +48,20 @@ preserves 139 returned jobs and remeasures only CSTR15/B22/seed9. It repairs
 the audit tolerance check and reuses the four existing same-coordinate CSTR
 logical-rejection costs with explicit donor provenance. No NLP measurements
 are launched. See [completed results and reproduction](../../docs/process_dsda_fairness_dantzig.txt).
+
+## Final October 15 IPOPT Process comparison
+
+The [final result index](../process_ipopt_bam_v2_20261015/README.md) and its
+integration manifest link the exact submitted/executed packages:
+
+- `ipopt_dfo_cstr_20261015.zip` and `ipopt_dfo_non_cstr_20261015.zip`: original
+  four-method returns; their original BAM records retain the old stop policy.
+- `bam_cstr_budget_v2.zip` and `bam_non_cstr_budget_v2.zip`: all 140 corrected
+  BAM slots, returning callback B and stopping at the native evaluation limit.
+- `cstr30_structural_rejections_20261015.zip`: 435 solver-free logical-rejection
+  timing measurements, joined only where process time was previously missing.
+
+All packages remain byte-identical. Hashes for packages without adjacent
+checksum files are pinned in the final comparison's integration manifest and
+importers. Use the result verification commands to review the stored runs;
+rebuilding a runner from current source does not reproduce its historical bytes.

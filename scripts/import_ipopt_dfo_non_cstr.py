@@ -17,7 +17,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-import ipopt_dfo_non_cstr as runner
+import ipopt_dfo_non_cstr as runner  # noqa: E402 -- repository path is established above
 
 RETURN_NAME = 'ipopt_dfo_non_cstr_20261015_172428_o671edu_'
 RETURN_SHA256 = 'ed7eaa2c20031b58f5a9c02c0bc89699cf170c7e256a65c92664ac4b1875cc6e'

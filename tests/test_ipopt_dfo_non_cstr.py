@@ -1,9 +1,5 @@
 """No process solves: data provenance, budgets, adapters and durable reporting."""
-import csv
-import hashlib
-import io
 import json
-from pathlib import Path
 import shutil
 import sys
 import types
@@ -170,7 +166,8 @@ def test_bam_three_ordered_starts_and_remaining_budget(frozen, tmp_path, monkeyp
         assert kw['options']['max_evals'] == 2
         assert kw['options']['x_evaluated'].tolist() == s['starts']
         assert oracle.call_count == 3
-        objective([1, 4]); objective([1, 5])
+        objective([1, 4])
+        objective([1, 5])
         return types.SimpleNamespace(status=35, success=True, nfev=2, fun=0, x=[1, 5])
     monkeypatch.setitem(sys.modules, 'bam', types.SimpleNamespace(set_license_file=lambda p: None, minimize=minimize))
     result = r.optimize(s, oracle, {'bam_license': '/license'}, tmp_path)

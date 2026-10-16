@@ -1,7 +1,5 @@
 """Read-only checks against the archived Dantzig return; no optimizer is run."""
 import copy
-import json
-from pathlib import Path
 
 import pytest
 

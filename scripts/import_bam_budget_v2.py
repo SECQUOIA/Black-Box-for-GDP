@@ -5,7 +5,6 @@ The immutable original runs remain archived; this batch replaces all 140 BAM slo
 """
 import argparse
 from collections import Counter
-import csv
 import gzip
 import importlib
 import importlib.util
@@ -58,23 +57,30 @@ def verify_batch(kind, archive, output):
         old_jobs = {r['job_id']:r for r in runner.read(old/'job_metadata.json')}
         reported = {r['job_id']:r for r in helper.rows(directory/'runs.csv')}
         require(len(reported)==count, 'Report size mismatch')
-        cpu=runner.read(directory/'cpu_selection.json'); selected=cpu['selected']['cpu']
+        cpu=runner.read(directory/'cpu_selection.json')
+        selected=cpu['selected']['cpu']
         require(cpu['selected']['effective_cpus']==[selected] and selected not in cpu['excluded_cpus'], 'CPU selection mismatch')
         require(not set(map(int,cpu['selected']['thread_siblings_list'].split(','))) & set(cpu['excluded_cpus']), 'Physical-core overlap')
-        metadata=[]; categories=Counter(); callback_count=0; terminal_hits=0
+        metadata=[]
+        categories=Counter()
+        callback_count=0
         for spec in plan:
-            job=directory/'jobs'/spec['job_id']; budget=spec['budget']
+            job=directory/'jobs'/spec['job_id']
+            budget=spec['budget']
             require(runner.read(job/'spec.json')==spec, 'Job spec mismatch')
             require(spec['starts']==old_jobs[spec['job_id']]['spec']['starts'], 'Changed paired initial design')
             require(runner.bam_native_budget(spec), 'Legacy stop policy in rerun')
             events=helper.strict_jsonl(job/'callbacks.jsonl')
-            result=runner.read(job/'result.json'); settings=runner.read(job/'actual_settings.json')
-            runtime=runner.read(job/'runtime.json'); started=runner.read(job/'started.json')
+            result=runner.read(job/'result.json')
+            settings=runner.read(job/'actual_settings.json')
+            runtime=runner.read(job/'runtime.json')
+            started=runner.read(job/'started.json')
             require(runtime['host']=='dantzig.ecn.purdue.edu' and started['effective_cpu']==[selected], 'Host/affinity mismatch')
             require(all(runtime['versions'][k].split('+')[0]==v for k,v in runner.VERSIONS['bam'].items()), 'Version mismatch')
             require(len(events)==budget==result['callback_count'], 'Budget not exactly honored')
             require(not (job/'budget_overruns.jsonl').exists() or not (job/'budget_overruns.jsonl').read_text().strip(), 'Guard recorded overrun')
-            for i,event in enumerate(events,1):helper.validate_callback(event,spec,tables[spec['case']],i)
+            for i,event in enumerate(events,1):
+                helper.validate_callback(event,spec,tables[spec['case']],i)
             helper.validate_settings(spec,settings,events)
             require(all(x['elapsed_s']<=y['elapsed_s'] for x,y in zip(events,events[1:])), 'Nonmonotonic clock')
             require(result['status']=='budget_completed' and result['error'] is None, 'Backend failure')
@@ -95,31 +101,38 @@ def verify_batch(kind, archive, output):
             require(math.isclose(helper.number(report,'lookup_wall_s'),sum(e['lookup_wall_s'] for e in events),abs_tol=1e-10), 'Lookup total mismatch')
             missing=sum(e['selected_attempt_nlp_s'] is None for e in events)
             require(int(report['missing_nlp_times'])==missing and report['nlp_time_available']==str(not missing), 'Missing timing masked')
-            categories[category]+=1;callback_count+=len(events)
+            categories[category]+=1
+            callback_count+=len(events)
             metadata.append({'job_id':spec['job_id'],'spec':spec,'settings':settings,'runtime':runtime,'started':started,'result':result})
         originals={n:(directory/n).read_bytes() for n in helper.TABLES}
         runner.summarize(directory)
-        for n,b in originals.items():require((directory/n).read_bytes()==b, 'Regenerated table differs: '+n)
+        for n,b in originals.items():
+            require((directory/n).read_bytes()==b, 'Regenerated table differs: '+n)
         audit={'batch':name,'archive_sha256':digest,'package_sha256':package_digest,'slots':count,
                'categories':dict(categories),'callbacks':callback_count,'budget_overruns':0,'undelivered_terminal_values':0,
                'objective_status_original_cost_mismatches':0,'package_files_verified':package_files,
                'all_paired_starts_preserved':True,'native_status':35,'original_inputs_preserved':True,
                'missing_structural_times_policy':'Joined later from same-model full-box/structural timing supplements.',
                'scope':'All BAM seeds replaced; no best-of-old/new selection.'}
-        destination=output/name;destination.mkdir(parents=True,exist_ok=True)
+        destination=output/name
+        destination.mkdir(parents=True,exist_ok=True)
         for n in ['runs.csv','summary.csv','summary.json','inputs_report.csv','inputs_report.json','run.json','cpu_selection.json','availability.json']:
-            if (directory/n).exists():shutil.copy2(directory/n,destination/n)
+            if (directory/n).exists():
+                shutil.copy2(directory/n,destination/n)
         with gzip.GzipFile(filename='',mode='wb',fileobj=(destination/'callbacks.csv.gz').open('wb'),mtime=0) as stream:
             stream.write((directory/'callbacks.csv').read_bytes())
         for case in tables:
-            inp=destination/'inputs'/case;inp.mkdir(parents=True,exist_ok=True)
+            inp=destination/'inputs'/case
+            inp.mkdir(parents=True,exist_ok=True)
             for p in (reproduction/'inputs'/case).iterdir():
-                if p.is_file():shutil.copy2(p,inp/p.name)
+                if p.is_file():
+                    shutil.copy2(p,inp/p.name)
         (destination/'job_metadata.json').write_text(json.dumps(metadata,indent=2)+'\n')
         (destination/'audit.json').write_text(json.dumps(audit,indent=2)+'\n')
         (destination/'raw_archive_members.json').write_text(json.dumps(hashes,indent=2)+'\n')
         archived=ROOT/'results/archives'/archive.name
-        if archive.resolve()!=archived.resolve():shutil.copy2(archive,archived)
+        if archive.resolve()!=archived.resolve():
+            shutil.copy2(archive,archived)
         return audit
 
 
@@ -130,4 +143,5 @@ def main():
     audits=[verify_batch(kind,args.archive_dir/(data[0]+'.zip'),ROOT/'results/bam_budget_v2') for kind,data in BATCHES.items()]
     print(json.dumps(audits,indent=2))
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    main()
