@@ -1,0 +1,178 @@
+# Original Dantzig result archives
+
+These are the original result ZIPs retained in the repository.
+They retain their original bytes, including any source snapshots and shell
+scripts present in the server archive.
+
+## Reviewing detailed records
+
+Summary CSVs, figures, run settings, provenance manifests and indexes remain
+ordinary files. Detailed records already sealed in a ZIP are stored there once.
+All **6,388 removed extracted copies** were compared byte-for-byte with the
+original archive members. No ZIP, objective, status, callback, timing, summary
+table or figure was changed. Failed runs and evaluations remain in the ZIPs.
+
+The [catalog](catalog.json) records paths, SHA-256 hashes, archive roots and
+the directories now stored only in ZIPs:
+
+| Catalog key | Dataset | Runs | Extracted copies removed |
+|---|---|---:|---:|
+| `fmqa-grid` | September 25 NumPy legacy FMQA Grid | 1,050 | 4,299 |
+| `fmqa-case` | September 25 NumPy legacy FMQA process cases | 139 | 655 |
+| `rbfopt-grid` | October 8–10 RBFOpt Grid trajectories | 1,050 | 1,050 |
+| `gdp-sep25` | September 25 full GDP comparison | 36 | 201 |
+| `gdp-oct01` | October 1 RIC/GLOA comparison | 18 | 112 |
+| `gdp-loa-oct01` | October 1 LOA comparison | 9 | 71 |
+
+Each FMQA `jobs/<job_id>/` contains `evaluations.jsonl` (ordered objective
+calls), `proposals.jsonl` (candidate selection), `result.json` (settings and
+outcome) and `run.log` (execution log). For example, `fmqa-grid` contains
+`jobs/grid_camel3_B50_seed1/`: 4,200 job files and 99 source snapshots were
+duplicated in the checkout. These are NumPy legacy results, not current QHD.
+
+RBFOpt's [trajectory index](../grid_trace_rbfopt_20261010/trajectory_index.csv)
+gives each `archive_trace_path` and exact hash. `trajectory_path` is the optional
+local filename produced by `--extract`, not a required checkout file. Its
+combined 54,600-row callback CSV remains directly readable. GDP ZIPs retain
+solution vectors, solver-call histories, logs, source snapshots and solver
+checks. Their `raw/` folders retain run/summary records and the original full
+checksum inventory. Run counts do not imply success or global optimality.
+
+From the repository root, verify all six ZIPs with Python's standard library:
+
+```bash
+python result_archives.py verify
+```
+
+This checks external hashes, safe member names, complete internal inventories,
+file counts and indexed RBFOpt hashes. Extract one archive to a **new** directory:
+
+```bash
+python result_archives.py extract fmqa-grid --output results/dantzig_review/fmqa-grid
+```
+
+The command verifies before extraction, refuses an existing destination and
+prints the extracted run directory. It never executes archived code.
+`results/dantzig_review/` and restored duplicate folders are ignored by Git.
+Retained SHA256SUMS files describe the full archive: check them inside a full
+extraction, not against the deliberately reduced summary folders.
+
+Existing analysis commands use registered ZIPs or retained summary directories
+and verify/extract the detailed records temporarily:
+
+```bash
+python fmqa_compare.py --fmqa-results results/fmqa_20260925/grid \
+  --output-dir results/dantzig_review/fmqa-grid-analysis --dataset grid
+python gdp_comparison_analysis.py --output results/dantzig_review/gdp-sep25-analysis
+python gdp_current_analysis.py --output results/dantzig_review/gdp-current-analysis
+python results/grid_trace_rbfopt_20261010/verify_archive.py
+```
+
+These require the normal analysis/model dependencies, but run no optimizer or
+solver. The FMQA command rebuilds the historical NumPy lookup comparison, not
+current QHD figures. The GDP command checks saved vectors in the original
+model. The current-GDP command rechecks all 63 saved vectors, including the 45
+selected results; it retains the original logical source paths in provenance.
+Per-source regenerated audits are placed under the requested output directory
+(`sources/<dataset>/`), leaving published result directories unchanged.
+RBFOpt's verifier checks all archived traces without local JSONLs; add
+`--extract` to restore the 1,050 ignored trajectory copies. This storage change
+does not rewrite Git history.
+
+## Archive index
+
+Current default FMQA-SA: [QHD PyTorch, all 1,190 runs](fmqa_qhd_20261012_034123_8kcczd4b.zip). Previous comparison figures and tables: [NumPy legacy snapshot](fmqa_numpy_legacy_figures_20261012.zip). Both preserve their source identities and checksums.
+
+The [96-point logical-rejection supplement](fmqa_qhd_points_20261012_234651_f39la8cf.zip) completes current QHD timing coverage. All points were measured on Dantzig with one thread and zero solver calls; original ZIP bytes and the adjacent SHA256 file are retained.
+
+| Run | Original archive |
+|---|---|
+| DSDA / RBFOpt / BAM, September 10 | [dantzig_20260910_170759_slN8tv.zip](dantzig_20260910_170759_slN8tv.zip) |
+| BAM 5.0.0, September 16 | [dantzig_bam_20260916_231228_FNzbAA.zip](../../dantzig_bam_20260916_231228_FNzbAA.zip) |
+| Initial GDP point run, September 22 (dependency failures retained) | [dantzig_gdp_20260922_030057_6tb50i44.zip](dantzig_gdp_20260922_030057_6tb50i44.zip) |
+| Updated GDP point run, September 22 | [dantzig_gdp_20260922_033846_u0tjt7i7.zip](dantzig_gdp_20260922_033846_u0tjt7i7.zip) |
+| GAMS IPOPT / IPOPTH / CONOPT point runs, September 22 | [dantzig_gdp_gams_20260922_050038_p4q8hy54.zip](dantzig_gdp_gams_20260922_050038_p4q8hy54.zip) |
+| Seven CSTR30 retries, September 22 | [dantzig_cstr30_retry_20260922_153133_ld1g1zau.zip](dantzig_cstr30_retry_20260922_153133_ld1g1zau.zip) |
+| Full GDPopt / BARON comparison, September 25, CPU 2 | [dantzig_gdp_compare_20260925_172020_5m9m_kxx.zip](dantzig_gdp_compare_20260925_172020_5m9m_kxx.zip) |
+| FMQA-SA (NumPy legacy) process cases, September 25, CPU 4 | [dantzig_fmqa_20260925_174150_2m7pmr0d.zip](dantzig_fmqa_20260925_174150_2m7pmr0d.zip) |
+| FMQA-SA (NumPy legacy) Grid, September 25, CPU 0 | [dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip](dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip) |
+| RIC/GLOA BARON + HiGHS, October 1, CPU 2, 18 completed jobs | [dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip](dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip) |
+| LOA BARON + HiGHS, October 1, CPU 6, 9 completed jobs | [dantzig_gdp_compare_20261001_204801_1gfd4d02.zip](dantzig_gdp_compare_20261001_204801_1gfd4d02.zip) |
+| Grid GDP, October 9, CPU 6, 20,181 point timings and 105 benchmark outcomes | [grid_gdp_run_20261008_210901_dw5vq37s.zip](grid_gdp_run_20261008_210901_dw5vq37s.zip) |
+| Grid GDP retry, October 9, CPU 6, 21 error retries | [grid_gdp_retry_all_20261009_153057_czhvd9w7.zip](grid_gdp_retry_all_20261009_153057_czhvd9w7.zip) |
+| Corrected Grid GDP retry, October 9, CPU 6, ten cases | [grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip](grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip) |
+| RBFOpt Grid trajectories, October 10, CPU 0, all 1,050 runs | [grid_trace_rbfopt_20261008_190603_og2app39.zip](grid_trace_rbfopt_20261008_190603_og2app39.zip) |
+| Superseded partial RIC/GLOA snapshot, not a comparison input | [gdpopt_baron_highs_20261001_partial.tar.gz](gdpopt_baron_highs_20261001_partial.tar.gz) |
+
+Verify from the repository root:
+
+```bash
+shasum -a 256 -c results/archives/SHA256SUMS
+```
+
+The two September 25 FMQA ZIPs passed CRC validation, all 4,964 internal file
+checksums, source and coordinate audits, and completion checks (139 case runs
+and 1,050 Grid runs). Their source hashes and CPU topology appear in
+[the published result provenance](../fmqa_20260925/publication.json).
+The September 25 GDP archive passed all 204 internal checksums and all 36 saved
+solutions passed independent original-GDP feasibility checks. Its CPU 2 is a
+different physical core from both FMQA jobs. The September 22 FMQA and full-GDP
+archives and derived result files were deleted by user instruction because of
+their overlap on CPU 0. They are not inputs to current analyses.
+
+The two final October 1 GDPopt ZIPs pass their supplied external checksums and
+all 189 internal file checksums. Their 27 saved solutions pass independent
+original-GDP feasibility checks. The partial tar.gz is retained as historical
+evidence only; all 12 CSTR records already complete in it match the final ZIP.
+
+These ZIPs contain the current FMQA runs and the other supplied benchmark
+archives. Earlier GDP point failures remain part of their provenance; archiving a run does
+not make every outcome a successful or globally certified solution. The
+unmodified GDP archives retain all originally run CSTR sizes. The curated
+point-timing dataset remains CSTR30-only under
+`results/gdp_point_timings_20260922/`; FMQA summaries and manifests remain under
+`results/fmqa_20260925/`, with detailed jobs and source snapshots in the ZIPs.
+The [current full-GDP comparison](../gdp_comparison_current/analysis/README.md)
+uses the October 1 RIC/GLOA/LOA runs plus September 25 Big-M/Hull. The September 25
+IPOPT RIC/GLOA results remain historical. Solver-reported
+optimality is not automatically a valid global certificate; see its audit.
+
+Three shell wrappers have byte-identical copies in the remaining September 22 result ZIPs:
+`run_gdp_dantzig.sh`, `run_gdp_gams_dantzig.sh`,
+and `run_cstr30_retry_dantzig.sh`.
+The September 25 FMQA and full-GDP archives use Python entry points and contain
+no shell wrappers. The October 1 GDPopt archives include their runner wrappers
+in the source snapshots.
+
+The October 9 Grid GDP archive passes CRC validation and all 807 internal
+checksums. All 20,181 fixed-point evaluations succeeded. The 105 full-GDP
+outcomes include 32 unsupported cases, 21 errors and one hard timeout; saved
+feasible incumbents do not imply successful termination. The
+[Grid GDP timing summary](../grid_gdp_20261009/README.md) includes exact exported
+tables, per-method times and a reproducible analysis without new solver runs.
+The [corrected ten-case retry](../grid_gdp_corrected_20261009/README.md) passes
+all 130 internal hashes and independently matches every saved solution to the
+CSV minimum. It has seven optimal terminations and three time limits, with no
+errors. Its changed Pyomo processing profile is explicit; the earlier raw
+results and all 20,181 IPOPT point measurements remain intact.
+The [complete RBFOpt Grid trajectories](../grid_trace_rbfopt_20261010/README.md)
+pass all 5,546 internal hashes and contain 1,050 complete runs, 54,600 ordered
+objective callbacks and 7,514 unique grid/coordinate pairs. Every original
+per-run JSONL is indexed in the ZIP for use with the IPOPT point data; optional
+local copies can be restored with the verifier's `--extract` flag.
+The original September 10 and BAM ZIPs do not contain the local
+`run_dantzig.sh` or `run_bam_dantzig.sh` wrappers.
+
+The October 8 BAM callback archive
+[`grid_trace_bam_20261008_190603_5bh3y_t5.zip`](grid_trace_bam_20261008_190603_5bh3y_t5.zip)
+is now retained for the [Grid GDP path-cost analysis](../grid_gdp_dfo_20261011/README.md).
+Its 5,304 member hashes and all 1,050 completed paths are verified; all 54,600
+callbacks are charged in order. Its earlier incomplete attempt is retained in
+the original ZIP and excluded in favor of the sealed completed replacement.
+
+The October 14 process DSDA budget-fairness return is retained unchanged in
+`process_dsda_budget_fairness_20261014_pudvsttz_1792004864773526053.zip`.
+It has 139 validated jobs and one post-search validator error; all 1,056 member
+hashes pass. The [audited import](../process_dsda_fairness_20261014/README.md)
+records same-coordinate infeasible-cost reuse and the pending single-job
+recovery. Archiving this partial matrix does not make it a complete comparison.

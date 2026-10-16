@@ -7,20 +7,22 @@ from pathlib import Path
 
 from grid_dsda import dsda_from_csv
 from instrumentation import TrackedObjective, make_result_record, save_results_csv
+from .dsda_domain import box_membership, rank_observed_starts, validate_design
 
 from .column_case import (
     COLUMN_CSV_NAME,
-    COLUMN_FEASIBLE_OBJECTIVES,
     DEFAULT_MAX_EVALUATIONS,
     KNOWN_BEST_POINT,
     KNOWN_BEST_VALUE,
     LOWER_BOUNDS,
+    PENALTY,
     UPPER_BOUNDS,
     column_objective,
-    is_column_feasible,
 )
-from .column_rbfopt import DEFAULT_SEED
-from .common import generate_lhc_starting_points, rank_starting_points
+from .common import generate_lhc_starting_points
+
+
+DEFAULT_SEED = 1
 
 
 def choose_best_feasible_start(starting_points, tracked_objective):
@@ -31,10 +33,8 @@ def choose_best_feasible_start(starting_points, tracked_objective):
     initial design accounting matches RBFOpt, then feasible starts are ranked
     for the DSDA descent run.
     """
-    return rank_starting_points(
-        starting_points,
-        tracked_objective,
-        is_column_feasible,
+    return rank_observed_starts(
+        starting_points, tracked_objective, penalty=PENALTY
     )
 
 
@@ -45,15 +45,21 @@ def run_column_dsda(
     diagonal=True,
     tie_break="first",
     verbose=False,
+    starting_points=None,
 ):
     """Run DSDA on the column case from the best feasible LHC start."""
-    starting_points = generate_lhc_starting_points(
-        n_dims=2,
-        n_points=n_starts,
-        lb=LOWER_BOUNDS,
-        ub=UPPER_BOUNDS,
-        seed=seed,
+    if starting_points is None:
+        starting_points = generate_lhc_starting_points(
+            n_dims=2,
+            n_points=n_starts,
+            lb=LOWER_BOUNDS,
+            ub=UPPER_BOUNDS,
+            seed=seed,
+        )
+    starting_points = validate_design(
+        starting_points, LOWER_BOUNDS, UPPER_BOUNDS, n_starts, max_evaluations,
     )
+    domain = box_membership(LOWER_BOUNDS, UPPER_BOUNDS)
     tracked_objective = TrackedObjective(column_objective)
     start_time = time.perf_counter()
     (
@@ -82,7 +88,7 @@ def run_column_dsda(
             tie_break=tie_break,
             verbose=verbose,
             max_points_explored=remaining_budget,
-            grid=COLUMN_FEASIBLE_OBJECTIVES,
+            grid=domain,
             tracked_objective=tracked_objective,
             start_value=selected_start_value,
         )

@@ -1,0 +1,154 @@
+[
+  {
+    "job_id": "cstr_20_B29_seed2_dsda",
+    "evaluation_index": 6,
+    "requested_cstr_size": 20,
+    "point": [
+      17,
+      19
+    ],
+    "measured_cstr_size": 30,
+    "archive": "results/archives/fmqa_qhd_points_20261012_234651_f39la8cf.zip",
+    "archive_sha256": "dfc7e1a9d37e2278b87ddf8d30f3d52c0cbf9007b85324b0d33822161f5396ba",
+    "member": "fmqa_qhd_points_20261012_234651_f39la8cf/jobs/cstr_30_17_19/result.json",
+    "member_sha256": "af18f7e85bc85e8bf2caad374a86ac8eb1181a044f71ed56418ed4c368e68841",
+    "record": {
+      "case": "cstr",
+      "point": [
+        17,
+        19
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[19]",
+      "total_wall_s": 0.1995336510008201
+    }
+  },
+  {
+    "job_id": "cstr_20_B29_seed4_dsda",
+    "evaluation_index": 18,
+    "requested_cstr_size": 20,
+    "point": [
+      6,
+      7
+    ],
+    "measured_cstr_size": 30,
+    "archive": "results/archives/dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p.zip",
+    "archive_sha256": "c1c8939a96ed9fe945074e71c7aa7043f251e6e26024866e6f45a00ed8914be8",
+    "member": "dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p/points/cstr_30_6_7/result.json",
+    "member_sha256": "1c91f568c0078b9363e1a8fff2c9671600b9aa8a250d2f20e7e9bb3776dd04bd",
+    "record": {
+      "case": "cstr",
+      "point": [
+        6,
+        7
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[7]",
+      "total_wall_s": 0.20002566697075963
+    }
+  },
+  {
+    "job_id": "cstr_25_B36_seed2_dsda",
+    "evaluation_index": 6,
+    "requested_cstr_size": 25,
+    "point": [
+      22,
+      24
+    ],
+    "measured_cstr_size": 30,
+    "archive": "results/archives/dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p.zip",
+    "archive_sha256": "c1c8939a96ed9fe945074e71c7aa7043f251e6e26024866e6f45a00ed8914be8",
+    "member": "dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p/points/cstr_30_22_24/result.json",
+    "member_sha256": "cf8445cf37ba49c3d7827af7dc788b8f5dd1dce743322ede1845f27c9374494c",
+    "record": {
+      "case": "cstr",
+      "point": [
+        22,
+        24
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 30,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[24]",
+      "total_wall_s": 0.2000632556155324
+    }
+  },
+  {
+    "job_id": "cstr_30_B43_seed9_dsda",
+    "evaluation_index": 33,
+    "requested_cstr_size": 30,
+    "point": [
+      13,
+      15
+    ],
+    "measured_cstr_size": 20,
+    "archive": "results/archives/dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p.zip",
+    "archive_sha256": "c1c8939a96ed9fe945074e71c7aa7043f251e6e26024866e6f45a00ed8914be8",
+    "member": "dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p/points/cstr_20_13_15/result.json",
+    "member_sha256": "876defecf7ccb340d466869ab29e50238790ce4420d5e464c217c96d642f6b1e",
+    "record": {
+      "case": "cstr",
+      "point": [
+        13,
+        15
+      ],
+      "solver": "gams_ipopt",
+      "solver_interface": "gams_shell",
+      "gams_solver": "ipopt",
+      "cstr_size": 20,
+      "initialization_requested": "auto",
+      "pyomo_version": "6.10.0",
+      "time_limit_s": 60,
+      "feasibility_tolerance": 1e-05,
+      "accepted": false,
+      "objective": null,
+      "candidate_objective": null,
+      "max_primal_violation": null,
+      "solve_wall_s": 0.0,
+      "status": "preprocessing_infeasible",
+      "termination": "not_solved",
+      "message": "Unsatisfied GDP logic: cstr_if_recycle[15]",
+      "total_wall_s": 0.6212939228862524
+    }
+  }
+]

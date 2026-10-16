@@ -884,6 +884,8 @@ def plot_case_study_overview(summary_df, method_order=METHOD_ORDER):
     if missing:
         missing_text = ", ".join(sorted(missing))
         raise ValueError(f"Overview summary is missing columns: {missing_text}")
+    if (summary_df["median_normalized_gap_pct"] < 0).any():
+        raise ValueError("Negative optimality gaps: check the recorded optimum")
 
     width = max(14.0, 0.95 * len(configurations))
     fig, axes = plt.subplots(
@@ -953,6 +955,7 @@ def plot_case_study_overview(summary_df, method_order=METHOD_ORDER):
             axis.set_ylim(top=marker_height * 1.25)
         if use_symlog:
             axis.set_yscale("symlog", linthresh=1e-3)
+            axis.set_ylim(bottom=0.0)
         axis.set_ylabel(ylabel)
         axis.grid(axis="x", visible=False)
         if metric == "hit_rate":
@@ -1013,6 +1016,14 @@ def plot_evaluation_convergence(convergence_df, method_order=METHOD_ORDER):
     if missing:
         missing_text = ", ".join(sorted(missing))
         raise ValueError(f"Convergence summary is missing columns: {missing_text}")
+
+    gap_columns = [
+        "median_normalized_gap_pct",
+        "q25_normalized_gap_pct",
+        "q75_normalized_gap_pct",
+    ]
+    if (convergence_df[gap_columns] < 0).any().any():
+        raise ValueError("Negative optimality gaps: check the recorded optimum")
 
     plt = _pyplot()
     configurations = _configuration_rows(convergence_df)
@@ -1151,6 +1162,7 @@ def plot_evaluation_convergence(convergence_df, method_order=METHOD_ORDER):
             )
         axis.axhline(0.0, color="black", linestyle="--", linewidth=0.8)
         axis.set_yscale("symlog", linthresh=1e-3)
+        axis.set_ylim(bottom=0.0)
         if infinite_median_markers:
             axis.set_ylim(top=marker_height * 1.3)
         budget = int(configuration.max_evals)

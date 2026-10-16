@@ -1,0 +1,85 @@
+{
+  "dataset": "grid",
+  "sources": {
+    "baseline": {
+      "archive": "results/archives/dantzig_20260910_170759_slN8tv.zip",
+      "archive_sha256": "c5b706aa20f5577446d84f829910b5825221a9f6c5713ffc1fd854e7315d6e98",
+      "csv_member": "dantzig_20260910_170759_slN8tv/benchmark.csv",
+      "csv_sha256": "06c90d8885f0792322d8c3bc941f8c3a83c5bb6cdc4d396d195f554b8efdfd6e"
+    },
+    "bam_5.0.0": {
+      "archive": "dantzig_bam_20260916_231228_FNzbAA.zip",
+      "archive_sha256": "9e9f0084f79728157d1ca71ee76490b79e7df0aaaa90ff7b9797552d90a2ca00",
+      "csv_member": "dantzig_bam_20260916_231228_FNzbAA/benchmark.csv",
+      "csv_sha256": "b518fe860ea8a11bfc8226c94497fb5c8f29a56c31c2004c8c68ef59025e053d"
+    }
+  },
+  "method_sources": {
+    "DSDA": "baseline",
+    "RBFOpt": "baseline",
+    "BAM 5.0.0": "bam_5.0.0"
+  },
+  "bam_version": {
+    "package": "5.0.0",
+    "native_solver": [
+      2026,
+      9,
+      10
+    ]
+  },
+  "n_runs": 3150,
+  "paired_instances": 1050,
+  "tolerance": 1e-05,
+  "success_rule": "abs(best_value - target_value) <= tolerance * max(1, abs(target_value))",
+  "time_measure": "full recorded successful-run wall time; failures have infinite cost",
+  "first_hit_timestamps_available": false,
+  "ratio_methods": [
+    "DSDA",
+    "RBFOpt",
+    "BAM 5.0.0"
+  ],
+  "checks": {
+    "run_keys_match": true,
+    "targets_match": true,
+    "source_csv_hashes_match_comparison_audit": true,
+    "process_initial_design_and_data_match": true,
+    "shared_benchmark_source_hashes_match": true,
+    "dsda_rbfopt_rows_retained_without_changes": true
+  },
+  "source_sha256": {
+    "results/bam_20260916/generate_profiles.py": "c869724a7d50567e10c7b581c313cbe78dbfe3a5c7d3fbb63a81f3d1cd4a1b11",
+    "timing_analysis.py": "5f8c8267f55a86d3dd06a1532d2f951e2ff2636817dde51b67f5c986bfb9f44e",
+    "benchmark_analysis.py": "51277e72469599507e7b8fb97ee9ac5cc2eadca7e4be9bd3bd452e1cc239013d",
+    "case_study_analysis.py": "35f947bf5d4276713401673cfac1d083fda8b878e968bf83493f4a4e4ddab2e2"
+  },
+  "python": "3.13.12",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.9",
+    "scipy": "1.17.1"
+  },
+  "grid_sha256": {
+    "ackley.csv": "6a607107c82492852bed244357cf56a96aa347754b3e14f67b73833e6a0ef67f",
+    "alpine1.csv": "ae33130fa2fc3325c4c7e1e9112fed6bc90bfa2971b32fae022b5fd90382e770",
+    "alpine2.csv": "ff8cfd7f8ca3a8e595b9ef406b51bad46068574d126e9deb665de985f577722e",
+    "bohachevsky2.csv": "999858033dfbc7d0084923abe5246d5c6273b22f7300b79a101d49448170a291",
+    "camel3.csv": "16fc6c3f64fe31e952a072b44d19ff6984c508bcfa2509f740bcc7e80211cc8f",
+    "csendes.csv": "2b197da228ae88301368acb01e34222a6a88a0d5c215991b248c0f32777ed15e",
+    "deflected_corrugated_spring.csv": "63ed8e5447773c569d87a272d9243e1bdcecbd2d6f34e2005a9ee8784fd1c048",
+    "dropwave.csv": "5af484dd952252f35138c00720bab3f19d5ac0b6402e4e8885f22b22a0e687e8",
+    "easom.csv": "04a20282270ea465edb3cb434f97bd6030b53a0aff199837298a1a20c917d2c1",
+    "griewank.csv": "67390481014ae59ee0cddd4078bdbacba4c29bf417a8eb709da6e4353364358b",
+    "holder_table.csv": "7546c9484d35eb13341d396c80f7a9d436fa5d071710eafd51f7691b2dc64f21",
+    "hosaki.csv": "d69f02c3f1b4f3371dfca3370b566ba39aaa6863737c230141b5ede81622b358",
+    "levy.csv": "fe5b30f3fcae2f33e271a97f316117ca7e03355e30f6d612bdc1db7dff8e22ce",
+    "levy13.csv": "d577e1fa4310b19d530bfeb348a7f88bbb4561285e8ffea87f85eecb90014800",
+    "michalewicz.csv": "2a6adca0a6d7889043a086016e4fb0e5f022fccbcca03b12cf2567bfb95cc25a",
+    "rastrigin.csv": "af132657e70812320c8171a1996dd120f33eb81147cd138c1d36e9e0ccaf39c8",
+    "rosenbrock.csv": "e2e5fdee4fa872c8cd54350b3a8065d3b7167d3f18e5d0fb269a3c3f7b6451f4",
+    "shubert.csv": "79bf42e84bd8ab312a7ba7a6b58d4f9d49922e328604c07073d02d101ec146b3",
+    "styblinski_tang.csv": "6000c3e54804f1e87bf1b9dd4f9082028e958c6f95d89d0a3e651218f4a5906f",
+    "sum_of_squares.csv": "f821c40aee52d021768e73cc4a383267cfac44a9657ae6bf1db12b59c766e0d3",
+    "xin_she_yang3.csv": "f96827c10578a16a8b7c5bbcbe7445e17762d1dc0705175b9fa6edaefe2d2d0d"
+  }
+}
