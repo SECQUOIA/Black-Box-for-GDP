@@ -98,3 +98,91 @@ def test_resume_never_repeats_completed_points_and_compares_new_values(case, tmp
         assert not second['accepted_count_matches_history']  # Never force29 accepted.
     manifest = json.loads((output / 'manifest.json').read_text())
     assert manifest['plan']['bounds'] == enum.plan(case)['bounds']
+
+
+def test_verified_original_archive_is_used_without_extracted_inputs(tmp_path, monkeypatch):
+    monkeypatch.setattr(enum, 'REFERENCE', tmp_path / 'absent-inputs')
+    for case in enum.CASES:
+        files = enum.reference_files(case)
+        assert set(files) == {'evaluations.csv', 'manifest.json'}
+        baseline, changes = enum.verify_sources(case)
+        assert baseline['config'] == enum.CONFIG
+        assert '5a9e704' in changes['evaluation.py']['reviewed_change']
+        assert '5a9e704' in changes['solvers.py']['reviewed_change']
+    assert not (tmp_path / 'absent-inputs').exists()
+
+
+def test_present_changed_reference_is_not_replaced_by_archive(tmp_path, monkeypatch):
+    files = enum.reference_files('column')
+    folder = tmp_path / 'inputs' / 'column'
+    folder.mkdir(parents=True)
+    for name, raw in files.items():
+        (folder / name).write_bytes(raw)
+    (folder / 'evaluations.csv').write_bytes(files['evaluations.csv'] + b'\n')
+    monkeypatch.setattr(enum, 'REFERENCE', folder.parent)
+    with pytest.raises(ValueError, match='Historical reference changed: column/evaluations.csv'):
+        enum.verify_sources('column')
+
+
+@pytest.mark.parametrize('name', ['evaluation.py', 'solvers.py', 'models.py'])
+def test_builder_refuses_unreviewed_captured_adapter_bytes(name, tmp_path, monkeypatch):
+    import build_column_dynamic_ipopt as builder
+    from pathlib import Path
+    original = Path.read_bytes
+
+    def changed(path):
+        raw = original(path)
+        if path == builder.ROOT / 'gdp_models' / name:
+            return raw + b'\n# unreviewed change\n'
+        return raw
+
+    monkeypatch.setattr(Path, 'read_bytes', changed)
+    output = tmp_path / 'must-not-exist.zip'
+    with pytest.raises(ValueError, match=f'Unreviewed adapter change: {name}'):
+        builder.build(output)
+    assert not output.exists()
+
+
+def test_standalone_bundle_passes_real_source_preflight_without_solver(tmp_path, monkeypatch):
+    import hashlib
+    import os
+    import subprocess
+    import sys
+    import zipfile
+    import build_column_dynamic_ipopt as builder
+
+    monkeypatch.setattr(enum, 'REFERENCE', tmp_path / 'absent-inputs')
+    output = tmp_path / 'runner.zip'
+    builder.build(output)
+    with zipfile.ZipFile(output) as archive:
+        archive.extractall(tmp_path / 'unpacked')
+    bundle = tmp_path / 'unpacked' / 'column_dynamic_ipopt_runner'
+    provenance = json.loads((bundle / 'bundle_provenance.json').read_text())
+    assert provenance['reference_sha256'] == enum.REFERENCE_HASHES
+    for line in (bundle / 'RUNNER_SHA256SUMS').read_text().splitlines():
+        digest, name = line.split('  ', 1)
+        assert hashlib.sha256((bundle / name).read_bytes()).hexdigest() == digest
+    # A separate interpreter proves that neither repository imports nor ignored
+    # extracted inputs satisfy the standalone bundle's checks accidentally.
+    script = '''
+import sys
+sys.path.insert(0, sys.argv[1])
+import enumerate_process_ipopt as enum
+from gdp_models import evaluation, models
+
+def forbidden(*args, **kwargs):
+    raise AssertionError('Source preflight must not construct models or call solvers')
+
+evaluation.optimizer_for = forbidden
+models.prepare_nlp = forbidden
+for case in enum.CASES:
+    baseline, changes = enum.verify_sources(case)
+    assert baseline['config'] == enum.CONFIG
+    assert '5a9e704' in changes['evaluation.py']['reviewed_change']
+print('both bundled source profiles verified; no solver called')
+'''
+    environment = dict(os.environ, RBFOPT_GDP_SOURCES=str(builder.ROOT / 'external'))
+    result = subprocess.run([sys.executable, '-I', '-c', script, str(bundle)],
+                            cwd=tmp_path, env=environment, capture_output=True, text=True, timeout=60)
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert 'both bundled source profiles verified' in result.stdout
