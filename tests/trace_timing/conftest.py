@@ -28,7 +28,5 @@ def pytest_collection_modifyitems(items):
         if name == "test_enumerate_process_ipopt.py":
             if item.originalname not in {"test_plans_cover_every_dfo_coordinate", "test_failure_limit_and_exception_states_stay_distinct"} and importlib.util.find_spec("gdp_models") is None:
                 reason = "Evaluation integration requires issue #27"
-            if item.originalname in {"test_original_model_and_reference_hashes_match", "test_resume_never_repeats_completed_points_and_compares_new_values"} and not (ROOT / "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs").exists():
-                reason = "Historical reference comparison requires frozen Benchmark input tables"
         if reason:
             item.add_marker(pytest.mark.skip(reason=reason))

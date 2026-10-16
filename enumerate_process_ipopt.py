@@ -5,10 +5,10 @@ Instrumentation measures failed preparation stages without bypassing them.
 No GDPopt enumeration, objective lookup, cross-coordinate warm start or retry.
 """
 import argparse
-from collections import Counter
 import csv
 import hashlib
 import itertools
+import io
 import json
 import math
 import os
@@ -34,6 +34,13 @@ APPROVED_CHANGED_ADAPTERS = {
     'evaluation.py': '98eda90acea6fc70d26192020972d9b9917b5802a06239aa4a92ad42a9aa19f5',
     'solvers.py': 'bdc1a4c52c65128cda618c9b64be28a53abea557f3f5a4e4e975a77e57085d1d',
     'preflight.py': 'fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56',
+}
+# Reviewed main change 5a9e704: use/report the configured GAMS executable.
+# Model sources, initialization, acceptance checks and solver options are unchanged.
+# These are explicit compatibility pins, never computed from the current checkout.
+MAIN_ROUTING_ADAPTERS = {
+    'evaluation.py': '1ee3dda18a4031a3c9c039c3270d8225da7bbd4eb8f8d31d844d8111667ffa84',
+    'solvers.py': 'cd1c88cb8ec66dceac2bb4f17dcd38e40fb5b3cf0891ad93298002f879040f06',
 }
 EXTRA_FIELDS = ['logical_allowed', 'reflux_tray', 'boilup_tray', 'legacy_status',
     'failure_stage', 'logic_wall_s', 'original_total_wall_s', 'instrumented_call_wall_s',
@@ -73,23 +80,46 @@ def reference_root():
     return ROOT / 'reference' if (ROOT / 'reference').is_dir() else REFERENCE
 
 
-def verify_sources(case):
+def reference_files(case):
+    """Read exact historical bytes, from a bundle/local copy or verified original ZIP.
+
+    A present but incomplete/changed directory is an error, never a reason to
+    silently fall back to another source. Archive access does not execute code.
+    """
+    folder = reference_root() / case
+    if reference_root().exists():
+        files = {name: (folder / name).read_bytes() for name in REFERENCE_HASHES[case]}
+    else:
+        # Standalone bundles carry reference/ and do not need this repository helper.
+        from result_archives import datasets, verified_zip
+        entry = datasets()['original-ipopt-evaluations']
+        with verified_zip(entry) as (archive, _):
+            prefix = f"{entry['archive_root']}/gams_ipopt/{case}/"
+            files = {name: archive.read(prefix + name) for name in REFERENCE_HASHES[case]}
+    for name, digest in REFERENCE_HASHES[case].items():
+        require(hashlib.sha256(files[name]).hexdigest() == digest,
+                f'Historical reference changed: {case}/{name}')
+    return files
+
+
+def verify_sources(case, *, adapter_files=None):
     """Read-only provenance check; no model construction or solver invocation."""
     from gdp_models._sources import provenance
-    folder = reference_root() / case
-    for name, digest in REFERENCE_HASHES[case].items():
-        require(sha(folder / name) == digest, f'Historical reference changed: {case}/{name}')
-    baseline = read(folder / 'manifest.json')
+    baseline = json.loads(reference_files(case)['manifest.json'])
     prior = baseline['runtime']
     upstream = 'dsda-gdp' if case == 'column' else 'ld-sda-dynamic'
     require(provenance(upstream, prior['source']['files_sha256']) == prior['source'], 'Upstream model/initialization changed')
     differences = {}
     for name in ('__init__.py', '_sources.py', 'models.py', 'domains.py', 'evaluation.py', 'solvers.py', 'preflight.py'):
-        digest = sha(ROOT / 'gdp_models' / name)
+        raw = (ROOT / 'gdp_models' / name).read_bytes() if adapter_files is None else adapter_files[name]
+        digest = hashlib.sha256(raw).hexdigest()
         old = prior['adapter_sha256'][name]
         if digest != old:
-            require(APPROVED_CHANGED_ADAPTERS.get(name) == digest, f'Unreviewed adapter change: {name}')
+            require(digest in {APPROVED_CHANGED_ADAPTERS.get(name), MAIN_ROUTING_ADAPTERS.get(name)},
+                    f'Unreviewed adapter change: {name}')
             differences[name] = {'historical_sha256': old, 'current_sha256': digest}
+            if MAIN_ROUTING_ADAPTERS.get(name) == digest:
+                differences[name]['reviewed_change'] = '5a9e704: effective GAMS executable routing and reporting'
     return baseline, differences
 
 
@@ -248,10 +278,8 @@ def compare_and_validate(case, directory):
     directory = Path(directory)
     protocol = plan(case)
     records = _load_records(directory, protocol, 'gams_ipopt')
-    require(sha(reference_root() / case / 'evaluations.csv') == REFERENCE_HASHES[case]['evaluations.csv'],
-            'Historical comparison CSV changed during the run')
-    with (reference_root() / case / 'evaluations.csv').open(newline='') as stream:
-        old = {tuple(json.loads(r['point'])): r for r in csv.DictReader(stream)}
+    stream = io.StringIO(reference_files(case)['evaluations.csv'].decode(), newline='')
+    old = {tuple(json.loads(r['point'])): r for r in csv.DictReader(stream)}
     comparisons = []
     for record in records.values():
         prior = old.get(tuple(record['point']))
