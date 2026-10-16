@@ -2,6 +2,39 @@
 OsiDefaultName_bounds
 OsiDefaultName_start
 
+# Local benchmark review notes and full archive extraction
+/results/dantzig_review/
+
+# Detailed immutable records are retained in results/archives/*.zip.
+/results/fmqa_20260925/grid/jobs/
+/results/fmqa_20260925/grid/source/
+/results/fmqa_20260925/case/jobs/
+/results/fmqa_20260925/case/source/
+/results/grid_trace_rbfopt_20261010/trajectories/
+/results/gdp_comparison_20260925/raw/jobs/
+/results/gdp_comparison_20260925/raw/source/
+/results/gdp_comparison_20260925/raw/solver_checks/
+/results/gdp_comparison_20261001/raw/jobs/
+/results/gdp_comparison_20261001/raw/source/
+/results/gdp_comparison_20261001/raw/solver_checks/
+/results/gdp_comparison_loa_20261001/raw/jobs/
+/results/gdp_comparison_loa_20261001/raw/source/
+/results/gdp_comparison_loa_20261001/raw/solver_checks/
+
+# Generated FMQA figures stay local; publish raw data, tables and manifests.
+/results/fmqa_*/analysis/**/*.png
+/results/fmqa_*/analysis/**/*.pdf
+/results/gdp_comparison_*/analysis/*.png
+/results/gdp_comparison_*/analysis/*.pdf
+
+# Publish the verified figures explicitly requested with the final GDP import.
+!/results/fmqa_20260925/analysis/**/*.png
+!/results/fmqa_20260925/analysis/**/*.pdf
+!/results/gdp_comparison_current/analysis/*.png
+!/results/gdp_comparison_current/analysis/*.pdf
+!/results/gdp_comparison_20260925/analysis/*.png
+!/results/gdp_comparison_20260925/analysis/*.pdf
+
 # Local solver licenses
 bamlice.txt
 *.lic
@@ -35,6 +68,7 @@ wheels/
 # Virtual environments
 venv/
 .venv*/
+.pyomo-gdp-comparison/
 ENV/
 env/
 

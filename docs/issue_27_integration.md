@@ -26,3 +26,13 @@ Requires pinned external model submodules. Grid GDP definitions from PR #26 are 
 PR #26 also introduces `gdp_models/__init__.py` and the GDP optional dependency.
 Reconcile those small package/dependency edits when merging the independent PRs;
 this branch does not contain the grid model or its benchmark outputs.
+
+## Integration with main after PR #23
+
+The main merge retains the reviewed rejection-phase metadata and the existing
+GAMS executable fix. Read-only trace replay verifies the model adapter stored
+in the archive and uses its hash to join historical point measurements; it does
+not execute that adapter. Live lookup inputs and all archived bytes remain
+strictly checked. Future evaluation runs still use the current model adapter's
+hash when deciding whether a historical cost is compatible. No archived result
+or evaluation time is changed by this separation.

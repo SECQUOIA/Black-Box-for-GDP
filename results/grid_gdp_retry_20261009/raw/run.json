@@ -1,0 +1,537 @@
+{
+  "kind": "grid_gdp_process_solver_profile_v1",
+  "created_utc": "2026-10-09T19:30:57.996411+00:00",
+  "config": {
+    "grids": [
+      "alpine1",
+      "camel3",
+      "dropwave",
+      "easom",
+      "griewank",
+      "holder_table",
+      "hosaki",
+      "levy",
+      "sum_of_squares"
+    ],
+    "methods": [
+      "loa",
+      "ric",
+      "gloa"
+    ],
+    "phases": [
+      "benchmark"
+    ],
+    "point_indices": [],
+    "point_seconds": 60,
+    "time_limit": 1800,
+    "relative_gap": 1e-05,
+    "cpu": 6,
+    "executable": "/package/gams/52.2/gams",
+    "expected_gams_version": "52.2",
+    "objective": "original normalized analytic formula",
+    "gams_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "benchmark_jobs": [
+      {
+        "grid_name": "alpine1",
+        "method": "loa"
+      },
+      {
+        "grid_name": "camel3",
+        "method": "ric"
+      },
+      {
+        "grid_name": "camel3",
+        "method": "gloa"
+      },
+      {
+        "grid_name": "camel3",
+        "method": "loa"
+      },
+      {
+        "grid_name": "dropwave",
+        "method": "ric"
+      },
+      {
+        "grid_name": "dropwave",
+        "method": "gloa"
+      },
+      {
+        "grid_name": "dropwave",
+        "method": "loa"
+      },
+      {
+        "grid_name": "easom",
+        "method": "ric"
+      },
+      {
+        "grid_name": "griewank",
+        "method": "ric"
+      },
+      {
+        "grid_name": "holder_table",
+        "method": "ric"
+      },
+      {
+        "grid_name": "holder_table",
+        "method": "gloa"
+      },
+      {
+        "grid_name": "holder_table",
+        "method": "loa"
+      },
+      {
+        "grid_name": "hosaki",
+        "method": "ric"
+      },
+      {
+        "grid_name": "hosaki",
+        "method": "gloa"
+      },
+      {
+        "grid_name": "hosaki",
+        "method": "loa"
+      },
+      {
+        "grid_name": "levy",
+        "method": "ric"
+      },
+      {
+        "grid_name": "levy",
+        "method": "gloa"
+      },
+      {
+        "grid_name": "levy",
+        "method": "loa"
+      },
+      {
+        "grid_name": "sum_of_squares",
+        "method": "ric"
+      },
+      {
+        "grid_name": "sum_of_squares",
+        "method": "gloa"
+      },
+      {
+        "grid_name": "sum_of_squares",
+        "method": "loa"
+      }
+    ]
+  },
+  "runtime": {
+    "host": "dantzig.ecn.purdue.edu",
+    "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+    "gams_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+    "affinity": {
+      "cpu": 6,
+      "physical_package_id": "0",
+      "core_id": "8",
+      "thread_siblings_list": "6,54",
+      "effective_cpus": [
+        6
+      ],
+      "policy": "one logical CPU; not an exclusive reservation"
+    },
+    "mcpp_sha256": "05082e93380fd595c65d1b5ecd5cd36a381ff6d28abb8023c556e52cf944c2c6",
+    "versions": {
+      "pyomo": "6.10.0",
+      "numpy": "2.4.6",
+      "sympy": "1.14.0",
+      "networkx": "3.6.1"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OMP_THREAD_LIMIT": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1",
+      "GOTO_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "NUMEXPR_MAX_THREADS": "1"
+    }
+  },
+  "source_sha256": {
+    "LICENSE": "1d34d50a6a4c138f091f62dc8428ad0177658a8a81758424683823673d48f813",
+    "benchmark_grids/ackley.csv": "6a607107c82492852bed244357cf56a96aa347754b3e14f67b73833e6a0ef67f",
+    "benchmark_grids/alpine1.csv": "ae33130fa2fc3325c4c7e1e9112fed6bc90bfa2971b32fae022b5fd90382e770",
+    "benchmark_grids/alpine2.csv": "ff8cfd7f8ca3a8e595b9ef406b51bad46068574d126e9deb665de985f577722e",
+    "benchmark_grids/bohachevsky2.csv": "999858033dfbc7d0084923abe5246d5c6273b22f7300b79a101d49448170a291",
+    "benchmark_grids/camel3.csv": "16fc6c3f64fe31e952a072b44d19ff6984c508bcfa2509f740bcc7e80211cc8f",
+    "benchmark_grids/csendes.csv": "2b197da228ae88301368acb01e34222a6a88a0d5c215991b248c0f32777ed15e",
+    "benchmark_grids/deflected_corrugated_spring.csv": "63ed8e5447773c569d87a272d9243e1bdcecbd2d6f34e2005a9ee8784fd1c048",
+    "benchmark_grids/dropwave.csv": "5af484dd952252f35138c00720bab3f19d5ac0b6402e4e8885f22b22a0e687e8",
+    "benchmark_grids/easom.csv": "04a20282270ea465edb3cb434f97bd6030b53a0aff199837298a1a20c917d2c1",
+    "benchmark_grids/griewank.csv": "67390481014ae59ee0cddd4078bdbacba4c29bf417a8eb709da6e4353364358b",
+    "benchmark_grids/holder_table.csv": "7546c9484d35eb13341d396c80f7a9d436fa5d071710eafd51f7691b2dc64f21",
+    "benchmark_grids/hosaki.csv": "d69f02c3f1b4f3371dfca3370b566ba39aaa6863737c230141b5ede81622b358",
+    "benchmark_grids/levy.csv": "fe5b30f3fcae2f33e271a97f316117ca7e03355e30f6d612bdc1db7dff8e22ce",
+    "benchmark_grids/levy13.csv": "d577e1fa4310b19d530bfeb348a7f88bbb4561285e8ffea87f85eecb90014800",
+    "benchmark_grids/michalewicz.csv": "2a6adca0a6d7889043a086016e4fb0e5f022fccbcca03b12cf2567bfb95cc25a",
+    "benchmark_grids/rastrigin.csv": "af132657e70812320c8171a1996dd120f33eb81147cd138c1d36e9e0ccaf39c8",
+    "benchmark_grids/rosenbrock.csv": "e2e5fdee4fa872c8cd54350b3a8065d3b7167d3f18e5d0fb269a3c3f7b6451f4",
+    "benchmark_grids/shubert.csv": "79bf42e84bd8ab312a7ba7a6b58d4f9d49922e328604c07073d02d101ec146b3",
+    "benchmark_grids/styblinski_tang.csv": "6000c3e54804f1e87bf1b9dd4f9082028e958c6f95d89d0a3e651218f4a5906f",
+    "benchmark_grids/sum_of_squares.csv": "f821c40aee52d021768e73cc4a383267cfac44a9657ae6bf1db12b59c766e0d3",
+    "benchmark_grids/xin_she_yang3.csv": "f96827c10578a16a8b7c5bbcbe7445e17762d1dc0705175b9fa6edaefe2d2d0d",
+    "cpu_affinity.py": "fc6470e8db52df68935abdaa5ebe76602a1c7917d08b4ca35760a042aba73b60",
+    "docs/grid_gdp.md": "c29b6bbdcea4036d3ab0ad203e903e750a610977360aef4027f4886857835e83",
+    "docs/grid_gdp_benchmark.md": "1f5c30ef56d0f1119c2ac95fe80de6e0addaea62fc9f1506628ab86e627ecbd8",
+    "gdp_compare.py": "c9732f569ff0e897e1558466ed7a7b11653090fb9e0a8192db490e55892c7931",
+    "gdp_models/__init__.py": "5ebb20b8f7249a66ace212cebabf47949e8f40d3a9ddea464b11a7eb55a47705",
+    "gdp_models/__main__.py": "3637c973071961beeb01876a23eb3bbf172d2fe3a493cbbc9e0fd29d623e6dc4",
+    "gdp_models/_sources.py": "d5363100698e69c829918b850c0fb39481b64eb9c4e2d7c987bee3b628e2fd29",
+    "gdp_models/batch.py": "01e82b9c62ac196be5fb9feab739e3b122b9a08babb5af7f546565f114227117",
+    "gdp_models/comparison.py": "71725cccdae93fbccaa5071d547fa406ebf4819b1015f09939c67e444fb7d300",
+    "gdp_models/dantzig.py": "47533ff3b9436e4bc089ca7aecd43ca0c38924e379c2b3b4195a8cd60d48b3d4",
+    "gdp_models/domains.py": "bb2a9f2783fdf32f25d327c417521ecae73b2dc60fc6e579d8c0afe187493394",
+    "gdp_models/evaluation.py": "98eda90acea6fc70d26192020972d9b9917b5802a06239aa4a92ad42a9aa19f5",
+    "gdp_models/grid.py": "e0e65ec27d20be9f5cfe6419cb7cd176663a909614a6bb9be67db879d574c7c8",
+    "gdp_models/grid_benchmark.py": "ba04491506289538ff641e63558fadb42a6539f3063841d2b7c7f8ab30f8bc0f",
+    "gdp_models/models.py": "1257294f4b90ddf7ee0bfa3b23e3df576890433a103f49789e624499fe698396",
+    "gdp_models/preflight.py": "fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56",
+    "gdp_models/solvers.py": "bdc1a4c52c65128cda618c9b64be28a53abea557f3f5a4e4e975a77e57085d1d",
+    "grid_gdp_benchmark.py": "1054322404238b7b70d2c696d7e1f61b61aba4fa79ff4b05950ad6be0e49d305",
+    "grid_gdp_process_profile.json": "4671b6f69cf4e42f715165bfda3541acbe3bad3d570fd8cf8a3305c452a6e46b",
+    "requirements-gdp-comparison.txt": "8b8411586e0460a5c6a9eb7b9901fd9240ea17198254bf747a1da23a895ef685",
+    "requirements-gdp.txt": "c59b628e0e07c2b9e86d4ee065a29ed0c211b419b4f99d1cea8d958100731bc8",
+    "run_grid_gdp_dantzig.sh": "6cbd62632a20d0bba2db3d55e9e5b31b423acb009c914403d8d8230a4306804b"
+  },
+  "process_profile": {
+    "description": "Frozen settings of the current selected process GDP comparison; no solver substitution",
+    "reference_manifests": {
+      "results/gdp_comparison_20260925/raw/run.json": {
+        "sha256": "fe6b2b4184ac2fc42ce232381e22bfe156e70a7704ae425bccfccbb7d069c511",
+        "config": {
+          "cases": [
+            "cstr",
+            "column",
+            "dynamic",
+            "small_batch"
+          ],
+          "cstr_sizes": [
+            5,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          "methods": [
+            "ric",
+            "gloa",
+            "bigm",
+            "hull"
+          ],
+          "time_limit": 1800,
+          "relative_gap": 1e-05,
+          "executable": "/package/gams/52.2/gams",
+          "baron_column_hull_lbtt": 0,
+          "expected_gams_version": "52.2"
+        }
+      },
+      "results/gdp_comparison_20261001/raw/run.json": {
+        "sha256": "9b48d5d3e86665ea6d2d180b2e80c81ca387b2c0d20bdfa08ef8a16af0977ec2",
+        "config": {
+          "cases": [
+            "cstr",
+            "column",
+            "dynamic",
+            "small_batch"
+          ],
+          "cstr_sizes": [
+            5,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          "methods": [
+            "ric",
+            "gloa"
+          ],
+          "time_limit": 1800,
+          "relative_gap": 1e-05,
+          "executable": "/package/gams/52.2/gams",
+          "nlp_solver": "baron",
+          "mip_solver": "highs",
+          "baron_lp_solver": "clp",
+          "baron_column_hull_lbtt": 0,
+          "expected_gams_version": "52.2"
+        }
+      },
+      "results/gdp_comparison_loa_20261001/raw/run.json": {
+        "sha256": "49dcf0058a315f95f8366d80ba3adcfcbd43d2171094ecd9c92c3d03b4155c65",
+        "config": {
+          "cases": [
+            "cstr",
+            "column",
+            "dynamic",
+            "small_batch"
+          ],
+          "cstr_sizes": [
+            5,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          "methods": [
+            "loa"
+          ],
+          "time_limit": 1800,
+          "relative_gap": 1e-05,
+          "executable": "/package/gams/52.2/gams",
+          "nlp_solver": "baron",
+          "mip_solver": "highs",
+          "baron_lp_solver": "clp",
+          "baron_column_hull_lbtt": 0,
+          "expected_gams_version": "52.2"
+        }
+      }
+    },
+    "methods": {
+      "ric": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lpsol": 8,
+        "baron_nlpsol": 9
+      },
+      "gloa": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lpsol": 8,
+        "baron_nlpsol": 9
+      },
+      "loa": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lpsol": 8,
+        "baron_nlpsol": 9
+      },
+      "bigm": {
+        "solver": "baron",
+        "baron_lpsol": 3,
+        "baron_nlpsol": 9
+      },
+      "hull": {
+        "solver": "baron",
+        "baron_lpsol": 3,
+        "baron_nlpsol": 9
+      }
+    },
+    "full_gdp_time_limit_s": 1800,
+    "relative_gap": 1e-05,
+    "absolute_gap": 0,
+    "threads": 1,
+    "pyomo": "6.10.0",
+    "gams": "52.2",
+    "point_solver": "gams_ipopt",
+    "point_linear_solver": "mumps",
+    "point_tol": 1e-08,
+    "point_max_iter": 3000,
+    "point_bound_relax_factor": 0
+  },
+  "time_policy": "Benchmark errors only; original method time limit and CPU/thread settings; no point measurements",
+  "fixed_point_policy": "all original variables fixed; actual IPOPT call through standard GAMS objective-variable representation",
+  "retry_of": {
+    "source_run": "/local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_gdp_benchmark/grid_gdp_run_20261008_210901_dw5vq37s",
+    "source_run_json_sha256": "f29462ecbce860e9a38a0aa8a0b1931a5a867dde946a19eb281237b986b94afe",
+    "error_kind": "all",
+    "planned_points": 0,
+    "planned_benchmarks": 21,
+    "jobs": [
+      {
+        "grid_name": "alpine1",
+        "method": "loa",
+        "error_kind": "differentiation",
+        "previous_message": "DifferentiationException: Cannot differentiate abs(x) at x=0",
+        "previous_result_sha256": "83fa55b082dd04b6460127d7574c1da4227abe671b6c7a573012fe090ca43925",
+        "previous_terminal_sha256": "357a22ee31b2cd0e5ef22a90371126845d04169cd496cab4a8cf38ef6917350b"
+      },
+      {
+        "grid_name": "camel3",
+        "method": "ric",
+        "error_kind": "fbbt",
+        "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+        "previous_result_sha256": "9f02ea6fd453a8ae237dd0409808f27ed439e4f02f52d06bb2912472ab6fb0a1",
+        "previous_terminal_sha256": "ec73391211874727bf151b03c1184b78d83733e0b000a230b15578d0cdd4640e"
+      },
+      {
+        "grid_name": "camel3",
+        "method": "gloa",
+        "error_kind": "fbbt",
+        "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+        "previous_result_sha256": "56d3fea06aa02074e566deea68bc2e188fc69dabe7c24ddafdb5f0d4a49f7eac",
+        "previous_terminal_sha256": "43e4ea679c7e629b6615438f3cd1a07b622da7dd459ebccc908729d1ec9bd5b4"
+      },
+      {
+        "grid_name": "camel3",
+        "method": "loa",
+        "error_kind": "fbbt",
+        "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+        "previous_result_sha256": "98f6ee48ecff8eb00e0ce6f4036c09bea87f6520f8801f87dff80a530bd7ada7",
+        "previous_terminal_sha256": "8bd571170b3025c18bbb3b8d7b1976b57b89afb49c2f08838910fb6a98f1fd7f"
+      },
+      {
+        "grid_name": "dropwave",
+        "method": "ric",
+        "error_kind": "fbbt",
+        "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+        "previous_result_sha256": "0d59a720090914b0203fbd63240e9960a142dd56e4cce8b8b292e7ab7e4246bf",
+        "previous_terminal_sha256": "71bce07198f0f3b38701b16e9311b77a068565ef541688453ee0a80b51e85d3c"
+      },
+      {
+        "grid_name": "dropwave",
+        "method": "gloa",
+        "error_kind": "fbbt",
+        "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+        "previous_result_sha256": "f386a3d7329ce874306eb06ca8032d2a03436a25f19a8145be24e0d319ffecf6",
+        "previous_terminal_sha256": "2d245fa307131361247349ac998bda4382fcba482bc7868cf34d9c373fb0535f"
+      },
+      {
+        "grid_name": "dropwave",
+        "method": "loa",
+        "error_kind": "fbbt",
+        "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+        "previous_result_sha256": "a1005043a4e44505966a32afdb8a13847d97131637f5e15b6d34985e58ac7419",
+        "previous_terminal_sha256": "85598a2e816b79188bb71d0685120b349aa23d2c376efd017279cc59b1dc755c"
+      },
+      {
+        "grid_name": "easom",
+        "method": "ric",
+        "error_kind": "network",
+        "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+        "previous_result_sha256": "723e07669163ef4d5f86afbbc84b09066924bc020ef08e330829fecf1f8227cf",
+        "previous_terminal_sha256": "c834550eee52a0f97fe8faf1e941d07368e626e81225e3c561d1b412b08ce690"
+      },
+      {
+        "grid_name": "griewank",
+        "method": "ric",
+        "error_kind": "network",
+        "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+        "previous_result_sha256": "99da28f39ece83c84722e1b81c2aee0ecf912f0887bfa15b70166eb927033fad",
+        "previous_terminal_sha256": "7194469b27b57266944f12b311a708e7843930fe57b221f8d39ec6241bf92ce7"
+      },
+      {
+        "grid_name": "holder_table",
+        "method": "ric",
+        "error_kind": "network",
+        "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+        "previous_result_sha256": "a19c78d2a8783669fb9892992106cfac06653dc7c8cdf41c58b5df7a4a6cf2b2",
+        "previous_terminal_sha256": "26241aa454ccd94a9960b87492ec5b58c7a264e325bf84c6316acba60f6c1d61"
+      },
+      {
+        "grid_name": "holder_table",
+        "method": "gloa",
+        "error_kind": "network",
+        "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+        "previous_result_sha256": "9f8852b702baf9465a4a3e04da45cfba4977573500cca9e75279d24a6962b9a9",
+        "previous_terminal_sha256": "062a648fa9c959f31a387307d76de3e6825015d0222b647656e65a16f81a0841"
+      },
+      {
+        "grid_name": "holder_table",
+        "method": "loa",
+        "error_kind": "network",
+        "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+        "previous_result_sha256": "b10ce8c605340502321770283df63531f9d4d241f5d6782d304718231f8a2e76",
+        "previous_terminal_sha256": "614b0eefd1ef7681931781e06e67ea8b3224531799369fc0e7c3409685e029cc"
+      },
+      {
+        "grid_name": "hosaki",
+        "method": "ric",
+        "error_kind": "network",
+        "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+        "previous_result_sha256": "ee7ed1419be86e11faac88cd341f91e60c7710598c67357ef1235ce895eb6fae",
+        "previous_terminal_sha256": "ad66a848f96931be3ef1bc07ad122f5b7cd66094de2d9df237ca959acb1afe32"
+      },
+      {
+        "grid_name": "hosaki",
+        "method": "gloa",
+        "error_kind": "network",
+        "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+        "previous_result_sha256": "656f0cd84c396c91eac6c7c7e8923b1dfccc96f3267cf7985d63402a75f2de04",
+        "previous_terminal_sha256": "e39a835397e99dfa018cdd163e8505de2910e598cd9beb72aa69eb75d6f407a9"
+      },
+      {
+        "grid_name": "hosaki",
+        "method": "loa",
+        "error_kind": "network",
+        "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+        "previous_result_sha256": "3c95604bbf45867bce77c29fe7602fff28c28e8f7c20a30750e3f2c14c7a7876",
+        "previous_terminal_sha256": "19bb9528c9c6c7affed1c77a0481c158e700844fb501d7fdff5c658b77e4aa72"
+      },
+      {
+        "grid_name": "levy",
+        "method": "ric",
+        "error_kind": "network",
+        "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+        "previous_result_sha256": "29064cf40cb40e77a8429e39ac0790b76024bc2fd0ae88523e645c2e042acdca",
+        "previous_terminal_sha256": "f36faf8e3e631e848e81f5dbfc9cd871994c87625f49ddb69b4bba4d760aff00"
+      },
+      {
+        "grid_name": "levy",
+        "method": "gloa",
+        "error_kind": "network",
+        "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+        "previous_result_sha256": "29082a42413c1d38bcc893115ed60f5acddb23fe5d1aa0df12700546ef1d0584",
+        "previous_terminal_sha256": "dda4f542c327cc01d17462da63daad3dc60b1d88ebbdcd5cb93d1ce424351dbc"
+      },
+      {
+        "grid_name": "levy",
+        "method": "loa",
+        "error_kind": "network",
+        "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+        "previous_result_sha256": "d5822e4b6098aedcd8cf0497cba2b4666fc79fb1e029d60591e762ecb7d3ead8",
+        "previous_terminal_sha256": "08e3b3d6a562ab8d8aabb16754cb22ef5d23f0721e74cec7f4a98d4983093218"
+      },
+      {
+        "grid_name": "sum_of_squares",
+        "method": "ric",
+        "error_kind": "fbbt",
+        "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+        "previous_result_sha256": "7449669c3c49c6baafc979a2e09b9548346ff414f248f3000542f1cf6e6c5400",
+        "previous_terminal_sha256": "db73f9265582205556a02559f41aaa2ed0ac071bd575a41d4e0c2bda6421d314"
+      },
+      {
+        "grid_name": "sum_of_squares",
+        "method": "gloa",
+        "error_kind": "fbbt",
+        "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+        "previous_result_sha256": "c9e4e26f5c113fa0a92a4bbb59a86c9bcdd13869ac72286a56f4993481554333",
+        "previous_terminal_sha256": "5edc728ca39fc590945a6810e36047b78cf1c5bd8c2ac744f21cb9b7e12dea60"
+      },
+      {
+        "grid_name": "sum_of_squares",
+        "method": "loa",
+        "error_kind": "fbbt",
+        "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+        "previous_result_sha256": "0c310ca7173602878ee89a3e7ccad91bb3b921962927af36399a04d0d9c10e22",
+        "previous_terminal_sha256": "00e0fbc97d757ed89adcd03a39c12c1d72fdaad1b24e438bdc2f268d39c7bea4"
+      }
+    ],
+    "policy": "One fresh attempt per selected error; original solver settings; no error fixes or automatic repeat-until-success.",
+    "source_changes": {
+      "docs/grid_gdp_benchmark.md": {
+        "original": "0a64e4dad5d2e26b721ec33cd6141ee74ff6669242162323371c06fb26f49952",
+        "retry": "1f5c30ef56d0f1119c2ac95fe80de6e0addaea62fc9f1506628ab86e627ecbd8"
+      },
+      "grid_gdp_benchmark.py": {
+        "original": "ec241c56c7e28486f558ca490e2418b1243ed7b07c0d2a3a16278f6c39a4c9e1",
+        "retry": "1054322404238b7b70d2c696d7e1f61b61aba4fa79ff4b05950ad6be0e49d305"
+      }
+    }
+  }
+}

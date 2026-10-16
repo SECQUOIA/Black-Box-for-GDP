@@ -286,6 +286,30 @@ def test_loa_wrapper_selects_only_nine_jobs_and_separate_output(tmp_path):
     assert len(runner.planned_instances(config)) == 9
 
 
+def test_followup_runs_missing_six_then_loa_nine_without_cstr_repeats(tmp_path):
+    fake_python = tmp_path / "python"
+    fake_python.write_text("#!/bin/sh\nprintf 'CALL\\n'\nprintf '%s\\n' \"$@\"\n")
+    fake_python.chmod(0o755)
+    output = subprocess.check_output(["bash", str(runner.ROOT / "run_gdpopt_followup_dantzig.sh"), "check"],
+        text=True, env={**os.environ, "GDP_PYTHON": str(fake_python), "GDP_REPOSITORY": str(tmp_path)})
+    calls = []
+    for block in output.split("CALL\n")[1:]:
+        args = block.splitlines()
+        args = args[:next((i for i, a in enumerate(args) if a.startswith(("Phase", "FOLLOWUP"))), len(args))]
+        calls.append(dict(zip(args[2::2], args[3::2])))
+    assert len(calls) == 2
+    counts = []
+    for opts in calls:
+        config = {"cases": opts["--cases"].split(","), "cstr_sizes": [int(n) for n in opts["--cstr-sizes"].split(",")]}
+        counts.append(len(runner.planned_instances(config)) * len(opts["--methods"].split(",")))
+        assert opts["--output-root"] == str(tmp_path / "results/gdpopt_followup")
+        assert opts["--cpu"] == "2"
+        assert opts["--nlp-solver"] == "baron" and opts["--mip-solver"] == "highs"
+    assert counts == [6, 9]
+    assert "cstr" not in calls[0]["--cases"] and calls[0]["--methods"] == "ric,gloa"
+    assert calls[1]["--methods"] == "loa"
+
+
 def stalled_worker(template, method, directory, config, deadline):
     os.setsid()
     runner.save(directory / "result.json", {"case": "small_batch", "method": method,

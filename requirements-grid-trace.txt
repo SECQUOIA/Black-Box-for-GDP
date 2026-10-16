@@ -1,0 +1,7 @@
+# Match the frozen DFO trace environment; BAM native version is checked at startup.
+numpy==2.4.6
+scipy==1.17.1
+pandas==2.3.3
+rbfopt==4.3.0
+bam-solver==5.0.0
+pyomo==6.10.0
