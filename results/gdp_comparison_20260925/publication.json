@@ -1,0 +1,28 @@
+{
+  "source_archive": "results/archives/dantzig_gdp_compare_20260925_172020_5m9m_kxx.zip",
+  "source_archive_sha256": "bdc20c0e4349721c25a38fa929c2e0eb263884e91c4ae4d2626ace4073c91e91",
+  "source_directory": "results/gdp_comparison_20260925/raw",
+  "verified_internal_checksums": 204,
+  "completed_jobs": 36,
+  "independently_checked_feasible_solutions": 36,
+  "cpu_affinity": {
+    "cpu": 2,
+    "physical_package_id": "0",
+    "core_id": "2",
+    "thread_siblings_list": "2,50",
+    "effective_cpus": [
+      2
+    ],
+    "policy": "one logical CPU; not an exclusive reservation"
+  },
+  "host": "dantzig.ecn.purdue.edu",
+  "created_utc": "2026-09-25T17:20:20.457694+00:00",
+  "audit": "results/gdp_comparison_20260925/analysis/audit.json",
+  "removed_obsolete_paths": [
+    "results/archives/dantzig_gdp_compare_20260922_181805_4u7k1d0n.zip",
+    "results/dantzig_review/original_archives_from_downloads/dantzig_gdp_compare_20260922_181805_4u7k1d0n.zip",
+    "results/dantzig_review/completed_benchmarks_20260923"
+  ],
+  "raw_policy": "Original ZIP and extracted files retain exact bytes. Derived certificate flags exclude cross-method bound conflicts.",
+  "figures_policy": "Historical comparison PNG/PDF now published with the completed October 1 GDP import; raw archives unchanged"
+}

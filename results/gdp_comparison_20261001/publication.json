@@ -1,0 +1,25 @@
+{
+  "source_archive": "results/archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip",
+  "source_archive_sha256": "7fbb60f75bd46ecefd8788540be2e070656df37d6b80f075aea9e09c5ad33d4e",
+  "source_checksum_file": "results/archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip.sha256",
+  "source_run_id": "dantzig_gdp_compare_20261001_175249_6lvrs3wy",
+  "source_directory": "results/gdp_comparison_20261001/raw",
+  "host": "dantzig.ecn.purdue.edu",
+  "created_utc": "2026-10-01T17:52:49.020069+00:00",
+  "completed_jobs": 18,
+  "planned_jobs": 18,
+  "complete": true,
+  "cpu_affinity": {
+    "cpu": 2,
+    "physical_package_id": "0",
+    "core_id": "2",
+    "thread_siblings_list": "2,50",
+    "effective_cpus": [
+      2
+    ],
+    "policy": "one logical CPU; not an exclusive reservation"
+  },
+  "server_final_checksums_present": true,
+  "verified_internal_checksums": 115,
+  "raw_policy": "Original completed server ZIP, checksum file and extracted bytes retained unchanged. Derived audits do not edit source statuses or solution vectors."
+}

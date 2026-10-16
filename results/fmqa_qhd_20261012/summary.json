@@ -1,0 +1,14 @@
+{
+  "planned_runs": 1190,
+  "finished_runs": 1190,
+  "completed_runs": 1190,
+  "failed_runs": 0,
+  "evaluation_callbacks": 58030,
+  "all_completed": true,
+  "objective_mode": "lookup; complete point-cost estimates only when all callback measurements exist",
+  "updated_utc": "2026-10-12T22:41:48.872977+00:00",
+  "backend": "FMQA-SA (PyTorch QHD_Data)",
+  "upstream_commit": "eb3a20d4b5a3773d17ff31d72a35d51f58e84e56",
+  "callbacks_with_point_cost": 57784,
+  "callbacks_missing_point_cost": 246
+}

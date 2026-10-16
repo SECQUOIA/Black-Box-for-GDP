@@ -1,0 +1,22 @@
+{
+  "bbo_via_fmqa": {
+    "repository": "https://github.com/SECQUOIA/bbo_via_fmqa",
+    "commit": "4bd0aa331cd2f996e7a0507e8fc236cf43ad4e63",
+    "files_sha256": {
+      "LICENSE": "65a269637eab5602b66d35341efe8613432d8a2706d54e61e5a7ca408c28ab5c",
+      "bbo_via_fmqa/ml_surrogate.py": "234e207dedf9f7354291fdb7e4c8427d3536c94876602174d9e9646a7835645c",
+      "bbo_via_fmqa/fmqa_simulated.py": "418617dbe318c0b0fb121dd17910adff6298deaea911d86802dc77203296105f",
+      "bbo_via_fmqa/ising_machine.py": "a8b4a30a1ca4bd34979652f0d7e554ef9a3c4a1086e7e8346e6cff3601bec3be",
+      "bbo_via_fmqa/read_grid.py": "dd2975ba2e74af8bc1643b4a374a735861a1a415eaa01ff79e27c58cbfbb62cf"
+    }
+  },
+  "tsudalab": {
+    "repository": "https://github.com/tsudalab/fmqa",
+    "commit": "51d827d1f88d602278dd0ab5e827ac4fbf8f0b29",
+    "files_sha256": {
+      "LICENSE": "cb4fce95d1b191e92a94fedd57327d16de50bb936d01d687339fc57e4331ed0d",
+      "fmqa/factorization_machine.py": "32551e390a52a1753a7f60396654ba6406c381f9d590a0a04be4ab8e8fc397f5",
+      "fmqa/fm_binary_quadratic_model.py": "b42655a47798d18d6c4c3fa5eed32ed7d065bf6f6cd28937a339abe8462ef958"
+    }
+  }
+}

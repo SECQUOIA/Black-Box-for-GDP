@@ -1,0 +1,10 @@
+# Dedicated cloned BAM environment; preserves the original lookup versions.
+numpy==2.4.6
+scipy==1.17.1
+rbfopt==4.3.0
+bam-solver==5.0.0
+pyomo==6.10.0
+sympy==1.14.0
+networkx==3.6.1
+pandas==2.3.3
+matplotlib==3.10.9
