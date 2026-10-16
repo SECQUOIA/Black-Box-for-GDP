@@ -129,9 +129,12 @@ Only implementation, tests, provenance and documentation are included.
 
 **Existing Dantzig benchmark results, logs and experiment artifacts remain on
 the [Benchmark branch](https://github.com/AlbertLee125/RBFopt_Test/tree/Benchmark).
-They are excluded from this PR and intended for a separate results merge from
-that branch.** No campaign is rerun or reclassified by this change. Small
+The historical artifacts merged by #23 are now also on main; this PR's remaining
+diff adds no experiment results.** No campaign is rerun or reclassified by this change. Small
 synthetic tests establish source/numerical and adapter consistency, not equality
-of the public driver's full trajectories. Historical coordinator/bundle
-integration under #28 remains separate; its old source inventory needs to be
-reconciled with this minimal package before deployment.
+of the public driver's full trajectories. During the main integration, the
+historical QHD coordinator and its tests were updated to consume the scoped
+training-settings context. Main's archived upstream driver resources and hashes
+are retained for provenance; the adapter does not execute those drivers.
+The separate IPOPT CSV coordinator/bundle work under #28 still needs its own
+integration validation before deployment.

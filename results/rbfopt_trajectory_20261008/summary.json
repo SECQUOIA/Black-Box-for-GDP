@@ -1,0 +1,221 @@
+{
+  "cases": 1050,
+  "recovered_cases": 54,
+  "unresolved_cases": 996,
+  "recovered_callback_coordinates": 12387,
+  "coordinates_in_complete_trajectories": 2640,
+  "total_original_callbacks": 54600,
+  "restart_alignment_cases": 6,
+  "historical_time_of_recovered_cases_h": 1.503206127359687,
+  "historical_time_of_unresolved_cases_h": 66.76920156566413,
+  "objective_atol": 1e-12,
+  "printed_objective_half_step": 5e-07,
+  "log_time_resolution_s": 0.01,
+  "method": "rounded objective + original full-precision incumbent history + frozen initial coordinates + all-unique evaluations + RBFOpt 4.3 first-strict-best coordinate; alternating-path uniqueness proof",
+  "scope": "Uniqueness under retained observations. No optimizer replay or guessed coordinates. Restart runs keep the verified pre-restart prefix only.",
+  "time_scope": "Rounded optimizer log times, not newly measured or precise callback timestamps",
+  "by_grid": [
+    {
+      "grid_name": "ackley",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 200,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "alpine1",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 388,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "alpine2",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 300,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "bohachevsky2",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 200,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "camel3",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 201,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "csendes",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 440,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "deflected_corrugated_spring",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 199,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "dropwave",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 196,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "easom",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 230,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "griewank",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 200,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "holder_table",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 200,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "hosaki",
+      "cases": 50,
+      "recovered_cases": 2,
+      "unresolved_cases": 48,
+      "recovered_evaluations": 2488,
+      "historical_time_of_recovered_cases_h": 0.0015178213371998734
+    },
+    {
+      "grid_name": "levy",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 343,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "levy13",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 238,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "michalewicz",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 1516,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "rastrigin",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 198,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "rosenbrock",
+      "cases": 50,
+      "recovered_cases": 2,
+      "unresolved_cases": 48,
+      "recovered_evaluations": 1459,
+      "historical_time_of_recovered_cases_h": 0.0011991567511318458
+    },
+    {
+      "grid_name": "shubert",
+      "cases": 50,
+      "recovered_cases": 50,
+      "unresolved_cases": 0,
+      "recovered_evaluations": 2600,
+      "historical_time_of_recovered_cases_h": 1.5004891492713552
+    },
+    {
+      "grid_name": "styblinski_tang",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 396,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "sum_of_squares",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 200,
+      "historical_time_of_recovered_cases_h": 0.0
+    },
+    {
+      "grid_name": "xin_she_yang3",
+      "cases": 50,
+      "recovered_cases": 0,
+      "unresolved_cases": 50,
+      "recovered_evaluations": 195,
+      "historical_time_of_recovered_cases_h": 0.0
+    }
+  ],
+  "sources": {
+    "archive": "results/archives/dantzig_20260910_170759_slN8tv.zip",
+    "archive_sha256": "c5b706aa20f5577446d84f829910b5825221a9f6c5713ffc1fd854e7315d6e98",
+    "csv_member": "dantzig_20260910_170759_slN8tv/benchmark.csv",
+    "csv_sha256": "06c90d8885f0792322d8c3bc941f8c3a83c5bb6cdc4d396d195f554b8efdfd6e",
+    "log_member": "dantzig_20260910_170759_slN8tv/run.log",
+    "log_sha256": "dbb464a784e791ecef62711ce97b7e836db0e8e81878805be157d87677a18552",
+    "initial_design_file": "fmqa_benchmark/reference/grid/comparison_audit.json",
+    "initial_design_sha256": "05a14d26efa9288c27b10685736585942d313d45714f16ffa8286869afea7d43",
+    "grid_sha256": {
+      "benchmark_grids/ackley.csv": "6a607107c82492852bed244357cf56a96aa347754b3e14f67b73833e6a0ef67f",
+      "benchmark_grids/alpine1.csv": "ae33130fa2fc3325c4c7e1e9112fed6bc90bfa2971b32fae022b5fd90382e770",
+      "benchmark_grids/alpine2.csv": "ff8cfd7f8ca3a8e595b9ef406b51bad46068574d126e9deb665de985f577722e",
+      "benchmark_grids/bohachevsky2.csv": "999858033dfbc7d0084923abe5246d5c6273b22f7300b79a101d49448170a291",
+      "benchmark_grids/camel3.csv": "16fc6c3f64fe31e952a072b44d19ff6984c508bcfa2509f740bcc7e80211cc8f",
+      "benchmark_grids/csendes.csv": "2b197da228ae88301368acb01e34222a6a88a0d5c215991b248c0f32777ed15e",
+      "benchmark_grids/deflected_corrugated_spring.csv": "63ed8e5447773c569d87a272d9243e1bdcecbd2d6f34e2005a9ee8784fd1c048",
+      "benchmark_grids/dropwave.csv": "5af484dd952252f35138c00720bab3f19d5ac0b6402e4e8885f22b22a0e687e8",
+      "benchmark_grids/easom.csv": "04a20282270ea465edb3cb434f97bd6030b53a0aff199837298a1a20c917d2c1",
+      "benchmark_grids/griewank.csv": "67390481014ae59ee0cddd4078bdbacba4c29bf417a8eb709da6e4353364358b",
+      "benchmark_grids/holder_table.csv": "7546c9484d35eb13341d396c80f7a9d436fa5d071710eafd51f7691b2dc64f21",
+      "benchmark_grids/hosaki.csv": "d69f02c3f1b4f3371dfca3370b566ba39aaa6863737c230141b5ede81622b358",
+      "benchmark_grids/levy.csv": "fe5b30f3fcae2f33e271a97f316117ca7e03355e30f6d612bdc1db7dff8e22ce",
+      "benchmark_grids/levy13.csv": "d577e1fa4310b19d530bfeb348a7f88bbb4561285e8ffea87f85eecb90014800",
+      "benchmark_grids/michalewicz.csv": "2a6adca0a6d7889043a086016e4fb0e5f022fccbcca03b12cf2567bfb95cc25a",
+      "benchmark_grids/rastrigin.csv": "af132657e70812320c8171a1996dd120f33eb81147cd138c1d36e9e0ccaf39c8",
+      "benchmark_grids/rosenbrock.csv": "e2e5fdee4fa872c8cd54350b3a8065d3b7167d3f18e5d0fb269a3c3f7b6451f4",
+      "benchmark_grids/shubert.csv": "79bf42e84bd8ab312a7ba7a6b58d4f9d49922e328604c07073d02d101ec146b3",
+      "benchmark_grids/styblinski_tang.csv": "6000c3e54804f1e87bf1b9dd4f9082028e958c6f95d89d0a3e651218f4a5906f",
+      "benchmark_grids/sum_of_squares.csv": "f821c40aee52d021768e73cc4a383267cfac44a9657ae6bf1db12b59c766e0d3",
+      "benchmark_grids/xin_she_yang3.csv": "f96827c10578a16a8b7c5bbcbe7445e17762d1dc0705175b9fa6edaefe2d2d0d"
+    },
+    "recovery_script_sha256": "ebc9eff256ebe111002dd3c6fa0283a458eb7aad354d04e3f5babd440777851e"
+  }
+}

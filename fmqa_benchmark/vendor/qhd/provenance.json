@@ -8,7 +8,10 @@
     "fmqa/fmqa/__init__.py": "b1727cfbd3218b13fce42afffda58131b9504d53c360302e0df6980aa5e70379",
     "fmqa/setup.py": "cbdde4edda44577b0e5ebeca017ddb33dad4ca8ff48d6bb3c05634fa343d72bb",
     "fmqa/LICENSE": "cb4fce95d1b191e92a94fedd57327d16de50bb936d01d687339fc57e4331ed0d",
-    "bbo_via_fmqa/ml_surrogate.py": "234e207dedf9f7354291fdb7e4c8427d3536c94876602174d9e9646a7835645c"
+    "bbo_via_fmqa/ml_surrogate.py": "234e207dedf9f7354291fdb7e4c8427d3536c94876602174d9e9646a7835645c",
+    "bbo_via_fmqa/fmqa_simulated.py": "fbeded919c9d6ffbc8105f942007fe0bd88043af15cf1fdf7572398f5b21673a",
+    "bbo_via_fmqa/ising_machine.py": "f0d8a245042da8eb3e00a82521d2be4f19262385cd56d2917fb81ffa94c9724c",
+    "bbo_via_fmqa/read_grid.py": "dd2975ba2e74af8bc1643b4a374a735861a1a415eaa01ff79e27c58cbfbb62cf"
   },
   "github_blob_sha": {
     "fmqa/fmqa/factorization_machine.py": "6241b176320ed908d775adbbe9bd75caec3aefcc",
@@ -16,14 +19,17 @@
     "fmqa/fmqa/__init__.py": "dc6782323b24125ef06e21eb02bcfa819640ea5c",
     "fmqa/setup.py": "cfc87dd68a5dba4012e33331dd86bc0fbac52ab8",
     "fmqa/LICENSE": "edd263bd5b9b275143589786ab59291e6d629895",
-    "bbo_via_fmqa/ml_surrogate.py": "19c8281774f71a471453b097851250641c2b56ee"
+    "bbo_via_fmqa/ml_surrogate.py": "19c8281774f71a471453b097851250641c2b56ee",
+    "bbo_via_fmqa/fmqa_simulated.py": "ebb553d57daa27c4abb6e729b2facf8f243cc3aa",
+    "bbo_via_fmqa/ising_machine.py": "ff4ed214883feaab5ae86814c2b097c8ee6c3e01",
+    "bbo_via_fmqa/read_grid.py": "294eb5a2e2d0cf7f73b0ded0ffcdb5a094ef397b"
   },
-  "subset_note": "Only the unchanged upstream FM core, training entry point and license/build metadata are included. Upstream experiment drivers and candidate-selection helpers are not used.",
   "repository_license": {
     "repository": "https://github.com/SECQUOIA/bbo_via_fmqa",
     "commit": "e92ac6c9840f74c54fbc8031c5df8bbb1a7f3f3e",
     "upstream_path": "LICENSE",
     "local_path": "LICENSE.SECQUOIA",
     "sha256": "9282a1f984e64cc3efdd8d2677383167386123e1a960e2c4f229f99ea39f073e"
-  }
+  },
+  "subset_note": "The adapter reuses the unchanged upstream FM core and training entry point. Historical experiment drivers remain archived reference resources; the adapter does not execute them."
 }

@@ -1,0 +1,91 @@
+{
+  "source_run": "/local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_gdp_benchmark/grid_gdp_retry_all_20261009_153057_czhvd9w7",
+  "source_run_json_sha256": "bb08810fabf12fe19913a3e27d35ed3fe0e9ca6d78d48dbbd2de2593589c2323",
+  "error_kind": "all",
+  "planned_points": 0,
+  "planned_benchmarks": 10,
+  "jobs": [
+    {
+      "grid_name": "alpine1",
+      "method": "loa",
+      "error_kind": "differentiation",
+      "previous_message": "DifferentiationException: Cannot differentiate abs(x) at x=0",
+      "previous_result_sha256": "af9c2b2ccc49b8587f9054a7f2236d4bb2d563df2680d887f0a2c014529ec57e",
+      "previous_terminal_sha256": "e23a17baaceb145720834c5908eb0d3776a46b72a8a755eb883788f5b1ea07a0"
+    },
+    {
+      "grid_name": "camel3",
+      "method": "ric",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "214754758b381308723c9fb405c2d69535175516a72bd74e62b64107c66b1bb9",
+      "previous_terminal_sha256": "1130b00626d316afc2fd2b844dc2ba5785023e6f5d17f063aee43c426aff561a"
+    },
+    {
+      "grid_name": "camel3",
+      "method": "gloa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "be2dd66e739cc48eea80b80e77e6ae87077364adc6882f64c0aa800bc644e93e",
+      "previous_terminal_sha256": "fa4b0fedb5d8b7f76cd6511868a8600f6c48cb49884b9dc49a49ae69ffa549ca"
+    },
+    {
+      "grid_name": "camel3",
+      "method": "loa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "390fa01fb3cb21ca0e71e987df583dcf786ad59dc11b276697d9dd144c904401",
+      "previous_terminal_sha256": "176e84f6dfa2304e57811e49edb77831028a8d6e5c6726d1a06804dee55a6282"
+    },
+    {
+      "grid_name": "dropwave",
+      "method": "ric",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "b64584e9c43cebee3ec08881e80997f34489b40dd8fa2e403d18a4516183e345",
+      "previous_terminal_sha256": "52605b0f6fcc03c651fd43f750bbe523f00da4f6f480344bae57d8e832c23d97"
+    },
+    {
+      "grid_name": "dropwave",
+      "method": "gloa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "a4f450a016f842964fabf4c3eb1ed8699d0514d0077acbf9c98550e645b8940a",
+      "previous_terminal_sha256": "f070bef8d5e887d91f1caab724cc558fab0ba1c7d73126403b9964c1147da812"
+    },
+    {
+      "grid_name": "dropwave",
+      "method": "loa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "7377582def0fbe1423ff6705adf7a4ccfba82506f01ffa68de5018855d3c5dea",
+      "previous_terminal_sha256": "a8eefb2f10eb840c26a56b9755d581393997569aedcbbd1f68eab5f5409bdb83"
+    },
+    {
+      "grid_name": "sum_of_squares",
+      "method": "ric",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "0323dd296b2093232277b3a539b44e80a05474d68f6a59c06e81348e4eb4b92b",
+      "previous_terminal_sha256": "a5a5742794307d0d0f7ad89dc8ca9334a7a0702fac671507856c3237c1180b30"
+    },
+    {
+      "grid_name": "sum_of_squares",
+      "method": "gloa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "58812375c432acd5cdeb577b79cfd139a6090af689cb8710a0d513c5a0742ffc",
+      "previous_terminal_sha256": "938baf1c717890051d051128822af3bd20a5b19e07c25dd1db07e0d0d0ff5540"
+    },
+    {
+      "grid_name": "sum_of_squares",
+      "method": "loa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "3122589fed1214965a8ae852983e8dbefacdf6c92ff4d4f36a03ea3e43029997",
+      "previous_terminal_sha256": "8ba9e2abaeb7fd131cc56e9385da9dcf40acdc9ccc1e15444175ba88a338370b"
+    }
+  ],
+  "policy": "One corrected attempt per selected error; original model, solver settings and time limit; separately labelled Pyomo correction profile; no point measurements.",
+  "retry_fix_profile": "pyomo610-grid-v1"
+}
