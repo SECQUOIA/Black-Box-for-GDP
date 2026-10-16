@@ -10,6 +10,7 @@ from gdp_compare import planned_instances
 from gdp_comparison_analysis import INSTANCES, recheck_saved_solution
 from gdp_models.comparison import build_template
 from nlp_cost_analysis import baseline_comparison, jsonl, read_json, sha, write_csv, write_json
+from result_archives import archived_directory
 
 
 ROOT = Path(__file__).resolve().parent
@@ -19,14 +20,26 @@ LABELS = ("RIC BARON/HiGHS", "GLOA BARON/HiGHS", "LOA BARON/HiGHS",
 
 
 def verify_source(directory, methods):
-    directory = Path(directory)
+    logical_directory = Path(directory)
+    with archived_directory(logical_directory) as directory:
+        if directory != logical_directory:
+            for retained in logical_directory.rglob("*"):
+                if retained.is_file():
+                    name = retained.relative_to(logical_directory)
+                    archived = directory / name
+                    if not archived.is_file() or sha(retained) != sha(archived):
+                        raise ValueError(f"Retained GDP source differs from archive: {name}")
+        return _verify_source(directory, methods, logical_directory)
+
+
+def _verify_source(directory, methods, logical_directory):
     run = read_json(directory / "run.json")
     summary = read_json(directory / "summary.json")
     assert run["host"] == "dantzig.ecn.purdue.edu"
     assert run["preflight_status"] == "passed"
     assert all(v == "1" for v in run["thread_environment"].values())
     assert set(methods) <= set(run["config"]["methods"])
-    publication_path = directory.parent / "publication.json"
+    publication_path = logical_directory.parent / "publication.json"
     archive_verified = False
     if publication_path.exists():
         publication = read_json(publication_path)
@@ -45,7 +58,7 @@ def verify_source(directory, methods):
                       (line.split("  ", 1) for line in server_checks.read_text().splitlines()))
         integrity = "server final SHA256SUMS"
     else:
-        publication = read_json(directory.parent / "publication.json")
+        publication = read_json(publication_path)
         assert sha(ROOT / publication["source_archive"]) == publication["source_archive_sha256"]
         hashes = publication["imported_file_sha256"]
         assert set(hashes) == {p.relative_to(directory).as_posix() for p in directory.rglob("*") if p.is_file()}
@@ -106,7 +119,7 @@ def verify_source(directory, methods):
                               "nlp_calls": len(nlp), "terminations": dict(Counter(
                                   c.get("termination", c.get("status")) for c in nlp))})
     selected = [r for key, r in jobs.items() if key in completed and r["method"] in methods]
-    return {"directory": str(directory.relative_to(ROOT)), "methods": methods,
+    return {"directory": str(logical_directory.relative_to(ROOT)), "methods": methods,
             "host": run["host"], "created_utc": run["created_utc"], "cpu_affinity": run["cpu_affinity"],
             "integrity": integrity, "verified_file_hashes": len(hashes),
             "source_archive_verified_byte_for_byte": archive_verified,
@@ -150,7 +163,8 @@ def build(selection_directory, output):
                     for r in records if r["bound_conflict_with_saved_solution"]],
                 "sources": audits, "selection_sha256": sha(selection_directory / "selection.json"),
                 "analysis_source_sha256": {name: sha(ROOT / name) for name in (
-                    "gdp_current_analysis.py", "gdp_comparison_analysis.py", "nlp_cost_analysis.py")},
+                    "gdp_current_analysis.py", "gdp_comparison_analysis.py", "nlp_cost_analysis.py",
+                    "result_archives.py", "results/archives/catalog.json")},
                 "validation": "Saved vectors evaluated in original GDPs without solving; partial rows excluded; no old GDPopt fallback."}
     write_csv(output / "comparison.csv", records)
     write_json(output / "audit.json", overview)
@@ -160,13 +174,13 @@ def build(selection_directory, output):
     for source, source_audit in zip(sources, audits):
         if source["methods"] == ["bigm", "hull"]:
             continue  # Keep the complete September 25 four-method audit historical.
-        latest_output = (ROOT / source["directory"]).parent / "analysis"
+        latest_output = output / "sources" / Path(source["directory"]).parent.name
         latest_output.mkdir(parents=True, exist_ok=True)
         write_csv(latest_output / "comparison.csv", [r for r in records if r["source_directory"] == source["directory"]])
         write_json(latest_output / "audit.json", source_audit)
         write_json(latest_output / "solution_rechecks.json", source_audit["solution_rechecks"])
     write_json(output / "artifact_checksums.json", {
-        p.name: sha(p) for p in sorted(output.iterdir())
+        p.relative_to(output).as_posix(): sha(p) for p in sorted(output.rglob("*"))
         if p.is_file() and p.name != "artifact_checksums.json"
         and p.suffix in {".csv", ".json", ".md", ".png", ".pdf"}})
     print({k: overview[k] for k in ("completed_jobs", "saved_solutions_independently_rechecked", "target_hits_by_method")})

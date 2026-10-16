@@ -11,16 +11,15 @@ callback sequence numbers or completed traces are missing.
 - [Original ZIP](../archives/grid_trace_rbfopt_20261008_190603_og2app39.zip)
   and [SHA-256](../archives/grid_trace_rbfopt_20261008_190603_og2app39.zip.sha256)
   retain all original results, logs, source snapshots and solver artifacts.
-- [All 1,050 trajectories](trajectories/) are individual JSONL files named by
-  function, budget and seed. For example,
-  [Ackley, B100, seed0](trajectories/grid_ackley_B100_seed0_rbfopt.jsonl).
-  Each is a byte-for-byte copy of its archived trace, with its original header,
-  every evaluation in order, and the completion record.
-- [Trajectory index](trajectory_index.csv) maps every run to its saved JSONL,
+- All 1,050 individual JSONL trajectories are stored in the original ZIP,
+  with their original headers, ordered evaluations and completion records.
+  For example, `grid_ackley_B100_seed0_rbfopt` can be located using the index.
+  The optional `trajectories/` copies can be restored with `--extract` below.
+- [Trajectory index](trajectory_index.csv) maps every run to its optional local JSONL,
   original archive member, SHA-256, callback count and measured search time.
 - [Combined evaluation table](raw/evaluations.csv) contains all 54,600 callback
   rows in run/evaluation order. Its `trace_path` column preserves the original
-  archive member path; use the index for the extracted JSONL filename.
+  archive member path; use the index for the optional extracted JSONL filename.
 - [Benchmark results](raw/benchmark.csv), [unique visited points](raw/visited_points.json),
   [frozen run plan](raw/run.json), [summary](raw/summary.json) and
   [final progress](raw/progress.json) preserve the original exported bytes.
@@ -39,12 +38,19 @@ particular RBFOpt archive; no deduplication was performed.
 
 ```bash
 python results/grid_trace_rbfopt_20261010/verify_archive.py
+# Optional: restore all individual JSONLs locally (ignored by Git).
+python results/grid_trace_rbfopt_20261010/verify_archive.py --extract
 shasum -a 256 -c results/archives/grid_trace_rbfopt_20261008_190603_og2app39.zip.sha256
 ```
 
 The verifier requires pandas, as used by the original grid CSV loader. It
-does not run RBFOpt or any archived Python code. `--extract` can recreate the
-saved files from the original ZIP and refuses to overwrite different data.
+does not run RBFOpt or any archived Python code. The default verifies all ZIP
+trajectories and retained tables without extracting individual JSONLs.
+`--extract` recreates their byte-preserved copies and refuses to overwrite
+different data. Historical verification and parser observations remain intact;
+the verifier reports the current platform's parser observations separately.
+The historical `saved_trajectory_files` count describes the 1,050 indexed
+traces, whether or not their optional local copies are present.
 
 Checks cover ZIP CRCs and all **5,546 internal file hashes**, all **41 source
 hashes**, the frozen initial designs and ordered run matrix, result/trace seals,

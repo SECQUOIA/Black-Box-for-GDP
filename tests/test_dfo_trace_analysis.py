@@ -89,3 +89,43 @@ def test_unsafe_member_is_rejected(tmp_path):
     with pytest.raises(ValueError, match="Unsafe"):
         with analysis.verified_snapshot(path, analysis.sha(path)):
             pytest.fail("Unsafe archive accepted")
+
+
+def test_current_search_changes_do_not_invalidate_archived_source(tmp_path, monkeypatch):
+    monkeypatch.setattr(analysis, "ROOT", tmp_path / "current")
+    directory = tmp_path / "snapshot"
+    name = "case_studies/column_dsda.py"
+    archived = directory / "source" / name
+    archived.parent.mkdir(parents=True)
+    archived.write_text("# original search\n")
+    current = analysis.ROOT / name
+    current.parent.mkdir(parents=True)
+    current.write_text("# corrected search for future runs\n")
+    hashes = {name: analysis.sha(archived)}
+    analysis.verify_source_snapshot(directory, hashes)
+
+    # The historical search itself must remain byte-for-byte intact.
+    archived.write_text("# changed historical evidence\n")
+    with pytest.raises(ValueError, match="Archived source changed"):
+        analysis.verify_source_snapshot(directory, hashes)
+
+
+@pytest.mark.parametrize("name", [
+    "case_studies/column_case.py", "case_studies/dynamic_case.py",
+    "case_study_data/column/compl_enum_column_17_baron.csv",
+    "fmqa_benchmark/protocol.py", "fmqa_benchmark/reference/initial_designs.json",
+    "gdp_models/models.py", "evaluation_trace.py",
+])
+def test_live_audit_inputs_must_still_match_snapshot(tmp_path, monkeypatch, name):
+    monkeypatch.setattr(analysis, "ROOT", tmp_path / "current")
+    directory = tmp_path / "snapshot"
+    archived = directory / "source" / name
+    current = analysis.ROOT / name
+    for path in (archived, current):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("original input\n")
+    hashes = {name: analysis.sha(archived)}
+    analysis.verify_source_snapshot(directory, hashes)
+    current.write_text("changed audit input\n")
+    with pytest.raises(ValueError, match="Original benchmark input changed"):
+        analysis.verify_source_snapshot(directory, hashes)

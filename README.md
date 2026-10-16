@@ -15,15 +15,19 @@ documentation of workflows involving RBFOpt and related discrete search methods.
 
 Start with the retained result datasets:
 
+- [Final IPOPT Process comparison with corrected BAM](results/process_ipopt_bam_v2_20261015/README.md):
+  560 runs; 291 target hits, 268 misses and one execution failure. All 140 BAM
+  slots use the native-budget reruns; original runs and logs remain available.
+
 - [Full-box Column and Dynamic IPOPT measurements](results/column_dynamic_box_ipopt/INDEX.txt):
   all 153 coordinates, including measured failure and logical-rejection times.
 - [Size-specific CSTR IPOPT measurements](results/cstr_box_ipopt/INDEX.txt):
   completed sizes 5, 10, 15, 20 and 25, with original rejected records retained.
 - [Grid comparison](results/grid_gdp_dfo_20261011/README.md): 4,200 runs,
   evaluation costs, tables and figures.
-- [Completed process comparison input](results/process_dsda_recovery_20261014/README.md):
-  560 selected runs, including all 140 corrected DSDA runs. Published figures
-  have not yet been replaced with this complete selection.
+- [Historical BARON-lookup process comparison](results/process_dsda_recovery_20261014/README.md):
+  the October 14 DSDA recovery is preserved as an earlier comparison, separate
+  from the final October 15 IPOPT-based Process results above.
 - [GDPopt/MINLP comparison](results/gdp_comparison_current/analysis/README.md).
 - [Original result archives](results/archives/README.md) and
   [executed runner packages](results/runners/README.md).
@@ -33,6 +37,11 @@ are retained as evidence. Analysis scripts rebuild tables from those inputs;
 the result reports document their commands. Obsolete work prompts and unused
 launch procedures are not required to use the results. Historical instructions
 inside executed archives remain unchanged.
+
+Benchmark summaries, figures and manifests remain directly readable under
+`results/`. Detailed per-run logs, proposals, callbacks and source snapshots
+are preserved in the original ZIPs. See the [archive review guide](results/archives/README.md#reviewing-detailed-records)
+for their contents, checksums, extraction and analysis commands.
 
 ## Installation
 

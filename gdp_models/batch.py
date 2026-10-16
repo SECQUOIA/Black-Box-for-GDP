@@ -68,6 +68,7 @@ def _runtime_identity(case, cstr_size, initialization, solver, executable):
     optimizer = optimizer_for(solver, binary)
     if not optimizer.available(exception_flag=False):
         raise RuntimeError(f"Solver unavailable; check executable/license: {binary}")
+    binary = str(Path(optimizer.executable()).resolve())
     try:
         version = optimizer.version()
     except (AttributeError, NotImplementedError):
