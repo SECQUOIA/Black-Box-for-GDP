@@ -192,6 +192,7 @@ def test_gams_solver_is_explicit_and_original_status_is_saved(solver, gams_resul
     assert result["accepted"] and result["objective"] == 1
     assert result["gams_solver"] == solvers.GAMS_SOLVERS[solver]
     assert result["gams_solve_status"] == 1 and result["gams_model_status"] == 2
+    assert result["rejection_phase"] is None
     assert gams_result["calls"][0]["solver"] == solvers.GAMS_SOLVERS[solver]
 
 
