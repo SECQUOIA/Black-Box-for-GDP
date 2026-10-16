@@ -96,7 +96,9 @@ def evaluate_point(case, point, *, solver, cstr_size=5, initialization="auto",
             report["solver_option_file"] = [
                 f"LPSol {dict(clp=8, cplex=3)[baron_lp_solver]}", "NLPSol 9"]
             report["solver_options"]["add_options"].append("GAMS_MODEL.optfile=1;")
-    if executable:
+    if via_gams:
+        report["solver_executable"] = optimizer.executable()
+    elif executable:
         report["solver_executable"] = str(executable)
     solve_started = perf_counter()
     try:
