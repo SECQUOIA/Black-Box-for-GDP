@@ -93,21 +93,35 @@ def compare_shipped_csv(path, rows):
             raise ValueError(f"Shipped table differs from raw evidence: {path.name}")
 
 
+def verify_source_snapshot(directory, source_hashes):
+    """Verify historical code and the live inputs used to audit its results.
+
+    Search implementations are evidence in the archive, not executed by this
+    audit. They may evolve in the working tree without invalidating old runs.
+    The current lookup readers/data, plan and model adapter still have to match
+    because the audit uses them to interpret the archived observations.
+    """
+    live_inputs = {
+        "case_studies/__init__.py",
+        "case_studies/column_case.py", "case_studies/cstr_case.py",
+        "case_studies/dynamic_case.py", "case_studies/small_batch_case.py",
+        "evaluation_trace.py", "gdp_models/models.py", "fmqa_benchmark/protocol.py",
+    }
+    for name, digest in source_hashes.items():
+        if sha(directory / "source" / name) != digest:
+            raise ValueError(f"Archived source changed: {name}")
+        if name.startswith(("case_study_data/", "fmqa_benchmark/reference/")) or name in live_inputs:
+            if sha(ROOT / name) != digest:
+                raise ValueError(f"Original benchmark input changed: {name}")
+
+
 def audit(directory):
     from fmqa_benchmark.protocol import problem
     run = read(directory / "run.json")
     if (run["development_only"] or run["runtime"]["host"] != "dantzig.ecn.purdue.edu"
             or run["lookup_plan"] != plans()):
         raise ValueError("Not the frozen original Dantzig experiment")
-    for name, digest in run["source_files_sha256"].items():
-        if sha(directory / "source" / name) != digest:
-            raise ValueError(f"Archived source changed: {name}")
-        # Require unchanged original algorithms, lookup data and model adapters.
-        if name.startswith(("case_studies/", "case_study_data/")) or name in {
-                "case_study_benchmark.py", "grid_dsda.py", "grid_rbfopt.py", "instrumentation.py",
-                "evaluation_trace.py", "gdp_models/models.py", "fmqa_benchmark/protocol.py"}:
-            if sha(ROOT / name) != digest:
-                raise ValueError(f"Original benchmark input changed: {name}")
+    verify_source_snapshot(directory, run["source_files_sha256"])
     point_plan = read(directory / "point_plan.json")
     collection = []
     for mode, plan in (("lookup", run["lookup_plan"]), ("points", point_plan)):

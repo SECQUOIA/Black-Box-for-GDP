@@ -9,7 +9,8 @@ The original raw records and checksums remain unchanged:
 - [Column seed-10 supplement](../archives/process_followup_20261012_015823_k6eq6mg0.zip)
 - [Full-domain Small Batch supplement](../archives/small_batch_full_domain_20261012_024647_d4390oed.zip)
 - [Complete pre-QHD Grid/process figure and table snapshot](../archives/fmqa_numpy_legacy_figures_20261012.zip)
-- [Extracted historical Grid raw records](../fmqa_20260925/grid/run.json) and [process raw records](../fmqa_20260925/case/run.json).
+- [Historical Grid run settings](../fmqa_20260925/grid/run.json) and [process run settings](../fmqa_20260925/case/run.json).
+- [Detailed-record verification and extraction](../archives/README.md#reviewing-detailed-records); per-run records and source snapshots are stored in the original ZIPs.
 
 Immutable historical records retain the method label recorded at execution. Their publication identity is **FMQA-SA (NumPy legacy)**. Stable image URLs under the September directory may point to current figures; use the snapshot above for the pre-QHD plots.
 

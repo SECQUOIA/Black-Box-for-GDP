@@ -582,6 +582,7 @@ def _provenance(matrix, cases, methods, n_starts):
             source_paths.add(BASE_DIR / "case_studies" / f"{case_name}_{method}.py")
     if "dsda" in methods:
         source_paths.add(BASE_DIR / "grid_dsda.py")
+        source_paths.add(BASE_DIR / "case_studies" / "dsda_domain.py")
     if {"rbfopt", "bam"}.intersection(methods):
         source_paths.add(BASE_DIR / "case_studies" / "bam_common.py")
 

@@ -12,6 +12,7 @@ import zipfile
 
 from fmqa_benchmark.protocol import METHOD, REFERENCE, key, reference_plan, sha, verify_lookup_sources
 from fmqa_benchmark_runner import GRID_KIND, KIND, environment, result_filename, result_record, save, validate_job
+from result_archives import archived_directory, entry_for_path
 
 
 def load_results(path, dataset):
@@ -27,6 +28,11 @@ def load_results(path, dataset):
 @contextmanager
 def result_directory(path):
     path = Path(path).resolve()
+    retained = path.parent if path.is_file() and path.suffix.lower() != ".zip" else path
+    if entry_for_path(retained) is not None:
+        with archived_directory(retained) as directory:
+            yield directory
+        return
     if path.suffix.lower() != ".zip":
         yield path.parent if path.is_file() else path
         return

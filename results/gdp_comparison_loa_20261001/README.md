@@ -13,7 +13,10 @@ cores differ. This does not establish an otherwise idle server.
 
 - [Original final ZIP](../archives/dantzig_gdp_compare_20261001_204801_1gfd4d02.zip)
   and [server checksum](../archives/dantzig_gdp_compare_20261001_204801_1gfd4d02.zip.sha256).
-- `raw/`: exact final archive contents. All **74** internal file hashes match.
+- `raw/`: exact run/summary records and the original checksum inventory;
+  detailed jobs, source snapshots and solver checks are retained in the ZIP.
+  All **74** internal file hashes remain verifiable using the
+  [archive guide](../archives/README.md#reviewing-detailed-records).
 - `publication.json`: archive identity, completion count and CPU topology.
 - `analysis/`: completed-job table, solver-status audit and saved-vector checks.
 - [Five-method comparison](../gdp_comparison_current/analysis/README.md).

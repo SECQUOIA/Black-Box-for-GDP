@@ -10,7 +10,84 @@ times. The [verified import](../column_dynamic_box_ipopt/INDEX.txt) preserves
 original CSVs, records, logs and execution sources. Its adjacent `.zip.sha256`
 checks the original archive; previous DFO inputs and results remain unchanged.
 
-Current default FMQA-SA: [QHD PyTorch, all 1,190 runs](fmqa_qhd_20261012_034123_8kcczd4b.zip). Previous comparison figures and tables: [NumPy legacy snapshot](fmqa_numpy_legacy_figures_20261012.zip). Both preserve their source identities and checksums.
+## Reviewing detailed records
+
+Summary CSVs, figures, run settings, provenance manifests and indexes remain
+ordinary files. Detailed records already sealed in a ZIP are stored there once.
+All **6,388 removed extracted copies** were compared byte-for-byte with the
+original archive members. No ZIP, objective, status, callback, timing, summary
+table or figure was changed. Failed runs and evaluations remain in the ZIPs.
+
+The [catalog](catalog.json) records paths, SHA-256 hashes, archive roots and
+the directories now stored only in ZIPs:
+
+| Catalog key | Dataset | Runs | Extracted copies removed |
+|---|---|---:|---:|
+| `fmqa-grid` | September 25 NumPy legacy FMQA Grid | 1,050 | 4,299 |
+| `fmqa-case` | September 25 NumPy legacy FMQA process cases | 139 | 655 |
+| `rbfopt-grid` | October 8–10 RBFOpt Grid trajectories | 1,050 | 1,050 |
+| `gdp-sep25` | September 25 full GDP comparison | 36 | 201 |
+| `gdp-oct01` | October 1 RIC/GLOA comparison | 18 | 112 |
+| `gdp-loa-oct01` | October 1 LOA comparison | 9 | 71 |
+
+Each FMQA `jobs/<job_id>/` contains `evaluations.jsonl` (ordered objective
+calls), `proposals.jsonl` (candidate selection), `result.json` (settings and
+outcome) and `run.log` (execution log). For example, `fmqa-grid` contains
+`jobs/grid_camel3_B50_seed1/`: 4,200 job files and 99 source snapshots were
+duplicated in the checkout. These are NumPy legacy results, not current QHD.
+
+RBFOpt's [trajectory index](../grid_trace_rbfopt_20261010/trajectory_index.csv)
+gives each `archive_trace_path` and exact hash. `trajectory_path` is the optional
+local filename produced by `--extract`, not a required checkout file. Its
+combined 54,600-row callback CSV remains directly readable. GDP ZIPs retain
+solution vectors, solver-call histories, logs, source snapshots and solver
+checks. Their `raw/` folders retain run/summary records and the original full
+checksum inventory. Run counts do not imply success or global optimality.
+
+From the repository root, verify all six ZIPs with Python's standard library:
+
+```bash
+python result_archives.py verify
+```
+
+This checks external hashes, safe member names, complete internal inventories,
+file counts and indexed RBFOpt hashes. Extract one archive to a **new** directory:
+
+```bash
+python result_archives.py extract fmqa-grid --output results/dantzig_review/fmqa-grid
+```
+
+The command verifies before extraction, refuses an existing destination and
+prints the extracted run directory. It never executes archived code.
+`results/dantzig_review/` and restored duplicate folders are ignored by Git.
+Retained SHA256SUMS files describe the full archive: check them inside a full
+extraction, not against the deliberately reduced summary folders.
+
+Existing analysis commands use registered ZIPs or retained summary directories
+and verify/extract the detailed records temporarily:
+
+```bash
+python fmqa_compare.py --fmqa-results results/fmqa_20260925/grid \
+  --output-dir results/dantzig_review/fmqa-grid-analysis --dataset grid
+python gdp_comparison_analysis.py --output results/dantzig_review/gdp-sep25-analysis
+python gdp_current_analysis.py --output results/dantzig_review/gdp-current-analysis
+python results/grid_trace_rbfopt_20261010/verify_archive.py
+```
+
+These require the normal analysis/model dependencies, but run no optimizer or
+solver. The FMQA command rebuilds the historical NumPy lookup comparison, not
+current QHD figures. The GDP command checks saved vectors in the original
+model. The current-GDP command rechecks all 63 saved vectors, including the 45
+selected results; it retains the original logical source paths in provenance.
+Per-source regenerated audits are placed under the requested output directory
+(`sources/<dataset>/`), leaving published result directories unchanged.
+RBFOpt's verifier checks all archived traces without local JSONLs; add
+`--extract` to restore the 1,050 ignored trajectory copies. This storage change
+does not rewrite Git history.
+
+## Archive index
+
+Historical BARON-lookup FMQA-SA: [QHD PyTorch, all 1,190 runs](fmqa_qhd_20261012_034123_8kcczd4b.zip). Previous comparison figures and tables: [NumPy legacy snapshot](fmqa_numpy_legacy_figures_20261012.zip). Both preserve their source identities and checksums.
 
 The [96-point logical-rejection supplement](fmqa_qhd_points_20261012_234651_f39la8cf.zip) completes current QHD timing coverage. All points were measured on Dantzig with one thread and zero solver calls; original ZIP bytes and the adjacent SHA256 file are retained.
 
@@ -59,8 +136,9 @@ archives. Earlier GDP point failures remain part of their provenance; archiving 
 not make every outcome a successful or globally certified solution. The
 unmodified GDP archives retain all originally run CSTR sizes. The curated
 point-timing dataset remains CSTR30-only under
-`results/gdp_point_timings_20260922/`; extracted FMQA data remain under
-`results/fmqa_20260925/`. The [current full-GDP comparison](../gdp_comparison_current/analysis/README.md)
+`results/gdp_point_timings_20260922/`; FMQA summaries and manifests remain under
+`results/fmqa_20260925/`, with detailed jobs and source snapshots in the ZIPs.
+The [current full-GDP comparison](../gdp_comparison_current/analysis/README.md)
 uses the October 1 RIC/GLOA/LOA runs plus September 25 Big-M/Hull. The September 25
 IPOPT RIC/GLOA results remain historical. Solver-reported
 optimality is not automatically a valid global certificate; see its audit.
@@ -86,7 +164,8 @@ results and all 20,181 IPOPT point measurements remain intact.
 The [complete RBFOpt Grid trajectories](../grid_trace_rbfopt_20261010/README.md)
 pass all 5,546 internal hashes and contain 1,050 complete runs, 54,600 ordered
 objective callbacks and 7,514 unique grid/coordinate pairs. Every original
-per-run JSONL is also extracted and indexed for use with the IPOPT point data.
+per-run JSONL is indexed in the ZIP for use with the IPOPT point data; optional
+local copies can be restored with the verifier's `--extract` flag.
 The original September 10 and BAM ZIPs do not contain the local
 `run_dantzig.sh` or `run_bam_dantzig.sh` wrappers.
 

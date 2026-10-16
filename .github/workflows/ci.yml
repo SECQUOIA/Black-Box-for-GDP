@@ -24,7 +24,7 @@ jobs:
           python -m pip install ".[lint]"
 
       - name: Run Ruff
-        run: python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py timing_analysis.py nlp_cost_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py cstr30_retry.py cpu_affinity.py gdp_compare.py gdp_comparison_analysis.py fmqa_benchmark_runner.py fmqa_grid_benchmark.py fmqa_compare.py fmqa_benchmark case_studies gdp_models tests scripts
+        run: python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py timing_analysis.py nlp_cost_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py cstr30_retry.py cpu_affinity.py gdp_compare.py gdp_comparison_analysis.py fmqa_benchmark_runner.py fmqa_grid_benchmark.py fmqa_compare.py result_archives.py results/grid_trace_rbfopt_20261010/verify_archive.py fmqa_benchmark case_studies gdp_models tests scripts
 
   test:
     runs-on: ubuntu-latest
@@ -44,7 +44,8 @@ jobs:
       - name: Install test dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install ".[test,gdp]"
+          # The archived GDPopt regression profile requires Pyomo 6.10.0.
+          python -m pip install -r requirements-gdp.txt ".[test,gdp]"
 
       - name: Run pytest
         run: python -m pytest tests/ -q

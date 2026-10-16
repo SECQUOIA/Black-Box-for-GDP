@@ -12,6 +12,7 @@ import signal
 import subprocess
 import sys
 import tempfile
+import time
 from time import perf_counter
 from unittest.mock import patch
 import zipfile
@@ -169,14 +170,42 @@ def worker(args):
     return 0
 
 
-def stop_process(process):
-    if process.poll() is None:
-        os.killpg(process.pid, signal.SIGTERM)
+def stop_process(process, grace=3):
+    """Clean up the session run_child owns, even if its leader already exited."""
+    interrupted = False
+    try:
         try:
-            process.wait(timeout=3)
-        except subprocess.TimeoutExpired:
-            os.killpg(process.pid, signal.SIGKILL)
-            process.wait()
+            os.killpg(process.pid, signal.SIGTERM)
+        except ProcessLookupError:
+            pass
+        deadline = time.monotonic() + grace
+        while True:
+            process.poll()  # Reap the worker without mistaking its exit for group exit.
+            try:
+                os.killpg(process.pid, 0)
+            except ProcessLookupError:
+                break
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                break
+            time.sleep(min(0.05, remaining))
+    except KeyboardInterrupt:
+        interrupted = True
+    finally:
+        # Keep the original session ID: getpgid(worker.pid) can fail after its
+        # exit. A second interrupt must not skip the group kill or worker reap.
+        while True:
+            try:
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                process.wait()
+                break
+            except KeyboardInterrupt:
+                interrupted = True
+    if interrupted:
+        raise KeyboardInterrupt
 
 
 def run_child(command, log_path, timeout):
