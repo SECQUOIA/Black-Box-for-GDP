@@ -97,3 +97,16 @@ python dfo_trace_analysis.py --output results/dfo_trace_nlp_20261002/analysis
 ```
 
 This reads saved archives only. It does not run an optimizer or solver.
+
+The audit verifies every archived source file against the run manifest, in
+addition to the archive and artifact checksums. Current search implementations
+may change after the recorded experiment: they are not rerun to validate old
+traces. Current lookup data/readers, frozen design references, trace validator
+and model adapter must still match the snapshot because the audit uses them to
+interpret the evidence. Changing an archived source or a live audit input is
+still an error; correcting today's DSDA implementation does not rewrite or
+invalidate the historical results.
+
+CI installs `requirements-gdp.txt` alongside the test extras so the archived
+`pyomo610-grid-v1` regression profile runs with its required Pyomo 6.10.0. The
+profile's version guard remains enforced.
