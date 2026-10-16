@@ -319,8 +319,9 @@ def optimize(spec, oracle, config, directory):
     if method == 'fmqa_sa':
         from fmqa_benchmark.optimizer import optimize as fmqa
         from fmqa_benchmark.qhd_surrogate import cpu_settings
-        settings = {**spec['settings'], 'torch': cpu_settings()}
-        write(directory / 'actual_settings.json', settings)
+        with cpu_settings() as torch_settings:
+            settings = {**spec['settings'], 'torch': torch_settings}
+            write(directory / 'actual_settings.json', settings)
         return fmqa(oracle, spec['lower'], spec['upper'], spec['starts'], spec['budget'], spec['seed'],
                     spec['settings'], on_proposal=lambda e: append(directory / 'proposals.jsonl', e))
     if method == 'rbfopt':

@@ -532,6 +532,12 @@ see [original GDP source attribution](docs/original_gdp_models.md#original-sourc
 
 All 140 BAM slots now use the audited native-budget reruns; the other 420 DFO runs are unchanged. Current combined results, figures, and timing audit are in [results/process_ipopt_bam_v2_20261015](results/process_ipopt_bam_v2_20261015/REPORT.txt). The pinned importer is [scripts/import_bam_budget_v2.py](scripts/import_bam_budget_v2.py). Old archives remain unchanged for provenance.
 
+## FMQA-SA callback adapter
+
+Use `fmqa_benchmark.adapter.run_fmqa_sa` with an opaque objective callback,
+integer bounds, an ordered initial design, a budget and a seed. See the
+[adapter and upstream provenance documentation](docs/fmqa_adapter.md).
+
 ## Process DSDA domain fairness
 
 See [the process DSDA domain and callback-budget notes](docs/process_dsda_domain.md)

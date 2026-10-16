@@ -382,13 +382,14 @@ def optimize(spec, oracle, config, directory):
     if method == 'fmqa_sa':
         from fmqa_benchmark.optimizer import optimize as fmqa
         from fmqa_benchmark.qhd_surrogate import cpu_settings
-        settings = {**spec['settings'], 'torch': cpu_settings(), 'factorization_size': 8,
-                    'training_optimizer': 'Adam', 'loss': 'MSELoss',
-                    'sa_beta_schedule_type': 'geometric',
-                    'bit_widths': [max(1, int(hi).bit_length()) for hi in spec['upper']],
-                    'training_response': 'observed finite min-max -> [0,1]; observed failures -> 2',
-                    'rng': 'SeedSequence(seed).spawn(3): model, annealing, unseen fallback'}
-        write(directory / 'actual_settings.json', settings)
+        with cpu_settings() as torch_settings:
+            settings = {**spec['settings'], 'torch': torch_settings, 'factorization_size': 8,
+                        'training_optimizer': 'Adam', 'loss': 'MSELoss',
+                        'sa_beta_schedule_type': 'geometric',
+                        'bit_widths': [max(1, int(hi).bit_length()) for hi in spec['upper']],
+                        'training_response': 'observed finite min-max -> [0,1]; observed failures -> 2',
+                        'rng': 'SeedSequence(seed).spawn(3): model, annealing, unseen fallback'}
+            write(directory / 'actual_settings.json', settings)
         return fmqa(oracle, spec['lower'], spec['upper'], spec['starts'], spec['budget'], spec['seed'],
                     spec['settings'], on_proposal=lambda e: append(directory / 'proposals.jsonl', e))
     if method == 'rbfopt':
