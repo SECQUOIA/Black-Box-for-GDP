@@ -1,6 +1,7 @@
 """Unmodified QHD_Data PyTorch FMBQM, with deterministic CPU seeding."""
 
 import ast
+from contextlib import contextmanager
 from functools import lru_cache
 import hashlib
 import importlib.util
@@ -43,23 +44,33 @@ def upstream():
     return module, scope["train_surrogate_model"]
 
 
+@contextmanager
 def cpu_settings():
+    """Scope mutable training settings; leave the one-shot interop runtime alone."""
     import torch
-    torch.set_num_threads(1)
-    if torch.get_num_interop_threads() != 1:
-        torch.set_num_interop_threads(1)
-    torch.set_default_dtype(torch.float32)
-    torch.set_default_device("cpu")
-    torch.use_deterministic_algorithms(True)
-    return {"device": "cpu", "dtype": "float32", "threads": torch.get_num_threads(),
-            "interop_threads": torch.get_num_interop_threads(),
-            "deterministic_algorithms": torch.are_deterministic_algorithms_enabled()}
+    threads = torch.get_num_threads()
+    dtype = torch.get_default_dtype()
+    device = torch.get_default_device()
+    deterministic = torch.are_deterministic_algorithms_enabled()
+    warn_only = torch.is_deterministic_algorithms_warn_only_enabled()
+    try:
+        torch.set_num_threads(1)
+        torch.set_default_dtype(torch.float32)
+        torch.set_default_device("cpu")
+        torch.use_deterministic_algorithms(True)
+        yield {"device": "cpu", "dtype": "float32", "threads": torch.get_num_threads(),
+               "interop_threads": torch.get_num_interop_threads(),
+               "deterministic_algorithms": torch.are_deterministic_algorithms_enabled()}
+    finally:
+        torch.set_num_threads(threads)
+        torch.set_default_dtype(dtype)
+        torch.set_default_device(device)
+        torch.use_deterministic_algorithms(deterministic, warn_only=warn_only)
 
 
 def train(bits, targets, *, seed, epochs, learning_rate, stop_check=lambda: None):
     import numpy as np
     import torch
-    cpu_settings()
     if (not bits or not bits[0] or any(len(b) != len(bits[0]) or set(b) - {"0", "1"} for b in bits)
             or len(targets) != len(bits) or not np.isfinite(targets).all()
             or epochs < 1 or not math.isfinite(learning_rate) or learning_rate <= 0):
@@ -68,7 +79,7 @@ def train(bits, targets, *, seed, epochs, learning_rate, stop_check=lambda: None
     _, original_train = upstream()
     # Preserve the upstream float32 model, zero bias, initialization order,
     # MSELoss, Adam update and coefficient scaling without porting them again.
-    with torch.random.fork_rng(devices=[]):
+    with cpu_settings(), torch.random.fork_rng(devices=[]):
         torch.manual_seed(seed)
         model = original_train(bits, targets, num_epoch=epochs, learning_rate=learning_rate)
     stop_check()

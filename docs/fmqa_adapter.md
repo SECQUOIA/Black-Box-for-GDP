@@ -43,7 +43,19 @@ It chooses the lowest-energy sampled candidate that is in bounds and unseen.
 If none qualifies, it samples uniformly from unseen points in the entire box,
 without consulting feasibility. The three random streams independently control
 FM initialization, annealing and fallback. A soft wall-time limit is checked
-between phases; it is not a hard timeout for the PyTorch training call.
+between phases, with elapsed time starting before optimizer preparation; it is
+not a hard timeout for the PyTorch training call. Domain size is computed
+arithmetically. Fallback indexes the lexicographically ordered unseen box
+without allocating the Cartesian product, preserving seeded selection order.
+
+During each fit, the training adapter scopes CPU/float32 defaults, one intraop
+thread, deterministic algorithms and the Torch CPU random state, restoring the
+caller settings before objective callbacks and on exceptional exits. The pinned
+core uses serial eager operations; the caller's interop thread setting is left
+untouched, including when that runtime has already been initialized. These
+temporary process-wide defaults require serial use with other Torch work in
+the same process; controllers running concurrent Torch objectives should use
+separate processes.
 
 ## Explicit differences from the public driver
 
@@ -104,8 +116,10 @@ IPOPT CSV runners in #28 do). DFO elapsed time includes training, sampling and
 callback overhead; it is not historical process NLP time.
 
 Returned adapter metadata records the pinned upstream commit and effective
-settings. The underlying optimizer and vendored numerical core retain the
-Benchmark implementation; this PR does not switch old runs to public defaults.
+settings. The vendored numerical core retains the Benchmark implementation.
+The adapter adds scoped Torch settings and bounded-memory box indexing; these
+changes preserve the training numerics and seeded fallback selection rather
+than switching old runs to public defaults.
 
 ## Provenance, results and review scope
 
