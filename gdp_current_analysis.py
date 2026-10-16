@@ -22,6 +22,13 @@ LABELS = ("RIC BARON/HiGHS", "GLOA BARON/HiGHS", "LOA BARON/HiGHS",
 def verify_source(directory, methods):
     logical_directory = Path(directory)
     with archived_directory(logical_directory) as directory:
+        if directory != logical_directory:
+            for retained in logical_directory.rglob("*"):
+                if retained.is_file():
+                    name = retained.relative_to(logical_directory)
+                    archived = directory / name
+                    if not archived.is_file() or sha(retained) != sha(archived):
+                        raise ValueError(f"Retained GDP source differs from archive: {name}")
         return _verify_source(directory, methods, logical_directory)
 
 
