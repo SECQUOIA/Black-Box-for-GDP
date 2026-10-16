@@ -1,7 +1,8 @@
 """Verify and optionally extract every RBFOpt callback trajectory; no solves.
 
 Requires pandas for the historical CSV parser. Archived Python is never run.
-Default mode verifies saved files; --extract creates the byte-preserved copies.
+Default mode verifies archived traces and retained tables. --extract also
+restores individual trajectory files, which are optional local copies.
 """
 import argparse
 from collections import Counter, defaultdict
@@ -21,7 +22,6 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 ARCHIVE = HERE.parent / "archives/grid_trace_rbfopt_20261008_190603_og2app39.zip"
 sys.path.insert(0, str(ROOT))
-from evaluation_trace import validate_events
 
 
 def sha(data):
@@ -53,6 +53,8 @@ def publish(relative, content, extract):
 
 
 def main(extract=False):
+    from evaluation_trace import validate_events
+
     archive_hash = sha(ARCHIVE.read_bytes())
     require(archive_hash == Path(str(ARCHIVE) + ".sha256").read_text().split()[0], "Archive hash")
     with zipfile.ZipFile(ARCHIVE) as z:
@@ -209,15 +211,16 @@ def main(extract=False):
         "scope": "Actual objective callbacks, preserving order, initial points and repeats. Coordinates are grid indices 0..30. These are fresh reruns, not reconstructed historical trajectories. Internal candidates/cache operations without callbacks are absent. Lookup timings do not include GDP/NLP solves."}
     for name in ["benchmark.csv", "evaluations.csv", "visited_points.json", "run.json", "summary.json", "progress.json"]:
         publish("raw/" + name, data[name], extract)
-    for name, content in trajectories.items():
-        publish(name, content, extract)
-    require({p.name for p in (HERE / "trajectories").iterdir()} == {PurePosixPath(p).name for p in trajectories}, "Saved trajectory coverage")
+    if extract or (HERE / "trajectories").exists():
+        for name, content in trajectories.items():
+            publish(name, content, extract)
+        require({p.name for p in (HERE / "trajectories").iterdir()} == {PurePosixPath(p).name for p in trajectories}, "Saved trajectory coverage")
     out = io.StringIO(newline="")
     writer = csv.DictWriter(out, fieldnames=list(index[0]), lineterminator="\n")
     writer.writeheader()
     writer.writerows(index)
     publish("trajectory_index.csv", out.getvalue().encode(), extract)
-    if extract:
+    if extract and not (HERE / "verification.json").exists() and not (HERE / "parser_roundoff.json").exists():
         for name, obj in [("verification.json", report), ("parser_roundoff.json", differences)]:
             publish(name, (json.dumps(obj, indent=2, allow_nan=False) + "\n").encode(), True)
     else:

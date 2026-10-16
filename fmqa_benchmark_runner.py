@@ -54,6 +54,7 @@ def save(path, obj):
 def source_files():
     paths = [ROOT / n for n in ("fmqa_benchmark_runner.py", "fmqa_grid_benchmark.py", "fmqa_compare.py", "cpu_affinity.py", "requirements-fmqa.txt",
              "instrumentation.py", "evaluation_trace.py", "benchmark_analysis.py", "case_study_analysis.py",
+             "result_archives.py", "results/archives/catalog.json",
              "timing_analysis.py", "grid_dsda.py", "docs/fmqa_benchmark.md", "docs/fmqa_grids.md", "docs/dantzig_cpu_rerun.md", "LICENSE")]
     for directory in ("fmqa_benchmark", "case_study_data", "benchmark_grids"):
         paths.extend(p for p in (ROOT / directory).rglob("*") if p.is_file()

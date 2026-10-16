@@ -11,6 +11,7 @@ from gdp_models.comparison import (
     DESCEND, build_template, pyo, update_boolean_vars_from_binary, validate_original,
 )
 from nlp_cost_analysis import baseline_comparison, read_json, sha, write_csv, write_json
+from result_archives import archived_directory, entry_for_path
 
 
 ROOT = Path(__file__).resolve().parent
@@ -42,6 +43,11 @@ def recheck_saved_solution(template, job, row):
 
 
 def audit(directory, output):
+    with archived_directory(directory) as source:
+        return _audit(source, output, entry_for_path(directory))
+
+
+def _audit(directory, output, archive_source=None):
     directory, output = Path(directory), Path(output)
     output.mkdir(parents=True, exist_ok=True)
     run = read_json(directory / "run.json")
@@ -113,6 +119,8 @@ def audit(directory, output):
         "global_certificate_policy": "Raw flags retained; cross-method conflicts exclude a certificate from derived outputs. Remaining flags are solver reports, not independent proofs.",
         "audit_source_sha256": sha(__file__), "local_validation": "Saved vectors loaded into original GDP models; no solver run",
     }
+    if archive_source is not None:
+        audit_data["source_archive"] = {k: archive_source[k] for k in ("archive", "sha256")}
     write_json(output / "audit.json", audit_data)
     write_json(output / "solution_rechecks.json", rechecks)
     report(output, records, audit_data, run)
