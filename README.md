@@ -506,3 +506,9 @@ see [original GDP source attribution](docs/original_gdp_models.md#original-sourc
 See [the Issue #29 extraction notes](docs/issue_29_integration.md) for the original
 scope and frozen-input prerequisites. The tracing and cost-validation fixes from
 main are retained alongside the full-grid timing tools in this branch.
+
+## Process DSDA domain fairness
+
+See [the process DSDA domain and callback-budget notes](docs/process_dsda_domain.md)
+for the implementation portion of Issue #24. Historical Dantzig execution and
+recovery evidence was incorporated into `main` through PR #23.
