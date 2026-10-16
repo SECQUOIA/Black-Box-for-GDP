@@ -595,6 +595,31 @@ def python_command(executable, config):
     return [str(executable)]
 
 
+def _stop_process_group(process, grace_seconds=5):
+    """Stop the session we created, including children outliving its leader."""
+    try:
+        os.killpg(process.pid, signal.SIGTERM)
+    except ProcessLookupError:
+        pass
+    try:
+        deadline = time.monotonic() + grace_seconds
+        while time.monotonic() < deadline:
+            process.poll()  # Reap the leader without assuming its children exited.
+            try:
+                os.killpg(process.pid, 0)
+            except ProcessLookupError:
+                break
+            time.sleep(min(0.05, max(0, deadline - time.monotonic())))
+    finally:
+        # A cooperative leader can exit before a solver that ignores SIGTERM.
+        # Always finish cleanup of our group, even if the grace wait is interrupted.
+        try:
+            os.killpg(process.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+        process.wait()
+
+
 def launch(command, logfile, seconds):
     started = time.perf_counter()
     with logfile.open('w') as stream:
@@ -602,14 +627,9 @@ def launch(command, logfile, seconds):
         try:
             code = process.wait(timeout=seconds)
             return code, time.perf_counter() - started, False
-        except (subprocess.TimeoutExpired, KeyboardInterrupt):
-            os.killpg(process.pid, signal.SIGTERM)
-            try:
-                process.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                os.killpg(process.pid, signal.SIGKILL)
-                process.wait()
-            if sys.exc_info()[0] is KeyboardInterrupt:
+        except (subprocess.TimeoutExpired, KeyboardInterrupt) as error:
+            _stop_process_group(process)
+            if isinstance(error, KeyboardInterrupt):
                 raise
             return process.returncode, time.perf_counter() - started, True
 
