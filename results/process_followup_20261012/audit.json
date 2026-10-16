@@ -1,0 +1,310 @@
+{
+  "archive": "results/archives/process_followup_20261012_015823_k6eq6mg0.zip",
+  "archive_sha256": "02ad6cf4fe78f94f6890a7b4b354f21019bf18b34fd76f5dc8d59dfc48b5d9cd",
+  "checksummed_files": 174,
+  "source_files_verified": 80,
+  "all_14_completed": true,
+  "callbacks": 164,
+  "trajectory_csv_reconciled": true,
+  "unique_case_points": 51,
+  "sum_search_wall_s": 7.749728378839791,
+  "sum_worker_wall_s": 26.18416530266404,
+  "elapsed_to_summary_s": 28.452695,
+  "missing_existing_nlp_points": [],
+  "runs": [
+    {
+      "job_id": "column_B16_seed10_dsda",
+      "case": "column",
+      "method": "dsda",
+      "seed": 10,
+      "evaluations": 16,
+      "unique_evaluations": 13,
+      "best_point": [
+        13,
+        4
+      ],
+      "best_value": 19346.12472619312,
+      "target": 19346.12472619312,
+      "target_hit": true,
+      "first_hit_evaluation": 8,
+      "search_wall_s": 0.006703716702759266,
+      "worker_wall_s": 1.5163267208263278
+    },
+    {
+      "job_id": "column_B16_seed10_rbfopt",
+      "case": "column",
+      "method": "rbfopt",
+      "seed": 10,
+      "evaluations": 16,
+      "unique_evaluations": 16,
+      "best_point": [
+        13,
+        4
+      ],
+      "best_value": 19346.12472619312,
+      "target": 19346.12472619312,
+      "target_hit": true,
+      "first_hit_evaluation": 16,
+      "search_wall_s": 3.878781607374549,
+      "worker_wall_s": 5.271140199154615
+    },
+    {
+      "job_id": "column_B16_seed10_bam",
+      "case": "column",
+      "method": "bam",
+      "seed": 10,
+      "evaluations": 16,
+      "unique_evaluations": 16,
+      "best_point": [
+        13,
+        3
+      ],
+      "best_value": 19548.71844831875,
+      "target": 19346.12472619312,
+      "target_hit": false,
+      "first_hit_evaluation": null,
+      "search_wall_s": 0.21942458115518093,
+      "worker_wall_s": 1.5665331920608878
+    },
+    {
+      "job_id": "column_B16_seed10_fmqa_sa",
+      "case": "column",
+      "method": "fmqa_sa",
+      "seed": 10,
+      "evaluations": 16,
+      "unique_evaluations": 16,
+      "best_point": [
+        13,
+        4
+      ],
+      "best_value": 19346.12472619312,
+      "target": 19346.12472619312,
+      "target_hit": true,
+      "first_hit_evaluation": 8,
+      "search_wall_s": 0.8672016309574246,
+      "worker_wall_s": 1.1658331584185362
+    },
+    {
+      "job_id": "small_batch_B10_seed0_rbfopt_msrsm_sampling",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "seed": 0,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 3,
+      "search_wall_s": 0.2781743658706546,
+      "worker_wall_s": 1.66644889395684
+    },
+    {
+      "job_id": "small_batch_B10_seed1_rbfopt_msrsm_sampling",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "seed": 1,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 4,
+      "search_wall_s": 0.28352358750998974,
+      "worker_wall_s": 1.6664547557011247
+    },
+    {
+      "job_id": "small_batch_B10_seed2_rbfopt_msrsm_sampling",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "seed": 2,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 7,
+      "search_wall_s": 0.2763243019580841,
+      "worker_wall_s": 1.666421982459724
+    },
+    {
+      "job_id": "small_batch_B10_seed3_rbfopt_msrsm_sampling",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "seed": 3,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 6,
+      "search_wall_s": 0.27794945426285267,
+      "worker_wall_s": 1.6665897341445088
+    },
+    {
+      "job_id": "small_batch_B10_seed4_rbfopt_msrsm_sampling",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "seed": 4,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 4,
+      "search_wall_s": 0.2758638300001621,
+      "worker_wall_s": 1.6662174006924033
+    },
+    {
+      "job_id": "small_batch_B10_seed5_rbfopt_msrsm_sampling",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "seed": 5,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 4,
+      "search_wall_s": 0.27971295081079006,
+      "worker_wall_s": 1.6663904031738639
+    },
+    {
+      "job_id": "small_batch_B10_seed6_rbfopt_msrsm_sampling",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "seed": 6,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 4,
+      "search_wall_s": 0.27507950738072395,
+      "worker_wall_s": 1.6664472008123994
+    },
+    {
+      "job_id": "small_batch_B10_seed7_rbfopt_msrsm_sampling",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "seed": 7,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 4,
+      "search_wall_s": 0.27676605712622404,
+      "worker_wall_s": 1.6664341958239675
+    },
+    {
+      "job_id": "small_batch_B10_seed8_rbfopt_msrsm_sampling",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "seed": 8,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 5,
+      "search_wall_s": 0.27612298633903265,
+      "worker_wall_s": 1.6663367599248886
+    },
+    {
+      "job_id": "small_batch_B10_seed9_rbfopt_msrsm_sampling",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "seed": 9,
+      "evaluations": 10,
+      "unique_evaluations": 10,
+      "best_point": [
+        2,
+        2,
+        1
+      ],
+      "best_value": 167427.65711470306,
+      "target": 167427.65711470306,
+      "target_hit": true,
+      "first_hit_evaluation": 4,
+      "search_wall_s": 0.27809980139136314,
+      "worker_wall_s": 1.6665907055139542
+    }
+  ],
+  "point_cost_coverage": {
+    "callbacks": 164,
+    "covered_callbacks": 164,
+    "missing": 0,
+    "extra_historical_point": [
+      8,
+      5
+    ],
+    "extra_historical_point_s": 0.37258498603478074,
+    "extra_point_outcome": "preprocessing_infeasible",
+    "new_measurements_required": false
+  },
+  "checks": [
+    "ZIP CRC and every archived SHA256 entry",
+    "80 source files match the prepared runner",
+    "14 planned jobs, settings, seeds, and ordered frozen starts",
+    "every sealed job file and callback trace checksum",
+    "164 callback values and incumbent histories checked against original objective tables",
+    "callback sequence, repeat flags, clocks, budgets, returned best coordinates and final scalar",
+    "trajectory CSV reconciled against original JSONL events",
+    "all 164 callbacks joined to recorded point costs"
+  ],
+  "column_replications_after_combining_original_and_supplement": 10,
+  "small_batch_new_configuration": "RBFOpt MSRSM + sampling; seed 0-9; 10/10 lookup targets reached",
+  "files_sha256": {
+    "column_8_5_historical_point.json": "a40b042d2ccd10ca0f15d299b4f3b5b96f30a9a3ca8bef801291b59996f9376e",
+    "nlp_costs.json": "3642e72b3e85fd95c36c7b0bd40ee6f9bfc02b2364158163e9cb7b0a69153f18",
+    "run.json": "c4b3c8f31ff95e13ed80b95e5ecb84efccadc26b8b7472a3006aea01fdd3b31d",
+    "runs.csv": "8d9fe79c317543997609d4345e8f1e30c62897a48359d0708a2b6de4f23e8dcb",
+    "summary.json": "a41f09fa149962936c076b1e8ef673201aee008a819fa020960bfb06c68c5f5f",
+    "trajectories.csv": "ca47b83ade537f1f0a3147543956dd69e547909e95232118728c298f06a344b1"
+  }
+}

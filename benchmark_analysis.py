@@ -259,13 +259,16 @@ def runs_to_target_probability(hit_rate, target_probability=0.99):
     return math.ceil(math.log1p(-target_probability) / math.log1p(-hit_rate))
 
 
-def tts99_summary(results_df):
-    """Summarize exact-optimum hit rates and median-time TTS99 across seeds.
+def tts99_summary(results_df, *, tolerance=None):
+    """Summarize per-problem hit rates and median-time TTS99 across seeds.
 
     Args:
         results_df (pandas.DataFrame): Benchmark runs containing ``csv_name``,
             ``method``, ``n_starts``, ``max_evals``, ``seed``,
             ``found_optimum``, and ``wall_time_s`` columns.
+        tolerance (float or None): When provided, recompute hits from
+            ``best_value`` and ``target_value`` using the absolute relative
+            tolerance window. Otherwise retain the historical exact-hit flag.
 
     Returns:
         pandas.DataFrame: One row per problem, method, initialization count, and
@@ -277,21 +280,35 @@ def tts99_summary(results_df):
         ValueError: If a required column is missing or a wall time is negative.
     """
     group_columns = ["csv_name", "method", "n_starts", "max_evals"]
-    missing = set(group_columns + ["seed", "found_optimum", "wall_time_s"]).difference(
+    success_columns = ["found_optimum"] if tolerance is None else ["best_value", "target_value"]
+    missing = set(group_columns + ["seed", "wall_time_s"] + success_columns).difference(
         results_df.columns
     )
     if missing:
         missing_text = ", ".join(sorted(missing))
         raise ValueError(f"TTS99 input is missing required columns: {missing_text}")
-    if (results_df["wall_time_s"] < 0).any():
-        raise ValueError("wall_time_s must be nonnegative")
+    if not np.isfinite(results_df["wall_time_s"]).all() or (results_df["wall_time_s"] < 0).any():
+        raise ValueError("wall_time_s must be finite and nonnegative")
+    data = results_df.copy()
+    if tolerance is None:
+        data["tts_hit"] = data["found_optimum"]
+    else:
+        if not math.isfinite(tolerance) or tolerance < 0:
+            raise ValueError("tolerance must be finite and nonnegative")
+        if not np.isfinite(data["target_value"]).all():
+            raise ValueError("target_value must be finite")
+        data["tts_hit"] = (
+            np.isfinite(data["best_value"])
+            & ((data["best_value"] - data["target_value"]).abs()
+               <= tolerance * data["target_value"].abs().clip(lower=1.0))
+        )
 
     summary = (
-        results_df.groupby(group_columns, as_index=False, dropna=False)
+        data.groupby(group_columns, as_index=False, dropna=False)
         .agg(
             n_runs=("seed", "size"),
-            hits=("found_optimum", "sum"),
-            hit_rate=("found_optimum", "mean"),
+            hits=("tts_hit", "sum"),
+            hit_rate=("tts_hit", "mean"),
             median_wall_time_s=("wall_time_s", "median"),
         )
         .sort_values(group_columns)
@@ -301,6 +318,8 @@ def tts99_summary(results_df):
     summary["runs_99"] = summary["hit_rate"].apply(runs_to_target_probability)
     summary["tts99_s"] = summary["runs_99"] * summary["median_wall_time_s"]
     summary.loc[summary["hit_rate"] == 0.0, "tts99_s"] = math.inf
+    if tolerance is not None:
+        summary["tolerance"] = tolerance
     return summary
 
 
@@ -389,6 +408,7 @@ def plot_performance_profiles(
 
         ax.set_title(f"max_evals = {budget}")
         ax.set_xlabel("performance ratio tau")
+        ax.set_xlim(left=1.0)
         ax.set_ylim(0.0, 1.02)
         handles, _ = ax.get_legend_handles_labels()
         if handles:
@@ -665,7 +685,10 @@ def plot_wall_time_scatter(
     return fig
 
 
-def plot_tts99_comparison(results_df, method_order=METHOD_ORDER):
+def plot_tts99_comparison(
+    results_df, method_order=METHOD_ORDER, *, tolerance=None,
+    log_scale=False, n_columns=None, footnote=None,
+):
     """Plot per-problem TTS99 values by method and evaluation budget.
 
     Args:
@@ -673,6 +696,10 @@ def plot_tts99_comparison(results_df, method_order=METHOD_ORDER):
             :func:`tts99_summary`.
         method_order (sequence of str): Preferred display order for methods.
             Observed methods not in this sequence are appended alphabetically.
+        tolerance (float or None): Success criterion passed to ``tts99_summary``.
+        log_scale (bool): Use logarithmic seconds and separate infinity markers.
+        n_columns (int or None): Maximum panels per row; default is a single row.
+        footnote (str or None): Additional measurement and estimation notes.
 
     Returns:
         matplotlib.figure.Figure: A figure with one panel per evaluation budget.
@@ -680,23 +707,28 @@ def plot_tts99_comparison(results_df, method_order=METHOD_ORDER):
         markers, and each method's extended-real median as a black bar or label.
     """
     plt = _pyplot()
-    summary = tts99_summary(results_df)
+    summary = tts99_summary(results_df, tolerance=tolerance)
     budgets = sorted(summary["max_evals"].unique())
     methods = ordered_methods(summary, method_order)
+    columns = min(n_columns or len(budgets), len(budgets))
+    rows = math.ceil(len(budgets) / columns)
     fig, axes = plt.subplots(
-        1,
-        len(budgets),
-        figsize=(4.2 * len(budgets), 3.8),
+        rows,
+        columns,
+        figsize=(4.8 * columns, 3.8 * rows + (0.8 if footnote else 0)),
         sharey=True,
         squeeze=False,
     )
 
     finite_values = summary.loc[np.isfinite(summary["tts99_s"]), "tts99_s"]
     marker_height = (
-        max(1.0, float(finite_values.max()) * 1.1) if len(finite_values) else 1.0
+        max(1.0, float(finite_values.max()) * (4 if log_scale else 1.1)) if len(finite_values) else 1.0
     )
+    if log_scale and (finite_values <= 0).any():
+        raise ValueError("Log TTS99 plots require positive finite times")
+    lower = float(finite_values.min()) / 2 if len(finite_values) else 0.1
 
-    for ax, budget in zip(axes.ravel(), budgets, strict=True):
+    for panel_index, (ax, budget) in enumerate(zip(axes.ravel(), budgets, strict=False)):
         budget_summary = summary[summary["max_evals"] == budget]
         method_labels = []
         for method_index, method in enumerate(methods, start=1):
@@ -713,7 +745,8 @@ def plot_tts99_comparison(results_df, method_order=METHOD_ORDER):
             finite = values[np.isfinite(values)]
             if finite.size:
                 ax.scatter(
-                    np.full(finite.size, method_index),
+                    np.full(finite.size, method_index)
+                    + (np.linspace(-0.14, 0.14, finite.size) if log_scale and finite.size > 1 else 0),
                     finite,
                     color=METHOD_COLORS.get(method),
                     alpha=0.7,
@@ -764,11 +797,20 @@ def plot_tts99_comparison(results_df, method_order=METHOD_ORDER):
         ax.set_xlim(0.5, len(methods) + 0.5)
         ax.set_title(f"max_evals = {budget}")
         ax.set_xlabel("method")
-        ax.set_ylim(bottom=0.0, top=marker_height * 1.2)
+        if log_scale:
+            ax.set_yscale("log")
+            ax.set_ylim(bottom=lower, top=marker_height * 5)
+        else:
+            ax.set_ylim(bottom=0.0, top=marker_height * 1.2)
+        if panel_index % columns == 0:
+            ax.set_ylabel("Estimated TTS99 (seconds)" if log_scale else "TTS99 (seconds)")
 
-    axes.ravel()[0].set_ylabel("TTS99 (seconds)")
+    for ax in axes.ravel()[len(budgets):]:
+        ax.set_visible(False)
     fig.suptitle("TTS99 by problem (black bar: median; ∞: zero-hit groups)")
-    fig.tight_layout()
+    if footnote:
+        fig.text(.5, .015, footnote, ha="center", va="bottom", fontsize=9)
+    fig.tight_layout(rect=(0, .09 if footnote else 0, 1, .96))
     return fig
 
 

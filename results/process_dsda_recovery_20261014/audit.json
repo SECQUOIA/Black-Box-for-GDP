@@ -1,0 +1,91 @@
+{
+  "archive": "results/archives/process_dsda_recovered_20261014_5ozwo5rx_1792008943955816015.zip",
+  "archive_sha256": "7201a5d49d216a9c1eea64ecf649ec4c185dd9c1dafcc41c70117edf600e51b3",
+  "parent_archive_sha256": "3669558ab1b0197d0cf2b6ad4ff0df7c8b4f9b1a92a15747bff8909e6f5ef397",
+  "verified_archive_members": 931,
+  "verified_source_files": 67,
+  "recovery_package": "results/runners/process_dsda_fairness_20261014_v5.zip",
+  "recovery_package_sha256": "bb2fe80884fddd2bd21b2b52c3b1787ec75ddaca1c3528ddaa2f5babea39cfdb",
+  "executed_sources_match_v5_package": true,
+  "preservation": {
+    "preserved_jobs": 139,
+    "remeasured_jobs": [
+      "cstr_15_B22_seed9_dsda"
+    ],
+    "byte_identical_files": 834,
+    "unchanged_derived_dsda_rows": 139,
+    "non_dsda_rows": 420,
+    "non_dsda_sha256": "863517690121aa30c7731e842545e35f8399ce527db2b9be9114ae98f2878ec7"
+  },
+  "independently_matched_server_tables": [
+    "callbacks_and_costs.csv",
+    "candidate_profile_runs.csv",
+    "candidate_selection.csv",
+    "candidate_selection.json",
+    "candidate_summary.csv",
+    "dsda_summary.csv",
+    "missing_point_requests.csv",
+    "old_vs_new.csv",
+    "old_vs_new_summary.csv",
+    "runs.csv"
+  ],
+  "total_target_hits": 75,
+  "summary": {
+    "kind": "process_dsda_fairness_verified_results",
+    "planned_runs": 140,
+    "completed_runs": 140,
+    "preserved_parent_jobs": 139,
+    "remeasured_job_ids": [
+      "cstr_15_B22_seed9_dsda"
+    ],
+    "errors": [],
+    "dantzig_matrix_complete": true,
+    "development_only": false,
+    "callbacks": 2611,
+    "missing_unique_points": 0,
+    "missing_callback_costs": 0,
+    "reused_cstr_rejection_callbacks": 4,
+    "cstr_rejection_cost_policy": "Keep existing costs; fill missing logical-rejection costs from the same coordinate, preferring CSTR30 then the largest measured CSTR size; retain measured size and source",
+    "timing_reconstruction_complete": true,
+    "candidate_selection_created": true,
+    "preserved_non_dsda_rows": 420,
+    "preserved_non_dsda_sha256": "863517690121aa30c7731e842545e35f8399ce527db2b9be9114ae98f2878ec7",
+    "official_results_modified": false,
+    "new_nlp_solves": 0,
+    "figures_status": "Generated; visual review pending",
+    "figure_files": [
+      "candidate_target_attainment.png",
+      "candidate_target_attainment.svg",
+      "candidate_completion_profiles.png",
+      "candidate_completion_profiles.svg",
+      "candidate_cost_breakdown.png",
+      "candidate_cost_breakdown.svg"
+    ],
+    "figure_error": null,
+    "timing_definition": "method time minus lookup callback time plus measured cost for every callback plus one reference Dynamic preparation",
+    "missing_cost_policy": "Keep search outcome; no subset median or aggregate TTS99 for incomplete groups",
+    "initialization_only_exception_policy": "No reseeding/restoration; failed initialization retained as job error with partial trace"
+  },
+  "recovered_job_and_cstr15": {
+    "job_id": "cstr_15_B22_seed9_dsda",
+    "callbacks": 22,
+    "original_callback_signature_matches": true,
+    "target_hit": false,
+    "method_wall_s": 0.0009359719988424331,
+    "lookup_callback_wall_s": 3.38769459631294e-05,
+    "search_overhead_s": 0.0009020950528793037,
+    "measured_point_cost_sum_s": 22.746077284682542,
+    "estimated_completion_s": 22.74697937973542,
+    "cstr15_runs": 10,
+    "cstr15_target_hits": 2,
+    "cstr15_hit_rate": 0.2,
+    "cstr15_median_completion_s": 21.92685708485078,
+    "cstr15_runs_99": 21,
+    "cstr15_tts99_s": 460.4639987818664,
+    "timing_definition": "method time minus lookup callback time plus measured cost for every callback plus one reference Dynamic preparation"
+  },
+  "local_optimizer_runs": 0,
+  "local_timings_used": false,
+  "script_sha256": "4bd01de4b2468c8183db012f4469c2e85db6e80fd3101d245de2f77f7896fa2a",
+  "source_policy": "Preserved jobs use parent_result.zip/source and parent runtime; only retry uses current source/runtime"
+}

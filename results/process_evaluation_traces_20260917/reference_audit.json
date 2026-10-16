@@ -1,0 +1,19 @@
+{
+  "reference_manifest_sha256": "12f4f9e2ae7594d116dfccb0036c530d8fa5ee9da18d4345ae4891799e741021",
+  "matched_initial_designs": 89,
+  "planned_runs": 417,
+  "instrumentation_changes": [
+    "case_study_benchmark.py",
+    "instrumentation.py"
+  ],
+  "note": "New trajectories; identical starts do not prove identical old paths.",
+  "local_python": "3.13.12",
+  "local_system": "Darwin",
+  "local_machine": "arm64",
+  "bam_package": "5.0.0",
+  "bam_native": [
+    2026,
+    9,
+    10
+  ]
+}

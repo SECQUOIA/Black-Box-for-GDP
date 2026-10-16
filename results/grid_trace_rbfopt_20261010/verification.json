@@ -1,0 +1,156 @@
+{
+  "status": "PASS",
+  "archive": "archives/grid_trace_rbfopt_20261008_190603_og2app39.zip",
+  "archive_sha256": "e02bf06a097b47340c93e04abefd25e97cc61d20eae9b23dee830505fffbcb38",
+  "checksummed_files": 5546,
+  "verified_source_files": 41,
+  "planned_runs": 1050,
+  "completed_runs": 1050,
+  "evaluation_callbacks": 54600,
+  "unique_grid_points": 7514,
+  "all_completed": true,
+  "saved_trajectory_files": 1050,
+  "missing_cases": [],
+  "callback_sequence_gaps": 0,
+  "initial_callbacks": 3150,
+  "adaptive_callbacks": 51450,
+  "within_run_repeated_callbacks": 0,
+  "combined_csv_mismatches": 0,
+  "local_csv_parser": {
+    "pandas": "2.3.3",
+    "differing_callbacks": 154,
+    "maximum_abs_difference": 6.776263578034403e-21,
+    "maximum_ulp_difference": 2.0,
+    "tolerance": "Two binary64 ULPs against local pandas; differing values also within two ULPs of raw decimal. Exact checks for traces, exports, incumbents and cross-run values."
+  },
+  "per_grid": {
+    "ackley.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 202
+    },
+    "alpine1.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 345
+    },
+    "alpine2.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 502
+    },
+    "bohachevsky2.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 223
+    },
+    "camel3.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 454
+    },
+    "csendes.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 485
+    },
+    "deflected_corrugated_spring.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 387
+    },
+    "dropwave.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 448
+    },
+    "easom.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 583
+    },
+    "griewank.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 163
+    },
+    "holder_table.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 336
+    },
+    "hosaki.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 248
+    },
+    "levy.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 292
+    },
+    "levy13.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 293
+    },
+    "michalewicz.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 343
+    },
+    "rastrigin.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 404
+    },
+    "rosenbrock.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 411
+    },
+    "shubert.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 476
+    },
+    "styblinski_tang.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 252
+    },
+    "sum_of_squares.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 155
+    },
+    "xin_she_yang3.csv": {
+      "runs": 50,
+      "callbacks": 2600,
+      "unique_points": 512
+    }
+  },
+  "per_budget": {
+    "10": {
+      "runs": 210,
+      "callbacks": 2100
+    },
+    "30": {
+      "runs": 210,
+      "callbacks": 6300
+    },
+    "50": {
+      "runs": 210,
+      "callbacks": 10500
+    },
+    "70": {
+      "runs": 210,
+      "callbacks": 14700
+    },
+    "100": {
+      "runs": 210,
+      "callbacks": 21000
+    }
+  },
+  "scope": "Actual objective callbacks, preserving order, initial points and repeats. Coordinates are grid indices 0..30. These are fresh reruns, not reconstructed historical trajectories. Internal candidates/cache operations without callbacks are absent. Lookup timings do not include GDP/NLP solves."
+}
