@@ -92,7 +92,12 @@ def test_adapter_matches_direct_native_training_and_bqm_energies():
     for x in itertools.product((0, 1), repeat=2):
         predicted = wrapped.fm(torch.tensor([x], dtype=torch.float32)).item()
         assert wrapped.energy(dict(enumerate(x))) == pytest.approx(predicted / scale, abs=1e-5)
-    assert qhd_surrogate.cpu_settings()["threads"] == qhd_surrogate.cpu_settings()["interop_threads"] == 1
+    caller_threads, caller_interop = torch.get_num_threads(), torch.get_num_interop_threads()
+    with qhd_surrogate.cpu_settings() as settings:
+        assert settings["threads"] == 1
+        assert settings["interop_threads"] == caller_interop
+    assert torch.get_num_threads() == caller_threads
+    assert torch.get_num_interop_threads() == caller_interop
 
 
 def test_native_paths_are_deterministic_and_infeasible_costs_are_attached(experiment, tmp_path):
