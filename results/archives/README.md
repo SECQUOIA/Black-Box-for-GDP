@@ -87,6 +87,12 @@ does not rewrite Git history.
 
 ## Archive index
 
+The [final IPOPT Process comparison](../process_ipopt_bam_v2_20261015/README.md)
+selects 420 original non-BAM runs and all 140 corrected BAM runs. Its manifest
+links the four complete DFO return ZIPs, exact runner packages, IPOPT inputs
+and structural-cost supplements. The original CSTR30 supplement ZIP is now
+published unchanged here. Earlier Process datasets below remain historical.
+
 Historical BARON-lookup FMQA-SA: [QHD PyTorch, all 1,190 runs](fmqa_qhd_20261012_034123_8kcczd4b.zip). Previous comparison figures and tables: [NumPy legacy snapshot](fmqa_numpy_legacy_figures_20261012.zip). Both preserve their source identities and checksums.
 
 The [96-point logical-rejection supplement](fmqa_qhd_points_20261012_234651_f39la8cf.zip) completes current QHD timing coverage. All points were measured on Dantzig with one thread and zero solver calls; original ZIP bytes and the adjacent SHA256 file are retained.
@@ -114,6 +120,7 @@ Verify from the repository root:
 
 ```bash
 shasum -a 256 -c results/archives/SHA256SUMS
+shasum -a 256 -c results/archives/PROCESS_SHA256SUMS
 ```
 
 The two September 25 FMQA ZIPs passed CRC validation, all 4,964 internal file

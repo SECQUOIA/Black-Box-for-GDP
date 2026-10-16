@@ -2,8 +2,8 @@ Verified CSTR30 structural-rejection timing supplement
 
 Run: dantzig_cstr30_structural_20261015_214202_pgve882p
 Report: dantzig_cstr30_structural_20261015_214202_pgve882p/README.txt
-Original archive (local only, not published):
-../dantzig_review/cstr30_structural_returns/dantzig_cstr30_structural_20261015_214202_pgve882p.zip
+Original archive (now published unchanged for final Process integration):
+../archives/dantzig_cstr30_structural_20261015_214202_pgve882p.zip
 
 All435 x2>x1 coordinates have measured, finite, positive total_wall_s.
 The combined900-row table preserves every original field of the465 existing
@@ -17,5 +17,10 @@ Use the added reconstructed timing columns; original timing fields retain
 their historical values. Repeated visits each incur their coordinate cost.
 
 Only necessary tables, manifests and audit records are exposed here. The
-unchanged local archive retains all individual checkpoints and execution sources.
+unchanged original archive retains all individual checkpoints and execution sources.
 These are separate process-cost measurements, not a new DFO experiment.
+
+The original audit.json retains archive_published=false as its historical import
+state. The final Process integration publishes the same ZIP with SHA256
+3a5094a2e99c269cf830cd668c52853c2a3641d9fd4f176c0a7ca076ee110253.
+Final BAM selection and complete costs: ../process_ipopt_bam_v2_20261015/README.md

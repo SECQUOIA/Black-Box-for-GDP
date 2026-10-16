@@ -11,7 +11,10 @@ import ipopt_dfo_non_cstr
 
 
 @pytest.fixture(params=[ipopt_dfo_cstr, ipopt_dfo_non_cstr])
-def setup(request, tmp_path):
+def setup(request, tmp_path, monkeypatch):
+    # worker() owns its interpreter in production; isolate its import guard
+    # when the tests invoke it inside pytest's shared interpreter.
+    monkeypatch.setattr(sys, 'meta_path', list(sys.meta_path))
     r = request.param
     is_cstr = r is ipopt_dfo_cstr
     s = {'job_id': 'test', 'case': 'cstr_30' if is_cstr else 'dynamic',
@@ -31,7 +34,8 @@ def test_legacy_frozen_spec_keeps_original_terminal_exception(setup, tmp_path):
     s['budget'] = 3
     s['settings'].pop('budget_stop_policy')
     oracle = r.Oracle(s, table, tmp_path)
-    oracle(s['starts'][0]); oracle(s['starts'][1])
+    oracle(s['starts'][0])
+    oracle(s['starts'][1])
     with pytest.raises(r.BudgetStop):
         oracle(s['starts'][2])
     assert not oracle.events[-1]['value_returned_to_optimizer']
@@ -52,7 +56,8 @@ def test_only_initial_design_does_not_launch_unlimited_native_search(setup, tmp_
 @pytest.mark.parametrize('mode', ['normal', 'overrun', 'swallowed_overrun', 'returned_error', 'raised_error'])
 def test_worker_budget_boundary_and_real_errors(setup, tmp_path, monkeypatch, mode):
     r, s, table = setup
-    job = tmp_path / 'jobs' / 'test'; job.mkdir(parents=True)
+    job = tmp_path / 'jobs' / 'test'
+    job.mkdir(parents=True)
     r.write(job / 'spec.json', s)
     r.write(tmp_path / 'run.json', {'config': {'bam_license': '/license'}})
     monkeypatch.setattr(r, 'load_table', lambda *a: (table, {}))
@@ -74,7 +79,8 @@ def test_worker_budget_boundary_and_real_errors(setup, tmp_path, monkeypatch, mo
             try:
                 objective(s['starts'][0])
             except (ValueError, RuntimeError):
-                if mode != 'swallowed_overrun': raise
+                if mode != 'swallowed_overrun':
+                    raise
         return types.SimpleNamespace(status=35, success=True, nfev=2)
     monkeypatch.setitem(sys.modules, 'bam', types.SimpleNamespace(set_license_file=lambda p: None, minimize=minimize))
     r.worker(job)

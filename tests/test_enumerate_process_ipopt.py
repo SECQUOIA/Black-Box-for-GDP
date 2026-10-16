@@ -23,6 +23,15 @@ def test_original_model_and_reference_hashes_match(case):
     assert set(changes) == {'evaluation.py', 'solvers.py', 'preflight.py'}
 
 
+@pytest.mark.parametrize('name', ['evaluation.py', 'solvers.py'])
+def test_main_routing_profile_does_not_allow_other_adapter_changes(name, monkeypatch):
+    original = enum.sha
+    target = enum.ROOT / 'gdp_models' / name
+    monkeypatch.setattr(enum, 'sha', lambda path: '0' * 64 if path == target else original(path))
+    with pytest.raises(ValueError, match='Unreviewed adapter change'):
+        enum.verify_sources('column')
+
+
 @pytest.mark.parametrize('case,point,status', [('column', [7, 1], 'logical_infeasible'),
     ('column', [8, 8], 'preprocessing_infeasible'), ('dynamic', [2, 2], 'logical_infeasible')])
 def test_real_rejection_path_has_measured_time_without_solver(case, point, status, monkeypatch):
@@ -55,7 +64,8 @@ def test_solver_exception_records_attempt_and_elapsed_time(monkeypatch):
     prepared = SimpleNamespace(model=None, metadata={'initialization': 'constructor_defaults'},
                                timings={'setup_wall_s': 0.001, 'preprocess_wall_s': 0.001})
     monkeypatch.setattr(evaluation, 'prepare_nlp', lambda *a, **k: prepared)
-    monkeypatch.setattr(evaluation, 'optimizer_for', lambda *a, **k: object())
+    monkeypatch.setattr(evaluation, 'optimizer_for',
+                        lambda *a, **k: SimpleNamespace(executable=lambda: '/fake/gams'))
     def fail(*a, **k):
         raise RuntimeError('Simulated solver exception; no optimizer invoked')
     monkeypatch.setattr(evaluation, 'solve_gams', fail)

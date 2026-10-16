@@ -1,7 +1,6 @@
 """No solver or DFO search: clock, preservation, accounting and original rejection path."""
 import json
 import os
-from pathlib import Path
 import shutil
 import subprocess
 import sys

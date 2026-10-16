@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "preservation": {
+    "baseline_files": 7417,
+    "unchanged_files_in_tree": 1019,
+    "unchanged_original_archives": 47,
+    "byte_identical_copies_in_original_archives": 6388,
+    "documented_documentation_or_verifier_changes": [
+      "results/archives/README.md",
+      "results/cstr30_structural_rejections/INDEX.txt",
+      "results/fmqa_20260925/README.md",
+      "results/fmqa_numpy_legacy_20260925/README.md",
+      "results/gdp_comparison_20260925/README.md",
+      "results/gdp_comparison_20261001/README.md",
+      "results/gdp_comparison_loa_20261001/README.md",
+      "results/grid_trace_rbfopt_20261010/README.md",
+      "results/grid_trace_rbfopt_20261010/verify_archive.py",
+      "results/runners/README.md"
+    ],
+    "missing_or_changed_experimental_artifacts": 0
+  },
+  "sources": {
+    "analysis_inputs_verified": 44,
+    "archive_members_verified": {
+      "original-cstr": 3816,
+      "original-non-cstr": 2679,
+      "corrected-bam-cstr": 2370,
+      "corrected-bam-non-cstr": 753,
+      "cstr30-structural-costs": 1133
+    }
+  },
+  "replay": {
+    "runs": 560,
+    "outcomes": {
+      "target_reached": 291,
+      "target_not_reached": 268,
+      "execution_failed": 1
+    },
+    "callbacks": 12822,
+    "selected_bam": {
+      "bam_runs": 140,
+      "identical_bam_callbacks": 3430,
+      "configuration_difference": "budget_stop_policy only",
+      "runtime_differences_expected_from_rerun": {
+        "recorded_dfo_wall_time_changed": 140
+      }
+    },
+    "tables_reproduced_byte_for_byte": [
+      "callbacks.csv",
+      "cost_table_column.csv",
+      "cost_table_cstr_10.csv",
+      "cost_table_cstr_15.csv",
+      "cost_table_cstr_20.csv",
+      "cost_table_cstr_25.csv",
+      "cost_table_cstr_30.csv",
+      "cost_table_cstr_5.csv",
+      "cost_table_dynamic.csv",
+      "cost_table_small_batch.csv",
+      "group_summary.csv",
+      "overlap_validation.csv",
+      "run_results.csv",
+      "supplemented_callbacks.csv",
+      "timing_coverage.csv"
+    ],
+    "complete_cost_runs": 560,
+    "supplemented_callbacks": 2752,
+    "remaining_time_gaps": 0,
+    "tts99": {
+      "available": 54,
+      "zero_observed_hits": 2
+    },
+    "historical_analysis_revision": "b863b4f99eaf3ecabd3f5bbd2fae2bc5c51725d4",
+    "figures_regenerated": false
+  },
+  "artifact_source_revision": "ade67082ad2b09583a8f5594b827c97417e0ea99",
+  "integrated_main_revision": "a4db6d61a88f70954ffebb15a67028bf4cb21aaf",
+  "provider_revision_at_verification": "4b41cc8f567875e3efb014dec1b2916c04c2f069",
+  "verification_script_sha256": "ffd32884611fbec7c30b5b0f3a015b0770c607acc01d287182351aad37d8ee7b",
+  "new_optimization_or_nlp_experiments": false
+}

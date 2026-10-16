@@ -15,7 +15,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-import measure_cstr30_structural_rejections as protocol
+import measure_cstr30_structural_rejections as protocol  # noqa: E402 -- repository path is established above
 
 RETURN = "dantzig_cstr30_structural_20261015_214202_pgve882p"
 RETURN_SHA = "3a5094a2e99c269cf830cd668c52853c2a3641d9fd4f176c0a7ca076ee110253"

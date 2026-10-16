@@ -5,7 +5,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
-import import_bam_budget_v2 as importer
+import import_bam_budget_v2 as importer  # noqa: E402 -- repository path is established above
 
 @pytest.mark.parametrize('kind', ['cstr','non_cstr'])
 def test_pinned_batch_and_all_terminal_returns(kind, tmp_path):
