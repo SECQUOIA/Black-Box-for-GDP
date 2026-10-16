@@ -70,6 +70,7 @@ py-modules = [
     "timing_analysis",
 ]
 packages = [
+    "fmqa_benchmark",
     "gdp_models",
     "benchmark_grids",
     "case_studies",
@@ -84,3 +85,5 @@ benchmark_grids = ["*.csv", "README.md"]
 "case_study_data.column" = ["*.csv"]
 "case_study_data.cstr" = ["*.csv"]
 "case_study_data.small_batch" = ["*.csv"]
+
+fmqa_benchmark = ["vendor/qhd/provenance.json", "vendor/qhd/LICENSE.SECQUOIA", "vendor/qhd/fmqa/LICENSE", "vendor/qhd/fmqa/setup.py", "vendor/qhd/fmqa/fmqa/*.py", "vendor/qhd/bbo_via_fmqa/*.py"]
