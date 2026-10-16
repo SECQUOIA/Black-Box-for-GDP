@@ -1,0 +1,178 @@
+{
+  "source_run": "/local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_gdp_benchmark/grid_gdp_run_20261008_210901_dw5vq37s",
+  "source_run_json_sha256": "f29462ecbce860e9a38a0aa8a0b1931a5a867dde946a19eb281237b986b94afe",
+  "error_kind": "all",
+  "planned_points": 0,
+  "planned_benchmarks": 21,
+  "jobs": [
+    {
+      "grid_name": "alpine1",
+      "method": "loa",
+      "error_kind": "differentiation",
+      "previous_message": "DifferentiationException: Cannot differentiate abs(x) at x=0",
+      "previous_result_sha256": "83fa55b082dd04b6460127d7574c1da4227abe671b6c7a573012fe090ca43925",
+      "previous_terminal_sha256": "357a22ee31b2cd0e5ef22a90371126845d04169cd496cab4a8cf38ef6917350b"
+    },
+    {
+      "grid_name": "camel3",
+      "method": "ric",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "9f02ea6fd453a8ae237dd0409808f27ed439e4f02f52d06bb2912472ab6fb0a1",
+      "previous_terminal_sha256": "ec73391211874727bf151b03c1184b78d83733e0b000a230b15578d0cdd4640e"
+    },
+    {
+      "grid_name": "camel3",
+      "method": "gloa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "56d3fea06aa02074e566deea68bc2e188fc69dabe7c24ddafdb5f0d4a49f7eac",
+      "previous_terminal_sha256": "43e4ea679c7e629b6615438f3cd1a07b622da7dd459ebccc908729d1ec9bd5b4"
+    },
+    {
+      "grid_name": "camel3",
+      "method": "loa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "98f6ee48ecff8eb00e0ce6f4036c09bea87f6520f8801f87dff80a530bd7ada7",
+      "previous_terminal_sha256": "8bd571170b3025c18bbb3b8d7b1976b57b89afb49c2f08838910fb6a98f1fd7f"
+    },
+    {
+      "grid_name": "dropwave",
+      "method": "ric",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "0d59a720090914b0203fbd63240e9960a142dd56e4cce8b8b292e7ab7e4246bf",
+      "previous_terminal_sha256": "71bce07198f0f3b38701b16e9311b77a068565ef541688453ee0a80b51e85d3c"
+    },
+    {
+      "grid_name": "dropwave",
+      "method": "gloa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "f386a3d7329ce874306eb06ca8032d2a03436a25f19a8145be24e0d319ffecf6",
+      "previous_terminal_sha256": "2d245fa307131361247349ac998bda4382fcba482bc7868cf34d9c373fb0535f"
+    },
+    {
+      "grid_name": "dropwave",
+      "method": "loa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "a1005043a4e44505966a32afdb8a13847d97131637f5e15b6d34985e58ac7419",
+      "previous_terminal_sha256": "85598a2e816b79188bb71d0685120b349aa23d2c376efd017279cc59b1dc755c"
+    },
+    {
+      "grid_name": "easom",
+      "method": "ric",
+      "error_kind": "network",
+      "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "previous_result_sha256": "723e07669163ef4d5f86afbbc84b09066924bc020ef08e330829fecf1f8227cf",
+      "previous_terminal_sha256": "c834550eee52a0f97fe8faf1e941d07368e626e81225e3c561d1b412b08ce690"
+    },
+    {
+      "grid_name": "griewank",
+      "method": "ric",
+      "error_kind": "network",
+      "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "previous_result_sha256": "99da28f39ece83c84722e1b81c2aee0ecf912f0887bfa15b70166eb927033fad",
+      "previous_terminal_sha256": "7194469b27b57266944f12b311a708e7843930fe57b221f8d39ec6241bf92ce7"
+    },
+    {
+      "grid_name": "holder_table",
+      "method": "ric",
+      "error_kind": "network",
+      "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "previous_result_sha256": "a19c78d2a8783669fb9892992106cfac06653dc7c8cdf41c58b5df7a4a6cf2b2",
+      "previous_terminal_sha256": "26241aa454ccd94a9960b87492ec5b58c7a264e325bf84c6316acba60f6c1d61"
+    },
+    {
+      "grid_name": "holder_table",
+      "method": "gloa",
+      "error_kind": "network",
+      "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "previous_result_sha256": "9f8852b702baf9465a4a3e04da45cfba4977573500cca9e75279d24a6962b9a9",
+      "previous_terminal_sha256": "062a648fa9c959f31a387307d76de3e6825015d0222b647656e65a16f81a0841"
+    },
+    {
+      "grid_name": "holder_table",
+      "method": "loa",
+      "error_kind": "network",
+      "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "previous_result_sha256": "b10ce8c605340502321770283df63531f9d4d241f5d6782d304718231f8a2e76",
+      "previous_terminal_sha256": "614b0eefd1ef7681931781e06e67ea8b3224531799369fc0e7c3409685e029cc"
+    },
+    {
+      "grid_name": "hosaki",
+      "method": "ric",
+      "error_kind": "network",
+      "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "previous_result_sha256": "ee7ed1419be86e11faac88cd341f91e60c7710598c67357ef1235ce895eb6fae",
+      "previous_terminal_sha256": "ad66a848f96931be3ef1bc07ad122f5b7cd66094de2d9df237ca959acb1afe32"
+    },
+    {
+      "grid_name": "hosaki",
+      "method": "gloa",
+      "error_kind": "network",
+      "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "previous_result_sha256": "656f0cd84c396c91eac6c7c7e8923b1dfccc96f3267cf7985d63402a75f2de04",
+      "previous_terminal_sha256": "e39a835397e99dfa018cdd163e8505de2910e598cd9beb72aa69eb75d6f407a9"
+    },
+    {
+      "grid_name": "hosaki",
+      "method": "loa",
+      "error_kind": "network",
+      "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "previous_result_sha256": "3c95604bbf45867bce77c29fe7602fff28c28e8f7c20a30750e3f2c14c7a7876",
+      "previous_terminal_sha256": "19bb9528c9c6c7affed1c77a0481c158e700844fb501d7fdff5c658b77e4aa72"
+    },
+    {
+      "grid_name": "levy",
+      "method": "ric",
+      "error_kind": "network",
+      "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "previous_result_sha256": "29064cf40cb40e77a8429e39ac0790b76024bc2fd0ae88523e645c2e042acdca",
+      "previous_terminal_sha256": "f36faf8e3e631e848e81f5dbfc9cd871994c87625f49ddb69b4bba4d760aff00"
+    },
+    {
+      "grid_name": "levy",
+      "method": "gloa",
+      "error_kind": "network",
+      "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "previous_result_sha256": "29082a42413c1d38bcc893115ed60f5acddb23fe5d1aa0df12700546ef1d0584",
+      "previous_terminal_sha256": "dda4f542c327cc01d17462da63daad3dc60b1d88ebbdcd5cb93d1ce424351dbc"
+    },
+    {
+      "grid_name": "levy",
+      "method": "loa",
+      "error_kind": "network",
+      "previous_message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "previous_result_sha256": "d5822e4b6098aedcd8cf0497cba2b4666fc79fb1e029d60591e762ecb7d3ead8",
+      "previous_terminal_sha256": "08e3b3d6a562ab8d8aabb16754cb22ef5d23f0721e74cec7f4a98d4983093218"
+    },
+    {
+      "grid_name": "sum_of_squares",
+      "method": "ric",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "7449669c3c49c6baafc979a2e09b9548346ff414f248f3000542f1cf6e6c5400",
+      "previous_terminal_sha256": "db73f9265582205556a02559f41aaa2ed0ac071bd575a41d4e0c2bda6421d314"
+    },
+    {
+      "grid_name": "sum_of_squares",
+      "method": "gloa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "c9e4e26f5c113fa0a92a4bbb59a86c9bcdd13869ac72286a56f4993481554333",
+      "previous_terminal_sha256": "5edc728ca39fc590945a6810e36047b78cf1c5bd8c2ac744f21cb9b7e12dea60"
+    },
+    {
+      "grid_name": "sum_of_squares",
+      "method": "loa",
+      "error_kind": "fbbt",
+      "previous_message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+      "previous_result_sha256": "0c310ca7173602878ee89a3e7ccad91bb3b921962927af36399a04d0d9c10e22",
+      "previous_terminal_sha256": "00e0fbc97d757ed89adcd03a39c12c1d72fdaad1b24e438bdc2f268d39c7bea4"
+    }
+  ],
+  "policy": "One fresh attempt per selected error; original solver settings; no error fixes or automatic repeat-until-success."
+}

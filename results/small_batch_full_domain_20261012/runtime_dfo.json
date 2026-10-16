@@ -1,0 +1,54 @@
+{
+  "host": "dantzig.ecn.purdue.edu",
+  "platform": "Linux-5.15.0-323.211.3.4.el9uek.x86_64-x86_64-with-glibc2.34",
+  "python": "3.11.16",
+  "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+  "versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "2.3.3",
+    "rbfopt": "4.3.0",
+    "bam-solver": "5.0.0",
+    "pyomo": "6.10.0"
+  },
+  "affinity": {
+    "cpu": 6,
+    "physical_package_id": "0",
+    "core_id": "8",
+    "thread_siblings_list": "6,54",
+    "effective_cpus": [
+      6
+    ],
+    "policy": "one logical CPU; not an exclusive reservation"
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "MKL_DYNAMIC": "FALSE"
+  },
+  "lookup_data_sha256": {
+    "case_study_data/column/compl_enum_column_17_baron.csv": "a09fcb62e56a73736b96bad051c13c04132f407a247cb84a6dbbced08d42cdae",
+    "case_study_data/cstr/compl_enum_cstr_10_baron_hull.csv": "b42505bb83ce7ce92560f3cdbc16b4779b9152f026420e3d2295140c4d806df0",
+    "case_study_data/cstr/compl_enum_cstr_15_baron_hull.csv": "da4b2bc8bad04ac0678ff23e18548adda8a8f8ed36cf402f1bc5cb7935d3e185",
+    "case_study_data/cstr/compl_enum_cstr_20_baron_hull.csv": "204609481ee4860f543bdc36cf330ba07eac84590626523c6b4c6820a1adcd1c",
+    "case_study_data/cstr/compl_enum_cstr_25_baron_hull.csv": "4b60dea065c2dd771e10aa2de71279182fed3d3d915bee160029bc23f38ceff5",
+    "case_study_data/cstr/compl_enum_cstr_30_baron_hull.csv": "70f97c120f7299b70ac2978c3bf0d6fca69f7e89908e9b0385cfb95dd02ad05b",
+    "case_study_data/cstr/compl_enum_cstr_5_baron_hull.csv": "6b82e1e02fcecb60dba1b3705538d56b52528be18420f0db9d0539b55068574e",
+    "case_study_data/small_batch/compl_enum_small_batch_baron.csv": "93c1b3da9c0937e6db1cff6e19ebb8484d04d243b25463343527bd50efb0fe5f",
+    "case_studies/dynamic_case.py": "e868b892ebf19c8c1efa6d8452a1acb37f595a0b018d227506e2ebcf02c3b0af"
+  },
+  "bonmin_sha256": "76eff68e4e3178a98213f98ad4d858f337b0668e49122b195238e60616153f66",
+  "ipopt_sha256": "938c17f31b2cf9fe91cef527bef3c62f303a3012851ad8498f91cd7501d1c9d2",
+  "bam_license_sha256": "4bbb6f002f4a62ad21243155b81841fc4006a8a304fbea821c3a25157bc82563",
+  "bam_native": [
+    2026,
+    9,
+    10
+  ]
+}

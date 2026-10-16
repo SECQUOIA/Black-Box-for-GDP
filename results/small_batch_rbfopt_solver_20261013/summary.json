@@ -1,0 +1,23 @@
+{
+  "planned_runs": 10,
+  "finished_runs": 10,
+  "completed_runs": 10,
+  "failed_runs": 0,
+  "evaluation_callbacks": 100,
+  "all_completed": true,
+  "objective_mode": "lookup; archived point costs joined after optimization",
+  "updated_utc": "2026-10-13T21:25:22.460421+00:00",
+  "callbacks_with_point_cost": 100,
+  "callbacks_missing_point_cost": 0,
+  "feasible_callbacks": 65,
+  "infeasible_callbacks": 35,
+  "nlp_cost_reference_sha256": "4fabd04e5023d0517cc6e749b8fee1e3de6d3bfc9e17491d3ec90d055f4045f3",
+  "rbfopt_settings": {
+    "algorithm": "MSRSM",
+    "global_search_method": "solver",
+    "rbf": "auto"
+  },
+  "auxiliary_solver_calls": 72,
+  "auxiliary_solver_exceptions": 0,
+  "auxiliary_solver_nonoptimal_calls": 0
+}

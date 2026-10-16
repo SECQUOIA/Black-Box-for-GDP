@@ -1,0 +1,18 @@
+{
+  "job_id": "cstr_15_B22_seed9_dsda",
+  "callbacks": 22,
+  "original_callback_signature_matches": true,
+  "target_hit": false,
+  "method_wall_s": 0.0009359719988424331,
+  "lookup_callback_wall_s": 3.38769459631294e-05,
+  "search_overhead_s": 0.0009020950528793037,
+  "measured_point_cost_sum_s": 22.746077284682542,
+  "estimated_completion_s": 22.74697937973542,
+  "cstr15_runs": 10,
+  "cstr15_target_hits": 2,
+  "cstr15_hit_rate": 0.2,
+  "cstr15_median_completion_s": 21.92685708485078,
+  "cstr15_runs_99": 21,
+  "cstr15_tts99_s": 460.4639987818664,
+  "timing_definition": "method time minus lookup callback time plus measured cost for every callback plus one reference Dynamic preparation"
+}

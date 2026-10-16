@@ -1,0 +1,40 @@
+{
+  "backend": "pytorch_qhd_data",
+  "display_label": "FMQA-SA",
+  "upstream_commit": "eb3a20d4b5a3773d17ff31d72a35d51f58e84e56",
+  "archive": "results/archives/fmqa_qhd_20261012_034123_8kcczd4b.zip",
+  "archive_sha256": "bdcb45af02cd8885b6740abbc00835cf6626a7921e8cafa06bcc85abb290b2e3",
+  "archived_files_verified": 9669,
+  "source_files_verified": 129,
+  "completed_runs": 1190,
+  "callbacks": 58030,
+  "proposals": 54460,
+  "target_hits": {
+    "process": 43,
+    "grid": 370
+  },
+  "target_tolerance": "abs(best-target) <= 1e-5 * max(1, abs(target)); feasible required",
+  "missing_callbacks": 0,
+  "missing_unique_points": 0,
+  "point_sources": {
+    "overnight_benchmark/reference_archives.json": "6dd7877c0b6199e45bd5ae9fa383f9ceb1e460aa63752ebc473e5430abf28411"
+  },
+  "process_runs_missing_cost": 0,
+  "csv_parse_differences_within_four_ulps": 117,
+  "missing_time_policy": "Unavailable, never zero or a replacement from another backend; partial groups have no aggregate time/profile",
+  "files_sha256": {
+    "summary.json": "6c8edf54fb3e1823a3177934daa147e6d78319b08a5fe217ecc227031b381c69",
+    "trajectories.csv.gz": "96c180e28f8d7c18b331b826c5afbdf8d2d138fd40937d8d46ec7966dd532b4a",
+    "runs.csv": "33eac6174f5d3138e7f03fe8c787bf1ed12a43d9e78490254b7a055bb3f38853",
+    "missing_unique_points.csv": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "evaluation_costs.csv.gz": "48e5b6de2bafe0edce3004f01bd2dddfc18e1bf195cc3d348ce1d8c80436efc4",
+    "process_runs.csv": "b6f5a56c717de907b00c55f65c7e131b3a3289084cfd02a9a9de291062ab76bc",
+    "completion_estimates.csv": "727efc66dcfd0899809509825100b3f62065e81773cd1fc9b618c679c09fd662",
+    "runtime_fmqa.json": "7d3ded7d812e9ee701b7dfe3cdcb1b3503f7e4a830d7caa1ec8b4233fd5012b8",
+    "publication_evaluation_costs.csv.gz": "ae39f9787be5027f3f4f8eef0a0bfc4a4f9e318c90ce25d2c10c2de45012eb22",
+    "point_supplement.json": "99654a069d3d0593e59520a990e95ec747af6b29560624ea3b69714cb0f5ec5a",
+    "run.json": "2fff859bb83d7db02e1eceb4a6e2b2364b9ac71e6429d38662e1cda573065fbe",
+    "missing_point_costs.csv": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  "import_script_sha256": "f36c51ff6e3749b34589d0dce1b10f93c5ad1c044c39ffcb4e869a3fbd8b8276"
+}

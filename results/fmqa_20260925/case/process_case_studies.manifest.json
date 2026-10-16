@@ -1,0 +1,4283 @@
+{
+  "schema": {
+    "name": "unified_benchmark_result",
+    "fields": [
+      "csv_name",
+      "method",
+      "seed",
+      "n_starts",
+      "max_evals",
+      "best_value",
+      "best_point",
+      "total_evals",
+      "wall_time_s",
+      "found_optimum",
+      "incumbent_trajectory",
+      "initial_evals",
+      "adaptive_evals",
+      "unique_evals",
+      "solver_evalcount",
+      "solver_iterations",
+      "solver_status",
+      "solver_message"
+    ],
+    "structured_value_encoding": "JSON strings in CSV cells"
+  },
+  "run": {
+    "status": "completed",
+    "expected_rows": 139,
+    "completed_rows": 139
+  },
+  "output": {
+    "csv_bytes": 91765,
+    "csv_sha256": "4b1814d901e12e9dd47a935fe9d5d60322b7347d457d1b53c3cf35fa23c68a76"
+  },
+  "fmqa_protocol": {
+    "kind": "fmqa_sa_process_benchmark_v1",
+    "dataset": "case",
+    "config": {
+      "epochs": 1000,
+      "learning_rate": 0.01,
+      "num_reads": 100,
+      "num_sweeps": 1000,
+      "time_limit": 1800
+    },
+    "plan": [
+      {
+        "case_name": "column",
+        "csv_name": "compl_enum_column_17_baron.csv",
+        "max_evaluations": 16,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "grid_size": null,
+        "starting_points": [
+          [
+            14,
+            4
+          ],
+          [
+            12,
+            1
+          ],
+          [
+            9,
+            8
+          ]
+        ],
+        "initial_design_sha256": "e1e4c79ee05dbb3e9caaa05a41f1ee4463a310e01fc37b86c0c679b534915cb4",
+        "job_id": "column_B16_seed1"
+      },
+      {
+        "case_name": "column",
+        "csv_name": "compl_enum_column_17_baron.csv",
+        "max_evaluations": 16,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "grid_size": null,
+        "starting_points": [
+          [
+            14,
+            8
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            11,
+            2
+          ]
+        ],
+        "initial_design_sha256": "1b55fe58e57693256dca09ef9a2c7ad0c82e42d56fcaaf6fbde6dbf7773d031e",
+        "job_id": "column_B16_seed2"
+      },
+      {
+        "case_name": "column",
+        "csv_name": "compl_enum_column_17_baron.csv",
+        "max_evaluations": 16,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "grid_size": null,
+        "starting_points": [
+          [
+            12,
+            8
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            15,
+            5
+          ]
+        ],
+        "initial_design_sha256": "fef2943f341d268882c1a53cde4171ac321b8dd3cb8feb5abf09dcee2aeadf1e",
+        "job_id": "column_B16_seed3"
+      },
+      {
+        "case_name": "column",
+        "csv_name": "compl_enum_column_17_baron.csv",
+        "max_evaluations": 16,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "grid_size": null,
+        "starting_points": [
+          [
+            10,
+            2
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            13,
+            8
+          ]
+        ],
+        "initial_design_sha256": "749508df94100e731f4f392451b4b05a4edeb1c7c355dd7529322d51f4cfb602",
+        "job_id": "column_B16_seed4"
+      },
+      {
+        "case_name": "column",
+        "csv_name": "compl_enum_column_17_baron.csv",
+        "max_evaluations": 16,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "grid_size": null,
+        "starting_points": [
+          [
+            10,
+            2
+          ],
+          [
+            14,
+            6
+          ],
+          [
+            10,
+            8
+          ]
+        ],
+        "initial_design_sha256": "d3464e2711c7774f048954b083248ec9ce14e3b3240123760587c305165a6650",
+        "job_id": "column_B16_seed5"
+      },
+      {
+        "case_name": "column",
+        "csv_name": "compl_enum_column_17_baron.csv",
+        "max_evaluations": 16,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "grid_size": null,
+        "starting_points": [
+          [
+            11,
+            3
+          ],
+          [
+            9,
+            8
+          ],
+          [
+            12,
+            5
+          ]
+        ],
+        "initial_design_sha256": "63e5932b0ee51941fa66a6e4ecb0adb5078bce4572a7b0d951b8b0bedc7edad2",
+        "job_id": "column_B16_seed6"
+      },
+      {
+        "case_name": "column",
+        "csv_name": "compl_enum_column_17_baron.csv",
+        "max_evaluations": 16,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "grid_size": null,
+        "starting_points": [
+          [
+            11,
+            1
+          ],
+          [
+            13,
+            8
+          ],
+          [
+            9,
+            4
+          ]
+        ],
+        "initial_design_sha256": "bf1e32e607b724a3e85112dadaa3961bbf665bb37c13e5c1cec0df72fe58d146",
+        "job_id": "column_B16_seed7"
+      },
+      {
+        "case_name": "column",
+        "csv_name": "compl_enum_column_17_baron.csv",
+        "max_evaluations": 16,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "grid_size": null,
+        "starting_points": [
+          [
+            11,
+            6
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            13,
+            5
+          ]
+        ],
+        "initial_design_sha256": "e5eda9088211ae9fea24da8ee1658056e41bbb3eae6b90e1750e4126c6a9513f",
+        "job_id": "column_B16_seed8"
+      },
+      {
+        "case_name": "column",
+        "csv_name": "compl_enum_column_17_baron.csv",
+        "max_evaluations": 16,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "grid_size": null,
+        "starting_points": [
+          [
+            10,
+            6
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            8,
+            7
+          ]
+        ],
+        "initial_design_sha256": "c625de9aa99cd374b69ddf07dda86bf7643ae7b50030534b4f11f0b834385047",
+        "job_id": "column_B16_seed9"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+        "grid_size": 5,
+        "max_evaluations": 8,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "starting_points": [
+          [
+            1,
+            2
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "initial_design_sha256": "b14e494257721b9ae8998c2f58ea4508efbb3ae437cc7bb2ba86c7a7c944b4d1",
+        "job_id": "cstr_5_B8_seed0"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+        "grid_size": 5,
+        "max_evaluations": 8,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "starting_points": [
+          [
+            4,
+            2
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "initial_design_sha256": "b7e96d57285188b29c3364010ee89b30677320c8008f4d660b0557946148747d",
+        "job_id": "cstr_5_B8_seed1"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+        "grid_size": 5,
+        "max_evaluations": 8,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "starting_points": [
+          [
+            5,
+            5
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "initial_design_sha256": "942890e30ba88e8d2b1870ba46cb01e8d9d6208c926c597ee0be371aa9bf0265",
+        "job_id": "cstr_5_B8_seed2"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+        "grid_size": 5,
+        "max_evaluations": 8,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "starting_points": [
+          [
+            4,
+            5
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "initial_design_sha256": "23e7243d08c92e29eeedce30be6432dd30e71bb9e44ad4ffcd152ee148e043b7",
+        "job_id": "cstr_5_B8_seed3"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+        "grid_size": 5,
+        "max_evaluations": 8,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "starting_points": [
+          [
+            2,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "initial_design_sha256": "e6eabdb9062cf4c01fe52032180fb83987585d1bbe54ec111b1f5d1955ed8016",
+        "job_id": "cstr_5_B8_seed4"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+        "grid_size": 5,
+        "max_evaluations": 8,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "starting_points": [
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "initial_design_sha256": "b0d42a851d8661588cb3d45fffd477975d3059dbf23e31fbca27d2730cbdbf82",
+        "job_id": "cstr_5_B8_seed5"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+        "grid_size": 5,
+        "max_evaluations": 8,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "starting_points": [
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "initial_design_sha256": "3e8636d5b8d0a131afab446d6aa0111c1221341242ff93fa28d913817a9b425f",
+        "job_id": "cstr_5_B8_seed6"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+        "grid_size": 5,
+        "max_evaluations": 8,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "starting_points": [
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "initial_design_sha256": "6b4ab03d322b57badb2f8ffa439d4ce0cf539eacb0434aad8ae80ebdac772a70",
+        "job_id": "cstr_5_B8_seed7"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+        "grid_size": 5,
+        "max_evaluations": 8,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "starting_points": [
+          [
+            3,
+            4
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "initial_design_sha256": "bd3f38337ea52fcaa176b7438c78d479574ab9b248829317877ff43d8df2a760",
+        "job_id": "cstr_5_B8_seed8"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_5_baron_hull.csv",
+        "grid_size": 5,
+        "max_evaluations": 8,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "starting_points": [
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "initial_design_sha256": "09e7be3225fbf7bd2a2e303f12f3afb71d61a71763e9b1458f49bf9eaaaa7151",
+        "job_id": "cstr_5_B8_seed9"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+        "grid_size": 10,
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "starting_points": [
+          [
+            2,
+            3
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        "initial_design_sha256": "7c4752059060bb9a690d6b76d785f9c5f1776bc354e493a9151279354c8296dc",
+        "job_id": "cstr_10_B15_seed0"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+        "grid_size": 10,
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "starting_points": [
+          [
+            8,
+            4
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            3,
+            9
+          ]
+        ],
+        "initial_design_sha256": "90670d13bd85ab5528d101c5e1c1adcfc8c8c88afff649385bb770dcedc45551",
+        "job_id": "cstr_10_B15_seed1"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+        "grid_size": 10,
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "starting_points": [
+          [
+            9,
+            9
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "initial_design_sha256": "6bf71dd2db25615ba32ee644e2ea96936ee8354faacebc511f086029e0563126",
+        "job_id": "cstr_10_B15_seed2"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+        "grid_size": 10,
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "starting_points": [
+          [
+            7,
+            9
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            10,
+            6
+          ]
+        ],
+        "initial_design_sha256": "0c4c75ec8fe9d50c6a31138458d37303f436a253ff0418e6c54ad233fedb51e9",
+        "job_id": "cstr_10_B15_seed3"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+        "grid_size": 10,
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "starting_points": [
+          [
+            4,
+            2
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            8,
+            9
+          ]
+        ],
+        "initial_design_sha256": "7152705eff1ee7353b0cf7390ed20a46f81421c5d3181bf2ad7aeaaf73c67deb",
+        "job_id": "cstr_10_B15_seed4"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+        "grid_size": 10,
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "starting_points": [
+          [
+            5,
+            2
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            4,
+            9
+          ]
+        ],
+        "initial_design_sha256": "ef506db33e23c694595e035b6f9c7110a820d93e2744c2006321389df21b48fa",
+        "job_id": "cstr_10_B15_seed5"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+        "grid_size": 10,
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "starting_points": [
+          [
+            5,
+            3
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            7,
+            5
+          ]
+        ],
+        "initial_design_sha256": "d63e8c51d020a9c0330a73b91c7e6ee9aa7677c79c8bddd02e49b277697c19e6",
+        "job_id": "cstr_10_B15_seed6"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+        "grid_size": 10,
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "starting_points": [
+          [
+            5,
+            1
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "initial_design_sha256": "5b2236c2d84bad4777f25a8df2efa161aa984eaf8c252d54d193b3bae7793891",
+        "job_id": "cstr_10_B15_seed7"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+        "grid_size": 10,
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "starting_points": [
+          [
+            6,
+            7
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "initial_design_sha256": "3e5986be117fc437808233013fa3595f3f4f8966a09a08b3556ac25d3cf258d4",
+        "job_id": "cstr_10_B15_seed8"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_10_baron_hull.csv",
+        "grid_size": 10,
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "starting_points": [
+          [
+            4,
+            6
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            2,
+            7
+          ]
+        ],
+        "initial_design_sha256": "85b70f8f2297d196b01cdc1807e4db2f46ad20b01a4c7ce3cc7a5b10a0b91bf5",
+        "job_id": "cstr_10_B15_seed9"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+        "grid_size": 15,
+        "max_evaluations": 22,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "starting_points": [
+          [
+            3,
+            4
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "initial_design_sha256": "0143d839bd4674a70afc7444415df8902c619a3ab64b697259e695f8bef0a30e",
+        "job_id": "cstr_15_B22_seed0"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+        "grid_size": 15,
+        "max_evaluations": 22,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "starting_points": [
+          [
+            13,
+            6
+          ],
+          [
+            10,
+            1
+          ],
+          [
+            4,
+            13
+          ]
+        ],
+        "initial_design_sha256": "ad060045e744fb88d7b71d9288197141288d64d9651bcb6eb6c01cfad0d56eba",
+        "job_id": "cstr_15_B22_seed1"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+        "grid_size": 15,
+        "max_evaluations": 22,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "starting_points": [
+          [
+            14,
+            14
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "initial_design_sha256": "3de4bd20b0c5fb555cb000960672d1579c6f828b66ea15645621ea8dbc5aa0bf",
+        "job_id": "cstr_15_B22_seed2"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+        "grid_size": 15,
+        "max_evaluations": 22,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "starting_points": [
+          [
+            10,
+            14
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            15,
+            8
+          ]
+        ],
+        "initial_design_sha256": "c1eb10fd1623834c510894a311c1dfe533868a34a32535e775a48ab23fef9831",
+        "job_id": "cstr_15_B22_seed3"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+        "grid_size": 15,
+        "max_evaluations": 22,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "starting_points": [
+          [
+            6,
+            3
+          ],
+          [
+            1,
+            10
+          ],
+          [
+            12,
+            13
+          ]
+        ],
+        "initial_design_sha256": "c2813688e308bea0d116479eb7c0a71d86ccdb9430272dbeb04627ecfd6accb4",
+        "job_id": "cstr_15_B22_seed4"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+        "grid_size": 15,
+        "max_evaluations": 22,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "starting_points": [
+          [
+            7,
+            2
+          ],
+          [
+            13,
+            9
+          ],
+          [
+            5,
+            13
+          ]
+        ],
+        "initial_design_sha256": "0d59a43dbff44cc13168398043ae746762cad62e28bdecdca878ffd15451e8cd",
+        "job_id": "cstr_15_B22_seed5"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+        "grid_size": 15,
+        "max_evaluations": 22,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "starting_points": [
+          [
+            8,
+            4
+          ],
+          [
+            4,
+            13
+          ],
+          [
+            10,
+            7
+          ]
+        ],
+        "initial_design_sha256": "98ff8bb1bbd9fc12639e7cb03a6efd56038b5d2c37b3b5cdfa31b75130a73853",
+        "job_id": "cstr_15_B22_seed6"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+        "grid_size": 15,
+        "max_evaluations": 22,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "starting_points": [
+          [
+            7,
+            1
+          ],
+          [
+            11,
+            14
+          ],
+          [
+            4,
+            6
+          ]
+        ],
+        "initial_design_sha256": "990f4f6b7029cdcbbf8abedbd466c01700c6cb412d3c0decb4918a9ed86a8334",
+        "job_id": "cstr_15_B22_seed7"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+        "grid_size": 15,
+        "max_evaluations": 22,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "starting_points": [
+          [
+            9,
+            10
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            11,
+            9
+          ]
+        ],
+        "initial_design_sha256": "2f63133eb130c43237f8802e5c1e4b0924917ffcae101d7689d76a491bf66ce1",
+        "job_id": "cstr_15_B22_seed8"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_15_baron_hull.csv",
+        "grid_size": 15,
+        "max_evaluations": 22,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "starting_points": [
+          [
+            6,
+            9
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            2,
+            11
+          ]
+        ],
+        "initial_design_sha256": "0750eca6447879914a99affb0e67d92ee8f6a1e0c3dcb926af42ee6812deb8e5",
+        "job_id": "cstr_15_B22_seed9"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+        "grid_size": 20,
+        "max_evaluations": 29,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "starting_points": [
+          [
+            3,
+            6
+          ],
+          [
+            20,
+            20
+          ],
+          [
+            9,
+            8
+          ]
+        ],
+        "initial_design_sha256": "f0ced9ef19b25cd93a519f754fe0e7e7022cc93f352c33e0cbc78b341d0d5755",
+        "job_id": "cstr_20_B29_seed0"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+        "grid_size": 20,
+        "max_evaluations": 29,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "starting_points": [
+          [
+            17,
+            8
+          ],
+          [
+            13,
+            1
+          ],
+          [
+            5,
+            17
+          ]
+        ],
+        "initial_design_sha256": "6f1b1e6884426b2873e3808115ff155db21259afeb22195ae7bfefafa25a245e",
+        "job_id": "cstr_20_B29_seed1"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+        "grid_size": 20,
+        "max_evaluations": 29,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "starting_points": [
+          [
+            18,
+            18
+          ],
+          [
+            2,
+            13
+          ],
+          [
+            10,
+            3
+          ]
+        ],
+        "initial_design_sha256": "fd7137c541038148d00a140b6289f0cd19e116a71d47295815936479fcfd3e29",
+        "job_id": "cstr_20_B29_seed2"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+        "grid_size": 20,
+        "max_evaluations": 29,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "starting_points": [
+          [
+            13,
+            19
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            19,
+            11
+          ]
+        ],
+        "initial_design_sha256": "19efbcde843060193d430d122b61fdf8ec508949b62f8c2eb46a6269a4dff766",
+        "job_id": "cstr_20_B29_seed3"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+        "grid_size": 20,
+        "max_evaluations": 29,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "starting_points": [
+          [
+            8,
+            4
+          ],
+          [
+            1,
+            13
+          ],
+          [
+            16,
+            18
+          ]
+        ],
+        "initial_design_sha256": "a1ed50343f3c1c25c9bed13e8708d9c2e5d43940bd278ea710ee290b3f59210f",
+        "job_id": "cstr_20_B29_seed4"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+        "grid_size": 20,
+        "max_evaluations": 29,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "starting_points": [
+          [
+            9,
+            2
+          ],
+          [
+            17,
+            12
+          ],
+          [
+            7,
+            18
+          ]
+        ],
+        "initial_design_sha256": "381316c391a638162a6f44b31a9d57b8129cb996cb0a179b9b208822d355aa73",
+        "job_id": "cstr_20_B29_seed5"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+        "grid_size": 20,
+        "max_evaluations": 29,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "starting_points": [
+          [
+            10,
+            5
+          ],
+          [
+            5,
+            18
+          ],
+          [
+            14,
+            10
+          ]
+        ],
+        "initial_design_sha256": "9137aca1cdc1ec7c8fac27bc3643083dbad94b815eba89cc7dd8e41a59d258d8",
+        "job_id": "cstr_20_B29_seed6"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+        "grid_size": 20,
+        "max_evaluations": 29,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "starting_points": [
+          [
+            10,
+            2
+          ],
+          [
+            15,
+            19
+          ],
+          [
+            5,
+            8
+          ]
+        ],
+        "initial_design_sha256": "6e2f2162b868c7d825e19aa0d3c50ffb4d889cc723bd8dea9ffdae82e4bb0fb4",
+        "job_id": "cstr_20_B29_seed7"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+        "grid_size": 20,
+        "max_evaluations": 29,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "starting_points": [
+          [
+            12,
+            14
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            14,
+            11
+          ]
+        ],
+        "initial_design_sha256": "c186fe38de21ee2037edd906605b53da080c1c3bde607717efc07116f88056d9",
+        "job_id": "cstr_20_B29_seed8"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_20_baron_hull.csv",
+        "grid_size": 20,
+        "max_evaluations": 29,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "starting_points": [
+          [
+            8,
+            12
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            3,
+            14
+          ]
+        ],
+        "initial_design_sha256": "711ef8aea81484bad6a58204a9710b240db15cab053239d860b8773e9d851949",
+        "job_id": "cstr_20_B29_seed9"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+        "grid_size": 25,
+        "max_evaluations": 36,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "starting_points": [
+          [
+            4,
+            7
+          ],
+          [
+            25,
+            25
+          ],
+          [
+            10,
+            10
+          ]
+        ],
+        "initial_design_sha256": "7881f858e3bf5b14748dcdfd76a10be3abf705165d68dcccc06adf22d8c7e07b",
+        "job_id": "cstr_25_B36_seed0"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+        "grid_size": 25,
+        "max_evaluations": 36,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "starting_points": [
+          [
+            21,
+            9
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            7,
+            22
+          ]
+        ],
+        "initial_design_sha256": "1c9166139962e1120f7757e63083909ffd30bd2e77d7b87a400ea09ed45cc31d",
+        "job_id": "cstr_25_B36_seed1"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+        "grid_size": 25,
+        "max_evaluations": 36,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "starting_points": [
+          [
+            23,
+            23
+          ],
+          [
+            2,
+            16
+          ],
+          [
+            12,
+            3
+          ]
+        ],
+        "initial_design_sha256": "9a368d24a5caa9fcbcf75edce00d07f804a99c816fc3d827b2a086950d43e6e1",
+        "job_id": "cstr_25_B36_seed2"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+        "grid_size": 25,
+        "max_evaluations": 36,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "starting_points": [
+          [
+            16,
+            23
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            24,
+            14
+          ]
+        ],
+        "initial_design_sha256": "a265352530c01fe239ea23d2c02825a4805beb06a3605a79c005126e667d1fd7",
+        "job_id": "cstr_25_B36_seed3"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+        "grid_size": 25,
+        "max_evaluations": 36,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "starting_points": [
+          [
+            9,
+            5
+          ],
+          [
+            1,
+            16
+          ],
+          [
+            20,
+            22
+          ]
+        ],
+        "initial_design_sha256": "bcda1f7c907ae6d5bfcd9c72bb0874eb3c1ec79cf0d06cdf0b809edfc9a024ae",
+        "job_id": "cstr_25_B36_seed4"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+        "grid_size": 25,
+        "max_evaluations": 36,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "starting_points": [
+          [
+            11,
+            3
+          ],
+          [
+            21,
+            15
+          ],
+          [
+            9,
+            22
+          ]
+        ],
+        "initial_design_sha256": "24ba28d6e73cc3987a2761355f2cdf49bda8987962bef44b1e80626fc3d5f390",
+        "job_id": "cstr_25_B36_seed5"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+        "grid_size": 25,
+        "max_evaluations": 36,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "starting_points": [
+          [
+            13,
+            6
+          ],
+          [
+            6,
+            22
+          ],
+          [
+            17,
+            12
+          ]
+        ],
+        "initial_design_sha256": "7dae2bc5c4a65a3629a818138fcb6273ad75a952abe6f94e27f07130a57d00d4",
+        "job_id": "cstr_25_B36_seed6"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+        "grid_size": 25,
+        "max_evaluations": 36,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "starting_points": [
+          [
+            12,
+            2
+          ],
+          [
+            19,
+            23
+          ],
+          [
+            7,
+            10
+          ]
+        ],
+        "initial_design_sha256": "cca102c874a4507673b7ce8ba8b13a92d9e480a0e2a7b19e8d49a4c2a1abde88",
+        "job_id": "cstr_25_B36_seed7"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+        "grid_size": 25,
+        "max_evaluations": 36,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "starting_points": [
+          [
+            14,
+            17
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            18,
+            14
+          ]
+        ],
+        "initial_design_sha256": "ba3da39ab6e539884aa0094de47d90f17d492990c2322aaf034d9b736bbaf91d",
+        "job_id": "cstr_25_B36_seed8"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_25_baron_hull.csv",
+        "grid_size": 25,
+        "max_evaluations": 36,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "starting_points": [
+          [
+            10,
+            15
+          ],
+          [
+            20,
+            3
+          ],
+          [
+            3,
+            18
+          ]
+        ],
+        "initial_design_sha256": "dd9a831e1a72056adfea6afe758bd7a423bed329a4a68444fc8bca49b93508b3",
+        "job_id": "cstr_25_B36_seed9"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+        "grid_size": 30,
+        "max_evaluations": 43,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "starting_points": [
+          [
+            5,
+            8
+          ],
+          [
+            30,
+            30
+          ],
+          [
+            12,
+            12
+          ]
+        ],
+        "initial_design_sha256": "fe26206badedd3df8ba242b98490bc6f8693cfdb0e9dc83688d58a513743fe7e",
+        "job_id": "cstr_30_B43_seed0"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+        "grid_size": 30,
+        "max_evaluations": 43,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "starting_points": [
+          [
+            25,
+            11
+          ],
+          [
+            19,
+            1
+          ],
+          [
+            8,
+            26
+          ]
+        ],
+        "initial_design_sha256": "75949ef4f74eca413ee8fad46c61566a2d7a2dccb80befeeaf6d4183d48d7610",
+        "job_id": "cstr_30_B43_seed1"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+        "grid_size": 30,
+        "max_evaluations": 43,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "starting_points": [
+          [
+            27,
+            27
+          ],
+          [
+            3,
+            19
+          ],
+          [
+            15,
+            4
+          ]
+        ],
+        "initial_design_sha256": "4c5cc294184d909b210f20dd98ef5b01dcbe71b13969e338fdc6b428b874a07c",
+        "job_id": "cstr_30_B43_seed2"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+        "grid_size": 30,
+        "max_evaluations": 43,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "starting_points": [
+          [
+            20,
+            28
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            29,
+            16
+          ]
+        ],
+        "initial_design_sha256": "e57c2bcf1837e09adfe127c1b72354b8eed96a77d08aac9545d32208b6a500dc",
+        "job_id": "cstr_30_B43_seed3"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+        "grid_size": 30,
+        "max_evaluations": 43,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "starting_points": [
+          [
+            11,
+            6
+          ],
+          [
+            1,
+            20
+          ],
+          [
+            24,
+            26
+          ]
+        ],
+        "initial_design_sha256": "7c4f39f61b1753c868e0951e5f9faf919d752ed123b8fe447afb256e217792aa",
+        "job_id": "cstr_30_B43_seed4"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+        "grid_size": 30,
+        "max_evaluations": 43,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "starting_points": [
+          [
+            13,
+            3
+          ],
+          [
+            25,
+            18
+          ],
+          [
+            10,
+            26
+          ]
+        ],
+        "initial_design_sha256": "27a67d5a1c665f85ee81ea56c1b5db54b7cff88ee0674b1ecea4b075ce94b604",
+        "job_id": "cstr_30_B43_seed5"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+        "grid_size": 30,
+        "max_evaluations": 43,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "starting_points": [
+          [
+            15,
+            7
+          ],
+          [
+            7,
+            26
+          ],
+          [
+            20,
+            14
+          ]
+        ],
+        "initial_design_sha256": "a46c039472b3dc6360917b89ea25bbd797fa8f7e2afdda7fbb34cdb7cd794497",
+        "job_id": "cstr_30_B43_seed6"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+        "grid_size": 30,
+        "max_evaluations": 43,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "starting_points": [
+          [
+            14,
+            2
+          ],
+          [
+            23,
+            28
+          ],
+          [
+            8,
+            12
+          ]
+        ],
+        "initial_design_sha256": "a0c0ec4f2e483783ac44887c12d8ea3edfde50bd9a08de5e92a1bf950c309721",
+        "job_id": "cstr_30_B43_seed7"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+        "grid_size": 30,
+        "max_evaluations": 43,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "starting_points": [
+          [
+            17,
+            20
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            22,
+            17
+          ]
+        ],
+        "initial_design_sha256": "ab9cdf74579f2cd9441342cf822a6037feeb42c590437179e461bf6483571cc8",
+        "job_id": "cstr_30_B43_seed8"
+      },
+      {
+        "case_name": "cstr",
+        "csv_name": "compl_enum_cstr_30_baron_hull.csv",
+        "grid_size": 30,
+        "max_evaluations": 43,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "starting_points": [
+          [
+            12,
+            18
+          ],
+          [
+            24,
+            3
+          ],
+          [
+            4,
+            21
+          ]
+        ],
+        "initial_design_sha256": "b35adffb6c91664f9986062925ab3ce40080383d28672955f3e4921b0e59ccbb",
+        "job_id": "cstr_30_B43_seed9"
+      },
+      {
+        "case_name": "small_batch",
+        "csv_name": "compl_enum_small_batch_baron.csv",
+        "max_evaluations": 10,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            3,
+            2
+          ],
+          [
+            3,
+            2,
+            2
+          ],
+          [
+            2,
+            2,
+            1
+          ]
+        ],
+        "initial_design_sha256": "7ee73f3f54890bb82b52bf6f18fb10042bf01725b0e62034eebccd01252bf3c8",
+        "job_id": "small_batch_B10_seed0"
+      },
+      {
+        "case_name": "small_batch",
+        "csv_name": "compl_enum_small_batch_baron.csv",
+        "max_evaluations": 10,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            3,
+            2
+          ],
+          [
+            2,
+            2,
+            3
+          ],
+          [
+            3,
+            3,
+            1
+          ]
+        ],
+        "initial_design_sha256": "ae0a3b64694f1ff7bf4b8ba12c3097f954c8ba22ca0c07c8837be7494c3aaf00",
+        "job_id": "small_batch_B10_seed1"
+      },
+      {
+        "case_name": "small_batch",
+        "csv_name": "compl_enum_small_batch_baron.csv",
+        "max_evaluations": 10,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            3,
+            2
+          ],
+          [
+            3,
+            2,
+            1
+          ],
+          [
+            3,
+            3,
+            2
+          ]
+        ],
+        "initial_design_sha256": "e01fefef2886038f2e9d66c385103d79a902984f469061f2029dff3898114592",
+        "job_id": "small_batch_B10_seed2"
+      },
+      {
+        "case_name": "small_batch",
+        "csv_name": "compl_enum_small_batch_baron.csv",
+        "max_evaluations": 10,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "grid_size": null,
+        "starting_points": [
+          [
+            3,
+            3,
+            2
+          ],
+          [
+            2,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            1
+          ]
+        ],
+        "initial_design_sha256": "efc11f2bd7d2c8cfa3e444b8b5daac1efbcc736ba2ac2d4299317c3be3de3b68",
+        "job_id": "small_batch_B10_seed3"
+      },
+      {
+        "case_name": "small_batch",
+        "csv_name": "compl_enum_small_batch_baron.csv",
+        "max_evaluations": 10,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "grid_size": null,
+        "starting_points": [
+          [
+            3,
+            2,
+            2
+          ],
+          [
+            3,
+            2,
+            1
+          ],
+          [
+            2,
+            3,
+            2
+          ]
+        ],
+        "initial_design_sha256": "854cfaa5f408615da856d60077a4ae3ca73cf5136ef94f58cc51b752d136d4fd",
+        "job_id": "small_batch_B10_seed4"
+      },
+      {
+        "case_name": "small_batch",
+        "csv_name": "compl_enum_small_batch_baron.csv",
+        "max_evaluations": 10,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "grid_size": null,
+        "starting_points": [
+          [
+            3,
+            2,
+            3
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            2,
+            3,
+            2
+          ]
+        ],
+        "initial_design_sha256": "d29631810478074ab3defe2981a9556bb1fda97464f899d6a9e0f63ac2de00f6",
+        "job_id": "small_batch_B10_seed5"
+      },
+      {
+        "case_name": "small_batch",
+        "csv_name": "compl_enum_small_batch_baron.csv",
+        "max_evaluations": 10,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            2
+          ],
+          [
+            3,
+            3,
+            1
+          ]
+        ],
+        "initial_design_sha256": "bf0d01cb31d4735f5ccb56386583335f77b209f9a44cfd4e5cbe91e039d9d410",
+        "job_id": "small_batch_B10_seed6"
+      },
+      {
+        "case_name": "small_batch",
+        "csv_name": "compl_enum_small_batch_baron.csv",
+        "max_evaluations": 10,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            2,
+            2
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            3,
+            2,
+            2
+          ]
+        ],
+        "initial_design_sha256": "b5ee92952098c7614ee1af13d79f52d57cb59ca171d061b14dfb22c2e9bf031a",
+        "job_id": "small_batch_B10_seed7"
+      },
+      {
+        "case_name": "small_batch",
+        "csv_name": "compl_enum_small_batch_baron.csv",
+        "max_evaluations": 10,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "grid_size": null,
+        "starting_points": [
+          [
+            3,
+            3,
+            3
+          ],
+          [
+            2,
+            2,
+            2
+          ],
+          [
+            3,
+            2,
+            2
+          ]
+        ],
+        "initial_design_sha256": "89548fc2b418941d672bd6e45af4c0ffd92ab5e68379f13e46a25f571773164b",
+        "job_id": "small_batch_B10_seed8"
+      },
+      {
+        "case_name": "small_batch",
+        "csv_name": "compl_enum_small_batch_baron.csv",
+        "max_evaluations": 10,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            3,
+            2
+          ],
+          [
+            3,
+            2,
+            2
+          ],
+          [
+            3,
+            2,
+            1
+          ]
+        ],
+        "initial_design_sha256": "e2be57f90e363812e9445b4df2ddb364d81d05c2d64a3587b84758fe1a16ac94",
+        "job_id": "small_batch_B10_seed9"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 12,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            4
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8",
+        "job_id": "dynamic_B12_seed0"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 12,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            8
+          ]
+        ],
+        "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d",
+        "job_id": "dynamic_B12_seed1"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 12,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            8
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501",
+        "job_id": "dynamic_B12_seed2"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 12,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "grid_size": null,
+        "starting_points": [
+          [
+            6,
+            8
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            9,
+            6
+          ]
+        ],
+        "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114",
+        "job_id": "dynamic_B12_seed3"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 12,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            3
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            7,
+            8
+          ]
+        ],
+        "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405",
+        "job_id": "dynamic_B12_seed4"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 12,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            4,
+            8
+          ]
+        ],
+        "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf",
+        "job_id": "dynamic_B12_seed5"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 12,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            4
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239",
+        "job_id": "dynamic_B12_seed6"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 12,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b",
+        "job_id": "dynamic_B12_seed7"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 12,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            7
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf",
+        "job_id": "dynamic_B12_seed8"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 12,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            2,
+            7
+          ]
+        ],
+        "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a",
+        "job_id": "dynamic_B12_seed9"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            4
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8",
+        "job_id": "dynamic_B15_seed0"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            8
+          ]
+        ],
+        "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d",
+        "job_id": "dynamic_B15_seed1"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            8
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501",
+        "job_id": "dynamic_B15_seed2"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "grid_size": null,
+        "starting_points": [
+          [
+            6,
+            8
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            9,
+            6
+          ]
+        ],
+        "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114",
+        "job_id": "dynamic_B15_seed3"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            3
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            7,
+            8
+          ]
+        ],
+        "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405",
+        "job_id": "dynamic_B15_seed4"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            4,
+            8
+          ]
+        ],
+        "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf",
+        "job_id": "dynamic_B15_seed5"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            4
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239",
+        "job_id": "dynamic_B15_seed6"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b",
+        "job_id": "dynamic_B15_seed7"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            7
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf",
+        "job_id": "dynamic_B15_seed8"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 15,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            2,
+            7
+          ]
+        ],
+        "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a",
+        "job_id": "dynamic_B15_seed9"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 20,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            4
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8",
+        "job_id": "dynamic_B20_seed0"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 20,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            8
+          ]
+        ],
+        "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d",
+        "job_id": "dynamic_B20_seed1"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 20,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            8
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501",
+        "job_id": "dynamic_B20_seed2"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 20,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "grid_size": null,
+        "starting_points": [
+          [
+            6,
+            8
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            9,
+            6
+          ]
+        ],
+        "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114",
+        "job_id": "dynamic_B20_seed3"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 20,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            3
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            7,
+            8
+          ]
+        ],
+        "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405",
+        "job_id": "dynamic_B20_seed4"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 20,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            4,
+            8
+          ]
+        ],
+        "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf",
+        "job_id": "dynamic_B20_seed5"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 20,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            4
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239",
+        "job_id": "dynamic_B20_seed6"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 20,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b",
+        "job_id": "dynamic_B20_seed7"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 20,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            7
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf",
+        "job_id": "dynamic_B20_seed8"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 20,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            2,
+            7
+          ]
+        ],
+        "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a",
+        "job_id": "dynamic_B20_seed9"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 30,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            4
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8",
+        "job_id": "dynamic_B30_seed0"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 30,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            8
+          ]
+        ],
+        "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d",
+        "job_id": "dynamic_B30_seed1"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 30,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            8
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501",
+        "job_id": "dynamic_B30_seed2"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 30,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "grid_size": null,
+        "starting_points": [
+          [
+            6,
+            8
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            9,
+            6
+          ]
+        ],
+        "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114",
+        "job_id": "dynamic_B30_seed3"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 30,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            3
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            7,
+            8
+          ]
+        ],
+        "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405",
+        "job_id": "dynamic_B30_seed4"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 30,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            4,
+            8
+          ]
+        ],
+        "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf",
+        "job_id": "dynamic_B30_seed5"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 30,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            4
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239",
+        "job_id": "dynamic_B30_seed6"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 30,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b",
+        "job_id": "dynamic_B30_seed7"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 30,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            7
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf",
+        "job_id": "dynamic_B30_seed8"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 30,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            2,
+            7
+          ]
+        ],
+        "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a",
+        "job_id": "dynamic_B30_seed9"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 37,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            4
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8",
+        "job_id": "dynamic_B37_seed0"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 37,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            8
+          ]
+        ],
+        "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d",
+        "job_id": "dynamic_B37_seed1"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 37,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            8
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501",
+        "job_id": "dynamic_B37_seed2"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 37,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "grid_size": null,
+        "starting_points": [
+          [
+            6,
+            8
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            9,
+            6
+          ]
+        ],
+        "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114",
+        "job_id": "dynamic_B37_seed3"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 37,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            3
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            7,
+            8
+          ]
+        ],
+        "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405",
+        "job_id": "dynamic_B37_seed4"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 37,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            4,
+            8
+          ]
+        ],
+        "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf",
+        "job_id": "dynamic_B37_seed5"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 37,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            4
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239",
+        "job_id": "dynamic_B37_seed6"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 37,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b",
+        "job_id": "dynamic_B37_seed7"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 37,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            7
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf",
+        "job_id": "dynamic_B37_seed8"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 37,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            2,
+            7
+          ]
+        ],
+        "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a",
+        "job_id": "dynamic_B37_seed9"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 50,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 0,
+        "grid_size": null,
+        "starting_points": [
+          [
+            2,
+            4
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "initial_design_sha256": "7a80857dafc1453b53e61cb1070a9c06a8ae0a5d547217a9056b868104db26f8",
+        "job_id": "dynamic_B50_seed0"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 50,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 1,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            8
+          ]
+        ],
+        "initial_design_sha256": "4fae7bed290eb2023e351f9fe485a34a95ecb54324af1529e02abcfee611e27d",
+        "job_id": "dynamic_B50_seed1"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 50,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 2,
+        "grid_size": null,
+        "starting_points": [
+          [
+            8,
+            8
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "initial_design_sha256": "7f52f2eedf9db9ef043928fbf4741ebab75c46d23cfcbd170c9a5bfd380f9501",
+        "job_id": "dynamic_B50_seed2"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 50,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 3,
+        "grid_size": null,
+        "starting_points": [
+          [
+            6,
+            8
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            9,
+            6
+          ]
+        ],
+        "initial_design_sha256": "7004f128c1830a0f01fee5a30777d32dffeb5dd1a61f8d6cb38e2fcef33a7114",
+        "job_id": "dynamic_B50_seed3"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 50,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 4,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            3
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            7,
+            8
+          ]
+        ],
+        "initial_design_sha256": "1b28608cf2c64c5262d4cec9f47b79c2b91e8e688a9299a4764f1a7954922405",
+        "job_id": "dynamic_B50_seed4"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 50,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 5,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            2
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            4,
+            8
+          ]
+        ],
+        "initial_design_sha256": "f5a7d5a25ec8f2b7049724d0cc416b07e2e517aaf7ac0b77ca60e0380c217ddf",
+        "job_id": "dynamic_B50_seed5"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 50,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 6,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            4
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            6,
+            5
+          ]
+        ],
+        "initial_design_sha256": "33b240d0b695620187776d5324cff79cafe571fd16e65b8c11dfe757f97ee239",
+        "job_id": "dynamic_B50_seed6"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 50,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 7,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            2
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "initial_design_sha256": "49006801623a27fefa8d6b881fc83233efc36705040ae03e325fc5b1b1d8406b",
+        "job_id": "dynamic_B50_seed7"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 50,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 8,
+        "grid_size": null,
+        "starting_points": [
+          [
+            5,
+            7
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "initial_design_sha256": "2efc57fbc8fdd6d21f86a44c00a5ab04a5e895784829ea0e81a1b2ee6a9adddf",
+        "job_id": "dynamic_B50_seed8"
+      },
+      {
+        "case_name": "dynamic",
+        "csv_name": "dynamic",
+        "max_evaluations": 50,
+        "method": "fmqa_sa",
+        "n_starts": 3,
+        "seed": 9,
+        "grid_size": null,
+        "starting_points": [
+          [
+            4,
+            6
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            2,
+            7
+          ]
+        ],
+        "initial_design_sha256": "34a7831f3b21c07f1c45c6836658aca5d6c0e0c3309732f87abdc482fc96a58a",
+        "job_id": "dynamic_B50_seed9"
+      }
+    ],
+    "runtime": {
+      "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+      "packages": {
+        "numpy": "2.2.6",
+        "dimod": "0.12.21",
+        "dwave-samplers": "1.6.0",
+        "scipy": "1.15.3",
+        "pandas": "2.2.3",
+        "matplotlib": "3.10.3"
+      },
+      "platform": "Linux-5.15.0-323.211.3.4.el9uek.x86_64-x86_64-with-glibc2.34",
+      "host": "dantzig.ecn.purdue.edu",
+      "machine": "x86_64",
+      "upstream": {
+        "bbo_via_fmqa": {
+          "repository": "https://github.com/SECQUOIA/bbo_via_fmqa",
+          "commit": "4bd0aa331cd2f996e7a0507e8fc236cf43ad4e63",
+          "files_sha256": {
+            "LICENSE": "65a269637eab5602b66d35341efe8613432d8a2706d54e61e5a7ca408c28ab5c",
+            "bbo_via_fmqa/ml_surrogate.py": "234e207dedf9f7354291fdb7e4c8427d3536c94876602174d9e9646a7835645c",
+            "bbo_via_fmqa/fmqa_simulated.py": "418617dbe318c0b0fb121dd17910adff6298deaea911d86802dc77203296105f",
+            "bbo_via_fmqa/ising_machine.py": "a8b4a30a1ca4bd34979652f0d7e554ef9a3c4a1086e7e8346e6cff3601bec3be",
+            "bbo_via_fmqa/read_grid.py": "dd2975ba2e74af8bc1643b4a374a735861a1a415eaa01ff79e27c58cbfbb62cf"
+          }
+        },
+        "tsudalab": {
+          "repository": "https://github.com/tsudalab/fmqa",
+          "commit": "51d827d1f88d602278dd0ab5e827ac4fbf8f0b29",
+          "files_sha256": {
+            "LICENSE": "cb4fce95d1b191e92a94fedd57327d16de50bb936d01d687339fc57e4331ed0d",
+            "fmqa/factorization_machine.py": "32551e390a52a1753a7f60396654ba6406c381f9d590a0a04be4ab8e8fc397f5",
+            "fmqa/fm_binary_quadratic_model.py": "b42655a47798d18d6c4c3fa5eed32ed7d065bf6f6cd28937a339abe8462ef958"
+          }
+        }
+      },
+      "lookup_data_sha256": {
+        "case_study_data/column/compl_enum_column_17_baron.csv": "a09fcb62e56a73736b96bad051c13c04132f407a247cb84a6dbbced08d42cdae",
+        "case_study_data/cstr/compl_enum_cstr_10_baron_hull.csv": "b42505bb83ce7ce92560f3cdbc16b4779b9152f026420e3d2295140c4d806df0",
+        "case_study_data/cstr/compl_enum_cstr_15_baron_hull.csv": "da4b2bc8bad04ac0678ff23e18548adda8a8f8ed36cf402f1bc5cb7935d3e185",
+        "case_study_data/cstr/compl_enum_cstr_20_baron_hull.csv": "204609481ee4860f543bdc36cf330ba07eac84590626523c6b4c6820a1adcd1c",
+        "case_study_data/cstr/compl_enum_cstr_25_baron_hull.csv": "4b60dea065c2dd771e10aa2de71279182fed3d3d915bee160029bc23f38ceff5",
+        "case_study_data/cstr/compl_enum_cstr_30_baron_hull.csv": "70f97c120f7299b70ac2978c3bf0d6fca69f7e89908e9b0385cfb95dd02ad05b",
+        "case_study_data/cstr/compl_enum_cstr_5_baron_hull.csv": "6b82e1e02fcecb60dba1b3705538d56b52528be18420f0db9d0539b55068574e",
+        "case_study_data/small_batch/compl_enum_small_batch_baron.csv": "93c1b3da9c0937e6db1cff6e19ebb8484d04d243b25463343527bd50efb0fe5f",
+        "case_studies/dynamic_case.py": "e868b892ebf19c8c1efa6d8452a1acb37f595a0b018d227506e2ebcf02c3b0af"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1"
+      },
+      "sampler": "dwave.samplers.SimulatedAnnealingSampler (local CPU)",
+      "surrogate": "NumPy CPU port of pinned TsudaLab rank-8 FMBQM; SECQUOIA training function",
+      "objective_mode": "lookup, matching original DFO; no GDP/NLP solve or cached NLP time added",
+      "cpu_affinity": {
+        "cpu": 4,
+        "physical_package_id": "0",
+        "core_id": "4",
+        "thread_siblings_list": "4,52",
+        "effective_cpus": [
+          4
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      }
+    },
+    "cpu": 4,
+    "source_sha256": {
+      "LICENSE": "1d34d50a6a4c138f091f62dc8428ad0177658a8a81758424683823673d48f813",
+      "benchmark_analysis.py": "cd03c8058cfbc965aba08a79e838fda50a5eaa5fcee504d6a7669d99b316628e",
+      "benchmark_grids/README.md": "0e24049ca2bfa7b34c3bf6366803c4129b4e93ed8fcbf7041a38cce6d34e9365",
+      "benchmark_grids/__init__.py": "223001022cd18a5f1fee5e5b8a44b04b9f74190c94dd582d64db275afae728d9",
+      "benchmark_grids/ackley.csv": "6a607107c82492852bed244357cf56a96aa347754b3e14f67b73833e6a0ef67f",
+      "benchmark_grids/alpine1.csv": "ae33130fa2fc3325c4c7e1e9112fed6bc90bfa2971b32fae022b5fd90382e770",
+      "benchmark_grids/alpine2.csv": "ff8cfd7f8ca3a8e595b9ef406b51bad46068574d126e9deb665de985f577722e",
+      "benchmark_grids/bohachevsky2.csv": "999858033dfbc7d0084923abe5246d5c6273b22f7300b79a101d49448170a291",
+      "benchmark_grids/camel3.csv": "16fc6c3f64fe31e952a072b44d19ff6984c508bcfa2509f740bcc7e80211cc8f",
+      "benchmark_grids/csendes.csv": "2b197da228ae88301368acb01e34222a6a88a0d5c215991b248c0f32777ed15e",
+      "benchmark_grids/deflected_corrugated_spring.csv": "63ed8e5447773c569d87a272d9243e1bdcecbd2d6f34e2005a9ee8784fd1c048",
+      "benchmark_grids/dropwave.csv": "5af484dd952252f35138c00720bab3f19d5ac0b6402e4e8885f22b22a0e687e8",
+      "benchmark_grids/easom.csv": "04a20282270ea465edb3cb434f97bd6030b53a0aff199837298a1a20c917d2c1",
+      "benchmark_grids/griewank.csv": "67390481014ae59ee0cddd4078bdbacba4c29bf417a8eb709da6e4353364358b",
+      "benchmark_grids/holder_table.csv": "7546c9484d35eb13341d396c80f7a9d436fa5d071710eafd51f7691b2dc64f21",
+      "benchmark_grids/hosaki.csv": "d69f02c3f1b4f3371dfca3370b566ba39aaa6863737c230141b5ede81622b358",
+      "benchmark_grids/levy.csv": "fe5b30f3fcae2f33e271a97f316117ca7e03355e30f6d612bdc1db7dff8e22ce",
+      "benchmark_grids/levy13.csv": "d577e1fa4310b19d530bfeb348a7f88bbb4561285e8ffea87f85eecb90014800",
+      "benchmark_grids/michalewicz.csv": "2a6adca0a6d7889043a086016e4fb0e5f022fccbcca03b12cf2567bfb95cc25a",
+      "benchmark_grids/rastrigin.csv": "af132657e70812320c8171a1996dd120f33eb81147cd138c1d36e9e0ccaf39c8",
+      "benchmark_grids/rosenbrock.csv": "e2e5fdee4fa872c8cd54350b3a8065d3b7167d3f18e5d0fb269a3c3f7b6451f4",
+      "benchmark_grids/shubert.csv": "79bf42e84bd8ab312a7ba7a6b58d4f9d49922e328604c07073d02d101ec146b3",
+      "benchmark_grids/styblinski_tang.csv": "6000c3e54804f1e87bf1b9dd4f9082028e958c6f95d89d0a3e651218f4a5906f",
+      "benchmark_grids/sum_of_squares.csv": "f821c40aee52d021768e73cc4a383267cfac44a9657ae6bf1db12b59c766e0d3",
+      "benchmark_grids/xin_she_yang3.csv": "f96827c10578a16a8b7c5bbcbe7445e17762d1dc0705175b9fa6edaefe2d2d0d",
+      "case_studies/__init__.py": "d3ff975baedf47284869c6a0a218035d6f9b806c344086f0a13b26c3dd445217",
+      "case_studies/column_case.py": "3af0083358ba622491960fc49460084e0d2b814072fda8a78715d74e87608d2c",
+      "case_studies/cstr_case.py": "a106f4eee73160289ab984e99a953a13f95b2bfc6eabf38006336aec6be7889d",
+      "case_studies/dynamic_case.py": "e868b892ebf19c8c1efa6d8452a1acb37f595a0b018d227506e2ebcf02c3b0af",
+      "case_studies/small_batch_case.py": "8d1033c6664b024c19163a948269c0358b71e7ccef338944f77ac26116bcfc4b",
+      "case_study_analysis.py": "35f947bf5d4276713401673cfac1d083fda8b878e968bf83493f4a4e4ddab2e2",
+      "case_study_data/__init__.py": "ed4607b6bc6d8a9bb9bfa514b712e471512e621a88536cd806ec9d940c0be78a",
+      "case_study_data/column/__init__.py": "6a1fe0a3c2f71866350b31a42d89dcdbb4f2eff5c04666a93cc12e92adf655ea",
+      "case_study_data/column/compl_enum_column_17_baron.csv": "a09fcb62e56a73736b96bad051c13c04132f407a247cb84a6dbbced08d42cdae",
+      "case_study_data/cstr/__init__.py": "022a48f9dc41f07dfcb59ff5774ab2216a2a6f902dcee4185f9be9cfc45d548f",
+      "case_study_data/cstr/compl_enum_cstr_10_baron_hull.csv": "b42505bb83ce7ce92560f3cdbc16b4779b9152f026420e3d2295140c4d806df0",
+      "case_study_data/cstr/compl_enum_cstr_11_baron_hull.csv": "2dfb74962d5c133a00997923d2122f35ef2918b6802486fa4eaa6658f9b5e835",
+      "case_study_data/cstr/compl_enum_cstr_12_baron_hull.csv": "6b58cd03734a8a356427fe15522db4710446e54de2410816cbe6d80b741daf22",
+      "case_study_data/cstr/compl_enum_cstr_13_baron_hull.csv": "abf38db58a73ebf671ae3c3a4e64f64f27dd465f2a8f83be5317cbc0990c6a8b",
+      "case_study_data/cstr/compl_enum_cstr_14_baron_hull.csv": "8131bffe392b908b9b68ea5d7718b961ca1394d5c26176c896e4a4f281282140",
+      "case_study_data/cstr/compl_enum_cstr_15_baron_hull.csv": "da4b2bc8bad04ac0678ff23e18548adda8a8f8ed36cf402f1bc5cb7935d3e185",
+      "case_study_data/cstr/compl_enum_cstr_16_baron_hull.csv": "6a115f3150be5b2d20542e353130d0dc2a97c06aa19e77e923d7ce3b3564fa59",
+      "case_study_data/cstr/compl_enum_cstr_17_baron_hull.csv": "e7bc8f344d305460a4523af9cc17e7df97fbbe12ea9c316d2642b3252526f31e",
+      "case_study_data/cstr/compl_enum_cstr_18_baron_hull.csv": "ba8abf4e5b35421004e7abac103ad08ef4e8c5609ee6a2788531ee61e3d76d4a",
+      "case_study_data/cstr/compl_enum_cstr_19_baron_hull.csv": "0fc1f04747db273b6ed87101b984f98e6bd537d20a4fdd5c6c633c14a36ba077",
+      "case_study_data/cstr/compl_enum_cstr_20_baron_hull.csv": "204609481ee4860f543bdc36cf330ba07eac84590626523c6b4c6820a1adcd1c",
+      "case_study_data/cstr/compl_enum_cstr_21_baron_hull.csv": "7d1cf171f15f79857fce37d5f4941c2d4d27590f8be587a48ad990e1100b0597",
+      "case_study_data/cstr/compl_enum_cstr_22_baron_hull.csv": "16c69b78cf4f8e1dcdd38ab60f914fec6d36ae382fae9d15fcb82d7e16560956",
+      "case_study_data/cstr/compl_enum_cstr_23_baron_hull.csv": "366216c8d908c9b8f9efa295fa6ad3debbfa71fbebbe5afcc48a7b679059d9ac",
+      "case_study_data/cstr/compl_enum_cstr_24_baron_hull.csv": "4365d94935a11d542f9644c0655f7dcc4945b6c0b01f539745d57f1979b8af7e",
+      "case_study_data/cstr/compl_enum_cstr_25_baron_hull.csv": "4b60dea065c2dd771e10aa2de71279182fed3d3d915bee160029bc23f38ceff5",
+      "case_study_data/cstr/compl_enum_cstr_26_baron_hull.csv": "05d7fea87ae464b42ef058aa7e4e254e8661e124a9ce23c1ff14a9758b92c793",
+      "case_study_data/cstr/compl_enum_cstr_27_baron_hull.csv": "cdc50adbeca2c39361fc86eaced7432bd358b239b3a26ee89bd53319c066a241",
+      "case_study_data/cstr/compl_enum_cstr_28_baron_hull.csv": "f0f2407e9c2bb8f78a67a35d946270bb030214cb475bb0c9b84a286e16468c1c",
+      "case_study_data/cstr/compl_enum_cstr_29_baron_hull.csv": "bf6a4c03a9745e1e5cab68627dc7ae3140f86a700fa5e96cd82fc563fc8ea2d3",
+      "case_study_data/cstr/compl_enum_cstr_30_baron_hull.csv": "70f97c120f7299b70ac2978c3bf0d6fca69f7e89908e9b0385cfb95dd02ad05b",
+      "case_study_data/cstr/compl_enum_cstr_5_baron_hull.csv": "6b82e1e02fcecb60dba1b3705538d56b52528be18420f0db9d0539b55068574e",
+      "case_study_data/cstr/compl_enum_cstr_6_baron_hull.csv": "eb23a86221164a9ad30c56080c6a964c507f5c5f35dbf28947e0c11c4b45bad1",
+      "case_study_data/cstr/compl_enum_cstr_7_baron_hull.csv": "42476d1551d366afff520414c30514018e715933748a172d23f066584ae1c820",
+      "case_study_data/cstr/compl_enum_cstr_8_baron_hull.csv": "2381342e1e58c26310e69ae4e238d96f1a62b8d85e3d314bc502a20385b2d725",
+      "case_study_data/cstr/compl_enum_cstr_9_baron_hull.csv": "c0c1d75b13d724e1228bb3b5d1feb31d1033ba7b16bfed1afa759140bb8a14ea",
+      "case_study_data/small_batch/__init__.py": "7ef5b4d1b7c9c0babc445ae8ec34fda0b15182f1337e6a4bb990489d4b29f5cd",
+      "case_study_data/small_batch/compl_enum_small_batch_baron.csv": "93c1b3da9c0937e6db1cff6e19ebb8484d04d243b25463343527bd50efb0fe5f",
+      "cpu_affinity.py": "fc6470e8db52df68935abdaa5ebe76602a1c7917d08b4ca35760a042aba73b60",
+      "docs/dantzig_cpu_rerun.md": "3157ab430091bcb0998768b02b174959484583688f4a50eec2fca25a142b2182",
+      "docs/fmqa_benchmark.md": "6b3251554f587950fbf89d8f901be613048c962078a805381358193530dddd2e",
+      "docs/fmqa_grids.md": "bf89eabc58fcd613adbe88a8edcfa3ffd97e91deaabbf92d1efde71235c011c9",
+      "evaluation_trace.py": "446af7d5548aa60fa9c56750be5cb584cd3baef50073048e93a80f9c9a5abb85",
+      "fmqa_benchmark/__init__.py": "8d3a0431eb274407dadc4063c0660598abf738169911673b0dc608962ebe32bc",
+      "fmqa_benchmark/grid_protocol.py": "bc71c3a3acaefc3f64fa44a8a16141af297208a6b56e44dafcf85c0ebea195ae",
+      "fmqa_benchmark/optimizer.py": "98116708aba935b15f32b1169f7e6ceee5d469552c4e7bda833eb5cc170ddc53",
+      "fmqa_benchmark/protocol.py": "48f9479ca49adb0a74d731dce1351a1f48f029846278aec9789536e37d614e8d",
+      "fmqa_benchmark/reference/bam5-version.json": "67779a3b38dceaf1ce8576a2037746b3b5619e3211e8f3792bdbf826f7a427f9",
+      "fmqa_benchmark/reference/bam5.csv": "1226a56693da65f85588160576713e2166ec715caea3e2ca91a87487f2a6971f",
+      "fmqa_benchmark/reference/bam5.manifest.json": "5756c8add71edf9c27b1fda0fcb2e30d514d4e59ffb51ab66e74945b7dee2be9",
+      "fmqa_benchmark/reference/grid/bam5.csv": "b518fe860ea8a11bfc8226c94497fb5c8f29a56c31c2004c8c68ef59025e053d",
+      "fmqa_benchmark/reference/grid/comparison_audit.json": "05a14d26efa9288c27b10685736585942d313d45714f16ffa8286869afea7d43",
+      "fmqa_benchmark/reference/grid/original.csv": "06c90d8885f0792322d8c3bc941f8c3a83c5bb6cdc4d396d195f554b8efdfd6e",
+      "fmqa_benchmark/reference/grid/reference.json": "9e673a34f6ff5b82f09ca78aa1612c7b34635968e784954cc55f503351fec0e4",
+      "fmqa_benchmark/reference/initial_designs.json": "7e66915534046c51ab801460c182f89f99fad1c136e0795e23a5ef34e32bd699",
+      "fmqa_benchmark/reference/original.csv": "97c554d05cc7624203578bcc4496c77f6f3a04f7b25cf5cb8892611628d1bba6",
+      "fmqa_benchmark/reference/original.manifest.json": "12f4f9e2ae7594d116dfccb0036c530d8fa5ee9da18d4345ae4891799e741021",
+      "fmqa_benchmark/surrogate.py": "e8a7da7d077daed7981d730f80ca178e2bdeae344f734ab9d0710db54eb6321c",
+      "fmqa_benchmark/vendor/bbo_via_fmqa/LICENSE": "65a269637eab5602b66d35341efe8613432d8a2706d54e61e5a7ca408c28ab5c",
+      "fmqa_benchmark/vendor/bbo_via_fmqa/bbo_via_fmqa/fmqa_simulated.py": "418617dbe318c0b0fb121dd17910adff6298deaea911d86802dc77203296105f",
+      "fmqa_benchmark/vendor/bbo_via_fmqa/bbo_via_fmqa/ising_machine.py": "a8b4a30a1ca4bd34979652f0d7e554ef9a3c4a1086e7e8346e6cff3601bec3be",
+      "fmqa_benchmark/vendor/bbo_via_fmqa/bbo_via_fmqa/ml_surrogate.py": "234e207dedf9f7354291fdb7e4c8427d3536c94876602174d9e9646a7835645c",
+      "fmqa_benchmark/vendor/bbo_via_fmqa/bbo_via_fmqa/read_grid.py": "dd2975ba2e74af8bc1643b4a374a735861a1a415eaa01ff79e27c58cbfbb62cf",
+      "fmqa_benchmark/vendor/provenance.json": "52bea4d0c07af5bd27680eb872dc200e8904fb5af14cc7b1fb9e558e8e75c856",
+      "fmqa_benchmark/vendor/tsudalab/LICENSE": "cb4fce95d1b191e92a94fedd57327d16de50bb936d01d687339fc57e4331ed0d",
+      "fmqa_benchmark/vendor/tsudalab/fmqa/factorization_machine.py": "32551e390a52a1753a7f60396654ba6406c381f9d590a0a04be4ab8e8fc397f5",
+      "fmqa_benchmark/vendor/tsudalab/fmqa/fm_binary_quadratic_model.py": "b42655a47798d18d6c4c3fa5eed32ed7d065bf6f6cd28937a339abe8462ef958",
+      "fmqa_benchmark_runner.py": "b8807fa151b71ac87eed6cf730702cdb2398122721da7c4ef16f25bab02c3eaf",
+      "fmqa_compare.py": "3b303be46a9d80bb6b98b5d96edf1dd002cb72234eaae59ad094d8165b070e98",
+      "fmqa_grid_benchmark.py": "6f0d3db8dbb4c56a0695218706e64d9cfa5c71fc34d22f1f3598640b5d9f3a76",
+      "grid_dsda.py": "7873a2344eb9b40e9bc3f35354448494e9d8230d0879377e8934fa2cc517a77a",
+      "instrumentation.py": "df049a54b7d0a8846df2ddede6d3ba0dfe43f5c7715fe9a948e856637a8ea46c",
+      "requirements-fmqa.txt": "10e20c05df2d280a17bc395233a1d5fdca8b99f206a8b1b0aeef0b182b6886e5",
+      "timing_analysis.py": "5f8c8267f55a86d3dd06a1532d2f951e2ff2636817dde51b67f5c986bfb9f44e"
+    },
+    "created_utc": "2026-09-25T17:41:50.203292+00:00"
+  },
+  "artifacts_sha256": {
+    "jobs/column_B16_seed1/evaluations.jsonl": "f8d5e34d9aaa0af44138effa918d133ff1a08d9e62022215f810c35092494e4d",
+    "jobs/column_B16_seed1/proposals.jsonl": "506e317cece232957ef0dd909549acc1df1f32cce6232ab8b801a01d8245c181",
+    "jobs/column_B16_seed1/result.json": "98ce31ee09e05b116b85d479acc7d7fbd5b6f56ea259a85044c113e268c556aa",
+    "jobs/column_B16_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/column_B16_seed2/evaluations.jsonl": "45dccce972ff7c9937351da807c77ef0b20da03928fe3892f135de02a730d163",
+    "jobs/column_B16_seed2/proposals.jsonl": "2de71d6f3c440b78c9da14c6b0547b4ce0c5c94eee0c46d0ea1ba7750f45b8f4",
+    "jobs/column_B16_seed2/result.json": "5e1a0e5454c8bbf87d4ef3d108f268cc84b66ecd1389d22187e1423dffa17084",
+    "jobs/column_B16_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/column_B16_seed3/evaluations.jsonl": "16c7286710deafe4614d019c49d4fbbea0f7d13e89e44fa367b8a42bbbbaa994",
+    "jobs/column_B16_seed3/proposals.jsonl": "029ba663c9d046650964492db02c215dcbe758a31e2ea5891596cf9639cb7f6e",
+    "jobs/column_B16_seed3/result.json": "f95cbc95a30678a3cbf531e83bf6571d3f498dac0942eec568a855588b907249",
+    "jobs/column_B16_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/column_B16_seed4/evaluations.jsonl": "639fb17a14851c044bad0b18cdbcc46f4bd7307ddfc8f08f765674ee9d669bbf",
+    "jobs/column_B16_seed4/proposals.jsonl": "bddea5be06601206047aa2a6a9fca187feb71443ec442a1e916642f64322f1de",
+    "jobs/column_B16_seed4/result.json": "b984345a0d617c98888b3ab3360e29fa0a07f8cabf235552074878d953cd533d",
+    "jobs/column_B16_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/column_B16_seed5/evaluations.jsonl": "b9a9f1909bb0f2e36df02b5794162ee8cc2f4b36206a5a5ad49ae4ae6f7ed7f3",
+    "jobs/column_B16_seed5/proposals.jsonl": "5818b1c37e9ff2abf086d90c668bb2c9ef4cb575a9b1637fc21736a3be7cd51b",
+    "jobs/column_B16_seed5/result.json": "cfed9d735fc6655ec96038b2fc7394c50aa124820e594f5637968acef18d0aa5",
+    "jobs/column_B16_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/column_B16_seed6/evaluations.jsonl": "49664f040c7f83e7f1977003b3ce920b5a917d6e2076b890843147ead59c9d17",
+    "jobs/column_B16_seed6/proposals.jsonl": "f1fe04015e14728000fe989bb023822649aa2882636137bcb86d0144587c1666",
+    "jobs/column_B16_seed6/result.json": "06f0e840cdfccb1cc296ea8fff3b17aacf2fb6f75d45c1281220e189c309e8f4",
+    "jobs/column_B16_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/column_B16_seed7/evaluations.jsonl": "786db126c6f7757636e4bafe5b8580b3e23dc63fc2dccc1b69f39d8fc56c1d6a",
+    "jobs/column_B16_seed7/proposals.jsonl": "2f82dc4256519fbf2c9c69d46912c203a54c0116ea85341a739c2475ecad5349",
+    "jobs/column_B16_seed7/result.json": "aef554838c44ff29fca796b9660be4d5c92e6199a2ae3dce3c78d1a7a375983b",
+    "jobs/column_B16_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/column_B16_seed8/evaluations.jsonl": "3c68cbf371616da635dcded550b2c287fde5c829ba92cf77702a647502d3ffa8",
+    "jobs/column_B16_seed8/proposals.jsonl": "e9157aab12ae95fb951e1d11f3acd9c3c2b1082b68787727e30e97eaffb2a8f5",
+    "jobs/column_B16_seed8/result.json": "9687f93d3c8cd366cccb76ff6e65bd918915505be2ae5b5ed781e2ddc32682cc",
+    "jobs/column_B16_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/column_B16_seed9/evaluations.jsonl": "4d9626771295c9a10145538726f8f64e6266492b5deb5ba8c4163a98fe8b1394",
+    "jobs/column_B16_seed9/proposals.jsonl": "8fa1061e1375f2c8aeaa93ddf734d412287004c5d67103d78d8ffdc3a13ce776",
+    "jobs/column_B16_seed9/result.json": "60203fb8c79ce1bce3025a62cc76085ee2f89919e957b40f3b7cbdf190cd5dd0",
+    "jobs/column_B16_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_10_B15_seed0/evaluations.jsonl": "bab0b4a4b7df1b9af446baa4b33ddaa939972929305816c38995caaee11d5c42",
+    "jobs/cstr_10_B15_seed0/proposals.jsonl": "83929df8aa5c625f566c9c3cbe31ebe4c5eb0f4d756e4acd79de91caa605e403",
+    "jobs/cstr_10_B15_seed0/result.json": "cc8c58c079a9c59669761444299d6afe022bcfe12d4abfd4422c6365f9d968bd",
+    "jobs/cstr_10_B15_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_10_B15_seed1/evaluations.jsonl": "f3ac8bd430eed5198c42a76a5a72f3ad9ab6b150e3e7bf08e679f02b29f41f21",
+    "jobs/cstr_10_B15_seed1/proposals.jsonl": "1b1e96cdc35bd4de2dc73f54deb80ae26ab2f72f768f574f5e934c3e19fed868",
+    "jobs/cstr_10_B15_seed1/result.json": "1c86d35218c7343e9241cf7eb92904148f112d81fc09f1be97d99cbeb0b2e594",
+    "jobs/cstr_10_B15_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_10_B15_seed2/evaluations.jsonl": "fb53d35d08a16c6fd48c8034ac758a16ec9179fd7844bf7797b108cca9b05016",
+    "jobs/cstr_10_B15_seed2/proposals.jsonl": "6edf560611b8616c5bd590e0b95b336d5c904bf5b365da2a3915c0f34a851236",
+    "jobs/cstr_10_B15_seed2/result.json": "d370aef53d737b676009fab0aa0d2ea48cd6850e70c4d29e68391e494ac41608",
+    "jobs/cstr_10_B15_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_10_B15_seed3/evaluations.jsonl": "784829582407358d2741de76d3d4b76c4606aef8ec3af69dd0b20ca2edf5f877",
+    "jobs/cstr_10_B15_seed3/proposals.jsonl": "9acd843ddac8e68adf8510f26edfed3f3285d740b0fb2ccad41e13ae9fcfca47",
+    "jobs/cstr_10_B15_seed3/result.json": "ae154346e47c8790a4febe3cff9e5d47ca275074484faca131d01acc2bf24031",
+    "jobs/cstr_10_B15_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_10_B15_seed4/evaluations.jsonl": "5aa4e659383616ddbd6288faf40e5e994d8bb43ed247b9d2bba6218035e9d02a",
+    "jobs/cstr_10_B15_seed4/proposals.jsonl": "93ccfd40c63d3799a15c07c43c37880c18f4532ef5bab3165a160616fafbf5ab",
+    "jobs/cstr_10_B15_seed4/result.json": "16f331600c8457fba5dbbd50be922b133bf675f6bab280c4e55308ba532cf2de",
+    "jobs/cstr_10_B15_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_10_B15_seed5/evaluations.jsonl": "6a2dffca4d18ed1f9e7f1d8b9a6a35088b2cc49a0f54021189bbbb90af086b36",
+    "jobs/cstr_10_B15_seed5/proposals.jsonl": "1a0b91b65ea5f4f1a0ef86353f163f8d9177d3c53e4a827756870568f095830c",
+    "jobs/cstr_10_B15_seed5/result.json": "6b566c1f86a3ea6cf757d0a2130b6056f6887d4a5864d7e1c6bb4ca07d3c1ecd",
+    "jobs/cstr_10_B15_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_10_B15_seed6/evaluations.jsonl": "94a72fcd18a085c8abcfdc3bac9ba33784a88ad65a1d4d8cf9acf200cdc2acf5",
+    "jobs/cstr_10_B15_seed6/proposals.jsonl": "d8e8a8400c65915300b21769ed517c88ff896083b1e43f801692d309e6deea12",
+    "jobs/cstr_10_B15_seed6/result.json": "1bec8e00ccc613ce98ecc300d984f3ec9316e2e8c374a88561029a6008d86282",
+    "jobs/cstr_10_B15_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_10_B15_seed7/evaluations.jsonl": "fcaa40d9b4c3bb9f199cb02825d1fefc357f0aa7602887d03b9849d7737be220",
+    "jobs/cstr_10_B15_seed7/proposals.jsonl": "a0c7bed1d9cbf1ca219e03ba6cc0dae558beffe98af17354e6bb8c87dc853670",
+    "jobs/cstr_10_B15_seed7/result.json": "a01625cfb889daac229c802b8453c01f8212ba788f1ad03cd4a0c9b4dc09a0fd",
+    "jobs/cstr_10_B15_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_10_B15_seed8/evaluations.jsonl": "08b4d64d4edd370457751cda6c1092c0d1dcae0e19b4621e29c6bb547e56ed12",
+    "jobs/cstr_10_B15_seed8/proposals.jsonl": "c3a6be97f0da390b978fed0260e0c6ee2f11848b4348b827c040bf6105e86fe0",
+    "jobs/cstr_10_B15_seed8/result.json": "e69257a583d10014c74497e5275b98f938462adb2e46d1d6fdaa7d33c3b35264",
+    "jobs/cstr_10_B15_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_10_B15_seed9/evaluations.jsonl": "19521b7ffb3dc306498b792a9bb4a7e2ea3750af6ef9a965cbf7553ec11ea801",
+    "jobs/cstr_10_B15_seed9/proposals.jsonl": "51d31bcce9ee13f795da349ce1edf83baf4d222b23198c6a56713448cdfa3583",
+    "jobs/cstr_10_B15_seed9/result.json": "2d95472927a84b8d838bd54ea0b4c8d4321c816ba419730a124f3ee8abff56e7",
+    "jobs/cstr_10_B15_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_15_B22_seed0/evaluations.jsonl": "fc1c2206c65303bb455f33951114459c0a0ffcefc26765d507f35141e24a835d",
+    "jobs/cstr_15_B22_seed0/proposals.jsonl": "cc4dc9ce015633ed13a0cefde8219e6e069bc3add67e067251fc337570d42786",
+    "jobs/cstr_15_B22_seed0/result.json": "19413ddfab701337a804b49ef6748cdfea3b5a5e82958a9cded1f01b01aa5858",
+    "jobs/cstr_15_B22_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_15_B22_seed1/evaluations.jsonl": "b8514093fbe3026b9ab3ca2f07a8515c09061888fb54af33e0af6e870aa2ed37",
+    "jobs/cstr_15_B22_seed1/proposals.jsonl": "fe108924434699c23ad7bfa8a332aed51b1428652a043d7d065b8ed3f9519f6d",
+    "jobs/cstr_15_B22_seed1/result.json": "075abb262411f1da43f5d1ba4006a5ae0de7cb28396d1e4bac854af2953d1240",
+    "jobs/cstr_15_B22_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_15_B22_seed2/evaluations.jsonl": "00f37886eabe16e7deb4904aae0292ff2a99a7713c16bab4d0245f58bfe0af1e",
+    "jobs/cstr_15_B22_seed2/proposals.jsonl": "d1a70cd70fe7638527958c7b0ab17b42ce97f2e511eb12dcd77804e5e96886f3",
+    "jobs/cstr_15_B22_seed2/result.json": "076efa776d72b8f0e3ac3f89906f9a03db8f82cbee59aa104560876d46c9b68d",
+    "jobs/cstr_15_B22_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_15_B22_seed3/evaluations.jsonl": "efc5bd89a95617f9d354ab7e382faa929b67ee21166217b5ba625c37f7b88551",
+    "jobs/cstr_15_B22_seed3/proposals.jsonl": "cf294bd65b080beed760affbe05de2785151989db4b90c0d81af85d88a122e41",
+    "jobs/cstr_15_B22_seed3/result.json": "7b524aeb120ff7c62b9f06f5ab6d7c0e15c9649486266e52f5064f01d3b74f18",
+    "jobs/cstr_15_B22_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_15_B22_seed4/evaluations.jsonl": "f49799cb62197247b2ed1e52ef176e213c8b2556e4a330fee9745ac160405bf5",
+    "jobs/cstr_15_B22_seed4/proposals.jsonl": "3e0fe9ee83e442cbe274ed86b55ac162530346ad5fae2fe5e7ce3254663a972f",
+    "jobs/cstr_15_B22_seed4/result.json": "7821b4611df6bddd1b00cf60d9839aec6295951b94948095acd814ee78295ffb",
+    "jobs/cstr_15_B22_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_15_B22_seed5/evaluations.jsonl": "8ca329cb004335c73a47f551023f8c270ac528ea8ba92e3e4b27e7e17bf7bb4a",
+    "jobs/cstr_15_B22_seed5/proposals.jsonl": "a60ba562361c3884f33d3766534651fc59b7ee2d4fcb004f671fe805ddb3bf45",
+    "jobs/cstr_15_B22_seed5/result.json": "3cd4cf2f47ba9f0ac6c452f956c40f200b64d36e1339276ce77d3b4c88c8b1c8",
+    "jobs/cstr_15_B22_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_15_B22_seed6/evaluations.jsonl": "e7c558f82331914a4a7200cf12f48f53f07e0a69d159a25d523dc03c97933d03",
+    "jobs/cstr_15_B22_seed6/proposals.jsonl": "dafde9c4cd79ecfd5c588a8673072a5948f051d17e926c625a32afa6e8663f03",
+    "jobs/cstr_15_B22_seed6/result.json": "5f5ed7890621c2dfbbc375f3917473c9d19167de652f23ae6f10fe574233b4c2",
+    "jobs/cstr_15_B22_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_15_B22_seed7/evaluations.jsonl": "1753afb3e43c2939659240e23e57843301ca38a1253ea32ff145a630e6276948",
+    "jobs/cstr_15_B22_seed7/proposals.jsonl": "d36b68fe7fb59433ead65330b229bdb3ca2cdcb93444c6148358119e90d6158c",
+    "jobs/cstr_15_B22_seed7/result.json": "62a7a5e3814c3c8c70ba8cb20a9f8ceacce2cf0bce0dad284e4066e2b996a6d9",
+    "jobs/cstr_15_B22_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_15_B22_seed8/evaluations.jsonl": "db5ccc7689dfa4f901ad79207d9d623dc97db409fc67094c799e24b350ac7b2a",
+    "jobs/cstr_15_B22_seed8/proposals.jsonl": "5cd2f9d0d7251e11f012c8d39ddc8ffd482aa4ad4e6eb801981fbc9c725d53d6",
+    "jobs/cstr_15_B22_seed8/result.json": "0d58f8179dfe7429b90c394b3535293ca5ee86c199618adf995b709e9b8a925d",
+    "jobs/cstr_15_B22_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_15_B22_seed9/evaluations.jsonl": "99268ceddad07e09b0e62f13237bcfd3d8248af8714a4b959ca0816810f5a844",
+    "jobs/cstr_15_B22_seed9/proposals.jsonl": "8fd4f6580b3ac1a0498ef4a6ab62f1707d83a7459c3c568ce195534319a5144b",
+    "jobs/cstr_15_B22_seed9/result.json": "640d06d7092b024d7b5ab8aef776712b8b6e00fb20daeca602f2ff95673e0c63",
+    "jobs/cstr_15_B22_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_20_B29_seed0/evaluations.jsonl": "9fda296745984936c31cb5532a9f07266a3a1f3cf4b2bb8b36edc9a741630221",
+    "jobs/cstr_20_B29_seed0/proposals.jsonl": "510fc27d728cee7abdf550c01c324f3fe851aa23473e427ba473acbf448f217e",
+    "jobs/cstr_20_B29_seed0/result.json": "3639456b544a69591ddf57f3677871ad61a3e5da4a1ad2565a1bf840b1d90e44",
+    "jobs/cstr_20_B29_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_20_B29_seed1/evaluations.jsonl": "e2f77d26e0444f1f81e7ce0b80795e0b204a1725b1b485bd4d3518783205881f",
+    "jobs/cstr_20_B29_seed1/proposals.jsonl": "4a40a9de0bcc08ab10ad0cf7d6bfb1a4bb298fe70b6a37504074946d875e837b",
+    "jobs/cstr_20_B29_seed1/result.json": "f2b3c410708477d39a2adca3c9b0fc5ee21404087daab29da6b64a36d65dd1c7",
+    "jobs/cstr_20_B29_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_20_B29_seed2/evaluations.jsonl": "e191d0f8409f4967c6489c1c3115bd3cfe3dfe64491b95ea40015278e09e1adc",
+    "jobs/cstr_20_B29_seed2/proposals.jsonl": "7358133b115d8c27e26d659ec696a5a8a104f4b4f555f4afc16d42e6e1866973",
+    "jobs/cstr_20_B29_seed2/result.json": "b9cd1accdf4374ec890d1e9fe897e1657d0be95f8eb8cc4db1a0fe8aa24f6dfb",
+    "jobs/cstr_20_B29_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_20_B29_seed3/evaluations.jsonl": "e674aeb0ad307bdfcf9470e49f038d4292a810d43a54e6ae299ea00a26456150",
+    "jobs/cstr_20_B29_seed3/proposals.jsonl": "a1ca65306fd38c4e5aad58de934254a371523a7a1c47299f690fac84af65c571",
+    "jobs/cstr_20_B29_seed3/result.json": "12c359fa73d48ce47fb5fa60e3614e26ee10a1fd05f839132d1c0c482ac0c34f",
+    "jobs/cstr_20_B29_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_20_B29_seed4/evaluations.jsonl": "ed4a945ecb23fbec6a1f1a3f61931f28fe195c8318dcdbbffb2f30e8ba814124",
+    "jobs/cstr_20_B29_seed4/proposals.jsonl": "2b97a70930ba42558b0c2def6cd2fe446913592bb228b0098d727e482fcf59cf",
+    "jobs/cstr_20_B29_seed4/result.json": "e6ab43c3f98ccc4e4744aea2a676f424f0fbe1bd52d892948f6c297065504b41",
+    "jobs/cstr_20_B29_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_20_B29_seed5/evaluations.jsonl": "d0b60de8e0337fc985e7b7e67697e00792d85ee464b552f51acd226f7695235e",
+    "jobs/cstr_20_B29_seed5/proposals.jsonl": "bcfb6c69cbd7c4667614e043b592cce938df962411479d51d0240eb30646feca",
+    "jobs/cstr_20_B29_seed5/result.json": "56493441f5635ba80cc3ad40f791fcb334dee346102fe6e8ea5c8721fe7e37f9",
+    "jobs/cstr_20_B29_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_20_B29_seed6/evaluations.jsonl": "fbc388e90d2792fe91a12d4dc046092652841220c5517e7ff17b4714b55654f4",
+    "jobs/cstr_20_B29_seed6/proposals.jsonl": "d5309c1028c95bde8fe5f36f1a39925d389c4e78dd80be6cb6dac28151a663f0",
+    "jobs/cstr_20_B29_seed6/result.json": "4f982c7e29ce213c07fb9f0ebc6c6b788f1fe016df8328b4b95fcaa459b6974a",
+    "jobs/cstr_20_B29_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_20_B29_seed7/evaluations.jsonl": "1a85fb7ed32b3061aab622802e549fb6be7139bea78ee69671cf9bc1e33d424d",
+    "jobs/cstr_20_B29_seed7/proposals.jsonl": "7d4f1ae326ad36e07642cf155b06b082ef3ae18a2c8efa1d3b7af4e153240a49",
+    "jobs/cstr_20_B29_seed7/result.json": "6960585eaac0f1d43f2ded74bd67b0b129c444df599aebe405d9bc0edc65f9f7",
+    "jobs/cstr_20_B29_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_20_B29_seed8/evaluations.jsonl": "2565075786c2aaf01b68313fa1685d49a2ae46d3e790a383336a284d43ad420b",
+    "jobs/cstr_20_B29_seed8/proposals.jsonl": "a234f74ec8deb6ad140de80f38d8d094187ea7f4971c034be38033104840b9c1",
+    "jobs/cstr_20_B29_seed8/result.json": "cb7904dd2d2d316cdb3d4cb730eea63b0b2fd2bc0d5a0450ed9efa989e3cb81d",
+    "jobs/cstr_20_B29_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_20_B29_seed9/evaluations.jsonl": "30157bb4554a0e1d4892952f87474fcaa5bd1a6115878a5350733c5034c0fca4",
+    "jobs/cstr_20_B29_seed9/proposals.jsonl": "7883b7af0dcfab883437c99dffdfb414c41fd009656c130d8321e02e501609bc",
+    "jobs/cstr_20_B29_seed9/result.json": "fc8c6c35da86fcada905ba58f6727ae46b1f8405998d1b0e04b548d7347cbee1",
+    "jobs/cstr_20_B29_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_25_B36_seed0/evaluations.jsonl": "c080b45e74ded975fe55b90cf47e14733e777dbc30d5b1d0149428cb14448c0f",
+    "jobs/cstr_25_B36_seed0/proposals.jsonl": "feaa783bf10a5e36215baf5a7370a84f28c94c5b0b70b18912d3569313755e19",
+    "jobs/cstr_25_B36_seed0/result.json": "dcd8ea5e29907a61931a6e62c2926f2b451306d0f7d4527e8642ab9062e86ab8",
+    "jobs/cstr_25_B36_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_25_B36_seed1/evaluations.jsonl": "5491a2e35d4d20c16d4abaec5ba3b82b40a56c4086b6fccbbda2ab34cccd9dab",
+    "jobs/cstr_25_B36_seed1/proposals.jsonl": "742d402c95e109c31174e222273ef95146bdc31ae8a497d3e010ec9ed3de0cb7",
+    "jobs/cstr_25_B36_seed1/result.json": "a4618b99461296f65aae6a0e6fded0cd403985594f2deac36227410852494f52",
+    "jobs/cstr_25_B36_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_25_B36_seed2/evaluations.jsonl": "2dfe03dc025ca37ac7d5f6775082caed9e050c11409e5b6abfd7df87bc8b3c86",
+    "jobs/cstr_25_B36_seed2/proposals.jsonl": "00720d3fb0c5b399bd22c928b824dfc2e2a12c793f230e3b1cf76b55871f8a05",
+    "jobs/cstr_25_B36_seed2/result.json": "cf9d25eb10eed614a7de1cf3343fb79896f670129c418ec016ab77eb9b78ff21",
+    "jobs/cstr_25_B36_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_25_B36_seed3/evaluations.jsonl": "8ecfd5ce7287aa831f482c7922f3a07aa96e154a94fe01bbadc348a3a7fc537e",
+    "jobs/cstr_25_B36_seed3/proposals.jsonl": "c398c8cc4bda65048b952ba2ddbb575caa6605a1ab7c2301f16ea5a74a7bb5b9",
+    "jobs/cstr_25_B36_seed3/result.json": "0d72f72cbf6ce28004f8ff4056ec7acb51f2526b4d22c8c77f1ceb87d11f89cb",
+    "jobs/cstr_25_B36_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_25_B36_seed4/evaluations.jsonl": "127b8a706c34b1b1a41c2cd26c43f1ea4ec281d1c815239bca7977e0e843ba34",
+    "jobs/cstr_25_B36_seed4/proposals.jsonl": "9978cd73727815138c89509ca1157f7dac2e543f80c1de388d05f313571b4e03",
+    "jobs/cstr_25_B36_seed4/result.json": "f67bee49525a5950e039c09bf431a4534b9a7e2699f9edbd62cfff23ad8a31f0",
+    "jobs/cstr_25_B36_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_25_B36_seed5/evaluations.jsonl": "e799253d798318c7564df8b75e53360447b3b3e3bb568648d7453a5ee96c3b1c",
+    "jobs/cstr_25_B36_seed5/proposals.jsonl": "90bb9bf31407723415584742615aec70deb2222a57737c450e418f5c70408aab",
+    "jobs/cstr_25_B36_seed5/result.json": "cab38cf965debdf47ee735936cdb376ba32a7cdb22f27116ea1e843c29999e38",
+    "jobs/cstr_25_B36_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_25_B36_seed6/evaluations.jsonl": "6576fbf5eb496dba41e6f2e17ea45aab6435ae0884bddaea3dccf1e3d08da0cc",
+    "jobs/cstr_25_B36_seed6/proposals.jsonl": "48e8ab248a52ff038cb3d163438bb590f929d7b1bcf6066840f48cfad13b19ca",
+    "jobs/cstr_25_B36_seed6/result.json": "8617a803a15eb10849bdeaae11fe6f091931409b0eda9450609203cb0b60de69",
+    "jobs/cstr_25_B36_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_25_B36_seed7/evaluations.jsonl": "450636861c1e89def640c9c052426863bde1fe82914700eaf42ddd3ef7fcd897",
+    "jobs/cstr_25_B36_seed7/proposals.jsonl": "2940c518d4d7ad6764a1d9be0c4dd8194dc49029b814168f45b5a86c38a0ac33",
+    "jobs/cstr_25_B36_seed7/result.json": "d8465ef706e220973009c81eada9060545c7c54c3c784f5794e7f8673033a567",
+    "jobs/cstr_25_B36_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_25_B36_seed8/evaluations.jsonl": "417e9016e9614f971ca9c93cd68113fd8de68a4d392748be6d5e4f40aa49995f",
+    "jobs/cstr_25_B36_seed8/proposals.jsonl": "9f63ce266d9982bf88af083a9095cdacb8ef92a528e9c23f51036979ddab2fca",
+    "jobs/cstr_25_B36_seed8/result.json": "b2998230ae4bf0195c8ab49ecc139c475e110be1c6753a8374a111674d3ce298",
+    "jobs/cstr_25_B36_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_25_B36_seed9/evaluations.jsonl": "324e1db8e7c42ddfafa4aa7ec3eda6a6e00409d47c452610613307706f1150f0",
+    "jobs/cstr_25_B36_seed9/proposals.jsonl": "853e8972cb1c36d409f520ae95ba1ca0fd59b609ef0bfaf131d53cd2ac9b06ca",
+    "jobs/cstr_25_B36_seed9/result.json": "24d9493f179e68cb09d6d7815439c77d1da977c760043d8f00a9c6eefd79449d",
+    "jobs/cstr_25_B36_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_30_B43_seed0/evaluations.jsonl": "7636514c4b553ee2235b12d60bdd6d51cb247ad475523db79e9c692549adff07",
+    "jobs/cstr_30_B43_seed0/proposals.jsonl": "76f33d761cd39ae53a7650c7fdb4a8e917a7a28a702a9f0c20122ebcbf2e6509",
+    "jobs/cstr_30_B43_seed0/result.json": "6a59e0dc1848354d930c3c94e152d07defec2d83d38607993c6b8d9ff99504c2",
+    "jobs/cstr_30_B43_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_30_B43_seed1/evaluations.jsonl": "f8337b492ed68b9f53b3b36a69166933ead39aa1f8cc51035a6d6721bd1c94e6",
+    "jobs/cstr_30_B43_seed1/proposals.jsonl": "929f60107c742599c0bbafa790f3649179b76ca4f337bd52a5e554a668a46b3b",
+    "jobs/cstr_30_B43_seed1/result.json": "3f0bef940a8909d7e00997791f66ad144a21310f3000d595aa05b5ec1e535cf3",
+    "jobs/cstr_30_B43_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_30_B43_seed2/evaluations.jsonl": "14e5045258c01d2239fe53ea1ea2da691cbcc3755cbdf00a9fafc5b9559bc84e",
+    "jobs/cstr_30_B43_seed2/proposals.jsonl": "a4dca132fd56ad2cf92b16e8e00e9c7cf3c11fa22a2bfaca8a3ca5c929a3370a",
+    "jobs/cstr_30_B43_seed2/result.json": "ba97a0e4b5e3c9a0f65222c2004b1a336d4f19dae0a87dd2aee6f9b552006e97",
+    "jobs/cstr_30_B43_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_30_B43_seed3/evaluations.jsonl": "418eb92765448e58f18483141b8f863f1371554c7a069d4a6b44a2911b20c72d",
+    "jobs/cstr_30_B43_seed3/proposals.jsonl": "4224f5fdf3e9c84359be9387d5aba5b04d18ca0a3faf7514654116f5b35630a0",
+    "jobs/cstr_30_B43_seed3/result.json": "5df30896b11dcb2f91f49469212a03603f39eb6e7861243224e63c6ca7fc812b",
+    "jobs/cstr_30_B43_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_30_B43_seed4/evaluations.jsonl": "f440b8414447d89e21027d2ce14a96c2567a81ac63a7cd9dbf2a25b566c7b64f",
+    "jobs/cstr_30_B43_seed4/proposals.jsonl": "605df28ab01d012b570d41a1aa6d7e91964cdc50a3f64b3b4fabc16da0f50900",
+    "jobs/cstr_30_B43_seed4/result.json": "c6357553ba5e5ef38c3f6d961e1d7f713cd0666b0f4def2c20dd9cf194cf6c25",
+    "jobs/cstr_30_B43_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_30_B43_seed5/evaluations.jsonl": "9bb448a27fb4c19bf89757cee6b8840efa76f481f96a9befa4d739fab14efabe",
+    "jobs/cstr_30_B43_seed5/proposals.jsonl": "92672d4a68f8bf78e9bafda940b2417baa7668e0e904d22d88750320029d75a8",
+    "jobs/cstr_30_B43_seed5/result.json": "858c883042b95d520f7125ee4ee0c2f9a1d6727a03972429931bbd277c5916ee",
+    "jobs/cstr_30_B43_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_30_B43_seed6/evaluations.jsonl": "7210a649152b680ee82784576776e2926f93af3570d0b4fc418e98cb0a8a6692",
+    "jobs/cstr_30_B43_seed6/proposals.jsonl": "d49b7040b3f58c8e944ad6b048a111dd9accb63621613416bc34836b5100b154",
+    "jobs/cstr_30_B43_seed6/result.json": "fb9205e2def6a9e5d25a9ad182938e520e100f66de47075a5cfb6fbecd49e9b4",
+    "jobs/cstr_30_B43_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_30_B43_seed7/evaluations.jsonl": "05b72ce1e3be45b5fdc385ec61e0d78a2766739e7d987a35801800c44c99361c",
+    "jobs/cstr_30_B43_seed7/proposals.jsonl": "5f235a167031695c1778121ae041ca607cd7caceef6a2d54fb8b8cac063d5e7f",
+    "jobs/cstr_30_B43_seed7/result.json": "b53a9eb650340942a58d15bb00c61514a3c2cc116422b1936d0cbe90baa09762",
+    "jobs/cstr_30_B43_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_30_B43_seed8/evaluations.jsonl": "d07a79fcb87ce36ee608e4dc37211a795f4eb63b5afe3ccfb10e6707dcc4a0ca",
+    "jobs/cstr_30_B43_seed8/proposals.jsonl": "a20a98327051c18802716f67d36d325fefb2f6b16c78ff474ed11e6034aad7ae",
+    "jobs/cstr_30_B43_seed8/result.json": "454336457dba6bb01d37c3b9a2c01668cceb2424ae27648788d35a844094d2ed",
+    "jobs/cstr_30_B43_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_30_B43_seed9/evaluations.jsonl": "97198b66ed46d893aa2f61546e283ab1c71bd3d5a8d8c1e4eae02a9cd9e7956b",
+    "jobs/cstr_30_B43_seed9/proposals.jsonl": "cabc2f7240d0c5d05221096fe1de49078141f1355d3fee0ae5ccc58383752c33",
+    "jobs/cstr_30_B43_seed9/result.json": "e207974210d2bda8fe28771b983f2765f3bb549c91b4aee63f1d39254ec8f8d4",
+    "jobs/cstr_30_B43_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_5_B8_seed0/evaluations.jsonl": "00af9bf94b9f7b8844b604f3fb11602f32052c889f38b937a3903872b545bfa5",
+    "jobs/cstr_5_B8_seed0/proposals.jsonl": "8fafdcc33edcd936175aa01d774330a91a7ae1b0d2997749f55d0261761c2236",
+    "jobs/cstr_5_B8_seed0/result.json": "aae7df3d4908d986ae528acf1acdcf1f04e41c7a40b19530e2cbae18b7aca01b",
+    "jobs/cstr_5_B8_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_5_B8_seed1/evaluations.jsonl": "397662305c3bed94e6fd67bdcede1797febb76d63f1810edd33ee434c02fb378",
+    "jobs/cstr_5_B8_seed1/proposals.jsonl": "7efc94e1a3a94e1a6ca1a67f9918ec17e94acfc83467b1de25285fd2b3725c72",
+    "jobs/cstr_5_B8_seed1/result.json": "ab2aa1d3e7cbcabe879d194d93b5465963e124e5fba25295121e7c801c9fea0f",
+    "jobs/cstr_5_B8_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_5_B8_seed2/evaluations.jsonl": "0f7cf6d2e8747a1912b3f022527d1c066cc87afb87ebe6a535c519d428de500f",
+    "jobs/cstr_5_B8_seed2/proposals.jsonl": "156c577f6d1d8b28e5c393ed32a286efd3ec9449111c782ee569929ece390527",
+    "jobs/cstr_5_B8_seed2/result.json": "bd31d00d3551006264ff181f532bc7f118d9da001cfb5886cea263d5d1c8e5ce",
+    "jobs/cstr_5_B8_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_5_B8_seed3/evaluations.jsonl": "603d7dabb02a0d05e99d427994ce6148d8120732ce7feeffb5cef12886cee4c6",
+    "jobs/cstr_5_B8_seed3/proposals.jsonl": "6bb63317b6ed71b5c351d2b7691abc5ab74a85342d0f8afa8d6c4e62ef79166b",
+    "jobs/cstr_5_B8_seed3/result.json": "3df402e14cd7f9cbb2a45a42c08d9f4d1c38578fce9dd03952c29ce19783cbaf",
+    "jobs/cstr_5_B8_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_5_B8_seed4/evaluations.jsonl": "7ab3194f121f874b6e9afe2e64def014cb99c52bcc45c25696199918c957e540",
+    "jobs/cstr_5_B8_seed4/proposals.jsonl": "9c940235c0ccc745c8a592d4c14c608d1d02895145b8d09d1c0c2740f55ad813",
+    "jobs/cstr_5_B8_seed4/result.json": "61bdad4baa1a524af51ec1a805c811e8bbcbff83ad2a7ba19196412226b2ed33",
+    "jobs/cstr_5_B8_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_5_B8_seed5/evaluations.jsonl": "ea58813d0786d3170286c8ab244856d0e255569bd147faf58a52d7bebf1e1d70",
+    "jobs/cstr_5_B8_seed5/proposals.jsonl": "287c588562a1612f27b2603bd1159fe142cd9e20cf8332d95a72f411a92ca067",
+    "jobs/cstr_5_B8_seed5/result.json": "ba1f15af2d37433a87ad7ed44941c1b61dd76c1de78f6f3fbd0d9435ccfac6c0",
+    "jobs/cstr_5_B8_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_5_B8_seed6/evaluations.jsonl": "75ab277475b090f123192bffa205e38000abb396afbd9a83f2f6304c2bb7e36d",
+    "jobs/cstr_5_B8_seed6/proposals.jsonl": "6ef261e1bc0c90210c4032da70e23d202b9cecfdbd827eec6be6bf505d3d9744",
+    "jobs/cstr_5_B8_seed6/result.json": "ba17c20fcdffd3c05b8e6d6d8302c57b579d6863186e1ca0244d69594e46a973",
+    "jobs/cstr_5_B8_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_5_B8_seed7/evaluations.jsonl": "87a783eef08ac039a5d722817bd54cd18470b73c7c9e80dd1a26ac907f1e819e",
+    "jobs/cstr_5_B8_seed7/proposals.jsonl": "b2e8e78409ed5d91d91651435c3c6a9d183657736b0dd8abcc72d550f7cfa9f7",
+    "jobs/cstr_5_B8_seed7/result.json": "a3134c4e075d1eef9c658073ee284abf418ded0eeed41fc71a608b4f08ca51a1",
+    "jobs/cstr_5_B8_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_5_B8_seed8/evaluations.jsonl": "38bcdb4c4bf59ed7702a02969b6fd2d5048ffb126437521752e68338b219b9fe",
+    "jobs/cstr_5_B8_seed8/proposals.jsonl": "afe44a397fe357eeaadc3e2eec32fe5af8f04d0c6bbcd782452b499116069ab2",
+    "jobs/cstr_5_B8_seed8/result.json": "3b550794e2e8e27fe23fc3df403ec8088ddd526cb97d5afc0ed52e28b4ef9137",
+    "jobs/cstr_5_B8_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/cstr_5_B8_seed9/evaluations.jsonl": "3c888180f01ed765a4876399fc5b1a792d7cddd83041031c575df7a0525d0ec7",
+    "jobs/cstr_5_B8_seed9/proposals.jsonl": "6d2dbee5027483ec6f61f709794c3cc015c4d45fb3a31faf9a6878989f1db005",
+    "jobs/cstr_5_B8_seed9/result.json": "6968fa62fefe611c0c881ed004bf4016773210b69356cc65980b2ec32aba0da9",
+    "jobs/cstr_5_B8_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B12_seed0/evaluations.jsonl": "2d617a47e754a4d85ce6c0625406db20618e6196dac60a799f039dbf0934688c",
+    "jobs/dynamic_B12_seed0/proposals.jsonl": "85fcf8b29f4b5559e5b35e4cc3064f7a7e54d10cc359c9e66efccbf54d931c06",
+    "jobs/dynamic_B12_seed0/result.json": "49b5cea1a4bc3d380823ca8dca021d45dd5af3ad91bdf01d62d17612fcd7550d",
+    "jobs/dynamic_B12_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B12_seed1/evaluations.jsonl": "1328994e39ed50e9930f39b9e26a8eac66ffd33b0e06d1f345e7b59a4bbec7bb",
+    "jobs/dynamic_B12_seed1/proposals.jsonl": "9911c2208b57af930e57a3f86319330be6215ff7940fa8c124a83ad82a98057d",
+    "jobs/dynamic_B12_seed1/result.json": "e5d815051739949ce3578b902658b666a9e9271457e174acea1eaddb7d929a67",
+    "jobs/dynamic_B12_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B12_seed2/evaluations.jsonl": "09aea88b991568c6c38c1cefcb6ce181ac8b927db6da85aca2b4392bdf2ae9d9",
+    "jobs/dynamic_B12_seed2/proposals.jsonl": "50ca30e2ae145bcfc68078e545b9f1391b87bcdcc1dafbbad36b207ea77e6c19",
+    "jobs/dynamic_B12_seed2/result.json": "358347de0670d448106903cb4c5e6d9b836adc8ba08a87a6d124ce623ea6139d",
+    "jobs/dynamic_B12_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B12_seed3/evaluations.jsonl": "d5b26b84a0924bf45af98db26b56c114820f28768dee4522f03dc6f353815c70",
+    "jobs/dynamic_B12_seed3/proposals.jsonl": "460a07a599429bc549a4dfbe5fc04660d8c6c0e8e0345b4056abace345db5099",
+    "jobs/dynamic_B12_seed3/result.json": "4e9ac22e11b614d6649618286255ab6adb0a3a09204ffe18934fed23a616465c",
+    "jobs/dynamic_B12_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B12_seed4/evaluations.jsonl": "65a6b66cfbce06b95c7f8739aa3b82895ab4711ddaed4b654ac4a963a385cd2f",
+    "jobs/dynamic_B12_seed4/proposals.jsonl": "36104f5f41383d19edf893286276eaf77ca2c69ecac533d6e4a4f2342127d809",
+    "jobs/dynamic_B12_seed4/result.json": "cbdbe7a43197d0b9fdc62d2dd4bc4623a1260f9f1c5367bcb112495bee8711f5",
+    "jobs/dynamic_B12_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B12_seed5/evaluations.jsonl": "a2bf4dcc8079d0f6052454bb35345458ab8ea39a05f23a76cd81e5521abbd27e",
+    "jobs/dynamic_B12_seed5/proposals.jsonl": "d8e25e206252831c109599af074cb417b574c22a73c9a4f76357e1fe10b1de66",
+    "jobs/dynamic_B12_seed5/result.json": "0360ce1ccd0d0e00ec002ec48a94a3e7bd1b1a682d8eda2237712541e4db6a26",
+    "jobs/dynamic_B12_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B12_seed6/evaluations.jsonl": "9e01ed236cfcdfe001e3ad61408353dd0314d8b15b1361e1d67cb755c9679ac2",
+    "jobs/dynamic_B12_seed6/proposals.jsonl": "f4bbad55a4ef71945170f6b7c5ba4c42e8fac1fee2e21db003f17d561a49e395",
+    "jobs/dynamic_B12_seed6/result.json": "d24fb3e81287c224dcb9ba4d622fe08beb519a15590a395c650a6bc106ea2f9d",
+    "jobs/dynamic_B12_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B12_seed7/evaluations.jsonl": "af6f0b99da78158d2ff1de28f4afb09278b0234383bb430153a3cd9ae025e7f5",
+    "jobs/dynamic_B12_seed7/proposals.jsonl": "7bb2f1b74b92fcb744b78f2316607b2834a47385b9af51bc9bb5adf7ae164739",
+    "jobs/dynamic_B12_seed7/result.json": "9a4e8c50e99251aff5957824e6e8e9f9584aaa57eb5f2a63070b0eb143b91ab0",
+    "jobs/dynamic_B12_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B12_seed8/evaluations.jsonl": "cf224a61cdc6591d04dfb671bca7166d1b7f5c1353dde6539a166005cd78f5f8",
+    "jobs/dynamic_B12_seed8/proposals.jsonl": "1f4f8a2ea9f6052b514c5f7e55d62c839058011931d00d567919abbeae6bcbd9",
+    "jobs/dynamic_B12_seed8/result.json": "816f95bb83321f038a9c8bb58a3fa95c3162c252af5b5a7ca11d195c724b470d",
+    "jobs/dynamic_B12_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B12_seed9/evaluations.jsonl": "0c19b77a3e44ac345e92ab6602c02b95b7e9126971ad33272bf52dda7603e2df",
+    "jobs/dynamic_B12_seed9/proposals.jsonl": "cda31b90378466cfc4d28a48a2b250586caadbfbc0faa5bb5f30aec87d53f4b7",
+    "jobs/dynamic_B12_seed9/result.json": "6e45d34f286ee9e962599a8bbb696ded7da34df8a97bc0bbd167b22019175eb0",
+    "jobs/dynamic_B12_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B15_seed0/evaluations.jsonl": "bd3fdbadb5bcb74386ddf5ff6d76adcdb119446248e02d28a37cba2cd053cec6",
+    "jobs/dynamic_B15_seed0/proposals.jsonl": "ad48a29c58ba07282461683496345c7193e3275373ec4b6bdb3ee17c7d0734c6",
+    "jobs/dynamic_B15_seed0/result.json": "4a97b2528917681502db0a1656345c24e35a3afc70d93c1a1a9c2c94a9bf8260",
+    "jobs/dynamic_B15_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B15_seed1/evaluations.jsonl": "3579513040bb8184419e96ed7c1f24aa4e50a4cf355a1640c6865b1e04f2decd",
+    "jobs/dynamic_B15_seed1/proposals.jsonl": "6d91443c009eeaad1eb9c48d1415bb8a07a38d7f665b8e2cafe0d3d635d2f7e8",
+    "jobs/dynamic_B15_seed1/result.json": "141ae0ca815af8444853f1f160cf60cb258cab2f05e40865e8c13492004224c2",
+    "jobs/dynamic_B15_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B15_seed2/evaluations.jsonl": "3cf326ae19cb9b6df1f5e6f18c68168c070137c4ed2c60872353c26121e27c52",
+    "jobs/dynamic_B15_seed2/proposals.jsonl": "578809bb65183ff2713b2b10750ba88250e35a8fdc6fb96f71c3234955771a1c",
+    "jobs/dynamic_B15_seed2/result.json": "2c862ada098e655b4f69d48cca4f4d7ab52925e6271380e87f351f816cf36f50",
+    "jobs/dynamic_B15_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B15_seed3/evaluations.jsonl": "7a069363c1c61ee7ba8bee013c86a8b3709875df125008cddcb5401081513ecf",
+    "jobs/dynamic_B15_seed3/proposals.jsonl": "5caaae245228968b8e11c306429c584c080d4edf6666f368d510dc380b9a93f9",
+    "jobs/dynamic_B15_seed3/result.json": "f7f4274c5ad07daf1383053f3a0139f87089770b060e697d41a98ebbe89d1315",
+    "jobs/dynamic_B15_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B15_seed4/evaluations.jsonl": "869c77dc76ef3dc534febe425b9ccc9582a87c2fa320d055e2da8816c2cb1b5c",
+    "jobs/dynamic_B15_seed4/proposals.jsonl": "453101c977ba4eef56e610db7ae7883306d0458643314c16b9f17d889546d604",
+    "jobs/dynamic_B15_seed4/result.json": "6fe4587515b2795f98c0e402b3f1d8e92590f7fb1dc6c31f403871bf0ac68037",
+    "jobs/dynamic_B15_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B15_seed5/evaluations.jsonl": "ab665b4501d5f6055ced4dfb14205d4e6d52e58ad5172d9387be7081e360e909",
+    "jobs/dynamic_B15_seed5/proposals.jsonl": "2daf3a869aa9aa9dfa047026a768c5ea43e792bf5e26d89790c43e2b56209a87",
+    "jobs/dynamic_B15_seed5/result.json": "3b5e15358fbbe2b660a51620163dcbd8196b4d9833defb451ec50204bc234572",
+    "jobs/dynamic_B15_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B15_seed6/evaluations.jsonl": "934bcd305880ec554f3fd28ed84efcaedf2ffd4861764444f08bcb790b892bb7",
+    "jobs/dynamic_B15_seed6/proposals.jsonl": "6423165ab4a63a3af886db6281c8aedb555f96530f57cfa19d99df4152161c90",
+    "jobs/dynamic_B15_seed6/result.json": "fdb176887fa52cf05830cf5dba0362158645e7abf626c95136cceeaa4c432330",
+    "jobs/dynamic_B15_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B15_seed7/evaluations.jsonl": "fa599c6ea227e7f51d7adfcc3712d080689de3a8fec1c2c227b44538b9ea2897",
+    "jobs/dynamic_B15_seed7/proposals.jsonl": "bc39d42968404f9a6e7ae01bb56f813dc27b236313785165c4ce13d5d90264c7",
+    "jobs/dynamic_B15_seed7/result.json": "8341b0dfb1788d16a040e24ee61d62ab9553717916909a8f80eff0ffad1620eb",
+    "jobs/dynamic_B15_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B15_seed8/evaluations.jsonl": "b69736de0a821a813dc83259ff131d7d45dd41bf19b472d943166453acb4f72f",
+    "jobs/dynamic_B15_seed8/proposals.jsonl": "85c807740f64e6609a186d8b2df63e8b522dc77996f03c032a3c58e5ca06e41c",
+    "jobs/dynamic_B15_seed8/result.json": "bc6d42aca250cfb73fe852b3ce1d20f5b15c1c3056784c131c72c4e8df49c676",
+    "jobs/dynamic_B15_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B15_seed9/evaluations.jsonl": "e8dcc51540b2c27d085b07884ceb1de0ebb9ea87d8e6810d0431a42baf622434",
+    "jobs/dynamic_B15_seed9/proposals.jsonl": "eac826b3b35600b440bc52de7c0e37f6ecb6cf491f76ba3aa37785fbc11174ec",
+    "jobs/dynamic_B15_seed9/result.json": "30932a7464c3a76236aaeaffb46497b0be9efea2308f86643fddcde65347bae6",
+    "jobs/dynamic_B15_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B20_seed0/evaluations.jsonl": "46fecea41266112f906b6e2bf3996ffeb5b9b1e197b98a811d12c4ac672c5dd3",
+    "jobs/dynamic_B20_seed0/proposals.jsonl": "3667b05ef4d456b5482ee6b56f3e304a6ae3c5a6deb4a173167292cd2654de80",
+    "jobs/dynamic_B20_seed0/result.json": "95116188fb5d44786199d8fdc8d4179fec6f46823bfac2761e91fb4561c51dad",
+    "jobs/dynamic_B20_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B20_seed1/evaluations.jsonl": "13ec8a5ccb224e496938334074b7a21a97159a278fdb6771ea84b45c1796af6a",
+    "jobs/dynamic_B20_seed1/proposals.jsonl": "8149c53c730d765b88c78848c7a6883ad9d8a46e30f3a8707a10cff857014382",
+    "jobs/dynamic_B20_seed1/result.json": "4ec7e108bbf2fec123bcafca5f12bf071c3ef46ca65b5459a45b8eba26c552d5",
+    "jobs/dynamic_B20_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B20_seed2/evaluations.jsonl": "2cb32d587346da9080145063c2da461e07ebfc1261607d8e7fe056d22e002745",
+    "jobs/dynamic_B20_seed2/proposals.jsonl": "8c02e8efe3d26a229cbdacc06c54cc1e65eeaf62d787bf841359e7b5c7294995",
+    "jobs/dynamic_B20_seed2/result.json": "925cdb26ac0a6f86e4863c75b4803b2a3500b2c45a3f282d2a30bad75b17eb5d",
+    "jobs/dynamic_B20_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B20_seed3/evaluations.jsonl": "d6fc24125e380ce5e51564815675e0f16dc657149756c38d2adf20c192d75a64",
+    "jobs/dynamic_B20_seed3/proposals.jsonl": "075d2315440b243f7c69b34a2c681b5e58551b79a99a376290475c5cd70415b6",
+    "jobs/dynamic_B20_seed3/result.json": "be8d8c8237db68e0b188d09794f578842d12fad86f36f71bdb18c17a1b476b1f",
+    "jobs/dynamic_B20_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B20_seed4/evaluations.jsonl": "1c99dbd804512fd6b1932fa49e3a6412a051feba27409d769c69906e2814cefa",
+    "jobs/dynamic_B20_seed4/proposals.jsonl": "b89f19fb16e44c33055c2d9f1f14ec8563e923276e686cefc10c14ebb1a8f06b",
+    "jobs/dynamic_B20_seed4/result.json": "e67819d831bdd394b57c3b05e3f2aae27a690d18efe1ac7e36d2e11cf8bda715",
+    "jobs/dynamic_B20_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B20_seed5/evaluations.jsonl": "16a899d372068a31bde492844bf4ce1cda6d197335798a0cc783a7267bc2f63d",
+    "jobs/dynamic_B20_seed5/proposals.jsonl": "1643ea2ffbbf8d1c941ee0a21539bf4ee19607051e9dfc3ad62bd9aaf9892256",
+    "jobs/dynamic_B20_seed5/result.json": "db77cc052811b6b13e1f597e50fb8ce1a88960d27112a0c073feb44460a08eb8",
+    "jobs/dynamic_B20_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B20_seed6/evaluations.jsonl": "72b16b48f69abe7be05557581ada0074b37c2ffaaf043b863bc3f96a8981414a",
+    "jobs/dynamic_B20_seed6/proposals.jsonl": "8f7df76828ec0b2762cd7a80fbf4e46879173cf3d36062f8210f2c382d3b1db6",
+    "jobs/dynamic_B20_seed6/result.json": "90e65db8e4f15b41e96dfcbc9a02f06a9c2d353b4e394046cd08e8513efc8609",
+    "jobs/dynamic_B20_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B20_seed7/evaluations.jsonl": "6203e0624ca55859ee9b856e17680f4d3edb3b036e6d41d51ba6a514eb1520a6",
+    "jobs/dynamic_B20_seed7/proposals.jsonl": "d7df3b7cbfc193741891802d442bf38c8cc8fb150735abe89f4ca0380aa856bf",
+    "jobs/dynamic_B20_seed7/result.json": "aa0eb85a133d1ca2063e4d6260b84fb4b97b94d48152bec49373c970763dc0b1",
+    "jobs/dynamic_B20_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B20_seed8/evaluations.jsonl": "f9997837dffdb94b9aca48c3350bfe572d231a0fa6b2d4dfcf19860c07fef3d3",
+    "jobs/dynamic_B20_seed8/proposals.jsonl": "e5550b9870aecec302f90670f4cfb1f22fd6dd05351cb0b2d2dd945160996c6c",
+    "jobs/dynamic_B20_seed8/result.json": "a1707863219124d72256a163a0222d8fab0f7e06d681b46dcd233cd32782e768",
+    "jobs/dynamic_B20_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B20_seed9/evaluations.jsonl": "f515a6f8c55e58a0c7bde21b543f9c250d8448d8097ecc37b0d8d9ccfbdd5aa6",
+    "jobs/dynamic_B20_seed9/proposals.jsonl": "691e174ba22c46d8cdc60fb72a579351f9b17a5b453f2fe7c5888334742b54cb",
+    "jobs/dynamic_B20_seed9/result.json": "45997719d5183be76ce7add02375c5efe1523a2a9ee02da824432774d221550d",
+    "jobs/dynamic_B20_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B30_seed0/evaluations.jsonl": "162a2baa864007c4d16ab3eac2fc150184b30c6e0fe95ae1f037640398f4e1b7",
+    "jobs/dynamic_B30_seed0/proposals.jsonl": "8153050f7a49c1045c10e63bf1eb43b38f2e2aed21fbc8ddae0bedd489b330af",
+    "jobs/dynamic_B30_seed0/result.json": "e2f6a7a0a300616c52fb9e0804ae49d83b1e6af3552051274735c469d234a3f2",
+    "jobs/dynamic_B30_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B30_seed1/evaluations.jsonl": "421912c4baff90e1b106835261f3ec782677a852aad83d64a4ee83eb0ce2a245",
+    "jobs/dynamic_B30_seed1/proposals.jsonl": "7d210f97f3507285a4313b032db89976a3cd2b1e3081be0ec1ca1cbd041a504f",
+    "jobs/dynamic_B30_seed1/result.json": "f74f87c090c159c37696a7f3b8e529eb8658d5d79c223517d6fb9e7f0ee5424e",
+    "jobs/dynamic_B30_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B30_seed2/evaluations.jsonl": "db80010f6beb9da6a2f2b0fb1d654acd21db1efc8b2ec324382f8eb54774ecdc",
+    "jobs/dynamic_B30_seed2/proposals.jsonl": "85f03846348437e5b6bfdd925989fa32385c447802ece4f5b9bfed3150d865bb",
+    "jobs/dynamic_B30_seed2/result.json": "b01123372ef2cf576fd1eeb7e4d3e95fb40f91cb8e3ce68376418c301d1de1be",
+    "jobs/dynamic_B30_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B30_seed3/evaluations.jsonl": "f146a3232262e02f26e3fce0071bdafc4277931c8b1123d243504b50ce6cfdbd",
+    "jobs/dynamic_B30_seed3/proposals.jsonl": "a820cd969acbf09992b20e055be2f586bcbeeee7baf43d457db67a46acbcd718",
+    "jobs/dynamic_B30_seed3/result.json": "af117bacac726b730e05deefe152b5bf924c2a1d39848f116e3a31a2e3311f34",
+    "jobs/dynamic_B30_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B30_seed4/evaluations.jsonl": "01aae5c4868cfb7ac2c8adddff5cc17314c087f07e295ba9e5e1f5cdb5c2cf73",
+    "jobs/dynamic_B30_seed4/proposals.jsonl": "7e1c17daa9c5d60d4ed6ce21eb1621c38dc188d464e3d2d346f90b452db56f81",
+    "jobs/dynamic_B30_seed4/result.json": "c9d10c0c657c8b2c88d02a716af94b7a531f23eef518cab8b3b52d898e0c294d",
+    "jobs/dynamic_B30_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B30_seed5/evaluations.jsonl": "d751d13571991e71bab58780bc951750a8c4f77949c38768e1a95e35b6f6e99e",
+    "jobs/dynamic_B30_seed5/proposals.jsonl": "e8e98bf6996690f6c97a05de871c558d91cf3a00c68127d23837d9c25b140392",
+    "jobs/dynamic_B30_seed5/result.json": "13eb25c43612edaff5e1e2da12e5c560807f93fae924535e5d4dba7ba1ce64db",
+    "jobs/dynamic_B30_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B30_seed6/evaluations.jsonl": "708d3b4c06b99d2308ebc3a7e916483417a6d2cbb54911de5f9f7dec3c027ea6",
+    "jobs/dynamic_B30_seed6/proposals.jsonl": "d35b5d98abed5f595f0afe11dc0e83294f7d0e0d80abe011c9105d79ee68fb24",
+    "jobs/dynamic_B30_seed6/result.json": "875bf17a610f8399868eca84d59a21bfff3bdeb39dfc6c617b38639de9713522",
+    "jobs/dynamic_B30_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B30_seed7/evaluations.jsonl": "9cd5b36f0dce42ac16ec440f03f3ce45b94ad2f655940edabe685b8c20a86b39",
+    "jobs/dynamic_B30_seed7/proposals.jsonl": "6af937290a0f35b11a846233a2e5fcfbb5b7b5b6baef6cc89499940eae7dedfd",
+    "jobs/dynamic_B30_seed7/result.json": "34e18f03bb3cdba05a7a2e8516512512bf025b6c4ba2d462629989244d5dbc58",
+    "jobs/dynamic_B30_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B30_seed8/evaluations.jsonl": "c21f52d8422a17d362f5f4f0416109ba2cc8bb1aa78f90525f4536b1414fafd9",
+    "jobs/dynamic_B30_seed8/proposals.jsonl": "ef0b10d55898a1f833b9bbc441e1ab59e5e5b20df3457a4842f6733ed39d49d5",
+    "jobs/dynamic_B30_seed8/result.json": "a9798e28ded69c1ca5e82ac03fb02aad2c2b10425691c9dcb453ba4388929190",
+    "jobs/dynamic_B30_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B30_seed9/evaluations.jsonl": "56669add9b9379931218e31cc7f1b689ffaaf21ded9741401fdbc3f2d1146bc9",
+    "jobs/dynamic_B30_seed9/proposals.jsonl": "08e31aaaf89f9b7d193b9a56872ce7f8906765bb14b9d2bdee26a9837b2e7cf4",
+    "jobs/dynamic_B30_seed9/result.json": "c5933b58ca3d4e0b7686354a61d5403e189561ca4ba973aebd19fe75023470ff",
+    "jobs/dynamic_B30_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B37_seed0/evaluations.jsonl": "1b86b92da8dd45d7661ddd646ee99cc5dd6b3e8cd7be1ad0fa32d90fca1862fb",
+    "jobs/dynamic_B37_seed0/proposals.jsonl": "16eca298068c16302412600e5818555f65d51e194bc3f3bbc28a84cb8d5f974f",
+    "jobs/dynamic_B37_seed0/result.json": "42729363983b4cd8d27ac2ab0c894bc8c4e4ccc70a95dbdbd3ea3db7df909c40",
+    "jobs/dynamic_B37_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B37_seed1/evaluations.jsonl": "591609cd10aec6e4b73320e701bc023d2650720bd84cc5dd2c3a7d815ee3a758",
+    "jobs/dynamic_B37_seed1/proposals.jsonl": "6723ff460756aaab118ff54453820570512ee99a3e418e24eeabda80a826c5cb",
+    "jobs/dynamic_B37_seed1/result.json": "3217396be3a1d17c3b4c03b89075362e14923009f48bd2c15090e3516dd6223d",
+    "jobs/dynamic_B37_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B37_seed2/evaluations.jsonl": "14723837ab8403fd54bb01066064a10fb6feb684e4a96cb058f685ade7c1bf3c",
+    "jobs/dynamic_B37_seed2/proposals.jsonl": "21333705dffac40a8861a05f4f77da9fe582bc181c0a9b691bde137bfc3572b3",
+    "jobs/dynamic_B37_seed2/result.json": "90924088eb35b1a9f8d04832241c025a2624e7f2ebcbab1e5ea1099fad214e7f",
+    "jobs/dynamic_B37_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B37_seed3/evaluations.jsonl": "24c1c95f0f630d73bf44b902b17e212ccea61a754f36b6d2bd9af0e74fa7d575",
+    "jobs/dynamic_B37_seed3/proposals.jsonl": "949ae7b9269d68639c79783cdcfc47408eba8ec89f160889c995b2aa6bad4178",
+    "jobs/dynamic_B37_seed3/result.json": "50318d4f9c67732bfefb3cc4b96301514332c2fd877d1b20a853b58489f3495a",
+    "jobs/dynamic_B37_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B37_seed4/evaluations.jsonl": "7974d4d828f92c82e7b5528ebcacd83022eb8d07a9af719777d47e827af5962e",
+    "jobs/dynamic_B37_seed4/proposals.jsonl": "92cf4cf4c189ab93f13ba5cdd137eb29b6767da9daea79d7da1415341783e3d8",
+    "jobs/dynamic_B37_seed4/result.json": "bde04704f65dd7f0cad428bdc13440c2616a518957b1210dc8111bcc3b7e4bfb",
+    "jobs/dynamic_B37_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B37_seed5/evaluations.jsonl": "4fa2a37dc3d42b2630e541b290a03ae01549e93867dbeeccaa204a4a2db448f4",
+    "jobs/dynamic_B37_seed5/proposals.jsonl": "2b02cbc5821a95b7300d6211a886d12a1bcb04aeef7f37f8650847dd0256ee00",
+    "jobs/dynamic_B37_seed5/result.json": "9221a6579837331c9308751c529d98d7a397560ea5ae550dfd06d03b67e204ba",
+    "jobs/dynamic_B37_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B37_seed6/evaluations.jsonl": "5898d98daf0d31955f028ed89dd055db52e1e35984096c618a89fbcbe8d102c1",
+    "jobs/dynamic_B37_seed6/proposals.jsonl": "0d168744788b16bbe148b60d7fac662faefb50c8c545e7aed2e40e40e7616dfb",
+    "jobs/dynamic_B37_seed6/result.json": "36e540d8827f0ad38452d9bc1b9955e15a346883d21b302a431452bfb8e79554",
+    "jobs/dynamic_B37_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B37_seed7/evaluations.jsonl": "e3c9dd88878140b188fb6f5aa659a571a99b2cecea56ee3f0c39a93715a8e0f1",
+    "jobs/dynamic_B37_seed7/proposals.jsonl": "3acd7a920a8eeb7b8ab49c7977a7c4dc66ba86d96072186bccb052d48b1abcd9",
+    "jobs/dynamic_B37_seed7/result.json": "1040bb147fa392365ddbb212e1f8162ac9b0d9e315643c83c0b335645c2b92bc",
+    "jobs/dynamic_B37_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B37_seed8/evaluations.jsonl": "0f0108ad7975585c8c59f2546916a7778d57cf0745ef63785799c3dff0235c1b",
+    "jobs/dynamic_B37_seed8/proposals.jsonl": "a4bf1248bf18103b87a0075d8c3c892fb484b10449fc363a4fb310b02a0ab160",
+    "jobs/dynamic_B37_seed8/result.json": "12083875625931694a4fe20f9edcdb4333457b2cde0c983e071daaaecb890901",
+    "jobs/dynamic_B37_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B37_seed9/evaluations.jsonl": "987765e5141416cc50cf4ece5bcfdffe07f0f527088e283c385d8a649c04b51b",
+    "jobs/dynamic_B37_seed9/proposals.jsonl": "a96ee424126a3b332c995621bd81e01e7f438c4a29c7e5340f9eca40e4d62890",
+    "jobs/dynamic_B37_seed9/result.json": "a5dd8bfb0baa62c246debee4957ea634fe13ad500ff516fc5fa855c8d5403ee2",
+    "jobs/dynamic_B37_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B50_seed0/evaluations.jsonl": "fe854fca7aff4033efe274c5c740aff66ced0942cf2fca52846b1b6149221aa6",
+    "jobs/dynamic_B50_seed0/proposals.jsonl": "5806ef896d6da6375368cb1378ff68e61bca475ec04a74bbe811275830daeaee",
+    "jobs/dynamic_B50_seed0/result.json": "e3de9a4954434d3327a9d379ad2912bb7c868d37469c609f90c860e46b16fcf4",
+    "jobs/dynamic_B50_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B50_seed1/evaluations.jsonl": "362cbdd47420e0439a4610f35e0fa1149b54f47d2cf75395ea38429df0026e79",
+    "jobs/dynamic_B50_seed1/proposals.jsonl": "b18867975d794d5fa84bfe8b3db4762a0d0c03075fd6ed886203efdf5fdbf2ea",
+    "jobs/dynamic_B50_seed1/result.json": "461eeef9a7abbd93b69ac9ac8999596b6262d2750992c027533f8e62bd227c96",
+    "jobs/dynamic_B50_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B50_seed2/evaluations.jsonl": "8b4dab40fb84755cc04f40b26d10606eac0292eff576978adde4d687df52ba09",
+    "jobs/dynamic_B50_seed2/proposals.jsonl": "2a227f98460199ad541623601ce5b4946f896e34562178adc79aa8ec1d71d0dc",
+    "jobs/dynamic_B50_seed2/result.json": "71dc868bad80a6371c7c8f15fdc016c42f533c76f96e1c92dec1666830f7f982",
+    "jobs/dynamic_B50_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B50_seed3/evaluations.jsonl": "c28c8e51454375d4c87400ad2fd2402ba1cf8afb3a535c7538da7aed89bb8da7",
+    "jobs/dynamic_B50_seed3/proposals.jsonl": "63c1a6e46791969ef5b0c672f2cdfb0ba2f2ecbda8d38cc25c621a571d88be5f",
+    "jobs/dynamic_B50_seed3/result.json": "d6009432b2430d60435b27396afdc6f9a04a7b8979fce47bd96d5a3c60f2162c",
+    "jobs/dynamic_B50_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B50_seed4/evaluations.jsonl": "b1eeb5acdc6a57463f430881ae8c02cbdab19c7ce40c8424fbfa14e7f5e940a2",
+    "jobs/dynamic_B50_seed4/proposals.jsonl": "14a1235e4608da63c8503ddae44b998ab27d2fbbeb040c18541fd7033585f8f7",
+    "jobs/dynamic_B50_seed4/result.json": "642d81b37782d1d6d34503ab5f3c0c9bd8646d5647b5b105c31fba445445f91b",
+    "jobs/dynamic_B50_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B50_seed5/evaluations.jsonl": "fc85edc33d0395ca192f233d0ad5494607f2b8b4503d96b23093306a283cc8ec",
+    "jobs/dynamic_B50_seed5/proposals.jsonl": "c38b8a89f5e720bf0c43675d58f50213ba703547c7520f1034049e1f62518e73",
+    "jobs/dynamic_B50_seed5/result.json": "1f9aca364ce646d02e15b7882d24de7c965a84f93cdc8f641a8ce4b0f41f8a58",
+    "jobs/dynamic_B50_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B50_seed6/evaluations.jsonl": "b5252a486fba45c7f6efdc52112cadb8308bdcdddca7034c962c028e24b5eb70",
+    "jobs/dynamic_B50_seed6/proposals.jsonl": "bac1a7048d1e1caae36ca647dd85792837ed4b1073757d885f718d357449788f",
+    "jobs/dynamic_B50_seed6/result.json": "da7b1241d793d3dedf1f054a899f1cbc9be6918dc01b6cda55ffad92d0a768bb",
+    "jobs/dynamic_B50_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B50_seed7/evaluations.jsonl": "6665d736d81d6f9c6269c355ed797c9b5c1e208926faba7cc58c14e565da9cb2",
+    "jobs/dynamic_B50_seed7/proposals.jsonl": "309cfedd86b546f5541400d73ebd19f87de03aed818201e631d71996acfb40f2",
+    "jobs/dynamic_B50_seed7/result.json": "810941596c0050b5d97c24fe3bc226cf4ac0ae7ab89cc340b76dbb928056655c",
+    "jobs/dynamic_B50_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B50_seed8/evaluations.jsonl": "88b6fbabdfafa6b6d78c7a2dc024bf8ffcbdac8f4bc8a7fd8c71650c9857197f",
+    "jobs/dynamic_B50_seed8/proposals.jsonl": "9f54cd5f53bb7b8bd449046a2ae5d6adbe57cba52fbda1be70464004563ace56",
+    "jobs/dynamic_B50_seed8/result.json": "5b9cd3da7de757a6ab9b80c2120e757ccc5852856c2fb689b22b35cc2bc55283",
+    "jobs/dynamic_B50_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/dynamic_B50_seed9/evaluations.jsonl": "186e7d020609b4a2d79b31218ff0e53c8a490b3ae7e2f8dbe8b6aa86e45f8440",
+    "jobs/dynamic_B50_seed9/proposals.jsonl": "6b18e7e5c4e43029d191b5bbdf2ca0286031389ad279a74fd8909ca2ef78e1e3",
+    "jobs/dynamic_B50_seed9/result.json": "e3137fd56e5a44091d89bb03cdecfaec19557d7565d6fb5a74ff7a9f4d720eac",
+    "jobs/dynamic_B50_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/small_batch_B10_seed0/evaluations.jsonl": "fab649f4712f608fc499e97523101fe0c15c07c5253918405512d1e76d5b6b5c",
+    "jobs/small_batch_B10_seed0/proposals.jsonl": "5518fb0a7c604f6ea1c8bd6b58996439e43cade698fbfb2890f271f9bf4754e7",
+    "jobs/small_batch_B10_seed0/result.json": "69d52abab13101c2a29933317cb7c93e8a3cf70e6c7e21dc40b798f16383d04f",
+    "jobs/small_batch_B10_seed0/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/small_batch_B10_seed1/evaluations.jsonl": "c062d64922e13ee8154f54682278f064ed59bb86edbf719dc28064154ad216aa",
+    "jobs/small_batch_B10_seed1/proposals.jsonl": "5c7fe0a791f3fb7c5d221d90fc346fc302bc0f81899ec961d95ad2a455ee3cee",
+    "jobs/small_batch_B10_seed1/result.json": "23b6e7f0a97d412ae47015195cb187ed9f70719ee76efc0de25cd84690dba39a",
+    "jobs/small_batch_B10_seed1/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/small_batch_B10_seed2/evaluations.jsonl": "129440c4b0ccd742defc3aca1327ab3ed398b05504984c8901c2bd45ab8a29bb",
+    "jobs/small_batch_B10_seed2/proposals.jsonl": "95def35e01dda93caabb2a05d050bae3fa742449de6e64e3df5d748aebd802d9",
+    "jobs/small_batch_B10_seed2/result.json": "ff6dbf24acda643ff672806942576291207f18fa117f4a7ffb954dd6e3df4b6b",
+    "jobs/small_batch_B10_seed2/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/small_batch_B10_seed3/evaluations.jsonl": "ff886a3e17f38d732e26e11e5ddd42c1fc243c28e1840767cde06d9dd0578aa8",
+    "jobs/small_batch_B10_seed3/proposals.jsonl": "d2fa99a9eaf32e63c01aface91308ccff6b1e4f05a7fddc5a3e0451d26efae3a",
+    "jobs/small_batch_B10_seed3/result.json": "564c80a3029396ec548ba6b3721cb86f27abe670527ef425cc3a258a2bfdc329",
+    "jobs/small_batch_B10_seed3/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/small_batch_B10_seed4/evaluations.jsonl": "ca4f513b45b2022e16ea0cf88d5cef60e662fb3cb8079291ba4454e7945a1c01",
+    "jobs/small_batch_B10_seed4/proposals.jsonl": "291113b6b182c967f6ea3fa7c467bccce582937d4d68e258f8d5d888c00d708e",
+    "jobs/small_batch_B10_seed4/result.json": "a7e59e42fe0b81297dcda21f649cbf71ce8756477834d2afb33c6ae7df513b0a",
+    "jobs/small_batch_B10_seed4/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/small_batch_B10_seed5/evaluations.jsonl": "3ace924130fd3fa6b6ad2ecbe2b46b4bb64863494317c1cf62f43252e9ce9248",
+    "jobs/small_batch_B10_seed5/proposals.jsonl": "655b873a104bf94a0802dad95d9d94a923dc9c3b0075aa579b1ddb7aa153440d",
+    "jobs/small_batch_B10_seed5/result.json": "71be4811e637f6529503a1d37dcb37fc8ee8903d73f2da8af1339b27f7d55d68",
+    "jobs/small_batch_B10_seed5/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/small_batch_B10_seed6/evaluations.jsonl": "d797a1f22cfdd5b6e4deda4977a0b13284ef01811480d89ba296b6b895064b71",
+    "jobs/small_batch_B10_seed6/proposals.jsonl": "205a2b8936fc7f2c7dff2159e79a9f7820a897428017e2bcf6851d6fcdad44b6",
+    "jobs/small_batch_B10_seed6/result.json": "5a4a03a334c7041743c0bdcc0b925b11624b89d469e43798fe8c2ac00ca7782b",
+    "jobs/small_batch_B10_seed6/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/small_batch_B10_seed7/evaluations.jsonl": "305c029f8ccef8822f27175309d46d15cf10e3de6d2246196759f35d21732fc3",
+    "jobs/small_batch_B10_seed7/proposals.jsonl": "9460f103087aebda1ff1cd8daf042b358fa22e4a5a230a7289c2a99ababbb12b",
+    "jobs/small_batch_B10_seed7/result.json": "6d8f2e6f167499a3512948e55e71c4636141bf6803f57d20cb4375c55364ab15",
+    "jobs/small_batch_B10_seed7/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/small_batch_B10_seed8/evaluations.jsonl": "7279f82f2f445b614c8efb655fa31b1837dd135e5a7d9bf180a84c00b24f60ae",
+    "jobs/small_batch_B10_seed8/proposals.jsonl": "265df23ec9ac3a18cab361f2a48ac010dc9de745ca563f6f4533adf017581d13",
+    "jobs/small_batch_B10_seed8/result.json": "a44740e4456744af1590976c3f543e1112f26452b8c83c24d8fd8e2da8c90bef",
+    "jobs/small_batch_B10_seed8/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jobs/small_batch_B10_seed9/evaluations.jsonl": "9f035e9d9fa743e3835a45d140119e3787c285e554a6902eb0d4354e031c4b19",
+    "jobs/small_batch_B10_seed9/proposals.jsonl": "37a8e27d9a1305e8a0f3b866b9482e381548be7963e9a514eea6fcca35e5ad24",
+    "jobs/small_batch_B10_seed9/result.json": "7fecfb53ed93a11343a0319981ae3a100791ab04e45c32da05b2e214a0969dc9",
+    "jobs/small_batch_B10_seed9/run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

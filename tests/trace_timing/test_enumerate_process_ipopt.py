@@ -55,7 +55,8 @@ def test_solver_exception_records_attempt_and_elapsed_time(monkeypatch):
     prepared = SimpleNamespace(model=None, metadata={'initialization': 'constructor_defaults'},
                                timings={'setup_wall_s': 0.001, 'preprocess_wall_s': 0.001})
     monkeypatch.setattr(evaluation, 'prepare_nlp', lambda *a, **k: prepared)
-    monkeypatch.setattr(evaluation, 'optimizer_for', lambda *a, **k: object())
+    monkeypatch.setattr(evaluation, 'optimizer_for',
+                        lambda *a, **k: SimpleNamespace(executable=lambda: '/fake/gams'))
     def fail(*a, **k):
         raise RuntimeError('Simulated solver exception; no optimizer invoked')
     monkeypatch.setattr(evaluation, 'solve_gams', fail)

@@ -1,0 +1,15 @@
+case,cstr_size,budget,runs,old_target_hits,new_target_hits,old_callbacks,new_callbacks,old_unsuccessful_callbacks,new_unsuccessful_callbacks,changed_paths,new_cost_complete
+column,,16,10,8,6,160,160,17,34,6,True
+cstr,10,15,10,3,2,124,129,13,26,4,True
+cstr,15,22,10,2,2,183,188,14,27,5,True
+cstr,20,29,10,3,3,223,232,14,28,4,True
+cstr,25,36,10,3,3,276,286,14,44,7,True
+cstr,30,43,10,5,2,323,329,14,43,8,True
+cstr,5,8,10,3,2,74,76,12,20,6,True
+dynamic,,12,10,4,4,120,120,14,20,4,True
+dynamic,,15,10,5,5,148,150,14,20,4,True
+dynamic,,20,10,9,8,178,182,14,20,4,True
+dynamic,,30,10,10,10,213,217,14,20,4,True
+dynamic,,37,10,10,10,215,221,14,20,4,True
+dynamic,,50,10,10,10,215,221,14,20,4,True
+small_batch,,10,10,8,8,100,100,58,58,0,True
