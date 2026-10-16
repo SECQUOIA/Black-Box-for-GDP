@@ -1,0 +1,15 @@
+{
+  "planned_runs": 40,
+  "finished_runs": 40,
+  "completed_runs": 40,
+  "failed_runs": 0,
+  "evaluation_callbacks": 400,
+  "all_completed": true,
+  "objective_mode": "lookup; archived point costs joined after optimization",
+  "updated_utc": "2026-10-12T06:47:44.737392+00:00",
+  "callbacks_with_point_cost": 400,
+  "callbacks_missing_point_cost": 0,
+  "feasible_callbacks": 203,
+  "infeasible_callbacks": 197,
+  "nlp_cost_reference_sha256": "4fabd04e5023d0517cc6e749b8fee1e3de6d3bfc9e17491d3ec90d055f4045f3"
+}

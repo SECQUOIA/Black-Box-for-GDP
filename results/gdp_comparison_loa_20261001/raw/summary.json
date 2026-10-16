@@ -1,0 +1,6477 @@
+{
+  "completed_jobs": 9,
+  "planned_jobs": 9,
+  "complete": true,
+  "feasible_jobs": 9,
+  "globally_certified_jobs": 0,
+  "pending_jobs": [],
+  "results": [
+    {
+      "case": "column",
+      "cstr_size": null,
+      "instance_id": "column",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/column/gdp_column.py": "c5fea7ff6286d2b6c1055a4e602b08648a03853aea24e6552f5921b36e205bab",
+          "gdp/dsda/column_17_initialization.json": "60cd7d1f7a7f08b59d9b0d7fca6e8920313ca7722c94d829e388a009ae4acfd7",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+        }
+      },
+      "initialization": "gdp/dsda/column_17_initialization.json",
+      "dynamic_preparation": null,
+      "global_fbbt_wall_s": 0.04304818203672767,
+      "globally_implied_bounds": {
+        "T_feed": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            368,
+            368
+          ]
+        },
+        "feed_vap_frac": {
+          "before": [
+            0,
+            1
+          ],
+          "after": [
+            0.40395,
+            0.40395
+          ]
+        },
+        "feed[benzene]": {
+          "before": [
+            null,
+            null
+          ],
+          "after": [
+            50,
+            50
+          ]
+        },
+        "feed[toluene]": {
+          "before": [
+            null,
+            null
+          ],
+          "after": [
+            50,
+            50
+          ]
+        },
+        "L[benzene,1]": {
+          "before": [
+            0,
+            500
+          ],
+          "after": [
+            0,
+            100
+          ]
+        },
+        "L[toluene,1]": {
+          "before": [
+            0,
+            500
+          ],
+          "after": [
+            0,
+            100
+          ]
+        },
+        "liq[1]": {
+          "before": [
+            0,
+            500
+          ],
+          "after": [
+            0,
+            200
+          ]
+        },
+        "B[benzene]": {
+          "before": [
+            0,
+            500
+          ],
+          "after": [
+            0,
+            100
+          ]
+        },
+        "B[toluene]": {
+          "before": [
+            0,
+            500
+          ],
+          "after": [
+            0,
+            100
+          ]
+        },
+        "D[benzene]": {
+          "before": [
+            0,
+            500
+          ],
+          "after": [
+            0,
+            100
+          ]
+        },
+        "D[toluene]": {
+          "before": [
+            0,
+            500
+          ],
+          "after": [
+            0,
+            100
+          ]
+        },
+        "reflux_frac": {
+          "before": [
+            0,
+            0.999999
+          ],
+          "after": [
+            0.1,
+            0.999999
+          ]
+        },
+        "boilup_frac": {
+          "before": [
+            0,
+            0.999999
+          ],
+          "after": [
+            0.26,
+            0.999999
+          ]
+        },
+        "Kc[benzene,1]": {
+          "before": [
+            0,
+            1000
+          ],
+          "after": [
+            0.09069704412682228,
+            4.726753845725148
+          ]
+        },
+        "Kc[benzene,9]": {
+          "before": [
+            0,
+            1000
+          ],
+          "after": [
+            0.09069704412682228,
+            4.726753845725148
+          ]
+        },
+        "Kc[benzene,17]": {
+          "before": [
+            0,
+            1000
+          ],
+          "after": [
+            0.09069704412682011,
+            4.72675384572518
+          ]
+        },
+        "Kc[toluene,1]": {
+          "before": [
+            0,
+            1000
+          ],
+          "after": [
+            0.026514270835933103,
+            2.1592910806484555
+          ]
+        },
+        "Kc[toluene,9]": {
+          "before": [
+            0,
+            1000
+          ],
+          "after": [
+            0.026514270835933103,
+            2.1592910806484555
+          ]
+        },
+        "Kc[toluene,17]": {
+          "before": [
+            0,
+            1000
+          ],
+          "after": [
+            0.02651427083593242,
+            2.159291080648479
+          ]
+        },
+        "T[1]": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            300.0000000000007,
+            399.9999999999993
+          ]
+        },
+        "T[8]": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            300.00000000000045,
+            400
+          ]
+        },
+        "T[9]": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            300.0000000000007,
+            399.9999999999993
+          ]
+        },
+        "T[10]": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            300,
+            399.99999999999955
+          ]
+        },
+        "T[11]": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            300,
+            399.99999999999955
+          ]
+        },
+        "T[12]": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            300,
+            399.99999999999955
+          ]
+        },
+        "T[13]": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            300,
+            399.99999999999955
+          ]
+        },
+        "T[14]": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            300,
+            399.99999999999955
+          ]
+        },
+        "T[15]": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            300,
+            399.99999999999955
+          ]
+        },
+        "T[16]": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            300.0000000000002,
+            399.99999999999955
+          ]
+        },
+        "T[17]": {
+          "before": [
+            300,
+            400
+          ],
+          "after": [
+            300.0000000000002,
+            399.99999999999955
+          ]
+        },
+        "P": {
+          "before": [
+            0,
+            5
+          ],
+          "after": [
+            1.01,
+            1.01
+          ]
+        },
+        "gamma[benzene,1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1,
+            1
+          ]
+        },
+        "gamma[benzene,9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1,
+            1
+          ]
+        },
+        "gamma[benzene,17]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1,
+            1
+          ]
+        },
+        "gamma[toluene,1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1,
+            1
+          ]
+        },
+        "gamma[toluene,9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1,
+            1
+          ]
+        },
+        "gamma[toluene,17]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1,
+            1
+          ]
+        },
+        "Pvap[benzene,1]": {
+          "before": [
+            0.001,
+            5
+          ],
+          "after": [
+            0.0916040145680905,
+            4.7740213841824
+          ]
+        },
+        "Pvap[benzene,9]": {
+          "before": [
+            0.001,
+            5
+          ],
+          "after": [
+            0.0916040145680905,
+            4.7740213841824
+          ]
+        },
+        "Pvap[benzene,17]": {
+          "before": [
+            0.001,
+            5
+          ],
+          "after": [
+            0.09160401456808831,
+            4.774021384182432
+          ]
+        },
+        "Pvap[toluene,1]": {
+          "before": [
+            0.001,
+            5
+          ],
+          "after": [
+            0.026779413544292436,
+            2.18088399145494
+          ]
+        },
+        "Pvap[toluene,9]": {
+          "before": [
+            0.001,
+            5
+          ],
+          "after": [
+            0.026779413544292436,
+            2.18088399145494
+          ]
+        },
+        "Pvap[toluene,17]": {
+          "before": [
+            0.001,
+            5
+          ],
+          "after": [
+            0.026779413544291746,
+            2.180883991454964
+          ]
+        },
+        "Pvap_rel[benzene,1]": {
+          "before": [
+            0,
+            5
+          ],
+          "after": [
+            0.0906040145680905,
+            4.7730213841824
+          ]
+        },
+        "Pvap_rel[benzene,9]": {
+          "before": [
+            0,
+            5
+          ],
+          "after": [
+            0.0906040145680905,
+            4.7730213841824
+          ]
+        },
+        "Pvap_rel[benzene,17]": {
+          "before": [
+            0,
+            5
+          ],
+          "after": [
+            0.09060401456808831,
+            4.773021384182432
+          ]
+        },
+        "Pvap_rel[toluene,1]": {
+          "before": [
+            0,
+            5
+          ],
+          "after": [
+            0.025779413544292435,
+            2.17988399145494
+          ]
+        },
+        "Pvap_rel[toluene,9]": {
+          "before": [
+            0,
+            5
+          ],
+          "after": [
+            0.025779413544292435,
+            2.17988399145494
+          ]
+        },
+        "Pvap_rel[toluene,17]": {
+          "before": [
+            0,
+            5
+          ],
+          "after": [
+            0.025779413544291745,
+            2.179883991454964
+          ]
+        },
+        "Pvap_X[benzene,1]": {
+          "before": [
+            0.25,
+            0.5
+          ],
+          "after": [
+            0.2885094272500902,
+            0.4663820704375654
+          ]
+        },
+        "Pvap_X[benzene,9]": {
+          "before": [
+            0.25,
+            0.5
+          ],
+          "after": [
+            0.2885094272500902,
+            0.4663820704375654
+          ]
+        },
+        "Pvap_X[benzene,17]": {
+          "before": [
+            0.25,
+            0.5
+          ],
+          "after": [
+            0.28850942725008977,
+            0.46638207043756624
+          ]
+        },
+        "Pvap_X[toluene,1]": {
+          "before": [
+            0.25,
+            0.5
+          ],
+          "after": [
+            0.3240959783710725,
+            0.4930719837783023
+          ]
+        },
+        "Pvap_X[toluene,9]": {
+          "before": [
+            0.25,
+            0.5
+          ],
+          "after": [
+            0.3240959783710725,
+            0.4930719837783023
+          ]
+        },
+        "Pvap_X[toluene,17]": {
+          "before": [
+            0.25,
+            0.5
+          ],
+          "after": [
+            0.32409597837107196,
+            0.4930719837783031
+          ]
+        },
+        "H_V[benzene,1]": {
+          "before": [
+            30,
+            56
+          ],
+          "after": [
+            30,
+            50.82149374930038
+          ]
+        },
+        "H_V[benzene,9]": {
+          "before": [
+            30,
+            56
+          ],
+          "after": [
+            30,
+            50.82149374930038
+          ]
+        },
+        "H_V[toluene,1]": {
+          "before": [
+            30,
+            56
+          ],
+          "after": [
+            32.612022827497086,
+            56
+          ]
+        },
+        "H_V[toluene,9]": {
+          "before": [
+            30,
+            56
+          ],
+          "after": [
+            32.612022827497086,
+            56
+          ]
+        },
+        "H_L_spec_feed[benzene]": {
+          "before": [
+            0.1,
+            16
+          ],
+          "after": [
+            10.095361858131001,
+            10.095361858131001
+          ]
+        },
+        "H_L_spec_feed[toluene]": {
+          "before": [
+            0.1,
+            16
+          ],
+          "after": [
+            11.648028898909795,
+            11.648028898909795
+          ]
+        },
+        "H_V_spec_feed[benzene]": {
+          "before": [
+            30,
+            56
+          ],
+          "after": [
+            40.26569136667437,
+            40.26569136667437
+          ]
+        },
+        "H_V_spec_feed[toluene]": {
+          "before": [
+            30,
+            56
+          ],
+          "after": [
+            46.46228596773012,
+            46.46228596773012
+          ]
+        }
+      },
+      "template_wall_s": 0.2723519871942699,
+      "template_policy": "built once, independent unsolved clone per method",
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "time_limit",
+      "objective": 22271.54871907239,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lp_subsolver": "clp",
+        "baron_nlp_subsolver": "ipopt",
+        "warmstart": false,
+        "options": [
+          "LPSol 8",
+          "NLPSol 9"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with BARON NLP subproblems.",
+      "reformulation_wall_s": 0.10529247485101223,
+      "model_variables": 506,
+      "model_constraints": 989,
+      "candidate_objective": 22271.54871907239,
+      "max_primal_violation": 2.460751602484379e-09,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "tray[2]",
+        "tray[3]",
+        "tray[4]",
+        "tray[5]",
+        "tray[6]",
+        "tray[7]",
+        "tray[8]",
+        "tray[10]",
+        "tray[11]",
+        "tray[12]",
+        "tray[13]",
+        "tray[14]",
+        "tray[15]",
+        "tray[16]",
+        "total_cond"
+      ],
+      "selected_booleans": [
+        "YB[2]",
+        "YR[16]",
+        "YP[2]",
+        "YP[3]",
+        "YP[4]",
+        "YP[5]",
+        "YP[6]",
+        "YP[7]",
+        "YP[8]",
+        "YP[10]",
+        "YP[11]",
+        "YP[12]",
+        "YP[13]",
+        "YP[14]",
+        "YP[15]",
+        "YP[16]",
+        "YB_is_up",
+        "YR_is_down"
+      ],
+      "incumbent_elapsed_s": 1797.4941261420026,
+      "termination": "maxTimeLimit",
+      "incomplete_subproblem_call": 2,
+      "message": "GAMS/baron subproblem did not prove optimality within the configured gap or infeasibility: {'MODELSTAT': 2.0, 'SOLVESTAT': 3.0, 'OBJEST': 19739.574683820123, 'OBJVAL': 22271.54871907239, 'NUMVAR': 399.0, 'NUMEQU': 415.0, 'NUMDVAR': 0.0, 'NUMNZ': 1262.0, 'ETSOLVE': 1795.4160002293065}",
+      "solve_wall_s": 1797.2178173330612,
+      "method_wall_s": 1797.5003059003502,
+      "solver_calls": 2,
+      "sum_solver_call_wall_s": 1796.2850879807957,
+      "worker_pid": 3542222,
+      "worker_returncode": 0,
+      "worker_wall_s": 1797.5126476199366,
+      "hard_time_limit_reached": false
+    },
+    {
+      "case": "cstr",
+      "cstr_size": 10,
+      "instance_id": "cstr_10",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+          "gdp/dsda/cstr_10_initialization.json": "c7ed746a610656af44d7382b3656158efecd61d62785a713da4a8b0a7f3b6cb4",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+        }
+      },
+      "initialization": "gdp/dsda/cstr_10_initialization.json",
+      "dynamic_preparation": null,
+      "global_fbbt_wall_s": 0.011328116990625858,
+      "globally_implied_bounds": {
+        "Q[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[10]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "QFR[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[10]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9
+          ]
+        },
+        "P[B]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.5
+          ]
+        }
+      },
+      "template_wall_s": 0.09716889075934887,
+      "template_policy": "built once, independent unsolved clone per method",
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "finished",
+      "objective": 2.8895080745062898,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lp_subsolver": "clp",
+        "baron_nlp_subsolver": "ipopt",
+        "warmstart": false,
+        "options": [
+          "LPSol 8",
+          "NLPSol 9"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with BARON NLP subproblems.",
+      "reformulation_wall_s": 0.02417822927236557,
+      "model_variables": 156,
+      "model_constraints": 271,
+      "candidate_objective": 2.8895080745062898,
+      "max_primal_violation": 9.243496493227532e-08,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "YR_is_recycle[10]",
+        "YR_is_not_recycle[1]",
+        "YR_is_not_recycle[2]",
+        "YR_is_not_recycle[3]",
+        "YR_is_not_recycle[4]",
+        "YR_is_not_recycle[5]",
+        "YR_is_not_recycle[6]",
+        "YR_is_not_recycle[7]",
+        "YR_is_not_recycle[8]",
+        "YR_is_not_recycle[9]",
+        "YP_is_cstr[1]",
+        "YP_is_cstr[2]",
+        "YP_is_cstr[3]",
+        "YP_is_cstr[4]",
+        "YP_is_cstr[5]",
+        "YP_is_cstr[6]",
+        "YP_is_cstr[7]",
+        "YP_is_cstr[8]",
+        "YP_is_cstr[9]",
+        "YP_is_cstr[10]"
+      ],
+      "selected_booleans": [
+        "YF[10]",
+        "YR[10]",
+        "YP[1]",
+        "YP[2]",
+        "YP[3]",
+        "YP[4]",
+        "YP[5]",
+        "YP[6]",
+        "YP[7]",
+        "YP[8]",
+        "YP[9]",
+        "YP[10]"
+      ],
+      "incumbent_elapsed_s": 210.99948262795806,
+      "gdpopt_iterations": 55,
+      "solve_wall_s": 233.93731764610857,
+      "termination": "optimal",
+      "solver_status": "ok",
+      "reported_lower_bound": 2.8895080745062898,
+      "reported_upper_bound": 2.8895080745062898,
+      "method_wall_s": 234.02923865802586,
+      "solver_calls": 111,
+      "sum_solver_call_wall_s": 214.76454507140443,
+      "worker_pid": 3528317,
+      "worker_returncode": 0,
+      "worker_wall_s": 234.04401407018304,
+      "hard_time_limit_reached": false
+    },
+    {
+      "case": "cstr",
+      "cstr_size": 15,
+      "instance_id": "cstr_15",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+          "gdp/dsda/cstr_15_initialization.json": "de9eec42abb1f5ba587546239e9520e8ffc2ddffc9518f777227564f4c1b3104",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+        }
+      },
+      "initialization": "gdp/dsda/cstr_15_initialization.json",
+      "dynamic_preparation": null,
+      "global_fbbt_wall_s": 0.016123542096465826,
+      "globally_implied_bounds": {
+        "Q[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[10]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[11]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[12]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[13]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[14]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[15]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "QFR[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[10]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[11]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[12]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[13]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[14]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[15]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9
+          ]
+        },
+        "P[B]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.5
+          ]
+        }
+      },
+      "template_wall_s": 0.13614193769171834,
+      "template_policy": "built once, independent unsolved clone per method",
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "time_limit",
+      "objective": 2.82935061823614,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lp_subsolver": "clp",
+        "baron_nlp_subsolver": "ipopt",
+        "warmstart": false,
+        "options": [
+          "LPSol 8",
+          "NLPSol 9"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with BARON NLP subproblems.",
+      "reformulation_wall_s": 0.04551475401967764,
+      "model_variables": 231,
+      "model_constraints": 441,
+      "candidate_objective": 2.82935061823614,
+      "max_primal_violation": 5.634494497502862e-07,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "YR_is_recycle[15]",
+        "YR_is_not_recycle[1]",
+        "YR_is_not_recycle[2]",
+        "YR_is_not_recycle[3]",
+        "YR_is_not_recycle[4]",
+        "YR_is_not_recycle[5]",
+        "YR_is_not_recycle[6]",
+        "YR_is_not_recycle[7]",
+        "YR_is_not_recycle[8]",
+        "YR_is_not_recycle[9]",
+        "YR_is_not_recycle[10]",
+        "YR_is_not_recycle[11]",
+        "YR_is_not_recycle[12]",
+        "YR_is_not_recycle[13]",
+        "YR_is_not_recycle[14]",
+        "YP_is_cstr[1]",
+        "YP_is_cstr[2]",
+        "YP_is_cstr[3]",
+        "YP_is_cstr[4]",
+        "YP_is_cstr[5]",
+        "YP_is_cstr[6]",
+        "YP_is_cstr[7]",
+        "YP_is_cstr[8]",
+        "YP_is_cstr[9]",
+        "YP_is_cstr[10]",
+        "YP_is_cstr[11]",
+        "YP_is_cstr[12]",
+        "YP_is_cstr[13]",
+        "YP_is_cstr[14]",
+        "YP_is_cstr[15]"
+      ],
+      "selected_booleans": [
+        "YF[15]",
+        "YR[15]",
+        "YP[1]",
+        "YP[2]",
+        "YP[3]",
+        "YP[4]",
+        "YP[5]",
+        "YP[6]",
+        "YP[7]",
+        "YP[8]",
+        "YP[9]",
+        "YP[10]",
+        "YP[11]",
+        "YP[12]",
+        "YP[13]",
+        "YP[14]",
+        "YP[15]"
+      ],
+      "incumbent_elapsed_s": 305.13679318409413,
+      "termination": "maxTimeLimit",
+      "incomplete_subproblem_call": 184,
+      "message": "GAMS/baron subproblem did not prove optimality within the configured gap or infeasibility: {'MODELSTAT': 2.0, 'SOLVESTAT': 3.0, 'OBJEST': 1.645579578637852, 'OBJVAL': 3.262757218663792, 'NUMVAR': 91.0, 'NUMEQU': 90.0, 'NUMDVAR': 0.0, 'NUMNZ': 242.0, 'ETSOLVE': 24.362999643199146}",
+      "solve_wall_s": 1799.1068447050638,
+      "method_wall_s": 1799.2449157801457,
+      "solver_calls": 184,
+      "sum_solver_call_wall_s": 1718.8200832083821,
+      "worker_pid": 3530085,
+      "worker_returncode": 0,
+      "worker_wall_s": 1799.2620356292464,
+      "hard_time_limit_reached": false
+    },
+    {
+      "case": "cstr",
+      "cstr_size": 20,
+      "instance_id": "cstr_20",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+          "gdp/dsda/cstr_20_initialization.json": "bafdb05180118d08876f662ab43f87a09a7c2bd4b9e3d6c6289367ca40030f86",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+        }
+      },
+      "initialization": "gdp/dsda/cstr_20_initialization.json",
+      "dynamic_preparation": null,
+      "global_fbbt_wall_s": 0.02049099700525403,
+      "globally_implied_bounds": {
+        "Q[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[10]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[11]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[12]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[13]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[14]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[15]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[16]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[17]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[18]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[19]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[20]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "QFR[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[10]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[11]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[12]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[13]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[14]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[15]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[16]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[17]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[18]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[19]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[20]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9
+          ]
+        },
+        "P[B]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.5
+          ]
+        }
+      },
+      "template_wall_s": 0.1739145563915372,
+      "template_policy": "built once, independent unsolved clone per method",
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "time_limit",
+      "objective": 2.88950807452168,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lp_subsolver": "clp",
+        "baron_nlp_subsolver": "ipopt",
+        "warmstart": false,
+        "options": [
+          "LPSol 8",
+          "NLPSol 9"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with BARON NLP subproblems.",
+      "reformulation_wall_s": 0.07358051324263215,
+      "model_variables": 306,
+      "model_constraints": 636,
+      "candidate_objective": 2.88950807452168,
+      "max_primal_violation": 9.932802626233528e-08,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "YR_is_recycle[10]",
+        "YR_is_not_recycle[1]",
+        "YR_is_not_recycle[2]",
+        "YR_is_not_recycle[3]",
+        "YR_is_not_recycle[4]",
+        "YR_is_not_recycle[5]",
+        "YR_is_not_recycle[6]",
+        "YR_is_not_recycle[7]",
+        "YR_is_not_recycle[8]",
+        "YR_is_not_recycle[9]",
+        "YR_is_not_recycle[11]",
+        "YR_is_not_recycle[12]",
+        "YR_is_not_recycle[13]",
+        "YR_is_not_recycle[14]",
+        "YR_is_not_recycle[15]",
+        "YR_is_not_recycle[16]",
+        "YR_is_not_recycle[17]",
+        "YR_is_not_recycle[18]",
+        "YR_is_not_recycle[19]",
+        "YR_is_not_recycle[20]",
+        "YP_is_cstr[1]",
+        "YP_is_cstr[2]",
+        "YP_is_cstr[3]",
+        "YP_is_cstr[4]",
+        "YP_is_cstr[5]",
+        "YP_is_cstr[6]",
+        "YP_is_cstr[7]",
+        "YP_is_cstr[8]",
+        "YP_is_cstr[9]",
+        "YP_is_cstr[10]",
+        "YP_is_bypass[11]",
+        "YP_is_bypass[12]",
+        "YP_is_bypass[13]",
+        "YP_is_bypass[14]",
+        "YP_is_bypass[15]",
+        "YP_is_bypass[16]",
+        "YP_is_bypass[17]",
+        "YP_is_bypass[18]",
+        "YP_is_bypass[19]",
+        "YP_is_bypass[20]"
+      ],
+      "selected_booleans": [
+        "YF[10]",
+        "YR[10]",
+        "YP[1]",
+        "YP[2]",
+        "YP[3]",
+        "YP[4]",
+        "YP[5]",
+        "YP[6]",
+        "YP[7]",
+        "YP[8]",
+        "YP[9]",
+        "YP[10]"
+      ],
+      "incumbent_elapsed_s": 164.8118317737244,
+      "termination": "maxTimeLimit",
+      "incomplete_subproblem_call": 104,
+      "message": "GAMS/baron subproblem did not prove optimality within the configured gap or infeasibility: {'MODELSTAT': 2.0, 'SOLVESTAT': 3.0, 'OBJEST': 1.873692199273037, 'OBJVAL': 3.176970591258103, 'NUMVAR': 117.0, 'NUMEQU': 116.0, 'NUMDVAR': 0.0, 'NUMNZ': 308.0, 'ETSOLVE': 1610.018999897875}",
+      "solve_wall_s": 1797.3388438308612,
+      "method_wall_s": 1797.5463911890984,
+      "solver_calls": 104,
+      "sum_solver_call_wall_s": 1759.0444355951622,
+      "worker_pid": 3534590,
+      "worker_returncode": 0,
+      "worker_wall_s": 1797.5631867242046,
+      "hard_time_limit_reached": false
+    },
+    {
+      "case": "cstr",
+      "cstr_size": 25,
+      "instance_id": "cstr_25",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+          "gdp/dsda/cstr_25_initialization.json": "98e8ceaf048d8e1d1835f3b13489da34fb78b4b955f38cd3731d5ef9b856e397",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+        }
+      },
+      "initialization": "gdp/dsda/cstr_25_initialization.json",
+      "dynamic_preparation": null,
+      "global_fbbt_wall_s": 0.024937383830547333,
+      "globally_implied_bounds": {
+        "Q[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[10]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[11]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[12]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[13]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[14]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[15]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[16]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[17]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[18]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[19]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[20]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[21]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[22]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[23]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[24]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[25]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "QFR[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[10]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[11]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[12]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[13]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[14]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[15]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[16]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[17]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[18]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[19]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[20]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[21]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[22]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[23]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[24]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[25]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9
+          ]
+        },
+        "P[B]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.5
+          ]
+        }
+      },
+      "template_wall_s": 0.21110006840899587,
+      "template_policy": "built once, independent unsolved clone per method",
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "time_limit",
+      "objective": 2.7951054674535083,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lp_subsolver": "clp",
+        "baron_nlp_subsolver": "ipopt",
+        "warmstart": false,
+        "options": [
+          "LPSol 8",
+          "NLPSol 9"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with BARON NLP subproblems.",
+      "reformulation_wall_s": 0.1055951458401978,
+      "model_variables": 381,
+      "model_constraints": 856,
+      "candidate_objective": 2.7951054674535083,
+      "max_primal_violation": 5.329536569009807e-08,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "YR_is_recycle[21]",
+        "YR_is_not_recycle[1]",
+        "YR_is_not_recycle[2]",
+        "YR_is_not_recycle[3]",
+        "YR_is_not_recycle[4]",
+        "YR_is_not_recycle[5]",
+        "YR_is_not_recycle[6]",
+        "YR_is_not_recycle[7]",
+        "YR_is_not_recycle[8]",
+        "YR_is_not_recycle[9]",
+        "YR_is_not_recycle[10]",
+        "YR_is_not_recycle[11]",
+        "YR_is_not_recycle[12]",
+        "YR_is_not_recycle[13]",
+        "YR_is_not_recycle[14]",
+        "YR_is_not_recycle[15]",
+        "YR_is_not_recycle[16]",
+        "YR_is_not_recycle[17]",
+        "YR_is_not_recycle[18]",
+        "YR_is_not_recycle[19]",
+        "YR_is_not_recycle[20]",
+        "YR_is_not_recycle[22]",
+        "YR_is_not_recycle[23]",
+        "YR_is_not_recycle[24]",
+        "YR_is_not_recycle[25]",
+        "YP_is_cstr[1]",
+        "YP_is_cstr[2]",
+        "YP_is_cstr[3]",
+        "YP_is_cstr[4]",
+        "YP_is_cstr[5]",
+        "YP_is_cstr[6]",
+        "YP_is_cstr[7]",
+        "YP_is_cstr[8]",
+        "YP_is_cstr[9]",
+        "YP_is_cstr[10]",
+        "YP_is_cstr[11]",
+        "YP_is_cstr[12]",
+        "YP_is_cstr[13]",
+        "YP_is_cstr[14]",
+        "YP_is_cstr[15]",
+        "YP_is_cstr[16]",
+        "YP_is_cstr[17]",
+        "YP_is_cstr[18]",
+        "YP_is_cstr[19]",
+        "YP_is_cstr[20]",
+        "YP_is_cstr[21]",
+        "YP_is_bypass[22]",
+        "YP_is_bypass[23]",
+        "YP_is_bypass[24]",
+        "YP_is_bypass[25]"
+      ],
+      "selected_booleans": [
+        "YF[21]",
+        "YR[21]",
+        "YP[1]",
+        "YP[2]",
+        "YP[3]",
+        "YP[4]",
+        "YP[5]",
+        "YP[6]",
+        "YP[7]",
+        "YP[8]",
+        "YP[9]",
+        "YP[10]",
+        "YP[11]",
+        "YP[12]",
+        "YP[13]",
+        "YP[14]",
+        "YP[15]",
+        "YP[16]",
+        "YP[17]",
+        "YP[18]",
+        "YP[19]",
+        "YP[20]",
+        "YP[21]"
+      ],
+      "incumbent_elapsed_s": 1797.2475183168426,
+      "termination": "maxTimeLimit",
+      "incomplete_subproblem_call": 42,
+      "message": "GAMS/baron subproblem did not prove optimality within the configured gap or infeasibility: {'MODELSTAT': 2.0, 'SOLVESTAT': 3.0, 'OBJEST': 0.153289407770898, 'OBJVAL': 2.795105467453517, 'NUMVAR': 170.0, 'NUMEQU': 169.0, 'NUMDVAR': 0.0, 'NUMNZ': 491.0, 'ETSOLVE': 1656.75399962347}",
+      "solve_wall_s": 1796.9470736091025,
+      "method_wall_s": 1797.2514086999,
+      "solver_calls": 42,
+      "sum_solver_call_wall_s": 1782.2357864263467,
+      "worker_pid": 3537433,
+      "worker_returncode": 0,
+      "worker_wall_s": 1797.2674907981418,
+      "hard_time_limit_reached": false
+    },
+    {
+      "case": "cstr",
+      "cstr_size": 30,
+      "instance_id": "cstr_30",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6"
+        }
+      },
+      "initialization": "constructor_defaults (no upstream saved initialization)",
+      "dynamic_preparation": null,
+      "global_fbbt_wall_s": 0.029284559655934572,
+      "globally_implied_bounds": {
+        "Q[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[10]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[11]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[12]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[13]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[14]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[15]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[16]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[17]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[18]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[19]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[20]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[21]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[22]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[23]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[24]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[25]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[26]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[27]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[28]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[29]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[30]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "QFR[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[10]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[11]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[12]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[13]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[14]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[15]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[16]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[17]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[18]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[19]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[20]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[21]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[22]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[23]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[24]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[25]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[26]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[27]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[28]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[29]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[30]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9
+          ]
+        },
+        "P[B]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.5
+          ]
+        }
+      },
+      "template_wall_s": 0.0519372783601284,
+      "template_policy": "built once, independent unsolved clone per method",
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "time_limit",
+      "objective": 2.7844377336170396,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lp_subsolver": "clp",
+        "baron_nlp_subsolver": "ipopt",
+        "warmstart": false,
+        "options": [
+          "LPSol 8",
+          "NLPSol 9"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with BARON NLP subproblems.",
+      "reformulation_wall_s": 0.23940033977851272,
+      "model_variables": 456,
+      "model_constraints": 1101,
+      "candidate_objective": 2.7844377336170396,
+      "max_primal_violation": 4.7305921090090575e-08,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "YR_is_recycle[24]",
+        "YR_is_not_recycle[1]",
+        "YR_is_not_recycle[2]",
+        "YR_is_not_recycle[3]",
+        "YR_is_not_recycle[4]",
+        "YR_is_not_recycle[5]",
+        "YR_is_not_recycle[6]",
+        "YR_is_not_recycle[7]",
+        "YR_is_not_recycle[8]",
+        "YR_is_not_recycle[9]",
+        "YR_is_not_recycle[10]",
+        "YR_is_not_recycle[11]",
+        "YR_is_not_recycle[12]",
+        "YR_is_not_recycle[13]",
+        "YR_is_not_recycle[14]",
+        "YR_is_not_recycle[15]",
+        "YR_is_not_recycle[16]",
+        "YR_is_not_recycle[17]",
+        "YR_is_not_recycle[18]",
+        "YR_is_not_recycle[19]",
+        "YR_is_not_recycle[20]",
+        "YR_is_not_recycle[21]",
+        "YR_is_not_recycle[22]",
+        "YR_is_not_recycle[23]",
+        "YR_is_not_recycle[25]",
+        "YR_is_not_recycle[26]",
+        "YR_is_not_recycle[27]",
+        "YR_is_not_recycle[28]",
+        "YR_is_not_recycle[29]",
+        "YR_is_not_recycle[30]",
+        "YP_is_cstr[1]",
+        "YP_is_cstr[2]",
+        "YP_is_cstr[3]",
+        "YP_is_cstr[4]",
+        "YP_is_cstr[5]",
+        "YP_is_cstr[6]",
+        "YP_is_cstr[7]",
+        "YP_is_cstr[8]",
+        "YP_is_cstr[9]",
+        "YP_is_cstr[10]",
+        "YP_is_cstr[11]",
+        "YP_is_cstr[12]",
+        "YP_is_cstr[13]",
+        "YP_is_cstr[14]",
+        "YP_is_cstr[15]",
+        "YP_is_cstr[16]",
+        "YP_is_cstr[17]",
+        "YP_is_cstr[18]",
+        "YP_is_cstr[19]",
+        "YP_is_cstr[20]",
+        "YP_is_cstr[21]",
+        "YP_is_cstr[22]",
+        "YP_is_cstr[23]",
+        "YP_is_cstr[24]",
+        "YP_is_bypass[25]",
+        "YP_is_bypass[26]",
+        "YP_is_bypass[27]",
+        "YP_is_bypass[28]",
+        "YP_is_bypass[29]",
+        "YP_is_bypass[30]"
+      ],
+      "selected_booleans": [
+        "YF[24]",
+        "YR[24]",
+        "YP[1]",
+        "YP[2]",
+        "YP[3]",
+        "YP[4]",
+        "YP[5]",
+        "YP[6]",
+        "YP[7]",
+        "YP[8]",
+        "YP[9]",
+        "YP[10]",
+        "YP[11]",
+        "YP[12]",
+        "YP[13]",
+        "YP[14]",
+        "YP[15]",
+        "YP[16]",
+        "YP[17]",
+        "YP[18]",
+        "YP[19]",
+        "YP[20]",
+        "YP[21]",
+        "YP[22]",
+        "YP[23]",
+        "YP[24]"
+      ],
+      "incumbent_elapsed_s": 1759.1205686177127,
+      "termination": "maxTimeLimit",
+      "incomplete_subproblem_call": 22,
+      "message": "GAMS/baron subproblem did not prove optimality within the configured gap or infeasibility: {'MODELSTAT': 2.0, 'SOLVESTAT': 3.0, 'OBJEST': 2.58168444369006, 'OBJVAL': 3.649111093689375, 'NUMVAR': 213.0, 'NUMEQU': 212.0, 'NUMDVAR': 0.0, 'NUMNZ': 632.0, 'ETSOLVE': 32.349000382237136}",
+      "solve_wall_s": 1798.400728055276,
+      "method_wall_s": 1798.8723918306641,
+      "solver_calls": 22,
+      "sum_solver_call_wall_s": 1789.3822532524355,
+      "worker_pid": 3540467,
+      "worker_returncode": 0,
+      "worker_wall_s": 1798.888063061051,
+      "hard_time_limit_reached": false
+    },
+    {
+      "case": "cstr",
+      "cstr_size": 5,
+      "instance_id": "cstr_5",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+          "gdp/dsda/cstr_5_initialization.json": "2f8180fe245f7ec8af8fb9fd2fc549c43aaecc6d6dfc735eb2c89715a8d09ce2",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+        }
+      },
+      "initialization": "gdp/dsda/cstr_5_initialization.json",
+      "dynamic_preparation": null,
+      "global_fbbt_wall_s": 0.007252119947224855,
+      "globally_implied_bounds": {
+        "Q[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "Q[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1.0,
+            10
+          ]
+        },
+        "QFR[1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.0
+          ]
+        },
+        "QFR[5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9
+          ]
+        },
+        "P[B]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.5
+          ]
+        }
+      },
+      "template_wall_s": 0.5333932591602206,
+      "template_policy": "built once, independent unsolved clone per method",
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "finished",
+      "objective": 3.06198395705692,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lp_subsolver": "clp",
+        "baron_nlp_subsolver": "ipopt",
+        "warmstart": false,
+        "options": [
+          "LPSol 8",
+          "NLPSol 9"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with BARON NLP subproblems.",
+      "reformulation_wall_s": 0.00894024409353733,
+      "model_variables": 81,
+      "model_constraints": 126,
+      "candidate_objective": 3.06198395705692,
+      "max_primal_violation": 6.645419908801742e-07,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "YR_is_recycle[5]",
+        "YR_is_not_recycle[1]",
+        "YR_is_not_recycle[2]",
+        "YR_is_not_recycle[3]",
+        "YR_is_not_recycle[4]",
+        "YP_is_cstr[1]",
+        "YP_is_cstr[2]",
+        "YP_is_cstr[3]",
+        "YP_is_cstr[4]",
+        "YP_is_cstr[5]"
+      ],
+      "selected_booleans": [
+        "YF[5]",
+        "YR[5]",
+        "YP[1]",
+        "YP[2]",
+        "YP[3]",
+        "YP[4]",
+        "YP[5]"
+      ],
+      "incumbent_elapsed_s": 26.753002026118338,
+      "gdpopt_iterations": 15,
+      "solve_wall_s": 31.24176614638418,
+      "termination": "optimal",
+      "solver_status": "ok",
+      "reported_lower_bound": 3.06198395705692,
+      "reported_upper_bound": 3.06198395705692,
+      "method_wall_s": 31.28733745124191,
+      "solver_calls": 31,
+      "sum_solver_call_wall_s": 29.433431421406567,
+      "worker_pid": 3527809,
+      "worker_returncode": 0,
+      "worker_wall_s": 31.3044056519866,
+      "hard_time_limit_reached": false
+    },
+    {
+      "case": "dynamic",
+      "cstr_size": null,
+      "instance_id": "dynamic",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/LD-SDA-Dynamic",
+        "commit": "482e14ebf9caabbd35d959986942cb028778a1d7",
+        "files_sha256": {
+          "models/nine_stage_dynamic_model_switching_nonlinear.py": "70653536e48a2a6a05c23a8f0337a43e36307c554569982767afa1c1c623ed98"
+        }
+      },
+      "initialization": "constructor_defaults",
+      "dynamic_preparation": {
+        "preparation_id": "beb550d70e184e148ab90db3739ce5f2",
+        "created_utc": "2026-10-01T20:48:04.367467+00:00",
+        "scope": "once_per_process",
+        "model_build_wall_s": 0.01712383795529604,
+        "dae_wall_s": 0.04415668500587344,
+        "total_preparation_wall_s": 0.06128052296116948,
+        "included_in_point_total_wall_s": false
+      },
+      "global_fbbt_wall_s": 0.1844501351006329,
+      "globally_implied_bounds": {
+        "x1[0]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            1,
+            1
+          ]
+        },
+        "x1[0.005168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            5.169792031196377
+          ]
+        },
+        "x1[0.066667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.166667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.266667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999995
+          ]
+        },
+        "x1[0.3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.354832]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.366667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.4]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.466667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999995
+          ]
+        },
+        "x1[0.5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.533333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999996
+          ]
+        },
+        "x1[0.554832]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.566667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.621498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.633333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.666667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999996
+          ]
+        },
+        "x1[0.721498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.733333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.766667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.788165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999996
+          ]
+        },
+        "x1[0.866667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.888165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.9]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999996
+          ]
+        },
+        "x1[0.933333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999996
+          ]
+        },
+        "x1[0.954832]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x1[0.966667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.021498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.033333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.066667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.088165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.105168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.166667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.188165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.221498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.233333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.266667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.288165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.3]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.321498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.333333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.366667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.371835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.421498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.433333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.466667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.488165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.5]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.521498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.533333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.566667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.588165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.605168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.666667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.688165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.721498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.733333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.766667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.788165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.8]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.821498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.833333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.866667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.871835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.921498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.933333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.966667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[1.988165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x2[2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.005168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.066667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.088165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.105168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.166667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.188165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.205168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.266667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.271835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.321498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.333333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.366667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.371835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.421498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.433333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.466667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.471835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.505168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.566667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.588165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.605168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.666667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.688165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.705168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.766667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.771835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.821498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.833333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.866667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.871835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.921498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.933333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.966667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x3[2.971835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.005168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.066667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.088165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.1]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.105168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.166667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.188165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.2]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.205168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.266667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.271835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.321498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.333333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.366667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.371835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.421498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.433333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.466667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.471835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.505168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.566667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.588165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.6]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.605168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.666667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.688165]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.7]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.705168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.766667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.771835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.821498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.833333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.866667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.871835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.921498]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.933333]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.966667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x4[3.971835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.005168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.066667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.071835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.166667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.171835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.205168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.266667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.271835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.305168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.366667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.405168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.466667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.471835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.505168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.566667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.571835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.666667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.671835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.705168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.766667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.771835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.805168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.866667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.905168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.966667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x5[4.971835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.005168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.066667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.071835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.166667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.171835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.205168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.266667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.271835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.305168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.366667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.405168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.466667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.471835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.505168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.566667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.571835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.666667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.671835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.705168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.766667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.771835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.805168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.866667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.905168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.966667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x6[5.971835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.005168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.066667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.071835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.166667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.171835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.205168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.266667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.271835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.305168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.366667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.405168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.466667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.471835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.505168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.566667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.571835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.666667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.671835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.705168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.766667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.771835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.805168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.866667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.905168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.966667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x7[6.971835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.005168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.066667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.071835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.166667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.171835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.205168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.266667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.271835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.305168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.366667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.405168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.466667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.471835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.505168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.566667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.571835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.666667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.671835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.705168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.766667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.771835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.805168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.866667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.905168]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.966667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x8[7.971835]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x9[8.066667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x9[8.166667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x9[8.266667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x9[8.366667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x9[8.466667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x9[8.566667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x9[8.666667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x9[8.766667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x9[8.866667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "x9[8.966667]": {
+          "before": [
+            0,
+            10
+          ],
+          "after": [
+            0,
+            9.999999999999998
+          ]
+        },
+        "dxdt1[0.005168]": {
+          "before": [
+            -300,
+            300
+          ],
+          "after": [
+            -200.14281159096453,
+            300
+          ]
+        }
+      },
+      "template_wall_s": 0.3367391899228096,
+      "template_policy": "built once, independent unsolved clone per method",
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "time_limit",
+      "objective": -119.38309935258835,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lp_subsolver": "clp",
+        "baron_nlp_subsolver": "ipopt",
+        "warmstart": false,
+        "options": [
+          "LPSol 8",
+          "NLPSol 9"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with BARON NLP subproblems.",
+      "reformulation_wall_s": 0.015388866886496544,
+      "model_variables": 1674,
+      "model_constraints": 3363,
+      "candidate_objective": -119.38309935258835,
+      "max_primal_violation": 3.9980907473591287e-10,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "stage_mode[1,1]",
+        "stage_mode[2,1]",
+        "stage_mode[3,1]",
+        "stage_mode[4,2]",
+        "stage_mode[5,2]",
+        "stage_mode[6,2]",
+        "stage_mode[7,3]",
+        "stage_mode[8,3]",
+        "stage_mode[9,3]"
+      ],
+      "selected_booleans": [],
+      "incumbent_elapsed_s": 1797.4906896441244,
+      "termination": "maxTimeLimit",
+      "incomplete_subproblem_call": 2,
+      "message": "GAMS/baron subproblem did not prove optimality within the configured gap or infeasibility: {'MODELSTAT': 2.0, 'SOLVESTAT': 3.0, 'OBJEST': -375.16232425688514, 'OBJVAL': -119.38309935267837, 'NUMVAR': 1648.0, 'NUMEQU': 1639.0, 'NUMDVAR': 0.0, 'NUMNZ': 7340.0, 'ETSOLVE': 1794.2859998205677}",
+      "solve_wall_s": 1797.193611934781,
+      "method_wall_s": 1797.5005549923517,
+      "solver_calls": 2,
+      "sum_solver_call_wall_s": 1795.2814015913755,
+      "worker_pid": 3544328,
+      "worker_returncode": 0,
+      "worker_wall_s": 1797.5260293278843,
+      "hard_time_limit_reached": false
+    },
+    {
+      "case": "small_batch",
+      "cstr_size": null,
+      "instance_id": "small_batch",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+          "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+        }
+      },
+      "initialization": "gdp/dsda/small_batch_initialization.json",
+      "dynamic_preparation": null,
+      "global_fbbt_wall_s": 0.0054239691235125065,
+      "globally_implied_bounds": {
+        "b[a]": {
+          "before": [
+            0,
+            null
+          ],
+          "after": [
+            3.568433301038069,
+            6.437751649736401
+          ]
+        },
+        "b[b]": {
+          "before": [
+            0,
+            null
+          ],
+          "after": [
+            3.273684061363196,
+            6.0322865416282365
+          ]
+        },
+        "tl[a]": {
+          "before": [
+            0,
+            null
+          ],
+          "after": [
+            0,
+            2.8693183486983322
+          ]
+        },
+        "tl[b]": {
+          "before": [
+            0,
+            null
+          ],
+          "after": [
+            0,
+            2.758602480265041
+          ]
+        },
+        "n[mixer]": {
+          "before": [
+            0,
+            null
+          ],
+          "after": [
+            0,
+            3.295836866004329
+          ]
+        },
+        "n[reactor]": {
+          "before": [
+            0,
+            null
+          ],
+          "after": [
+            0.1264139248556586,
+            3.295836866004329
+          ]
+        },
+        "n[centrifuge]": {
+          "before": [
+            0,
+            null
+          ],
+          "after": [
+            0,
+            3.295836866004329
+          ]
+        }
+      },
+      "template_wall_s": 0.036584391724318266,
+      "template_policy": "built once, independent unsolved clone per method",
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "finished",
+      "objective": 167427.6570040533,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "baron",
+        "mip": "highs",
+        "baron_lp_subsolver": "clp",
+        "baron_nlp_subsolver": "ipopt",
+        "warmstart": false,
+        "options": [
+          "LPSol 8",
+          "NLPSol 9"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with BARON NLP subproblems.",
+      "reformulation_wall_s": 0.0015356107614934444,
+      "model_variables": 37,
+      "model_constraints": 37,
+      "candidate_objective": 167427.6570040533,
+      "max_primal_violation": 5.999518180033192e-07,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Y_exists[1,centrifuge]",
+        "Y_exists[2,mixer]",
+        "Y_exists[2,reactor]",
+        "Y_not_exists[1,mixer]",
+        "Y_not_exists[1,reactor]",
+        "Y_not_exists[2,centrifuge]",
+        "Y_not_exists[3,mixer]",
+        "Y_not_exists[3,reactor]",
+        "Y_not_exists[3,centrifuge]"
+      ],
+      "selected_booleans": [
+        "Y[1,centrifuge]",
+        "Y[2,mixer]",
+        "Y[2,reactor]"
+      ],
+      "incumbent_elapsed_s": 2.545404606964439,
+      "gdpopt_iterations": 7,
+      "solve_wall_s": 5.049180252011865,
+      "termination": "optimal",
+      "solver_status": "ok",
+      "reported_lower_bound": 167427.65700405455,
+      "reported_upper_bound": 167427.65700405455,
+      "method_wall_s": 5.069196172989905,
+      "solver_calls": 12,
+      "sum_solver_call_wall_s": 4.7774885054677725,
+      "worker_pid": 3545908,
+      "worker_returncode": 0,
+      "worker_wall_s": 5.079501281958073,
+      "hard_time_limit_reached": false
+    }
+  ]
+}

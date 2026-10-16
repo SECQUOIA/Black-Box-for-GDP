@@ -1,0 +1,103 @@
+{
+  "created_utc": "2026-09-25T18:49:50.547445+00:00",
+  "figure_types": 17,
+  "files": 24,
+  "policy": "Generated PNG/PDF files remain local and are excluded from Git; regenerate using README commands",
+  "figures": [
+    {
+      "path": "analysis/grid/evaluation_performance_profiles.png",
+      "description": "Grid: first-hit evaluation-count performance profiles"
+    },
+    {
+      "path": "analysis/grid/convergence_curves.png",
+      "description": "Grid: convergence by evaluation count"
+    },
+    {
+      "path": "analysis/grid/tts99_comparison.png",
+      "description": "Grid: estimated TTS99"
+    },
+    {
+      "path": "analysis/grid/timing/time_performance_profiles.png",
+      "description": "Grid: relative completion-time profiles"
+    },
+    {
+      "path": "analysis/grid/timing/completion_time_profiles.png",
+      "description": "Grid: absolute completion-time profiles"
+    },
+    {
+      "path": "analysis/grid/timing/time_work_tradeoff.png",
+      "description": "Grid: completion time versus evaluations/iterations"
+    },
+    {
+      "path": "analysis/case/case_study_overview.png",
+      "description": "GDP cases: lookup target hits and run costs"
+    },
+    {
+      "path": "analysis/case/evaluation_convergence.png",
+      "description": "GDP cases: lookup convergence"
+    },
+    {
+      "path": "analysis/case/timing/time_performance_profiles.png",
+      "description": "GDP cases: lookup completion-time performance profiles"
+    },
+    {
+      "path": "analysis/case/timing/completion_time_profiles.png",
+      "description": "GDP cases: absolute lookup completion times"
+    },
+    {
+      "path": "analysis/case/timing/time_work_tradeoff.png",
+      "description": "GDP cases: lookup time versus evaluations/iterations"
+    },
+    {
+      "path": "analysis/nlp/time_performance_profiles.png",
+      "description": "GDP cases: NLP-inclusive first-hit time profiles"
+    },
+    {
+      "path": "analysis/nlp/completion_time_profiles.png",
+      "description": "GDP cases: NLP-inclusive completion-time profiles"
+    },
+    {
+      "path": "analysis/nlp/success_vs_time.png",
+      "description": "GDP cases: target-hit fraction versus NLP-inclusive seconds"
+    },
+    {
+      "path": "analysis/nlp/cost_breakdown.png",
+      "description": "GDP cases: search overhead and successful NLP costs"
+    },
+    {
+      "path": "analysis/nlp/completion_vs_quality.png",
+      "description": "GDP cases: DFO versus September 25 GDPopt/BARON completion and quality"
+    },
+    {
+      "path": "analysis/nlp/cstr30_transfer_time_profiles.png",
+      "description": "CSTR5\u201325: explicitly labelled CSTR30 cost-transfer scenario"
+    }
+  ],
+  "artifacts_sha256": {
+    "analysis/case/case_study_overview.png": "f4f929e9db8b90910a6fd1b8f42b094de4f31bf54d0af77a066612d98ae0acf9",
+    "analysis/case/evaluation_convergence.png": "728a29902efc7623e20e3051ad86e2b6ccb103f3a4d321752e97b0790b49da34",
+    "analysis/case/timing/completion_time_profiles.png": "4b2f8a71990d7c24aa244849849916a5ae4ec288ec5eb3aad72067a45aa6f1ce",
+    "analysis/case/timing/time_performance_profiles.png": "4e4143372c8942a264264cbc44a5ff421024c17caf4c0889016145d40ab5edab",
+    "analysis/case/timing/time_work_tradeoff.png": "46b18254f15a4f38aebcb886e8b2925cba471000f42d13c90e484682528d63ca",
+    "analysis/grid/convergence_curves.png": "48068906edfb96822eb27af228d37d70f4535f76cb66d3631ba7f8d0c7ce7bcf",
+    "analysis/grid/evaluation_performance_profiles.png": "3a3023100a782e71ad3e46a705931184d29b2cec3c18e4d8947995d9da95b196",
+    "analysis/grid/timing/completion_time_profiles.png": "81bc61512f862d3fcd3ced2b784c20ad96ed4f8cb4a51ef5d035178958fb9139",
+    "analysis/grid/timing/time_performance_profiles.png": "c412949325af25036d6352e50011040520a1e2b87dfc616a8aafad1b862b7519",
+    "analysis/grid/timing/time_work_tradeoff.png": "c23c4c97c4cd79c03618b2aafc95e08405213c1c757a7054016128b038c95988",
+    "analysis/grid/tts99_comparison.pdf": "761e1c62a3e8b4d96808780d5dc8113c445fa53980134266d75286c9b332cc68",
+    "analysis/grid/tts99_comparison.png": "5e9a77c57abe2e8a97f98f3f73bc052ba827a95a2b1b44759f236401f05e72dd",
+    "analysis/nlp/completion_time_profiles.pdf": "49342a8400ce02e59cad9fd7189e991cbaeb14095629789a65f79da69a98e872",
+    "analysis/nlp/completion_time_profiles.png": "60947edbeec15c50d31165e51622cd388472ce5ea5f36a8be04abdbbfeb07b01",
+    "analysis/nlp/completion_vs_quality.pdf": "dc7870f44f80fcc5131c0f8a976b9de4063ec019cd4fc1032c17d855b81047b9",
+    "analysis/nlp/completion_vs_quality.png": "9ebb4febf45998fd450203a6da4b6ebc9eb050f9e87ff574c8e5e740ca6eb7ea",
+    "analysis/nlp/cost_breakdown.pdf": "b0004da5ab39d923a291c39abb6c66d8c2574a1b856418c85b316645d2b9a682",
+    "analysis/nlp/cost_breakdown.png": "ccc9ea88e8372104a8bc034de3104dfe879837a6fe9eac3f3165be0647cf96d9",
+    "analysis/nlp/cstr30_transfer_time_profiles.pdf": "bf3baa57fb77e01666f494f8d91d8babdad7f1afe12902a7e56099c51f7b05bb",
+    "analysis/nlp/cstr30_transfer_time_profiles.png": "9e835efa54e9320471922d22db9ba8a7c7e92beb75a1215f9d0feba28f5f150f",
+    "analysis/nlp/success_vs_time.pdf": "c61054d2aaf4fb05785252de40a4df8342366bd9748c3577a6f6c3aee5bc18f5",
+    "analysis/nlp/success_vs_time.png": "bc366576bff12d5c171cb8539d5a86739d8e033b16e2001e279d83968f0a0881",
+    "analysis/nlp/time_performance_profiles.pdf": "3564508bff928657a4f325c4f73b22fbfc12c66ca2cf1d434acb5ae16a26a97c",
+    "analysis/nlp/time_performance_profiles.png": "feac3cc6196c7b8e1b9ea56fd07df8b595ba8f28133b0b4aa5af34c6604f121f"
+  },
+  "gdp_updated_utc": "2026-09-26T04:07:43.839856+00:00"
+}
