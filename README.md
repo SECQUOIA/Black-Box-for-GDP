@@ -506,3 +506,9 @@ see [original GDP source attribution](docs/original_gdp_models.md#original-sourc
 Use `fmqa_benchmark.adapter.run_fmqa_sa` with an opaque objective callback,
 integer bounds, an ordered initial design, a budget and a seed. See the
 [adapter and upstream provenance documentation](docs/fmqa_adapter.md).
+
+## Process DSDA domain fairness
+
+See [the process DSDA domain and callback-budget notes](docs/process_dsda_domain.md)
+for the implementation portion of Issue #24. Historical Dantzig execution and
+recovery evidence was incorporated into `main` through PR #23.
