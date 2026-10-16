@@ -3,10 +3,12 @@
 from functools import lru_cache
 import math
 from pathlib import Path
+import shutil
 import tempfile
 import zipfile
 
 import pyomo.environ as pyo
+from pyomo.solvers.plugins.solvers.GAMS import GAMSShell
 
 from .preflight import SetupError
 
@@ -14,6 +16,34 @@ from .preflight import SetupError
 # Keep the original native IPOPT name; the comparison uses gams_ipopt.
 GAMS_SOLVERS = {"gams_ipopt": "ipopt", "ipopth": "ipopth", "conopt": "conopt", "baron": "baron"}
 SOLVERS = ("ipopt", *GAMS_SOLVERS)
+
+
+class ConfiguredGAMS(GAMSShell):
+    """Use one effective binary for Pyomo's availability, version and solve calls.
+
+    GAMSShell in Pyomo 6.10 ignores the constructor's executable argument and
+    hardcodes PATH in available(). Keep its license probe, using our executable.
+    Comparison's TimedGAMS uses the same overrides with its shared job context.
+    """
+
+    def __init__(self, executable=None):
+        super().__init__()
+        requested = str(Path(executable).expanduser()) if executable else "gams"
+        resolved = shutil.which(requested)
+        # An invalid explicit path must never fall back to a different GAMS.
+        self._executable = str(Path(resolved or requested).resolve()) if resolved or executable else None
+
+    def executable(self):
+        return self._executable
+
+    def available(self, exception_flag=True):
+        binary = self.executable()
+        available = binary is not None and shutil.which(binary) is not None
+        if available:
+            available = self._run_simple_model(1)
+        if not available and exception_flag:
+            raise RuntimeError(f"Configured GAMS executable is unavailable: {binary}")
+        return available
 
 
 def is_gams(solver):
@@ -25,7 +55,7 @@ def is_gams(solver):
 def optimizer_for(solver, executable=None):
     kwargs = {"executable": executable} if executable else {}
     if is_gams(solver):
-        return pyo.SolverFactory("gams", solver_io="shell", **kwargs)
+        return ConfiguredGAMS(executable)
     return pyo.SolverFactory("ipopt", **kwargs)
 
 
