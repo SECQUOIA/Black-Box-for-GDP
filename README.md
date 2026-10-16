@@ -358,3 +358,9 @@ python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py 
 
 This project is distributed under the MIT License. See `LICENSE` for the full
 license text.
+
+## Process DSDA domain fairness
+
+See [the process DSDA domain and callback-budget notes](docs/process_dsda_domain.md)
+for the implementation portion of Issue #24. Dantzig execution results and
+recovery evidence remain on the `Benchmark` branch for separate integration.
