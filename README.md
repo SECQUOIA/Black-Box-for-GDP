@@ -506,3 +506,9 @@ see [original GDP source attribution](docs/original_gdp_models.md#original-sourc
 See [implementation scope and prerequisites](docs/issue_28_integration.md)
 for issue #28. These runners retain their frozen-input prerequisites; merging
 main does not replace the required IPOPT input archives.
+
+## Process DSDA domain fairness
+
+See [the process DSDA domain and callback-budget notes](docs/process_dsda_domain.md)
+for the implementation portion of Issue #24. Historical Dantzig execution and
+recovery evidence was incorporated into `main` through PR #23.
