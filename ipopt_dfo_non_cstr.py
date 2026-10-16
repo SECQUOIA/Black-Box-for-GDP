@@ -283,7 +283,6 @@ def audit_surrogate_solvers(directory):
         solver = original(name, *args, **kwargs)
         solve = solver.solve
         def audited(model, *a, **kw):
-            import pyomo.core.base.var
             from pyomo.gdp import Disjunct
             if (any(model.component_data_objects(Disjunct)) or not hasattr(model, 'OBJ')
                     or not (hasattr(model, 'x') or hasattr(model, 'rbf_lambda'))):
@@ -376,7 +375,7 @@ def preflight(method, config):
         raise RuntimeError(f'Existing experiment environment version mismatch: {versions}; expected {VERSIONS[method]}')
     extras = {}
     if method == 'rbfopt':
-        import rbfopt
+        importlib.import_module('rbfopt')  # Importability probe, not just installed metadata.
         for name in ('bonmin', 'ipopt'):
             p = Path(config[name])
             if not p.is_file() or not os.access(p, os.X_OK):
@@ -388,12 +387,12 @@ def preflight(method, config):
             raise RuntimeError('BAM license file not available')
         bam.set_license_file(config['bam_license'])
     elif method == 'fmqa_sa':
-        import torch
-        from dwave.samplers import SimulatedAnnealingSampler
+        importlib.import_module('torch')
+        getattr(importlib.import_module('dwave.samplers'), 'SimulatedAnnealingSampler')
         from fmqa_benchmark.qhd_surrogate import verify_sources
         extras['qhd_source'] = verify_sources()
     else:
-        import grid_dsda
+        importlib.import_module('grid_dsda')
     return {'versions': versions, 'python': platform.python_version(), 'executable': sys.executable,
             'host': platform.node(), 'platform': platform.platform(), **extras}
 
@@ -436,7 +435,7 @@ def worker(directory):
 
 
 def summarize(directory):
-    run = read(directory / 'run.json')
+    read(directory / 'run.json')  # Require readable run metadata before summarizing.
     root = directory / 'reproduction'
     tables, targets, input_errors = {}, {}, {}
     for case in CASES:

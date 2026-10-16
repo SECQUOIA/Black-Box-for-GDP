@@ -45,15 +45,16 @@ def test_plan_240_slots_and_shared_original_designs():
     assert first['starts'] == [[1, 2], [5, 5], [3, 2]]  # Includes a logical exclusion.
 
 
-def test_frozen_sources_and_no_executable_process_models(frozen):
+@pytest.mark.parametrize('case,count', [('cstr_5', 15), ('cstr_10', 54), ('cstr_15', 120),
+                                       ('cstr_20', 210), ('cstr_25', 325), ('cstr_30', 458)])
+def test_frozen_sources_and_no_executable_process_models(frozen, case, count):
     r.verify_inventory(frozen)
     assert not (frozen / 'gdp_models').exists()
     assert not (frozen / 'case_study_data').exists()
     assert not list((frozen / 'case_studies').glob('*_case.py'))
-    for case, count in [('cstr_5', 15), ('cstr_10', 54), ('cstr_15', 120), ('cstr_20', 210), ('cstr_25', 325), ('cstr_30', 458)]:
-        table, provenance = r.load_table(frozen, case)
-        assert sum(row['accepted'] == 'True' for row in table.values()) == count
-        assert 'Single original' in provenance['attempt_selection']
+    table, provenance = r.load_table(frozen, case)
+    assert sum(row['accepted'] == 'True' for row in table.values()) == count
+    assert 'Single original' in provenance['attempt_selection']
 
 
 def test_incomplete_logical_table_is_not_infeasible(frozen, tmp_path):
@@ -185,14 +186,14 @@ def test_summary_keeps_240_slots_and_ten_seed_denominators(frozen, tmp_path):
     shutil.copytree(frozen, tmp_path / 'reproduction')
     r.write(tmp_path / 'run.json', {'config': {}})
     plan = r.read(frozen / 'plan.json')
-    for s in [p for p in plan if p['case'] == 'cstr_5' and p['method'] == 'dsda']:
+    for s in [p for p in plan if p['case'] == 'cstr_30' and p['method'] == 'dsda']:
         job = tmp_path / 'jobs' / s['job_id']
         job.mkdir(parents=True)
         r.write(job / 'result.json', {'status': 'execution_failed', 'error': 'no accepted start', 'dfo_wall_s': .1})
     rows = r.summarize(tmp_path)
     assert len(rows) == 240
     summary = r.read(tmp_path / 'summary.json')
-    group = next(g for g in summary['groups'] if g['case'] == 'cstr_5' and g['method'] == 'dsda')
+    group = next(g for g in summary['groups'] if g['case'] == 'cstr_30' and g['method'] == 'dsda')
     assert group['execution_failed'] == 10 and group['success_rate'] == 0 and group['success_rate_denominator'] == 10
     assert summary['counts']['not_run'] == 230
 
