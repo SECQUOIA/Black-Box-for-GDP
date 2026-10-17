@@ -86,8 +86,21 @@ python -m pip install ".[fmqa,test]"
 python -m pytest tests/test_fmqa_adapter.py -q
 ```
 
-For Linux CPU-only environments, install `torch==2.8.0` from the official
-PyTorch CPU index before the command above. The wheel includes the pinned source
+For Linux CPU-only environments, install the current requirements pin before
+installing the optional extra:
+
+```bash
+python -m pip install "$(sed -n '/^torch==/p' requirements-fmqa-qhd.txt)" --index-url https://download.pytorch.org/whl/cpu
+python -m pip install ".[fmqa,test]"
+```
+
+CI exercises the patched CPU runtime on Python 3.10–3.13, including native training,
+BQM energies, repeatable trajectories and caller runtime restoration. These checks
+establish compatibility within each runtime; they do not establish identical
+benchmark results across PyTorch versions. Archived results retain their recorded
+dependency versions and must not be relabeled as results from the current runtime.
+
+The wheel includes the pinned source
 and license resources; no model submodules or historical result archives are
 needed for this adapter.
 
