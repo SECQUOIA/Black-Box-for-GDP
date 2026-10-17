@@ -1,0 +1,20 @@
+{
+  "batch": "ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq",
+  "archive_sha256": "58ff6a845541e4e8d2cb097e05ffacb4b5500d6dbebf1d95c1a255b9315c7ce1",
+  "package_sha256": "783652fc99778ed6f02e4ae4d1ce7802ee7fcefea8d57494466f8ce7bf753c8f",
+  "slots": 80,
+  "categories": {
+    "target_not_reached": 51,
+    "target_reached": 29
+  },
+  "callbacks": 1900,
+  "budget_overruns": 0,
+  "undelivered_terminal_values": 0,
+  "objective_status_original_cost_mismatches": 0,
+  "package_files_verified": 184,
+  "all_paired_starts_preserved": true,
+  "native_status": 35,
+  "original_inputs_preserved": true,
+  "missing_structural_times_policy": "Joined later from same-model full-box/structural timing supplements.",
+  "scope": "All BAM seeds replaced; no best-of-old/new selection."
+}

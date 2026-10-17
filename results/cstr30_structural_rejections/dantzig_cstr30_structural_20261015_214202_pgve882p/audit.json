@@ -1,0 +1,76 @@
+{
+  "archive_sha256": "3a5094a2e99c269cf830cd668c52853c2a3641d9fd4f176c0a7ca076ee110253",
+  "submitted_runner_sha256": "76d219a0a7a03bb62700b08d8c2091849d50628d30a07f8aa030e81aa147be07",
+  "reproduction_matches_submitted_runner": true,
+  "code_commit": "366b001e920a435f696fdcfc14499663a7f018b6",
+  "original_rows_preserved": 465,
+  "supplemental_rows": 435,
+  "combined_unique_rows": 900,
+  "all_csv_and_original_record_fields_verified": true,
+  "all_total_times_positive_finite": true,
+  "structural_time_s": {
+    "sum": 95.46080097400004,
+    "minimum": 0.195096984,
+    "median": 0.197789882,
+    "maximum": 0.922110536
+  },
+  "common_preparation_s": 0.909763244,
+  "common_preparation_in_point_times": false,
+  "solver_calls_reported": 0,
+  "solver_evidence": "Byte-identical execution guard code, zero forbidden-entry attempts, all435 original logical rejections before solver construction",
+  "dfo": {
+    "runs": 40,
+    "callbacks": 1615,
+    "missing_before": 515,
+    "supplemented_callbacks": 508,
+    "missing_after": 7,
+    "remaining_missing_reasons": {
+      "budget_protocol_error: original callback never read a process CSV row": 7
+    },
+    "run_categories_unchanged": {
+      "target_reached": 14,
+      "execution_failed": 7,
+      "target_not_reached": 19
+    },
+    "complete_cost_runs": 33,
+    "original_event_and_run_fields_unchanged": true,
+    "per_visit_cost_policy": "Sum each callback, including repeated points and initial/failed callbacks; no cache deduplication",
+    "cost_interpretation": "Reconstructed from separate process measurements; not measured online DFO runtime"
+  },
+  "unique_structural_points_visited": 228,
+  "by_method": {
+    "rbfopt": {
+      "callbacks": 430,
+      "supplemented_callbacks": 135,
+      "remaining_time_gaps": 0,
+      "added_process_cost_s": 27.78614584600001
+    },
+    "bam": {
+      "callbacks": 437,
+      "supplemented_callbacks": 219,
+      "remaining_time_gaps": 7,
+      "added_process_cost_s": 50.79905471600005
+    },
+    "dsda": {
+      "callbacks": 318,
+      "supplemented_callbacks": 24,
+      "remaining_time_gaps": 0,
+      "added_process_cost_s": 4.894863437000001
+    },
+    "fmqa_sa": {
+      "callbacks": 430,
+      "supplemented_callbacks": 130,
+      "remaining_time_gaps": 0,
+      "added_process_cost_s": 30.051027316999996
+    }
+  },
+  "original_dfo_outcomes_penalties_paths_and_clocks_unchanged": true,
+  "remaining_gap_policy": "Retain7 BAM B+1 protocol errors as execution_failed and costs unknown; no zero/borrowed times",
+  "local_model_solver_or_DFO_calls": 0,
+  "interpretation": "Separate process rejection timings and reconstructed per-callback costs, not new online DFO times",
+  "original_download": "/Users/albertlee0125/Downloads/dantzig_cstr30_structural_20261015_214202_pgve882p.zip",
+  "archive_members": 1133,
+  "importer_sha256": "3d3a4a420faedcd226c64bb613741fa19b65a33ae5f28a1159fa3e01f0e0166f",
+  "local_archive": "results/dantzig_review/cstr30_structural_returns/dantzig_cstr30_structural_20261015_214202_pgve882p.zip",
+  "archive_published": false
+}

@@ -1,0 +1,34 @@
+{
+  "complete": true,
+  "expected_structural_points": 435,
+  "measured_structural_points": 435,
+  "pending_points": 0,
+  "original_rows_preserved": 465,
+  "combined_rows": 900,
+  "all_total_times_positive_finite": true,
+  "original_csv_byte_copy_matches": true,
+  "solver_calls": 0,
+  "forbidden_entry_attempts": 0,
+  "measurement_scope": "perf_counter_ns immediately before/after frozen evaluate_point: original fresh N30 GDP construction, constructor initialization, external fixing, logical/GDP transformations and original preprocessing until rejection returns; no solver; excludes batch source imports/preloading, CSV/checkpoint IO, logging, provenance and output generation",
+  "common_preparation_in_coordinate_times": false,
+  "dfo": {
+    "runs": 40,
+    "callbacks": 1615,
+    "missing_before": 515,
+    "supplemented_callbacks": 508,
+    "missing_after": 7,
+    "remaining_missing_reasons": {
+      "budget_protocol_error: original callback never read a process CSV row": 7
+    },
+    "run_categories_unchanged": {
+      "target_reached": 14,
+      "execution_failed": 7,
+      "target_not_reached": 19
+    },
+    "complete_cost_runs": 33,
+    "original_event_and_run_fields_unchanged": true,
+    "per_visit_cost_policy": "Sum each callback, including repeated points and initial/failed callbacks; no cache deduplication",
+    "cost_interpretation": "Reconstructed from separate process measurements; not measured online DFO runtime"
+  },
+  "updated_utc": "2026-10-15T21:43:38.657955+00:00"
+}

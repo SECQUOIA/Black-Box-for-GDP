@@ -1,0 +1,25 @@
+{
+  "case": "column",
+  "cstr_size": null,
+  "domain": "logical",
+  "candidate_count": 64,
+  "completed_points": 64,
+  "remaining_points": 0,
+  "accepted_points": 29,
+  "error_points": 0,
+  "status_counts": {
+    "rejected": 7,
+    "preprocessing_infeasible": 28,
+    "accepted": 29
+  },
+  "complete": true,
+  "status": "completed",
+  "best_point": [
+    13,
+    4
+  ],
+  "best_objective": 19346.124801006445,
+  "sum_evaluation_wall_s": 137.24132096907124,
+  "last_invocation_wall_s": 138.31978576164693,
+  "updated_utc": "2026-09-22T05:02:57.158038+00:00"
+}

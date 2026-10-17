@@ -1,0 +1,115 @@
+{
+  "slots": 240,
+  "all_slots_processed": true,
+  "categories": {
+    "target_reached": 97,
+    "target_not_reached": 124,
+    "execution_failed": 19
+  },
+  "execution_statuses": {
+    "budget_completed": 187,
+    "completed": 34,
+    "execution_failed": 19
+  },
+  "callbacks": 5783,
+  "callbacks_within_budget": 5764,
+  "budget_protocol_pass": false,
+  "budget_overrun_runs": 19,
+  "budget_overrun_callbacks": 19,
+  "callback_states": {
+    "evaluated_unaccepted": 1420,
+    "accepted": 3836,
+    "invalid_callback": 19,
+    "logical_exclusion_unmeasured": 508
+  },
+  "terminal_values_logged_not_returned": 206,
+  "same_row_objectives_statuses_and_times_verified": true,
+  "ordered_shared_initial_designs_verified": true,
+  "server_tables_exactly_reproduced": [
+    "runs.csv",
+    "callbacks.csv",
+    "summary.csv",
+    "summary.json",
+    "inputs_report.csv",
+    "inputs_report.json"
+  ],
+  "cpu": {
+    "selected": {
+      "cpu": 1,
+      "physical_package_id": "0",
+      "core_id": "1",
+      "thread_siblings_list": "1,49",
+      "effective_cpus": [
+        1
+      ],
+      "policy": "one logical CPU; not an exclusive reservation"
+    },
+    "observed_other_experiment_processes": [
+      {
+        "pid": 696464,
+        "argv": [
+          "python3",
+          "ipopt_dfo_non_cstr.py",
+          "run",
+          "--output-root",
+          "/local/scratch/a/lee4382/repository/RBFopt_Test/results",
+          "--dfo-python",
+          "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-nlp-overnight/bin/python",
+          "--fmqa-python",
+          "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/bin/python",
+          "--conda",
+          "/local/scratch/a/lee4382/miniconda3/bin/conda",
+          "--bonmin",
+          "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/bonmin",
+          "--ipopt",
+          "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/ipopt",
+          "--bam-license",
+          "/local/scratch/a/lee4382/bamlice.txt",
+          ""
+        ],
+        "cpus": [
+          0
+        ]
+      },
+      {
+        "pid": 706133,
+        "argv": [
+          "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/bin/python",
+          "/local/scratch/a/lee4382/repository/RBFopt_Test/results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/reproduction/ipopt_dfo_non_cstr.py",
+          "_worker",
+          "--run-dir",
+          "/local/scratch/a/lee4382/repository/RBFopt_Test/results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/dynamic_B20_seed3_fmqa_sa",
+          ""
+        ],
+        "cpus": [
+          0
+        ]
+      }
+    ],
+    "excluded_cpus": [
+      0,
+      48
+    ],
+    "note": "Read-only affinity check; not an exclusive allocation"
+  },
+  "auxiliary_solver_events": {
+    "bonmin:start": 2306,
+    "bonmin:end": 1306,
+    "bonmin:error": 1000
+  },
+  "local_optimizer_or_solver_calls": 0,
+  "local_timings_used": false,
+  "issue_policy": "Keep all 19 failed BAM attempts and B+1 callback records. Do not relabel, truncate, exclude or replace seeds.",
+  "interpretation": "240 returned slots; 221 within the callback budget, 19 BAM budget-control failures. Not a clean 240-run budget-compliant benchmark.",
+  "time_limitations": "N30 y>x costs were never measured; overrun callbacks did not read CSV or deliver values. Missing cost stays null.",
+  "process_solver_calls": "No process solver entry point in the exact submitted DFO package; auxiliary surrogate solves retained.",
+  "archive": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+  "archive_sha256": "b91afb707229766adcdcfb1ee67406377d1d2ef44839b062ec9e0539893bfefa",
+  "original_download": "/Users/albertlee0125/Downloads/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+  "archive_crc_pass": true,
+  "archive_members": 3816,
+  "submitted_package": "results/runners/ipopt_dfo_cstr_20261015.zip",
+  "submitted_package_sha256": "79a093ca026f4fe96650b21e73f49763db9a48d9514ec7dd9b654f515cc066d4",
+  "byte_identical_reproduction_files": 1939,
+  "importer_sha256": "f4454a01f920dbda0d0b8e1efcd58c80bb7195a80967b75c8d41bf220c8056a5"
+}

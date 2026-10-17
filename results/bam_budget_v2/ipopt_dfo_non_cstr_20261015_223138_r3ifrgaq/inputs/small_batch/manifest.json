@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "plan": {
+    "case": "small_batch",
+    "cstr_size": null,
+    "domain": "logical",
+    "bounds": [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "logical_rule": "all three unit counts in 1..3",
+    "box_count": 27,
+    "candidate_count": 27,
+    "excluded_by_logic": 0,
+    "points": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        1,
+        3,
+        3
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        2,
+        1,
+        3
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        3
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        2,
+        3,
+        3
+      ],
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        1,
+        3
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        3,
+        2,
+        3
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        3,
+        3,
+        2
+      ],
+      [
+        3,
+        3,
+        3
+      ]
+    ]
+  },
+  "config": {
+    "solver": "gams_ipopt",
+    "initialization": "auto",
+    "time_limit_s": 60,
+    "feasibility_tolerance": 1e-05
+  },
+  "runtime": {
+    "solver_interface": "gams_shell",
+    "gams_solver": "ipopt",
+    "solver_execution_check": {
+      "solver": "ipopt",
+      "test": "quadratic",
+      "status": "passed"
+    },
+    "dependency_versions": {
+      "pyomo": "6.10.0",
+      "sympy": "1.14.0",
+      "numpy": "2.4.6",
+      "networkx": "3.6.1",
+      "matplotlib": "3.11.2"
+    },
+    "preflight": {
+      "point": [
+        2,
+        2,
+        1
+      ],
+      "status": "nl_written",
+      "solver_called": false
+    },
+    "source": {
+      "repository": "https://github.com/SECQUOIA/dsda-gdp",
+      "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+      "files_sha256": {
+        "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+        "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+        "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+        "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+        "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+      }
+    },
+    "initialization": "gdp/dsda/small_batch_initialization.json",
+    "adapter_sha256": {
+      "__init__.py": "5ebb20b8f7249a66ace212cebabf47949e8f40d3a9ddea464b11a7eb55a47705",
+      "__main__.py": "3637c973071961beeb01876a23eb3bbf172d2fe3a493cbbc9e0fd29d623e6dc4",
+      "_sources.py": "d5363100698e69c829918b850c0fb39481b64eb9c4e2d7c987bee3b628e2fd29",
+      "batch.py": "01e82b9c62ac196be5fb9feab739e3b122b9a08babb5af7f546565f114227117",
+      "dantzig.py": "9b7c1a77a556c46fa45540eb30d92c4056938a22c3b8dd545f4014946d6d0851",
+      "domains.py": "bb2a9f2783fdf32f25d327c417521ecae73b2dc60fc6e579d8c0afe187493394",
+      "evaluation.py": "88be8eaa7c84530b1861c5cc27a2cb24e459da7d5d617b843b384b35a42fb099",
+      "models.py": "1257294f4b90ddf7ee0bfa3b23e3df576890433a103f49789e624499fe698396",
+      "preflight.py": "f82c7da2fcde8f2e1d3175c3517747661f45d94938b89aac6ed1ccdb5e8f3dc9",
+      "solvers.py": "6832d692177b2b9533606a2af3b32604e52553d74a975ea5f3da51c3a9cab3c6"
+    },
+    "solver_executable": "/package/gams/52.2/gams",
+    "solver_executable_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+    "solver_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "python_version": "3.11.16",
+    "pyomo_version": "6.10.0",
+    "host": "dantzig.ecn.purdue.edu",
+    "platform": "Linux-5.15.0-323.211.3.4.el9uek.x86_64-x86_64-with-glibc2.34",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    }
+  },
+  "created_utc": "2026-09-22T05:39:13.077967+00:00"
+}

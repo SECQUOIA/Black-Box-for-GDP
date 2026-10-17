@@ -1,0 +1,24 @@
+{
+  "case": "cstr",
+  "cstr_size": 30,
+  "domain": "logical",
+  "candidate_count": 465,
+  "completed_points": 465,
+  "remaining_points": 0,
+  "accepted_points": 458,
+  "error_points": 0,
+  "status_counts": {
+    "accepted": 458,
+    "rejected": 7
+  },
+  "complete": true,
+  "status": "completed",
+  "best_point": [
+    30,
+    30
+  ],
+  "best_objective": 2.7695697198995095,
+  "sum_evaluation_wall_s": 827.3956662043929,
+  "last_invocation_wall_s": 829.0985472393222,
+  "updated_utc": "2026-09-22T05:39:12.626061+00:00"
+}

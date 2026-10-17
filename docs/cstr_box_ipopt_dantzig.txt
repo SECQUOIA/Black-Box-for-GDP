@@ -1,0 +1,71 @@
+CSTR full-box IPOPT evaluations (5/10/15 or 20/25)
+
+Protocol
+  Each bundle fixes its selected sizes in run.sh and bundle_protocol.json.
+  Original 5/10/15 bundle: 350 coordinates (25 + 100 + 225).
+  New 20/25 bundle: 1,025 coordinates (400 + 625).
+  1-based (x1,x2), point_index=(x1-1)*N+x2. No Final duplicate.
+  All x2>x1 coordinates enter the original model's logic/preprocessing
+  checks; their rejection time is measured, with no NLP solver call.
+  Logical coordinates: 190 for 5/10/15, 535 for 20/25.
+  Logical rejections: 160 for 5/10/15, 490 for 20/25.
+  Every coordinate uses a fresh Python process and fresh model, sequentially.
+  Initialization: mass_balance_zero_recycle, generalized from CSTR30 retry.
+  Model, bounds, fixed values and constraints are fingerprinted before/after.
+  Starting primal violation must be <=1e-8. No lookup values are used.
+  GAMS/IPOPT: 60s solve limit, 180s worker limit, tol=1e-8,
+  bound_relax_factor=0, max_iter=3000, MUMPS, one thread.
+  Acceptance remains the existing evaluator's strict status + 1e-5 primal check.
+  No automatic retry or merging into historical results.
+
+Requirements
+  Existing Dantzig /local/scratch/a/lee4382/repository/RBFopt_Test checkout.
+  Its external/dsda-gdp must be at 3e469dbeea8931670b8cd6752014ab7a767d3af5.
+  Prepared .venv-dantzig-gdp/bin/python (Pyomo 6.10.0 and requirements-gdp.txt).
+  GAMS /package/gams/52.2/gams. The wrapper does not install or update anything.
+  Override CSTR_REPOSITORY, CSTR_PYTHON, RBFOPT_GDP_SOURCES, GAMS_BIN if needed.
+
+On Dantzig, inside the extracted cstr_box_ipopt_runner directory:
+  sha256sum -c RUNNER_SHA256SUMS
+  bash run.sh check
+  nohup bash run.sh run > launch.log 2>&1 < /dev/null &
+  tail -f launch.log
+
+The check command performs model preparation checks and one small solver
+availability solve per selected size, not the full-coordinate experiment. run uses one allowed
+CPU, defaulting to the first; specify --cpu NUMBER if an allocation requires it.
+
+Outputs
+  RESULT_DIR and RESULT_ZIP are printed in launch.log.
+  coordinates.csv: immutable full-coordinate plan for the selected sizes.
+  evaluations.csv: all planned rows, including pending rows during partial runs.
+  cstr_N/evaluations.csv: exactly N*N rows for each selected model size.
+    The 20/25 bundle produces cstr_20 (400 rows) and cstr_25 (625 rows).
+  records/: atomic completed attempt JSON; logs/: full per-point worker logs.
+  artifacts/: generated GAMS models, results and solver logs for called solvers.
+  run.json: source hashes, runtime identity and options. summary.json: counts.
+  source/: runner snapshot. Result ZIP and SHA256 files are created on completion
+    or Ctrl+C. A killed run can be packed later from its checkpoints.
+
+Nonaccepted rows retain status, candidate objective, residual and termination.
+Unknown evaluation times after a killed worker remain blank, not zero.
+worker_process_wall_s measures the parent-observed process duration.
+setup/preprocess/solve timings are nested inside total_wall_s: do not sum total
+and its components. GAMS artifact collection is included in solve/total time.
+This is a new initialization/process/artifact protocol, not an exact timing
+reproduction of the original 2026-09-22 sequential saved-initialization run.
+
+Resume / pack after the controller has stopped
+  bash run.sh resume --run-dir /absolute/RESULT_DIR
+  bash run.sh pack --run-dir /absolute/RESULT_DIR
+  Resume keeps all completed attempts, including failures. It requires the same
+  runner, source, solver and environment. Pending rows alone are evaluated.
+
+Build the 20/25 bundle locally without invoking a solver:
+  python3 cstr_box_ipopt.py bundle --sizes 20 25 --output results/runners/cstr_box_ipopt_20_25_20261015.zip
+The generic Python entry point defaults to 5/10/15 for compatibility; use the
+bundled run.sh launcher for 20/25. Resume/pack read sizes from the saved run.json.
+The original 5/10/15 ZIP and its completed result records are not replaced.
+
+Download from the Mac (replace RESULT_NAME with the printed name):
+  scp lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/results/cstr_box_ipopt/RESULT_NAME.zip ~/Downloads/

@@ -1,0 +1,312 @@
+{
+  "archive_sha256": "2f4389c41de2d2cdb83d7c6ed9f49077c53a947156a0b2318158771a826ac34c",
+  "submitted_runner_sha256": "e22b6ed957ad518c0d675b8688247b57531197f89c5abaa1598fbb8f9c7f31d0",
+  "original_archive_members": 193,
+  "reproduction_matches_submitted_runner": true,
+  "attempt_selection": "One completed attempt per coordinate; no exclusions or retries",
+  "cases": [
+    {
+      "case": "column",
+      "rows": 81,
+      "status_counts": {
+        "logical_infeasible": 17,
+        "ipopt_failed": 7,
+        "preprocessing_infeasible": 28,
+        "accepted": 29
+      },
+      "accepted": 29,
+      "best_point": [
+        13,
+        4
+      ],
+      "best_objective": 19346.124801006445,
+      "all_total_times_measured": true,
+      "missing_or_duplicate_coordinates": 0,
+      "csv_checkpoint_fields_match": true,
+      "timing_by_status": {
+        "logical_infeasible": {
+          "count": 17,
+          "sum_s": 6.37156688014511,
+          "min_s": 0.3585132540320046,
+          "max_s": 0.4952210370101966
+        },
+        "ipopt_failed": {
+          "count": 7,
+          "sum_s": 10.28125103196362,
+          "min_s": 1.3690108429873362,
+          "max_s": 1.764566369005479
+        },
+        "preprocessing_infeasible": {
+          "count": 28,
+          "sum_s": 11.197053353185765,
+          "min_s": 0.37276718602515757,
+          "max_s": 0.48523682297673076
+        },
+        "accepted": {
+          "count": 29,
+          "sum_s": 39.49395026831189,
+          "min_s": 1.2750078880344518,
+          "max_s": 1.7000233620055951
+        }
+      },
+      "sum_total_wall_s": 67.34382153360639,
+      "historical_overlap": 64,
+      "acceptance_changed_points": [],
+      "max_absolute_accepted_objective_difference": 0.0,
+      "runtime": {
+        "solver_executable": "/package/gams/52.2/gams",
+        "solver_executable_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+        "solver_version": [
+          52,
+          2,
+          0,
+          0
+        ],
+        "expected_ipopt_version": "3.14.19",
+        "expected_mumps_version": "5.8.1",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "source": {
+          "repository": "https://github.com/SECQUOIA/dsda-gdp",
+          "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "files_sha256": {
+            "gdp/column/gdp_column.py": "c5fea7ff6286d2b6c1055a4e602b08648a03853aea24e6552f5921b36e205bab",
+            "gdp/dsda/column_17_initialization.json": "60cd7d1f7a7f08b59d9b0d7fca6e8920313ca7722c94d829e388a009ae4acfd7",
+            "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+            "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+            "main_column.py": "09a4ff167d87c15bb0e2323567f1f59be7ece61b325ea9cf84900bd7aaa2800a"
+          }
+        },
+        "initialization": "gdp/dsda/column_17_initialization.json",
+        "dependency_versions": {
+          "pyomo": "6.10.0",
+          "sympy": "1.14.0",
+          "numpy": "2.4.6",
+          "networkx": "3.6.1",
+          "matplotlib": "3.11.2"
+        },
+        "python_version": "3.11.16",
+        "host": "dantzig.ecn.purdue.edu",
+        "effective_cpu": [
+          0
+        ],
+        "git_commit": "686a5cdec3a8fa8ee94da8624e62ff54ca34dae4",
+        "code_sha256": {
+          "enumerate_process_ipopt.py": "1531d901d5e63d48d3b28316cc59ed78e7c1e85a348e5c9b1e618773b51bc334",
+          "enumerate_column_ipopt.py": "d58de51f024dee68dfa1623872ba5d841772b7f2ed817f2676e3be0f19eeab0f",
+          "enumerate_dynamic_ipopt.py": "18cb0e584ea38e348331a22dba6488598858e4cf62c89ffe70a05433b0f06635",
+          "gdp_models/__init__.py": "5ebb20b8f7249a66ace212cebabf47949e8f40d3a9ddea464b11a7eb55a47705",
+          "gdp_models/__main__.py": "3637c973071961beeb01876a23eb3bbf172d2fe3a493cbbc9e0fd29d623e6dc4",
+          "gdp_models/_sources.py": "d5363100698e69c829918b850c0fb39481b64eb9c4e2d7c987bee3b628e2fd29",
+          "gdp_models/batch.py": "01e82b9c62ac196be5fb9feab739e3b122b9a08babb5af7f546565f114227117",
+          "gdp_models/comparison.py": "71725cccdae93fbccaa5071d547fa406ebf4819b1015f09939c67e444fb7d300",
+          "gdp_models/dantzig.py": "47533ff3b9436e4bc089ca7aecd43ca0c38924e379c2b3b4195a8cd60d48b3d4",
+          "gdp_models/domains.py": "bb2a9f2783fdf32f25d327c417521ecae73b2dc60fc6e579d8c0afe187493394",
+          "gdp_models/evaluation.py": "98eda90acea6fc70d26192020972d9b9917b5802a06239aa4a92ad42a9aa19f5",
+          "gdp_models/grid.py": "e0e65ec27d20be9f5cfe6419cb7cd176663a909614a6bb9be67db879d574c7c8",
+          "gdp_models/grid_benchmark.py": "55432472d647691166855f4ca479060789312a3e482a77edfa9980b7a0729137",
+          "gdp_models/grid_retry_fixes.py": "466d9b92b3247a6832ca88ebd00f8de719dccc0e4205b53ff0e6c67937243f0f",
+          "gdp_models/models.py": "1257294f4b90ddf7ee0bfa3b23e3df576890433a103f49789e624499fe698396",
+          "gdp_models/preflight.py": "fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56",
+          "gdp_models/solvers.py": "bdc1a4c52c65128cda618c9b64be28a53abea557f3f5a4e4e975a77e57085d1d"
+        },
+        "reference_sha256": {
+          "evaluations.csv": "5e04eb22463a91fb8165b8f76af357d1cea8ea3913c1efbe7249eee6686e0ab8",
+          "manifest.json": "433b5fe194358bf847f6e3a5263e7612ef871ea37be247792f2c0d1e5f07be4c"
+        },
+        "adapter_differences": {
+          "evaluation.py": {
+            "historical_sha256": "88be8eaa7c84530b1861c5cc27a2cb24e459da7d5d617b843b384b35a42fb099",
+            "current_sha256": "98eda90acea6fc70d26192020972d9b9917b5802a06239aa4a92ad42a9aa19f5"
+          },
+          "solvers.py": {
+            "historical_sha256": "6832d692177b2b9533606a2af3b32604e52553d74a975ea5f3da51c3a9cab3c6",
+            "current_sha256": "bdc1a4c52c65128cda618c9b64be28a53abea557f3f5a4e4e975a77e57085d1d"
+          },
+          "preflight.py": {
+            "historical_sha256": "f82c7da2fcde8f2e1d3175c3517747661f45d94938b89aac6ed1ccdb5e8f3dc9",
+            "current_sha256": "fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56"
+          }
+        },
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60.0;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1"
+        },
+        "preflight_solver_calls": 0
+      }
+    },
+    {
+      "case": "dynamic",
+      "rows": 72,
+      "status_counts": {
+        "accepted": 37,
+        "logical_infeasible": 35
+      },
+      "accepted": 37,
+      "best_point": [
+        1,
+        4
+      ],
+      "best_objective": -212.00878715666533,
+      "all_total_times_measured": true,
+      "missing_or_duplicate_coordinates": 0,
+      "csv_checkpoint_fields_match": true,
+      "timing_by_status": {
+        "accepted": {
+          "count": 37,
+          "sum_s": 46.333338445052505,
+          "min_s": 1.1384276199969463,
+          "max_s": 1.9152114180033095
+        },
+        "logical_infeasible": {
+          "count": 35,
+          "sum_s": 3.0078928550938144,
+          "min_s": 0.07879387302091345,
+          "max_s": 0.157833817997016
+        }
+      },
+      "sum_total_wall_s": 49.34123130014632,
+      "historical_overlap": 37,
+      "acceptance_changed_points": [],
+      "max_absolute_accepted_objective_difference": 0.0,
+      "runtime": {
+        "solver_executable": "/package/gams/52.2/gams",
+        "solver_executable_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+        "solver_version": [
+          52,
+          2,
+          0,
+          0
+        ],
+        "expected_ipopt_version": "3.14.19",
+        "expected_mumps_version": "5.8.1",
+        "solver_interface": "gams_shell",
+        "gams_solver": "ipopt",
+        "source": {
+          "repository": "https://github.com/SECQUOIA/LD-SDA-Dynamic",
+          "commit": "482e14ebf9caabbd35d959986942cb028778a1d7",
+          "files_sha256": {
+            "models/nine_stage_dynamic_model_switching_nonlinear.py": "70653536e48a2a6a05c23a8f0337a43e36307c554569982767afa1c1c623ed98"
+          }
+        },
+        "initialization": "constructor_defaults",
+        "dependency_versions": {
+          "pyomo": "6.10.0",
+          "sympy": "1.14.0",
+          "numpy": "2.4.6",
+          "networkx": "3.6.1",
+          "matplotlib": "3.11.2"
+        },
+        "python_version": "3.11.16",
+        "host": "dantzig.ecn.purdue.edu",
+        "effective_cpu": [
+          0
+        ],
+        "git_commit": "686a5cdec3a8fa8ee94da8624e62ff54ca34dae4",
+        "code_sha256": {
+          "enumerate_process_ipopt.py": "1531d901d5e63d48d3b28316cc59ed78e7c1e85a348e5c9b1e618773b51bc334",
+          "enumerate_column_ipopt.py": "d58de51f024dee68dfa1623872ba5d841772b7f2ed817f2676e3be0f19eeab0f",
+          "enumerate_dynamic_ipopt.py": "18cb0e584ea38e348331a22dba6488598858e4cf62c89ffe70a05433b0f06635",
+          "gdp_models/__init__.py": "5ebb20b8f7249a66ace212cebabf47949e8f40d3a9ddea464b11a7eb55a47705",
+          "gdp_models/__main__.py": "3637c973071961beeb01876a23eb3bbf172d2fe3a493cbbc9e0fd29d623e6dc4",
+          "gdp_models/_sources.py": "d5363100698e69c829918b850c0fb39481b64eb9c4e2d7c987bee3b628e2fd29",
+          "gdp_models/batch.py": "01e82b9c62ac196be5fb9feab739e3b122b9a08babb5af7f546565f114227117",
+          "gdp_models/comparison.py": "71725cccdae93fbccaa5071d547fa406ebf4819b1015f09939c67e444fb7d300",
+          "gdp_models/dantzig.py": "47533ff3b9436e4bc089ca7aecd43ca0c38924e379c2b3b4195a8cd60d48b3d4",
+          "gdp_models/domains.py": "bb2a9f2783fdf32f25d327c417521ecae73b2dc60fc6e579d8c0afe187493394",
+          "gdp_models/evaluation.py": "98eda90acea6fc70d26192020972d9b9917b5802a06239aa4a92ad42a9aa19f5",
+          "gdp_models/grid.py": "e0e65ec27d20be9f5cfe6419cb7cd176663a909614a6bb9be67db879d574c7c8",
+          "gdp_models/grid_benchmark.py": "55432472d647691166855f4ca479060789312a3e482a77edfa9980b7a0729137",
+          "gdp_models/grid_retry_fixes.py": "466d9b92b3247a6832ca88ebd00f8de719dccc0e4205b53ff0e6c67937243f0f",
+          "gdp_models/models.py": "1257294f4b90ddf7ee0bfa3b23e3df576890433a103f49789e624499fe698396",
+          "gdp_models/preflight.py": "fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56",
+          "gdp_models/solvers.py": "bdc1a4c52c65128cda618c9b64be28a53abea557f3f5a4e4e975a77e57085d1d"
+        },
+        "reference_sha256": {
+          "evaluations.csv": "1e6a615a2170fc2bd68d8d3e05f7c3ad4eb9c7c9c6cdbcfaab61f19ade24b3e2",
+          "manifest.json": "3f5c3d6a1307fcdb022ae51b5e15fd8c0699ff3064f856135f422951deba9747"
+        },
+        "adapter_differences": {
+          "evaluation.py": {
+            "historical_sha256": "88be8eaa7c84530b1861c5cc27a2cb24e459da7d5d617b843b384b35a42fb099",
+            "current_sha256": "98eda90acea6fc70d26192020972d9b9917b5802a06239aa4a92ad42a9aa19f5"
+          },
+          "solvers.py": {
+            "historical_sha256": "6832d692177b2b9533606a2af3b32604e52553d74a975ea5f3da51c3a9cab3c6",
+            "current_sha256": "bdc1a4c52c65128cda618c9b64be28a53abea557f3f5a4e4e975a77e57085d1d"
+          },
+          "preflight.py": {
+            "historical_sha256": "f82c7da2fcde8f2e1d3175c3517747661f45d94938b89aac6ed1ccdb5e8f3dc9",
+            "current_sha256": "fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56"
+          }
+        },
+        "solver_options": {
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "warmstart": true,
+          "io_options": {
+            "put_results_format": "dat"
+          },
+          "add_options": [
+            "option reslim=60.0;",
+            "option iterlim=3000;",
+            "option threads=1;",
+            "option optcr=0.00001;",
+            "GAMS_MODEL.optfile=1;"
+          ]
+        },
+        "solver_option_file": [
+          "tol 1e-8",
+          "bound_relax_factor 0",
+          "max_iter 3000",
+          "warm_start_init_point no",
+          "linear_solver mumps"
+        ],
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1"
+        },
+        "preflight_solver_calls": 0
+      }
+    }
+  ],
+  "dynamic_shared_preparation": [
+    {
+      "preparation_id": "26119542198d4000aadc144ef3354da0",
+      "created_utc": "2026-10-15T20:59:32.987476+00:00",
+      "scope": "once_per_process",
+      "model_build_wall_s": 0.015386792016215622,
+      "dae_wall_s": 0.05105839797761291,
+      "total_preparation_wall_s": 0.06644518999382854,
+      "included_in_point_total_wall_s": false
+    }
+  ],
+  "historical_dfo_results_modified": false,
+  "solver_calls_during_import": 0,
+  "archive": "results/archives/dantzig_column_dynamic_ipopt_20261015_205822_gG8bXK.zip",
+  "original_download": "/Users/albertlee0125/Downloads/dantzig_column_dynamic_ipopt_20261015_205822_gG8bXK.zip"
+}
