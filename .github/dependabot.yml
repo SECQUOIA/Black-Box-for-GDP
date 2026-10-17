@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: daily
+    # Keep security updates enabled without routine version-update PRs.
+    open-pull-requests-limit: 0
+    exclude-paths:
+      - "results/**"
+      - "archive/**"
+      - "archives/**"
+      - "**/vendor/**"
+    groups:
+      security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+    # Keep security updates enabled without routine version-update PRs.
+    open-pull-requests-limit: 0
