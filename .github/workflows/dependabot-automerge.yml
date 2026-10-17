@@ -2,7 +2,7 @@ name: Merge passing Dependabot PRs
 
 on:
   workflow_run:
-    workflows: ["CI"]
+    workflows: ["CI", "CodeQL"]
     types: [completed]
 
 # A separate workflow gives Dependabot CI read-only permissions. Never check out
@@ -21,7 +21,7 @@ concurrency:
 jobs:
   merge:
     if: >-
-      github.event.workflow_run.event == 'pull_request' &&
+      (github.event.workflow_run.event == 'pull_request' || github.event.workflow_run.event == 'dynamic') &&
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.head_repository.full_name == github.repository
     runs-on: ubuntu-latest
@@ -31,10 +31,22 @@ jobs:
         with:
           script: |
             const { owner, repo } = context.repo;
-            const eventRun = context.payload.workflow_run;
+            let eventRun = context.payload.workflow_run;
             const workflowJobs = {".github/workflows/ci.yml": ["lint", "test", "gdp-minimal-runtime", "fmqa-cpu-runtime", "fmqa-adapter"]};
             const requiredChecks = ["lint", "test", "gdp-minimal-runtime", "fmqa-cpu-runtime", "fmqa-adapter"];
             const allowedSkips = new Set([]);
+            // Default-setup CodeQL runs use refs/pull/N/head as the branch.
+            // Resolve their tested SHA back to the repository's actual PR CI run.
+            if (!Object.hasOwn(workflowJobs, eventRun.path)) {
+              const { data: runs } = await github.rest.actions.listWorkflowRunsForRepo({
+                owner, repo, event: 'pull_request', head_sha: eventRun.head_sha, per_page: 100,
+              });
+              eventRun = runs.workflow_runs.find(candidate => Object.hasOwn(workflowJobs, candidate.path));
+              if (!eventRun) {
+                core.info('No trusted PR CI run exists for the completed scan head.');
+                return;
+              }
+            }
             const { data: run } = await github.rest.actions.getWorkflowRun({
               owner, repo, run_id: eventRun.id,
             });
