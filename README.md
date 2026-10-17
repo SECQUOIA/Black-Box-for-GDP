@@ -543,3 +543,18 @@ integer bounds, an ordered initial design, a budget and a seed. See the
 See [the process DSDA domain and callback-budget notes](docs/process_dsda_domain.md)
 for the implementation portion of Issue #24. Historical Dantzig execution and
 recovery evidence was incorporated into `main` through PR #23.
+
+## Dependency security updates
+
+Dependabot opens grouped security-update PRs for the maintained dependency
+manifests and security updates for GitHub Actions. Routine version-update PRs
+are disabled. Archived results and vendored source snapshots are excluded.
+
+A separate workflow merges same-repository Dependabot PRs into the default
+branch only after every required PR CI job and all reported checks succeed,
+with no blocking reviews or unresolved review threads. It verifies the current
+head SHA, retries temporary unknown mergeability, and never executes PR code
+with write credentials. GitHub deletes merged branches automatically.
+
+Merges made with `GITHUB_TOKEN` do not trigger downstream push workflows;
+the PR checks provide validation for these merges.
