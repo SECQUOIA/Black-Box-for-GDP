@@ -1,0 +1,26 @@
+{
+  "case": "column",
+  "point": [
+    8,
+    2
+  ],
+  "solver": "gams_ipopt",
+  "solver_interface": "gams_shell",
+  "gams_solver": "ipopt",
+  "cstr_size": null,
+  "initialization_requested": "auto",
+  "pyomo_version": "6.10.0",
+  "time_limit_s": 60,
+  "feasibility_tolerance": 1e-05,
+  "accepted": false,
+  "objective": null,
+  "candidate_objective": null,
+  "max_primal_violation": null,
+  "solve_wall_s": 0.0,
+  "status": "preprocessing_infeasible",
+  "termination": "not_solved",
+  "message": "Detected an infeasible constraint during FBBT: minimum_num_trays",
+  "total_wall_s": 0.37657475704327226,
+  "point_index": 2,
+  "completed_utc": "2026-09-22T05:00:41.554302+00:00"
+}

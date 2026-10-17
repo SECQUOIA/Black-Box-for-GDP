@@ -93,4 +93,4 @@ jobs:
           python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
           python -m pip install ".[test,fmqa]"
       - name: Validate the adapter and upstream core
-        run: python -m pytest tests/test_fmqa_adapter.py -q
+        run: python -m pytest tests/test_fmqa_adapter.py tests/test_ipopt_fmqa_settings.py -q

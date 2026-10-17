@@ -112,6 +112,22 @@
           "files": 2
         }
       ]
+    },
+    "original-ipopt-evaluations": {
+      "directory": "results/dantzig_review/gams_cstr_audit_20260922/dantzig_gdp_gams_20260922_050038_p4q8hy54",
+      "archive": "results/archives/dantzig_gdp_gams_20260922_050038_p4q8hy54.zip",
+      "sha256": "e406b8fae2a90191835eb7332d483c719ebb1675d14d3b0e6d3bf5f7789a197b",
+      "archive_root": "dantzig_gdp_gams_20260922_050038_p4q8hy54",
+      "archived_only": [
+        {
+          "directory": "gams_ipopt",
+          "files": 1355
+        },
+        {
+          "directory": "source",
+          "files": 14
+        }
+      ]
     }
   }
 }

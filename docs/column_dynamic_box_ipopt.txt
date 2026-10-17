@@ -1,0 +1,132 @@
+Column and Dynamic: original IPOPT procedure over the full DFO boxes
+
+Purpose and scope
+  enumerate_column_ipopt.py records 81 coordinates: x1=7..15, x2=1..9.
+  enumerate_dynamic_ipopt.py records 72 coordinates: x1=1..9, x2=2..9.
+  The explicit sequential loop is gdp_models/batch.py:run_batch, with the
+  full plan supplied by enumerate_process_ipopt.py:plan. No GDPopt enumeration
+  or DFO optimizer is invoked. Every accepted objective and its time come from
+  the same NEW evaluation. Historical objective values are comparison-only.
+  Column29 and Dynamic37 historical accepted counts are reference observations,
+  not acceptance targets or guarantees. Differences remain in the output.
+
+Historical reference and unchanged process configuration
+  The frozen CSV/manifest pairs are from the 2026-09-22 Dantzig GAMS enumeration,
+  preserved in results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/.
+  Their SHA256 values are pinned in enumerate_process_ipopt.py and the bundle.
+  Column: SECQUOIA/dsda-gdp commit3e469dbeea8931670b8cd6752014ab7a767d3af5;
+    max_trays17, min_trays8, xD=xB0.95, feed tray9. External (x1,x2) selects
+    actual (reflux tray,boilup tray)=(x1+1,x2+1), from interior trays2..16.
+    Saved gdp/dsda/column_17_initialization.json is read into each fresh model.
+    Original logic, GDP fixing and FBBT are retained. Logical candidates64,
+    exclusions17. Further minimum-tray/continuous constraints can still fail.
+  Dynamic: SECQUOIA/LD-SDA-Dynamic commit482e14ebf9caabbd35d959986942cb028778a1d7;
+    nine stages, mode_transfer=False, constructor defaults, nfe30,ncp3,
+    LAGRANGE-RADAU, original disjunct-on-mesh construction and derivative bounds
+    [-300,300]. A fresh clone of the never-solved template is fixed at each point.
+    x1<x2 or (9,9) gives37 logical candidates; the other35 are excluded.
+  GAMS52.2 / IPOPT3.14.19 / MUMPS5.8.1; GAMS reslim60 seconds, iterlim3000,
+    threads1, optcr1e-5; IPOPT tol1e-8,bound_relax_factor0,max_iter3000,
+    warm_start_init_point=no, linear_solver=mumps. Original Python3.11.16,
+    Pyomo6.10.0 and the exact historical dependency versions are required.
+  GAMS writer warmstart=True exports each fresh model's initialization; it does
+    not reuse the previous coordinate's solution. There is no cross-point warm
+    start, automatic retry, best-of selection or alternative solver fallback.
+  Acceptance is unchanged: optimal/locallyOptimal/globallyOptimal termination,
+    SOLVESTAT1, MODELSTAT1 or2, solver status not error/aborted, finite objective,
+    finite maximum absolute primal violation <=1e-5. Feasible candidates at a
+    time/iteration limit remain unaccepted, with raw evidence retained.
+
+Differences from the historical code and timing protocol
+  models.py, domains.py and _sources.py are byte-identical to the archived
+  adapter. Current evaluation.py/solvers.py add optional artifact collection
+  and BARON options. Neither option is used here. preflight.py only changed
+  an installation hint and unrelated CSTR preflight selection. Approved hashes
+  are checked; an unreviewed adapter or model change prevents execution.
+  Runtime validation does not perform the historical extra quadratic smoke
+  solve or model-writing preflight. Those were outside per-coordinate time.
+  New instrumentation surrounds the original evaluator and records preparation
+  failures, which previously lacked setup/preprocess splits. It does not change
+  the equations, initial values, transformations, solver options or acceptance.
+  Exact wall times will naturally differ. New total_wall_s includes the small
+  instrumentation overhead; original_total_wall_s retains the inner evaluator
+  clock when it returned normally. GAMS output goes to run.log as before;
+  additional GAMS-file compression is disabled.
+
+Timing and status semantics
+  Excluded points are NOT skipped by a cheap prefilter. They enter the original
+  construction/initialization/fixing path and are rejected there. Dynamic
+  cloning is included even for logical exclusions. Time is measured, not filled.
+  total_wall_s: full instrumented coordinate call, including setup, fixing,
+    preprocessing, solver execution/solution loading, validation and diagnostics;
+    excludes process startup, checkpoint/CSV writes and common Dynamic template.
+  setup_wall_s: original preparation through model fixing/metadata; for failed
+    preparation, measured total preparation minus measured FBBT duration.
+  logic_wall_s: measured fixing/logical transformation/check subset of setup.
+    Do not add it to setup again. It is not only a simple inequality check.
+  preprocess_wall_s: original successful preparation timing, or measured FBBT
+    duration for FBBT failure. If that stage was not reached it remains blank.
+  solve_wall_s: original solve/solution-loading interval when available. A true
+    uncalled solver contributes0 execution time; this is not a substitute for
+    total_wall_s. Exceptions in an actual solver call retain measured call time.
+  Dynamic preparation.json lists one template construction/discretization cost
+    per process invocation, including resume; it is excluded from every point's
+    total. To account for the whole campaign, add these common costs separately.
+  status: accepted, logical_infeasible, preprocessing_infeasible, ipopt_failed,
+    time_limit or exception. legacy_status preserves the old evaluator status.
+  accepted/objective, candidate_objective, solver_status, termination, raw GAMS
+    statuses, max_primal_violation, validation_performed and primal_feasible
+    are distinct. IPOPT failure does not establish mathematical infeasibility.
+  A process killed mid-evaluation leaves that coordinate pending; partial time
+    is not invented. Resume evaluates only points without completed checkpoints.
+
+Dantzig commands (inside extracted column_dynamic_ipopt_runner)
+  bash run_column_dynamic_ipopt_dantzig.sh check
+  nohup bash run_column_dynamic_ipopt_dantzig.sh run --cpu 0 > launch.log 2>&1 < /dev/null &
+  tail -f launch.log
+  The two cases run sequentially on one CPU. Select an available CPU explicitly
+  if other experiments are still running; the launcher does not stop them.
+  It reads existing external/ checkouts and .venv-dantzig-gdp. No install,
+  checkout, CSTR mutation or existing-result overwrite occurs.
+  Override ENUM_REPOSITORY, ENUM_PYTHON, RBFOPT_GDP_SOURCES or GAMS_BIN if needed.
+  check verifies sources/dependencies/GAMS identity without solving an NLP.
+  Each case also supports direct execution:
+    python enumerate_column_ipopt.py --output-dir /new/path/column
+    python enumerate_dynamic_ipopt.py --output-dir /new/path/dynamic
+  Append --resume for the identical directory/options/environment after stopping.
+  --dry-run lists the full plan without imports of process models or writes.
+  --max-points K processes at most K new coordinates, for deliberate partial runs.
+
+Results, resume and download
+  The launcher prints RESULT_DIR and RESULT_ZIP under
+    /local/scratch/a/lee4382/repository/RBFopt_Test/results/column_dynamic_box_ipopt/
+  column/ and dynamic/ each contain atomic records/, evaluations.csv, manifest,
+  summary, run.log, comparison.csv, plus Dynamic preparation.json. The full
+  executable bundle is preserved under reproduction/. All completed records,
+  including failures and exceptions, are retained and skipped on resume.
+  summary.json checks row count, uniqueness, total times and accepted-count
+  differences. comparison.csv compares every processed coordinate with the
+  historical record where one exists; new logical exclusions have no old row.
+  No comparison value feeds the new objective or accepted flag.
+  Resume requires identical source hashes, runtime identity and CPU affinity:
+    bash run_column_dynamic_ipopt_dantzig.sh resume --run-dir /absolute/RESULT_DIR --cpu 0
+  After an interrupted run, packaging alone is available:
+    bash run_column_dynamic_ipopt_dantzig.sh pack --run-dir /absolute/RESULT_DIR
+  Completed cases are not re-solved when resuming the combined launcher.
+  Download from the Mac, substituting the printed archive name:
+    scp lee4382@dantzig.ecn.purdue.edu:/absolute/RESULT_ZIP ~/Downloads/
+
+Existing DFO loader compatibility (not changed in this task)
+  ipopt_dfo_non_cstr.py:load_table currently requires64 Column rows and37 Dynamic
+  rows, and requires table keys to equal the logical candidate set. These new
+  full-box CSVs are intentionally NOT drop-in inputs for that archived runner.
+  A future loader must validate full-box completeness81/72, preserve the17/35
+  explicit logical rejection records and their times, accept only accepted=True
+  objectives, and recognize the expanded failure statuses. It must update the
+  input manifest/provenance/hash rules and validate the same model/initialization.
+  Neither filtering away failed rows nor reusing historical objectives is valid.
+  New CSVs are new process evaluations; using them for DFO requires an explicitly
+  separate search experiment. This bundle does not alter prior DFO results.
+
+Build ZIP locally, without any solver invocation
+  .venv/bin/python build_column_dynamic_ipopt.py --output results/runners/column_dynamic_box_ipopt_20261015.zip
