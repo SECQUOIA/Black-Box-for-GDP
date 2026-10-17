@@ -2,7 +2,7 @@ name: Merge passing Dependabot PRs
 
 on:
   workflow_run:
-    workflows: ["CI", "CodeQL"]
+    workflows: ["CI", "CodeQL", "Test Dependabot merge guard"]
     types: [completed]
 
 # A separate workflow gives Dependabot CI read-only permissions. Never check out
@@ -99,7 +99,7 @@ jobs:
                     pullRequest(number: $number) {
                       headRefOid
                       reviewDecision
-                      latestReviews(first: 100) {
+                      latestReviews: latestOpinionatedReviews(first: 100) {
                         pageInfo { hasNextPage }
                         nodes { state }
                       }
