@@ -32,8 +32,8 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             let eventRun = context.payload.workflow_run;
-            const workflowJobs = {".github/workflows/ci.yml": ["lint", "test", "gdp-minimal-runtime", "fmqa-cpu-runtime", "fmqa-adapter"]};
-            const requiredChecks = ["lint", "test", "gdp-minimal-runtime", "fmqa-cpu-runtime", "fmqa-adapter"];
+            const workflowJobs = {".github/workflows/ci.yml": ["lint", "test", "gdp-minimal-runtime", "fmqa-cpu-runtime", "fmqa-adapter", "fmqa-python-compatibility (3.10)", "fmqa-python-compatibility (3.12)", "fmqa-python-compatibility (3.13)"]};
+            const requiredChecks = ["lint", "test", "gdp-minimal-runtime", "fmqa-cpu-runtime", "fmqa-adapter", "fmqa-python-compatibility (3.10)", "fmqa-python-compatibility (3.12)", "fmqa-python-compatibility (3.13)"];
             const allowedSkips = new Set([]);
             // Default-setup CodeQL runs use refs/pull/N/head as the branch.
             // Resolve their tested SHA back to the repository's actual PR CI run.
