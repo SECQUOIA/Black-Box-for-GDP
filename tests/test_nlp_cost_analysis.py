@@ -190,3 +190,56 @@ def test_conflicting_baron_certificate_is_flagged_without_changing_objective():
     assert rows[1]["objective"] == 2.809386
     assert not rows[0]["bound_conflict_with_saved_solution"]
     assert rows[2]["global_optimality_certified"]
+
+
+@pytest.mark.parametrize('method', ['ric', 'gloa', 'loa', 'bigm', 'hull', 'future_method'])
+def test_bound_conflict_is_method_independent_and_preserves_solver_reports(method):
+    row = {'instance_id': 'example', 'method': method, 'objective': 4.0,
+           'has_feasible_solution': True, 'reported_lower_bound': 3.0,
+           'global_optimality_certified': True, 'termination': 'optimal',
+           'method_wall_s': 17.5, 'target_hit': False, 'target_attained': False}
+    original = dict(row)
+    evidence = [{'instance_id': 'example', 'method': 'witness', 'objective': 2.0,
+                 'has_feasible_solution': True, 'source_directory': 'saved-witness'}]
+    analysis.flag_bound_conflicts([row], evidence)
+    assert row['bound_conflict_with_saved_solution']
+    assert row['solver_reported_global_optimality_certified'] is True
+    assert row['global_optimality_certified'] is False
+    assert row['best_saved_feasible_objective'] == 2.0
+    assert row['bound_evidence_source_directory'] == 'saved-witness'
+    assert {k: row[k] for k in original if k != 'global_optimality_certified'} == {
+        k: v for k, v in original.items() if k != 'global_optimality_certified'}
+    assert evidence[0]['objective'] == 2.0
+
+
+@pytest.mark.parametrize('method', ['ric', 'gloa', 'loa', 'bigm', 'hull'])
+@pytest.mark.parametrize('best', [-100.0, 0.0, 0.5, 100.0])
+def test_bound_conflict_uses_existing_scaled_strict_tolerance(method, best):
+    threshold = best + analysis.TOLERANCE * max(1, abs(best))
+    evidence = [{'instance_id': 'example', 'has_feasible_solution': True, 'objective': best}]
+    for lower, expected in [(best, False), (best + (threshold - best) / 2, False),
+                            (threshold, False), (threshold + 1e-8, True)]:
+        row = {'instance_id': 'example', 'method': method, 'reported_lower_bound': lower,
+               'global_optimality_certified': True}
+        analysis.flag_bound_conflicts([row], evidence)
+        assert row['bound_conflict_with_saved_solution'] is expected
+        assert row['global_optimality_certified'] is (not expected)
+
+
+@pytest.mark.parametrize('method', ['ric', 'gloa', 'loa', 'bigm', 'hull'])
+@pytest.mark.parametrize('missing', ['lower', 'no_witness', 'unaccepted', 'objective', 'other_instance'])
+def test_bound_conflict_requires_bound_and_matching_feasible_witness(method, missing):
+    row = {'instance_id': 'example', 'method': method, 'reported_lower_bound': 10.0,
+           'global_optimality_certified': True}
+    witness = {'instance_id': 'example', 'has_feasible_solution': True, 'objective': 1.0}
+    if missing == 'lower':
+        row['reported_lower_bound'] = None
+    elif missing == 'unaccepted':
+        witness['has_feasible_solution'] = False
+    elif missing == 'objective':
+        witness['objective'] = None
+    elif missing == 'other_instance':
+        witness['instance_id'] = 'unrelated'
+    analysis.flag_bound_conflicts([row], [] if missing == 'no_witness' else [witness])
+    assert not row['bound_conflict_with_saved_solution']
+    assert row['global_optimality_certified']

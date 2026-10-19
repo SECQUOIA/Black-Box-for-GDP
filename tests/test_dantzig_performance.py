@@ -149,4 +149,29 @@ def test_full_benchmark_includes_all_solvers_and_keeps_attainment_and_limits():
     assert loa["target_attained"] == 1 and loa["final_objective"] < loa["target_value"]
     assert loa["time_limits"] == 1
     assert sum(r["time_limits"] for r in rows) == 23
-    assert sum(r["bound_conflicts"] for r in rows) == 5
+    assert sum(r["bound_conflicts"] for r in rows) == 11
+    assert sum(r["bound_conflicts"] for r in rows if r["method"] == "gloa") == 6
+    assert sum(r["bound_conflicts"] for r in rows if r["family"] == "MINLP") == 5
+
+
+def test_gdp_only_refresh_preserves_unrelated_artifacts_and_historical_provenance(tmp_path):
+    import json
+    import shutil
+    from scripts.plot_dantzig_performance import OUTPUT, GDP_SOURCE, refresh_gdp_outputs, sha
+    output = tmp_path / 'figures'
+    shutil.copytree(OUTPUT, output)
+    manifest = json.loads((output / 'performance.manifest.json').read_text())
+    affected = {'all_method_completion_times.csv', 'gdp_minlp_runs.csv',
+                'all_method_completion_times.png', 'all_method_completion_times.pdf'}
+    before = {name: sha(output / name) for name in manifest['artifacts'] if name not in affected}
+    refresh_gdp_outputs(output)
+    updated = json.loads((output / 'performance.manifest.json').read_text())
+    assert updated['scripts'] == manifest['scripts']
+    assert set(updated['gdp_comparison_refresh']['artifacts']) == affected
+    assert not updated['gdp_comparison_refresh']['optimization_executed']
+    assert {name: sha(output / name) for name in before} == before
+    assert all(sha(output / name) == digest for name, digest in updated['artifacts'].items())
+    assert (output / 'gdp_minlp_runs.csv').read_bytes() == (GDP_SOURCE / 'comparison.csv').read_bytes()
+    (output / 'gdp_minlp_runs.csv').write_text('corrupted')
+    with pytest.raises(ValueError, match='Existing performance artifact changed'):
+        refresh_gdp_outputs(output)
