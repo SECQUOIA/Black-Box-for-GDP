@@ -1,0 +1,48 @@
+{
+  "expected_points": 350,
+  "completed_points": 350,
+  "pending_points": 0,
+  "complete": true,
+  "accepted_points": 189,
+  "status_counts": {
+    "accepted": 189,
+    "preprocessing_infeasible": 160,
+    "rejected": 1
+  },
+  "cases": [
+    {
+      "cstr_size": 5,
+      "expected_points": 25,
+      "completed_points": 25,
+      "status_counts": {
+        "accepted": 15,
+        "preprocessing_infeasible": 10
+      },
+      "accepted_points": 15
+    },
+    {
+      "cstr_size": 10,
+      "expected_points": 100,
+      "completed_points": 100,
+      "status_counts": {
+        "accepted": 54,
+        "preprocessing_infeasible": 45,
+        "rejected": 1
+      },
+      "accepted_points": 54
+    },
+    {
+      "cstr_size": 15,
+      "expected_points": 225,
+      "completed_points": 225,
+      "status_counts": {
+        "accepted": 120,
+        "preprocessing_infeasible": 105
+      },
+      "accepted_points": 120
+    }
+  ],
+  "unknown_evaluation_times": 0,
+  "sum_known_evaluation_wall_s": 450.74538916989695,
+  "updated_utc": "2026-10-15T16:01:21.344548+00:00"
+}

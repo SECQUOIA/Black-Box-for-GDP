@@ -1,0 +1,30 @@
+CSTR full-box IPOPT measurements
+
+Received: dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip
+Archive SHA256: 8ae882d99e9309692b9ed773f2a87f076149f9b15d786d2e283fe0655c4a3e53
+Original CSVs are retained as browsable files. The unchanged ZIP retains every
+record, log, solver artifact and source snapshot; import.json records the audit.
+All 1,107 internal file hashes verified. All 350 coordinates are present once.
+Split CSVs match the combined evaluations.csv exactly.
+
+Model   Box rows   Accepted   Preprocessing infeasible   Rejected
+CSTR5         25         15                        10          0
+CSTR10       100         54                        45          1
+CSTR15       225        120                       105          0
+
+CSTR10 [10,1] retains its original rejected record. Termination=feasible,
+solver_status=warning, GAMS solve/model status=4/7. No accepted objective.
+The candidate objective and primal residual remain in the original row.
+No retries, exclusions, changed acceptance criteria or historical-table merges.
+All rows have a measured total_wall_s. Component times and process wall time
+are preserved separately; total and its components must not be added together.
+
+Initialization: mass_balance_zero_recycle. Fresh process/model per coordinate.
+GAMS 52.2, IPOPT, strict status acceptance plus 1e-5 primal feasibility check.
+
+Completed CSTR20/25 measurement:
+dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3/
+Archive: ../archives/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip
+Its 1,025 coordinates contain 535 accepted and 490 preprocessing rejections,
+with no missing evaluation times. It retains the same initialization, solver
+settings and single-attempt policy. Sizes and original attempts remain separate.

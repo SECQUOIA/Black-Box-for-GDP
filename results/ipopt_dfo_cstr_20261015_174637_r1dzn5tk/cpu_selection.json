@@ -1,0 +1,59 @@
+{
+  "selected": {
+    "cpu": 1,
+    "physical_package_id": "0",
+    "core_id": "1",
+    "thread_siblings_list": "1,49",
+    "effective_cpus": [
+      1
+    ],
+    "policy": "one logical CPU; not an exclusive reservation"
+  },
+  "observed_other_experiment_processes": [
+    {
+      "pid": 696464,
+      "argv": [
+        "python3",
+        "ipopt_dfo_non_cstr.py",
+        "run",
+        "--output-root",
+        "/local/scratch/a/lee4382/repository/RBFopt_Test/results",
+        "--dfo-python",
+        "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-nlp-overnight/bin/python",
+        "--fmqa-python",
+        "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/bin/python",
+        "--conda",
+        "/local/scratch/a/lee4382/miniconda3/bin/conda",
+        "--bonmin",
+        "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/bonmin",
+        "--ipopt",
+        "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/ipopt",
+        "--bam-license",
+        "/local/scratch/a/lee4382/bamlice.txt",
+        ""
+      ],
+      "cpus": [
+        0
+      ]
+    },
+    {
+      "pid": 706133,
+      "argv": [
+        "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/bin/python",
+        "/local/scratch/a/lee4382/repository/RBFopt_Test/results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/reproduction/ipopt_dfo_non_cstr.py",
+        "_worker",
+        "--run-dir",
+        "/local/scratch/a/lee4382/repository/RBFopt_Test/results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/dynamic_B20_seed3_fmqa_sa",
+        ""
+      ],
+      "cpus": [
+        0
+      ]
+    }
+  ],
+  "excluded_cpus": [
+    0,
+    48
+  ],
+  "note": "Read-only affinity check; not an exclusive allocation"
+}

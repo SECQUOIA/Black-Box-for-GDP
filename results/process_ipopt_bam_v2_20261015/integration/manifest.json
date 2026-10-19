@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "source_repository": "AlbertLee125/RBFopt_Test",
+  "source_branch": "Benchmark",
+  "source_revision": "ade67082ad2b09583a8f5594b827c97417e0ea99",
+  "target_repository": "SECQUOIA/RBFopt_Test",
+  "target_branch": "main",
+  "integrated_main_revision": "a4db6d61a88f70954ffebb15a67028bf4cb21aaf",
+  "integration_merge_revision": "4b41cc8f567875e3efb014dec1b2916c04c2f069",
+  "common_ancestor": "f3dceba6dc463a36034c3c8276549eb8068a3305",
+  "before_inventory": {
+    "path": "results/process_ipopt_bam_v2_20261015/integration/before_artifacts.json.gz",
+    "sha256": "f0e66451be84d0c470eb44f021547fac96799bbdf26bf6ffd069549fee43c4e4"
+  },
+  "documented_nondata_changes": {
+    "results/archives/README.md": "Archive access/review guidance from main, or final Process cross-reference; no experiment record changes.",
+    "results/fmqa_20260925/README.md": "Archive access/review guidance from main, or final Process cross-reference; no experiment record changes.",
+    "results/fmqa_numpy_legacy_20260925/README.md": "Archive access/review guidance from main, or final Process cross-reference; no experiment record changes.",
+    "results/gdp_comparison_20260925/README.md": "Archive access/review guidance from main, or final Process cross-reference; no experiment record changes.",
+    "results/gdp_comparison_20261001/README.md": "Archive access/review guidance from main, or final Process cross-reference; no experiment record changes.",
+    "results/gdp_comparison_loa_20261001/README.md": "Archive access/review guidance from main, or final Process cross-reference; no experiment record changes.",
+    "results/grid_trace_rbfopt_20261010/README.md": "Archive access/review guidance from main, or final Process cross-reference; no experiment record changes.",
+    "results/grid_trace_rbfopt_20261010/verify_archive.py": "Archive access/review guidance from main, or final Process cross-reference; no experiment record changes.",
+    "results/runners/README.md": "Archive access/review guidance from main, or final Process cross-reference; no experiment record changes.",
+    "results/cstr30_structural_rejections/INDEX.txt": "Archive access/review guidance from main, or final Process cross-reference; no experiment record changes."
+  },
+  "additional_files_sha256": {
+    "results/archives/dantzig_cstr30_structural_20261015_214202_pgve882p.zip": "3a5094a2e99c269cf830cd668c52853c2a3641d9fd4f176c0a7ca076ee110253"
+  },
+  "analysis_files_sha256": {
+    "scripts/process_ipopt/analysis_core.py": "7d1195af89c562efa9a3ad48d4715be9e63cd9b1845d6a90a2e420f84fbb3efe",
+    "scripts/process_ipopt/refresh.py": "0ed2b1569434c23ec3d31b50014ef51fc16ea67623e8c5e899a45ebd2bedfda2",
+    "scripts/process_ipopt/build_figures.py": "7c40ff03f6badde10b70caee3457fd84312a68ddc4c533dd70a0a17be628f605"
+  },
+  "datasets": [
+    {
+      "id": "original-cstr",
+      "directory": "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk",
+      "selected_runs": 180,
+      "selection": "all non-BAM runs; original BAM remains historical",
+      "archive": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+      "archive_root": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk",
+      "archive_sha256": "b91afb707229766adcdcfb1ee67406377d1d2ef44839b062ec9e0539893bfefa",
+      "member_inventory": "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/archive_members_sha256.json",
+      "runner": "results/runners/ipopt_dfo_cstr_20261015.zip",
+      "runner_sha256": "79a093ca026f4fe96650b21e73f49763db9a48d9514ec7dd9b654f515cc066d4",
+      "recorded_build_revision": "bb4087ecde303689ca42283cb13f7b8f8b283749",
+      "recorded_revision_scope": "Build-time HEAD only; executed working-tree source bytes are identified by runner/reproduction SHA256 inventories.",
+      "settings_and_initialization": "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/job_metadata.json and inputs/*/{manifest,provenance}.json",
+      "executed_source": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/reproduction/",
+      "raw_logs_callbacks_proposals": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/<job_id>/",
+      "evaluation_manifests": [
+        {
+          "path": "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_30/manifest.json",
+          "sha256": "e21ecf2e992d483610cf663aebb4b0dbd6dfb053c5c7ea6c1357181dd1b20b82",
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "constructor_defaults (no upstream saved initialization)",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
+          "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
+        }
+      ],
+      "frozen_input_inventory": [
+        "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_10/provenance.json",
+        "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_15/provenance.json",
+        "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_20/provenance.json",
+        "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_25/provenance.json",
+        "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_30/provenance.json",
+        "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_5/provenance.json"
+      ]
+    },
+    {
+      "id": "original-non-cstr",
+      "directory": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_",
+      "selected_runs": 240,
+      "selection": "all non-BAM runs; original BAM remains historical",
+      "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "archive_root": "ipopt_dfo_non_cstr_20261015_172428_o671edu_",
+      "archive_sha256": "ed7eaa2c20031b58f5a9c02c0bc89699cf170c7e256a65c92664ac4b1875cc6e",
+      "member_inventory": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/archive_members_sha256.json",
+      "runner": "results/runners/ipopt_dfo_non_cstr_20261015.zip",
+      "runner_sha256": "b2e61d0e58e1b6e1f76daf91ceaf1631846cbb3048e4ba07066144d85cdc1e3f",
+      "recorded_build_revision": "f3dceba6dc463a36034c3c8276549eb8068a3305",
+      "recorded_revision_scope": "Build-time HEAD only; executed working-tree source bytes are identified by runner/reproduction SHA256 inventories.",
+      "settings_and_initialization": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/job_metadata.json and inputs/*/{manifest,provenance}.json",
+      "executed_source": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/reproduction/",
+      "raw_logs_callbacks_proposals": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/<job_id>/",
+      "evaluation_manifests": [
+        {
+          "path": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/column/manifest.json",
+          "sha256": "433b5fe194358bf847f6e3a5263e7612ef871ea37be247792f2c0d1e5f07be4c",
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "gdp/dsda/column_17_initialization.json",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
+          "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
+        },
+        {
+          "path": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/dynamic/manifest.json",
+          "sha256": "3f5c3d6a1307fcdb022ae51b5e15fd8c0699ff3064f856135f422951deba9747",
+          "source_revision": "482e14ebf9caabbd35d959986942cb028778a1d7",
+          "initialization": "constructor_defaults",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
+          "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
+        },
+        {
+          "path": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/small_batch/manifest.json",
+          "sha256": "2a005c65b883b5ae1ad9944faf5db5209bed821ade4863bc4e1c150637955b58",
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "gdp/dsda/small_batch_initialization.json",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
+          "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
+        }
+      ],
+      "frozen_input_inventory": [
+        "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/column/provenance.json",
+        "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/dynamic/provenance.json",
+        "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/small_batch/provenance.json"
+      ]
+    },
+    {
+      "id": "corrected-bam-cstr",
+      "directory": "results/bam_budget_v2/ipopt_dfo_cstr_20261015_223017_ncd_12gx",
+      "selected_runs": 60,
+      "selection": "all BAM runs",
+      "archive": "results/archives/ipopt_dfo_cstr_20261015_223017_ncd_12gx.zip",
+      "archive_root": "ipopt_dfo_cstr_20261015_223017_ncd_12gx",
+      "archive_sha256": "2b0c56bdc67297661ebb6ab81ed60ca1df10788541bd39e67fcd391f4a48f570",
+      "member_inventory": "results/bam_budget_v2/ipopt_dfo_cstr_20261015_223017_ncd_12gx/raw_archive_members.json",
+      "runner": "results/runners/bam_cstr_budget_v2.zip",
+      "runner_sha256": "1eb297dd92fbd379193f6fda91775420a78680cdc348487343b5dab3c06567e0",
+      "recorded_build_revision": "b863b4f99eaf3ecabd3f5bbd2fae2bc5c51725d4",
+      "recorded_revision_scope": "Build-time HEAD only; executed working-tree source bytes are identified by runner/reproduction SHA256 inventories.",
+      "settings_and_initialization": "results/bam_budget_v2/ipopt_dfo_cstr_20261015_223017_ncd_12gx/job_metadata.json and inputs/*/{manifest,provenance}.json",
+      "executed_source": "ipopt_dfo_cstr_20261015_223017_ncd_12gx/reproduction/",
+      "raw_logs_callbacks_proposals": "ipopt_dfo_cstr_20261015_223017_ncd_12gx/jobs/<job_id>/",
+      "evaluation_manifests": [
+        {
+          "path": "results/bam_budget_v2/ipopt_dfo_cstr_20261015_223017_ncd_12gx/inputs/cstr_30/manifest.json",
+          "sha256": "e21ecf2e992d483610cf663aebb4b0dbd6dfb053c5c7ea6c1357181dd1b20b82",
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "constructor_defaults (no upstream saved initialization)",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
+          "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
+        }
+      ],
+      "frozen_input_inventory": [
+        "results/bam_budget_v2/ipopt_dfo_cstr_20261015_223017_ncd_12gx/inputs/cstr_10/provenance.json",
+        "results/bam_budget_v2/ipopt_dfo_cstr_20261015_223017_ncd_12gx/inputs/cstr_15/provenance.json",
+        "results/bam_budget_v2/ipopt_dfo_cstr_20261015_223017_ncd_12gx/inputs/cstr_20/provenance.json",
+        "results/bam_budget_v2/ipopt_dfo_cstr_20261015_223017_ncd_12gx/inputs/cstr_25/provenance.json",
+        "results/bam_budget_v2/ipopt_dfo_cstr_20261015_223017_ncd_12gx/inputs/cstr_30/provenance.json",
+        "results/bam_budget_v2/ipopt_dfo_cstr_20261015_223017_ncd_12gx/inputs/cstr_5/provenance.json"
+      ]
+    },
+    {
+      "id": "corrected-bam-non-cstr",
+      "directory": "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq",
+      "selected_runs": 80,
+      "selection": "all BAM runs",
+      "archive": "results/archives/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq.zip",
+      "archive_root": "ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq",
+      "archive_sha256": "58ff6a845541e4e8d2cb097e05ffacb4b5500d6dbebf1d95c1a255b9315c7ce1",
+      "member_inventory": "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/raw_archive_members.json",
+      "runner": "results/runners/bam_non_cstr_budget_v2.zip",
+      "runner_sha256": "783652fc99778ed6f02e4ae4d1ce7802ee7fcefea8d57494466f8ce7bf753c8f",
+      "recorded_build_revision": "b863b4f99eaf3ecabd3f5bbd2fae2bc5c51725d4",
+      "recorded_revision_scope": "Build-time HEAD only; executed working-tree source bytes are identified by runner/reproduction SHA256 inventories.",
+      "settings_and_initialization": "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/job_metadata.json and inputs/*/{manifest,provenance}.json",
+      "executed_source": "ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/reproduction/",
+      "raw_logs_callbacks_proposals": "ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/jobs/<job_id>/",
+      "evaluation_manifests": [
+        {
+          "path": "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/inputs/column/manifest.json",
+          "sha256": "433b5fe194358bf847f6e3a5263e7612ef871ea37be247792f2c0d1e5f07be4c",
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "gdp/dsda/column_17_initialization.json",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
+          "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
+        },
+        {
+          "path": "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/inputs/dynamic/manifest.json",
+          "sha256": "3f5c3d6a1307fcdb022ae51b5e15fd8c0699ff3064f856135f422951deba9747",
+          "source_revision": "482e14ebf9caabbd35d959986942cb028778a1d7",
+          "initialization": "constructor_defaults",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
+          "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
+        },
+        {
+          "path": "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/inputs/small_batch/manifest.json",
+          "sha256": "2a005c65b883b5ae1ad9944faf5db5209bed821ade4863bc4e1c150637955b58",
+          "source_revision": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+          "initialization": "gdp/dsda/small_batch_initialization.json",
+          "time_limit_s": 60,
+          "feasibility_tolerance": 1e-05,
+          "recorded_revision_scope": "Original model manifest, distinct from the DFO package build revision"
+        }
+      ],
+      "frozen_input_inventory": [
+        "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/inputs/column/provenance.json",
+        "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/inputs/dynamic/provenance.json",
+        "results/bam_budget_v2/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq/inputs/small_batch/provenance.json"
+      ]
+    },
+    {
+      "id": "cstr30-structural-costs",
+      "directory": "results/cstr30_structural_rejections/dantzig_cstr30_structural_20261015_214202_pgve882p",
+      "archive": "results/archives/dantzig_cstr30_structural_20261015_214202_pgve882p.zip",
+      "archive_root": "dantzig_cstr30_structural_20261015_214202_pgve882p",
+      "archive_sha256": "3a5094a2e99c269cf830cd668c52853c2a3641d9fd4f176c0a7ca076ee110253",
+      "member_inventory": "results/cstr30_structural_rejections/dantzig_cstr30_structural_20261015_214202_pgve882p/archive_members_sha256.json",
+      "recorded_measurement_revision": "366b001e920a435f696fdcfc14499663a7f018b6",
+      "role": "Only missing logical-rejection costs; original 465 NLP rows unchanged"
+    }
+  ],
+  "supplement_inputs": {
+    "column_dynamic": "results/column_dynamic_box_ipopt/dantzig_column_dynamic_ipopt_20261015_205822_gG8bXK",
+    "cstr_5_10_15_archive": "results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip",
+    "cstr_20_25_archive": "results/archives/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip",
+    "original_gams_archive": "results/archives/dantzig_gdp_gams_20260922_050038_p4q8hy54.zip",
+    "dynamic_initialization": "constructor defaults; 9 stages, nfe=30, ncp=3, LAGRANGE-RADAU",
+    "column_initialization": "17 trays; saved upstream initialization",
+    "small_batch_initialization": "saved upstream initialization",
+    "cstr_initialization": "N5..25 mass_balance_zero_recycle; N30 constructor defaults, no retry substitution"
+  },
+  "verification_command": "python scripts/verify_final_process.py --output /tmp/final-process-review",
+  "figure_regeneration_command": "python scripts/verify_final_process.py --output /tmp/final-process-figures --figures",
+  "historical_analysis_revision": "b863b4f99eaf3ecabd3f5bbd2fae2bc5c51725d4",
+  "provider_revision_policy": "Use git rev-parse HEAD or verification.json; never replace recorded execution/build revisions with the integration commit."
+}

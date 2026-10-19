@@ -1,0 +1,128 @@
+name: Test Dependabot merge guard
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/dependabot-automerge.yml
+      - .github/workflows/test-dependabot-automerge.yml
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/dependabot-automerge.yml
+      - .github/workflows/test-dependabot-automerge.yml
+
+permissions:
+  contents: read
+
+jobs:
+  eligibility:
+    name: Dependabot merge eligibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Exercise the actual merge script with isolated GitHub API fixtures
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        with:
+          script: |
+            const assert = require('node:assert/strict');
+            const fs = require('node:fs');
+            const workflow = fs.readFileSync('.github/workflows/dependabot-automerge.yml', 'utf8');
+            const script = workflow.split('          script: |\n')[1].replace(/^            /gm, '');
+            const workflowJobs = JSON.parse(script.match(/const workflowJobs = (.*);/)[1]);
+            const requiredNames = JSON.parse(script.match(/const requiredChecks = (.*);/)[1]);
+            const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor;
+            const execute = new AsyncFunction('github', 'context', 'core', 'setTimeout', script);
+            async function scenario(change = () => {}, expected = 0) {
+              const run = { id: 1, event: 'pull_request', conclusion: 'success', status: 'completed',
+                run_attempt: 1, path: Object.keys(workflowJobs)[0], head_sha: 'tested',
+                head_branch: 'dependabot/uv/security', head_repository: { full_name: 'SECQUOIA/RBFopt_Test' } };
+              const pr = { number: 2, state: 'open', draft: false, user: { login: 'dependabot[bot]', type: 'Bot' },
+                head: { sha: 'tested', ref: run.head_branch, repo: { full_name: 'SECQUOIA/RBFopt_Test' } },
+                base: { ref: 'main' }, mergeable: true, mergeable_state: 'clean' };
+              const connection = nodes => ({ nodes, pageInfo: { hasNextPage: false } });
+              const checks = { state: 'SUCCESS', contexts: connection([
+                ...requiredNames.map(name => ({ name, status: 'COMPLETED', conclusion: 'SUCCESS' })), { context: 'external', state: 'SUCCESS' } ]) };
+              const current = { headRefOid: 'tested', reviewDecision: null, latestReviews: connection([]),
+                reviewThreads: connection([]), commits: { nodes: [{ commit: { statusCheckRollup: checks } }] } };
+              const jobs = workflowJobs[Object.keys(workflowJobs)[0]].map(name => ({ name, status: 'completed', conclusion: 'success' }));
+              const eventRun = structuredClone(run);
+              const state = { run, pr, current, checks, jobs, eventRun };
+              change(state);
+              const merges = [];
+              const pullsList = () => {};
+              const jobsList = () => {};
+              const github = { rest: {
+                actions: { listWorkflowRunsForRepo: async () => ({ data: { workflow_runs: state.noCI ? [] : [run] } }), createWorkflowDispatch: async args => { assert.equal(args.workflow_id, 'jupyter-book.yml'); }, getWorkflowRun: async () => ({ data: run }), listJobsForWorkflowRun: jobsList },
+                repos: { get: async () => ({ data: { default_branch: 'main' } }) },
+                pulls: { list: pullsList, get: async () => ({ data: state.getPr ? state.getPr() : pr }), merge: async args => {
+                  assert.equal(args.sha, 'tested');
+                  assert.equal(args.pull_number, 2);
+                  merges.push(args);
+                  return { data: { merged: true, sha: 'merged' } };
+                } },
+              }, paginate: async method => method === pullsList ? [pr] : jobs,
+              graphql: async query => { const data = structuredClone(current); if (query.includes('latestReviews: latestOpinionatedReviews')) data.latestReviews = current.latestOpinionatedReviews ?? current.latestReviews; return { repository: { pullRequest: data } }; } };
+              await execute(github, { repo: { owner: 'SECQUOIA', repo: 'RBFopt_Test' }, payload: { workflow_run: eventRun } },
+                { info: () => {}, setFailed: message => assert.fail(message) }, callback => callback());
+              assert.equal(merges.length, expected);
+            }
+              await scenario(() => {}, 1);
+              await scenario(s => {
+                let reads = 0;
+                s.getPr = () => ++reads === 1 ? { ...s.pr, mergeable: null, mergeable_state: 'unknown' } : s.pr;
+              }, 1);
+              await scenario(s => {
+                Object.assign(s.eventRun, { event: 'dynamic', path: 'dynamic/github-code-scanning/codeql', head_branch: 'refs/pull/2/head' });
+              }, 1);
+              await scenario(s => {
+                Object.assign(s.eventRun, { event: 'dynamic', path: 'dynamic/github-code-scanning/codeql', head_branch: 'refs/pull/2/head' });
+                s.noCI = true;
+              });
+              // Comments do not dismiss an earlier decision-bearing review.
+              await scenario(s => {
+                s.current.latestReviews.nodes = [{ state: 'COMMENTED' }];
+                s.current.latestOpinionatedReviews = { nodes: [{ state: 'CHANGES_REQUESTED' }], pageInfo: { hasNextPage: false } };
+              });
+              await scenario(s => {
+                s.current.latestReviews.nodes = [{ state: 'COMMENTED' }];
+                s.current.latestOpinionatedReviews = { nodes: [{ state: 'APPROVED' }], pageInfo: { hasNextPage: false } };
+              }, 1);
+              // The regression workflow can be the last reported check to complete.
+              await scenario(s => {
+                s.eventRun.path = '.github/workflows/test-dependabot-automerge.yml';
+              }, 1);
+              const blocked = [
+                s => s.current.latestReviews.pageInfo.hasNextPage = true,
+                s => s.run.event = 'push',
+                s => s.run.conclusion = 'failure',
+                s => s.run.run_attempt = 2,
+                s => s.run.path = '.github/workflows/other.yml',
+                s => s.run.head_repository.full_name = 'attacker/RBFopt_Test',
+                s => s.pr.user.login = 'human',
+                s => s.pr.user.type = 'User',
+                s => s.pr.draft = true,
+                s => s.pr.head.repo.full_name = 'attacker/RBFopt_Test',
+                s => s.pr.base.ref = 'other',
+                s => s.pr.head.sha = 'new-untested',
+                s => s.pr.mergeable = false,
+                s => { s.pr.mergeable = null; s.pr.mergeable_state = 'unknown'; },
+                s => s.pr.mergeable_state = 'blocked',
+                s => s.jobs.splice(0, 1),
+                s => s.jobs[0].conclusion = 'failure',
+                s => s.jobs[0].conclusion = 'skipped',
+                s => s.current.headRefOid = 'new-untested',
+                s => s.current.reviewDecision = 'REVIEW_REQUIRED',
+                s => s.current.latestReviews.nodes.push({ state: 'CHANGES_REQUESTED' }),
+                s => s.current.reviewThreads.nodes.push({ isResolved: false }),
+                s => s.current.reviewThreads.pageInfo.hasNextPage = true,
+                s => s.checks.state = 'PENDING',
+                s => s.checks.contexts.nodes = [],
+                s => s.checks.contexts.pageInfo.hasNextPage = true,
+                s => s.checks.contexts.nodes[0].conclusion = 'FAILURE',
+                s => s.checks.contexts.nodes.at(-1).state = 'PENDING',
+                s => s.current.commits.nodes = [],
+              ];
+              for (const change of blocked) await scenario(change);
+              console.log(`Passed ${blocked.length + 7} merge eligibility scenarios`);

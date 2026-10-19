@@ -1,5 +1,13 @@
 # Issue #27: implementation extraction
 
+## Current main integration (2026-10-19)
+
+The branch now includes upstream/main `44b8a8b21a00f95f25683d5f71ec98a95adf877f`, including PR #37's final Process/BAM artifacts. The original extraction notes below are historical. Main's original ZIPs, result tables and execution revisions are retained unchanged; no new production experiment was run.
+
+The merge preserves logical/preprocessing rejection metadata. The newly integrated Column/Dynamic enumerator explicitly accepts the exact reviewed `models.py` and `evaluation.py` hashes for this metadata-only change. Unknown adapter changes still fail. Original model formulas, initialization, solver settings and acceptance criteria are unchanged; regression tests check both accepted pins and rejection of changed bytes.
+
+## Historical extraction record
+
 This branch extracts implementation, tests, and documentation from
 `AlbertLee125/RBFopt_Test:Benchmark` at `ade67082ad2b09583a8f5594b827c97417e0ea99`.
 It contains no experiment outputs or result archives. Existing results remain

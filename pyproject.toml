@@ -29,7 +29,7 @@ bam = [
     "bam-solver>=4.0.0",
 ]
 fmqa = [
-    "torch==2.8.0",
+    "torch==2.13.0",
     "numpy==2.2.6",
     "dimod==0.12.21",
     "dwave-samplers==1.6.0",
@@ -54,6 +54,13 @@ extend-exclude = ["fmqa_benchmark/vendor"]
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F"]
+
+# Preserve the exact analysis bytes identified by the published source manifest.
+# Their data joins, tables and figures are exercised by verify_final_process.py.
+[tool.ruff.lint.per-file-ignores]
+"scripts/process_ipopt/analysis_core.py" = ["E701", "E702", "F401"]
+"scripts/process_ipopt/refresh.py" = ["E401", "E701", "E702", "F401"]
+"scripts/process_ipopt/build_figures.py" = ["E701", "E702", "E741", "F401", "F403", "F405"]
 
 [tool.setuptools]
 py-modules = [
