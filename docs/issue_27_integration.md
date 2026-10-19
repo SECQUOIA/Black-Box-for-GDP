@@ -2,9 +2,11 @@
 
 ## Current main integration (2026-10-19)
 
-The branch now includes upstream/main `b4935b3210c421862714d2c9d522f4bcac95f0bf`, including PR #37's final Process/BAM artifacts. The original extraction notes below are historical. Main's original ZIPs, result tables and execution revisions are retained unchanged; no new production experiment was run.
+The branch now includes upstream/main `f1132084785958f04c0179b1ff19198e226680f2`, including merged PRs #31 and #32 and PR #37's final Process/BAM artifacts. The original extraction notes below are historical. Main's original ZIPs, result tables and execution revisions are retained unchanged; no new production experiment was run.
 
 The merge preserves logical/preprocessing rejection metadata. The newly integrated Column/Dynamic enumerator explicitly accepts the exact reviewed `models.py` and `evaluation.py` hashes for this metadata-only change. Unknown adapter changes still fail. Original model formulas, initialization, solver settings and acceptance criteria are unchanged; regression tests check both accepted pins and rejection of changed bytes.
+
+The source preflight retains this explicit rejection-phase profile together with #32's archive-backed references and `verify_sources(adapter_files=...)` checks. The builder validates the captured adapter bytes; both repository and standalone-bundle tests exercise the combined profile and reject unknown changes to `models.py`, `evaluation.py`, and `solvers.py`.
 
 PR #43 is also integrated: uniform bound-conflict checks, refreshed reports and preservation validation are retained. No result files differ from this main revision.
 

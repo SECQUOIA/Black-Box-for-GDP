@@ -27,12 +27,11 @@ def test_original_model_and_reference_hashes_match(case):
 
 
 @pytest.mark.parametrize('name', ['models.py', 'evaluation.py', 'solvers.py'])
-def test_main_routing_profile_does_not_allow_other_adapter_changes(name, monkeypatch):
-    original = enum.sha
-    target = enum.ROOT / 'gdp_models' / name
-    monkeypatch.setattr(enum, 'sha', lambda path: '0' * 64 if path == target else original(path))
+def test_main_routing_profile_does_not_allow_other_adapter_changes(name):
+    adapters = {p.name: p.read_bytes() for p in (enum.ROOT / 'gdp_models').glob('*.py')}
+    adapters[name] += b'\n# unreviewed source change\n'
     with pytest.raises(ValueError, match='Unreviewed adapter change'):
-        enum.verify_sources('column')
+        enum.verify_sources('column', adapter_files=adapters)
 
 
 @pytest.mark.parametrize('case,point,status', [('column', [7, 1], 'logical_infeasible'),
