@@ -231,5 +231,79 @@
   "verification_command": "python scripts/verify_final_process.py --output /tmp/final-process-review",
   "figure_regeneration_command": "python scripts/verify_final_process.py --output /tmp/final-process-figures --figures",
   "historical_analysis_revision": "b863b4f99eaf3ecabd3f5bbd2fae2bc5c51725d4",
-  "provider_revision_policy": "Use git rev-parse HEAD or verification.json; never replace recorded execution/build revisions with the integration commit."
+  "provider_revision_policy": "Use git rev-parse HEAD or verification.json; never replace recorded execution/build revisions with the integration commit.",
+  "derived_artifact_updates": {
+    "results/dfo_trace_nlp_20261002/figures/all_method_completion_times.csv": {
+      "before_sha256": "6cbb936284bdee666f92d7861fc202463a1771ce1b6a00148f5e7e0383d3ed99",
+      "after_sha256": "fff69f59fd0b0bc88f8f67649bccd931dccbb060bb493b14f0d86237da0b5d31",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    },
+    "results/dfo_trace_nlp_20261002/figures/all_method_completion_times.pdf": {
+      "before_sha256": "69bb1111937efd10a81af083836f158885b867fb85b3866b92bc1ef4664a22c6",
+      "after_sha256": "4e7680bd42dd9918bcf1a79463ced651d8a81ba4ee9fd4cda207d952bb28a9f0",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    },
+    "results/dfo_trace_nlp_20261002/figures/all_method_completion_times.png": {
+      "before_sha256": "35b4a5d0a48d698676e2e0cdfa91a4be28ae9658bce59a07aa7d9a5e30050b7b",
+      "after_sha256": "897f5949bbb352be8c9ab750397e8dbf51bf15c11a15f1a75437ddaa2fd1a231",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    },
+    "results/dfo_trace_nlp_20261002/figures/gdp_minlp_runs.csv": {
+      "before_sha256": "9405b9e5690015917ca1c8f01548c6c5efe384d98f190d17664527d399cd1024",
+      "after_sha256": "3cfbdc23eb9423a910208c176259dfc5c1844f2cf6a5dc09ee1e1791f234008f",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    },
+    "results/dfo_trace_nlp_20261002/figures/performance.manifest.json": {
+      "before_sha256": "0d5e517217c39e4943a8fd079c3f6b0cd92d4bec6943e7a66e8c5a4e795e171e",
+      "after_sha256": "690754d89bbecf496d3d489159d2c29eb3a9dbae9df374f6afd93544a97fd7b0",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    },
+    "results/gdp_comparison_current/analysis/README.md": {
+      "before_sha256": "71f24925f9e918c96d0cca475f66429529ea55c0bf302c8ec04ae490d8cfaf83",
+      "after_sha256": "8bafde25f9b6876338fc7ed44cead3e71bd5114ed34aca8649c2a35b5c79952a",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    },
+    "results/gdp_comparison_current/analysis/artifact_checksums.json": {
+      "before_sha256": "6083c6a12f2ab8c31447d7c41be781cf46e53b552b357f5f141dc6c0cd1f20ca",
+      "after_sha256": "4dff6fb78aee657db4ea26d2f2863387e86704b6d15dfd7daaa9e98697d00da1",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    },
+    "results/gdp_comparison_current/analysis/audit.json": {
+      "before_sha256": "4041825071a753d2c169a267866164561011e4e66bdb2b511bb910133fdd6f00",
+      "after_sha256": "0f9ad9da9a0c9bd519ab296695876faa2ffe2bce1fb2c9196d726b59ee6a4ac6",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    },
+    "results/gdp_comparison_current/analysis/comparison.csv": {
+      "before_sha256": "9405b9e5690015917ca1c8f01548c6c5efe384d98f190d17664527d399cd1024",
+      "after_sha256": "3cfbdc23eb9423a910208c176259dfc5c1844f2cf6a5dc09ee1e1791f234008f",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    },
+    "results/gdp_comparison_current/analysis/gdp_baseline_comparison.csv": {
+      "before_sha256": "1d85912db95a713a3766e7ed1959c4b52c4aff59e2c5d3dd9a5310230b5ab246",
+      "after_sha256": "6020c69008ab79b6cb7ab6679172b0c1e8a5e50796475bce7ca9a6c55f78c239",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    },
+    "results/gdp_comparison_current/analysis/gdp_objectives_and_times.pdf": {
+      "before_sha256": "916a5b8311256125b3880e9a53cec77721df2ecba4359d91d07c5b8934aa853c",
+      "after_sha256": "f214dbdfe2b74116d26e601bede4c7ba7940426fd07a6cf2ade3fffa9b2ef400",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    },
+    "results/gdp_comparison_current/analysis/gdp_objectives_and_times.png": {
+      "before_sha256": "f484c07bbba85af4007cd8c7641f9bed8ddbfce539153590e1667d1989042ed2",
+      "after_sha256": "8364e71ea7a73bde545d4fd614bdd9c6c8ba8293ed4da63afa0a8400ab4be26b",
+      "reason": "Uniform bound-consistency rule: six additional CSTR GLOA conflict markers and derived audit/provenance updates; experimental values and raw records unchanged.",
+      "verification_report": "results/gdp_comparison_current/bound_consistency_verification.json"
+    }
+  }
 }

@@ -1,0 +1,330 @@
+{
+  "baseline_revision": "44b8a8b21a00f95f25683d5f71ec98a95adf877f",
+  "optimization_executed": false,
+  "comparison_differences": {
+    "results/gdp_comparison_current/analysis/comparison.csv": {
+      "rows": 45,
+      "differences": [
+        {
+          "instance_id": "cstr_10",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_15",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_20",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_25",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_30",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_5",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        }
+      ],
+      "all_other_fields_and_row_order_unchanged": true
+    },
+    "results/gdp_comparison_current/analysis/gdp_baseline_comparison.csv": {
+      "rows": 45,
+      "differences": [
+        {
+          "instance_id": "cstr_10",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_15",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_20",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_25",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_30",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_5",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        }
+      ],
+      "all_other_fields_and_row_order_unchanged": true
+    },
+    "results/dfo_trace_nlp_20261002/figures/gdp_minlp_runs.csv": {
+      "rows": 45,
+      "differences": [
+        {
+          "instance_id": "cstr_10",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_15",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_20",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_25",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_30",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr_5",
+          "changes": {
+            "bound_conflict_with_saved_solution": [
+              "False",
+              "True"
+            ]
+          }
+        }
+      ],
+      "all_other_fields_and_row_order_unchanged": true
+    },
+    "results/dfo_trace_nlp_20261002/figures/all_method_completion_times.csv": {
+      "rows": 81,
+      "differences": [
+        {
+          "instance_id": "cstr",
+          "changes": {
+            "bound_conflicts": [
+              "0",
+              "1"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr",
+          "changes": {
+            "bound_conflicts": [
+              "0",
+              "1"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr",
+          "changes": {
+            "bound_conflicts": [
+              "0",
+              "1"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr",
+          "changes": {
+            "bound_conflicts": [
+              "0",
+              "1"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr",
+          "changes": {
+            "bound_conflicts": [
+              "0",
+              "1"
+            ]
+          }
+        },
+        {
+          "instance_id": "cstr",
+          "changes": {
+            "bound_conflicts": [
+              "0",
+              "1"
+            ]
+          }
+        }
+      ],
+      "all_other_fields_and_row_order_unchanged": true
+    }
+  },
+  "bound_conflicts_before": 5,
+  "bound_conflicts_after": 11,
+  "existing_reformulation_flags_unchanged": true,
+  "raw_and_analysis_certificate_fields_unchanged": true,
+  "selected_jobs": 45,
+  "saved_vectors_rechecked": 63,
+  "max_rechecked_primal_violation": 8.947372728933256e-07,
+  "target_hits_by_method": {
+    "ric": 3,
+    "gloa": 1,
+    "loa": 3,
+    "bigm": 6,
+    "hull": 6
+  },
+  "target_attained_by_method": {
+    "ric": 3,
+    "gloa": 1,
+    "loa": 4,
+    "bigm": 7,
+    "hull": 6
+  },
+  "all_other_existing_audit_fields_unchanged": true,
+  "tracked_results_checked": 1003,
+  "unchanged_tracked_results": 991,
+  "changed_tracked_results": [
+    "results/dfo_trace_nlp_20261002/figures/all_method_completion_times.csv",
+    "results/dfo_trace_nlp_20261002/figures/all_method_completion_times.pdf",
+    "results/dfo_trace_nlp_20261002/figures/all_method_completion_times.png",
+    "results/dfo_trace_nlp_20261002/figures/gdp_minlp_runs.csv",
+    "results/dfo_trace_nlp_20261002/figures/performance.manifest.json",
+    "results/gdp_comparison_current/analysis/README.md",
+    "results/gdp_comparison_current/analysis/artifact_checksums.json",
+    "results/gdp_comparison_current/analysis/audit.json",
+    "results/gdp_comparison_current/analysis/comparison.csv",
+    "results/gdp_comparison_current/analysis/gdp_baseline_comparison.csv",
+    "results/gdp_comparison_current/analysis/gdp_objectives_and_times.pdf",
+    "results/gdp_comparison_current/analysis/gdp_objectives_and_times.png"
+  ],
+  "unchanged_files_hash_map_sha256": "f15923fdfbc8c98ddbfffd07140cb8bfac4bf63b8d35e37e3f76069a7751430e",
+  "preserved_archive_hashes": {
+    "results/archives/dantzig_20260910_170759_slN8tv.zip": "c5b706aa20f5577446d84f829910b5825221a9f6c5713ffc1fd854e7315d6e98",
+    "results/archives/dantzig_column_dynamic_ipopt_20261015_205822_gG8bXK.zip": "2f4389c41de2d2cdb83d7c6ed9f49077c53a947156a0b2318158771a826ac34c",
+    "results/archives/dantzig_cstr30_retry_20260922_153133_ld1g1zau.zip": "44627964b2dcd4eedb4b9def6417c18d1aa701e8c92cba5fe42dda50c8ce7926",
+    "results/archives/dantzig_cstr30_structural_20261015_214202_pgve882p.zip": "3a5094a2e99c269cf830cd668c52853c2a3641d9fd4f176c0a7ca076ee110253",
+    "results/archives/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip": "38f1f99098113f67a0cec623eff88dfdf3e10bda2c7c07a5a356cbabce527677",
+    "results/archives/dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p.zip": "c1c8939a96ed9fe945074e71c7aa7043f251e6e26024866e6f45a00ed8914be8",
+    "results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip": "ccf0d6c0e265159f3ca5561f11a25165ef983f8288a15ef10947a3e6be3ea79d",
+    "results/archives/dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip": "494e8ef5689016ee8892d82d2a65cbc6cc9ad6e70f1d01452d04d9faced1eced",
+    "results/archives/dantzig_gdp_20260922_030057_6tb50i44.zip": "02eee95f5f79ae60815fafe43c803f638782f9ed3b3bb6f1ccf0b1c85257f922",
+    "results/archives/dantzig_gdp_20260922_033846_u0tjt7i7.zip": "5ef27c2edde6a666922cd5544b4d2b89034bf08569632d36eee4fcd50201b445",
+    "results/archives/dantzig_gdp_compare_20260925_172020_5m9m_kxx.zip": "bdc20c0e4349721c25a38fa929c2e0eb263884e91c4ae4d2626ace4073c91e91",
+    "results/archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip": "7fbb60f75bd46ecefd8788540be2e070656df37d6b80f075aea9e09c5ad33d4e",
+    "results/archives/dantzig_gdp_compare_20261001_204801_1gfd4d02.zip": "a9645e0b12d2870e14a19e689e221068f6092071fea3df2cda590a1d4bdd4498",
+    "results/archives/dantzig_gdp_gams_20260922_050038_p4q8hy54.zip": "e406b8fae2a90191835eb7332d483c719ebb1675d14d3b0e6d3bf5f7789a197b",
+    "results/archives/fmqa_numpy_legacy_figures_20261012.zip": "895b1f0c209860e4d4512f9865447c3bf52eeb46f867bfd0217436cea1e3f92a",
+    "results/archives/fmqa_qhd_20261012_034123_8kcczd4b.zip": "bdcb45af02cd8885b6740abbc00835cf6626a7921e8cafa06bcc85abb290b2e3",
+    "results/archives/fmqa_qhd_points_20261012_234651_f39la8cf.zip": "dfc7e1a9d37e2278b87ddf8d30f3d52c0cbf9007b85324b0d33822161f5396ba",
+    "results/archives/grid_gdp_retry_all_20261009_153057_czhvd9w7.zip": "059453681d8c2b326dcd622d97f6ddb59e815ca8d78ff798e5775f90e42a84be",
+    "results/archives/grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip": "2215cca4babfa79cf71b874c47218502b4937380cb38956c61e163a6b5436e1e",
+    "results/archives/grid_gdp_run_20261008_210901_dw5vq37s.zip": "fb5d962307731a84d5833b1065cd5e94772bdb15c8a4a7f5d05b3ff0b67a7c94",
+    "results/archives/grid_trace_bam_20261008_190603_5bh3y_t5.zip": "bd4d9bf56deafa864ecdd2e676fc24bd25a6037bdb02a772ebd800eb1a935374",
+    "results/archives/grid_trace_rbfopt_20261008_190603_og2app39.zip": "e02bf06a097b47340c93e04abefd25e97cc61d20eae9b23dee830505fffbcb38",
+    "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip": "b91afb707229766adcdcfb1ee67406377d1d2ef44839b062ec9e0539893bfefa",
+    "results/archives/ipopt_dfo_cstr_20261015_223017_ncd_12gx.zip": "2b0c56bdc67297661ebb6ab81ed60ca1df10788541bd39e67fcd391f4a48f570",
+    "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip": "ed7eaa2c20031b58f5a9c02c0bc89699cf170c7e256a65c92664ac4b1875cc6e",
+    "results/archives/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq.zip": "58ff6a845541e4e8d2cb097e05ffacb4b5500d6dbebf1d95c1a255b9315c7ce1",
+    "results/archives/process_dsda_budget_fairness_20261014_pudvsttz_1792004864773526053.zip": "3669558ab1b0197d0cf2b6ad4ff0df7c8b4f9b1a92a15747bff8909e6f5ef397",
+    "results/archives/process_dsda_recovered_20261014_5ozwo5rx_1792008943955816015.zip": "7201a5d49d216a9c1eea64ecf649ec4c185dd9c1dafcc41c70117edf600e51b3",
+    "results/archives/process_followup_20261012_015823_k6eq6mg0.zip": "02ad6cf4fe78f94f6890a7b4b354f21019bf18b34fd76f5dc8d59dfc48b5d9cd",
+    "results/archives/small_batch_full_domain_20261012_024647_d4390oed.zip": "26fc9acc428cd429fe9cd021345c63e28a2d0ff0265f9918a7b474161cedbda4",
+    "results/archives/small_batch_rbfopt_solver_20261013_172454_czzqkizx.zip": "3de4a026eb78e9e962475dbd464af03e89cbcf0719466e9693b3c5b592fab07b"
+  },
+  "selection_sha256": "afb722ee7689c4e17db03d58174204bfcabdcc21c86608c7bfcbc26695464725",
+  "commands": [
+    "python gdp_current_analysis.py",
+    "python -m scripts.plot_dantzig_performance --gdp-only",
+    "python -m pytest tests/test_nlp_cost_analysis.py tests/test_gdp_current_analysis.py tests/test_dantzig_performance.py -q"
+  ],
+  "notes": [
+    "Historical validation.json and execution revisions preserved.",
+    "Current analysis source hashes reflect replay code, not historical execution revisions.",
+    "Source-level audit tables are retained from the official regeneration.",
+    "Performance refresh preserves unrelated DFO plots and their historical producer hashes."
+  ]
+}
