@@ -1,0 +1,16 @@
+Verified full-box Column and Dynamic IPOPT measurements
+
+Run: dantzig_column_dynamic_ipopt_20261015_205822_gG8bXK
+Archive: ../archives/dantzig_column_dynamic_ipopt_20261015_205822_gG8bXK.zip
+Report: dantzig_column_dynamic_ipopt_20261015_205822_gG8bXK/README.txt
+
+Column: 81/81 coordinates, 29 accepted, 17 logical exclusions,
+28 preprocessing failures, 7 IPOPT failures/unaccepted results.
+Dynamic: 72/72 coordinates, 37 accepted, 35 logical exclusions.
+Every coordinate has a finite, positive measured total_wall_s, including all
+failures and exclusions. Accepted coordinates and objectives match the prior
+tables exactly. Failed IPOPT solves do not establish global infeasibility.
+
+Each objective and time belong to the same new evaluation. The original
+CSV/JSON records, logs, manifests and executed source bundle are unchanged.
+Historical DFO inputs, paths, result summaries and time joins are unchanged.

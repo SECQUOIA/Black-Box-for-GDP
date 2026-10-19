@@ -1,0 +1,52 @@
+{
+  "panels": [
+    [
+      "column",
+      16
+    ],
+    [
+      "cstr_30",
+      43
+    ],
+    [
+      "small_batch",
+      10
+    ],
+    [
+      "dynamic",
+      12
+    ],
+    [
+      "dynamic",
+      15
+    ],
+    [
+      "dynamic",
+      20
+    ],
+    [
+      "dynamic",
+      30
+    ],
+    [
+      "dynamic",
+      37
+    ],
+    [
+      "dynamic",
+      50
+    ]
+  ],
+  "four_active_figures": true,
+  "diagnostic_figures": 2,
+  "completion_profile_denominator": 10,
+  "execution_failure_policy": "Contributes zero success; known successful completion times suffice for the profile. No ten-run median or TTS99 for protocol-invalid groups.",
+  "files": {
+    "process_completion_profiles.pdf": "0a9ed2d0ff62b21e44f31bed33505de1be37837dd2509f5346049a778613ad08",
+    "process_cost_breakdown.pdf": "85ee9fd06ab5dfef9165a3fdc346b9f745654627077d773b81269adc3374a2f9",
+    "process_targets.pdf": "30a75f46cf7747e1b43494aea497f377aebe8a0002f48b9554c2eebccecec5af",
+    "process_completion_scatter.pdf": "3a927efccb9b645f6994abbcc0a84595c494172e5a81a85b064022634c25290d",
+    "process_tts99_all_conditions.pdf": "110c4d595861e94691461bf3b5765a34fa466e3a76e9767715b677b0899d566b",
+    "process_evaluation_profiles.pdf": "a78731c7dad7e5e4a378184d418ebcee8b1cf20e6937c2dcd4c5335f67e44e4f"
+  }
+}

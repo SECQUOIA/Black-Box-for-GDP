@@ -1,0 +1,93 @@
+{
+  "case": "column",
+  "point": [
+    15,
+    7
+  ],
+  "solver": "gams_ipopt",
+  "solver_interface": "gams_shell",
+  "gams_solver": "ipopt",
+  "cstr_size": null,
+  "initialization_requested": "auto",
+  "pyomo_version": "6.10.0",
+  "time_limit_s": 60.0,
+  "feasibility_tolerance": 1e-05,
+  "accepted": false,
+  "objective": null,
+  "candidate_objective": 23665.2347843951,
+  "max_primal_violation": 0.009072305003579861,
+  "solve_wall_s": 0.8831909029977396,
+  "initialization": "gdp/dsda/column_17_initialization.json",
+  "warm_start": false,
+  "source": {
+    "repository": "https://github.com/SECQUOIA/dsda-gdp",
+    "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+    "files_sha256": {
+      "gdp/column/gdp_column.py": "c5fea7ff6286d2b6c1055a4e602b08648a03853aea24e6552f5921b36e205bab",
+      "gdp/dsda/column_17_initialization.json": "60cd7d1f7a7f08b59d9b0d7fca6e8920313ca7722c94d829e388a009ae4acfd7",
+      "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+      "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+      "main_column.py": "09a4ff167d87c15bb0e2323567f1f59be7ece61b325ea9cf84900bd7aaa2800a"
+    }
+  },
+  "discretization": null,
+  "preprocessing": "fbbt",
+  "setup_wall_s": 0.36956374102737755,
+  "preprocess_wall_s": 0.11652595701161772,
+  "solver_options": {
+    "solver": "ipopt",
+    "mtype": "nlp",
+    "warmstart": true,
+    "io_options": {
+      "put_results_format": "dat"
+    },
+    "add_options": [
+      "option reslim=60.0;",
+      "option iterlim=3000;",
+      "option threads=1;",
+      "option optcr=0.00001;",
+      "GAMS_MODEL.optfile=1;"
+    ]
+  },
+  "solver_option_file": [
+    "tol 1e-8",
+    "bound_relax_factor 0",
+    "max_iter 3000",
+    "warm_start_init_point no",
+    "linear_solver mumps"
+  ],
+  "solver_executable": "/package/gams/52.2/gams",
+  "gams_statistics": {
+    "MODELSTAT": 5.0,
+    "SOLVESTAT": 1.0,
+    "OBJEST": null,
+    "OBJVAL": 23665.2347843951,
+    "NUMVAR": 380.0,
+    "NUMEQU": 391.0,
+    "NUMDVAR": 0.0,
+    "NUMNZ": 1071.0,
+    "ETSOLVE": 0.115000130608678
+  },
+  "gams_solve_status": 1.0,
+  "gams_model_status": 5.0,
+  "status": "ipopt_failed",
+  "termination": "infeasible",
+  "solver_status": "ok",
+  "message": "None",
+  "total_wall_s": 1.3773533229832537,
+  "legacy_status": "rejected",
+  "logical_allowed": true,
+  "original_total_wall_s": 1.3772884279605933,
+  "instrumented_call_wall_s": 1.3773533229832537,
+  "logic_wall_s": 0.12446843000361696,
+  "failure_stage": null,
+  "mathematical_infeasibility_claim": false,
+  "solver_called": true,
+  "validation_performed": true,
+  "primal_feasible": false,
+  "acceptance_failure": "status/objective/primal checks not all satisfied",
+  "reflux_tray": 16,
+  "boilup_tray": 8,
+  "point_index": 79,
+  "completed_utc": "2026-10-15T20:59:29.551215+00:00"
+}

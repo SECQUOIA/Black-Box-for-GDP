@@ -56,7 +56,11 @@ references; the training-to-BQM-to-SA execution path never invokes that method.
 
 CPU only, float32, deterministic PyTorch operations, one intra-op and inter-op
 thread, and one Linux logical CPU. Pinning is not an exclusive CPU reservation.
-`torch==2.8.0` is installed from the [official CPU wheel index](https://pytorch.org/get-started/previous-versions/#v280).
+New setups install the PyTorch version in `requirements-fmqa-qhd.txt` from the
+[official CPU wheel index](https://download.pytorch.org/whl/cpu), matching preflight.
+Historical runs used `torch==2.8.0`; their frozen bundles and runtime records remain
+unchanged. Use a separate run directory for the patched runtime. An existing run
+must be resumed with its original extracted runner and environment.
 The other six pinned numerical/sampling packages match the earlier FMQA environment.
 Every installed package version and the host/CPU/source identity are recorded.
 Module imports happen before the method clock; native optimizer initialization

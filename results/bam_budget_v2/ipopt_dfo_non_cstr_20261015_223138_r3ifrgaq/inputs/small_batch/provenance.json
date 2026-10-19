@@ -1,0 +1,53 @@
+{
+  "source_directory": "results/dantzig_review/gams_cstr_audit_20260922/dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch",
+  "source_csv_absolute_at_build": "/Users/albertlee0125/.codex/.chatgpt-projects/g-p-68f5aba1de7081919cd404238b4743f8/bam-budget-fix-20261015/staged/results/dantzig_review/gams_cstr_audit_20260922/dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/small_batch/evaluations.csv",
+  "files_sha256": {
+    "evaluations.csv": "0014dddb43c0d20a1c5dd263369594c59432b6d97af445052e4cb85e963a8595",
+    "manifest.json": "2a005c65b883b5ae1ad9944faf5db5209bed821ade4863bc4e1c150637955b58",
+    "summary.json": "85223b1574e3bdda093043ac7fab98c74f16af4fcac82c42d14f25fb1dabba75",
+    "records/point_000001.json": "7f5fc8258b45854fe024f37a8a6be25b2f8e846d9a83c2b5afccd5ffdd06bcb4",
+    "records/point_000002.json": "c0940a7785b06a2938e044553e80d756a60b1655c47864da151fafc64a6ec367",
+    "records/point_000003.json": "59afc19a75f72df3f430da407411a20887aeb07b0e2a8b7305cd546bfb685bc2",
+    "records/point_000004.json": "f4a3eee4e89698f5cc7352958616ced56cf55564561de19ed11c2f066c21e142",
+    "records/point_000005.json": "00124ddc1a78bc077fe3ed5c1588c04e331de15d1e3bf8e6374e79cf910b8de1",
+    "records/point_000006.json": "ac681f3d0952fc004dba008617e9036bd8a078e8b06fb9e8f6c4cf5c5116ac13",
+    "records/point_000007.json": "970d0859f7ab3c5c9562fa4640ac07fe37e86c0b2153a28bb9b7e33583a59acd",
+    "records/point_000008.json": "c26a18d28267c75e8262f8acfcb653c436634421ca8a92f4859dc8c20709615a",
+    "records/point_000009.json": "845cc1f8212c292a51868fb6754ac20f3fc405cceedaefe2560a5750bddbfe63",
+    "records/point_000010.json": "41d6b79ebcfaa0b0e740e464967610da0b13f77f15d4f7f94995b274db0135a9",
+    "records/point_000011.json": "b6a5e69eaeb93f38a2a52f9c313f7700f95a5c1167cfe434e402b4636c778515",
+    "records/point_000012.json": "902402aaa5db954f71e41ebd71ebfd3051867ff63e2b2df494d30e1bbd6939fb",
+    "records/point_000013.json": "fb357a1a5a1a825764f745a6d86cc4d1a9dcdc2c6bb654719206edc403fc4009",
+    "records/point_000014.json": "91990eefba75a511366ae34c05454b58e4a5354336cd315ae40eb2a4858d6fc4",
+    "records/point_000015.json": "fa5ffcca31120d84383e8921d7d961577a70257fcd4a49a915e88d5b36486cd4",
+    "records/point_000016.json": "c122f55e9e5a604bc43a81a8f2f88eec7292103eeffa63a78d722661c394b4a1",
+    "records/point_000017.json": "984f9e502ed8eb58ed2706df2f683d8c0c4c6d482c3fd8dd271abf20c3707d74",
+    "records/point_000018.json": "911da7d36f6fbf628d76bd22c9faac3d13dcecfbe6492ff61655d00ab51e37ad",
+    "records/point_000019.json": "5b9d84015939f2ce3b1e9a13b83dc213613d913b8b0ef47a78520ab343eadddd",
+    "records/point_000020.json": "dd285b518bc830c92e06ff88cfe7e36031955339dd1e4c36661ac06debef47d8",
+    "records/point_000021.json": "d036c331ba0ca93ee3940c7aa02b4d436015658a798fd1b7b9f37327486ef8c1",
+    "records/point_000022.json": "57788a8e0d3a5bb3a40164df876173f9c9dbb8a712c4c435d172fbec50beafe8",
+    "records/point_000023.json": "6679eb1f6c04c5fefe74cd4f5e1a7c4c9cf8451df944d460a9ec74ea94d8ba88",
+    "records/point_000024.json": "6f7e961809949795e52ba056cb20a9667976cc3a65519677050475b0fc6ff19f",
+    "records/point_000025.json": "0259104b24053a13c2efc0ffb5906962b3feb6f1470e5d4ecbb97945797fde85",
+    "records/point_000026.json": "c2848625cbc7a939fbe646302ae95ef75fc037376b123dbaf5d167d4724670f5",
+    "records/point_000027.json": "2d199c12074703136eb79905ea8846cd40529bfef1f41e99deef89a926aa079f"
+  },
+  "attempt_selection": "Original single enumeration attempt; no retries or best-of merging",
+  "model": "Original 3 stages; unit counts 1..3 in each stage",
+  "upstream": {
+    "repository": "https://github.com/SECQUOIA/dsda-gdp",
+    "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+    "files_sha256": {
+      "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+      "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+      "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+      "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+      "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+    }
+  },
+  "initialization": "gdp/dsda/small_batch_initialization.json",
+  "acceptance": "SOLVESTAT=1; MODELSTAT in {1,2}; solver status not error/aborted; optimal/locallyOptimal/globallyOptimal; finite objective; primal violation <=1e-5",
+  "logical_exclusion_evidence": "evidence/models.py.txt, evidence/domains.py.txt and pinned upstream model/logic source",
+  "cost_scope": "Same selected row; Dynamic template preparation separately preserved; absent measurements remain null"
+}

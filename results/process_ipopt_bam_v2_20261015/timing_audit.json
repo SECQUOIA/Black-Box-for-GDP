@@ -1,0 +1,111 @@
+{
+  "repository_head": "b863b4f99eaf3ecabd3f5bbd2fae2bc5c51725d4",
+  "replacement_policy": "All 140 BAM slots use the two pinned native-budget reruns; other 420 slots are unchanged.",
+  "runs": 560,
+  "logged_callbacks": 12822,
+  "in_budget_callbacks": 12822,
+  "original_same_row_checks": 12822,
+  "original_row_objective_status_time_mismatches": 0,
+  "supplemented_callbacks": 2752,
+  "remaining_in_budget_time_gaps": 0,
+  "unevaluated_out_of_budget_callbacks": 0,
+  "protocol_failed_runs": 0,
+  "timed_protocol_valid_runs": 560,
+  "outcomes": {
+    "target_reached": 291,
+    "target_not_reached": 268,
+    "execution_failed": 1
+  },
+  "tts_statuses": {
+    "available": 54,
+    "zero_observed_hits": 2
+  },
+  "cost_table_coverage": [
+    {
+      "case": "cstr_5",
+      "domain_points": 25,
+      "original_rows": 25,
+      "supplement_rows": 0,
+      "timed_rows": 25,
+      "accepted_rows": 15,
+      "missing_total_times": 0
+    },
+    {
+      "case": "cstr_10",
+      "domain_points": 100,
+      "original_rows": 100,
+      "supplement_rows": 0,
+      "timed_rows": 100,
+      "accepted_rows": 54,
+      "missing_total_times": 0
+    },
+    {
+      "case": "cstr_15",
+      "domain_points": 225,
+      "original_rows": 225,
+      "supplement_rows": 0,
+      "timed_rows": 225,
+      "accepted_rows": 120,
+      "missing_total_times": 0
+    },
+    {
+      "case": "cstr_20",
+      "domain_points": 400,
+      "original_rows": 400,
+      "supplement_rows": 0,
+      "timed_rows": 400,
+      "accepted_rows": 210,
+      "missing_total_times": 0
+    },
+    {
+      "case": "cstr_25",
+      "domain_points": 625,
+      "original_rows": 625,
+      "supplement_rows": 0,
+      "timed_rows": 625,
+      "accepted_rows": 325,
+      "missing_total_times": 0
+    },
+    {
+      "case": "cstr_30",
+      "domain_points": 900,
+      "original_rows": 465,
+      "supplement_rows": 435,
+      "timed_rows": 900,
+      "accepted_rows": 458,
+      "missing_total_times": 0
+    },
+    {
+      "case": "column",
+      "domain_points": 81,
+      "original_rows": 64,
+      "supplement_rows": 17,
+      "timed_rows": 81,
+      "accepted_rows": 29,
+      "missing_total_times": 0
+    },
+    {
+      "case": "dynamic",
+      "domain_points": 72,
+      "original_rows": 37,
+      "supplement_rows": 35,
+      "timed_rows": 72,
+      "accepted_rows": 37,
+      "missing_total_times": 0
+    },
+    {
+      "case": "small_batch",
+      "domain_points": 27,
+      "original_rows": 27,
+      "supplement_rows": 0,
+      "timed_rows": 27,
+      "accepted_rows": 12,
+      "missing_total_times": 0
+    }
+  ],
+  "overlap_rows_verified": 101,
+  "primary_cost_policy": "Keep original same-row process costs; supplement only unmeasured structural exclusions from new same-model measurements. Dynamic original one-time template cost is retained.",
+  "time_interpretation": "Retrospective fixed-path reconstruction, not online optimizer-NLP measurements",
+  "no_zero_fill_no_cross_size_borrow_no_retry_selection": true,
+  "optimizer_or_process_solver_calls": 0
+}
