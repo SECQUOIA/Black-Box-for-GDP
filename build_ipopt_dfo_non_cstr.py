@@ -22,7 +22,7 @@ FILES = ['ipopt_dfo_non_cstr.py', 'run_ipopt_dfo_non_cstr_dantzig.sh', 'docs/ipo
 
 def plan():
     from case_studies.common import generate_lhc_starting_points
-    reference = runner.read(ROOT / 'benchmark_protocols/fmqa_qhd_plan.json')['process']
+    reference = runner.read(ROOT / 'benchmark_protocols/ipopt_dfo_process_designs.json')['process']
     rows = []
     for case, case_config in runner.CASES.items():
         for seed in range(10):
@@ -112,8 +112,8 @@ def build(output, methods=None):
         'builder_sha256': runner.sha(Path(__file__)),
         'note': 'Working-tree source hashes are authoritative; no preexisting files modified by the builder.',
         'algorithm_settings_sources': {
-            p: runner.sha(ROOT / p) for p in ('benchmark_protocols/fmqa_qhd_plan.json',
-                 'benchmark_protocols/process_dsda_fairness_reference.json', 'small_batch_rbfopt_solver.py',
+            p: runner.sha(ROOT / p) for p in ('benchmark_protocols/ipopt_dfo_process_designs.json',
+                 'benchmark_protocols/ipopt_dfo_cstr_designs.json', 'small_batch_rbfopt_solver.py',
                  'process_dsda_fairness.py', 'case_studies/common.py')},
         'target_tolerance_source': 'process_dsda_fairness.py:300; abs(value-target)<=1e-5*max(1,abs(target))',
         'initial_design': 'Original scipy.stats.qmc.LatinHypercube, scale (ub-lb), numpy.rint, distinct lattice points; no feasibility filter',
