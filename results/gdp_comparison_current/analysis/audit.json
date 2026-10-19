@@ -38,7 +38,57 @@
     "bigm": 5,
     "hull": 4
   },
+  "bound_conflict_rule": "reported_lower_bound > best_saved_feasible_objective + 1e-5 * max(1, abs(best_saved_feasible_objective)); every method with both values",
+  "global_certificate_policy": "Preserve solver_reported_global_optimality_certified; analysis global_optimality_certified excludes bound conflicts. No certificate inferred from termination text.",
   "bound_conflicts": [
+    {
+      "instance_id": "cstr_10",
+      "method": "gloa",
+      "reported_lower_bound": 3.44796403174898,
+      "best_saved_feasible_objective": 2.8894834524326347,
+      "bound_evidence_method": "bigm",
+      "bound_evidence_source_directory": "results/gdp_comparison_20260925/raw"
+    },
+    {
+      "instance_id": "cstr_15",
+      "method": "gloa",
+      "reported_lower_bound": 3.522552007803194,
+      "best_saved_feasible_objective": 2.82935061823614,
+      "bound_evidence_method": "loa",
+      "bound_evidence_source_directory": "results/gdp_comparison_loa_20261001/raw"
+    },
+    {
+      "instance_id": "cstr_20",
+      "method": "gloa",
+      "reported_lower_bound": 3.6161229932346584,
+      "best_saved_feasible_objective": 2.7994063086813563,
+      "bound_evidence_method": "bigm",
+      "bound_evidence_source_directory": "results/gdp_comparison_20260925/raw"
+    },
+    {
+      "instance_id": "cstr_25",
+      "method": "gloa",
+      "reported_lower_bound": 3.647818131769651,
+      "best_saved_feasible_objective": 2.781482618820502,
+      "bound_evidence_method": "hull",
+      "bound_evidence_source_directory": "results/gdp_comparison_20260925/raw"
+    },
+    {
+      "instance_id": "cstr_30",
+      "method": "gloa",
+      "reported_lower_bound": 3.154308073141742,
+      "best_saved_feasible_objective": 2.7695697953461833,
+      "bound_evidence_method": "bigm",
+      "bound_evidence_source_directory": "results/gdp_comparison_20260925/raw"
+    },
+    {
+      "instance_id": "cstr_5",
+      "method": "gloa",
+      "reported_lower_bound": 3.1301981330832502,
+      "best_saved_feasible_objective": 3.06198395705692,
+      "bound_evidence_method": "ric",
+      "bound_evidence_source_directory": "results/gdp_comparison_20261001/raw"
+    },
     {
       "instance_id": "column",
       "method": "bigm",
@@ -3814,9 +3864,11 @@
   ],
   "selection_sha256": "afb722ee7689c4e17db03d58174204bfcabdcc21c86608c7bfcbc26695464725",
   "analysis_source_sha256": {
-    "gdp_current_analysis.py": "efa79df293416b08fb33163d077554b6072cbe4c6be40b6b2fa32c10b0c5af4a",
-    "gdp_comparison_analysis.py": "a23bb58278750694cfe55bcac1dd8ceb065cd848229a487a11a2b2e69738087f",
-    "nlp_cost_analysis.py": "746b7cabda00b25de6793ebc077d5b966f610934b9856ab492d045deb5077627"
+    "gdp_current_analysis.py": "58fb6a0ce77b1a615e38cb22f299845fcd0d7dfe8a1527ec34c1c706984767c3",
+    "gdp_comparison_analysis.py": "c21fd327160a0ce0b0240a8e5175b6b55bbc480157be441f2fc7e382c37acded",
+    "nlp_cost_analysis.py": "9fba6f4af2cd08b2e47a22deb88edeb598773d8f234f792b366bfd4b80768e78",
+    "result_archives.py": "a608c1ffc772c122d824c669392c1054d83dea99d024b1b72f8943ffbcbd2ae1",
+    "results/archives/catalog.json": "b4137337242bfbbac1005d4e7de77c01e8eef59c07d6bbcdb4a2c6ad747bdb1c"
   },
   "validation": "Saved vectors evaluated in original GDPs without solving; partial rows excluded; no old GDPopt fallback."
 }

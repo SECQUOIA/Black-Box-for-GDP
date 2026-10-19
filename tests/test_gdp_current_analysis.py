@@ -101,6 +101,11 @@ def test_current_selection_reopens_archives_and_preserves_published_evidence(tmp
         assert not (ROOT / source["directory"] / "jobs").exists()
     output = tmp_path / "analysis"
     overview = build(selection_dir, output)
+    conflicts = overview["bound_conflicts"]
+    assert {(r["instance_id"], r["method"]) for r in conflicts if r["method"] == "gloa"} == {
+        (f"cstr_{size}", "gloa") for size in (5, 10, 15, 20, 25, 30)}
+    assert sum(r["method"] in {"bigm", "hull"} for r in conflicts) == 5
+    assert len(conflicts) == 11
     assert overview["complete"] and overview["completed_jobs"] == 45
     assert overview["saved_solutions_independently_rechecked"] == 63
     assert overview["selected_solutions_independently_rechecked"] == 45
