@@ -49,14 +49,27 @@ def verify_preservation(manifest):
     require(sha(baseline_path) == manifest["before_inventory"]["sha256"], "Baseline inventory changed")
     with gzip.open(baseline_path, "rt") as stream:
         baseline = json.load(stream)
+    updates = manifest.get("derived_artifact_updates", {})
+    for name, update in updates.items():
+        require(name.startswith(("results/gdp_comparison_current/analysis/",
+                                 "results/dfo_trace_nlp_20261002/figures/")),
+                f"Not a derived comparison artifact: {name}")
+        require(name in baseline["files"] and
+                update["before_sha256"] == baseline["files"][name]["sha256"],
+                f"Derived artifact baseline mismatch: {name}")
+        require(bool(update.get("reason")) and bool(update.get("verification_report")),
+                f"Undocumented derived artifact update: {name}")
+        require((ROOT / name).is_file() and sha(ROOT / name) == update["after_sha256"],
+                f"Derived artifact changed after verified regeneration: {name}")
     changed, missing, retained = [], {}, 0
     for name, old in baseline["files"].items():
         path = ROOT / name
         if not path.is_file():
             missing[name] = old
         elif sha(path) != old["sha256"]:
-            require(name in manifest["documented_nondata_changes"], f"Original artifact changed: {name}")
-            changed.append(name)
+            if name not in updates:
+                require(name in manifest["documented_nondata_changes"], f"Original artifact changed: {name}")
+                changed.append(name)
         else:
             retained += 1
     import result_archives as storage
@@ -87,6 +100,7 @@ def verify_preservation(manifest):
                                                for name in baseline["files"]),
             "byte_identical_copies_in_original_archives": len(archived),
             "documented_documentation_or_verifier_changes": changed,
+            "verified_derived_artifact_updates": sorted(updates),
             "missing_or_changed_experimental_artifacts": 0}
 
 
