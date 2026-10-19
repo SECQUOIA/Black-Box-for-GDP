@@ -1,0 +1,106 @@
+CSTR30 structural-rejection timing supplement
+
+Purpose
+Measure only the 435 points with 1<=x1<x2<=30. Preserve all original 465
+evaluations, including their seven rejected attempts and all existing times.
+No IPOPT, BARON, GDPopt, DFO search, solver availability/version query, or
+solver smoke test is executed. All production measurements run on Dantzig.
+
+Frozen inputs and executable path
+The input is the original N30 table used in
+ipopt_dfo_cstr_20261015_174637_r1dzn5tk, not the later retry table.
+Its original source is dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/cstr_30.
+The 465 unique coordinates equal x2<=x1 exactly. Their complement is435.
+Initialization is constructor_defaults (no upstream saved initialization).
+The original six gdp_models adapter modules are copied byte-for-byte from
+that September22 archive and verified against the input manifest. The bundle
+does not use the current checkout's modified evaluation.py or retry initializer.
+Pinned dsda-gdp commit: 3e469dbeea8931670b8cd6752014ab7a767d3af5.
+Python3.11.16, Pyomo6.10.0 and all original dependency versions are checked.
+The existing server external/dsda-gdp checkout is read-only and hash-verified.
+bundle_provenance.json records the new code commit/hashes and every input hash.
+
+The original path is evaluation.evaluate_point -> models.prepare_nlp ->
+build_gdp(NT=30) -> _initialize(auto) -> _fix_static -> upstream external_ref
+and original logical/GDP checks. A recycle outside the selected reactor chain
+violates gdp_reactor.py:cstr_if_recycle. The evaluator catches the original
+InfeasibleConstraintException and returns preprocessing_infeasible/not_solved.
+Fresh-model creation is part of this original path, not an added timing cost.
+Original preprocessing is retained up to rejection; no extra FBBT pass, model,
+CSV lookup, dummy NLP, solution attempt or cross-point warm start is added.
+
+Common preparation and exact coordinate scope
+Before measuring, read/validate input CSVs and hashes; import dependencies;
+verify and compile original model/helper definitions into the original caches.
+Do not create a warm-up model or solve a preflight problem. Record common
+preparation separately under invocations/. The initial historical preflight is
+not rerun. Its absence does not change each fresh model's initial values.
+Use perf_counter_ns immediately before the original evaluate_point call and
+immediately after it returns. CSV reads/writes, checkpoint writes, progress
+logging, provenance checks and report generation lie outside that interval.
+Global logging is suppressed while evaluating; progress prints follow timing.
+The integer elapsed_ns and unrounded float total_wall_s are both retained.
+inner_total_wall_s separately preserves the historical evaluator's own clock.
+Returned setup/preprocess fields are not fabricated if the exception omitted
+them. solve_wall_s=0 records an uncalled solver, not a zero evaluation cost.
+
+Guards replace optimizer construction, solve_gams, SolverFactory, subprocess
+creation and os.system with a fatal prohibition during evaluation. An attempt
+stops the run and records interruption.json; it cannot become an accepted or
+ordinary failed measurement. The normal completed summary must report zero
+forbidden entry attempts and zero solver calls. No GAMS binary is launched.
+
+Outputs under results/cstr30_structural_rejections/dantzig_cstr30_structural_*:
+  original_465.csv: exact byte copy of original input.
+  structural_rejections.csv: all435 measured rows after successful completion.
+  combined_cstr30_900.csv: sorted900 unique coordinates, all original field
+    strings preserved for465 rows, with added origin and measurement metadata.
+  records/: individual measured checkpoints, never replaced on resume.
+  manifest.json, invocations/: code/input/model identities, runtime and clocks.
+  callbacks_with_timing_supplement.csv/.jsonl: all1,615 original CSTR30 events
+    with extra timing columns; every original event field stays unchanged.
+  cstr30_run_time_comparison.csv: all40 runs, original results/clocks/categories
+    plus missing-before/after, added costs and reconstructed process sums.
+  remaining_time_gaps.json, summary.json: checks and unresolved gap reasons.
+  reproduction/: immutable runner, original tables/attempts and DFO records.
+
+DFO time accounting
+Exactly508 structural callbacks (228 unique coordinates) need supplementary
+costs. Charge each visit, including repeated coordinates and initial/failed
+callbacks. This follows the prior per-callback sum, without deduplication.
+Keep raw objective, penalty, order, count, category, failure and original DFO
+and lookup clocks unchanged. Original selected_attempt_nlp_s fields remain
+as historical evidence; use the new reconstructed_process_wall_s column for
+the supplemented ledger. Never rewrite original JSONL/CSV or DFO summaries.
+The sums are reconstructed from separate process measurements, not measured
+online DFO runtimes; process costs and DFO/lookup clocks remain separate.
+
+Seven BAM B+1 protocol-error callbacks did not read any process CSV row.
+Their coordinates are logically allowed, and their costs remain unknown.
+Missing process costs therefore decrease from515 to7, not to0; the508
+structural omissions disappear. The seven failed runs stay execution_failed,
+with complete-total fields blank; known-cost subtotals remain available.
+No time is borrowed for those protocol errors, and no failure is repaired.
+
+Dantzig, inside the extracted cstr30_structural_runner directory:
+  bash run_cstr30_structural_dantzig.sh check
+  nohup bash run_cstr30_structural_dantzig.sh run > launch.log 2>&1 < /dev/null &
+  tail -f launch.log
+Use --cpu N to select a different allowed CPU if another measurement uses
+the default first allowed CPU. No other process is stopped or modified.
+The existing .venv-dantzig-gdp and external source checkout are reused.
+No installation, checkout, git pull, solver license or server update is needed.
+The wrapper accepts CSTR30_REPOSITORY, CSTR30_PYTHON and RBFOPT_GDP_SOURCES.
+
+After interruption, use the printed RESULT_DIR and the same CPU/environment:
+  bash run_cstr30_structural_dantzig.sh resume --run-dir /absolute/RESULT_DIR
+Completed coordinate checkpoints are skipped. An incomplete in-flight point
+has no fabricated time and is measured on resume. Partial outputs are packed
+on ordinary Python interruption; pack alone is available after a hard kill:
+  bash run_cstr30_structural_dantzig.sh pack --run-dir /absolute/RESULT_DIR
+
+The terminal prints RESULT_DIR and RESULT_ZIP. Download the latter from Mac.
+To list the frozen435-point plan without model imports or measurements:
+  python3 measure_cstr30_structural_rejections.py plan
+To rebuild the runner ZIP locally without model construction or solvers:
+  python3 build_cstr30_structural_rejections.py --output /new/runner.zip

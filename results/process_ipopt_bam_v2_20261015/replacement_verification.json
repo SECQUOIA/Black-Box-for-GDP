@@ -1,0 +1,17 @@
+{
+  "unchanged_other_method_runs": 420,
+  "replaced_all_bam_runs": 140,
+  "identical_bam_in_budget_points_objectives_and_costs": 3430,
+  "old_failures_replaced": 27,
+  "old_bam_hits": 37,
+  "new_bam_hits": 47,
+  "new_outcomes": {
+    "target_reached": 291,
+    "target_not_reached": 268,
+    "execution_failed": 1
+  },
+  "native_budget_fix_regression_tests": 83,
+  "figure_pdfs_visually_reviewed": 6,
+  "GDP_optimality_conflicts_unchanged": 8,
+  "pinned_import_and_tamper_tests": 4
+}

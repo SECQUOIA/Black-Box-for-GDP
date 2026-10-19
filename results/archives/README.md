@@ -4,6 +4,18 @@ These are the original result ZIPs retained in the repository.
 They retain their original bytes, including any source snapshots and shell
 scripts present in the server archive.
 
+The catalog key `original-ipopt-evaluations` also exposes the September 22
+GAMS return to the current CSTR and non-CSTR package builders. They verify the
+ZIP and every internal checksum, use a temporary extraction, and record archive
+member paths as provenance. A clean checkout no longer needs an ignored local
+`results/dantzig_review/` extraction. Existing submitted runner ZIPs are unchanged.
+
+The [October 15 full-box Column/Dynamic return](dantzig_column_dynamic_ipopt_20261015_205822_gG8bXK.zip)
+contains all 153 coordinate evaluations with measured failure and rejection
+times. The [verified import](../column_dynamic_box_ipopt/INDEX.txt) preserves
+original CSVs, records, logs and execution sources. Its adjacent `.zip.sha256`
+checks the original archive; previous DFO inputs and results remain unchanged.
+
 ## Reviewing detailed records
 
 Summary CSVs, figures, run settings, provenance manifests and indexes remain
@@ -81,7 +93,13 @@ does not rewrite Git history.
 
 ## Archive index
 
-Current default FMQA-SA: [QHD PyTorch, all 1,190 runs](fmqa_qhd_20261012_034123_8kcczd4b.zip). Previous comparison figures and tables: [NumPy legacy snapshot](fmqa_numpy_legacy_figures_20261012.zip). Both preserve their source identities and checksums.
+The [final IPOPT Process comparison](../process_ipopt_bam_v2_20261015/README.md)
+selects 420 original non-BAM runs and all 140 corrected BAM runs. Its manifest
+links the four complete DFO return ZIPs, exact runner packages, IPOPT inputs
+and structural-cost supplements. The original CSTR30 supplement ZIP is now
+published unchanged here. Earlier Process datasets below remain historical.
+
+Historical BARON-lookup FMQA-SA: [QHD PyTorch, all 1,190 runs](fmqa_qhd_20261012_034123_8kcczd4b.zip). Previous comparison figures and tables: [NumPy legacy snapshot](fmqa_numpy_legacy_figures_20261012.zip). Both preserve their source identities and checksums.
 
 The [96-point logical-rejection supplement](fmqa_qhd_points_20261012_234651_f39la8cf.zip) completes current QHD timing coverage. All points were measured on Dantzig with one thread and zero solver calls; original ZIP bytes and the adjacent SHA256 file are retained.
 
@@ -108,6 +126,7 @@ Verify from the repository root:
 
 ```bash
 shasum -a 256 -c results/archives/SHA256SUMS
+shasum -a 256 -c results/archives/PROCESS_SHA256SUMS
 ```
 
 The two September 25 FMQA ZIPs passed CRC validation, all 4,964 internal file

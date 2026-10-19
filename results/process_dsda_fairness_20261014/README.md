@@ -52,7 +52,7 @@ the earlier exact-size policy. New derived tables record the revised policy.
 - [Group summaries](analysis/dsda_summary.csv), [old/new comparison](analysis/old_vs_new_summary.csv)
 - [Original returned ZIP](../archives/process_dsda_budget_fairness_20261014_pudvsttz_1792004864773526053.zip)
 - [Single-job recovery instructions](../../docs/process_dsda_fairness_dantzig.txt)
-- [Overleaf work instructions](../../docs/process_dsda_overleaf_update_prompt.txt)
+- [Complete publication input after recovery](../process_dsda_recovery_20261014/analysis/candidate_selection.json)
 
 ```bash
 python scripts/import_process_dsda_fairness.py \

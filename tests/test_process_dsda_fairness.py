@@ -72,6 +72,14 @@ class FairnessTests(unittest.TestCase):
         current = {**old, "process_dsda_fairness.py": "new",
                    "process_dsda_fairness_recovery.py": "new"}
         self.assertEqual(check_sources(old, current), ["process_dsda_fairness.py"])
+        historical = {**old, "docs/process_dsda_fairness_report.txt": "old-report"}
+        self.assertEqual(check_sources(historical, current), [
+            "docs/process_dsda_fairness_report.txt", "process_dsda_fairness.py",
+        ])
+        with self.assertRaisesRegex(ValueError, "source inventory"):
+            check_sources(historical, {k: v for k, v in current.items() if k != "grid_dsda.py"})
+        with self.assertRaisesRegex(ValueError, "source inventory"):
+            check_sources({**historical, "other_input.txt": "required"}, current)
         with self.assertRaisesRegex(ValueError, "search/model inputs"):
             check_sources(old, dict(current, **{"grid_dsda.py": "changed"}))
         with tempfile.TemporaryDirectory() as d:

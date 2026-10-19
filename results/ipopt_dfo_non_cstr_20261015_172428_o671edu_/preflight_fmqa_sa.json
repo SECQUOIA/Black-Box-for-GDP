@@ -1,0 +1,40 @@
+{
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "dimod": "0.12.21",
+    "dwave-samplers": "1.6.0",
+    "torch": "2.8.0+cpu"
+  },
+  "python": "3.11.16",
+  "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/bin/python",
+  "host": "dantzig.ecn.purdue.edu",
+  "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34",
+  "qhd_source": {
+    "repository": "https://github.com/SECQUOIA/bbo_via_fmqa",
+    "branch": "QHD_Data",
+    "commit": "eb3a20d4b5a3773d17ff31d72a35d51f58e84e56",
+    "files_sha256": {
+      "fmqa/fmqa/factorization_machine.py": "7841d99f9bb648446f7f42e75656cb336954cd76790ba0b13e5b481f05c14017",
+      "fmqa/fmqa/fm_binary_quadratic_model.py": "95553689bb0a88328869996fe7da58e81089d19078c5bca3d63aeac444f50d65",
+      "fmqa/fmqa/__init__.py": "b1727cfbd3218b13fce42afffda58131b9504d53c360302e0df6980aa5e70379",
+      "fmqa/setup.py": "cbdde4edda44577b0e5ebeca017ddb33dad4ca8ff48d6bb3c05634fa343d72bb",
+      "fmqa/LICENSE": "cb4fce95d1b191e92a94fedd57327d16de50bb936d01d687339fc57e4331ed0d",
+      "bbo_via_fmqa/ml_surrogate.py": "234e207dedf9f7354291fdb7e4c8427d3536c94876602174d9e9646a7835645c",
+      "bbo_via_fmqa/fmqa_simulated.py": "fbeded919c9d6ffbc8105f942007fe0bd88043af15cf1fdf7572398f5b21673a",
+      "bbo_via_fmqa/ising_machine.py": "f0d8a245042da8eb3e00a82521d2be4f19262385cd56d2917fb81ffa94c9724c",
+      "bbo_via_fmqa/read_grid.py": "dd2975ba2e74af8bc1643b4a374a735861a1a415eaa01ff79e27c58cbfbb62cf"
+    },
+    "github_blob_sha": {
+      "fmqa/fmqa/factorization_machine.py": "6241b176320ed908d775adbbe9bd75caec3aefcc",
+      "fmqa/fmqa/fm_binary_quadratic_model.py": "01cf16694cfa937835739075764135f595d0e93b",
+      "fmqa/fmqa/__init__.py": "dc6782323b24125ef06e21eb02bcfa819640ea5c",
+      "fmqa/setup.py": "cfc87dd68a5dba4012e33331dd86bc0fbac52ab8",
+      "fmqa/LICENSE": "edd263bd5b9b275143589786ab59291e6d629895",
+      "bbo_via_fmqa/ml_surrogate.py": "19c8281774f71a471453b097851250641c2b56ee",
+      "bbo_via_fmqa/fmqa_simulated.py": "ebb553d57daa27c4abb6e729b2facf8f243cc3aa",
+      "bbo_via_fmqa/ising_machine.py": "ff4ed214883feaab5ae86814c2b097c8ee6c3e01",
+      "bbo_via_fmqa/read_grid.py": "294eb5a2e2d0cf7f73b0ded0ffcdb5a094ef397b"
+    }
+  }
+}

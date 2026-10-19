@@ -1,0 +1,26 @@
+{
+  "archive": "results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip",
+  "archive_sha256": "8ae882d99e9309692b9ed773f2a87f076149f9b15d786d2e283fe0655c4a3e53",
+  "verified_archive_files": 1108,
+  "internal_sha256_entries_verified": 1107,
+  "csv_checkpoint_fields_match": true,
+  "all_350_coordinate_times_measured": true,
+  "retained_rejected_coordinates": [
+    [
+      10,
+      10,
+      1
+    ]
+  ],
+  "record_selection": "Single original attempt; no retry or deletion",
+  "files_sha256": {
+    "run.json": "2405643af5c563076701a5062b3e532dd40f2f5b93f2b854a8c8c42ba4f1b8d1",
+    "summary.json": "64070a87e7fbd26a66adf4b4a9be9d17fb7976c7da3eb823b651e06b9b9e7fed",
+    "coordinates.csv": "b9af8c42b7c6ef3ac1478b25ba0b528fa5231ce68a098520acf5275025e0dbd3",
+    "evaluations.csv": "0a8e9f37766418aced86281bc5bc5fc7f2b125b0d8fdc5176b9e79e512c5f8c2",
+    "cstr_5/evaluations.csv": "b66e228d6373320307f7239d304becf2f3e0fae48689e00e0db71c272f024b12",
+    "cstr_10/evaluations.csv": "3f2f695c5e1b97186da2fc63c58091c1da98c97f26e4f083894d2794d37b249a",
+    "cstr_15/evaluations.csv": "a022885ae11a9099b16b2dda2d7a721793fd36a95fcd3fa876c09e1e6b50884a"
+  },
+  "raw_logs_records_artifacts_sources": "Preserved without modification inside the original ZIP"
+}

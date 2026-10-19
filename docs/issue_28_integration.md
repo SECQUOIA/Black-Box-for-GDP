@@ -1,5 +1,13 @@
 # Issue #28: implementation extraction
 
+## Current main integration (2026-10-19)
+
+The branch now includes upstream/main `44b8a8b21a00f95f25683d5f71ec98a95adf877f`, including PR #37's final Process/BAM artifacts and the size-specific CSTR inputs. The extraction/dependency notes below are historical; those retained inputs are now on main. The builders still reject missing/invalid inputs instead of substituting another model size.
+
+The merge retains the reviewed watchdog cleanup, input/archive verification, initial-design snapshots and main's FMQA compatibility CI. IPOPT integration tests are namespaced, and their optional-input collection hook is limited to that package so it cannot intercept main's retained tests with the same filenames. Result ZIPs, tables and execution revisions are unchanged; no new production experiment was run.
+
+## Historical extraction record
+
 This branch extracts implementation, tests, and documentation from
 `AlbertLee125/RBFopt_Test:Benchmark` at `ade67082ad2b09583a8f5594b827c97417e0ea99`.
 It contains no experiment outputs or result archives. Existing results remain
