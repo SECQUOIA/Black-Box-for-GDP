@@ -287,7 +287,7 @@
   },
   "gdp_comparison_refresh": {
     "script": "scripts/plot_dantzig_performance.py",
-    "script_sha256": "546df28b689cb53ce27aa6ecdee9c8c35985dab23a514d19da2d394aa79c2179",
+    "script_sha256": "b25f069db98cd57e2cd7ca6c9b0849810c9ffae13e947543ffa19186b0a7eda4",
     "command": "python -m scripts.plot_dantzig_performance --gdp-only",
     "artifacts": [
       "all_method_completion_times.csv",

@@ -10,6 +10,7 @@ import json
 import math
 from pathlib import Path
 import statistics
+import tempfile
 
 from benchmark_analysis import runs_to_target_probability
 from scripts.plot_dantzig_cost_breakdown import (
@@ -372,30 +373,35 @@ def refresh_gdp_outputs(output):
     for name, digest in manifest["artifacts"].items():
         if sha(output / name) != digest:
             raise ValueError(f"Existing performance artifact changed: {name}")
-    benchmark = full_benchmark()
-    write_csv(output / "all_method_completion_times.csv", benchmark)
-    (output / "gdp_minlp_runs.csv").write_bytes((GDP_SOURCE / "comparison.csv").read_bytes())
-    artifacts = ["all_method_completion_times.csv", "gdp_minlp_runs.csv"]
-    with plt.rc_context({"font.family": "DejaVu Sans", "font.size": 9,
-                         "axes.spines.top": False, "axes.spines.right": False}):
-        fig = plot_full_benchmark(benchmark)
-        try:
-            for ext in ("png", "pdf"):
-                name = f"all_method_completion_times.{ext}"
-                fig.savefig(output / name, dpi=220, facecolor="white",
-                            metadata={"CreationDate": None} if ext == "pdf" else None)
-                artifacts.append(name)
-        finally:
-            plt.close(fig)
-    manifest["gdp_minlp_source"] = {
-        str((GDP_SOURCE / "comparison.csv").relative_to(ROOT)): sha(GDP_SOURCE / "comparison.csv")}
-    manifest["artifacts"].update({name: sha(output / name) for name in artifacts})
-    # Preserve the historical producer hashes for the untouched DFO artifacts.
-    manifest["gdp_comparison_refresh"] = {
-        "script": str(Path(__file__).relative_to(ROOT)), "script_sha256": sha(Path(__file__)),
-        "command": "python -m scripts.plot_dantzig_performance --gdp-only",
-        "artifacts": artifacts, "optimization_executed": False}
-    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+    # Rendering failures must leave the verified retained report retryable.
+    with tempfile.TemporaryDirectory(prefix=".gdp-refresh-", dir=output.parent) as temporary:
+        staged = Path(temporary)
+        benchmark = full_benchmark()
+        write_csv(staged / "all_method_completion_times.csv", benchmark)
+        (staged / "gdp_minlp_runs.csv").write_bytes((GDP_SOURCE / "comparison.csv").read_bytes())
+        artifacts = ["all_method_completion_times.csv", "gdp_minlp_runs.csv"]
+        with plt.rc_context({"font.family": "DejaVu Sans", "font.size": 9,
+                             "axes.spines.top": False, "axes.spines.right": False}):
+            fig = plot_full_benchmark(benchmark)
+            try:
+                for ext in ("png", "pdf"):
+                    name = f"all_method_completion_times.{ext}"
+                    fig.savefig(staged / name, dpi=220, facecolor="white",
+                                metadata={"CreationDate": None} if ext == "pdf" else None)
+                    artifacts.append(name)
+            finally:
+                plt.close(fig)
+        manifest["gdp_minlp_source"] = {
+            str((GDP_SOURCE / "comparison.csv").relative_to(ROOT)): sha(GDP_SOURCE / "comparison.csv")}
+        manifest["artifacts"].update({name: sha(staged / name) for name in artifacts})
+        # Preserve the historical producer hashes for the untouched DFO artifacts.
+        manifest["gdp_comparison_refresh"] = {
+            "script": str(Path(__file__).relative_to(ROOT)), "script_sha256": sha(Path(__file__)),
+            "command": "python -m scripts.plot_dantzig_performance --gdp-only",
+            "artifacts": artifacts, "optimization_executed": False}
+        (staged / "performance.manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+        for name in [*artifacts, "performance.manifest.json"]:
+            (staged / name).replace(output / name)
 
 
 if __name__ == "__main__":

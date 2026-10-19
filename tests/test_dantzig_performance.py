@@ -175,3 +175,31 @@ def test_gdp_only_refresh_preserves_unrelated_artifacts_and_historical_provenanc
     (output / 'gdp_minlp_runs.csv').write_text('corrupted')
     with pytest.raises(ValueError, match='Existing performance artifact changed'):
         refresh_gdp_outputs(output)
+
+
+@pytest.mark.parametrize('failure_stage', ['plot', 'savefig'])
+def test_gdp_only_render_failure_preserves_report_and_allows_retry(tmp_path, monkeypatch, failure_stage):
+    import shutil
+    from matplotlib.figure import Figure
+    from scripts import plot_dantzig_performance as performance
+
+    output = tmp_path / 'figures'
+    shutil.copytree(performance.OUTPUT, output)
+    before = {p.name: p.read_bytes() for p in output.iterdir() if p.is_file()}
+    benchmark = performance.full_benchmark()
+    benchmark[0]['bound_conflicts'] += 1  # Ensure an early CSV write would change bytes.
+
+    def fail(*args, **kwargs):
+        raise RuntimeError('render failed')
+
+    with monkeypatch.context() as patch:
+        patch.setattr(performance, 'full_benchmark', lambda: benchmark)
+        if failure_stage == 'plot':
+            patch.setattr(performance, 'plot_full_benchmark', fail)
+        else:
+            patch.setattr(Figure, 'savefig', fail)
+        with pytest.raises(RuntimeError, match='render failed'):
+            performance.refresh_gdp_outputs(output)
+    assert {p.name: p.read_bytes() for p in output.iterdir() if p.is_file()} == before
+    assert not list(tmp_path.glob('.gdp-refresh-*'))
+    performance.refresh_gdp_outputs(output)
