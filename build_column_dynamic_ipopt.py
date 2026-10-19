@@ -16,11 +16,12 @@ def build(output):
              'run_column_dynamic_ipopt_dantzig.sh', 'docs/column_dynamic_box_ipopt.txt', 'LICENSE']
     files += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / 'gdp_models').glob('*.py'))]
     entries = {name: (ROOT / name).read_bytes() for name in files}
+    adapter_files = {Path(name).name: raw for name, raw in entries.items() if name.startswith('gdp_models/')}
+    source_checks = {}
     for case in protocol.CASES:
-        for name, digest in protocol.REFERENCE_HASHES[case].items():
-            source = protocol.reference_root() / case / name
-            protocol.require(protocol.sha(source) == digest, 'Historical reference changed')
-            entries[f'reference/{case}/{name}'] = source.read_bytes()
+        _, source_checks[case] = protocol.verify_sources(case, adapter_files=adapter_files)
+        for name, raw in protocol.reference_files(case).items():
+            entries[f'reference/{case}/{name}'] = raw
         entries[f'coordinates_{case}.json'] = (json.dumps(protocol.plan(case), indent=2) + '\n').encode()
     entries['requirements-original.txt'] = (
         'pyomo==6.10.0\nsympy==1.14.0\nnumpy==2.4.6\nnetworkx==3.6.1\nmatplotlib==3.11.2\n').encode()
@@ -31,6 +32,8 @@ def build(output):
         'builder_sha256': protocol.sha(__file__), 'expected_total_coordinates': 153,
         'source_policy': 'Actual bundled hashes identify working-tree code. Pinned upstream checkouts are read only.',
         'local_enumeration_executed': False,
+        'verified_adapter_differences': source_checks,
+        'reference_sha256': protocol.REFERENCE_HASHES,
     }, indent=2) + '\n').encode()
     entries['RUNNER_SHA256SUMS'] = ''.join(f'{hashlib.sha256(data).hexdigest()}  {name}\n'
                                         for name, data in sorted(entries.items())).encode()
