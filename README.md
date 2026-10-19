@@ -535,6 +535,18 @@ implementation scope. This branch incorporates the shared Grid/GDP interfaces
 and historical results now present on `main`, while retaining the reviewed
 logical/preprocessing rejection metadata.
 
+## IPOPT CSV-backed process DFO
+
+See [implementation scope and prerequisites](docs/issue_28_integration.md)
+for issue #28. These runners retain their frozen-input prerequisites; merging
+main does not replace the required IPOPT input archives.
+
+## Evaluation tracing and timing
+
+See [the Issue #29 extraction notes](docs/issue_29_integration.md) for the original
+scope and frozen-input prerequisites. The tracing and cost-validation fixes from
+main are retained alongside the full-grid timing tools in this branch.
+
 ### Corrected BAM process reruns (2026-10-15)
 
 All 140 BAM slots now use the audited native-budget reruns; the other 420 DFO runs are unchanged. Current combined results, figures, and timing audit are in [results/process_ipopt_bam_v2_20261015](results/process_ipopt_bam_v2_20261015/REPORT.txt). The pinned importer is [scripts/import_bam_budget_v2.py](scripts/import_bam_budget_v2.py). Old archives remain unchanged for provenance.

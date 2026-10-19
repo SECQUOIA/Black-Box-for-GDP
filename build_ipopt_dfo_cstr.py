@@ -35,8 +35,8 @@ def encoded(value):
 
 def plan():
     from case_studies.common import generate_lhc_starting_points
-    references = [runner.read(ROOT / 'benchmark_protocols/fmqa_qhd_plan.json')['process'],
-                  runner.read(ROOT / 'benchmark_protocols/process_dsda_fairness_reference.json')['plan']]
+    references = [runner.read(ROOT / 'benchmark_protocols/ipopt_dfo_process_designs.json')['process'],
+                  runner.read(ROOT / 'benchmark_protocols/ipopt_dfo_cstr_designs.json')['plan']]
     rows = []
     for case, config in runner.CASES.items():
         for seed in range(10):
@@ -191,7 +191,7 @@ def build(output, methods=None):
                 assert runner.sha(p) == info['upstream']['files_sha256'][name], p
         entries[f'evidence/upstream/{name}.txt'] = p.read_bytes()
     entries['plan.json'] = encoded(selected_plan)
-    source_names = ('benchmark_protocols/fmqa_qhd_plan.json', 'benchmark_protocols/process_dsda_fairness_reference.json',
+    source_names = ('benchmark_protocols/ipopt_dfo_process_designs.json', 'benchmark_protocols/ipopt_dfo_cstr_designs.json',
                     'case_studies/cstr_rbfopt.py', 'case_studies/cstr_bam.py', 'case_studies/bam_common.py',
                     'case_studies/cstr_dsda.py', 'case_studies/cstr_case.py', 'case_studies/common.py', 'process_dsda_fairness.py')
     entries['build_provenance.json'] = encoded({

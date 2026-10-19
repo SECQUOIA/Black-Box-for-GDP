@@ -12,8 +12,22 @@ import json
 import math
 from pathlib import Path
 
-from fmqa_benchmark.protocol import grid_size, problem
-from gdp_models.domains import enumeration_plan
+# Historical publication adapters are optional until their integration PRs land.
+# Keep pure cost-ledger helpers importable without process or FMQA packages.
+def grid_size(csv_name):
+    from fmqa_benchmark.protocol import grid_size as implementation
+    return implementation(csv_name)
+
+
+def problem(spec):
+    from fmqa_benchmark.protocol import problem as implementation
+    return implementation(spec)
+
+
+def enumeration_plan(*args, **kwargs):
+    from gdp_models.domains import enumeration_plan as implementation
+    return implementation(*args, **kwargs)
+
 
 
 ROOT = Path(__file__).resolve().parent

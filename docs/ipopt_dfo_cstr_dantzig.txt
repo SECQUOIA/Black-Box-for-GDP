@@ -162,3 +162,8 @@ BAM budget-stop correction (native_max_evals_return_terminal_v2)
   resume the old bundle to apply this correction.
   Previously measured structural-rejection cost supplements remain separate
   evidence and must be joined by case/size/coordinate during result analysis.
+
+Watchdog cleanup: on timeout or interruption, SIGTERM is sent to the worker
+process group. After at most five seconds, any remaining group members receive
+SIGKILL even if the worker has already exited. The worker is reaped before the
+launcher returns or propagates the interruption.

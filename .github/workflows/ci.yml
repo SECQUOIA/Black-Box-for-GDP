@@ -24,7 +24,7 @@ jobs:
           python -m pip install ".[lint]"
 
       - name: Run Ruff
-        run: python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py timing_analysis.py nlp_cost_analysis.py grid_dsda.py grid_rbfopt.py instrumentation.py cstr30_retry.py cpu_affinity.py gdp_compare.py gdp_comparison_analysis.py fmqa_benchmark_runner.py fmqa_grid_benchmark.py fmqa_compare.py result_archives.py results/grid_trace_rbfopt_20261010/verify_archive.py fmqa_benchmark case_studies gdp_models tests scripts
+        run: python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py case_study_analysis.py timing_analysis.py nlp_cost_analysis.py enumerate_process_ipopt.py enumerate_column_ipopt.py enumerate_dynamic_ipopt.py build_column_dynamic_ipopt.py measure_cstr30_structural_rejections.py grid_dsda.py grid_rbfopt.py instrumentation.py cstr30_retry.py cpu_affinity.py gdp_compare.py gdp_comparison_analysis.py fmqa_benchmark_runner.py fmqa_grid_benchmark.py fmqa_compare.py result_archives.py results/grid_trace_rbfopt_20261010/verify_archive.py fmqa_benchmark case_studies gdp_models tests scripts ipopt_dfo_cstr.py ipopt_dfo_non_cstr.py build_ipopt_dfo_cstr.py build_ipopt_dfo_non_cstr.py
 
   test:
     runs-on: ubuntu-latest
