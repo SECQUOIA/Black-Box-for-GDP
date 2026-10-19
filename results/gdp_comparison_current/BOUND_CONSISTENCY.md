@@ -71,3 +71,13 @@ the original preservation checks. A regression test rejects wrong baseline
 hashes, altered refreshed files, undocumented changes, and raw files presented
 as derived comparison updates. This follow-up changes preservation metadata and
 verification code only; the regenerated comparison outputs remain unchanged.
+
+## Refresh failure recovery
+
+The GDP-only refresh generates replacement tables, figures and the manifest in
+a temporary directory before replacing retained files. Plotting or rendering
+errors leave the previous report and its checksums intact, so the command can
+be retried. Tests inject both plotting and figure-save failures and verify
+byte preservation and a successful retry. Replacement of the completed files
+is sequential; this is not a multi-file transaction against process termination
+or filesystem failure during the final replacements.
