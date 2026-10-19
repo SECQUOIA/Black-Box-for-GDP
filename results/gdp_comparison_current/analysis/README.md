@@ -6,23 +6,23 @@ The final October 1 archives replace the earlier partial RIC/GLOA snapshot. Both
 
 Big-M/Hull retain September 25 results, independently rechecked here. Historical feasible IPOPT vectors remain evidence when checking reported bounds; their times are not substituted. RIC/GLOA and Big-M/Hull record logical CPU 2 (physical core 2, socket 0); LOA records logical CPU 6 (physical core 8, socket 0). RIC/GLOA and LOA overlapped on separate physical cores, with one thread each. CPU affinity does not establish an otherwise idle server or remove shared-resource contention.
 
-Each completed cell is **objective / seconds including template preparation**. TL = time limit; † = BARON bound conflicts with a better saved feasible solution. Preflight, process launch and archiving are excluded. Missing cells are not zero or failures.
+Each completed cell is **objective / seconds including template preparation**. TL = time limit; † = reported lower bound conflicts with a better saved feasible solution. Preflight, process launch and archiving are excluded. Missing cells are not zero or failures.
 
 | Model | RIC BARON/HiGHS | GLOA BARON/HiGHS | LOA BARON/HiGHS | Big-M BARON (Sep 25) | Hull BARON (Sep 25) |
 |---|---:|---:|---:|---:|---:|
-| cstr_5 | 3.061984 / 31.27s | 3.1301981 / 3.76s | 3.061984 / 31.82s | 3.0620136 / 9.12s | 3.0620146 / 14.86s † |
-| cstr_10 | 2.8895081 / 214.06s | 3.447964 / 4.56s | 2.8895081 / 234.13s | 2.8894835 / 123.74s | 2.8895358 / 126.47s † |
-| cstr_15 | 2.9660174 / 1798.83s TL | 3.522552 / 26.19s | 2.8293506 / 1799.38s TL | 2.829394 / 1799.00s TL | 2.8293941 / 940.36s † |
-| cstr_20 | 2.9095042 / 1799.04s TL | 3.616123 / 6.79s | 2.8895081 / 1797.72s TL | 2.7994063 / 1798.72s TL | 2.7994064 / 1797.44s TL |
-| cstr_25 | 2.859437 / 1797.05s TL | 3.6478181 / 85.20s | 2.7951055 / 1797.46s TL | 2.7814826 / 1797.67s TL | 2.7814826 / 1797.41s TL |
-| cstr_30 | 2.8379523 / 1792.52s TL | 3.1543081 / 718.80s | 2.7844377 / 1798.92s TL | 2.7695698 / 1797.31s TL | 2.8093862 / 1466.60s † |
+| cstr_5 | 3.061984 / 31.27s | 3.1301981 / 3.76s † | 3.061984 / 31.82s | 3.0620136 / 9.12s | 3.0620146 / 14.86s † |
+| cstr_10 | 2.8895081 / 214.06s | 3.447964 / 4.56s † | 2.8895081 / 234.13s | 2.8894835 / 123.74s | 2.8895358 / 126.47s † |
+| cstr_15 | 2.9660174 / 1798.83s TL | 3.522552 / 26.19s † | 2.8293506 / 1799.38s TL | 2.829394 / 1799.00s TL | 2.8293941 / 940.36s † |
+| cstr_20 | 2.9095042 / 1799.04s TL | 3.616123 / 6.79s † | 2.8895081 / 1797.72s TL | 2.7994063 / 1798.72s TL | 2.7994064 / 1797.44s TL |
+| cstr_25 | 2.859437 / 1797.05s TL | 3.6478181 / 85.20s † | 2.7951055 / 1797.46s TL | 2.7814826 / 1797.67s TL | 2.7814826 / 1797.41s TL |
+| cstr_30 | 2.8379523 / 1792.52s TL | 3.1543081 / 718.80s † | 2.7844377 / 1798.92s TL | 2.7695698 / 1797.31s TL | 2.8093862 / 1466.60s † |
 | column | 22271.549 / 1797.54s TL | 22271.549 / 1798.15s TL | 22271.549 / 1797.77s TL | 19853.723 / 34.36s † | 20837.08 / 1797.17s TL |
 | dynamic | -119.3831 / 1797.71s TL | -119.3831 / 1797.55s TL | -119.3831 / 1797.84s TL | -207.62612 / 1797.51s TL | -28.596739 / 1797.77s TL |
 | small_batch | 167427.66 / 12.86s | 167427.66 / 14.49s | 167427.66 / 5.11s | 167427.66 / 0.55s | 167427.66 / 0.57s |
 
 ## Findings
 
-- The new RIC results improve CSTR5–25 relative to the old IPOPT run, but RIC reaches its time limit on CSTR15/20/25/30. All six CSTR GLOA runs report `optimal` while returning worse objectives than the corresponding feasible RIC solutions. The GDPopt global certificate and bound-validity flags remain false.
+- The new RIC results improve CSTR5–25 relative to the old IPOPT run, but RIC reaches its time limit on CSTR15/20/25/30. All six CSTR GLOA runs report `optimal` while returning worse objectives than the corresponding feasible RIC solutions. Raw GDPopt certification and bound-validity reports remain unchanged. The same lower-bound conflict rule applies to GDPopt and reformulation methods; conflict markers do not change objectives or completion times.
 
 - LOA returns better feasible objectives than RIC on CSTR15/20/25/30, under the same 30-minute per-job limit. CSTR5/10 and Small Batch agree with RIC within the comparison tolerance.
 

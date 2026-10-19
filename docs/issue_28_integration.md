@@ -2,9 +2,11 @@
 
 ## Current main integration (2026-10-19)
 
-The branch now includes upstream/main `44b8a8b21a00f95f25683d5f71ec98a95adf877f`, including PR #37's final Process/BAM artifacts and the size-specific CSTR inputs. The extraction/dependency notes below are historical; those retained inputs are now on main. The builders still reject missing/invalid inputs instead of substituting another model size.
+The branch now includes upstream/main `b4935b3210c421862714d2c9d522f4bcac95f0bf`, including PR #37's final Process/BAM artifacts and the size-specific CSTR inputs. The extraction/dependency notes below are historical; those retained inputs are now on main. The builders still reject missing/invalid inputs instead of substituting another model size.
 
 The merge retains the reviewed watchdog cleanup, input/archive verification, initial-design snapshots and main's FMQA compatibility CI. IPOPT integration tests are namespaced, and their optional-input collection hook is limited to that package so it cannot intercept main's retained tests with the same filenames. Result ZIPs, tables and execution revisions are unchanged; no new production experiment was run.
+
+PR #43 is also integrated: uniform bound-conflict checks, refreshed reports and preservation validation are retained. No result files differ from this main revision.
 
 ## Historical extraction record
 

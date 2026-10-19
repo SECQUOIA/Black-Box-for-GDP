@@ -258,7 +258,7 @@
   "fmqa_backend": "pytorch_qhd_data",
   "missing_time_policy": "No aggregate time or time-profile curve for a group with missing measurements; all outcomes retained",
   "gdp_minlp_source": {
-    "results/gdp_comparison_current/analysis/comparison.csv": "9405b9e5690015917ca1c8f01548c6c5efe384d98f190d17664527d399cd1024"
+    "results/gdp_comparison_current/analysis/comparison.csv": "3cfbdc23eb9423a910208c176259dfc5c1844f2cf6a5dc09ee1e1791f234008f"
   },
   "gdp_minlp_runs": 45,
   "all_method_comparison_rows": 81,
@@ -272,8 +272,8 @@
   "artifacts": {
     "performance_profile_runs.csv": "3621015698cc78bb10dd4aa08e42bb2c747680af13f6ba182d3898fd5de9f2c9",
     "tts99_summary.csv": "67ddae53ac6b4c63887af55d9bcc351f97567105f14bd934e83c3bcd276b9a8f",
-    "all_method_completion_times.csv": "6cbb936284bdee666f92d7861fc202463a1771ce1b6a00148f5e7e0383d3ed99",
-    "gdp_minlp_runs.csv": "9405b9e5690015917ca1c8f01548c6c5efe384d98f190d17664527d399cd1024",
+    "all_method_completion_times.csv": "fff69f59fd0b0bc88f8f67649bccd931dccbb060bb493b14f0d86237da0b5d31",
+    "gdp_minlp_runs.csv": "3cfbdc23eb9423a910208c176259dfc5c1844f2cf6a5dc09ee1e1791f234008f",
     "completion_time_scatter.manifest.json": "b0ae844aecd2ec115f9b406a47f0cc05b77faaa6fafb22ac93f115fcf69d160f",
     "completion_time_scatter.png": "eff66c4c104ae67a23b18d0db5b66e091f47ed8750c43513d373254cbf15b33d",
     "completion_time_scatter.pdf": "5c09abfb2bb7320de37e233d648aff88c9656b0855952484bccddf936892b10b",
@@ -282,7 +282,19 @@
     "tts99.pdf": "5c09abfb2bb7320de37e233d648aff88c9656b0855952484bccddf936892b10b",
     "performance_profiles.png": "1e03d506acbe5b1a1f90c22b8e7c9fc284a5f5e0ddfdabe61c31d20a9588ee44",
     "performance_profiles.pdf": "ac17d5dc1756017e048822a7804ea1917ed87e809c2f4d588b4c479444fd0291",
-    "all_method_completion_times.png": "35b4a5d0a48d698676e2e0cdfa91a4be28ae9658bce59a07aa7d9a5e30050b7b",
-    "all_method_completion_times.pdf": "69bb1111937efd10a81af083836f158885b867fb85b3866b92bc1ef4664a22c6"
+    "all_method_completion_times.png": "897f5949bbb352be8c9ab750397e8dbf51bf15c11a15f1a75437ddaa2fd1a231",
+    "all_method_completion_times.pdf": "4e7680bd42dd9918bcf1a79463ced651d8a81ba4ee9fd4cda207d952bb28a9f0"
+  },
+  "gdp_comparison_refresh": {
+    "script": "scripts/plot_dantzig_performance.py",
+    "script_sha256": "b25f069db98cd57e2cd7ca6c9b0849810c9ffae13e947543ffa19186b0a7eda4",
+    "command": "python -m scripts.plot_dantzig_performance --gdp-only",
+    "artifacts": [
+      "all_method_completion_times.csv",
+      "gdp_minlp_runs.csv",
+      "all_method_completion_times.png",
+      "all_method_completion_times.pdf"
+    ],
+    "optimization_executed": false
   }
 }
