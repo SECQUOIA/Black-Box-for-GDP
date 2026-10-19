@@ -82,7 +82,6 @@ def source_files():
             ROOT / "requirements-gdp.txt", ROOT / "requirements-gdp-comparison.txt",
             ROOT / "docs/gdp_comparison.md", ROOT / "docs/gdpopt_baron_highs.md",
             ROOT / "docs/gdpopt_loa_baron_highs.md", ROOT / "run_gdpopt_loa_baron_highs_dantzig.sh",
-            ROOT / "docs/gdpopt_followup.md", ROOT / "run_gdpopt_followup_dantzig.sh",
             ROOT / "docs/dantzig_cpu_rerun.md", ROOT / "run_gdpopt_baron_highs_dantzig.sh", ROOT / "LICENSE",
             *(p for p in (ROOT / "run_gdp_comparison_dantzig.sh",) if p.is_file())]
 

@@ -1,0 +1,39 @@
+{
+  "case": "dynamic",
+  "cstr_size": null,
+  "domain": "dfo_box",
+  "candidate_count": 72,
+  "completed_points": 72,
+  "remaining_points": 0,
+  "accepted_points": 37,
+  "error_points": 0,
+  "status_counts": {
+    "accepted": 37,
+    "logical_infeasible": 35
+  },
+  "complete": true,
+  "status": "completed",
+  "best_point": [
+    1,
+    4
+  ],
+  "best_objective": -212.00878715666533,
+  "sum_evaluation_wall_s": 49.34123130014632,
+  "last_invocation_wall_s": 50.50772595900344,
+  "updated_utc": "2026-10-15T21:00:22.450029+00:00",
+  "expected_rows": 72,
+  "missing_rows": 0,
+  "duplicate_rows": 0,
+  "missing_total_times": 0,
+  "expected_historical_accepted": 37,
+  "accepted_count_matches_history": true,
+  "acceptance_changes": 0,
+  "observed_ipopt_mumps_versions": [
+    [
+      "3.14.19",
+      "5.8.1"
+    ]
+  ],
+  "solver_release_matches_history": true,
+  "accepted_count_is_not_an_acceptance_target": true
+}

@@ -24,6 +24,9 @@ ALLOWED_SOURCE_CHANGES = {
     "docs/process_dsda_fairness_report.txt",
 }
 NEW_SOURCES = {"process_dsda_fairness_recovery.py"}
+# This obsolete progress report is retained inside the frozen archives. Its
+# removal from new bundles must not relax checks on executable/model sources.
+RETIRED_DOCUMENTS = {"docs/process_dsda_fairness_report.txt"}
 
 
 def parent_inventory(archive):
@@ -76,9 +79,10 @@ def parent_inventory(archive):
 
 
 def check_sources(old, current):
-    if set(old) - set(current) or set(current) - set(old) != NEW_SOURCES:
+    removed = set(old) - set(current)
+    if removed - RETIRED_DOCUMENTS or set(current) - set(old) != NEW_SOURCES:
         raise ValueError("Unexpected recovery source inventory")
-    changed = {name for name in old if old[name] != current[name]}
+    changed = removed | {name for name in old.keys() & current.keys() if old[name] != current[name]}
     if changed - ALLOWED_SOURCE_CHANGES:
         raise ValueError("Recovery changed search/model inputs: " + str(sorted(changed)))
     return sorted(changed)

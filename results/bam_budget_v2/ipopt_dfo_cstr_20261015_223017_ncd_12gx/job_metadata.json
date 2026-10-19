@@ -1,0 +1,6722 @@
+[
+  {
+    "job_id": "cstr_5_B8_seed0_bam",
+    "spec": {
+      "job_id": "cstr_5_B8_seed0_bam",
+      "case": "cstr_5",
+      "cstr_size": 5,
+      "seed": 0,
+      "budget": 8,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        5,
+        5
+      ],
+      "starts": [
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            1.0,
+            2.0
+          ],
+          [
+            5.0,
+            5.0
+          ],
+          [
+            3.0,
+            2.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          3.0620145766081155,
+          3.3148454031516508
+        ],
+        "max_evals": 5
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 0,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760030,
+      "monotonic": 297085.448183457,
+      "utc": "2026-10-15T22:30:19.773057+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          5.0,
+          5.0
+        ],
+        "fun": 3.0620145766081155,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 5,
+        "nfev": 5
+      },
+      "dfo_wall_s": 0.136777809006162,
+      "callback_count": 8,
+      "worker_process_wall_s": 0.9740079600014724,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_5_B8_seed1_bam",
+    "spec": {
+      "job_id": "cstr_5_B8_seed1_bam",
+      "case": "cstr_5",
+      "cstr_size": 5,
+      "seed": 1,
+      "budget": 8,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        5,
+        5
+      ],
+      "starts": [
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            4.0,
+            2.0
+          ],
+          [
+            3.0,
+            1.0
+          ],
+          [
+            2.0,
+            4.0
+          ]
+        ],
+        "f_evaluated": [
+          3.134337036523232,
+          3.314845403072415,
+          null
+        ],
+        "max_evals": 5
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 1,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760081,
+      "monotonic": 297086.617790534,
+      "utc": "2026-10-15T22:30:20.942664+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          5.0,
+          5.0
+        ],
+        "fun": 3.0620145766081155,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 5,
+        "nfev": 5
+      },
+      "dfo_wall_s": 0.052180288010276854,
+      "callback_count": 8,
+      "worker_process_wall_s": 0.865571947011631,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_5_B8_seed2_bam",
+    "spec": {
+      "job_id": "cstr_5_B8_seed2_bam",
+      "case": "cstr_5",
+      "cstr_size": 5,
+      "seed": 2,
+      "budget": 8,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        5,
+        5
+      ],
+      "starts": [
+        [
+          5,
+          5
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            5.0,
+            5.0
+          ],
+          [
+            1.0,
+            4.0
+          ],
+          [
+            3.0,
+            1.0
+          ]
+        ],
+        "f_evaluated": [
+          3.0620145766081155,
+          null,
+          3.314845403072415
+        ],
+        "max_evals": 5
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 2,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760115,
+      "monotonic": 297087.675083862,
+      "utc": "2026-10-15T22:30:21.999958+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          5.0,
+          5.0
+        ],
+        "fun": 3.0620145766081155,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 5,
+        "nfev": 5
+      },
+      "dfo_wall_s": 0.07006820105016232,
+      "callback_count": 8,
+      "worker_process_wall_s": 0.9154746830463409,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_5_B8_seed3_bam",
+    "spec": {
+      "job_id": "cstr_5_B8_seed3_bam",
+      "case": "cstr_5",
+      "cstr_size": 5,
+      "seed": 3,
+      "budget": 8,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        5,
+        5
+      ],
+      "starts": [
+        [
+          4,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            4.0,
+            5.0
+          ],
+          [
+            1.0,
+            2.0
+          ],
+          [
+            5.0,
+            3.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          null,
+          3.13019813311393
+        ],
+        "max_evals": 5
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 3,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760157,
+      "monotonic": 297088.782814238,
+      "utc": "2026-10-15T22:30:23.107687+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          5.0,
+          5.0
+        ],
+        "fun": 3.0620145766081155,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 5,
+        "nfev": 5
+      },
+      "dfo_wall_s": 0.020125738985370845,
+      "callback_count": 8,
+      "worker_process_wall_s": 0.8650544559932314,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_5_B8_seed4_bam",
+    "spec": {
+      "job_id": "cstr_5_B8_seed4_bam",
+      "case": "cstr_5",
+      "cstr_size": 5,
+      "seed": 4,
+      "budget": 8,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        5,
+        5
+      ],
+      "starts": [
+        [
+          2,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            2.0,
+            2.0
+          ],
+          [
+            1.0,
+            4.0
+          ],
+          [
+            4.0,
+            4.0
+          ]
+        ],
+        "f_evaluated": [
+          4.061881684610404,
+          null,
+          3.133783898141584
+        ],
+        "max_evals": 5
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 4,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760173,
+      "monotonic": 297089.848240193,
+      "utc": "2026-10-15T22:30:24.173114+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          5.0,
+          5.0
+        ],
+        "fun": 3.0620145766081155,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 5,
+        "nfev": 5
+      },
+      "dfo_wall_s": 0.015678260009735823,
+      "callback_count": 8,
+      "worker_process_wall_s": 0.8650057929917239,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_5_B8_seed5_bam",
+    "spec": {
+      "job_id": "cstr_5_B8_seed5_bam",
+      "case": "cstr_5",
+      "cstr_size": 5,
+      "seed": 5,
+      "budget": 8,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        5,
+        5
+      ],
+      "starts": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            3.0,
+            1.0
+          ],
+          [
+            4.0,
+            3.0
+          ],
+          [
+            2.0,
+            4.0
+          ]
+        ],
+        "f_evaluated": [
+          3.314845403072415,
+          3.134337036541932,
+          null
+        ],
+        "max_evals": 5
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 5,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760191,
+      "monotonic": 297090.907963134,
+      "utc": "2026-10-15T22:30:25.232836+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          5.0,
+          5.0
+        ],
+        "fun": 3.0620145766081155,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 5,
+        "nfev": 5
+      },
+      "dfo_wall_s": 0.08574697200674564,
+      "callback_count": 8,
+      "worker_process_wall_s": 0.9151762609835714,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_5_B8_seed6_bam",
+    "spec": {
+      "job_id": "cstr_5_B8_seed6_bam",
+      "case": "cstr_5",
+      "cstr_size": 5,
+      "seed": 6,
+      "budget": 8,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        5,
+        5
+      ],
+      "starts": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            3.0,
+            2.0
+          ],
+          [
+            2.0,
+            5.0
+          ],
+          [
+            4.0,
+            3.0
+          ]
+        ],
+        "f_evaluated": [
+          3.3148454031516508,
+          null,
+          3.134337036541932
+        ],
+        "max_evals": 5
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 6,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760239,
+      "monotonic": 297092.019689023,
+      "utc": "2026-10-15T22:30:26.344562+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          5.0,
+          5.0
+        ],
+        "fun": 3.0620145766081155,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 5,
+        "nfev": 5
+      },
+      "dfo_wall_s": 0.014825817954260856,
+      "callback_count": 8,
+      "worker_process_wall_s": 0.8650289769866504,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_5_B8_seed7_bam",
+    "spec": {
+      "job_id": "cstr_5_B8_seed7_bam",
+      "case": "cstr_5",
+      "cstr_size": 5,
+      "seed": 7,
+      "budget": 8,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        5,
+        5
+      ],
+      "starts": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            3.0,
+            1.0
+          ],
+          [
+            4.0,
+            5.0
+          ],
+          [
+            2.0,
+            3.0
+          ]
+        ],
+        "f_evaluated": [
+          3.314845403072415,
+          null,
+          null
+        ],
+        "max_evals": 5
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 7,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760252,
+      "monotonic": 297093.082284526,
+      "utc": "2026-10-15T22:30:27.407157+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          5.0,
+          5.0
+        ],
+        "fun": 3.0620145766081155,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 5,
+        "nfev": 5
+      },
+      "dfo_wall_s": 0.014584775955881923,
+      "callback_count": 8,
+      "worker_process_wall_s": 0.8653314170078374,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_5_B8_seed8_bam",
+    "spec": {
+      "job_id": "cstr_5_B8_seed8_bam",
+      "case": "cstr_5",
+      "cstr_size": 5,
+      "seed": 8,
+      "budget": 8,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        5,
+        5
+      ],
+      "starts": [
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            3.0,
+            4.0
+          ],
+          [
+            2.0,
+            1.0
+          ],
+          [
+            4.0,
+            3.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          4.061881684530918,
+          3.134337036541932
+        ],
+        "max_evals": 5
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 8,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760264,
+      "monotonic": 297094.147285277,
+      "utc": "2026-10-15T22:30:28.472159+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          5.0,
+          5.0
+        ],
+        "fun": 3.0620145766081155,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 5,
+        "nfev": 5
+      },
+      "dfo_wall_s": 0.015211766993161291,
+      "callback_count": 8,
+      "worker_process_wall_s": 0.8650711080408655,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_5_B8_seed9_bam",
+    "spec": {
+      "job_id": "cstr_5_B8_seed9_bam",
+      "case": "cstr_5",
+      "cstr_size": 5,
+      "seed": 9,
+      "budget": 8,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        5,
+        5
+      ],
+      "starts": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            3.0,
+            3.0
+          ],
+          [
+            4.0,
+            1.0
+          ],
+          [
+            1.0,
+            4.0
+          ]
+        ],
+        "f_evaluated": [
+          3.314845403164992,
+          3.134337036452856,
+          null
+        ],
+        "max_evals": 5
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 9,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760276,
+      "monotonic": 297095.214701804,
+      "utc": "2026-10-15T22:30:29.539575+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          5.0,
+          5.0
+        ],
+        "fun": 3.0620145766081155,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 5,
+        "nfev": 5
+      },
+      "dfo_wall_s": 0.1029717359924689,
+      "callback_count": 8,
+      "worker_process_wall_s": 0.9150579450069927,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_10_B15_seed0_bam",
+    "spec": {
+      "job_id": "cstr_10_B15_seed0_bam",
+      "case": "cstr_10",
+      "cstr_size": 10,
+      "seed": 0,
+      "budget": 15,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        10,
+        10
+      ],
+      "starts": [
+        [
+          2,
+          3
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            2.0,
+            3.0
+          ],
+          [
+            10.0,
+            10.0
+          ],
+          [
+            5.0,
+            4.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          2.889536968602369,
+          3.1301981331301
+        ],
+        "max_evals": 12
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 0,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760335,
+      "monotonic": 297096.330127149,
+      "utc": "2026-10-15T22:30:30.655000+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          10.0,
+          10.0
+        ],
+        "fun": 2.889536968602369,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 12,
+        "nfev": 12
+      },
+      "dfo_wall_s": 0.15733018598984927,
+      "callback_count": 15,
+      "worker_process_wall_s": 1.0161855279584415,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_10_B15_seed1_bam",
+    "spec": {
+      "job_id": "cstr_10_B15_seed1_bam",
+      "case": "cstr_10",
+      "cstr_size": 10,
+      "seed": 1,
+      "budget": 15,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        10,
+        10
+      ],
+      "starts": [
+        [
+          8,
+          4
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            8.0,
+            4.0
+          ],
+          [
+            7.0,
+            1.0
+          ],
+          [
+            3.0,
+            9.0
+          ]
+        ],
+        "f_evaluated": [
+          3.3561752352261434,
+          3.2871513562925103,
+          null
+        ],
+        "max_evals": 12
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 1,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760420,
+      "monotonic": 297097.544158568,
+      "utc": "2026-10-15T22:30:31.869032+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          9.0,
+          9.0
+        ],
+        "fun": 2.9095332619150076,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 12,
+        "nfev": 12
+      },
+      "dfo_wall_s": 0.12320141500094905,
+      "callback_count": 15,
+      "worker_process_wall_s": 0.965262548008468,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_10_B15_seed2_bam",
+    "spec": {
+      "job_id": "cstr_10_B15_seed2_bam",
+      "case": "cstr_10",
+      "cstr_size": 10,
+      "seed": 2,
+      "budget": 15,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        10,
+        10
+      ],
+      "starts": [
+        [
+          9,
+          9
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            9.0,
+            9.0
+          ],
+          [
+            2.0,
+            7.0
+          ],
+          [
+            5.0,
+            2.0
+          ]
+        ],
+        "f_evaluated": [
+          2.9095332619150076,
+          null,
+          3.1301981331054654
+        ],
+        "max_evals": 12
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 2,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760488,
+      "monotonic": 297098.706049696,
+      "utc": "2026-10-15T22:30:33.030923+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          9.0,
+          9.0
+        ],
+        "fun": 2.9095332619150076,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 12,
+        "nfev": 12
+      },
+      "dfo_wall_s": 0.12226497998926789,
+      "callback_count": 15,
+      "worker_process_wall_s": 0.9651068699895404,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_10_B15_seed3_bam",
+    "spec": {
+      "job_id": "cstr_10_B15_seed3_bam",
+      "case": "cstr_10",
+      "cstr_size": 10,
+      "seed": 3,
+      "budget": 15,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        10,
+        10
+      ],
+      "starts": [
+        [
+          7,
+          9
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          10,
+          6
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            7.0,
+            9.0
+          ],
+          [
+            2.0,
+            2.0
+          ],
+          [
+            10.0,
+            6.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          4.061881684610302,
+          3.44796403167599
+        ],
+        "max_evals": 12
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 3,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760557,
+      "monotonic": 297099.876969988,
+      "utc": "2026-10-15T22:30:34.201843+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          9.0,
+          9.0
+        ],
+        "fun": 2.9095332619150076,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 12,
+        "nfev": 12
+      },
+      "dfo_wall_s": 0.15895917598390952,
+      "callback_count": 15,
+      "worker_process_wall_s": 1.015213817008771,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_10_B15_seed4_bam",
+    "spec": {
+      "job_id": "cstr_10_B15_seed4_bam",
+      "case": "cstr_10",
+      "cstr_size": 10,
+      "seed": 4,
+      "budget": 15,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        10,
+        10
+      ],
+      "starts": [
+        [
+          4,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            4.0,
+            2.0
+          ],
+          [
+            1.0,
+            7.0
+          ],
+          [
+            8.0,
+            9.0
+          ]
+        ],
+        "f_evaluated": [
+          3.13433703652212,
+          null,
+          null
+        ],
+        "max_evals": 12
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 4,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760644,
+      "monotonic": 297101.090654743,
+      "utc": "2026-10-15T22:30:35.415528+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          9.0,
+          9.0
+        ],
+        "fun": 2.9095332619150076,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 12,
+        "nfev": 12
+      },
+      "dfo_wall_s": 0.16721971798688173,
+      "callback_count": 15,
+      "worker_process_wall_s": 1.015331202012021,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_10_B15_seed5_bam",
+    "spec": {
+      "job_id": "cstr_10_B15_seed5_bam",
+      "case": "cstr_10",
+      "cstr_size": 10,
+      "seed": 5,
+      "budget": 15,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        10,
+        10
+      ],
+      "starts": [
+        [
+          5,
+          2
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          4,
+          9
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            5.0,
+            2.0
+          ],
+          [
+            8.0,
+            6.0
+          ],
+          [
+            4.0,
+            9.0
+          ]
+        ],
+        "f_evaluated": [
+          3.1301981331054654,
+          3.3561752352504004,
+          null
+        ],
+        "max_evals": 12
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 5,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760735,
+      "monotonic": 297102.312452217,
+      "utc": "2026-10-15T22:30:36.637325+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          9.0,
+          9.0
+        ],
+        "fun": 2.9095332619150076,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 12,
+        "nfev": 12
+      },
+      "dfo_wall_s": 0.14005381404422224,
+      "callback_count": 15,
+      "worker_process_wall_s": 0.9651419969741255,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_10_B15_seed6_bam",
+    "spec": {
+      "job_id": "cstr_10_B15_seed6_bam",
+      "case": "cstr_10",
+      "cstr_size": 10,
+      "seed": 6,
+      "budget": 15,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        10,
+        10
+      ],
+      "starts": [
+        [
+          5,
+          3
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          7,
+          5
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            5.0,
+            3.0
+          ],
+          [
+            3.0,
+            9.0
+          ],
+          [
+            7.0,
+            5.0
+          ]
+        ],
+        "f_evaluated": [
+          3.130198133113745,
+          null,
+          3.2871513564029207
+        ],
+        "max_evals": 12
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 6,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760811,
+      "monotonic": 297103.484110192,
+      "utc": "2026-10-15T22:30:37.808983+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          9.0,
+          9.0
+        ],
+        "fun": 2.9095332619150076,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 12,
+        "nfev": 12
+      },
+      "dfo_wall_s": 0.12618554098298773,
+      "callback_count": 15,
+      "worker_process_wall_s": 0.965185230015777,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_10_B15_seed7_bam",
+    "spec": {
+      "job_id": "cstr_10_B15_seed7_bam",
+      "case": "cstr_10",
+      "cstr_size": 10,
+      "seed": 7,
+      "budget": 15,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        10,
+        10
+      ],
+      "starts": [
+        [
+          5,
+          1
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            5.0,
+            1.0
+          ],
+          [
+            8.0,
+            9.0
+          ],
+          [
+            3.0,
+            4.0
+          ]
+        ],
+        "f_evaluated": [
+          3.130198133025455,
+          null,
+          null
+        ],
+        "max_evals": 12
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 7,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760885,
+      "monotonic": 297104.653713402,
+      "utc": "2026-10-15T22:30:38.978587+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          9.0,
+          9.0
+        ],
+        "fun": 2.9095332619150076,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 12,
+        "nfev": 12
+      },
+      "dfo_wall_s": 0.15890595398377627,
+      "callback_count": 15,
+      "worker_process_wall_s": 0.9675815500086173,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_10_B15_seed8_bam",
+    "spec": {
+      "job_id": "cstr_10_B15_seed8_bam",
+      "case": "cstr_10",
+      "cstr_size": 10,
+      "seed": 8,
+      "budget": 15,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        10,
+        10
+      ],
+      "starts": [
+        [
+          6,
+          7
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            6.0,
+            7.0
+          ],
+          [
+            3.0,
+            2.0
+          ],
+          [
+            7.0,
+            6.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          3.314845403151525,
+          3.269433831517203
+        ],
+        "max_evals": 12
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 8,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 760970,
+      "monotonic": 297105.829893629,
+      "utc": "2026-10-15T22:30:40.154767+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          9.0,
+          9.0
+        ],
+        "fun": 2.9095332619150076,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 12,
+        "nfev": 12
+      },
+      "dfo_wall_s": 0.13524349097860977,
+      "callback_count": 15,
+      "worker_process_wall_s": 0.9652376609737985,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_10_B15_seed9_bam",
+    "spec": {
+      "job_id": "cstr_10_B15_seed9_bam",
+      "case": "cstr_10",
+      "cstr_size": 10,
+      "seed": 9,
+      "budget": 15,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        10,
+        10
+      ],
+      "starts": [
+        [
+          4,
+          6
+        ],
+        [
+          8,
+          2
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            4.0,
+            6.0
+          ],
+          [
+            8.0,
+            2.0
+          ],
+          [
+            2.0,
+            7.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          3.3561752352103835,
+          null
+        ],
+        "max_evals": 12
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 9,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761043,
+      "monotonic": 297107.005662138,
+      "utc": "2026-10-15T22:30:41.330537+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          9.0,
+          9.0
+        ],
+        "fun": 2.9095332619150076,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 12,
+        "nfev": 12
+      },
+      "dfo_wall_s": 0.1262327610165812,
+      "callback_count": 15,
+      "worker_process_wall_s": 0.9653579299920239,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_15_B22_seed0_bam",
+    "spec": {
+      "job_id": "cstr_15_B22_seed0_bam",
+      "case": "cstr_15",
+      "cstr_size": 15,
+      "seed": 0,
+      "budget": 22,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        15,
+        15
+      ],
+      "starts": [
+        [
+          3,
+          4
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            3.0,
+            4.0
+          ],
+          [
+            15.0,
+            15.0
+          ],
+          [
+            7.0,
+            6.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          2.8293940630895253,
+          3.269433831517707
+        ],
+        "max_evals": 19
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 0,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761110,
+      "monotonic": 297108.181942527,
+      "utc": "2026-10-15T22:30:42.506816+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          15.0,
+          15.0
+        ],
+        "fun": 2.8293940630895253,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 19,
+        "nfev": 19
+      },
+      "dfo_wall_s": 0.16270809702109545,
+      "callback_count": 22,
+      "worker_process_wall_s": 1.0152874880004674,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_15_B22_seed1_bam",
+    "spec": {
+      "job_id": "cstr_15_B22_seed1_bam",
+      "case": "cstr_15",
+      "cstr_size": 15,
+      "seed": 1,
+      "budget": 22,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        15,
+        15
+      ],
+      "starts": [
+        [
+          13,
+          6
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          4,
+          13
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            13.0,
+            6.0
+          ],
+          [
+            10.0,
+            1.0
+          ],
+          [
+            4.0,
+            13.0
+          ]
+        ],
+        "f_evaluated": [
+          3.527753831774093,
+          3.4479640316604105,
+          null
+        ],
+        "max_evals": 19
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 1,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761198,
+      "monotonic": 297109.407908767,
+      "utc": "2026-10-15T22:30:43.732782+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          13.0,
+          13.0
+        ],
+        "fun": 2.847894632224953,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 19,
+        "nfev": 19
+      },
+      "dfo_wall_s": 0.12196885299636051,
+      "callback_count": 22,
+      "worker_process_wall_s": 0.9654800149728544,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_15_B22_seed2_bam",
+    "spec": {
+      "job_id": "cstr_15_B22_seed2_bam",
+      "case": "cstr_15",
+      "cstr_size": 15,
+      "seed": 2,
+      "budget": 22,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        15,
+        15
+      ],
+      "starts": [
+        [
+          14,
+          14
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          8,
+          2
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            14.0,
+            14.0
+          ],
+          [
+            2.0,
+            10.0
+          ],
+          [
+            8.0,
+            2.0
+          ]
+        ],
+        "f_evaluated": [
+          2.8379806927232734,
+          null,
+          3.3561752352103835
+        ],
+        "max_evals": 19
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 2,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761262,
+      "monotonic": 297110.589587336,
+      "utc": "2026-10-15T22:30:44.914461+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          14.0,
+          14.0
+        ],
+        "fun": 2.8379806927232734,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 19,
+        "nfev": 19
+      },
+      "dfo_wall_s": 0.16284759400878102,
+      "callback_count": 22,
+      "worker_process_wall_s": 1.0200670930207707,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_15_B22_seed3_bam",
+    "spec": {
+      "job_id": "cstr_15_B22_seed3_bam",
+      "case": "cstr_15",
+      "cstr_size": 15,
+      "seed": 3,
+      "budget": 22,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        15,
+        15
+      ],
+      "starts": [
+        [
+          10,
+          14
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          15,
+          8
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            10.0,
+            14.0
+          ],
+          [
+            2.0,
+            3.0
+          ],
+          [
+            15.0,
+            8.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          null,
+          3.5619586332626536
+        ],
+        "max_evals": 19
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 3,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761345,
+      "monotonic": 297111.823932374,
+      "utc": "2026-10-15T22:30:46.148806+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          13.0,
+          13.0
+        ],
+        "fun": 2.847894632224953,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 19,
+        "nfev": 19
+      },
+      "dfo_wall_s": 0.15668265597196296,
+      "callback_count": 22,
+      "worker_process_wall_s": 1.0188506729900837,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_15_B22_seed4_bam",
+    "spec": {
+      "job_id": "cstr_15_B22_seed4_bam",
+      "case": "cstr_15",
+      "cstr_size": 15,
+      "seed": 4,
+      "budget": 22,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        15,
+        15
+      ],
+      "starts": [
+        [
+          6,
+          3
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          12,
+          13
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            6.0,
+            3.0
+          ],
+          [
+            1.0,
+            10.0
+          ],
+          [
+            12.0,
+            13.0
+          ]
+        ],
+        "f_evaluated": [
+          3.2009765946665274,
+          null,
+          null
+        ],
+        "max_evals": 19
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 4,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761429,
+      "monotonic": 297113.058454602,
+      "utc": "2026-10-15T22:30:47.383328+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          13.0,
+          13.0
+        ],
+        "fun": 2.847894632224953,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 19,
+        "nfev": 19
+      },
+      "dfo_wall_s": 0.16068297799210995,
+      "callback_count": 22,
+      "worker_process_wall_s": 1.0189407549914904,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_15_B22_seed5_bam",
+    "spec": {
+      "job_id": "cstr_15_B22_seed5_bam",
+      "case": "cstr_15",
+      "cstr_size": 15,
+      "seed": 5,
+      "budget": 22,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        15,
+        15
+      ],
+      "starts": [
+        [
+          7,
+          2
+        ],
+        [
+          13,
+          9
+        ],
+        [
+          5,
+          13
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            7.0,
+            2.0
+          ],
+          [
+            13.0,
+            9.0
+          ],
+          [
+            5.0,
+            13.0
+          ]
+        ],
+        "f_evaluated": [
+          3.2871513563725134,
+          3.527291532754924,
+          null
+        ],
+        "max_evals": 19
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 5,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761512,
+      "monotonic": 297114.293948501,
+      "utc": "2026-10-15T22:30:48.618822+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          13.0,
+          13.0
+        ],
+        "fun": 2.847894632224953,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 19,
+        "nfev": 19
+      },
+      "dfo_wall_s": 0.14210555399768054,
+      "callback_count": 22,
+      "worker_process_wall_s": 0.9691639109514654,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_15_B22_seed6_bam",
+    "spec": {
+      "job_id": "cstr_15_B22_seed6_bam",
+      "case": "cstr_15",
+      "cstr_size": 15,
+      "seed": 6,
+      "budget": 22,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        15,
+        15
+      ],
+      "starts": [
+        [
+          8,
+          4
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          10,
+          7
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            8.0,
+            4.0
+          ],
+          [
+            4.0,
+            13.0
+          ],
+          [
+            10.0,
+            7.0
+          ]
+        ],
+        "f_evaluated": [
+          3.3561752352257446,
+          null,
+          3.447964031790419
+        ],
+        "max_evals": 19
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 6,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761591,
+      "monotonic": 297115.478840355,
+      "utc": "2026-10-15T22:30:49.803714+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          13.0,
+          13.0
+        ],
+        "fun": 2.847894632224953,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 19,
+        "nfev": 19
+      },
+      "dfo_wall_s": 0.12938052997924387,
+      "callback_count": 22,
+      "worker_process_wall_s": 0.9676861200132407,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_15_B22_seed7_bam",
+    "spec": {
+      "job_id": "cstr_15_B22_seed7_bam",
+      "case": "cstr_15",
+      "cstr_size": 15,
+      "seed": 7,
+      "budget": 22,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        15,
+        15
+      ],
+      "starts": [
+        [
+          7,
+          1
+        ],
+        [
+          11,
+          14
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            7.0,
+            1.0
+          ],
+          [
+            11.0,
+            14.0
+          ],
+          [
+            4.0,
+            6.0
+          ]
+        ],
+        "f_evaluated": [
+          3.2871513562925103,
+          null,
+          null
+        ],
+        "max_evals": 19
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 7,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761658,
+      "monotonic": 297116.666153467,
+      "utc": "2026-10-15T22:30:50.991027+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          13.0,
+          13.0
+        ],
+        "fun": 2.847894632224953,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 19,
+        "nfev": 19
+      },
+      "dfo_wall_s": 0.16256377997342497,
+      "callback_count": 22,
+      "worker_process_wall_s": 1.0187912689871155,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_15_B22_seed8_bam",
+    "spec": {
+      "job_id": "cstr_15_B22_seed8_bam",
+      "case": "cstr_15",
+      "cstr_size": 15,
+      "seed": 8,
+      "budget": 22,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        15,
+        15
+      ],
+      "starts": [
+        [
+          9,
+          10
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          11,
+          9
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            9.0,
+            10.0
+          ],
+          [
+            4.0,
+            2.0
+          ],
+          [
+            11.0,
+            9.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          3.134337036521056,
+          3.3715845878331425
+        ],
+        "max_evals": 19
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 8,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761744,
+      "monotonic": 297117.906537683,
+      "utc": "2026-10-15T22:30:52.231411+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          13.0,
+          13.0
+        ],
+        "fun": 2.847894632224953,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 19,
+        "nfev": 19
+      },
+      "dfo_wall_s": 0.13978768402012065,
+      "callback_count": 22,
+      "worker_process_wall_s": 0.9660017240094021,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_15_B22_seed9_bam",
+    "spec": {
+      "job_id": "cstr_15_B22_seed9_bam",
+      "case": "cstr_15",
+      "cstr_size": 15,
+      "seed": 9,
+      "budget": 22,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        15,
+        15
+      ],
+      "starts": [
+        [
+          6,
+          9
+        ],
+        [
+          12,
+          2
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            6.0,
+            9.0
+          ],
+          [
+            12.0,
+            2.0
+          ],
+          [
+            2.0,
+            11.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          3.50600404325646,
+          null
+        ],
+        "max_evals": 19
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 9,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761817,
+      "monotonic": 297119.096861101,
+      "utc": "2026-10-15T22:30:53.421736+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          13.0,
+          13.0
+        ],
+        "fun": 2.847894632224953,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 19,
+        "nfev": 19
+      },
+      "dfo_wall_s": 0.14502327202353626,
+      "callback_count": 22,
+      "worker_process_wall_s": 0.9680089089670219,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_20_B29_seed0_bam",
+    "spec": {
+      "job_id": "cstr_20_B29_seed0_bam",
+      "case": "cstr_20",
+      "cstr_size": 20,
+      "seed": 0,
+      "budget": 29,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        20,
+        20
+      ],
+      "starts": [
+        [
+          3,
+          6
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          9,
+          8
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            3.0,
+            6.0
+          ],
+          [
+            20.0,
+            20.0
+          ],
+          [
+            9.0,
+            8.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          2.7994064251078212,
+          3.2220388209947313
+        ],
+        "max_evals": 26
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 0,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761891,
+      "monotonic": 297120.295100842,
+      "utc": "2026-10-15T22:30:54.619975+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          20.0,
+          20.0
+        ],
+        "fun": 2.7994064251078212,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 26,
+        "nfev": 26
+      },
+      "dfo_wall_s": 0.1659154299995862,
+      "callback_count": 29,
+      "worker_process_wall_s": 1.0152701149927452,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_20_B29_seed1_bam",
+    "spec": {
+      "job_id": "cstr_20_B29_seed1_bam",
+      "case": "cstr_20",
+      "cstr_size": 20,
+      "seed": 1,
+      "budget": 29,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        20,
+        20
+      ],
+      "starts": [
+        [
+          17,
+          8
+        ],
+        [
+          13,
+          1
+        ],
+        [
+          5,
+          17
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            17.0,
+            8.0
+          ],
+          [
+            13.0,
+            1.0
+          ],
+          [
+            5.0,
+            17.0
+          ]
+        ],
+        "f_evaluated": [
+          3.58765581332026,
+          3.5277538316634134,
+          null
+        ],
+        "max_evals": 26
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 1,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 761975,
+      "monotonic": 297121.534345906,
+      "utc": "2026-10-15T22:30:55.859219+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          18.0,
+          18.0
+        ],
+        "fun": 2.8093885376330894,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 26,
+        "nfev": 26
+      },
+      "dfo_wall_s": 0.16883139498531818,
+      "callback_count": 29,
+      "worker_process_wall_s": 1.0152466599829495,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_20_B29_seed2_bam",
+    "spec": {
+      "job_id": "cstr_20_B29_seed2_bam",
+      "case": "cstr_20",
+      "cstr_size": 20,
+      "seed": 2,
+      "budget": 29,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        20,
+        20
+      ],
+      "starts": [
+        [
+          18,
+          18
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          10,
+          3
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            18.0,
+            18.0
+          ],
+          [
+            2.0,
+            13.0
+          ],
+          [
+            10.0,
+            3.0
+          ]
+        ],
+        "f_evaluated": [
+          2.8093885376330894,
+          null,
+          3.44796403175041
+        ],
+        "max_evals": 26
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 2,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 762058,
+      "monotonic": 297122.778123281,
+      "utc": "2026-10-15T22:30:57.102997+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          18.0,
+          18.0
+        ],
+        "fun": 2.8093885376330894,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 26,
+        "nfev": 26
+      },
+      "dfo_wall_s": 0.35810474696336314,
+      "callback_count": 29,
+      "worker_process_wall_s": 1.2155384859652258,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_20_B29_seed3_bam",
+    "spec": {
+      "job_id": "cstr_20_B29_seed3_bam",
+      "case": "cstr_20",
+      "cstr_size": 20,
+      "seed": 3,
+      "budget": 29,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        20,
+        20
+      ],
+      "starts": [
+        [
+          13,
+          19
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          19,
+          11
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            13.0,
+            19.0
+          ],
+          [
+            2.0,
+            4.0
+          ],
+          [
+            19.0,
+            11.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          null,
+          3.6076800333468806
+        ],
+        "max_evals": 26
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 3,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 762252,
+      "monotonic": 297124.225218088,
+      "utc": "2026-10-15T22:30:58.550091+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          18.0,
+          18.0
+        ],
+        "fun": 2.8093885376330894,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 26,
+        "nfev": 26
+      },
+      "dfo_wall_s": 0.16621239896630868,
+      "callback_count": 29,
+      "worker_process_wall_s": 1.0155203139875084,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_20_B29_seed4_bam",
+    "spec": {
+      "job_id": "cstr_20_B29_seed4_bam",
+      "case": "cstr_20",
+      "cstr_size": 20,
+      "seed": 4,
+      "budget": 29,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        20,
+        20
+      ],
+      "starts": [
+        [
+          8,
+          4
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          16,
+          18
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            8.0,
+            4.0
+          ],
+          [
+            1.0,
+            13.0
+          ],
+          [
+            16.0,
+            18.0
+          ]
+        ],
+        "f_evaluated": [
+          3.3561752352178478,
+          null,
+          null
+        ],
+        "max_evals": 26
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 4,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 762335,
+      "monotonic": 297125.470066905,
+      "utc": "2026-10-15T22:30:59.794940+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          20.0,
+          20.0
+        ],
+        "fun": 2.7994064251078212,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 26,
+        "nfev": 26
+      },
+      "dfo_wall_s": 0.17959742795210332,
+      "callback_count": 29,
+      "worker_process_wall_s": 1.0150985959917307,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_20_B29_seed5_bam",
+    "spec": {
+      "job_id": "cstr_20_B29_seed5_bam",
+      "case": "cstr_20",
+      "cstr_size": 20,
+      "seed": 5,
+      "budget": 29,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        20,
+        20
+      ],
+      "starts": [
+        [
+          9,
+          2
+        ],
+        [
+          17,
+          12
+        ],
+        [
+          7,
+          18
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            9.0,
+            2.0
+          ],
+          [
+            17.0,
+            12.0
+          ],
+          [
+            7.0,
+            18.0
+          ]
+        ],
+        "f_evaluated": [
+          3.4079286722929387,
+          3.563430097468366,
+          null
+        ],
+        "max_evals": 26
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 5,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 762430,
+      "monotonic": 297126.720832076,
+      "utc": "2026-10-15T22:31:01.045705+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          18.0,
+          18.0
+        ],
+        "fun": 2.8093885376330894,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 26,
+        "nfev": 26
+      },
+      "dfo_wall_s": 0.16660363803384826,
+      "callback_count": 29,
+      "worker_process_wall_s": 1.016025330987759,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_20_B29_seed6_bam",
+    "spec": {
+      "job_id": "cstr_20_B29_seed6_bam",
+      "case": "cstr_20",
+      "cstr_size": 20,
+      "seed": 6,
+      "budget": 29,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        20,
+        20
+      ],
+      "starts": [
+        [
+          10,
+          5
+        ],
+        [
+          5,
+          18
+        ],
+        [
+          14,
+          10
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            10.0,
+            5.0
+          ],
+          [
+            5.0,
+            18.0
+          ],
+          [
+            14.0,
+            10.0
+          ]
+        ],
+        "f_evaluated": [
+          3.447964031763929,
+          null,
+          3.533070528815855
+        ],
+        "max_evals": 26
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 6,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 762512,
+      "monotonic": 297127.968387027,
+      "utc": "2026-10-15T22:31:02.293261+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          18.0,
+          18.0
+        ],
+        "fun": 2.8093885376330894,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 26,
+        "nfev": 26
+      },
+      "dfo_wall_s": 0.37781814602203667,
+      "callback_count": 29,
+      "worker_process_wall_s": 1.2276810740004294,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_20_B29_seed7_bam",
+    "spec": {
+      "job_id": "cstr_20_B29_seed7_bam",
+      "case": "cstr_20",
+      "cstr_size": 20,
+      "seed": 7,
+      "budget": 29,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        20,
+        20
+      ],
+      "starts": [
+        [
+          10,
+          2
+        ],
+        [
+          15,
+          19
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            10.0,
+            2.0
+          ],
+          [
+            15.0,
+            19.0
+          ],
+          [
+            5.0,
+            8.0
+          ]
+        ],
+        "f_evaluated": [
+          3.4479640317404305,
+          null,
+          null
+        ],
+        "max_evals": 26
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 7,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 762713,
+      "monotonic": 297129.436272306,
+      "utc": "2026-10-15T22:31:03.761146+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          18.0,
+          18.0
+        ],
+        "fun": 2.8093885376330894,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 26,
+        "nfev": 26
+      },
+      "dfo_wall_s": 0.1663756119669415,
+      "callback_count": 29,
+      "worker_process_wall_s": 1.0151822059997357,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_20_B29_seed8_bam",
+    "spec": {
+      "job_id": "cstr_20_B29_seed8_bam",
+      "case": "cstr_20",
+      "cstr_size": 20,
+      "seed": 8,
+      "budget": 29,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        20,
+        20
+      ],
+      "starts": [
+        [
+          12,
+          14
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          14,
+          11
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            12.0,
+            14.0
+          ],
+          [
+            5.0,
+            2.0
+          ],
+          [
+            14.0,
+            11.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          3.1301981331054654,
+          3.433629050464493
+        ],
+        "max_evals": 26
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 8,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 762795,
+      "monotonic": 297130.690237466,
+      "utc": "2026-10-15T22:31:05.015112+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          18.0,
+          18.0
+        ],
+        "fun": 2.8093885376330894,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 26,
+        "nfev": 26
+      },
+      "dfo_wall_s": 0.37257776799378917,
+      "callback_count": 29,
+      "worker_process_wall_s": 1.2250141249969602,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_20_B29_seed9_bam",
+    "spec": {
+      "job_id": "cstr_20_B29_seed9_bam",
+      "case": "cstr_20",
+      "cstr_size": 20,
+      "seed": 9,
+      "budget": 29,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        20,
+        20
+      ],
+      "starts": [
+        [
+          8,
+          12
+        ],
+        [
+          16,
+          2
+        ],
+        [
+          3,
+          14
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            8.0,
+            12.0
+          ],
+          [
+            16.0,
+            2.0
+          ],
+          [
+            3.0,
+            14.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          3.5756578427582553,
+          null
+        ],
+        "max_evals": 26
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 9,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 762989,
+      "monotonic": 297132.153023829,
+      "utc": "2026-10-15T22:31:06.477898+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          18.0,
+          18.0
+        ],
+        "fun": 2.8093885376330894,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 26,
+        "nfev": 26
+      },
+      "dfo_wall_s": 0.1625634590163827,
+      "callback_count": 29,
+      "worker_process_wall_s": 1.0152162220329046,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_25_B36_seed0_bam",
+    "spec": {
+      "job_id": "cstr_25_B36_seed0_bam",
+      "case": "cstr_25",
+      "cstr_size": 25,
+      "seed": 0,
+      "budget": 36,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        25,
+        25
+      ],
+      "starts": [
+        [
+          4,
+          7
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            4.0,
+            7.0
+          ],
+          [
+            25.0,
+            25.0
+          ],
+          [
+            10.0,
+            10.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          2.7814825926752516,
+          2.889536968602369
+        ],
+        "max_evals": 33
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 0,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 763071,
+      "monotonic": 297133.418808277,
+      "utc": "2026-10-15T22:31:07.743682+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          25.0,
+          25.0
+        ],
+        "fun": 2.7814825926752516,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 33,
+        "nfev": 33
+      },
+      "dfo_wall_s": 0.4817476570024155,
+      "callback_count": 36,
+      "worker_process_wall_s": 1.3156977740000002,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_25_B36_seed1_bam",
+    "spec": {
+      "job_id": "cstr_25_B36_seed1_bam",
+      "case": "cstr_25",
+      "cstr_size": 25,
+      "seed": 1,
+      "budget": 36,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        25,
+        25
+      ],
+      "starts": [
+        [
+          21,
+          9
+        ],
+        [
+          16,
+          1
+        ],
+        [
+          7,
+          22
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            21.0,
+            9.0
+          ],
+          [
+            16.0,
+            1.0
+          ],
+          [
+            7.0,
+            22.0
+          ]
+        ],
+        "f_evaluated": [
+          3.62372818288106,
+          3.5756578426780816,
+          null
+        ],
+        "max_evals": 33
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 1,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 763317,
+      "monotonic": 297134.982193751,
+      "utc": "2026-10-15T22:31:09.307067+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          22.0,
+          22.0
+        ],
+        "fun": 2.791251698855158,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 33,
+        "nfev": 33
+      },
+      "dfo_wall_s": 0.4030150199541822,
+      "callback_count": 36,
+      "worker_process_wall_s": 1.2656443899613805,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_25_B36_seed2_bam",
+    "spec": {
+      "job_id": "cstr_25_B36_seed2_bam",
+      "case": "cstr_25",
+      "cstr_size": 25,
+      "seed": 2,
+      "budget": 36,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        25,
+        25
+      ],
+      "starts": [
+        [
+          23,
+          23
+        ],
+        [
+          2,
+          16
+        ],
+        [
+          12,
+          3
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            23.0,
+            23.0
+          ],
+          [
+            2.0,
+            16.0
+          ],
+          [
+            12.0,
+            3.0
+          ]
+        ],
+        "f_evaluated": [
+          2.7877099904381484,
+          null,
+          3.5060040432664086
+        ],
+        "max_evals": 33
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 2,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 763543,
+      "monotonic": 297136.495536141,
+      "utc": "2026-10-15T22:31:10.820410+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          23.0,
+          23.0
+        ],
+        "fun": 2.7877099904381484,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 33,
+        "nfev": 33
+      },
+      "dfo_wall_s": 0.48246330802794546,
+      "callback_count": 36,
+      "worker_process_wall_s": 1.315720156999305,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_25_B36_seed3_bam",
+    "spec": {
+      "job_id": "cstr_25_B36_seed3_bam",
+      "case": "cstr_25",
+      "cstr_size": 25,
+      "seed": 3,
+      "budget": 36,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        25,
+        25
+      ],
+      "starts": [
+        [
+          16,
+          23
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          24,
+          14
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            16.0,
+            23.0
+          ],
+          [
+            3.0,
+            4.0
+          ],
+          [
+            24.0,
+            14.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          null,
+          3.642604660450057
+        ],
+        "max_evals": 33
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 3,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 763791,
+      "monotonic": 297138.056685943,
+      "utc": "2026-10-15T22:31:12.381559+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          22.0,
+          22.0
+        ],
+        "fun": 2.791251698855158,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 33,
+        "nfev": 33
+      },
+      "dfo_wall_s": 0.4142404909944162,
+      "callback_count": 36,
+      "worker_process_wall_s": 1.2661914079799317,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_25_B36_seed4_bam",
+    "spec": {
+      "job_id": "cstr_25_B36_seed4_bam",
+      "case": "cstr_25",
+      "cstr_size": 25,
+      "seed": 4,
+      "budget": 36,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        25,
+        25
+      ],
+      "starts": [
+        [
+          9,
+          5
+        ],
+        [
+          1,
+          16
+        ],
+        [
+          20,
+          22
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            9.0,
+            5.0
+          ],
+          [
+            1.0,
+            16.0
+          ],
+          [
+            20.0,
+            22.0
+          ]
+        ],
+        "f_evaluated": [
+          3.4079286723162485,
+          null,
+          null
+        ],
+        "max_evals": 33
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 4,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 764008,
+      "monotonic": 297139.578128378,
+      "utc": "2026-10-15T22:31:13.903004+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          25.0,
+          25.0
+        ],
+        "fun": 2.7814825926752516,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 33,
+        "nfev": 33
+      },
+      "dfo_wall_s": 0.46140660397941247,
+      "callback_count": 36,
+      "worker_process_wall_s": 1.315840007038787,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_25_B36_seed5_bam",
+    "spec": {
+      "job_id": "cstr_25_B36_seed5_bam",
+      "case": "cstr_25",
+      "cstr_size": 25,
+      "seed": 5,
+      "budget": 36,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        25,
+        25
+      ],
+      "starts": [
+        [
+          11,
+          3
+        ],
+        [
+          21,
+          15
+        ],
+        [
+          9,
+          22
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            11.0,
+            3.0
+          ],
+          [
+            21.0,
+            15.0
+          ],
+          [
+            9.0,
+            22.0
+          ]
+        ],
+        "f_evaluated": [
+          3.4799016812072256,
+          3.5659403322713294,
+          null
+        ],
+        "max_evals": 33
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 5,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 764246,
+      "monotonic": 297141.149252455,
+      "utc": "2026-10-15T22:31:15.474126+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          22.0,
+          22.0
+        ],
+        "fun": 2.791251698855158,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 33,
+        "nfev": 33
+      },
+      "dfo_wall_s": 0.399961440009065,
+      "callback_count": 36,
+      "worker_process_wall_s": 1.2655957079841755,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_25_B36_seed6_bam",
+    "spec": {
+      "job_id": "cstr_25_B36_seed6_bam",
+      "case": "cstr_25",
+      "cstr_size": 25,
+      "seed": 6,
+      "budget": 36,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        25,
+        25
+      ],
+      "starts": [
+        [
+          13,
+          6
+        ],
+        [
+          6,
+          22
+        ],
+        [
+          17,
+          12
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            13.0,
+            6.0
+          ],
+          [
+            6.0,
+            22.0
+          ],
+          [
+            17.0,
+            12.0
+          ]
+        ],
+        "f_evaluated": [
+          3.5277538317563355,
+          null,
+          3.563430097488257
+        ],
+        "max_evals": 33
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 6,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 764454,
+      "monotonic": 297142.671457611,
+      "utc": "2026-10-15T22:31:16.996331+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          22.0,
+          22.0
+        ],
+        "fun": 2.791251698855158,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 33,
+        "nfev": 33
+      },
+      "dfo_wall_s": 0.3920362399658188,
+      "callback_count": 36,
+      "worker_process_wall_s": 1.2655968589824624,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_25_B36_seed7_bam",
+    "spec": {
+      "job_id": "cstr_25_B36_seed7_bam",
+      "case": "cstr_25",
+      "cstr_size": 25,
+      "seed": 7,
+      "budget": 36,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        25,
+        25
+      ],
+      "starts": [
+        [
+          12,
+          2
+        ],
+        [
+          19,
+          23
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            12.0,
+            2.0
+          ],
+          [
+            19.0,
+            23.0
+          ],
+          [
+            7.0,
+            10.0
+          ]
+        ],
+        "f_evaluated": [
+          3.5060040432564716,
+          null,
+          null
+        ],
+        "max_evals": 33
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 7,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 764655,
+      "monotonic": 297144.194084785,
+      "utc": "2026-10-15T22:31:18.518958+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          22.0,
+          22.0
+        ],
+        "fun": 2.791251698855158,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 33,
+        "nfev": 33
+      },
+      "dfo_wall_s": 0.3781446620123461,
+      "callback_count": 36,
+      "worker_process_wall_s": 1.2155630320194177,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_25_B36_seed8_bam",
+    "spec": {
+      "job_id": "cstr_25_B36_seed8_bam",
+      "case": "cstr_25",
+      "cstr_size": 25,
+      "seed": 8,
+      "budget": 36,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        25,
+        25
+      ],
+      "starts": [
+        [
+          14,
+          17
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          18,
+          14
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            14.0,
+            17.0
+          ],
+          [
+            6.0,
+            3.0
+          ],
+          [
+            18.0,
+            14.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          3.20097659466408,
+          3.443188883796775
+        ],
+        "max_evals": 33
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 8,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 764854,
+      "monotonic": 297145.669420846,
+      "utc": "2026-10-15T22:31:19.994294+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          22.0,
+          22.0
+        ],
+        "fun": 2.791251698855158,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 33,
+        "nfev": 33
+      },
+      "dfo_wall_s": 0.3576058110338636,
+      "callback_count": 36,
+      "worker_process_wall_s": 1.2155529530136846,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_25_B36_seed9_bam",
+    "spec": {
+      "job_id": "cstr_25_B36_seed9_bam",
+      "case": "cstr_25",
+      "cstr_size": 25,
+      "seed": 9,
+      "budget": 36,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        25,
+        25
+      ],
+      "starts": [
+        [
+          10,
+          15
+        ],
+        [
+          20,
+          3
+        ],
+        [
+          3,
+          18
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            10.0,
+            15.0
+          ],
+          [
+            20.0,
+            3.0
+          ],
+          [
+            3.0,
+            18.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          3.6161229932814005,
+          null
+        ],
+        "max_evals": 33
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 9,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 765037,
+      "monotonic": 297147.147691048,
+      "utc": "2026-10-15T22:31:21.472564+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          22.0,
+          22.0
+        ],
+        "fun": 2.791251698855158,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 33,
+        "nfev": 33
+      },
+      "dfo_wall_s": 0.3970400540274568,
+      "callback_count": 36,
+      "worker_process_wall_s": 1.2665505170007236,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_30_B43_seed0_bam",
+    "spec": {
+      "job_id": "cstr_30_B43_seed0_bam",
+      "case": "cstr_30",
+      "cstr_size": 30,
+      "seed": 0,
+      "budget": 43,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        30,
+        30
+      ],
+      "starts": [
+        [
+          5,
+          8
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          12,
+          12
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            5.0,
+            8.0
+          ],
+          [
+            30.0,
+            30.0
+          ],
+          [
+            12.0,
+            12.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          2.7695697198995095,
+          2.859465607633561
+        ],
+        "max_evals": 40
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 0,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 765245,
+      "monotonic": 297148.675283523,
+      "utc": "2026-10-15T22:31:23.000157+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          30.0,
+          30.0
+        ],
+        "fun": 2.7695697198995095,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 40,
+        "nfev": 40
+      },
+      "dfo_wall_s": 0.49352121801348403,
+      "callback_count": 43,
+      "worker_process_wall_s": 1.3674171890015714,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_30_B43_seed1_bam",
+    "spec": {
+      "job_id": "cstr_30_B43_seed1_bam",
+      "case": "cstr_30",
+      "cstr_size": 30,
+      "seed": 1,
+      "budget": 43,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        30,
+        30
+      ],
+      "starts": [
+        [
+          25,
+          11
+        ],
+        [
+          19,
+          1
+        ],
+        [
+          8,
+          26
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            25.0,
+            11.0
+          ],
+          [
+            19.0,
+            1.0
+          ],
+          [
+            8.0,
+            26.0
+          ]
+        ],
+        "f_evaluated": [
+          3.647855896379149,
+          3.607680033101514,
+          null
+        ],
+        "max_evals": 40
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 1,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 765500,
+      "monotonic": 297150.307837274,
+      "utc": "2026-10-15T22:31:24.632710+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          26.0,
+          26.0
+        ],
+        "fun": 2.7787307151031473,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 40,
+        "nfev": 40
+      },
+      "dfo_wall_s": 0.41401931701693684,
+      "callback_count": 43,
+      "worker_process_wall_s": 1.265688514977228,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_30_B43_seed2_bam",
+    "spec": {
+      "job_id": "cstr_30_B43_seed2_bam",
+      "case": "cstr_30",
+      "cstr_size": 30,
+      "seed": 2,
+      "budget": 43,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        30,
+        30
+      ],
+      "starts": [
+        [
+          27,
+          27
+        ],
+        [
+          3,
+          19
+        ],
+        [
+          15,
+          4
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            27.0,
+            27.0
+          ],
+          [
+            3.0,
+            19.0
+          ],
+          [
+            15.0,
+            4.0
+          ]
+        ],
+        "f_evaluated": [
+          2.776184124847389,
+          null,
+          3.5619586332226043
+        ],
+        "max_evals": 40
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 2,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 765708,
+      "monotonic": 297151.845174574,
+      "utc": "2026-10-15T22:31:26.170048+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          27.0,
+          27.0
+        ],
+        "fun": 2.776184124847389,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 40,
+        "nfev": 40
+      },
+      "dfo_wall_s": 0.5475837020203471,
+      "callback_count": 43,
+      "worker_process_wall_s": 1.415759486029856,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_30_B43_seed3_bam",
+    "spec": {
+      "job_id": "cstr_30_B43_seed3_bam",
+      "case": "cstr_30",
+      "cstr_size": 30,
+      "seed": 3,
+      "budget": 43,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        30,
+        30
+      ],
+      "starts": [
+        [
+          20,
+          28
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          29,
+          16
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            20.0,
+            28.0
+          ],
+          [
+            3.0,
+            5.0
+          ],
+          [
+            29.0,
+            16.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          null,
+          3.665135532080591
+        ],
+        "max_evals": 40
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 3,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 765994,
+      "monotonic": 297153.540476195,
+      "utc": "2026-10-15T22:31:27.865350+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          26.0,
+          26.0
+        ],
+        "fun": 2.7787307151031473,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 40,
+        "nfev": 40
+      },
+      "dfo_wall_s": 0.4520310370135121,
+      "callback_count": 43,
+      "worker_process_wall_s": 1.316022837010678,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_30_B43_seed4_bam",
+    "spec": {
+      "job_id": "cstr_30_B43_seed4_bam",
+      "case": "cstr_30",
+      "cstr_size": 30,
+      "seed": 4,
+      "budget": 43,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        30,
+        30
+      ],
+      "starts": [
+        [
+          11,
+          6
+        ],
+        [
+          1,
+          20
+        ],
+        [
+          24,
+          26
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            11.0,
+            6.0
+          ],
+          [
+            1.0,
+            20.0
+          ],
+          [
+            24.0,
+            26.0
+          ]
+        ],
+        "f_evaluated": [
+          3.4799017412890274,
+          null,
+          null
+        ],
+        "max_evals": 40
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 4,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 766224,
+      "monotonic": 297155.124326408,
+      "utc": "2026-10-15T22:31:29.449200+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          30.0,
+          30.0
+        ],
+        "fun": 2.7695697198995095,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 40,
+        "nfev": 40
+      },
+      "dfo_wall_s": 0.4551299119484611,
+      "callback_count": 43,
+      "worker_process_wall_s": 1.3156915120198391,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_30_B43_seed5_bam",
+    "spec": {
+      "job_id": "cstr_30_B43_seed5_bam",
+      "case": "cstr_30",
+      "cstr_size": 30,
+      "seed": 5,
+      "budget": 43,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        30,
+        30
+      ],
+      "starts": [
+        [
+          13,
+          3
+        ],
+        [
+          25,
+          18
+        ],
+        [
+          10,
+          26
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            13.0,
+            3.0
+          ],
+          [
+            25.0,
+            18.0
+          ],
+          [
+            10.0,
+            26.0
+          ]
+        ],
+        "f_evaluated": [
+          3.527753831753345,
+          3.559454870251048,
+          null
+        ],
+        "max_evals": 40
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 5,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 766459,
+      "monotonic": 297156.719060829,
+      "utc": "2026-10-15T22:31:31.043935+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          26.0,
+          26.0
+        ],
+        "fun": 2.7787307151031473,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 40,
+        "nfev": 40
+      },
+      "dfo_wall_s": 0.41415715200128034,
+      "callback_count": 43,
+      "worker_process_wall_s": 1.2660669589531608,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_30_B43_seed6_bam",
+    "spec": {
+      "job_id": "cstr_30_B43_seed6_bam",
+      "case": "cstr_30",
+      "cstr_size": 30,
+      "seed": 6,
+      "budget": 43,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        30,
+        30
+      ],
+      "starts": [
+        [
+          15,
+          7
+        ],
+        [
+          7,
+          26
+        ],
+        [
+          20,
+          14
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            15.0,
+            7.0
+          ],
+          [
+            7.0,
+            26.0
+          ],
+          [
+            20.0,
+            14.0
+          ]
+        ],
+        "f_evaluated": [
+          3.561958633252606,
+          null,
+          3.5823294607085616
+        ],
+        "max_evals": 40
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 6,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 766669,
+      "monotonic": 297158.263255785,
+      "utc": "2026-10-15T22:31:32.588129+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          26.0,
+          26.0
+        ],
+        "fun": 2.7787307151031473,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 40,
+        "nfev": 40
+      },
+      "dfo_wall_s": 0.39203286403790116,
+      "callback_count": 43,
+      "worker_process_wall_s": 1.2668056240072474,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_30_B43_seed7_bam",
+    "spec": {
+      "job_id": "cstr_30_B43_seed7_bam",
+      "case": "cstr_30",
+      "cstr_size": 30,
+      "seed": 7,
+      "budget": 43,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        30,
+        30
+      ],
+      "starts": [
+        [
+          14,
+          2
+        ],
+        [
+          23,
+          28
+        ],
+        [
+          8,
+          12
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            14.0,
+            2.0
+          ],
+          [
+            23.0,
+            28.0
+          ],
+          [
+            8.0,
+            12.0
+          ]
+        ],
+        "f_evaluated": [
+          3.546165612810968,
+          null,
+          null
+        ],
+        "max_evals": 40
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 7,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 766868,
+      "monotonic": 297159.811328759,
+      "utc": "2026-10-15T22:31:34.136203+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          26.0,
+          26.0
+        ],
+        "fun": 2.7787307151031473,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 40,
+        "nfev": 40
+      },
+      "dfo_wall_s": 0.4496285750064999,
+      "callback_count": 43,
+      "worker_process_wall_s": 1.316260601975955,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_30_B43_seed8_bam",
+    "spec": {
+      "job_id": "cstr_30_B43_seed8_bam",
+      "case": "cstr_30",
+      "cstr_size": 30,
+      "seed": 8,
+      "budget": 43,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        30,
+        30
+      ],
+      "starts": [
+        [
+          17,
+          20
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          22,
+          17
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            17.0,
+            20.0
+          ],
+          [
+            8.0,
+            3.0
+          ],
+          [
+            22.0,
+            17.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          3.35617523522032,
+          3.4467982602658864
+        ],
+        "max_evals": 40
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 8,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 767096,
+      "monotonic": 297161.409020134,
+      "utc": "2026-10-15T22:31:35.733894+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          26.0,
+          26.0
+        ],
+        "fun": 2.7787307151031473,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 40,
+        "nfev": 40
+      },
+      "dfo_wall_s": 0.3974652789765969,
+      "callback_count": 43,
+      "worker_process_wall_s": 1.265643529011868,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  },
+  {
+    "job_id": "cstr_30_B43_seed9_bam",
+    "spec": {
+      "job_id": "cstr_30_B43_seed9_bam",
+      "case": "cstr_30",
+      "cstr_size": 30,
+      "seed": 9,
+      "budget": 43,
+      "lower": [
+        1,
+        1
+      ],
+      "upper": [
+        30,
+        30
+      ],
+      "starts": [
+        [
+          12,
+          18
+        ],
+        [
+          24,
+          3
+        ],
+        [
+          4,
+          21
+        ]
+      ],
+      "settings": {
+        "integrality": "all_integer",
+        "x0": null,
+        "print_to_screen": 1,
+        "budget_stop_policy": "native_max_evals_return_terminal_v2"
+      },
+      "method": "bam"
+    },
+    "settings": {
+      "options": {
+        "print_to_screen": 1,
+        "x_evaluated": [
+          [
+            12.0,
+            18.0
+          ],
+          [
+            24.0,
+            3.0
+          ],
+          [
+            4.0,
+            21.0
+          ]
+        ],
+        "f_evaluated": [
+          null,
+          3.642604660340207,
+          null
+        ],
+        "max_evals": 40
+      },
+      "integrality": [
+        1,
+        1
+      ],
+      "x0": null,
+      "python_numpy_seed": 9,
+      "bam_seed_option": "not exposed in original runner",
+      "budget_stop_policy": "native_max_evals_return_terminal_v2"
+    },
+    "runtime": {
+      "versions": {
+        "numpy": "2.4.6",
+        "scipy": "1.17.1",
+        "bam-solver": "5.0.0"
+      },
+      "python": "3.11.16",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+      "host": "dantzig.ecn.purdue.edu",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34"
+    },
+    "started": {
+      "pid": 767295,
+      "monotonic": 297162.956678223,
+      "utc": "2026-10-15T22:31:37.281551+00:00",
+      "effective_cpu": [
+        0
+      ]
+    },
+    "result": {
+      "status": "budget_completed",
+      "error": null,
+      "algorithm_result": {
+        "x": [
+          26.0,
+          26.0
+        ],
+        "fun": 2.7787307151031473,
+        "status": 35,
+        "success": true,
+        "message": "Solver reached limit on function calls.",
+        "nit": 40,
+        "nfev": 40
+      },
+      "dfo_wall_s": 0.4057331859949045,
+      "callback_count": 43,
+      "worker_process_wall_s": 1.2655900969984941,
+      "worker_returncode": 0,
+      "watchdog_timeout": false
+    }
+  }
+]

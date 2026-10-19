@@ -1,0 +1,18 @@
+{
+  "archive": "results/archives/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip",
+  "archive_sha256": "38f1f99098113f67a0cec623eff88dfdf3e10bda2c7c07a5a356cbabce527677",
+  "original_download": "/Users/albertlee0125/Downloads/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip",
+  "verified_archive_files": 3146,
+  "files_sha256": {
+    "run.json": "f4e0c42de77e5be5cb30af12c0b00edd8eb33214180944825b898cd9751eff3a",
+    "summary.json": "59dad48e728f7cfbbcec58393a224db769801f235d400728edd4250072a81f20",
+    "coordinates.csv": "0ccc4b5f27431fb66cf25670267f31e52ac3847a7e70a5836e6c313a56faf455",
+    "evaluations.csv": "f9e2f58cc9f857285942e4ed90a5203d98e50acc9619f5f4184f1655eba148dd",
+    "cstr_20/evaluations.csv": "d9d93f67ff55535c3722966c93dee4eb09442bccda106a76b4f40e986b67f9e3",
+    "cstr_25/evaluations.csv": "69140982a13f5ad8837abeeb6f1104159abfcb64a8bf40fa1e678353f4b947be"
+  },
+  "csv_json_objective_and_time_match": true,
+  "completion": "1025/1025; no pending points",
+  "selection": "Single original attempt for every coordinate; no retries or exclusions",
+  "raw_logs_records_and_sources": "Retained in the verified complete archive"
+}

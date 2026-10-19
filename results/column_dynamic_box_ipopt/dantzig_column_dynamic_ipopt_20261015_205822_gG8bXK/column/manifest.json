@@ -1,0 +1,460 @@
+{
+  "schema_version": 1,
+  "plan": {
+    "case": "column",
+    "cstr_size": null,
+    "domain": "dfo_box",
+    "bounds": [
+      [
+        7,
+        15
+      ],
+      [
+        1,
+        9
+      ]
+    ],
+    "points": [
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        2
+      ],
+      [
+        7,
+        3
+      ],
+      [
+        7,
+        4
+      ],
+      [
+        7,
+        5
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        7,
+        7
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        7,
+        9
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        8,
+        3
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        8,
+        7
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        9,
+        3
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        9,
+        5
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        10,
+        3
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        10,
+        6
+      ],
+      [
+        10,
+        7
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        11,
+        5
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        12,
+        2
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        12,
+        5
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        12,
+        7
+      ],
+      [
+        12,
+        8
+      ],
+      [
+        12,
+        9
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        13,
+        3
+      ],
+      [
+        13,
+        4
+      ],
+      [
+        13,
+        5
+      ],
+      [
+        13,
+        6
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        13,
+        9
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        14,
+        3
+      ],
+      [
+        14,
+        4
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        15,
+        1
+      ],
+      [
+        15,
+        2
+      ],
+      [
+        15,
+        3
+      ],
+      [
+        15,
+        4
+      ],
+      [
+        15,
+        5
+      ],
+      [
+        15,
+        6
+      ],
+      [
+        15,
+        7
+      ],
+      [
+        15,
+        8
+      ],
+      [
+        15,
+        9
+      ]
+    ],
+    "box_count": 81,
+    "candidate_count": 81,
+    "logical_candidate_count": 64,
+    "excluded_by_logic": 17,
+    "logical_rule": "x1>=8 and x2<=8"
+  },
+  "config": {
+    "solver": "gams_ipopt",
+    "initialization": "auto",
+    "time_limit_s": 60.0,
+    "feasibility_tolerance": 1e-05
+  },
+  "runtime": {
+    "solver_executable": "/package/gams/52.2/gams",
+    "solver_executable_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+    "solver_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "expected_ipopt_version": "3.14.19",
+    "expected_mumps_version": "5.8.1",
+    "solver_interface": "gams_shell",
+    "gams_solver": "ipopt",
+    "source": {
+      "repository": "https://github.com/SECQUOIA/dsda-gdp",
+      "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+      "files_sha256": {
+        "gdp/column/gdp_column.py": "c5fea7ff6286d2b6c1055a4e602b08648a03853aea24e6552f5921b36e205bab",
+        "gdp/dsda/column_17_initialization.json": "60cd7d1f7a7f08b59d9b0d7fca6e8920313ca7722c94d829e388a009ae4acfd7",
+        "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+        "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+        "main_column.py": "09a4ff167d87c15bb0e2323567f1f59be7ece61b325ea9cf84900bd7aaa2800a"
+      }
+    },
+    "initialization": "gdp/dsda/column_17_initialization.json",
+    "dependency_versions": {
+      "pyomo": "6.10.0",
+      "sympy": "1.14.0",
+      "numpy": "2.4.6",
+      "networkx": "3.6.1",
+      "matplotlib": "3.11.2"
+    },
+    "python_version": "3.11.16",
+    "host": "dantzig.ecn.purdue.edu",
+    "effective_cpu": [
+      0
+    ],
+    "git_commit": "686a5cdec3a8fa8ee94da8624e62ff54ca34dae4",
+    "code_sha256": {
+      "enumerate_process_ipopt.py": "1531d901d5e63d48d3b28316cc59ed78e7c1e85a348e5c9b1e618773b51bc334",
+      "enumerate_column_ipopt.py": "d58de51f024dee68dfa1623872ba5d841772b7f2ed817f2676e3be0f19eeab0f",
+      "enumerate_dynamic_ipopt.py": "18cb0e584ea38e348331a22dba6488598858e4cf62c89ffe70a05433b0f06635",
+      "gdp_models/__init__.py": "5ebb20b8f7249a66ace212cebabf47949e8f40d3a9ddea464b11a7eb55a47705",
+      "gdp_models/__main__.py": "3637c973071961beeb01876a23eb3bbf172d2fe3a493cbbc9e0fd29d623e6dc4",
+      "gdp_models/_sources.py": "d5363100698e69c829918b850c0fb39481b64eb9c4e2d7c987bee3b628e2fd29",
+      "gdp_models/batch.py": "01e82b9c62ac196be5fb9feab739e3b122b9a08babb5af7f546565f114227117",
+      "gdp_models/comparison.py": "71725cccdae93fbccaa5071d547fa406ebf4819b1015f09939c67e444fb7d300",
+      "gdp_models/dantzig.py": "47533ff3b9436e4bc089ca7aecd43ca0c38924e379c2b3b4195a8cd60d48b3d4",
+      "gdp_models/domains.py": "bb2a9f2783fdf32f25d327c417521ecae73b2dc60fc6e579d8c0afe187493394",
+      "gdp_models/evaluation.py": "98eda90acea6fc70d26192020972d9b9917b5802a06239aa4a92ad42a9aa19f5",
+      "gdp_models/grid.py": "e0e65ec27d20be9f5cfe6419cb7cd176663a909614a6bb9be67db879d574c7c8",
+      "gdp_models/grid_benchmark.py": "55432472d647691166855f4ca479060789312a3e482a77edfa9980b7a0729137",
+      "gdp_models/grid_retry_fixes.py": "466d9b92b3247a6832ca88ebd00f8de719dccc0e4205b53ff0e6c67937243f0f",
+      "gdp_models/models.py": "1257294f4b90ddf7ee0bfa3b23e3df576890433a103f49789e624499fe698396",
+      "gdp_models/preflight.py": "fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56",
+      "gdp_models/solvers.py": "bdc1a4c52c65128cda618c9b64be28a53abea557f3f5a4e4e975a77e57085d1d"
+    },
+    "reference_sha256": {
+      "evaluations.csv": "5e04eb22463a91fb8165b8f76af357d1cea8ea3913c1efbe7249eee6686e0ab8",
+      "manifest.json": "433b5fe194358bf847f6e3a5263e7612ef871ea37be247792f2c0d1e5f07be4c"
+    },
+    "adapter_differences": {
+      "evaluation.py": {
+        "historical_sha256": "88be8eaa7c84530b1861c5cc27a2cb24e459da7d5d617b843b384b35a42fb099",
+        "current_sha256": "98eda90acea6fc70d26192020972d9b9917b5802a06239aa4a92ad42a9aa19f5"
+      },
+      "solvers.py": {
+        "historical_sha256": "6832d692177b2b9533606a2af3b32604e52553d74a975ea5f3da51c3a9cab3c6",
+        "current_sha256": "bdc1a4c52c65128cda618c9b64be28a53abea557f3f5a4e4e975a77e57085d1d"
+      },
+      "preflight.py": {
+        "historical_sha256": "f82c7da2fcde8f2e1d3175c3517747661f45d94938b89aac6ed1ccdb5e8f3dc9",
+        "current_sha256": "fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56"
+      }
+    },
+    "solver_options": {
+      "solver": "ipopt",
+      "mtype": "nlp",
+      "warmstart": true,
+      "io_options": {
+        "put_results_format": "dat"
+      },
+      "add_options": [
+        "option reslim=60.0;",
+        "option iterlim=3000;",
+        "option threads=1;",
+        "option optcr=0.00001;",
+        "GAMS_MODEL.optfile=1;"
+      ]
+    },
+    "solver_option_file": [
+      "tol 1e-8",
+      "bound_relax_factor 0",
+      "max_iter 3000",
+      "warm_start_init_point no",
+      "linear_solver mumps"
+    ],
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "preflight_solver_calls": 0
+  },
+  "created_utc": "2026-10-15T20:58:23.836720+00:00"
+}

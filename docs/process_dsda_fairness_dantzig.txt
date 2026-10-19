@@ -1,74 +1,30 @@
-DSDA single-job recovery — 2026-10-14 v5
+Process DSDA results and reproduction — October 14, 2026
 
-COMPLETED: the returned 5ozwo5rx recovery has been independently verified.
-Do not rerun the job to obtain publication data. Current complete results:
+The completed result has 140 validated DSDA runs, 2,611 callbacks,
+75 target hits and zero missing callback costs. The current 560-row
+comparison combines these runs with 420 unchanged non-DSDA records.
+
+Current result and accounting details:
 results/process_dsda_recovery_20261014/README.md
-Recovery ZIP SHA256:
+Current comparison input:
+results/process_dsda_recovery_20261014/analysis/candidate_selection.json
+
+Rebuild the verified tables from the repository root, without new solver runs:
+python scripts/import_process_dsda_recovery.py \
+  results/archives/process_dsda_recovered_20261014_5ozwo5rx_1792008943955816015.zip \
+  --output results/reproduction/process
+
+Original recovery archive SHA256:
 7201a5d49d216a9c1eea64ecf649ec4c185dd9c1dafcc41c70117edf600e51b3
-The commands below are retained as the procedure used for this measurement.
 
-Use this workflow for the verified pudvsttz result ZIP. It copies the 139 sealed
-completed jobs byte-for-byte into a new result directory and reruns ONLY
-cstr_15_B22_seed9_dsda. The original ZIP (including the failed trace and old
-source/runtime) is embedded unchanged as parent_result.zip. Original data are
-never overwritten. New measured NLP solves: zero. CPU7 and the same environment.
+The archived v5 execution package and its checksum are preserved at:
+results/runners/process_dsda_fairness_20261014_v5.zip
+results/runners/process_dsda_fairness_20261014_v5.zip.sha256
+It contains the original upload/recovery instructions, source snapshot and
+progress report. Use that frozen package for the historical execution protocol;
+the current checkout is maintained separately. The returned archive preserves
+all 139 parent jobs and the single remeasured CSTR15/B22/seed9 job.
 
-Cause: the validator required the returned best to equal the strict callback
-minimum. The unchanged DSDA engine retains an incumbent for improvements below
-1e-12. The observed difference was 2.5490720645393594e-13. v5 validates the exact
-expected tolerance-aware return; it does not relax target success or change DSDA.
-The old job did not retain its final method clock, so only this job is remeasured.
-
-Mac — upload:
-cd /Users/albertlee0125/Repos/RBFopt_Test
-scp results/runners/process_dsda_fairness_20261014_v5.zip \
-    results/runners/process_dsda_fairness_20261014_v5.zip.sha256 \
-    lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/
-ssh lee4382@dantzig.ecn.purdue.edu
-
-Dantzig — paste this whole block:
-(
-set -e
-cd /local/scratch/a/lee4382
-sha256sum -c process_dsda_fairness_20261014_v5.zip.sha256
-DSDA_PACKAGE=$(mktemp -d /local/scratch/a/lee4382/dsda_pkg14_v5_XXXXXX)
-unzip -q process_dsda_fairness_20261014_v5.zip -d "$DSDA_PACKAGE"
-cd "$DSDA_PACKAGE/process_dsda_fairness"
-mkdir -p /local/scratch/a/lee4382/dsda14_recovery
-DSDA_OUTPUT_ROOT=/local/scratch/a/lee4382/dsda14_recovery \
-nohup bash run_process_dsda_fairness_dantzig.sh recover \
-  --parent-zip /local/scratch/a/lee4382/dsda14/process_dsda_budget_fairness_20261014_pudvsttz_1792004864773526053.zip \
-  > /local/scratch/a/lee4382/dsda14_recovery/launch.log 2>&1 < /dev/null &
-echo "DSDA_PID=$!"
-)
-tail -f /local/scratch/a/lee4382/dsda14_recovery/launch.log
-
-The existing conda environment is reused. No installs. CONDA_EXE from the
-activated shell or the repository Miniforge executable is detected automatically.
-Required regression tests exercise all frozen paths without NLP solves before
-the single measured worker starts. Their local timings are never benchmark data.
-Expected measured-job log: only START/DONE cstr_15_B22_seed9_dsda.
-Ctrl-C exits tail only. The completed log prints RESULT_ZIP.
-
-Mac — download the new result ZIP(s) and verify:
-mkdir -p ~/Downloads/process_dsda_recovery_20261014
-scp 'lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/dsda14_recovery/process_dsda_recovered_20261014_*.zip*' \
-    ~/Downloads/process_dsda_recovery_20261014/
-cd ~/Downloads/process_dsda_recovery_20261014
-for DSDA_SUM in *.zip.sha256; do shasum -a 256 -c "$DSDA_SUM"; done
-
-Expected outcome: 140 validated jobs, 139 preserved, one remeasured, no errors.
-This does NOT mean 140 target hits. The recovered CSTR15 seed9 remains a target
-miss. The four earlier cost-join gaps are resolved with existing same-coordinate
-logical-rejection measurements: CSTR30 for (6,7),(17,19),(22,24), and the
-existing CSTR20 record for (13,15). Requested and measured sizes are both
-recorded. Existing exact costs are retained. No new point measurement or NLP
-call is introduced.
-Incomplete ten-seed or timing groups have no aggregate median/TTS99.
-Candidate selection is separate; official figures/results are never overwritten.
-After successful server recovery, all140 runs and all callback costs should be
-available. Candidate figures are separate and need visual review. Return the
-new ZIP for independent checking before replacing manuscript data.
-
-The package also retains the original full-matrix run/bundle/status/pack modes.
-Do not invoke 'run' for this recovery; 'recover' is the single-job workflow above.
+Completion times are fixed-path estimates from recorded method times and
+separate point measurements, not measured online NLP runtimes. The four reused
+CSTR rejection costs retain their donor provenance in the result directory.

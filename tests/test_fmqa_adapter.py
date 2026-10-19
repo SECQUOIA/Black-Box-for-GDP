@@ -115,6 +115,33 @@ def test_adapter_matches_direct_native_training_and_bqm_energies():
         assert settings["interop_threads"] == interop_threads
 
 
+@pytest.mark.parametrize("bits,targets", [
+    (["0"], [0.]),
+    (["0", "1"], [1., 1.]),
+    (["000", "111", "101"], [0., 1., .5]),
+    (["0" * 17, "1" * 17, "01" * 8 + "0"], [1., .5, 0.]),
+])
+def test_native_training_boundary_shapes_preserve_finite_repeatable_energies(bits, targets):
+    # Cover scalar-sized batches, constant targets and wider FM interaction matrices.
+    model = qhd_surrogate.train(bits, targets, seed=19, epochs=10, learning_rate=.01)
+    repeated = qhd_surrogate.train(bits, targets, seed=19, epochs=10, learning_rate=.01)
+    assert dict(model.linear) == dict(repeated.linear)
+    assert dict(model.quadratic) == dict(repeated.quadratic)
+    assert model.offset == repeated.offset
+    width = len(bits[0])
+    probes = np.array([[0] * width, [1] * width, *np.eye(width, dtype=int).tolist()])
+    with torch.no_grad():
+        predictions = model.fm(torch.tensor(probes, dtype=torch.float32, device="cpu")).numpy()
+    assert predictions.shape == (len(probes),)
+    assert np.isfinite(predictions).all()
+    _, linear, quadratic = model.fm.get_bhQ()
+    np.fill_diagonal(quadratic, linear)
+    scale = np.max(np.abs(quadratic))
+    assert np.isfinite(scale) and scale > 0
+    energies = [model.energy(dict(enumerate(point))) for point in probes]
+    np.testing.assert_allclose(energies, predictions / scale, rtol=1e-5, atol=1e-5)
+
+
 def test_public_adapter_preserves_core_path_and_reports_effective_settings():
     from fmqa_benchmark.adapter import run_fmqa_sa
 

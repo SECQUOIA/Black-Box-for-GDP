@@ -40,6 +40,8 @@ bamlice.txt
 *.lic
 
 # Python
+.pytest_cache/
+.ruff_cache/
 __pycache__/
 *.py[cod]
 *$py.class

@@ -1,5 +1,13 @@
 # Issue #29: implementation extraction
 
+## Current main integration (2026-10-19)
+
+The branch now includes upstream/main `44b8a8b21a00f95f25683d5f71ec98a95adf877f`, including PR #37's final Process/BAM artifacts and CSTR structural-overlay inputs. The extraction/dependency notes below are historical. Archive-backed reference loading, captured-source checks, selected-attempt validation and main's CI changes are retained.
+
+The retained main test for changed adapter sources now mutates captured adapter bytes through `verify_sources(adapter_files=...)`, matching the reviewed builder API instead of monkeypatching a helper no longer used by that path. It still requires unknown source bytes to fail. Raw result ZIPs, tables and execution revisions remain unchanged; no new production experiment was run. PR #30's additional rejection-phase adapter profile remains a separate branch integration consideration.
+
+## Historical extraction record
+
 This branch extracts implementation, tests, and documentation from
 `AlbertLee125/RBFopt_Test:Benchmark` at `ade67082ad2b09583a8f5594b827c97417e0ea99`.
 The extraction added no experiment outputs or result archives. Existing results remain
