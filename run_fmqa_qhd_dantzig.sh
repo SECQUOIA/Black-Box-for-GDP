@@ -23,7 +23,7 @@ if [[ "$mode" == setup ]]; then
     fi
     [[ -f "$FMQA_QHD_ENV/pyvenv.cfg" ]] || { echo 'FMQA_QHD_ENV must be a dedicated Python venv.' >&2; exit 2; }
     "$FMQA_QHD_PYTHON" -m pip install -r requirements-fmqa.txt
-    "$FMQA_QHD_PYTHON" -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+    "$FMQA_QHD_PYTHON" -m pip install "$(sed -n '/^torch==/p' requirements-fmqa-qhd.txt)" --index-url https://download.pytorch.org/whl/cpu
     "$FMQA_QHD_PYTHON" -m pip check
     mode=check
 fi

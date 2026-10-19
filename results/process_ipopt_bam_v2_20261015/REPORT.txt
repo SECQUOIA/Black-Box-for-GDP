@@ -1,0 +1,32 @@
+BAM native-budget rerun update — 2026-10-15
+
+All 140 BAM slots are replaced, with no outcome selection between runs.
+All 3,430 BAM in-budget points, accepted flags, objective values and selected
+point costs are identical to the prior trajectories. The corrected stopping
+procedure returns the final value and ends at BAM's native limit, eliminating
+27 budget-control failures. The other 420 runs are unchanged.
+
+Combined outcomes: 291 target hits, 268 misses, 1 Column DSDA initialization
+failure. BAM alone: 47 hits, 93 misses, no execution failures or overruns.
+All 560 runs have complete reconstructed costs; all 56 group medians exist.
+TTS99: 54 finite and 2 infinite (BAM Column B16 and Dynamic B12: zero hits).
+No cost is zero-filled, borrowed across model sizes or selected from retries.
+
+Reproduce from the repository root, with numpy and matplotlib available:
+  python scripts/import_bam_budget_v2.py
+  python scripts/process_ipopt/build_figures.py
+
+Raw returned archives and exact submitted bundles are retained under
+results/archives and results/runners. The importer pins their SHA256 values,
+checks every callback against its IPOPT input row, checks native limits and
+regenerates the server's tables for exact comparison. Historical raw results
+remain in their original folders; use the combined tables in this directory
+for current reporting.
+
+The four active process figures and two supplemental plots are regenerated.
+The repository contains experimental data, analysis code and figures.
+Manuscript editing is managed in Overleaf.
+87 regression and pinned-archive integration tests passed.
+
+Eight conflicting algebraic solver optimality reports remain unresolved.
+Times are retrospective fixed-path estimates, not online optimizer-NLP times.

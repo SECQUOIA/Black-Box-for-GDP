@@ -1,0 +1,53 @@
+{
+  "source_archive": "results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip",
+  "source_archive_sha256": "8ae882d99e9309692b9ed773f2a87f076149f9b15d786d2e283fe0655c4a3e53",
+  "source_csv": "results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip!/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41/cstr_5/evaluations.csv",
+  "source_csv_absolute_at_build": "/Users/albertlee0125/Repos/RBFopt_Test/results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip!/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41/cstr_5/evaluations.csv",
+  "upstream": {
+    "repository": "https://github.com/SECQUOIA/dsda-gdp",
+    "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+    "files_sha256": {
+      "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+      "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+      "main_cstr.py": "b26b3895196716b0424d8aecb703a75e5c1d368fb2cbc9934bb299d836bb8183"
+    }
+  },
+  "verified_archive_files": 1107,
+  "availability": "ready",
+  "cstr_size": 5,
+  "initialization": "mass_balance_zero_recycle",
+  "files_sha256": {
+    "run.json": "2405643af5c563076701a5062b3e532dd40f2f5b93f2b854a8c8c42ba4f1b8d1",
+    "summary.json": "64070a87e7fbd26a66adf4b4a9be9d17fb7976c7da3eb823b651e06b9b9e7fed",
+    "evaluations.csv": "b66e228d6373320307f7239d304becf2f3e0fae48689e00e0db71c272f024b12",
+    "records/cstr_5_01_01.json": "33e023d1bfef3d94e05071c0b0095800d08296f2cc00364ec5621803905701ee",
+    "records/cstr_5_01_02.json": "b9f59b7e28a2896bf01c9944bbf1cb90c537f3e34aebd3757c8808d5cc93d104",
+    "records/cstr_5_01_03.json": "6950efbfce2f254a6fd68705dc14d0a6f17aed41cea999ac30111e3c42422ef8",
+    "records/cstr_5_01_04.json": "6c2ef10a800dff7082086e7fe8195fbc5121f6a2a0c7229138ce1cd14d596564",
+    "records/cstr_5_01_05.json": "59443110e71d4198b84a39d7a66ff0fdd7e1b2593096948cfd7440b1c49c5218",
+    "records/cstr_5_02_01.json": "79391f7fada172bad4916b7a85b4518caaea7d946a3888afd73bfc2ac5f1578f",
+    "records/cstr_5_02_02.json": "a3efddbbcd921730de7675e88677a77ee825d1ad5ecef0db75368625400ef196",
+    "records/cstr_5_02_03.json": "a9c56618e2319dae1bee52837c8b1ee6a49318186f2228500c1aa4c20a17877c",
+    "records/cstr_5_02_04.json": "c88d170ae166ea53be1886d29af32abda5f0831a36127dc9fbbaf4cea4653d51",
+    "records/cstr_5_02_05.json": "9cf8f6b297c2b52754d2de0f4272f648ba7ee8db6c3ee614dccb9d8cf1c758f9",
+    "records/cstr_5_03_01.json": "6f24db55f98d1301076c636386037c13e44b0b1d1a66cda5d860688317f630e0",
+    "records/cstr_5_03_02.json": "db07566487cb0e804ac30efe88a19b2322dcdf036e6fc4bdea0cf7d521521fc1",
+    "records/cstr_5_03_03.json": "2c4963a5e6661cac422e2d3623b744f0da65d7667d8efb832c64b89c954d5b72",
+    "records/cstr_5_03_04.json": "fdce972fd33a8765ec3f9347135c920848fdaeaf4d3ade6bba16038ded078c39",
+    "records/cstr_5_03_05.json": "367822d01395c870352d76ced1d10955d82eed3095b7c235a86ec6f11ba38a6b",
+    "records/cstr_5_04_01.json": "a14683a4cb8a46af2e12014689757b0366982e5dbccb3cf84470c4d8a4dac914",
+    "records/cstr_5_04_02.json": "4337f310a4581dba951999e74ffe91af747ef9d8f1ae0a5e5a26d96c680f81fc",
+    "records/cstr_5_04_03.json": "a6dc31f8bc73d8aede33b9c9a15d18f7cc79d045596e12354aae9e563c633e98",
+    "records/cstr_5_04_04.json": "3e16063d9fc1e89517e2724938cf31b9cb42949cd3c0d28e3cbfdfef7171df64",
+    "records/cstr_5_04_05.json": "ccffe0c0c8122ac49f2236fd631a0ed8080d75e059d1987e02ced7e2d96a3464",
+    "records/cstr_5_05_01.json": "13ff42deea4f4d57895a5a6c30b7a433b57ac665ba4aa5da9bde8d24b6eca5d2",
+    "records/cstr_5_05_02.json": "916695005fa0d50a922617f35e149f3648565fc05296bba319d70efc84d4e334",
+    "records/cstr_5_05_03.json": "fd5af52b8619407cf15b61686a01779ae8aed481e2961a52e38e594748fe4741",
+    "records/cstr_5_05_04.json": "cbc9c38479d78b841c9bd34d07e7a0028cbd41375903cce534247a84b1470338",
+    "records/cstr_5_05_05.json": "2008aefa1666777a4d9309fa4401e6b99b35a51c54c8378fbd872a0f6060a3ca"
+  },
+  "attempt_selection": "Single original attempt per coordinate; no retries or merging",
+  "acceptance": "GAMS SOLVESTAT=1; MODELSTAT in {1,2}; optimal-class termination; solver status not error/aborted; finite objective; primal violation <=1e-5",
+  "logical_exclusion": "y>x contradicts the active reactor/recycle GDP logic; see frozen evidence/models.py.txt and gdp_reactor.py.txt",
+  "cost_scope": "Same coordinate and selected original attempt; unmeasured exclusions have unknown cost"
+}

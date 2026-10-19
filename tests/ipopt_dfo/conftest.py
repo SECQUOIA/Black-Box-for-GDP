@@ -18,7 +18,7 @@ def pytest_collection_modifyitems(items):
     small = ROOT / 'results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip'
     large = ROOT / 'results/archives/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip'
     for item in items:
-        if item.path.name != 'test_ipopt_dfo_cstr.py':
+        if item.path.parent != Path(__file__).parent or item.path.name != 'test_ipopt_dfo_cstr.py':
             continue
         required = []
         if item.originalname in {

@@ -1,0 +1,15 @@
+{
+  "selected": {
+    "cpu": 0,
+    "physical_package_id": "0",
+    "core_id": "0",
+    "thread_siblings_list": "0,48",
+    "effective_cpus": [
+      0
+    ],
+    "policy": "one logical CPU; not an exclusive reservation"
+  },
+  "observed_cstr_processes": [],
+  "excluded_cpus": [],
+  "note": "Read-only affinity check; not an exclusive allocation"
+}
