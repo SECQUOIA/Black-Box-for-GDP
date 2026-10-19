@@ -31,7 +31,7 @@ from .solvers import SOLVERS, GAMS_SOLVERS, gams_smoke_check, is_gams, optimizer
 ERROR_STATUSES = {"solver_error", "evaluation_error"}
 CSV_FIELDS = [
     "point_index", "case", "cstr_size", "x1", "x2", "x3", "point", "solver", "preparation_id",
-    "status", "accepted", "objective", "candidate_objective", "termination",
+    "status", "rejection_phase", "accepted", "objective", "candidate_objective", "termination",
     "solver_interface", "gams_solver", "gams_solve_status", "gams_model_status",
     "solver_status", "max_primal_violation", "initialization", "setup_wall_s",
     "preprocess_wall_s", "solve_wall_s", "total_wall_s", "message",

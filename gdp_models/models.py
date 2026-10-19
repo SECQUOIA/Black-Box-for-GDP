@@ -23,6 +23,10 @@ MODELS = {
 }
 
 
+class LogicalInfeasibility(InfeasibleConstraintException):
+    """A fixed configuration contradicts the original GDP's Boolean logic."""
+
+
 def build_gdp(case, *, cstr_size=5):
     """Return a fresh, unfixed original GDP (Dynamic is not yet discretized)."""
     if case not in MODELS:
@@ -113,10 +117,10 @@ def _fix_static(m, case, point):
         for tray in m.conditional_trays:
             m.YP[tray].set_value(pyo.value(m.tray[tray].indicator_var))
     if any(pyo.value(v) != value for v, value in fixed_booleans):
-        raise InfeasibleConstraintException("Point contradicts original fixed GDP logic")
+        raise LogicalInfeasibility("Point contradicts original fixed GDP logic")
     for constraint in logical_constraints:
         if pyo.value(constraint.body, exception=False) is not True:
-            raise InfeasibleConstraintException(f"Unsatisfied GDP logic: {constraint.name}")
+            raise LogicalInfeasibility(f"Unsatisfied GDP logic: {constraint.name}")
     return [helper_file, main_file]
 
 
@@ -164,7 +168,7 @@ def dynamic_template():
 def _fix_dynamic(m, point):
     _check_bounds(point, (1, 2), (9, 9))
     if not (point[0] < point[1] or point == (9, 9)):
-        raise InfeasibleConstraintException("Dynamic requires x < y or x = y = 9")
+        raise LogicalInfeasibility("Dynamic requires x < y or x = y = 9")
     for stage in m.stage:
         selected = 1 if stage <= point[0] else (2 if stage <= point[1] else 3)
         for mode in m.mode:

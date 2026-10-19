@@ -98,14 +98,15 @@ def verify_source_snapshot(directory, source_hashes):
 
     Search implementations are evidence in the archive, not executed by this
     audit. They may evolve in the working tree without invalidating old runs.
-    The current lookup readers/data, plan and model adapter still have to match
-    because the audit uses them to interpret the archived observations.
+    The current lookup readers/data and plan still have to match because the
+    audit executes them. The model adapter is not executed: historical point
+    costs are matched against its verified archived bytes below.
     """
     live_inputs = {
         "case_studies/__init__.py",
         "case_studies/column_case.py", "case_studies/cstr_case.py",
         "case_studies/dynamic_case.py", "case_studies/small_batch_case.py",
-        "evaluation_trace.py", "gdp_models/models.py", "fmqa_benchmark/protocol.py",
+        "evaluation_trace.py", "fmqa_benchmark/protocol.py",
     }
     for name, digest in source_hashes.items():
         if sha(directory / "source" / name) != digest:
@@ -178,7 +179,8 @@ def audit(directory):
                     "worker_wall_s": result["worker_wall_s"],
                     "source": f"points/{spec['job_id']}/result.json"})
     _, fmqa = archived_fmqa()
-    historical, reuse = historical_costs(run["config"], run["runtime"])
+    historical, reuse = historical_costs(
+        run["config"], run["runtime"], model_adapter_path=directory / "source/gdp_models/models.py")
     traces = lookup_runs(directory, run["lookup_plan"], fmqa)
     keys = requested_points(traces)
     if read(directory / "requested_points.json") != [point_spec(k) for k in keys]:

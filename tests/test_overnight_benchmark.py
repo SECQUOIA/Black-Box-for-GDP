@@ -26,15 +26,29 @@ def test_plan_only_runs_original_three_methods():
     assert not any(p.name in {"algorithms.py", "comparison.py", "optimizer.py"} for p in source_files())
 
 
-def test_original_archives_include_all_nine_exact_models_and_failed_costs():
-    from overnight_benchmark.references import archived_fmqa, historical_costs
+def test_original_archives_include_all_nine_exact_models_and_failed_costs(tmp_path, monkeypatch):
+    from overnight_benchmark import references
+    from overnight_benchmark.references import archived_fmqa, historical_costs, verified_archive
     fmqa_config, traces = archived_fmqa()
     assert len(traces) == 139 and fmqa_config["epochs"] == 1000
     config = {"solver": "gams_ipopt", "initialization": "auto", "nlp_seconds": 60}
     identity = {"gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
                 "versions": {"pyomo": "6.10.0"}}
-    costs, audit = historical_costs(config, identity)
+    archive, prefix, _ = verified_archive("points")
+    adapter = tmp_path / "historical_models.py"
+    with archive:
+        adapter.write_bytes(archive.read(prefix + "source/gdp_models/models.py"))
+    costs, audit = historical_costs(config, identity, model_adapter_path=adapter)
     assert len(costs) == 1318
+    # Future evaluation reuse must still reject a changed live model adapter.
+    live = tmp_path / "live/gdp_models/models.py"
+    live.parent.mkdir(parents=True)
+    live.write_text("# different current model adapter\n")
+    original_sha = references.sha
+    live_adapter = references.ROOT / "gdp_models/models.py"
+    monkeypatch.setattr(references, "sha", lambda path: original_sha(live if path == live_adapter else path))
+    incompatible, mismatch = historical_costs(config, identity)
+    assert incompatible == {} and mismatch["excluded_manifests"]
     assert audit["preparations"][0]["total_preparation_wall_s"] > 0
     assert {k[1] for k in costs if k[0] == "cstr"} == {5, 10, 15, 20, 25, 30}
     assert costs[("column", None, (8, 1))]["cost_s"] == pytest.approx(1.3642758801579475)

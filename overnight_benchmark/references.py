@@ -79,12 +79,14 @@ def archived_fmqa():
     return run["config"], results
 
 
-def historical_costs(config, runtime):
+def historical_costs(config, runtime, *, model_adapter_path=None):
     """Reuse ONLY original attempts with matching model/init/solver options.
 
     Successful retries from a different initialization are not substituted.
     Every status retains its nonzero measured cost. These are historical point
     measurements, not timing observations of the new algorithm runs.
+    Read-only archive replay may supply its verified historical adapter file.
+    New evaluations keep the default comparison against the current adapter.
     """
     from gdp_models._sources import source_root
     from gdp_models.solvers import solve_options, option_file_lines
@@ -92,6 +94,8 @@ def historical_costs(config, runtime):
         return {}, {"reason": "No historical costs for selected solver/initialization", "reused": 0}
     archive, prefix, verified = verified_archive("points")
     costs, rejected, preparations = {}, [], []
+    adapter = ROOT / "gdp_models/models.py" if model_adapter_path is None else model_adapter_path
+    adapter_sha256 = sha(adapter)
     with archive:
         for member in sorted(verified):
             if not member.startswith(prefix + "gams_ipopt/") or not member.endswith("/manifest.json"):
@@ -108,7 +112,7 @@ def historical_costs(config, runtime):
                 and old["solver_executable_sha256"] == runtime["gams_sha256"]
                 and old["pyomo_version"] == runtime["versions"]["pyomo"]
                 and all(sha(root / name) == digest for name, digest in source["files_sha256"].items())
-                and old["adapter_sha256"]["models.py"] == sha(ROOT / "gdp_models/models.py"))
+                and old["adapter_sha256"]["models.py"] == adapter_sha256)
             if not matching:
                 rejected.append(member)
                 continue

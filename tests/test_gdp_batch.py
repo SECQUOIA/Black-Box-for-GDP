@@ -118,7 +118,7 @@ def test_errors_are_recorded_and_do_not_hide_other_points(tmp_path, monkeypatch,
             result.update(status="solver_error", accepted=False, objective=None)
         elif point == [1, 1, 3]:
             result.update(status="preprocessing_infeasible", accepted=False, objective=None,
-                          solve_wall_s=0.0)
+                          rejection_phase="preprocessing", solve_wall_s=0.0)
         return result
 
     monkeypatch.setattr(batch, "evaluate_point", mixed)
@@ -129,8 +129,10 @@ def test_errors_are_recorded_and_do_not_hide_other_points(tmp_path, monkeypatch,
     report = json.loads((tmp_path / "records/point_000001.json").read_text())
     assert report["objective"] is None and report["total_wall_s"] > 0
     with (tmp_path / "evaluations.csv").open() as stream:
-        row = next(csv.DictReader(stream))
-    assert row["solve_wall_s"] == ""  # Unknown costs must not become zero.
+        rows = list(csv.DictReader(stream))
+    assert rows[0]["solve_wall_s"] == ""  # Unknown costs must not become zero.
+    assert rows[2]["rejection_phase"] == "preprocessing"
+    assert json.loads((tmp_path / "records/point_000003.json").read_text())["rejection_phase"] == "preprocessing"
 
 
 @pytest.mark.parametrize("changed", ["options", "runtime", "domain"])
