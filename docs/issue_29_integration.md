@@ -2,9 +2,11 @@
 
 ## Current main integration (2026-10-19)
 
-The branch now includes upstream/main `44b8a8b21a00f95f25683d5f71ec98a95adf877f`, including PR #37's final Process/BAM artifacts and CSTR structural-overlay inputs. The extraction/dependency notes below are historical. Archive-backed reference loading, captured-source checks, selected-attempt validation and main's CI changes are retained.
+The branch now includes upstream/main `b4935b3210c421862714d2c9d522f4bcac95f0bf`, including PR #37's final Process/BAM artifacts and CSTR structural-overlay inputs. The extraction/dependency notes below are historical. Archive-backed reference loading, captured-source checks, selected-attempt validation and main's CI changes are retained.
 
 The retained main test for changed adapter sources now mutates captured adapter bytes through `verify_sources(adapter_files=...)`, matching the reviewed builder API instead of monkeypatching a helper no longer used by that path. It still requires unknown source bytes to fail. Raw result ZIPs, tables and execution revisions remain unchanged; no new production experiment was run. PR #30's additional rejection-phase adapter profile remains a separate branch integration consideration.
+
+PR #43 is also integrated: uniform bound-conflict checks, refreshed reports and preservation validation are retained. No result files differ from this main revision.
 
 ## Historical extraction record
 

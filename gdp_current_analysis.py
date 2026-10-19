@@ -158,6 +158,8 @@ def build(selection_directory, output):
                 "termination_counts": dict(Counter(r["termination"] for r in records)),
                 "time_limits_by_method": {m: sum(r["termination"] == "maxTimeLimit" for r in records if r["method"] == m)
                                           for m in METHODS},
+                "bound_conflict_rule": "reported_lower_bound > best_saved_feasible_objective + 1e-5 * max(1, abs(best_saved_feasible_objective)); every method with both values",
+                "global_certificate_policy": "Preserve solver_reported_global_optimality_certified; analysis global_optimality_certified excludes bound conflicts. No certificate inferred from termination text.",
                 "bound_conflicts": [{k: r[k] for k in ("instance_id", "method", "reported_lower_bound",
                     "best_saved_feasible_objective", "bound_evidence_method", "bound_evidence_source_directory")}
                     for r in records if r["bound_conflict_with_saved_solution"]],
@@ -211,7 +213,7 @@ def report(output, records, overview):
         "(physical core 8, socket 0). RIC/GLOA and LOA overlapped on separate physical cores, with one thread each. "
         "CPU affinity does not establish an otherwise idle server or remove shared-resource contention.", "",
         "Each completed cell is **objective / seconds including template preparation**. "
-        "TL = time limit; † = BARON bound conflicts with a better saved feasible solution. "
+        "TL = time limit; † = reported lower bound conflicts with a better saved feasible solution. "
         "Preflight, process launch and archiving are excluded. Missing cells are not zero or failures.", "",
         "| Model | " + " | ".join(LABELS) + " |", "|---|" + "---:|" * len(METHODS)]
     table = []
@@ -233,7 +235,7 @@ def report(output, records, overview):
         "- The new RIC results improve CSTR5–25 relative to the old IPOPT run, "
         "but RIC reaches its time limit on CSTR15/20/25/30. All six CSTR GLOA runs report `optimal` "
         "while returning worse objectives than the corresponding feasible RIC solutions. "
-        "The GDPopt global certificate and bound-validity flags remain false.", "",
+        "Raw GDPopt certification and bound-validity reports remain unchanged. The same lower-bound conflict rule applies to GDPopt and reformulation methods; conflict markers do not change objectives or completion times.", "",
         "- LOA returns better feasible objectives than RIC on CSTR15/20/25/30, under the same 30-minute "
         "per-job limit. CSTR5/10 and Small Batch agree with RIC within the comparison tolerance.", "",
         "- Column and Dynamic return the same incumbent for RIC/GLOA/LOA: approximately 22271.54872 "
@@ -292,7 +294,7 @@ def report(output, records, overview):
                 cell.set_facecolor("#fff2d7")
     fig.suptitle(f"Full GDP benchmark: October 1 {complete_text} results", fontsize=17)
     fig.text(.5, .925, "RIC/GLOA: CPU 2 | LOA: CPU 6 | Big-M/Hull: September 25 CPU 2 | One thread per run", ha="center", fontsize=11)
-    fig.text(.5, .055, "Objective and completion seconds including template preparation. TL: time limit. †: conflicting BARON bound.", ha="center", fontsize=10)
+    fig.text(.5, .055, "Objective and completion seconds including template preparation. TL: time limit. †: conflicting reported lower bound.", ha="center", fontsize=10)
     fig.text(.5, .02, f"{overview['selected_solutions_independently_rechecked']} saved solutions independently checked. "
              "No global certificate inferred from GDPopt termination text.", ha="center", fontsize=10)
     for ext in ("png", "pdf"):

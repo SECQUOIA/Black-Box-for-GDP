@@ -324,7 +324,7 @@ def baseline_comparison(directory, output, trace_runs):
 
 
 def flag_bound_conflicts(records, evidence=None):
-    """Retain reported flags; reject certificates contradicted by saved incumbents."""
+    """Check every method against feasible witnesses; retain raw solver reports."""
     if evidence is None:
         evidence = records
     for row in records:
@@ -332,7 +332,7 @@ def flag_bound_conflicts(records, evidence=None):
                  and r["has_feasible_solution"] and r["objective"] is not None]
         best = min((r["objective"] for r in peers), default=None)
         lower = row.get("reported_lower_bound")
-        conflict = (row["method"] in {"bigm", "hull"} and lower is not None and best is not None
+        conflict = (lower is not None and best is not None
                     and lower > best + TOLERANCE * max(1, abs(best)))
         row["best_saved_feasible_objective"] = best
         witness = min(peers, key=lambda r: r["objective"]) if peers else {}
