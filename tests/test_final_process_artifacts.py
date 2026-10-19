@@ -40,3 +40,41 @@ def test_legacy_roundoff_is_reported_without_rewriting(tmp_path, monkeypatch):
     actual.write_text("reconstructed_total_s,category\n1.001,target_reached\n")
     with pytest.raises(ValueError, match="exceeds sum roundoff"):
         verifier.compare_table(actual, expected)
+
+
+def test_derived_refresh_requires_exact_before_and_after_hashes(tmp_path, monkeypatch):
+    import gzip
+    import hashlib
+    import result_archives
+
+    monkeypatch.setattr(verifier, 'ROOT', tmp_path)
+    monkeypatch.setattr(result_archives, 'datasets', lambda: {})
+    name = 'results/gdp_comparison_current/analysis/comparison.csv'
+    artifact = tmp_path / name
+    artifact.parent.mkdir(parents=True)
+    artifact.write_text('verified bound flags\n')
+    old_hash = hashlib.sha256(b'original bound flags\n').hexdigest()
+    baseline = tmp_path / 'baseline.json.gz'
+    with gzip.open(baseline, 'wt') as stream:
+        json.dump({'files': {name: {'sha256': old_hash}}}, stream)
+    update = {'before_sha256': old_hash, 'after_sha256': verifier.sha(artifact),
+              'reason': 'Recomputed bound flags', 'verification_report': 'audit.json'}
+    manifest = {'before_inventory': {'path': baseline.name, 'sha256': verifier.sha(baseline)},
+                'documented_nondata_changes': {}, 'additional_files_sha256': {},
+                'derived_artifact_updates': {name: update}}
+    report = verifier.verify_preservation(manifest)
+    assert report['verified_derived_artifact_updates'] == [name]
+    assert report['missing_or_changed_experimental_artifacts'] == 0
+    update['before_sha256'] = 'wrong'
+    with pytest.raises(ValueError, match='baseline mismatch'):
+        verifier.verify_preservation(manifest)
+    update['before_sha256'] = old_hash
+    artifact.write_text('unexpected objective change\n')
+    with pytest.raises(ValueError, match='changed after verified regeneration'):
+        verifier.verify_preservation(manifest)
+    manifest['derived_artifact_updates'] = {}
+    with pytest.raises(ValueError, match='Original artifact changed'):
+        verifier.verify_preservation(manifest)
+    manifest['derived_artifact_updates'] = {'results/raw/solution.json': update}
+    with pytest.raises(ValueError, match='Not a derived comparison artifact'):
+        verifier.verify_preservation(manifest)
