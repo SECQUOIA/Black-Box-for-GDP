@@ -528,6 +528,12 @@ This project's code is distributed under the MIT License. See `LICENSE` for
 the full license text. External source submodules retain their upstream terms;
 see [original GDP source attribution](docs/original_gdp_models.md#original-sources).
 
+## IPOPT CSV-backed process DFO
+
+See [implementation scope and prerequisites](docs/issue_28_integration.md)
+for issue #28. These runners retain their frozen-input prerequisites; merging
+main does not replace the required IPOPT input archives.
+
 ## Evaluation tracing and timing
 
 See [the Issue #29 extraction notes](docs/issue_29_integration.md) for the original
