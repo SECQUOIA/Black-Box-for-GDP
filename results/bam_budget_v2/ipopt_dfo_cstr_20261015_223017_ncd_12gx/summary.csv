@@ -1,0 +1,7 @@
+case,budget,method,planned_seeds,target_reached,target_not_reached,execution_failed,not_run,success_rate_denominator,success_rate,nlp_time_complete_runs
+cstr_5,8,bam,10,10,0,0,0,10,1.0,10
+cstr_10,15,bam,10,1,9,0,0,10,0.1,10
+cstr_15,22,bam,10,1,9,0,0,10,0.1,10
+cstr_20,29,bam,10,2,8,0,0,10,0.2,10
+cstr_25,36,bam,10,2,8,0,0,10,0.2,10
+cstr_30,43,bam,10,2,8,0,0,10,0.2,0

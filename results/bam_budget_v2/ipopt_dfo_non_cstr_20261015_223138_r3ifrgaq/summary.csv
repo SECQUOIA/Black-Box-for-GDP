@@ -1,0 +1,9 @@
+case,budget,method,planned_seeds,target_reached,target_not_reached,execution_failed,not_run,success_rate_denominator,success_rate,nlp_time_complete_runs
+column,16,bam,10,0,10,0,0,10,0.0,0
+dynamic,12,bam,10,0,10,0,0,10,0.0,0
+dynamic,15,bam,10,3,7,0,0,10,0.3,0
+dynamic,20,bam,10,3,7,0,0,10,0.3,0
+dynamic,30,bam,10,4,6,0,0,10,0.4,0
+dynamic,37,bam,10,7,3,0,0,10,0.7,0
+dynamic,50,bam,10,10,0,0,0,10,1.0,0
+small_batch,10,bam,10,2,8,0,0,10,0.2,10

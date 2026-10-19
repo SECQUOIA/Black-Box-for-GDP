@@ -1,0 +1,15 @@
+{
+  "config": {
+    "dfo_python": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-nlp-overnight/bin/python",
+    "fmqa_python": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/bin/python",
+    "conda": "/local/scratch/a/lee4382/miniconda3/bin/conda",
+    "bonmin": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/bonmin",
+    "ipopt": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/ipopt",
+    "bam_license": "/local/scratch/a/lee4382/bamlice.txt",
+    "hard_seconds": 2100
+  },
+  "bundle_inventory_sha256": "3710274fd14b874e32447faf74e57646b8ba235c1eb0c97bcb9245c690b05614",
+  "created_utc": "2026-10-15T22:31:38.770712+00:00",
+  "mode": "run",
+  "user_authorized_surrogate_solvers": true
+}

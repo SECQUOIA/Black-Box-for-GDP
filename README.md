@@ -11,6 +11,33 @@ and visual outputs used to document selected optimization case studies on
 grid-based test problems. The repository is intended for regression testing and
 documentation of workflows involving RBFOpt and related discrete search methods.
 
+## Benchmark results
+
+Start with the retained result datasets:
+
+- [Final IPOPT Process comparison with corrected BAM](results/process_ipopt_bam_v2_20261015/README.md):
+  560 runs; 291 target hits, 268 misses and one execution failure. All 140 BAM
+  slots use the native-budget reruns; original runs and logs remain available.
+
+- [Full-box Column and Dynamic IPOPT measurements](results/column_dynamic_box_ipopt/INDEX.txt):
+  all 153 coordinates, including measured failure and logical-rejection times.
+- [Size-specific CSTR IPOPT measurements](results/cstr_box_ipopt/INDEX.txt):
+  completed sizes 5, 10, 15, 20 and 25, with original rejected records retained.
+- [Grid comparison](results/grid_gdp_dfo_20261011/README.md): 4,200 runs,
+  evaluation costs, tables and figures.
+- [Historical BARON-lookup process comparison](results/process_dsda_recovery_20261014/README.md):
+  the October 14 DSDA recovery is preserved as an earlier comparison, separate
+  from the final October 15 IPOPT-based Process results above.
+- [GDPopt/MINLP comparison](results/gdp_comparison_current/analysis/README.md).
+- [Original result archives](results/archives/README.md) and
+  [executed runner packages](results/runners/README.md).
+
+Raw archives, source snapshots, evaluation traces, runtime records and checksums
+are retained as evidence. Analysis scripts rebuild tables from those inputs;
+the result reports document their commands. Obsolete work prompts and unused
+launch procedures are not required to use the results. Historical instructions
+inside executed archives remain unchanged.
+
 Benchmark summaries, figures and manifests remain directly readable under
 `results/`. Detailed per-run logs, proposals, callbacks and source snapshots
 are preserved in the original ZIPs. See the [archive review guide](results/archives/README.md#reviewing-detailed-records)
@@ -508,6 +535,10 @@ implementation scope. This branch incorporates the shared Grid/GDP interfaces
 and historical results now present on `main`, while retaining the reviewed
 logical/preprocessing rejection metadata.
 
+### Corrected BAM process reruns (2026-10-15)
+
+All 140 BAM slots now use the audited native-budget reruns; the other 420 DFO runs are unchanged. Current combined results, figures, and timing audit are in [results/process_ipopt_bam_v2_20261015](results/process_ipopt_bam_v2_20261015/REPORT.txt). The pinned importer is [scripts/import_bam_budget_v2.py](scripts/import_bam_budget_v2.py). Old archives remain unchanged for provenance.
+
 ## FMQA-SA callback adapter
 
 Use `fmqa_benchmark.adapter.run_fmqa_sa` with an opaque objective callback,
@@ -519,3 +550,18 @@ integer bounds, an ordered initial design, a budget and a seed. See the
 See [the process DSDA domain and callback-budget notes](docs/process_dsda_domain.md)
 for the implementation portion of Issue #24. Historical Dantzig execution and
 recovery evidence was incorporated into `main` through PR #23.
+
+## Dependency security updates
+
+Dependabot opens grouped security-update PRs for the maintained dependency
+manifests and security updates for GitHub Actions. Routine version-update PRs
+are disabled. Archived results and vendored source snapshots are excluded.
+
+A separate workflow merges same-repository Dependabot PRs into the default
+branch only after every required PR CI job and all reported checks succeed,
+with no blocking reviews or unresolved review threads. It verifies the current
+head SHA, retries temporary unknown mergeability, and never executes PR code
+with write credentials. GitHub deletes merged branches automatically.
+
+Merges made with `GITHUB_TOKEN` do not trigger downstream push workflows;
+the PR checks provide validation for these merges.

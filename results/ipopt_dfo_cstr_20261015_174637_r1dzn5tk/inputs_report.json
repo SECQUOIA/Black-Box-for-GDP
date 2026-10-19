@@ -1,0 +1,241 @@
+[
+  {
+    "case": "cstr_5",
+    "cstr_size": 5,
+    "availability": "ready",
+    "required_logical_points": 15,
+    "processed_rows": 25,
+    "accepted": 15,
+    "processed_unaccepted": 10,
+    "logical_processed_unaccepted": 0,
+    "unmeasured_logical_exclusions": 0,
+    "status_counts": {
+      "accepted": 15,
+      "preprocessing_infeasible": 10
+    },
+    "table_accepted_minimum": 3.0620145766081155,
+    "best_points": [
+      [
+        5,
+        5
+      ]
+    ],
+    "unaccepted_logical_points": [],
+    "initialization": "mass_balance_zero_recycle",
+    "source_csv": "results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip!/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41/cstr_5/evaluations.csv",
+    "csv_sha256": "b66e228d6373320307f7239d304becf2f3e0fae48689e00e0db71c272f024b12",
+    "measured_time_rows": {
+      "setup_wall_s": 15,
+      "preprocess_wall_s": 15,
+      "feasible_initialization_wall_s": 15,
+      "solve_wall_s": 25,
+      "total_wall_s": 25,
+      "worker_process_wall_s": 25
+    }
+  },
+  {
+    "case": "cstr_10",
+    "cstr_size": 10,
+    "availability": "ready",
+    "required_logical_points": 55,
+    "processed_rows": 100,
+    "accepted": 54,
+    "processed_unaccepted": 46,
+    "logical_processed_unaccepted": 1,
+    "unmeasured_logical_exclusions": 0,
+    "status_counts": {
+      "accepted": 54,
+      "preprocessing_infeasible": 45,
+      "rejected": 1
+    },
+    "table_accepted_minimum": 2.889536968602369,
+    "best_points": [
+      [
+        10,
+        10
+      ]
+    ],
+    "unaccepted_logical_points": [
+      [
+        10,
+        1
+      ]
+    ],
+    "initialization": "mass_balance_zero_recycle",
+    "source_csv": "results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip!/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41/cstr_10/evaluations.csv",
+    "csv_sha256": "3f2f695c5e1b97186da2fc63c58091c1da98c97f26e4f083894d2794d37b249a",
+    "measured_time_rows": {
+      "setup_wall_s": 55,
+      "preprocess_wall_s": 55,
+      "feasible_initialization_wall_s": 55,
+      "solve_wall_s": 100,
+      "total_wall_s": 100,
+      "worker_process_wall_s": 100
+    }
+  },
+  {
+    "case": "cstr_15",
+    "cstr_size": 15,
+    "availability": "ready",
+    "required_logical_points": 120,
+    "processed_rows": 225,
+    "accepted": 120,
+    "processed_unaccepted": 105,
+    "logical_processed_unaccepted": 0,
+    "unmeasured_logical_exclusions": 0,
+    "status_counts": {
+      "accepted": 120,
+      "preprocessing_infeasible": 105
+    },
+    "table_accepted_minimum": 2.8293940630895253,
+    "best_points": [
+      [
+        15,
+        15
+      ]
+    ],
+    "unaccepted_logical_points": [],
+    "initialization": "mass_balance_zero_recycle",
+    "source_csv": "results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip!/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41/cstr_15/evaluations.csv",
+    "csv_sha256": "a022885ae11a9099b16b2dda2d7a721793fd36a95fcd3fa876c09e1e6b50884a",
+    "measured_time_rows": {
+      "setup_wall_s": 120,
+      "preprocess_wall_s": 120,
+      "feasible_initialization_wall_s": 120,
+      "solve_wall_s": 225,
+      "total_wall_s": 225,
+      "worker_process_wall_s": 225
+    }
+  },
+  {
+    "case": "cstr_20",
+    "cstr_size": 20,
+    "availability": "ready",
+    "required_logical_points": 210,
+    "processed_rows": 400,
+    "accepted": 210,
+    "processed_unaccepted": 190,
+    "logical_processed_unaccepted": 0,
+    "unmeasured_logical_exclusions": 0,
+    "status_counts": {
+      "accepted": 210,
+      "preprocessing_infeasible": 190
+    },
+    "table_accepted_minimum": 2.7994064251078212,
+    "best_points": [
+      [
+        20,
+        20
+      ]
+    ],
+    "unaccepted_logical_points": [],
+    "initialization": "mass_balance_zero_recycle",
+    "source_csv": "results/archives/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip!/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3/cstr_20/evaluations.csv",
+    "csv_sha256": "d9d93f67ff55535c3722966c93dee4eb09442bccda106a76b4f40e986b67f9e3",
+    "measured_time_rows": {
+      "setup_wall_s": 210,
+      "preprocess_wall_s": 210,
+      "feasible_initialization_wall_s": 210,
+      "solve_wall_s": 400,
+      "total_wall_s": 400,
+      "worker_process_wall_s": 400
+    }
+  },
+  {
+    "case": "cstr_25",
+    "cstr_size": 25,
+    "availability": "ready",
+    "required_logical_points": 325,
+    "processed_rows": 625,
+    "accepted": 325,
+    "processed_unaccepted": 300,
+    "logical_processed_unaccepted": 0,
+    "unmeasured_logical_exclusions": 0,
+    "status_counts": {
+      "accepted": 325,
+      "preprocessing_infeasible": 300
+    },
+    "table_accepted_minimum": 2.7814825926752516,
+    "best_points": [
+      [
+        25,
+        25
+      ]
+    ],
+    "unaccepted_logical_points": [],
+    "initialization": "mass_balance_zero_recycle",
+    "source_csv": "results/archives/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip!/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3/cstr_25/evaluations.csv",
+    "csv_sha256": "69140982a13f5ad8837abeeb6f1104159abfcb64a8bf40fa1e678353f4b947be",
+    "measured_time_rows": {
+      "setup_wall_s": 325,
+      "preprocess_wall_s": 325,
+      "feasible_initialization_wall_s": 325,
+      "solve_wall_s": 625,
+      "total_wall_s": 625,
+      "worker_process_wall_s": 625
+    }
+  },
+  {
+    "case": "cstr_30",
+    "cstr_size": 30,
+    "availability": "ready",
+    "required_logical_points": 465,
+    "processed_rows": 465,
+    "accepted": 458,
+    "processed_unaccepted": 7,
+    "logical_processed_unaccepted": 7,
+    "unmeasured_logical_exclusions": 435,
+    "status_counts": {
+      "accepted": 458,
+      "rejected": 7
+    },
+    "table_accepted_minimum": 2.7695697198995095,
+    "best_points": [
+      [
+        30,
+        30
+      ]
+    ],
+    "unaccepted_logical_points": [
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        23,
+        2
+      ],
+      [
+        26,
+        2
+      ],
+      [
+        29,
+        3
+      ]
+    ],
+    "initialization": "constructor_defaults (no upstream saved initialization)",
+    "source_csv": "results/dantzig_review/gams_cstr_audit_20260922/dantzig_gdp_gams_20260922_050038_p4q8hy54/gams_ipopt/cstr_30/evaluations.csv",
+    "csv_sha256": "f19dab6a84ecdab320b48246cd2601fb1fa4850e672425dd325f89113b3bc794",
+    "measured_time_rows": {
+      "setup_wall_s": 465,
+      "preprocess_wall_s": 465,
+      "feasible_initialization_wall_s": 0,
+      "solve_wall_s": 465,
+      "total_wall_s": 465,
+      "worker_process_wall_s": 0
+    }
+  }
+]

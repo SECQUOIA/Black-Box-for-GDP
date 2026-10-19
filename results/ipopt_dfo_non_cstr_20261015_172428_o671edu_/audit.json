@@ -1,0 +1,75 @@
+{
+  "slots": 320,
+  "original_categories": {
+    "target_not_reached": 129,
+    "execution_failed": 1,
+    "target_reached": 190
+  },
+  "audit_categories": {
+    "target_not_reached": 127,
+    "execution_failed": 9,
+    "target_reached": 184
+  },
+  "recorded_callbacks": 7058,
+  "actual_callbacks_lower_bound": 7066,
+  "actual_callbacks_exact": null,
+  "budget_protocol_pass": false,
+  "budget_violation_runs": 8,
+  "callback_states": {
+    "evaluated_unaccepted": 395,
+    "logical_exclusion_unmeasured": 2244,
+    "accepted": 4419
+  },
+  "source_status_counts": {
+    "preprocessing_infeasible": 370,
+    "no_measured_row": 2244,
+    "accepted": 4419,
+    "rejected": 25
+  },
+  "terminal_values_logged_not_returned": 287,
+  "same_row_objectives_statuses_and_times_verified": true,
+  "original_LHC_shared_initial_designs_verified": true,
+  "server_reports_exactly_reproduced": [
+    "runs.csv",
+    "callbacks.csv",
+    "summary.csv",
+    "summary.json"
+  ],
+  "cpu": {
+    "selected": {
+      "cpu": 0,
+      "physical_package_id": "0",
+      "core_id": "0",
+      "thread_siblings_list": "0,48",
+      "effective_cpus": [
+        0
+      ],
+      "policy": "one logical CPU; not an exclusive reservation"
+    },
+    "observed_cstr_processes": [],
+    "excluded_cpus": [],
+    "note": "Read-only affinity check; not an exclusive allocation"
+  },
+  "auxiliary_solver_events": {
+    "bonmin:start": 2568,
+    "bonmin:end": 2532,
+    "bonmin:error": 36
+  },
+  "nlp_time_complete_recorded_runs": 51,
+  "local_optimizer_or_solver_calls": 0,
+  "local_timings_used": false,
+  "audit_policy": "Original tables remain unchanged. Eight proven overrun runs are execution_failed only in separate audited outputs; no seed exclusion/replacement.",
+  "callback_limitations": "Guard executes before logging. At least one extra invocation is proven for each flagged run. Exact extra counts/coordinates cannot be recovered. No evidence of extra CSV reads or values.",
+  "metric_scope": "Group objective statistics include every recorded accepted best, including protocol-failed runs. Never substitute those observations for audited success counts.",
+  "timing_scope": "DFO wall time includes surrogate work. Same-row historical NLP totals are separate; unmeasured logical exclusions stay unknown. Dynamic preparation is separate.",
+  "comparison_scope": "This audit does not establish a causal BARON-versus-IPOPT success-rate comparison or certify every callback was logged.",
+  "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+  "archive_sha256": "ed7eaa2c20031b58f5a9c02c0bc89699cf170c7e256a65c92664ac4b1875cc6e",
+  "original_download": "/Users/albertlee0125/Downloads/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+  "archive_crc_pass": true,
+  "archive_members": 2679,
+  "submitted_package": "results/runners/ipopt_dfo_non_cstr_20261015.zip",
+  "submitted_package_sha256": "b2e61d0e58e1b6e1f76daf91ceaf1631846cbb3048e4ba07066144d85cdc1e3f",
+  "byte_identical_reproduction_files": 184,
+  "importer_sha256": "3351e35e1b4d99aa62bd553e1897ebe78505138d79a3365ecfc24cc87c13fdbd"
+}

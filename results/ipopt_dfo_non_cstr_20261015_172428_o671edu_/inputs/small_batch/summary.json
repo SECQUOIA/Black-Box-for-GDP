@@ -1,0 +1,25 @@
+{
+  "case": "small_batch",
+  "cstr_size": null,
+  "domain": "logical",
+  "candidate_count": 27,
+  "completed_points": 27,
+  "remaining_points": 0,
+  "accepted_points": 12,
+  "error_points": 0,
+  "status_counts": {
+    "preprocessing_infeasible": 15,
+    "accepted": 12
+  },
+  "complete": true,
+  "status": "completed",
+  "best_point": [
+    2,
+    2,
+    1
+  ],
+  "best_objective": 167427.6571147878,
+  "sum_evaluation_wall_s": 10.183570985216647,
+  "last_invocation_wall_s": 10.672487674281001,
+  "updated_utc": "2026-09-22T05:39:23.305665+00:00"
+}

@@ -1,0 +1,14 @@
+{
+  "versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "rbfopt": "4.3.0",
+    "pyomo": "6.10.0"
+  },
+  "python": "3.11.16",
+  "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+  "host": "dantzig.ecn.purdue.edu",
+  "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34",
+  "bonmin_sha256": "76eff68e4e3178a98213f98ad4d858f337b0668e49122b195238e60616153f66",
+  "ipopt_sha256": "938c17f31b2cf9fe91cef527bef3c62f303a3012851ad8498f91cd7501d1c9d2"
+}

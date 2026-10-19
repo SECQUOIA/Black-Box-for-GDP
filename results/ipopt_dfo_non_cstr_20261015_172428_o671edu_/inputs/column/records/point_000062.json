@@ -1,0 +1,80 @@
+{
+  "case": "column",
+  "point": [
+    15,
+    6
+  ],
+  "solver": "gams_ipopt",
+  "solver_interface": "gams_shell",
+  "gams_solver": "ipopt",
+  "cstr_size": null,
+  "initialization_requested": "auto",
+  "pyomo_version": "6.10.0",
+  "time_limit_s": 60,
+  "feasibility_tolerance": 1e-05,
+  "accepted": true,
+  "objective": 21621.632431234764,
+  "candidate_objective": 21621.632431234764,
+  "max_primal_violation": 2.659561459950055e-11,
+  "solve_wall_s": 0.7758655627258122,
+  "initialization": "gdp/dsda/column_17_initialization.json",
+  "warm_start": false,
+  "source": {
+    "repository": "https://github.com/SECQUOIA/dsda-gdp",
+    "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+    "files_sha256": {
+      "gdp/column/gdp_column.py": "c5fea7ff6286d2b6c1055a4e602b08648a03853aea24e6552f5921b36e205bab",
+      "gdp/dsda/column_17_initialization.json": "60cd7d1f7a7f08b59d9b0d7fca6e8920313ca7722c94d829e388a009ae4acfd7",
+      "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+      "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+      "main_column.py": "09a4ff167d87c15bb0e2323567f1f59be7ece61b325ea9cf84900bd7aaa2800a"
+    }
+  },
+  "discretization": null,
+  "preprocessing": "fbbt",
+  "setup_wall_s": 0.3648959188722074,
+  "preprocess_wall_s": 0.12515575205907226,
+  "solver_options": {
+    "solver": "ipopt",
+    "mtype": "nlp",
+    "warmstart": true,
+    "io_options": {
+      "put_results_format": "dat"
+    },
+    "add_options": [
+      "option reslim=60;",
+      "option iterlim=3000;",
+      "option threads=1;",
+      "option optcr=0.00001;",
+      "GAMS_MODEL.optfile=1;"
+    ]
+  },
+  "solver_option_file": [
+    "tol 1e-8",
+    "bound_relax_factor 0",
+    "max_iter 3000",
+    "warm_start_init_point no",
+    "linear_solver mumps"
+  ],
+  "solver_executable": "/package/gams/52.2/gams",
+  "gams_statistics": {
+    "MODELSTAT": 2.0,
+    "SOLVESTAT": 1.0,
+    "OBJEST": null,
+    "OBJVAL": 21621.63243123476,
+    "NUMVAR": 390.0,
+    "NUMEQU": 402.0,
+    "NUMDVAR": 0.0,
+    "NUMNZ": 1117.0,
+    "ETSOLVE": 0.062000518664718
+  },
+  "gams_solve_status": 1.0,
+  "gams_model_status": 2.0,
+  "status": "accepted",
+  "termination": "locallyOptimal",
+  "solver_status": "ok",
+  "message": "None",
+  "total_wall_s": 1.2744078147225082,
+  "point_index": 62,
+  "completed_utc": "2026-09-22T05:02:15.601196+00:00"
+}

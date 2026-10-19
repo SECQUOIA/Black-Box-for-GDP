@@ -1,0 +1,86 @@
+{
+  "case": "dynamic",
+  "point": [
+    2,
+    4
+  ],
+  "solver": "gams_ipopt",
+  "solver_interface": "gams_shell",
+  "gams_solver": "ipopt",
+  "cstr_size": null,
+  "initialization_requested": "auto",
+  "pyomo_version": "6.10.0",
+  "time_limit_s": 60,
+  "feasibility_tolerance": 1e-05,
+  "accepted": true,
+  "objective": -137.17970426594525,
+  "candidate_objective": -137.17970426594525,
+  "max_primal_violation": 4.3787196091216174e-13,
+  "solve_wall_s": 1.1108652842231095,
+  "initialization": "constructor_defaults",
+  "warm_start": false,
+  "source": {
+    "repository": "https://github.com/SECQUOIA/LD-SDA-Dynamic",
+    "commit": "482e14ebf9caabbd35d959986942cb028778a1d7",
+    "files_sha256": {
+      "models/nine_stage_dynamic_model_switching_nonlinear.py": "70653536e48a2a6a05c23a8f0337a43e36307c554569982767afa1c1c623ed98"
+    }
+  },
+  "discretization": {
+    "nfe": 30,
+    "ncp": 3,
+    "scheme": "LAGRANGE-RADAU",
+    "derivative_bounds": [
+      -300,
+      300
+    ],
+    "reuse": "clone_once_per_process_template"
+  },
+  "preprocessing": "none",
+  "preparation_id": "9306cbf705cf48a19806eeadd48107e2",
+  "setup_wall_s": 0.10644077183678746,
+  "preprocess_wall_s": 0.000954577699303627,
+  "solver_options": {
+    "solver": "ipopt",
+    "mtype": "nlp",
+    "warmstart": true,
+    "io_options": {
+      "put_results_format": "dat"
+    },
+    "add_options": [
+      "option reslim=60;",
+      "option iterlim=3000;",
+      "option threads=1;",
+      "option optcr=0.00001;",
+      "GAMS_MODEL.optfile=1;"
+    ]
+  },
+  "solver_option_file": [
+    "tol 1e-8",
+    "bound_relax_factor 0",
+    "max_iter 3000",
+    "warm_start_init_point no",
+    "linear_solver mumps"
+  ],
+  "solver_executable": "/package/gams/52.2/gams",
+  "gams_statistics": {
+    "MODELSTAT": 2.0,
+    "SOLVESTAT": 1.0,
+    "OBJEST": null,
+    "OBJVAL": -137.17970426594528,
+    "NUMVAR": 1648.0,
+    "NUMEQU": 1639.0,
+    "NUMDVAR": 0.0,
+    "NUMNZ": 7344.0,
+    "ETSOLVE": 0.275999936275184
+  },
+  "gams_solve_status": 1.0,
+  "gams_model_status": 2.0,
+  "status": "accepted",
+  "termination": "locallyOptimal",
+  "solver_status": "ok",
+  "message": "None",
+  "total_wall_s": 1.2528355121612549,
+  "point_index": 10,
+  "completed_utc": "2026-09-22T05:39:35.862884+00:00"
+}
