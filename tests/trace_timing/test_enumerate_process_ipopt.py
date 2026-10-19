@@ -20,7 +20,10 @@ def test_plans_cover_every_dfo_coordinate(case, total, logical):
 def test_original_model_and_reference_hashes_match(case):
     baseline, changes = enum.verify_sources(case)
     assert baseline['config'] == enum.CONFIG
-    assert set(changes) == {'evaluation.py', 'solvers.py', 'preflight.py'}
+    assert set(changes) == {'models.py', 'evaluation.py', 'solvers.py', 'preflight.py'}
+    for name in ('models.py', 'evaluation.py'):
+        assert changes[name]['current_sha256'] == enum.REJECTION_PHASE_ADAPTERS[name]
+        assert 'rejection_phase' in changes[name]['reviewed_change']
 
 
 @pytest.mark.parametrize('case,point,status', [('column', [7, 1], 'logical_infeasible'),
@@ -107,7 +110,7 @@ def test_verified_original_archive_is_used_without_extracted_inputs(tmp_path, mo
         assert set(files) == {'evaluations.csv', 'manifest.json'}
         baseline, changes = enum.verify_sources(case)
         assert baseline['config'] == enum.CONFIG
-        assert '5a9e704' in changes['evaluation.py']['reviewed_change']
+        assert 'rejection_phase' in changes['evaluation.py']['reviewed_change']
         assert '5a9e704' in changes['solvers.py']['reviewed_change']
     assert not (tmp_path / 'absent-inputs').exists()
 
@@ -178,7 +181,7 @@ models.prepare_nlp = forbidden
 for case in enum.CASES:
     baseline, changes = enum.verify_sources(case)
     assert baseline['config'] == enum.CONFIG
-    assert '5a9e704' in changes['evaluation.py']['reviewed_change']
+    assert 'rejection_phase' in changes['evaluation.py']['reviewed_change']
 print('both bundled source profiles verified; no solver called')
 '''
     environment = dict(os.environ, RBFOPT_GDP_SOURCES=str(builder.ROOT / 'external'))

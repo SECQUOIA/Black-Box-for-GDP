@@ -528,6 +528,13 @@ This project's code is distributed under the MIT License. See `LICENSE` for
 the full license text. External source submodules retain their upstream terms;
 see [original GDP source attribution](docs/original_gdp_models.md#original-sources).
 
+## Process GDP interface integration
+
+See [the Issue #27 extraction notes](docs/issue_27_integration.md) for the original
+implementation scope. This branch incorporates the shared Grid/GDP interfaces
+and historical results now present on `main`, while retaining the reviewed
+logical/preprocessing rejection metadata.
+
 ## IPOPT CSV-backed process DFO
 
 See [implementation scope and prerequisites](docs/issue_28_integration.md)

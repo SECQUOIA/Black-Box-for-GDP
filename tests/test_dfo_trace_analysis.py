@@ -91,10 +91,10 @@ def test_unsafe_member_is_rejected(tmp_path):
             pytest.fail("Unsafe archive accepted")
 
 
-def test_current_search_changes_do_not_invalidate_archived_source(tmp_path, monkeypatch):
+@pytest.mark.parametrize("name", ["case_studies/column_dsda.py", "gdp_models/models.py"])
+def test_current_nonexecuted_code_changes_do_not_invalidate_archived_source(tmp_path, monkeypatch, name):
     monkeypatch.setattr(analysis, "ROOT", tmp_path / "current")
     directory = tmp_path / "snapshot"
-    name = "case_studies/column_dsda.py"
     archived = directory / "source" / name
     archived.parent.mkdir(parents=True)
     archived.write_text("# original search\n")
@@ -114,7 +114,7 @@ def test_current_search_changes_do_not_invalidate_archived_source(tmp_path, monk
     "case_studies/column_case.py", "case_studies/dynamic_case.py",
     "case_study_data/column/compl_enum_column_17_baron.csv",
     "fmqa_benchmark/protocol.py", "fmqa_benchmark/reference/initial_designs.json",
-    "gdp_models/models.py", "evaluation_trace.py",
+    "evaluation_trace.py",
 ])
 def test_live_audit_inputs_must_still_match_snapshot(tmp_path, monkeypatch, name):
     monkeypatch.setattr(analysis, "ROOT", tmp_path / "current")

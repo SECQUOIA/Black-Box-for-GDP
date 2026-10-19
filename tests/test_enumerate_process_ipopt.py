@@ -20,10 +20,13 @@ def test_plans_cover_every_dfo_coordinate(case, total, logical):
 def test_original_model_and_reference_hashes_match(case):
     baseline, changes = enum.verify_sources(case)
     assert baseline['config'] == enum.CONFIG
-    assert set(changes) == {'evaluation.py', 'solvers.py', 'preflight.py'}
+    assert set(changes) == {'models.py', 'evaluation.py', 'solvers.py', 'preflight.py'}
+    for name in ('models.py', 'evaluation.py'):
+        assert changes[name]['current_sha256'] == enum.REJECTION_PHASE_ADAPTERS[name]
+        assert 'rejection_phase' in changes[name]['reviewed_change']
 
 
-@pytest.mark.parametrize('name', ['evaluation.py', 'solvers.py'])
+@pytest.mark.parametrize('name', ['models.py', 'evaluation.py', 'solvers.py'])
 def test_main_routing_profile_does_not_allow_other_adapter_changes(name):
     adapters = {p.name: p.read_bytes() for p in (enum.ROOT / 'gdp_models').glob('*.py')}
     adapters[name] += b'\n# unreviewed source change\n'

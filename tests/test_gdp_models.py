@@ -64,9 +64,28 @@ def test_invalid_gdp_logic_is_not_solved(sources, case, point):
         prepare_nlp(case, point)
     result = evaluate_point(case, point, solver="ipopt")
     assert result["status"] == "preprocessing_infeasible"
+    assert result["rejection_phase"] == "logical"
     assert result["objective"] is None
     assert result["solve_wall_s"] == 0
     assert result["total_wall_s"] > 0
+
+
+def test_column_fbbt_rejection_is_distinct_from_logical_rejection(sources, monkeypatch):
+    def no_solver(*args, **kwargs):
+        pytest.fail("Rejected configurations must not construct a solver")
+
+    monkeypatch.setattr("gdp_models.evaluation.optimizer_for", no_solver)
+    with pytest.raises(InfeasibleConstraintException, match="minimum_num_trays"):
+        prepare_nlp("column", (8, 8))
+    logical = evaluate_point("column", (1, 15), solver="ipopt")
+    algebraic = evaluate_point("column", (8, 8), solver="ipopt")
+    assert logical["rejection_phase"] == "logical"
+    assert algebraic["rejection_phase"] == "preprocessing"
+    for result in (logical, algebraic):
+        assert result["status"] == "preprocessing_infeasible"
+        assert result["termination"] == "not_solved"
+        assert result["solve_wall_s"] == 0
+        assert result["accepted"] is False and result["objective"] is None
 
 
 @pytest.mark.parametrize("point", [(0, 1), (6, 1), (2,), (2.5, 1), (math.nan, 1)])

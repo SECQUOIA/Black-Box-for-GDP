@@ -7,7 +7,7 @@ import pyomo.environ as pyo
 from pyomo.common.errors import InfeasibleConstraintException
 from pyomo.version import version as pyomo_version
 
-from .models import dynamic_template, integer_point, prepare_nlp
+from .models import LogicalInfeasibility, dynamic_template, integer_point, prepare_nlp
 from .preflight import SetupError
 from .solvers import GAMS_SOLVERS, is_gams, optimizer_for, option_file_lines, solve_gams, solve_options
 
@@ -77,11 +77,13 @@ def evaluate_point(case, point, *, solver, cstr_size=5, initialization="auto",
         "feasibility_tolerance": feasibility_tolerance,
         "accepted": False, "objective": None, "candidate_objective": None,
         "max_primal_violation": None, "solve_wall_s": 0.0,
+        "rejection_phase": None,
     }
     try:
         prepared = prepare_nlp(case, point, cstr_size=cstr_size, initialization=initialization)
     except InfeasibleConstraintException as error:
         report.update(status="preprocessing_infeasible", termination="not_solved",
+                      rejection_phase="logical" if isinstance(error, LogicalInfeasibility) else "preprocessing",
                       message=str(error), total_wall_s=perf_counter() - started)
         return report
     report.update(prepared.metadata)
