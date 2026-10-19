@@ -73,6 +73,7 @@ py-modules = [
     "instrumentation",
     "evaluation_trace",
     "trace_analysis",
+    "nlp_cost_analysis",
     "timing_analysis",
 ]
 packages = [

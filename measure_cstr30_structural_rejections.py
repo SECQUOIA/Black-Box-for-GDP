@@ -5,7 +5,6 @@ from contextlib import contextmanager, ExitStack
 import csv
 from datetime import datetime, timezone
 import hashlib
-import importlib.metadata
 import itertools
 import json
 import logging
