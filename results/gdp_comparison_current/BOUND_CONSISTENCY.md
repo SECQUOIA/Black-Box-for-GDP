@@ -55,3 +55,19 @@ producer hashes. Unrelated DFO figures and historical producer hashes are
 preserved. The integration test prohibits solver calls while replaying saved
 vectors. Validation: **86 tests passed**; Ruff and `git diff --check` passed.
 No optimization/NLP experiment or manuscript edit was performed.
+
+## Process-preservation CI follow-up
+
+The original targeted tests did not exercise the final Process preservation
+checker. The full CI suite detected the regenerated comparison files because
+that checker still required their pre-integration bytes. The integration
+manifest now records the exact before/after SHA256 values and the justification
+for each of the 12 derived artifacts listed in the verification report.
+
+The checker validates both hashes against the original inventory and current
+files, rejects subsequent unrecorded changes, and reports these updates
+separately from documentation changes. Raw experimental artifacts remain under
+the original preservation checks. A regression test rejects wrong baseline
+hashes, altered refreshed files, undocumented changes, and raw files presented
+as derived comparison updates. This follow-up changes preservation metadata and
+verification code only; the regenerated comparison outputs remain unchanged.
