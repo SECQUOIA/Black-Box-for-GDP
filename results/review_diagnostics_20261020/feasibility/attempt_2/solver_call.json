@@ -1,0 +1,16 @@
+{
+  "solver": "ipopt",
+  "call_started": true,
+  "executable": "/Users/albertlee0125/Solvers/ampl.macos64/ipopt",
+  "sha256": "40a19ebcfe47d646e8f5696102ffd7363559b2698c10b270bb8e6f981a30e145",
+  "options": {
+    "tol": 1e-12,
+    "constr_viol_tol": 1e-12,
+    "acceptable_iter": 0,
+    "bound_relax_factor": 0.0,
+    "honor_original_bounds": "yes",
+    "nlp_scaling_method": "none",
+    "max_cpu_time": 290,
+    "max_iter": 3000
+  }
+}

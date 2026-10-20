@@ -1,0 +1,84 @@
+--- fmqa_qhd_20261012_034123_8kcczd4b/source/fmqa_benchmark/optimizer.py
++++ fmqa_benchmark/optimizer.py
+@@ -7,7 +7,7 @@
+ 
+ import numpy as np
+ 
+-from .surrogate import train
++from .qhd_surrogate import train
+ 
+ 
+ PENALTY = 1e6
+@@ -49,6 +49,40 @@
+ 
+     def lattice(self):
+         return list(itertools.product(*(range(lo, hi + 1) for lo, hi in zip(self.lower, self.upper))))
++
++    @property
++    def cardinality(self):
++        return math.prod(int(hi) - int(lo) + 1 for lo, hi in zip(self.lower, self.upper))
++
++    def index(self, point):
++        index = 0
++        for value, lo, hi in zip(point, self.lower, self.upper):
++            index = index * (int(hi) - int(lo) + 1) + int(value) - int(lo)
++        return index
++
++    def point_at(self, index):
++        point = []
++        for lo, hi in reversed(list(zip(self.lower, self.upper))):
++            index, offset = divmod(index, int(hi) - int(lo) + 1)
++            point.append(int(lo) + offset)
++        return tuple(reversed(point))
++
++    def sample_unseen(self, seen, rng):
++        """Select the seeded kth unseen point in legacy lexicographic order."""
++        remaining = self.cardinality - len(seen)
++        if remaining <= np.iinfo(np.int64).max:
++            index = int(rng.integers(remaining))
++        else:
++            # Rejection over random bits also handles boxes larger than int64.
++            width = remaining.bit_length()
++            index = remaining
++            while index >= remaining:
++                index = int.from_bytes(rng.bytes((width + 7) // 8), "little") & ((1 << width) - 1)
++        for occupied in sorted(self.index(point) for point in seen):
++            if occupied > index:
++                break
++            index += 1
++        return self.point_at(index)
+ 
+ 
+ def training_targets(raw_values):
+@@ -69,6 +103,7 @@
+ def optimize(objective, lower, upper, starts, budget, seed, config, *,
+              on_evaluation=lambda event, state: None, on_proposal=lambda event: None,
+              trainer=train, sampler=None):
++    started = perf_counter()
+     if sampler is None:
+         from dwave.samplers import SimulatedAnnealingSampler
+         sampler = SimulatedAnnealingSampler()
+@@ -76,12 +111,10 @@
+     starts = [tuple(p) for p in starts]
+     if budget < len(starts) or len(set(starts)) != len(starts) or any(not encoding.valid(p) for p in starts):
+         raise ValueError("Invalid initial design or evaluation budget")
+-    lattice = encoding.lattice()
+-    if budget > len(lattice):
++    if budget > encoding.cardinality:
+         raise ValueError("Budget exceeds the number of distinct integer points")
+     streams = [np.random.default_rng(s) for s in np.random.SeedSequence(seed).spawn(3)]
+     model_rng, anneal_rng, fallback_rng = streams
+-    started = perf_counter()
+     deadline = started + config["time_limit"]
+     points, values, history = [], [], []
+     best, best_point = PENALTY, None
+@@ -155,8 +188,7 @@
+                     chosen = point
+             source = "simulated_annealing"
+             if chosen is None:
+-                remaining = [p for p in lattice if p not in seen]
+-                chosen = remaining[int(fallback_rng.integers(len(remaining)))]
++                chosen = encoding.sample_unseen(seen, fallback_rng)
+                 source = "uniform_unseen_fallback"
+                 fallbacks += 1
+             on_proposal({"event": "proposal", "iteration": len(points) - len(starts) + 1,
