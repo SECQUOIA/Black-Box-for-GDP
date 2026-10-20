@@ -1,0 +1,12 @@
+case,budget,seed,method,point,objective,returned
+column,16,1,rbfopt_msrsm_genetic,"[13, 4]",19346.124801006445,False
+column,16,4,rbfopt_msrsm_genetic,"[13, 4]",19346.124801006445,False
+dynamic,12,8,rbfopt_msrsm_genetic,"[1, 4]",-212.00878715666533,False
+dynamic,15,7,uniform_without_replacement,"[1, 4]",-212.00878715666533,False
+small_batch,10,5,rbfopt_msrsm_genetic,"[2, 2, 1]",167427.6571147878,False
+small_batch,10,7,rbfopt_msrsm_genetic,"[2, 2, 1]",167427.6571147878,False
+small_batch,10,9,rbfopt_msrsm_genetic,"[2, 2, 1]",167427.6571147878,False
+cstr_10,15,5,rbfopt_msrsm_genetic,"[10, 10]",2.889536968602369,False
+cstr_10,15,6,rbfopt_msrsm_genetic,"[10, 10]",2.889536968602369,False
+cstr_5,8,3,rbfopt_msrsm_genetic,"[5, 5]",3.0620145766081155,False
+cstr_5,8,7,rbfopt_msrsm_genetic,"[5, 5]",3.0620145766081155,False

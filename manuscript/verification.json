@@ -1,0 +1,692 @@
+{
+  "input_revision": "6e083eb49b497ce4fea90131e18cc0459db682e8",
+  "parent_revision": "15663134704b7bb1d4804c94c70edabaffbf8ecd",
+  "related_tests_passed": 45,
+  "generated_files_byte_identical_across_two_fresh_directories_and_publication": {
+    "figures/figure_B_grid_evaluation_profiles.pdf": "479c4c4775da6c834344bdf4f1e0f5d59e83b454368a81fddee34fdab40e1f67",
+    "figures/figure_B_grid_evaluation_profiles.png": "ba694196e8652d21325e2fd004b0e8e6cd23b6176279130a6847e353046cebdf",
+    "figures/figure_C_grid_completion_profiles.pdf": "b732c15e928a6ba1fa0ece8f4ae8995bffe497b8bcfcf3419a6bf85da2d8e435",
+    "figures/figure_C_grid_completion_profiles.png": "17ed7c7c0174c7f775028934771ec2f44edc65986b13198e29a209ea0c811b1a",
+    "figures/figure_D_grid_tts99.pdf": "c7eac195096b78e78d87f94758d9d5e9c72d57d25fcfbf7aa3082fb18000cc62",
+    "figures/figure_D_grid_tts99.png": "c94e370bea1b88fcc4c2fccd01ef475d69626fe2deaa458b4a73487c82860866",
+    "figures/figure_values.json": "014e747f778d6fdcb52178aa7b6880da95831733109b9c55fdb2fc1cf03bdab5",
+    "figures/process_completion_profiles.pdf": "dd15ce37fb481f3ad5bbe80eb9419b67f65227d17effd87e036d6b006cd1eca7",
+    "figures/process_completion_profiles.png": "5b495db8915c928967ba394942e268a8ddf3822a05e1dadc5f98aa84302ce937",
+    "figures/process_completion_scatter.pdf": "d547b2d3aeb92737481ac7bf72d2fad4b0f52c452d342d2bf98e770ff2ef6906",
+    "figures/process_completion_scatter.png": "3b99621d88262ee1308a22fa447b105b1db8d03ebace11abff2f0260c57e20ba",
+    "figures/process_cost_breakdown.pdf": "1592d3a68fd1783b5e41a7e953263e49777ef45bd94b41a16e54aeadbb1ab07a",
+    "figures/process_cost_breakdown.png": "005ea24fa8f7d92b1dd6ea7bc0283005d7b520802427f010ff89567f6d0849b6",
+    "figures/process_evaluation_profiles.pdf": "ba9cf5985c6fc3c90e852bfd988c7dc619e253bafbc95386905c92e76ed5bab8",
+    "figures/process_evaluation_profiles.png": "6dc52a59de074fc44549188a88281e22f71a76f3cf2b7133e330004e5500443b",
+    "tables/alpha_grid_B100.tex": "12b1602ac1f19a479c5af17ee7dae2deffd073249b9d5d244adeeb145a969ce9",
+    "tables/grid_cost.tex": "4de3d3f233c241620a66b6e12c9543e6b6f7df109f66532fb45d48e9b28586ea",
+    "tables/grid_hits.tex": "d5ba719c0291710e4defd937d5f87e76067b36d9895f8b11c7341539cb26822c",
+    "tables/grid_intervals_B10.tex": "9d10d045c991eecdb37f8a315ed227079f44353c5d0b41126b4689db2bf46aaa",
+    "tables/grid_intervals_B100.tex": "7bfad23773f49006752854a5102418f1db949da2b7bf9dfc94e5d1d58ebe2eb7",
+    "tables/grid_intervals_B30.tex": "1511d893d17035c2ead5d85424fc55168d6db23094778e51c8fd8dd28096839d",
+    "tables/grid_intervals_B50.tex": "34b317d1ce4f228cab894003eb12d10909c4efd145063cc72a21d005e09c99c6",
+    "tables/grid_intervals_B70.tex": "8af8a733d95455959601dc695fc11583f94831994cbf1c4496fc958822cb8081",
+    "tables/new_terminal_hits.csv": "7122e17558f5fa36c6e1f7e23372df80d83885ce60a47a05e40865b6a259a9ee",
+    "tables/numerical_summary.json": "ebbcf98fc7284c6072659b126b5c1a043ee9b6eb4e3123dbe613c8244a5a1aaf",
+    "tables/paired_comparisons.csv": "70332e70d38b361cb508414525a6861a76a544d34aef23993d4419e0748fa59a",
+    "tables/paired_grid.tex": "449aa4b36361c7b833db94ead63f424b2b5f75ab7b7b6250d2d87cc5399c8c47",
+    "tables/process_cost.tex": "b520b9d44ef5faf8b98d45998057d65a30a7974b62973fe005e78000fdeb04cb",
+    "tables/process_hits.tex": "c443e874cf7a580a6d57e07b5b116a4fada557a2e5feb0d5bc09d6e58422882f",
+    "tables/process_intervals.tex": "65c9e3268f9b2397a42eeb2f01f94d6696d5c764840fc37fb227f65f2a0c3a5c",
+    "tables/process_tts.tex": "577390706bb05afb9050158aa0484d83e1ff0255237a94997cca155ba688ae3e",
+    "tables/rbfopt_grid_variants.tex": "d8db6dfccad7d7ce3b9a0c475511ac06c072507c46b4f954b0d7945c27656dfa",
+    "tables/rbfopt_process_variants.tex": "3bca94bf71e38c224ed625e4d305822c8fa6a3a6d93bce5563de1c8d8e7231b2",
+    "tables/run_records.csv": "074509fb982544ba10c6dcadae23465b4b91085c66e2300cde7204ce50f57d83"
+  },
+  "protected_files_unchanged": [
+    {
+      "path": "results/archives/review_comparison_20261020_124949_return_1792527395393579314.zip",
+      "git_blob": "c03aa864ec1ec478a3698d179769115d457850e7"
+    },
+    {
+      "path": "results/archives/review_comparison_20261020_124949_return_1792527395393579314.zip.sha256",
+      "git_blob": "3970fc1dddd90fa87732fcedc9786dfeba60b8fc"
+    },
+    {
+      "path": "results/review_comparison_20261020/README.md",
+      "git_blob": "920b2fe1b70950e6381cd1958a578fbd0beaa700"
+    },
+    {
+      "path": "results/review_comparison_20261020/figures/grid_comparison.pdf",
+      "git_blob": "bfb2d74cbc1bd818a86695c20676c5ac24f7c75c"
+    },
+    {
+      "path": "results/review_comparison_20261020/figures/grid_comparison.png",
+      "git_blob": "ea2cc05619e387edab6271bb0d3690ea863a8dd3"
+    },
+    {
+      "path": "results/review_comparison_20261020/figures/manifest.json",
+      "git_blob": "1e375c1633a110eb748d7e1080370b23ee097af0"
+    },
+    {
+      "path": "results/review_comparison_20261020/figures/process_target_counts.pdf",
+      "git_blob": "cff8be969666c4424630039c848809117bc35ec3"
+    },
+    {
+      "path": "results/review_comparison_20261020/figures/process_target_counts.png",
+      "git_blob": "4a71dcb712a7f313eefe3556ca9549a09aa55604"
+    },
+    {
+      "path": "results/review_comparison_20261020/fmqa_uniform/README.md",
+      "git_blob": "c94d3fb646f6b301c179a4dd1621591ecdc156fa"
+    },
+    {
+      "path": "results/review_comparison_20261020/fmqa_uniform/manifest.json",
+      "git_blob": "fff88b5630df5adb0debbf4153d197b9452d66bc"
+    },
+    {
+      "path": "results/review_comparison_20261020/fmqa_uniform/paired_runs.csv",
+      "git_blob": "afe69fdf6dfdb624832ad9c9fa8948ce69df3b83"
+    },
+    {
+      "path": "results/review_comparison_20261020/fmqa_uniform/paired_success.csv",
+      "git_blob": "dce35449ce35a9aa6f1a39273e8ae723544ce0e7"
+    },
+    {
+      "path": "results/review_comparison_20261020/fmqa_uniform/validation/tests.log",
+      "git_blob": "aca62ee0b188c48166a6f28879f5767f1dd4cc8f"
+    },
+    {
+      "path": "results/review_comparison_20261020/manifest.json",
+      "git_blob": "01b43cd4f7a6f4de41ed9557e169cd1bf529d0c2"
+    },
+    {
+      "path": "results/review_comparison_20261020/new_run_audit.csv",
+      "git_blob": "be580e2240499a6f224dbb432527165eafd30be4"
+    },
+    {
+      "path": "results/review_comparison_20261020/tables/completed_runs.csv",
+      "git_blob": "9c94b4db9cda6b92f0a44cdb45bacc84ae80265f"
+    },
+    {
+      "path": "results/review_comparison_20261020/tables/condition_summary.csv",
+      "git_blob": "2d2a6d460038c1b51d4c8ef1b0a613ce8465a20d"
+    },
+    {
+      "path": "results/review_comparison_20261020/tables/grid_budget_summary.csv",
+      "git_blob": "b998a3955853abe860c5a5ad218c8c2827ec9c36"
+    },
+    {
+      "path": "results/review_comparison_20261020/tables/grid_exclusions.csv",
+      "git_blob": "88fc2a469f8f87a1b46847262f8a2558199aab85"
+    },
+    {
+      "path": "results/review_comparison_20261020/tables/interpretation.json",
+      "git_blob": "d9b3fb770ba73896e48df21565ac6c7b52bda1f4"
+    },
+    {
+      "path": "results/review_comparison_20261020/tables/method_summary.csv",
+      "git_blob": "067b19a56ab8a8ba9d836c595f31e6dcf76b71f7"
+    },
+    {
+      "path": "results/review_comparison_20261020/tables/new_slots.csv",
+      "git_blob": "14cbc817592d5a0a807f4ccc4385461b9f0b1286"
+    },
+    {
+      "path": "results/review_comparison_20261020/tables/paired_success.csv",
+      "git_blob": "2144be5eabf8055f20373bb8006762202f3c8f07"
+    },
+    {
+      "path": "results/review_comparison_20261020/tables/rbfopt_paired_runs.csv",
+      "git_blob": "1b40cbb775d1ac728c776c031d608c912b0b646a"
+    },
+    {
+      "path": "results/review_comparison_20261020/tables/rbfopt_timing_summary.csv",
+      "git_blob": "ff43d71171c76c56efd6080cfb7e2cb8b57e0c57"
+    },
+    {
+      "path": "results/review_comparison_20261020/validation/tests.log",
+      "git_blob": "9a075fa1ad536be15d1c2c3e30d8a641a04a0975"
+    },
+    {
+      "path": "results/review_comparison_20261020/verification.json",
+      "git_blob": "7f99746f0daf1bd3119bc5a1133c5d553a12bdb9"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/.gitattributes",
+      "git_blob": "a8d1a4007832e6b208a0fcb3f7736378c61c936f"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/IMPLEMENTATION_AUDIT.md",
+      "git_blob": "daf2714fa1588554880548356dd6aa9de77285e1"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/README.md",
+      "git_blob": "798cd3e70aba641566014f4825f0b77d0c3b2f9c"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/diagnostic_tools.zip",
+      "git_blob": "0affd79ee4ac2003b4ba830bbc8f506416d12da9"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/diagnostic_tools.zip.sha256",
+      "git_blob": "00c7b93d396e56d5dc26b7f033767349e297ba0b"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/executed_diagnostic_sources.zip",
+      "git_blob": "9e396f8d3c5e8f854aa32a1e9260ccd01cc7f127"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/executed_source_manifest.json",
+      "git_blob": "211535b9526674a07a0569d93b2c1715b742cf3f"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_1/execution.json",
+      "git_blob": "6b7a7a2395347f3871e8705d8d512b4c8949f87b"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_1/residuals.json",
+      "git_blob": "cc81f5a06dd4b9b81936c668d7b77b455d9bdfb2"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_1/result.json",
+      "git_blob": "440df582a29007cd59be1aa73be68c55a99ad711"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_1/settings.json",
+      "git_blob": "da670f07166e990c492fa05f6ab37ac8d1369aba"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_1/solution.json",
+      "git_blob": "3a160111bb50a8f732ea6425570f14210c2ab89b"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_1/solver_call.json",
+      "git_blob": "2ff5b34abdd989983be94171dde7d0be62aabd44"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_1/worker.log",
+      "git_blob": "f7e9dc5854450f52ae57bfb7c78caccb9d8a20af"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_2/execution.json",
+      "git_blob": "eabe3da5573cabdc8fa74a08633aee5ed8d7a5f5"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_2/residuals.json",
+      "git_blob": "16f0b67fddb7a4c407b1318801a443b493373165"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_2/result.json",
+      "git_blob": "23e18ec137ad3dadd7c267f7d5ed27dabc79a34e"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_2/settings.json",
+      "git_blob": "221d142c6ca076e15a9bcb1463c42e89032c19db"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_2/solution.json",
+      "git_blob": "3a160111bb50a8f732ea6425570f14210c2ab89b"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_2/solver_call.json",
+      "git_blob": "271ee641e5062ee740daa4a2a01f7f0af5348907"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/attempt_2/worker.log",
+      "git_blob": "1d5e9f358cd66c7ed0732b512d141b552e81b044"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/before_after.csv",
+      "git_blob": "2e7a09556d13601fe3413ab41c509392d1120eab"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/before_residuals.json",
+      "git_blob": "76827bec2e1fcc94cd48cf45d5ed6beaca7b6cc8"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/before_solution.json",
+      "git_blob": "3a160111bb50a8f732ea6425570f14210c2ab89b"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/interpretation.json",
+      "git_blob": "c15f9c36eb13f1d7365b020277fb42527ebed411"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/ipopt_options_listing.txt",
+      "git_blob": "9cce4fb899e8d26c40e61bbc8f58b62821ea273f"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/manifest.json",
+      "git_blob": "78e13ee4a852ffc2d3ce334db2db252a4a5102ca"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/provenance.json",
+      "git_blob": "1c0494036bf74cb7eed6468d775d355c9d94e308"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/feasibility/solver_version.json",
+      "git_blob": "5ad0157dbc9dea0cf9612b4222a375f0bcf7aec2"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/cstr_15_iteration1/exhaustive_energy.csv",
+      "git_blob": "d6f49169fb42836fefa3d31eea8bfdf09eeb9883"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/cstr_15_iteration1/recorded_sample_comparison.csv",
+      "git_blob": "472b2e28422a1fecac5ca23e8bf366e836c63bcc"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/cstr_15_iteration1/summary.json",
+      "git_blob": "4613ab7e6d59cf1656aa92f54ee33ae65b3467ca"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/cstr_15_iteration1/training_prefix.json",
+      "git_blob": "f79a1735354e75eb4980f09b4c25b9ca07ec4c73"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/cstr_15_iteration1/weights.json",
+      "git_blob": "556841d66da5483850cf8a0d13b1115f4a8d8fe3"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/cstr_15_iteration19/exhaustive_energy.csv",
+      "git_blob": "64ae56c3a9e1ff27f8e5931b05e4fad34589bb92"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/cstr_15_iteration19/recorded_sample_comparison.csv",
+      "git_blob": "8d97bab3c855ce1112bc092119c8662e132e8fa1"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/cstr_15_iteration19/summary.json",
+      "git_blob": "653c7c5c54fcce65590a6b559f0050ce19f1b260"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/cstr_15_iteration19/training_prefix.json",
+      "git_blob": "e34f7a65aed2a2ffee963788e1c40e563886f18f"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/cstr_15_iteration19/weights.json",
+      "git_blob": "47c3f72c83721cee2b5eb0b35fb99ed065b3a1b1"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration1/exhaustive_energy.csv",
+      "git_blob": "c60c316efea47a734439c52637287e54ebceba58"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration1/recorded_sample_comparison.csv",
+      "git_blob": "dda347ab770f99171d24aa3fb313259511700d82"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration1/summary.json",
+      "git_blob": "e926d576554350ed11f18ea9dd7ce6872d991e1a"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration1/training_prefix.json",
+      "git_blob": "73fe503a13af833ea1504e12cf3e7cb36e15976a"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration1/weights.json",
+      "git_blob": "d024d9b6555e4e2697bac423d69d93ed2a9cc671"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration2/exhaustive_energy.csv",
+      "git_blob": "be6bde103afd8aafef78db06e3596bc40ffc70ed"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration2/recorded_sample_comparison.csv",
+      "git_blob": "6c281d3596f02077d675f31007675d5102d0d1b5"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration2/summary.json",
+      "git_blob": "2bdff465aeb5bd8ca5ebcec9f9a6c85a41364aa3"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration2/training_prefix.json",
+      "git_blob": "98344d959d2fd2e64e83210693a2dbb6acc23d71"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration2/weights.json",
+      "git_blob": "65313a8001974628530eebc6cc27b1c5931769eb"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration9/exhaustive_energy.csv",
+      "git_blob": "705d38511a4d69031d59c1bfb6b391d12cbedd9c"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration9/recorded_sample_comparison.csv",
+      "git_blob": "32512ff5d41b8bf7c52e6dd5b4f6eef9286b657e"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration9/summary.json",
+      "git_blob": "2393234893d58921d0ecd492ae2cd7704e73790b"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration9/training_prefix.json",
+      "git_blob": "58e80cbed77340665589a084273c5216d8292fa6"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/dynamic_iteration9/weights.json",
+      "git_blob": "70fc58c99017240d6305ae74a72978b4b1f6b04a"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/environment.json",
+      "git_blob": "5b689ba89ebab74823300f360035083192b0776c"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/fit_ledger.json",
+      "git_blob": "8648d1dc09a463aed11c66bf346fda2c4d0ca7e4"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/manifest.json",
+      "git_blob": "eba002a6e74bad0a5f5e2b388cb834b1d46b9cd2"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/rosenbrock_iteration1/exhaustive_energy.csv",
+      "git_blob": "e9aaa5b49d1c185d455eab4a9f172f80e26b65b8"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/rosenbrock_iteration1/recorded_sample_comparison.csv",
+      "git_blob": "0a27e064acea1ae2672ad508579997b4416278a1"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/rosenbrock_iteration1/summary.json",
+      "git_blob": "27f227c39c66ea198a463442ec7ddf06134a95a7"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/rosenbrock_iteration1/training_prefix.json",
+      "git_blob": "b1324a3c8f8a72e51dc10d9874db75f95439a5b6"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/rosenbrock_iteration1/weights.json",
+      "git_blob": "eceda885ae880a48ab700f2791d39ac867f4a768"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/rosenbrock_iteration7/exhaustive_energy.csv",
+      "git_blob": "16c63139e3c6b813b63150d4e0f53cbc2b2e1524"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/rosenbrock_iteration7/recorded_sample_comparison.csv",
+      "git_blob": "3ca8f741be763c54a5c8fef969259bfdde2e4bd4"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/rosenbrock_iteration7/summary.json",
+      "git_blob": "006493a12ea0ca49c99921d875375296fe29d0bf"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/rosenbrock_iteration7/training_prefix.json",
+      "git_blob": "74018b077ca1cf13a0ead94a812bde0f642cb090"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/rosenbrock_iteration7/weights.json",
+      "git_blob": "0d8a014e23f2851f916e549098e688a408d4c075"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/summary.csv",
+      "git_blob": "e4fa3223f7f612428a02af2b0a46711b4769b557"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa/synthetic.json",
+      "git_blob": "05d7578ccdb38717ca7cc48448677f57d0ebd1fa"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa_execution.json",
+      "git_blob": "7c1a0c7c8657419187ca00d2d99532f8435666c9"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/fmqa_worker.log",
+      "git_blob": "f825721be39359c44ff9837599597ef59a0fece5"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/implementation_driver_sources.json",
+      "git_blob": "e6ce0d6ae26926b9ab5bc62a9e300577c2585e65"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/cstr_15/callbacks.jsonl",
+      "git_blob": "97f48f0b8a28f248465fa7c927f4982b673e46be"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/cstr_15/historical_runtime.json",
+      "git_blob": "a589ae4bfa217d95c3c1a63f0a44b1b637047bd0"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/cstr_15/proposals.jsonl",
+      "git_blob": "19f4c8d1491ee467e06b2f5c46d918a893cc7888"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/cstr_15/result.json",
+      "git_blob": "93fd9e43604a59d1989b81394b524469f58f3ad8"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/cstr_15/spec.json",
+      "git_blob": "117664e4992e55cc3de04234efc736e6ee307d90"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/dynamic/callbacks.jsonl",
+      "git_blob": "450c8e3cb2331f73cab4293313d66775f8cf33da"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/dynamic/historical_runtime.json",
+      "git_blob": "a589ae4bfa217d95c3c1a63f0a44b1b637047bd0"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/dynamic/proposals.jsonl",
+      "git_blob": "c5bee3d0181856f2c599a0b541411416ce5667d4"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/dynamic/result.json",
+      "git_blob": "85eae0d48e55a17b5f3429a0f58c22f029847a94"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/dynamic/spec.json",
+      "git_blob": "cfe759488d881fe283e737cc48500ced5cc62444"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/rosenbrock/evaluations.jsonl",
+      "git_blob": "82912ce781d33cfb41999b863cb092b70f71a6f9"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/rosenbrock/historical_runtime.json",
+      "git_blob": "cd3d2738d9852f63601725eaa36d96fc1b7e3451"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/rosenbrock/proposals.jsonl",
+      "git_blob": "aecead76f71cc59d86c7170f9e8d69ba0b7046f8"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/rosenbrock/result.json",
+      "git_blob": "fcbd8a53e1ef4bf8b856b1f7d8d5719480eed32a"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/inputs/rosenbrock/spec.json",
+      "git_blob": "643a45f18721bd400c4036610f456bbe5eac05cf"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/manifest.json",
+      "git_blob": "1f724e88725b5427ab45bc39f85c8b4f62b79b4b"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/manuscript_notes.md",
+      "git_blob": "3c126130ceef408e3893eb31d1b086a825cb37f5"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/review_reply_drafts.md",
+      "git_blob": "ed1b3886b91d87d74195b053efe51c9f80d43bf2"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/selection.json",
+      "git_blob": "a86f29895c27dd341334d834cb0f9e9d69b908b6"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/source_diffs/cstr_15/fmqa_benchmark__optimizer.py.diff",
+      "git_blob": "acdddb4c9c5065e7cbf7787bcebf9c0e9ac74e7e"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/source_diffs/cstr_15/fmqa_benchmark__qhd_surrogate.py.diff",
+      "git_blob": "fb1f7cc490144c2dda22620fa8f8bce0e5a37484"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/source_diffs/cstr_15/fmqa_benchmark__vendor__qhd__provenance.json.diff",
+      "git_blob": "a0b0ef4dbe1d98a2c172581fd7167e45f77c573b"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/source_diffs/dynamic/fmqa_benchmark__optimizer.py.diff",
+      "git_blob": "e4ff43ced6e4160a1a4f065bfddcb10317611576"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/source_diffs/dynamic/fmqa_benchmark__qhd_surrogate.py.diff",
+      "git_blob": "100802f0731079ecc2dc1cd0bdaf66b231654956"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/source_diffs/dynamic/fmqa_benchmark__vendor__qhd__provenance.json.diff",
+      "git_blob": "6768f0a70fe6a015239d643d7f38fac6f4cc439c"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/source_diffs/rosenbrock/fmqa_benchmark__optimizer.py.diff",
+      "git_blob": "5acac890fcc545890454ce3299dd426e480e1bbc"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/source_diffs/rosenbrock/fmqa_benchmark__qhd_surrogate.py.diff",
+      "git_blob": "5c60dba6e37c8469c4b43b8d7eda6ad4f3ab9904"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/source_diffs/rosenbrock/fmqa_benchmark__vendor__qhd__provenance.json.diff",
+      "git_blob": "b205362236267c62aabf410accd364e941e30032"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/validation/extracted_bundle_verification.json",
+      "git_blob": "fb44655cb26ba413469a92365828d38f6711aaac"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/validation/fmqa_tests.log",
+      "git_blob": "7ee999be6f4074bc830562329450e2421079fc07"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/validation/original_audit_replay.json",
+      "git_blob": "33cdf0577e6336900c6a23cda0c709a8de842ce7"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/validation/preserved_files.json",
+      "git_blob": "03d9ad870ecb2d3b38c89641fa654615b209bff2"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/validation/reader_tests.log",
+      "git_blob": "0c2823988ba24b5ad24d6280ebc6461dfdfe3764"
+    },
+    {
+      "path": "results/review_diagnostics_20261020/validation/saved_verification.json",
+      "git_blob": "fb44655cb26ba413469a92365828d38f6711aaac"
+    },
+    {
+      "path": "review_comparison/__init__.py",
+      "git_blob": "d9b97a583524f3397fd7145abc53afad9011b331"
+    },
+    {
+      "path": "review_comparison/analysis.py",
+      "git_blob": "a3e07223fa5048b0dc9fbe1e3274bea4091b4460"
+    },
+    {
+      "path": "review_comparison/audit.py",
+      "git_blob": "c7e9dd82de4d6ca6e1d53d1a7e6d0875f1d6eaf4"
+    },
+    {
+      "path": "review_comparison/build.py",
+      "git_blob": "3bcc54a66f2f726e2afe623808431134f1d15a35"
+    },
+    {
+      "path": "review_comparison/common.py",
+      "git_blob": "0e7efa5cac5e6a9c313d6326270ab88846c44ba7"
+    },
+    {
+      "path": "review_comparison/fmqa_uniform.py",
+      "git_blob": "371d750c492f8a55b4e4b9127ac734c9ca74c55e"
+    },
+    {
+      "path": "review_comparison/plot_return.py",
+      "git_blob": "1d43b103246dc10702aecccf2d0746a4cd66565b"
+    },
+    {
+      "path": "review_comparison/runner.py",
+      "git_blob": "c88e902c78bf67902d8c71cc3021b4307300ece2"
+    },
+    {
+      "path": "review_comparison/validation/README.md",
+      "git_blob": "ab93fef5ba398db2c947de59cf14b36e78b26287"
+    },
+    {
+      "path": "review_comparison/validation/historical_analysis.zip",
+      "git_blob": "4c2bb4890a7ec40eaa22f08b624ca1e8e43141fe"
+    },
+    {
+      "path": "review_comparison/validation/local_smoke.zip",
+      "git_blob": "ce8a0b0588793eca43c685874101b92a45b52203"
+    },
+    {
+      "path": "review_comparison/validation/new_tests.log",
+      "git_blob": "bcb5d531161dba1e26dd0fe7ed207bbda2c7c3d7"
+    },
+    {
+      "path": "review_comparison/validation/rbfopt_initial_tests.log",
+      "git_blob": "9ed4c3d69ff85d0c08505ae7f0ff195a4ad092eb"
+    },
+    {
+      "path": "review_comparison/validation/regression_tests.log",
+      "git_blob": "599ec0e2e876244223307ad706de163246c1cc67"
+    },
+    {
+      "path": "review_comparison/validation/report.json",
+      "git_blob": "65c270742e3ea0a56d33c5d1c66e638fbd046da3"
+    },
+    {
+      "path": "review_comparison/worker.py",
+      "git_blob": "811c9ae28c3a4ffce031146ce2c9f90a8adfe597"
+    }
+  ],
+  "original_audit_analysis_replay": [
+    {
+      "file": "completed_runs.csv",
+      "sha256": "f0764696a4846d391e8d040781e8e32bde72829654e13ca6c1342cf768d1843f",
+      "byte_identical": true
+    },
+    {
+      "file": "condition_summary.csv",
+      "sha256": "6c90c58cf2c364d69910fa397ede4a8cbd24c996765ae61e50269de9797f27ef",
+      "byte_identical": true
+    },
+    {
+      "file": "fixed_path_sensitivity.csv",
+      "sha256": "f52c2b7ae2882dc89a370bccda63f31546086e6380a145d23eade185e4f139f9",
+      "byte_identical": true
+    },
+    {
+      "file": "grid_exclusions.csv",
+      "sha256": "273f6c54d7e4f2b40b0e10cc0c7d2a40c278fc1fc6ba263e992c57aa343ab552",
+      "byte_identical": true
+    },
+    {
+      "file": "interpretation.json",
+      "sha256": "cf660d569192dfce60712a3c160dc0491d7104467d69585828663d6bb549b271",
+      "byte_identical": true
+    },
+    {
+      "file": "new_slots.csv",
+      "sha256": "a1b786a406c95f5d3cec34683e57f688fdba566e68e182a80c89d3585abbf92f",
+      "byte_identical": true
+    },
+    {
+      "file": "paired_success.csv",
+      "sha256": "9420c3dd6d4dff462bc6e3fd16d24c01fd68845cde5e1b10adc8d6507873b0e6",
+      "byte_identical": true
+    },
+    {
+      "file": "progress.json",
+      "sha256": "fdceb3a8a548a1239288179a0665c24e4601b75ed6805a5f9db406487681aeea",
+      "byte_identical": true
+    }
+  ],
+  "saved_diagnostics_verification": {
+    "selection_sha256": "a07ccdeec3c23ba315ac521f09a7f89fe8c508f0123ada93c947fad45363adc9",
+    "fits": 7,
+    "sa_calls": 0,
+    "binary_strings_verified": 3328,
+    "nlp_calls": 2,
+    "feasibility_status": "incomplete",
+    "verification_fit_sa_nlp_calls": 0,
+    "note": "Saved diagnostic outputs verified; no claim that reconstructed weights equal historical weights."
+  },
+  "new_optimizer_or_nlp_runs_this_manuscript_task": 0
+}
