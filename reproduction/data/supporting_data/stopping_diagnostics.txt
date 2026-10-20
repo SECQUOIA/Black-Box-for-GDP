@@ -1,0 +1,21 @@
+Stopping diagnostics — existing selected experiments
+
+No optimizer or NLP was rerun. All diagnostics use the selected archived runs.
+Budget is an operational classification: full callback budget reached; for Grid RBFOpt and FMQA no distinct native stop-reason field is stored. Their raw completed status and configured/actual counts are retained.
+Explicit Grid DSDA target/local log reasons take precedence even if the final callback equals B; 1 target-stop and 10 local-stop runs end exactly at B.
+Grid DSDA checks the target after a local-search run, not after every objective callback. Target-based stopping therefore does not imply zero post-target callbacks.
+Native function-call-limit termination (BAM) is counted as budget, not double-counted as other native stopping. No other native early-stop or time-limit execution occurs in the selected records.
+Process DSDA local classification is supported by completed status, stopped_early=False, final history stopped=True, and fewer than B callbacks; no benchmark target is passed to this local search.
+Post-target callbacks = actual callbacks minus the first accepted target callback; misses and failures have null, not zero. Initialization and repeated calls are included.
+These descriptive counts do not isolate a causal runtime effect. No runtime is prorated to infer first-target overhead; no alternative timing rankings are computed.
+Results are pooled across distinct budgets/conditions. The condition-level groups preserve the original comparisons.
+
+Family/method | n | budget/local/target/failure | callbacks total; median [min,max] | hits | continued | post-target callbacks; median [max]
+Grid/dsda | 1050 | 536/212/302/0 | 38033; 31.5 [6,100] | 382 | 373 | 4211; 10.0 [29]
+Grid/rbfopt | 1050 | 1050/0/0/0 | 54600; 50.0 [10,100] | 661 | 653 | 29326; 40 [99]
+Grid/bam | 1050 | 1050/0/0/0 | 54600; 50.0 [10,100] | 626 | 626 | 28426; 45.0 [99]
+Grid/fmqa_sa | 1050 | 1050/0/0/0 | 54600; 50.0 [10,100] | 370 | 363 | 13530; 31.0 [99]
+Process/dsda | 140 | 73/66/0/1 | 2532; 16.0 [3,43] | 75 | 75 | 452; 6 [11]
+Process/rbfopt | 140 | 140/0/0/0 | 3430; 21.0 [8,50] | 127 | 117 | 2160; 14 [44]
+Process/bam | 140 | 140/0/0/0 | 3430; 21.0 [8,50] | 47 | 41 | 565; 7 [41]
+Process/fmqa_sa | 140 | 140/0/0/0 | 3430; 21.0 [8,50] | 42 | 38 | 540; 7.5 [41]

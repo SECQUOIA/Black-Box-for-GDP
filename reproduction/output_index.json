@@ -1,0 +1,484 @@
+[
+  {
+    "id": "figure_1",
+    "title": "Frozen Rosenbrock lattice",
+    "inputs": [
+      "benchmark_grids/rosenbrock.csv",
+      "reproduction/data/supporting_data/grid_inventory.json"
+    ],
+    "generator": "reproduction/figures.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "figures/grid_rosenbrock_landscape.pdf"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "None; font/rendering bytes may differ from reference PDF"
+  },
+  {
+    "id": "figure_2",
+    "title": "Grid evaluation profiles",
+    "inputs": [
+      "results/grid_gdp_dfo_20261011/runs.csv"
+    ],
+    "generator": "reproduction/renderers/figures_2_6_7.py",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "figures/figure_B_grid_evaluation_profiles.pdf"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "None; font/rendering bytes may differ from reference PDF"
+  },
+  {
+    "id": "figure_3",
+    "title": "Grid completion profiles",
+    "inputs": [
+      "results/grid_gdp_dfo_20261011/runs.csv"
+    ],
+    "generator": "reproduction/figures.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "figures/figure_C_grid_completion_profiles.pdf"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "None; font/rendering bytes may differ from reference PDF"
+  },
+  {
+    "id": "figure_4",
+    "title": "Grid TTS99 and infinite groups",
+    "inputs": [
+      "results/grid_gdp_dfo_20261011/tts99_summary.csv"
+    ],
+    "generator": "reproduction/tts_figure.py:plot_tts99",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "figures/figure_D_grid_tts99.pdf"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "None; font/rendering bytes may differ from reference PDF"
+  },
+  {
+    "id": "figure_5",
+    "title": "Process evaluation profiles",
+    "inputs": [
+      "results/process_ipopt_bam_v2_20261015/tables/run_results.csv"
+    ],
+    "generator": "reproduction/figures.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "figures/process_evaluation_profiles.pdf"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "None; font/rendering bytes may differ from reference PDF"
+  },
+  {
+    "id": "figure_6",
+    "title": "Process mean cost shares",
+    "inputs": [
+      "results/process_ipopt_bam_v2_20261015/tables/run_results.csv"
+    ],
+    "generator": "reproduction/renderers/figures_2_6_7.py",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "figures/process_cost_breakdown.pdf"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "None; font/rendering bytes may differ from reference PDF"
+  },
+  {
+    "id": "figure_7",
+    "title": "Process completion profiles",
+    "inputs": [
+      "results/process_ipopt_bam_v2_20261015/tables/run_results.csv"
+    ],
+    "generator": "reproduction/renderers/figures_2_6_7.py",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "figures/process_completion_profiles.pdf"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "None; font/rendering bytes may differ from reference PDF"
+  },
+  {
+    "id": "figure_8",
+    "title": "Process per-seed completion and failure markers",
+    "inputs": [
+      "results/process_ipopt_bam_v2_20261015/tables/run_results.csv",
+      "reproduction/data/figure8_reference.json"
+    ],
+    "generator": "reproduction/renderers/figure8.py",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "figures/process_completion_scatter.pdf"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "None; font/rendering bytes may differ from reference PDF"
+  },
+  {
+    "id": "main_01",
+    "title": "Process domains, coverage, budgets and targets",
+    "inputs": [
+      "results/process_ipopt_bam_v2_20261015/tables/timing_coverage.csv",
+      "results/process_ipopt_bam_v2_20261015/tables/run_results.csv",
+      "results/process_ipopt_bam_v2_20261015/tables/cost_table_column.csv",
+      "results/process_ipopt_bam_v2_20261015/tables/cost_table_dynamic.csv",
+      "results/process_ipopt_bam_v2_20261015/tables/cost_table_small_batch.csv",
+      "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_5.csv",
+      "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_10.csv",
+      "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_15.csv",
+      "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_20.csv",
+      "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_25.csv",
+      "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_30.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/main_01.csv",
+      "tables/main_01.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "main_02",
+    "title": "Implementation settings",
+    "inputs": [
+      "reproduction/data/supporting_data/protocol_dsda.json",
+      "reproduction/data/supporting_data/protocol_rbfopt.json",
+      "reproduction/data/supporting_data/protocol_bam.json",
+      "reproduction/data/supporting_data/protocol_fmqa_sa.json",
+      "reproduction/data/supporting_data/grid_execution_records.json",
+      "reproduction/data/supporting_data/version_identification.json"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/main_02.csv",
+      "tables/main_02.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "main_03",
+    "title": "Grid hit percentages",
+    "inputs": [
+      "results/grid_gdp_dfo_20261011/runs.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/main_03.csv",
+      "tables/main_03.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "main_04",
+    "title": "Grid B100 medians",
+    "inputs": [
+      "results/grid_gdp_dfo_20261011/runs.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/main_04.csv",
+      "tables/main_04.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "main_05",
+    "title": "Grid algebraic classifications",
+    "inputs": [
+      "results/grid_gdp_dfo_20261011/gdp_runs.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/main_05.csv",
+      "tables/main_05.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "main_06",
+    "title": "Process target attainment",
+    "inputs": [
+      "results/process_ipopt_bam_v2_20261015/tables/run_results.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/main_06.csv",
+      "tables/main_06.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "main_07",
+    "title": "Process completion medians and TTS99",
+    "inputs": [
+      "results/process_ipopt_bam_v2_20261015/tables/run_results.csv",
+      "results/process_ipopt_bam_v2_20261015/tables/group_summary.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/main_07.csv",
+      "tables/main_07.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "main_08",
+    "title": "Full GDP objectives, times and flags",
+    "inputs": [
+      "reproduction/data/algebraic_audit/table8_bound_audit.csv",
+      "results/gdp_comparison_current/analysis/comparison.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/main_08.csv",
+      "tables/main_08.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_01",
+    "title": "Grid domains",
+    "inputs": [
+      "reproduction/data/supporting_data/grid_inventory.json"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_01.csv",
+      "tables/supp_01.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_02",
+    "title": "FMQA fallback counts",
+    "inputs": [
+      "reproduction/data/supporting_data/fmqa_proposal_counts.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_02.csv",
+      "tables/supp_02.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_03",
+    "title": "Terminal-only successes",
+    "inputs": [
+      "reproduction/data/supporting_data/terminal_callback_recovery.json"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_03.csv",
+      "tables/supp_03.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_04",
+    "title": "Stopping diagnostics",
+    "inputs": [
+      "reproduction/data/supporting_data/stopping_diagnostics.json"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_04.csv",
+      "tables/supp_04.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_05",
+    "title": "Original model counts",
+    "inputs": [
+      "reproduction/data/supporting_data/process_model_counts.json"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_05.csv",
+      "tables/supp_05.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_06",
+    "title": "Raw normalization constants",
+    "inputs": [
+      "reproduction/data/supporting_data/grid_inventory.json"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_06.csv",
+      "tables/supp_06.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_07",
+    "title": "Floating-point minimizers",
+    "inputs": [
+      "reproduction/data/supporting_data/grid_inventory.json"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_07.csv",
+      "tables/supp_07.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_08",
+    "title": "Process binomial intervals",
+    "inputs": [
+      "results/process_ipopt_bam_v2_20261015/tables/run_results.csv",
+      "reproduction/data/supporting_data/interval_key.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_08.csv",
+      "tables/supp_08.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_09",
+    "title": "Grid B10 binomial intervals",
+    "inputs": [
+      "results/grid_gdp_dfo_20261011/runs.csv",
+      "reproduction/data/supporting_data/interval_key.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_09.csv",
+      "tables/supp_09.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_10",
+    "title": "Grid B30 binomial intervals",
+    "inputs": [
+      "results/grid_gdp_dfo_20261011/runs.csv",
+      "reproduction/data/supporting_data/interval_key.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_10.csv",
+      "tables/supp_10.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_11",
+    "title": "Grid B50 binomial intervals",
+    "inputs": [
+      "results/grid_gdp_dfo_20261011/runs.csv",
+      "reproduction/data/supporting_data/interval_key.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_11.csv",
+      "tables/supp_11.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_12",
+    "title": "Grid B70 binomial intervals",
+    "inputs": [
+      "results/grid_gdp_dfo_20261011/runs.csv",
+      "reproduction/data/supporting_data/interval_key.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_12.csv",
+      "tables/supp_12.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_13",
+    "title": "Grid B100 binomial intervals",
+    "inputs": [
+      "results/grid_gdp_dfo_20261011/runs.csv",
+      "reproduction/data/supporting_data/interval_key.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_13.csv",
+      "tables/supp_13.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_14",
+    "title": "Bound-consistency run audit",
+    "inputs": [
+      "reproduction/data/algebraic_audit/table8_bound_audit.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_14.csv",
+      "tables/supp_14.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  },
+  {
+    "id": "supp_15",
+    "title": "Saved feasible witnesses",
+    "inputs": [
+      "reproduction/data/algebraic_audit/feasible_witnesses.csv"
+    ],
+    "generator": "reproduction/tables.py:generate",
+    "command": "python reproduction/reproduce.py --output /tmp/rbfopt-paper-output --replay",
+    "outputs": [
+      "tables/supp_15.csv",
+      "tables/supp_15.md"
+    ],
+    "environment": "reproduction/requirements-lock.txt",
+    "manual_formatting": "CSV/Markdown is long form; pivot methods/panels and apply manuscript notation/rounding. Main Table 2 explanatory prose is editorial, settings exported per job."
+  }
+]

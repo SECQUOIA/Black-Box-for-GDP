@@ -1,0 +1,140 @@
+{
+  "case": "small_batch",
+  "cstr_size": null,
+  "instance_id": "small_batch",
+  "source": {
+    "repository": "https://github.com/SECQUOIA/dsda-gdp",
+    "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+    "files_sha256": {
+      "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+      "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+      "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+    }
+  },
+  "initialization": "gdp/dsda/small_batch_initialization.json",
+  "dynamic_preparation": null,
+  "global_fbbt_wall_s": 0.005425621289759874,
+  "globally_implied_bounds": {
+    "b[a]": {
+      "before": [
+        0,
+        null
+      ],
+      "after": [
+        3.568433301038069,
+        6.437751649736401
+      ]
+    },
+    "b[b]": {
+      "before": [
+        0,
+        null
+      ],
+      "after": [
+        3.273684061363196,
+        6.0322865416282365
+      ]
+    },
+    "tl[a]": {
+      "before": [
+        0,
+        null
+      ],
+      "after": [
+        0,
+        2.8693183486983322
+      ]
+    },
+    "tl[b]": {
+      "before": [
+        0,
+        null
+      ],
+      "after": [
+        0,
+        2.758602480265041
+      ]
+    },
+    "n[mixer]": {
+      "before": [
+        0,
+        null
+      ],
+      "after": [
+        0,
+        3.295836866004329
+      ]
+    },
+    "n[reactor]": {
+      "before": [
+        0,
+        null
+      ],
+      "after": [
+        0.1264139248556586,
+        3.295836866004329
+      ]
+    },
+    "n[centrifuge]": {
+      "before": [
+        0,
+        null
+      ],
+      "after": [
+        0,
+        3.295836866004329
+      ]
+    }
+  },
+  "template_wall_s": 0.0368636641651392,
+  "template_policy": "built once, independent unsolved clone per method",
+  "method": "gloa",
+  "time_limit_s": 1800,
+  "threads": 1,
+  "status": "finished",
+  "objective": 167427.65711470306,
+  "has_feasible_solution": true,
+  "global_optimality_certified": false,
+  "global_bound_valid": false,
+  "solver_policy": {
+    "nlp": "ipopt",
+    "mip": "cplex"
+  },
+  "certificate_note": "Local IPOPT subproblems: GDPopt bounds/termination do not certify global optimality.",
+  "reformulation_wall_s": 0.001473471987992525,
+  "model_variables": 37,
+  "model_constraints": 37,
+  "candidate_objective": 167427.65711470306,
+  "max_primal_violation": 4.440892098500626e-16,
+  "invalid_or_undefined": [],
+  "selected_disjuncts": [
+    "Y_exists[1,centrifuge]",
+    "Y_exists[2,mixer]",
+    "Y_exists[2,reactor]",
+    "Y_not_exists[1,mixer]",
+    "Y_not_exists[1,reactor]",
+    "Y_not_exists[2,centrifuge]",
+    "Y_not_exists[3,mixer]",
+    "Y_not_exists[3,reactor]",
+    "Y_not_exists[3,centrifuge]"
+  ],
+  "selected_booleans": [
+    "Y[1,centrifuge]",
+    "Y[2,mixer]",
+    "Y[2,reactor]"
+  ],
+  "incumbent_elapsed_s": 7.700063878670335,
+  "gdpopt_iterations": 14,
+  "solve_wall_s": 10.744394032750279,
+  "termination": "optimal",
+  "solver_status": "ok",
+  "reported_lower_bound": 167427.65711470306,
+  "reported_upper_bound": 167427.65711470306,
+  "method_wall_s": 10.761790168937296,
+  "solver_calls": 26,
+  "sum_solver_call_wall_s": 10.247529834043235,
+  "worker_pid": 2700588,
+  "worker_returncode": 0,
+  "worker_wall_s": 10.772348308935761,
+  "hard_time_limit_reached": false
+}

@@ -1,5 +1,18 @@
 # RBFopt_Test
 
+## Reproduce the manuscript from frozen data
+
+Start with the [complete reproduction guide](reproduction/README.md),
+[all-figure/table output index](reproduction/OUTPUT_INDEX.md), and
+[executed validation report](reproduction/validation/REPORT.md).
+The companion rebuilds eight figures and 23 table datasets from retained
+records without running optimizers or NLP solvers. It includes the protocol,
+terminal-callback, stopping and algebraic-audit evidence, and a pinned package
+builder with file-level checksums. Original execution archives remain intact.
+The final public release locator and logged-out access check are still pending;
+see the guide's post-merge checklist (Issue #44).
+
+
 RBFopt_Test is a research and testing repository for derivative-free
 optimization case studies. It focuses on comparing RBFOpt, BAM, and DSDA-style
 search procedures over discrete benchmark grids.

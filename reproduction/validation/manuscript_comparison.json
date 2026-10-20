@@ -1,0 +1,3682 @@
+{
+  "reference_files": {
+    "main.tex": "f7c4630542add1b2c859297406708fa3bd66173a824d9dd22cda8947d5701011",
+    "supplementary.tex": "ea1fd642937ef68916c9410039e04d99b1a2508589b18fd096505c5a8cf9c008"
+  },
+  "reference_sources_committed": false,
+  "checks": [
+    {
+      "check": "Table 1 cstr_5",
+      "passed": true,
+      "detail": "accepted and measured coordinate counts"
+    },
+    {
+      "check": "Table 1 reference cstr_5",
+      "passed": true,
+      "detail": "reference objective, printed precision"
+    },
+    {
+      "check": "Table 1 cstr_10",
+      "passed": true,
+      "detail": "accepted and measured coordinate counts"
+    },
+    {
+      "check": "Table 1 reference cstr_10",
+      "passed": true,
+      "detail": "reference objective, printed precision"
+    },
+    {
+      "check": "Table 1 cstr_15",
+      "passed": true,
+      "detail": "accepted and measured coordinate counts"
+    },
+    {
+      "check": "Table 1 reference cstr_15",
+      "passed": true,
+      "detail": "reference objective, printed precision"
+    },
+    {
+      "check": "Table 1 cstr_20",
+      "passed": true,
+      "detail": "accepted and measured coordinate counts"
+    },
+    {
+      "check": "Table 1 reference cstr_20",
+      "passed": true,
+      "detail": "reference objective, printed precision"
+    },
+    {
+      "check": "Table 1 cstr_25",
+      "passed": true,
+      "detail": "accepted and measured coordinate counts"
+    },
+    {
+      "check": "Table 1 reference cstr_25",
+      "passed": true,
+      "detail": "reference objective, printed precision"
+    },
+    {
+      "check": "Table 1 cstr_30",
+      "passed": true,
+      "detail": "accepted and measured coordinate counts"
+    },
+    {
+      "check": "Table 1 reference cstr_30",
+      "passed": true,
+      "detail": "reference objective, printed precision"
+    },
+    {
+      "check": "Table 1 column",
+      "passed": true,
+      "detail": "accepted and measured coordinate counts"
+    },
+    {
+      "check": "Table 1 reference column",
+      "passed": true,
+      "detail": "reference objective, printed precision"
+    },
+    {
+      "check": "Table 1 dynamic",
+      "passed": true,
+      "detail": "accepted and measured coordinate counts"
+    },
+    {
+      "check": "Table 1 reference dynamic",
+      "passed": true,
+      "detail": "reference objective, printed precision"
+    },
+    {
+      "check": "Table 1 small_batch",
+      "passed": true,
+      "detail": "accepted and measured coordinate counts"
+    },
+    {
+      "check": "Table 1 reference small_batch",
+      "passed": true,
+      "detail": "reference objective, printed precision"
+    },
+    {
+      "check": "Table 3 10/dsda",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 10/rbfopt",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 10/bam",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 10/fmqa_sa",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 30/dsda",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 30/rbfopt",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 30/bam",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 30/fmqa_sa",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 50/dsda",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 50/rbfopt",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 50/bam",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 50/fmqa_sa",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 70/dsda",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 70/rbfopt",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 70/bam",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 70/fmqa_sa",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 100/dsda",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 100/rbfopt",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 100/bam",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 3 100/fmqa_sa",
+      "passed": true,
+      "detail": "printed hit percentage"
+    },
+    {
+      "check": "Table 4 dsda",
+      "passed": true,
+      "detail": "hits, completion median, point-cost median"
+    },
+    {
+      "check": "Table 4 rbfopt",
+      "passed": true,
+      "detail": "hits, completion median, point-cost median"
+    },
+    {
+      "check": "Table 4 bam",
+      "passed": true,
+      "detail": "hits, completion median, point-cost median"
+    },
+    {
+      "check": "Table 4 fmqa_sa",
+      "passed": true,
+      "detail": "hits, completion median, point-cost median"
+    },
+    {
+      "check": "Table 6 column/16/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure column/16/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 column/16/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure column/16/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 column/16/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure column/16/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 column/16/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure column/16/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_10/15/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_10/15/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_10/15/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_10/15/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_10/15/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_10/15/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_10/15/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_10/15/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_15/22/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_15/22/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_15/22/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_15/22/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_15/22/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_15/22/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_15/22/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_15/22/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_20/29/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_20/29/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_20/29/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_20/29/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_20/29/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_20/29/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_20/29/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_20/29/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_25/36/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_25/36/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_25/36/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_25/36/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_25/36/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_25/36/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_25/36/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_25/36/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_30/43/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_30/43/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_30/43/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_30/43/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_30/43/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_30/43/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_30/43/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_30/43/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_5/8/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_5/8/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_5/8/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_5/8/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_5/8/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_5/8/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 cstr_5/8/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure cstr_5/8/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/12/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/12/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/12/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/12/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/12/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/12/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/12/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/12/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/15/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/15/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/15/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/15/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/15/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/15/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/15/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/15/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/20/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/20/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/20/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/20/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/20/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/20/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/20/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/20/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/30/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/30/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/30/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/30/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/30/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/30/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/30/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/30/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/37/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/37/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/37/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/37/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/37/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/37/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/37/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/37/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/50/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/50/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/50/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/50/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/50/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/50/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 dynamic/50/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure dynamic/50/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 small_batch/10/bam",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure small_batch/10/bam",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 small_batch/10/dsda",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure small_batch/10/dsda",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 small_batch/10/fmqa_sa",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure small_batch/10/fmqa_sa",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 6 small_batch/10/rbfopt",
+      "passed": true,
+      "detail": "hits/denominator"
+    },
+    {
+      "check": "Table 6 failure small_batch/10/rbfopt",
+      "passed": true,
+      "detail": "execution-failure annotation"
+    },
+    {
+      "check": "Table 7 column/16/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 column/16/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 column/16/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 column/16/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 column/16/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 column/16/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 column/16/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 column/16/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_10/15/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_10/15/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_10/15/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_10/15/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_10/15/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_10/15/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_10/15/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_10/15/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_15/22/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_15/22/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_15/22/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_15/22/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_15/22/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_15/22/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_15/22/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_15/22/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_20/29/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_20/29/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_20/29/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_20/29/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_20/29/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_20/29/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_20/29/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_20/29/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_25/36/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_25/36/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_25/36/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_25/36/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_25/36/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_25/36/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_25/36/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_25/36/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_30/43/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_30/43/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_30/43/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_30/43/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_30/43/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_30/43/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_30/43/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_30/43/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_5/8/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_5/8/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_5/8/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_5/8/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_5/8/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_5/8/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_5/8/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 cstr_5/8/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/12/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/12/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/12/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/12/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/12/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/12/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/12/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/12/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/15/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/15/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/15/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/15/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/15/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/15/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/15/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/15/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/20/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/20/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/20/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/20/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/20/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/20/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/20/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/20/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/30/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/30/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/30/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/30/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/30/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/30/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/30/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/30/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/37/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/37/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/37/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/37/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/37/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/37/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/37/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/37/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/50/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/50/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/50/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/50/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/50/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/50/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/50/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 dynamic/50/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 small_batch/10/bam/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 small_batch/10/bam/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 small_batch/10/dsda/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 small_batch/10/dsda/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 small_batch/10/fmqa_sa/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 small_batch/10/fmqa_sa/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 small_batch/10/rbfopt/median_completion_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 7 small_batch/10/rbfopt/tts99_s",
+      "passed": true,
+      "detail": "printed median/TTS99"
+    },
+    {
+      "check": "Table 8 cstr_5/ric",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_5/ric",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_5/gloa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_5/gloa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_5/loa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_5/loa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_5/bigm",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_5/bigm",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_5/hull",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_5/hull",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_10/ric",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_10/ric",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_10/gloa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_10/gloa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_10/loa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_10/loa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_10/bigm",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_10/bigm",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_10/hull",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_10/hull",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_15/ric",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_15/ric",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_15/gloa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_15/gloa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_15/loa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_15/loa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_15/bigm",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_15/bigm",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_15/hull",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_15/hull",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_20/ric",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_20/ric",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_20/gloa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_20/gloa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_20/loa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_20/loa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_20/bigm",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_20/bigm",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_20/hull",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_20/hull",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_25/ric",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_25/ric",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_25/gloa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_25/gloa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_25/loa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_25/loa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_25/bigm",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_25/bigm",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_25/hull",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_25/hull",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_30/ric",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_30/ric",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_30/gloa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_30/gloa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_30/loa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_30/loa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_30/bigm",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_30/bigm",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 cstr_30/hull",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification cstr_30/hull",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 column/ric",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification column/ric",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 column/gloa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification column/gloa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 column/loa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification column/loa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 column/bigm",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification column/bigm",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 column/hull",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification column/hull",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 small_batch/ric",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification small_batch/ric",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 small_batch/gloa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification small_batch/gloa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 small_batch/loa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification small_batch/loa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 small_batch/bigm",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification small_batch/bigm",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 small_batch/hull",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification small_batch/hull",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 dynamic/ric",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification dynamic/ric",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 dynamic/gloa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification dynamic/gloa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 dynamic/loa",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification dynamic/loa",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 dynamic/bigm",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification dynamic/bigm",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table 8 dynamic/hull",
+      "passed": true,
+      "detail": "objective and preparation-inclusive completion time"
+    },
+    {
+      "check": "Table 8 classification dynamic/hull",
+      "passed": true,
+      "detail": "dagger, double dagger, time-limit flags"
+    },
+    {
+      "check": "Table S8 ('column', '16')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('cstr_10', '15')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('cstr_15', '22')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('cstr_20', '29')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('cstr_25', '36')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('cstr_30', '43')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('cstr_5', '8')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('dynamic', '12')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('dynamic', '15')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('dynamic', '20')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('dynamic', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('dynamic', '37')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('dynamic', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S8 ('small_batch', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('ackley', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('alpine1', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('alpine2', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('bohachevsky2', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('camel3', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('csendes', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('deflected_corrugated_spring', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('dropwave', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('easom', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('griewank', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('holder_table', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('hosaki', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('levy', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('levy13', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('michalewicz', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('rastrigin', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('rosenbrock', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('shubert', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('styblinski_tang', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('sum_of_squares', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S9 ('xin_she_yang3', '10')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('ackley', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('alpine1', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('alpine2', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('bohachevsky2', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('camel3', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('csendes', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('deflected_corrugated_spring', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('dropwave', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('easom', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('griewank', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('holder_table', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('hosaki', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('levy', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('levy13', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('michalewicz', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('rastrigin', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('rosenbrock', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('shubert', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('styblinski_tang', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('sum_of_squares', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S10 ('xin_she_yang3', '30')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('ackley', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('alpine1', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('alpine2', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('bohachevsky2', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('camel3', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('csendes', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('deflected_corrugated_spring', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('dropwave', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('easom', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('griewank', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('holder_table', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('hosaki', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('levy', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('levy13', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('michalewicz', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('rastrigin', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('rosenbrock', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('shubert', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('styblinski_tang', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('sum_of_squares', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S11 ('xin_she_yang3', '50')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('ackley', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('alpine1', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('alpine2', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('bohachevsky2', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('camel3', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('csendes', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('deflected_corrugated_spring', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('dropwave', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('easom', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('griewank', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('holder_table', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('hosaki', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('levy', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('levy13', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('michalewicz', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('rastrigin', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('rosenbrock', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('shubert', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('styblinski_tang', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('sum_of_squares', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S12 ('xin_she_yang3', '70')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('ackley', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('alpine1', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('alpine2', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('bohachevsky2', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('camel3', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('csendes', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('deflected_corrugated_spring', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('dropwave', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('easom', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('griewank', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('holder_table', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('hosaki', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('levy', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('levy13', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('michalewicz', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('rastrigin', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('rosenbrock', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('shubert', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('styblinski_tang', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('sum_of_squares', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S13 ('xin_she_yang3', '100')",
+      "passed": true,
+      "detail": "all four printed exact-binomial intervals"
+    },
+    {
+      "check": "Table S3 cstr_10_B15_seed1_rbfopt",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 cstr_10_B15_seed5_rbfopt",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 cstr_10_B15_seed6_rbfopt",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 cstr_5_B8_seed5_fmqa_sa",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 cstr_5_B8_seed3_rbfopt",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 cstr_5_B8_seed7_rbfopt",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 column_B16_seed8_fmqa_sa",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 column_B16_seed3_rbfopt",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 dynamic_B12_seed7_fmqa_sa",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 dynamic_B12_seed7_rbfopt",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 dynamic_B15_seed3_fmqa_sa",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 small_batch_B10_seed5_rbfopt",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 small_batch_B10_seed7_rbfopt",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S3 small_batch_B10_seed9_rbfopt",
+      "passed": true,
+      "detail": "terminal point and full-precision objective"
+    },
+    {
+      "check": "Table S5 CSTR 5",
+      "passed": true,
+      "detail": "five original-model counts"
+    },
+    {
+      "check": "Table S5 CSTR 10",
+      "passed": true,
+      "detail": "five original-model counts"
+    },
+    {
+      "check": "Table S5 CSTR 15",
+      "passed": true,
+      "detail": "five original-model counts"
+    },
+    {
+      "check": "Table S5 CSTR 20",
+      "passed": true,
+      "detail": "five original-model counts"
+    },
+    {
+      "check": "Table S5 CSTR 25",
+      "passed": true,
+      "detail": "five original-model counts"
+    },
+    {
+      "check": "Table S5 CSTR 30",
+      "passed": true,
+      "detail": "five original-model counts"
+    },
+    {
+      "check": "Table S5 Column",
+      "passed": true,
+      "detail": "five original-model counts"
+    },
+    {
+      "check": "Table S5 Small Batch",
+      "passed": true,
+      "detail": "five original-model counts"
+    },
+    {
+      "check": "Table S5 Dynamic",
+      "passed": true,
+      "detail": "five original-model counts"
+    },
+    {
+      "check": "Table S1 ackley",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 alpine1",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 alpine2",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 bohachevsky2",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 camel3",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 csendes",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 deflected_corrugated_spring",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 dropwave",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 easom",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 griewank",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 holder_table",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 hosaki",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 levy",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 levy13",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 michalewicz",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 rastrigin",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 rosenbrock",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 shubert",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 styblinski_tang",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 sum_of_squares",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table S1 xin_she_yang3",
+      "passed": true,
+      "detail": "two physical coordinate domains"
+    },
+    {
+      "check": "Table 5 ackley/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 ackley/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 ackley/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 ackley/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 ackley/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 alpine1/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 alpine1/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 alpine1/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 alpine1/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 alpine1/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 alpine2/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 alpine2/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 alpine2/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 alpine2/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 alpine2/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 bohachevsky2/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 bohachevsky2/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 bohachevsky2/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 bohachevsky2/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 bohachevsky2/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 camel3/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 camel3/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 camel3/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 camel3/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 camel3/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 csendes/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 csendes/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 csendes/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 csendes/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 csendes/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 deflected_corrugated_spring/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 deflected_corrugated_spring/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 deflected_corrugated_spring/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 deflected_corrugated_spring/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 deflected_corrugated_spring/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 dropwave/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 dropwave/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 dropwave/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 dropwave/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 dropwave/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 easom/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 easom/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 easom/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 easom/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 easom/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 griewank/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 griewank/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 griewank/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 griewank/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 griewank/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 holder_table/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 holder_table/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 holder_table/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 holder_table/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 holder_table/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 hosaki/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 hosaki/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 hosaki/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 hosaki/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 hosaki/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 levy/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 levy/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 levy/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 levy/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 levy/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 levy13/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 levy13/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 levy13/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 levy13/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 levy13/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 michalewicz/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 michalewicz/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 michalewicz/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 michalewicz/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 michalewicz/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 rastrigin/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 rastrigin/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 rastrigin/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 rastrigin/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 rastrigin/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 rosenbrock/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 rosenbrock/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 rosenbrock/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 rosenbrock/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 rosenbrock/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 shubert/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 shubert/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 shubert/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 shubert/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 shubert/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 styblinski_tang/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 styblinski_tang/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 styblinski_tang/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 styblinski_tang/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 styblinski_tang/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 sum_of_squares/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 sum_of_squares/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 sum_of_squares/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 sum_of_squares/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 sum_of_squares/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 xin_she_yang3/ric",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 xin_she_yang3/gloa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 xin_she_yang3/loa",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 xin_she_yang3/bigm",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table 5 xin_she_yang3/hull",
+      "passed": true,
+      "detail": "time/outcome and execution-profile annotations"
+    },
+    {
+      "check": "Table S2 CSTR",
+      "passed": true,
+      "detail": "proposal/fallback counts and rate"
+    },
+    {
+      "check": "Table S2 Process total",
+      "passed": true,
+      "detail": "proposal/fallback counts and rate"
+    },
+    {
+      "check": "Table S2 Column",
+      "passed": true,
+      "detail": "proposal/fallback counts and rate"
+    },
+    {
+      "check": "Table S2 Dynamic",
+      "passed": true,
+      "detail": "proposal/fallback counts and rate"
+    },
+    {
+      "check": "Table S2 Small Batch",
+      "passed": true,
+      "detail": "proposal/fallback counts and rate"
+    },
+    {
+      "check": "Table S2 Grid",
+      "passed": true,
+      "detail": "proposal/fallback counts and rate"
+    },
+    {
+      "check": "Table S4 Process/rbfopt",
+      "passed": true,
+      "detail": "stopping categories, callbacks and post-target median"
+    },
+    {
+      "check": "Table S4 Process/dsda",
+      "passed": true,
+      "detail": "stopping categories, callbacks and post-target median"
+    },
+    {
+      "check": "Table S4 Process/fmqa_sa",
+      "passed": true,
+      "detail": "stopping categories, callbacks and post-target median"
+    },
+    {
+      "check": "Table S4 Process/bam",
+      "passed": true,
+      "detail": "stopping categories, callbacks and post-target median"
+    },
+    {
+      "check": "Table S4 Grid/dsda",
+      "passed": true,
+      "detail": "stopping categories, callbacks and post-target median"
+    },
+    {
+      "check": "Table S4 Grid/rbfopt",
+      "passed": true,
+      "detail": "stopping categories, callbacks and post-target median"
+    },
+    {
+      "check": "Table S4 Grid/bam",
+      "passed": true,
+      "detail": "stopping categories, callbacks and post-target median"
+    },
+    {
+      "check": "Table S4 Grid/fmqa_sa",
+      "passed": true,
+      "detail": "stopping categories, callbacks and post-target median"
+    },
+    {
+      "check": "Table S6 ackley",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 alpine1",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 alpine2",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 bohachevsky2",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 camel3",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 csendes",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 deflected_corrugated_spring",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 dropwave",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 easom",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 griewank",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 holder_table",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 hosaki",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 levy",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 levy13",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 michalewicz",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 rastrigin",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 rosenbrock",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 shubert",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 styblinski_tang",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 sum_of_squares",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S6 xin_she_yang3",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 ackley",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 alpine1",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 alpine2",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 bohachevsky2",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 camel3",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 csendes",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 deflected_corrugated_spring",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 dropwave",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 easom",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 griewank",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 holder_table",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 hosaki",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 levy",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 levy13",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 michalewicz",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 rastrigin",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 rosenbrock",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 shubert",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 styblinski_tang",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 sum_of_squares",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S7 xin_she_yang3",
+      "passed": true,
+      "detail": "normalization/minimizer inventory"
+    },
+    {
+      "check": "Table S14 A01",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A02",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A03",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A04",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A05",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A06",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A07",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A08",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A09",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A10",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A11",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A12",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A13",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A14",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A15",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A16",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A17",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A18",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A19",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A20",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A21",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A22",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A23",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A24",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A25",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A26",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A27",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A28",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A29",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A30",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A31",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A32",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A33",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A34",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A35",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A36",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A37",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A38",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A39",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A40",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A41",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A42",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A43",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A44",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S14 A45",
+      "passed": true,
+      "detail": "objective, lower bound, residual, witness, ratio and flag"
+    },
+    {
+      "check": "Table S15 W01",
+      "passed": true,
+      "detail": "witness objective, residual and source"
+    },
+    {
+      "check": "Table S15 W02",
+      "passed": true,
+      "detail": "witness objective, residual and source"
+    },
+    {
+      "check": "Table S15 W03",
+      "passed": true,
+      "detail": "witness objective, residual and source"
+    },
+    {
+      "check": "Table S15 W04",
+      "passed": true,
+      "detail": "witness objective, residual and source"
+    },
+    {
+      "check": "Table S15 W05",
+      "passed": true,
+      "detail": "witness objective, residual and source"
+    },
+    {
+      "check": "Table S15 W06",
+      "passed": true,
+      "detail": "witness objective, residual and source"
+    },
+    {
+      "check": "Table S15 W07",
+      "passed": true,
+      "detail": "witness objective, residual and source"
+    },
+    {
+      "check": "Table S15 W08",
+      "passed": true,
+      "detail": "witness objective, residual and source"
+    },
+    {
+      "check": "Table S15 W09",
+      "passed": true,
+      "detail": "witness objective, residual and source"
+    }
+  ],
+  "passed": true,
+  "failed_checks": [],
+  "scope": "Automated numeric-cell checks listed individually. Table 2 explanatory prose and table layouts require editorial review. Remaining tables are checked against their frozen evidence by reproduce.py."
+}

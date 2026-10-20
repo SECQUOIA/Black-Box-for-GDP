@@ -1,0 +1,29 @@
+name: Frozen manuscript reproduction
+on:
+  pull_request:
+    paths:
+      - 'reproduction/**'
+      - 'gdp_models/_sources.py'
+      - 'scripts/verify_final_process.py'
+      - 'tests/test_manuscript_reproduction.py'
+      - '.github/workflows/manuscript-reproduction.yml'
+  workflow_dispatch:
+jobs:
+  frozen-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.13'
+      - run: python -m pip install -r reproduction/requirements-lock.txt
+      - run: python -m ruff check reproduction tests/test_manuscript_reproduction.py
+      - run: python -m pytest tests/test_manuscript_reproduction.py -q
+      - run: python reproduction/reproduce.py --output "$RUNNER_TEMP/manuscript-output" --replay
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: manuscript-regeneration
+          path: ${{ runner.temp }}/manuscript-output

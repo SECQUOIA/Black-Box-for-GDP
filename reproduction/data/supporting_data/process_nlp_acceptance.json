@@ -1,0 +1,116 @@
+{
+  "scope": "Acceptance criteria and initialization provenance for the frozen process oracle.",
+  "repository_revision": "ade67082ad2b09583a8f5594b827c97417e0ea99",
+  "implementation_files_sha256": {
+    "gdp_models/evaluation.py": "98eda90acea6fc70d26192020972d9b9917b5802a06239aa4a92ad42a9aa19f5",
+    "gdp_models/models.py": "1257294f4b90ddf7ee0bfa3b23e3df576890433a103f49789e624499fe698396",
+    "cstr_box_ipopt.py": "8d0a3b1cb9997f5639724e17a05362c4a805168d85299d168ab92a5e3894f120"
+  },
+  "accepted_terminations": [
+    "optimal",
+    "locallyOptimal",
+    "globallyOptimal"
+  ],
+  "excluded_solver_statuses": [
+    "error",
+    "aborted"
+  ],
+  "required_gams_solvestat": 1,
+  "accepted_gams_modelstat": [
+    1,
+    2
+  ],
+  "finite_objective_required": true,
+  "finite_primal_violation_required": true,
+  "maximum_absolute_primal_violation": 1e-05,
+  "residual_scaling": "none",
+  "constraints_checked": "Rows collected after disjunction fixing and before presolve, including subsequently deactivated rows.",
+  "variables_checked": "Bounds of initialized active variables in the prepared NLP. Non-finite initialized values reject; unused uninitialized variables skipped.",
+  "time_limited_candidates_accepted": false,
+  "initialization": {
+    "cstr_5": {
+      "initialization": "mass_balance_zero_recycle",
+      "source_archive": "results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip",
+      "source_archive_sha256": "8ae882d99e9309692b9ed773f2a87f076149f9b15d786d2e283fe0655c4a3e53",
+      "provenance_file": "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_5/provenance.json",
+      "provenance_sha256": "34abe9f1fdea21a32ff6387940eb7c90be19f1f0d16f559f2759c3857b15f878"
+    },
+    "cstr_10": {
+      "initialization": "mass_balance_zero_recycle",
+      "source_archive": "results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip",
+      "source_archive_sha256": "8ae882d99e9309692b9ed773f2a87f076149f9b15d786d2e283fe0655c4a3e53",
+      "provenance_file": "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_10/provenance.json",
+      "provenance_sha256": "ac81f17f743d7b8958f0b79e801b5e50761ff8cce31f2ab845d5a2cbbe17bd89"
+    },
+    "cstr_15": {
+      "initialization": "mass_balance_zero_recycle",
+      "source_archive": "results/cstr_box_ipopt/dantzig_cstr_box_ipopt_20261015_155116_eqpg0g41.zip",
+      "source_archive_sha256": "8ae882d99e9309692b9ed773f2a87f076149f9b15d786d2e283fe0655c4a3e53",
+      "provenance_file": "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_15/provenance.json",
+      "provenance_sha256": "e5cd490b31f4f4ca51c6866f2aabdcf2a61baa06a32752e2de2fecb14c9f805e"
+    },
+    "cstr_20": {
+      "initialization": "mass_balance_zero_recycle",
+      "source_archive": "results/archives/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip",
+      "source_archive_sha256": "38f1f99098113f67a0cec623eff88dfdf3e10bda2c7c07a5a356cbabce527677",
+      "provenance_file": "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_20/provenance.json",
+      "provenance_sha256": "de20a20c5a51795f6cd2a84c5a346c2a39d34d0e5497783c7b287380365d994a"
+    },
+    "cstr_25": {
+      "initialization": "mass_balance_zero_recycle",
+      "source_archive": "results/archives/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip",
+      "source_archive_sha256": "38f1f99098113f67a0cec623eff88dfdf3e10bda2c7c07a5a356cbabce527677",
+      "provenance_file": "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_25/provenance.json",
+      "provenance_sha256": "bb7835bb679f73d55e5df59b06991168342292b7637a61784e8ac4bb0ffb90f1"
+    },
+    "cstr_30": {
+      "initialization": "constructor_defaults (no upstream saved initialization)",
+      "provenance_file": "results/ipopt_dfo_cstr_20261015_174637_r1dzn5tk/inputs/cstr_30/provenance.json",
+      "provenance_sha256": "b4b9fdbd6a25bd7bb81efeae7a2044f5a1d925b9772a1aca8761e9deaa2d8a41"
+    },
+    "column": {
+      "initialization": "gdp/dsda/column_17_initialization.json",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/column/gdp_column.py": "c5fea7ff6286d2b6c1055a4e602b08648a03853aea24e6552f5921b36e205bab",
+          "gdp/dsda/column_17_initialization.json": "60cd7d1f7a7f08b59d9b0d7fca6e8920313ca7722c94d829e388a009ae4acfd7",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+          "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+          "main_column.py": "09a4ff167d87c15bb0e2323567f1f59be7ece61b325ea9cf84900bd7aaa2800a"
+        }
+      },
+      "manifest_file": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/column/manifest.json",
+      "manifest_sha256": "433b5fe194358bf847f6e3a5263e7612ef871ea37be247792f2c0d1e5f07be4c"
+    },
+    "small_batch": {
+      "initialization": "gdp/dsda/small_batch_initialization.json",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/dsda-gdp",
+        "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+        "files_sha256": {
+          "gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+          "gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+          "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+          "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+          "main_small_batch.py": "6d0411402276f40889230f009538ead4798dcf2ca7eecd2efbbc8bcbd5baa024"
+        }
+      },
+      "manifest_file": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/small_batch/manifest.json",
+      "manifest_sha256": "2a005c65b883b5ae1ad9944faf5db5209bed821ade4863bc4e1c150637955b58"
+    },
+    "dynamic": {
+      "initialization": "constructor_defaults",
+      "source": {
+        "repository": "https://github.com/SECQUOIA/LD-SDA-Dynamic",
+        "commit": "482e14ebf9caabbd35d959986942cb028778a1d7",
+        "files_sha256": {
+          "models/nine_stage_dynamic_model_switching_nonlinear.py": "70653536e48a2a6a05c23a8f0337a43e36307c554569982767afa1c1c623ed98"
+        }
+      },
+      "manifest_file": "results/ipopt_dfo_non_cstr_20261015_172428_o671edu_/inputs/dynamic/manifest.json",
+      "manifest_sha256": "3f5c3d6a1307fcdb022ae51b5e15fd8c0699ff3064f856135f422951deba9747"
+    }
+  }
+}

@@ -252,6 +252,17 @@ def replay(output, figures=False):
             "figures_regenerated": figures}
 
 
+def provider_revision():
+    """Git checkout identity or the verified release-package identity."""
+    package = ROOT / "PACKAGE_MANIFEST.json"
+    if package.is_file() and not (ROOT / ".git").exists():
+        manifest = read(package)
+        record = next(r for r in manifest["files"] if r["path"] == "scripts/verify_final_process.py")
+        require(sha(__file__) == record["sha256"], "Packaged verifier hash differs")
+        return manifest["provider_revision"]
+    return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True, help="New directory for verification/replay outputs")
@@ -270,8 +281,7 @@ def main():
               "replay": replay(output, args.figures),
               "artifact_source_revision": manifest["source_revision"],
               "integrated_main_revision": manifest["integrated_main_revision"],
-              "provider_revision_at_verification": subprocess.check_output(
-                  ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+              "provider_revision_at_verification": provider_revision(),
               "verification_script_sha256": sha(__file__),
               "new_optimization_or_nlp_experiments": False}
     (output / "verification.json").write_text(json.dumps(report, indent=2) + "\n")

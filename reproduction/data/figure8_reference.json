@@ -1,0 +1,3250 @@
+{
+  "source_revision": "cb70771b2037301bb6d0e38a2362d49b53fcda7d",
+  "input_path": "results/process_ipopt_bam_v2_20261015/tables/run_results.csv",
+  "input_sha256": "10b2ac7362befecd6e10480c2bd7fb1c0e74bc70c4f47d3f2f5a019545907e39",
+  "output_sha256": "ae61dc964783aac1b3ecdba93a6d8af0dab65473cf2bf59c08bb17f7c5d6bfb3",
+  "plotted_points": 360,
+  "groups": 36,
+  "points": [
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "dsda",
+      "seed": 0,
+      "category": "execution_failed",
+      "marker": "s",
+      "completion_s": 1.1199481280054897
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "dsda",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 50.815828494611196
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "dsda",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 43.1256099048187
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "dsda",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 34.52329619467491
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "dsda",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 41.0782085165265
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "dsda",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 18.982930939469952
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "dsda",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 34.73893618572038
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "dsda",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 57.848836694669444
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "dsda",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 50.202768315852154
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "dsda",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 34.335940340242814
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "rbfopt",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 56.78474254027242
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "rbfopt",
+      "seed": 1,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 35.44455800252035
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "rbfopt",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 36.98428779223468
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "rbfopt",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 22.080330001132097
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "rbfopt",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 59.90765820152592
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "rbfopt",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 60.250321263913065
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "rbfopt",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 37.72484894323861
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "rbfopt",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 48.461203137470875
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "rbfopt",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 36.52406591892941
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "rbfopt",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 20.12514297151938
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "bam",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 25.503265432897024
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "bam",
+      "seed": 1,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 49.53269556944724
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "bam",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 49.614816907036584
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "bam",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 25.3215756585123
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "bam",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 48.460190012759995
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "bam",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 26.584340301866177
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "bam",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 49.58999664039584
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "bam",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 49.2536982097663
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "bam",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 27.35614763869671
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "bam",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 27.4886940427823
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "fmqa_sa",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 61.446526540094055
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "fmqa_sa",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 22.687984521035105
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "fmqa_sa",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 62.95761492475867
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "fmqa_sa",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 22.921515865484253
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "fmqa_sa",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 21.74077719921479
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "fmqa_sa",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 23.124758868536446
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "fmqa_sa",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 46.83250226499513
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "fmqa_sa",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 36.324979879311286
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "fmqa_sa",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 22.949908514274284
+    },
+    {
+      "case": "column",
+      "budget": 16,
+      "method": "fmqa_sa",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 76.5323630576604
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "dsda",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 4.859003104514371
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "dsda",
+      "seed": 1,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 38.49154252206647
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "dsda",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.521954288479503
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "dsda",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 65.5358262415079
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "dsda",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 33.51192924743432
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "dsda",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 39.38679051449424
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "dsda",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 42.43650231534055
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "dsda",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 39.595887356778
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "dsda",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 33.060681165221645
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "dsda",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 47.0381475015659
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "rbfopt",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 58.980470685666184
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "rbfopt",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 53.3269621419636
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "rbfopt",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 87.79585997009511
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "rbfopt",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 75.39024880120945
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "rbfopt",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 63.14046362746111
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "rbfopt",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 113.03221182324376
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "rbfopt",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 52.536348568638566
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "rbfopt",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 49.00276663878886
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "rbfopt",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 68.64309038914674
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "rbfopt",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 65.40601847950231
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "bam",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 27.245525673445535
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "bam",
+      "seed": 1,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 31.18276566370534
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "bam",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 27.193573353239444
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "bam",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 26.694076597106747
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "bam",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 45.409674682387866
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "bam",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 29.86460281462751
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "bam",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 29.307118590601995
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "bam",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 30.521150502616486
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "bam",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 31.67956838344514
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "bam",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 28.26209092489801
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 63.141909790752656
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "seed": 1,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 59.57486278687207
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 63.746552081748405
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 69.97130217737657
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 111.6528517952253
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 101.10569960914302
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 95.63988965734399
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 62.447630873688944
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 63.96192325360911
+    },
+    {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 69.62000995473679
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "dsda",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 4.195456897024997
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "dsda",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 1.971590806846507
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "dsda",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 4.197231394879054
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "dsda",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 7.131680461810902
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "dsda",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 1.1972640276071616
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "dsda",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 3.4684758466901258
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "dsda",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 4.220030753640458
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "dsda",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 6.462768638448324
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "dsda",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 1.9938467604806647
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "dsda",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 1.238885413040407
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "rbfopt",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 5.838373948645312
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "rbfopt",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 7.572028120514005
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "rbfopt",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 5.847520036622882
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "rbfopt",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 6.8025403777719475
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "rbfopt",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 5.541461232176516
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "rbfopt",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 5.9823538907803595
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "rbfopt",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 5.9079524397384375
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "rbfopt",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 6.053833931509871
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "rbfopt",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 6.806093728810083
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "rbfopt",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 7.525499707495328
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "bam",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 4.232956523366738
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "bam",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 4.2083269348950125
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "bam",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 4.231670633307658
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "bam",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 4.940489241445903
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "bam",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 4.209303293609992
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "bam",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 4.229630132787861
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "bam",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 4.233058007841464
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "bam",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 4.293902641918976
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "bam",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 4.202490467869211
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "bam",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 4.314125848817639
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "fmqa_sa",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 9.126124274625909
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "fmqa_sa",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 9.177312713174615
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "fmqa_sa",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 9.05500382365426
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "fmqa_sa",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 9.021964472252876
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "fmqa_sa",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 6.8896798065979965
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "fmqa_sa",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 9.101617436041124
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "fmqa_sa",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 9.08725869236514
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "fmqa_sa",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 9.107359877496492
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "fmqa_sa",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 8.326583050657064
+    },
+    {
+      "case": "small_batch",
+      "budget": 10,
+      "method": "fmqa_sa",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 9.101737914665136
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "dsda",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.322066424414515
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "dsda",
+      "seed": 1,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 12.236789526999928
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "dsda",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 12.187954156310298
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "dsda",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 10.350444360810798
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "dsda",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.289025227015372
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "dsda",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 12.169519190792926
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "dsda",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 12.196604012104217
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "dsda",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 12.262535266636405
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "dsda",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 11.297372493543662
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "dsda",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 13.277839819260407
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "rbfopt",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 16.7770405667834
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "rbfopt",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 14.134808267466724
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "rbfopt",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 11.89823976252228
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "rbfopt",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.062800476094708
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "rbfopt",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.206299876444973
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "rbfopt",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 13.772026354330592
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "rbfopt",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.856344010215253
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "rbfopt",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 11.978565815545153
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "rbfopt",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.353002390009351
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "rbfopt",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 12.682362302090041
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "bam",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 11.044986657681875
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "bam",
+      "seed": 1,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 8.946636272070464
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "bam",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 9.965138573432341
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "bam",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 10.220967399131041
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "bam",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 9.967380669142585
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "bam",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 8.906854354252573
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "bam",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 8.907694963098038
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "bam",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 9.962856109137647
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "bam",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 8.874594821361825
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "bam",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 9.942562287498731
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "fmqa_sa",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 14.924025409040041
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "fmqa_sa",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.078656673198566
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "fmqa_sa",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 11.845676415308844
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "fmqa_sa",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 15.136986269732006
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "fmqa_sa",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 14.008371333475225
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "fmqa_sa",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 13.903140244889073
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "fmqa_sa",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 16.17376373015577
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "fmqa_sa",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.910553763795178
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "fmqa_sa",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 13.867546666006092
+    },
+    {
+      "case": "dynamic",
+      "budget": 12,
+      "method": "fmqa_sa",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 15.057606730028056
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "dsda",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 16.948917383968364
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "dsda",
+      "seed": 1,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 15.858178440365009
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "dsda",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.906597478373442
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "dsda",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.977158956171479
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "dsda",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 17.007074484194163
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "dsda",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.724498583120294
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "dsda",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 15.818227096169721
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "dsda",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 15.815799822914414
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "dsda",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 14.900583310285583
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "dsda",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 16.895466951595154
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "rbfopt",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 21.978123869455885
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "rbfopt",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 19.206008876790293
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "rbfopt",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 16.874800167570356
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "rbfopt",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 18.082821763353422
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "rbfopt",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 18.137959607702214
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "rbfopt",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 17.656457507400773
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "rbfopt",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 18.95551152928965
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "rbfopt",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.828066293674055
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "rbfopt",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 18.083347423991654
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "rbfopt",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 17.67167004797375
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "bam",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 13.577805660839658
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "bam",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 11.536626399029046
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "bam",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 11.439651642169338
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "bam",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 13.908429596573114
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "bam",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 11.438711390190292
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "bam",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 11.49974634096725
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "bam",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 11.516513092035893
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "bam",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 12.550980787840672
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "bam",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 11.448000971227884
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "bam",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.620072577148676
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "fmqa_sa",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 19.345065795932896
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "fmqa_sa",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 17.0748640713864
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "fmqa_sa",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 15.941907099448144
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "fmqa_sa",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 19.533070475968998
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "fmqa_sa",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 17.38758635352133
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "fmqa_sa",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 18.34150601789588
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "fmqa_sa",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 20.56726217875257
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "fmqa_sa",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 19.36501860676799
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "fmqa_sa",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 18.44513190345606
+    },
+    {
+      "case": "dynamic",
+      "budget": 15,
+      "method": "fmqa_sa",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 17.037524801446125
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "dsda",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 18.20197260385612
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "dsda",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 21.804405927599873
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "dsda",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.906979380233679
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "dsda",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.231413839443121
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "dsda",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 17.007423991395626
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "dsda",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 21.787236484349705
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "dsda",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 21.76545962144155
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "dsda",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 21.866468576074112
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "dsda",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 20.812873607792426
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "dsda",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 22.84449938678881
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "rbfopt",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 38.002339981496334
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "rbfopt",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 30.145304721954744
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "rbfopt",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 29.81105494615622
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "rbfopt",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 32.15262023283867
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "rbfopt",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 25.483658312703483
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "rbfopt",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 25.219502908119466
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "rbfopt",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 24.24635342467809
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "rbfopt",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 25.42459538008552
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "rbfopt",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 25.373488942161202
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "rbfopt",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 22.232720335072372
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "bam",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 17.333702002710197
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "bam",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.047053623886313
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "bam",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 14.074090800306294
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "bam",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 16.530730730388314
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "bam",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 14.087625955988187
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "bam",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 13.01746946608182
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "bam",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 13.020906391844619
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "bam",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 14.063871151884086
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "bam",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 14.015967483399436
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "bam",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.124226728221402
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "fmqa_sa",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 23.886827020556666
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "fmqa_sa",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 22.807591214950662
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "fmqa_sa",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 21.48945598996943
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "fmqa_sa",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 27.622817208757624
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "fmqa_sa",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 25.32845571648795
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "fmqa_sa",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 26.423957298800815
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "fmqa_sa",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 26.193544848181773
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "fmqa_sa",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 25.233469368948136
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "fmqa_sa",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 25.233287568145897
+    },
+    {
+      "case": "dynamic",
+      "budget": 20,
+      "method": "fmqa_sa",
+      "seed": 9,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 21.72621837729821
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "dsda",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 18.202508668939117
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "dsda",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.686044992005918
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "dsda",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.907278087397572
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "dsda",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.229689233354293
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "dsda",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 17.006865053263027
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "dsda",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.668908301566262
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "dsda",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.64655873691663
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "dsda",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 33.948116564773954
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "dsda",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 32.75212796300184
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "dsda",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.565011826052796
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "rbfopt",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 53.85117650486063
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "rbfopt",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 55.45501804770902
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "rbfopt",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 55.458961941709276
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "rbfopt",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 76.83717964816606
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "rbfopt",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 56.44854265981121
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "rbfopt",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 40.926527040370274
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "rbfopt",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 44.6669805602869
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "rbfopt",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 48.331160710251424
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "rbfopt",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 41.63753833854571
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "rbfopt",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 39.294870987767354
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "bam",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 19.425806247629225
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "bam",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 23.35808809666196
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "bam",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 21.034373523143586
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "bam",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 23.073143676796462
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "bam",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 18.662281378987245
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "bam",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 17.43909106386127
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "bam",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 21.79636561672669
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "bam",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 23.039829518820625
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "bam",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 23.87399877671851
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "bam",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 22.0195450730389
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "fmqa_sa",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 35.3855396223953
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "fmqa_sa",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 33.60925930127269
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "fmqa_sa",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 36.28104287781753
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "fmqa_sa",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 41.41395560646197
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "fmqa_sa",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 36.19515481981216
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "fmqa_sa",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 42.07664530171314
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "fmqa_sa",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 37.643992595491
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "fmqa_sa",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 38.613614163245074
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "fmqa_sa",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 35.31306522100931
+    },
+    {
+      "case": "dynamic",
+      "budget": 30,
+      "method": "fmqa_sa",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 35.562695848871954
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "dsda",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 18.203096086799633
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "dsda",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.685461526038125
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "dsda",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.906681955384556
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "dsda",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.23147514613811
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "dsda",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 17.00733231031336
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "dsda",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.668518720485736
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "dsda",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.645908242149744
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "dsda",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 35.201239290705416
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "dsda",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 36.47040693910094
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "dsda",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.563586717820726
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "rbfopt",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 76.86750591424061
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "rbfopt",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 89.90055457508424
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "rbfopt",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 78.75432302360423
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "rbfopt",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 120.47131173533853
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "rbfopt",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 83.83434141508769
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "rbfopt",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 78.0701390003087
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "rbfopt",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 85.02176063804654
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "rbfopt",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 73.08530751930084
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "rbfopt",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 60.01441901054932
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "rbfopt",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 63.026170452008955
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "bam",
+      "seed": 0,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 23.362907971662935
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "bam",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 25.10497802833561
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "bam",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 24.98796307586599
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "bam",
+      "seed": 3,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 27.010838002548553
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "bam",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 19.25180297793122
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "bam",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 20.23526934091933
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "bam",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 24.987802510499023
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "bam",
+      "seed": 7,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 26.840734224708285
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "bam",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 28.038463297125418
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "bam",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 23.785477117053233
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "fmqa_sa",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 43.94071371963946
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "fmqa_sa",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 41.547881937760394
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "fmqa_sa",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 45.80661937914556
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "fmqa_sa",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 49.51769658026751
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "fmqa_sa",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 45.89674769534031
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "fmqa_sa",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 48.15284329483984
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "fmqa_sa",
+      "seed": 6,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 46.78316952410387
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "fmqa_sa",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 46.175109543662984
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "fmqa_sa",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 46.1118782844278
+    },
+    {
+      "case": "dynamic",
+      "budget": 37,
+      "method": "fmqa_sa",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 45.98433244245825
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "dsda",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 18.203129591827746
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "dsda",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.685637865914032
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "dsda",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.906777991505805
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "dsda",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 15.2297609152738
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "dsda",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 17.00733450218104
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "dsda",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.669248343794607
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "dsda",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.644968389184214
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "dsda",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 35.20036173565313
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "dsda",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 36.47083886497421
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "dsda",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 26.56493118283106
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "rbfopt",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 169.11891031020787
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "rbfopt",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 211.9538957888144
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "rbfopt",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 158.90534710005159
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "rbfopt",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 255.65244224551134
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "rbfopt",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 211.41597750410438
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "rbfopt",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 135.49638205225347
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "rbfopt",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 153.57177362032235
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "rbfopt",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 204.83417017990723
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "rbfopt",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 127.4180876595783
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "rbfopt",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 140.92731620749692
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "bam",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 33.56801096640993
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "bam",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 35.29054732026998
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "bam",
+      "seed": 2,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 34.984904322831426
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "bam",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 32.91606476926245
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "bam",
+      "seed": 4,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 28.281115845835302
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "bam",
+      "seed": 5,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 27.262968376162462
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "bam",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 34.271715473907534
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "bam",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 36.14133011724334
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "bam",
+      "seed": 8,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 33.88364699034719
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "bam",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 34.067347250762396
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "fmqa_sa",
+      "seed": 0,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 59.42489415424643
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "fmqa_sa",
+      "seed": 1,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 57.341591760341544
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "fmqa_sa",
+      "seed": 2,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 61.25083704025019
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "fmqa_sa",
+      "seed": 3,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 64.51506220415467
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "fmqa_sa",
+      "seed": 4,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 61.11619755154243
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "fmqa_sa",
+      "seed": 5,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 65.48903976619476
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "fmqa_sa",
+      "seed": 6,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 65.47357288887724
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "fmqa_sa",
+      "seed": 7,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 61.795774512633216
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "fmqa_sa",
+      "seed": 8,
+      "category": "target_not_reached",
+      "marker": "x",
+      "completion_s": 60.82260279956972
+    },
+    {
+      "case": "dynamic",
+      "budget": 50,
+      "method": "fmqa_sa",
+      "seed": 9,
+      "category": "target_reached",
+      "marker": "o",
+      "completion_s": 61.37785268842708
+    }
+  ]
+}

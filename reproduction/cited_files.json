@@ -1,0 +1,1981 @@
+{
+  "scope": "Exact package-relative paths; repeated displayed names resolved by full path. Raw archive members remain addressed by their original manifests.",
+  "files": [
+    {
+      "displayed_filename": "ackley.csv",
+      "path": "benchmark_grids/ackley.csv",
+      "sha256": "6a607107c82492852bed244357cf56a96aa347754b3e14f67b73833e6a0ef67f",
+      "size": 32304,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "alpine1.csv",
+      "path": "benchmark_grids/alpine1.csv",
+      "sha256": "ae33130fa2fc3325c4c7e1e9112fed6bc90bfa2971b32fae022b5fd90382e770",
+      "size": 32738,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "alpine2.csv",
+      "path": "benchmark_grids/alpine2.csv",
+      "sha256": "ff8cfd7f8ca3a8e595b9ef406b51bad46068574d126e9deb665de985f577722e",
+      "size": 32434,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "bohachevsky2.csv",
+      "path": "benchmark_grids/bohachevsky2.csv",
+      "sha256": "999858033dfbc7d0084923abe5246d5c6273b22f7300b79a101d49448170a291",
+      "size": 31708,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "camel3.csv",
+      "path": "benchmark_grids/camel3.csv",
+      "sha256": "16fc6c3f64fe31e952a072b44d19ff6984c508bcfa2509f740bcc7e80211cc8f",
+      "size": 33847,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "csendes.csv",
+      "path": "benchmark_grids/csendes.csv",
+      "sha256": "2b197da228ae88301368acb01e34222a6a88a0d5c215991b248c0f32777ed15e",
+      "size": 33854,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "deflected_corrugated_spring.csv",
+      "path": "benchmark_grids/deflected_corrugated_spring.csv",
+      "sha256": "63ed8e5447773c569d87a272d9243e1bdcecbd2d6f34e2005a9ee8784fd1c048",
+      "size": 32625,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dropwave.csv",
+      "path": "benchmark_grids/dropwave.csv",
+      "sha256": "5af484dd952252f35138c00720bab3f19d5ac0b6402e4e8885f22b22a0e687e8",
+      "size": 32146,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "easom.csv",
+      "path": "benchmark_grids/easom.csv",
+      "sha256": "04a20282270ea465edb3cb434f97bd6030b53a0aff199837298a1a20c917d2c1",
+      "size": 32342,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "griewank.csv",
+      "path": "benchmark_grids/griewank.csv",
+      "sha256": "67390481014ae59ee0cddd4078bdbacba4c29bf417a8eb709da6e4353364358b",
+      "size": 32733,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "holder_table.csv",
+      "path": "benchmark_grids/holder_table.csv",
+      "sha256": "7546c9484d35eb13341d396c80f7a9d436fa5d071710eafd51f7691b2dc64f21",
+      "size": 31838,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "hosaki.csv",
+      "path": "benchmark_grids/hosaki.csv",
+      "sha256": "d69f02c3f1b4f3371dfca3370b566ba39aaa6863737c230141b5ede81622b358",
+      "size": 32476,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "levy.csv",
+      "path": "benchmark_grids/levy.csv",
+      "sha256": "fe5b30f3fcae2f33e271a97f316117ca7e03355e30f6d612bdc1db7dff8e22ce",
+      "size": 33154,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "levy13.csv",
+      "path": "benchmark_grids/levy13.csv",
+      "sha256": "d577e1fa4310b19d530bfeb348a7f88bbb4561285e8ffea87f85eecb90014800",
+      "size": 32906,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "michalewicz.csv",
+      "path": "benchmark_grids/michalewicz.csv",
+      "sha256": "2a6adca0a6d7889043a086016e4fb0e5f022fccbcca03b12cf2567bfb95cc25a",
+      "size": 31469,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "rastrigin.csv",
+      "path": "benchmark_grids/rastrigin.csv",
+      "sha256": "af132657e70812320c8171a1996dd120f33eb81147cd138c1d36e9e0ccaf39c8",
+      "size": 32471,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "rosenbrock.csv",
+      "path": "benchmark_grids/rosenbrock.csv",
+      "sha256": "e2e5fdee4fa872c8cd54350b3a8065d3b7167d3f18e5d0fb269a3c3f7b6451f4",
+      "size": 33555,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "shubert.csv",
+      "path": "benchmark_grids/shubert.csv",
+      "sha256": "79bf42e84bd8ab312a7ba7a6b58d4f9d49922e328604c07073d02d101ec146b3",
+      "size": 32454,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "styblinski_tang.csv",
+      "path": "benchmark_grids/styblinski_tang.csv",
+      "sha256": "6000c3e54804f1e87bf1b9dd4f9082028e958c6f95d89d0a3e651218f4a5906f",
+      "size": 32961,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "sum_of_squares.csv",
+      "path": "benchmark_grids/sum_of_squares.csv",
+      "sha256": "f821c40aee52d021768e73cc4a383267cfac44a9657ae6bf1db12b59c766e0d3",
+      "size": 31615,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "xin_she_yang3.csv",
+      "path": "benchmark_grids/xin_she_yang3.csv",
+      "sha256": "f96827c10578a16a8b7c5bbcbe7445e17762d1dc0705175b9fa6edaefe2d2d0d",
+      "size": 35836,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "column_17_initialization.json",
+      "path": "external/dsda-gdp/gdp/dsda/column_17_initialization.json",
+      "sha256": "60cd7d1f7a7f08b59d9b0d7fca6e8920313ca7722c94d829e388a009ae4acfd7",
+      "size": 330565,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "model_serializer.py",
+      "path": "external/dsda-gdp/gdp/dsda/model_serializer.py",
+      "sha256": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+      "size": 34059,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "small_batch_initialization.json",
+      "path": "external/dsda-gdp/gdp/dsda/small_batch_initialization.json",
+      "sha256": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+      "size": 31688,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "gdp_current_analysis.py",
+      "path": "gdp_current_analysis.py",
+      "sha256": "58fb6a0ce77b1a615e38cb22f299845fcd0d7dfe8a1527ec34c1c706984767c3",
+      "size": 21154,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "evaluation.py",
+      "path": "gdp_models/evaluation.py",
+      "sha256": "cb9d5cb77e8bf48b72665ffeafcfb0e0c00d3ac0656def725a294a21a1a4c18e",
+      "size": 7665,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "grid.py",
+      "path": "gdp_models/grid.py",
+      "sha256": "e0e65ec27d20be9f5cfe6419cb7cd176663a909614a6bb9be67db879d574c7c8",
+      "size": 15728,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "README.txt",
+      "path": "reproduction/data/algebraic_audit/README.txt",
+      "sha256": "7340ec495a6c948af9880ff82530f9e5c8ecdb17882ee3c49aaf51140c10ee9c",
+      "size": 2027,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/README.txt"
+    },
+    {
+      "displayed_filename": "SHA256SUMS",
+      "path": "reproduction/data/algebraic_audit/SHA256SUMS",
+      "sha256": "baed3e0644910d5f480e442c8074d0391a7c6edd16c5afce46ca652a84e02f6c",
+      "size": 13687,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/SHA256SUMS"
+    },
+    {
+      "displayed_filename": "feasible_witnesses.csv",
+      "path": "reproduction/data/algebraic_audit/feasible_witnesses.csv",
+      "sha256": "da6d0f298a0a5fa311fdda3dd93ab668914e5129f61448dd2dd113cd914b1414",
+      "size": 5097,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/feasible_witnesses.csv"
+    },
+    {
+      "displayed_filename": "manifest.json",
+      "path": "reproduction/data/algebraic_audit/manifest.json",
+      "sha256": "9a7beb76c8b9a9d37a18e82b21c20d10b7329902af3e0ba01fea977a8a2e09ad",
+      "size": 2376,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/manifest.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/column/bigm/result.json",
+      "sha256": "38d5953c6f17bb23d1f025d07f7534b5b0de0dc9bbe08a205a73095510a125bb",
+      "size": 12147,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/column/bigm/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/column/bigm/solution.json",
+      "sha256": "04f1827532dc7b6dc67875546a1ee3446303ef28cb7d73906f82e35966d4c095",
+      "size": 20722,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/column/bigm/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/column/gloa/result.json",
+      "sha256": "60da156b568f70cec33e2db03fca3dc8cce5a61a642e1583f90332ecf86e1a80",
+      "size": 11757,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/column/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/column/gloa/solution.json",
+      "sha256": "7958282907c4d9a531b9116d130ea10541c54dee3e526068b02e0bca7a63a5fd",
+      "size": 20228,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/column/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/column/hull/result.json",
+      "sha256": "10ba0796344c57f0dd7ea89434040eaefd062903280436c93f08ab3b86d59137",
+      "size": 12196,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/column/hull/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/column/hull/solution.json",
+      "sha256": "fbce2c11fc586b980a9b30e1d01cc4c640416a91dd0a3bbbc15b7ec8ebdeaca7",
+      "size": 20209,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/column/hull/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/column/ric/result.json",
+      "sha256": "4d4548de5442fe678624adf7bf160b22dabe7eedf9ffde4ef40145d17a73420d",
+      "size": 11783,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/column/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/column/ric/solution.json",
+      "sha256": "35b83684cf6567ce3ca78bce664cd68a4d8c6a761f958f3d40396b232962ce78",
+      "size": 20241,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/column/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_10/bigm/result.json",
+      "sha256": "57af0b29d5b0044eabd15fbc82229323d65a78291be531f1853cd8cda5ba5620",
+      "size": 5517,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_10/bigm/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_10/bigm/solution.json",
+      "sha256": "f7546864d9f0310ee8ddba7b10f8fef8c57ee6e445e898dd83b1bb01f101f563",
+      "size": 6400,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_10/bigm/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_10/gloa/result.json",
+      "sha256": "6c4b081f4dbf33e6a8d4955f41edeba1dfe247c5d820561490a558986b75d803",
+      "size": 5058,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_10/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_10/gloa/solution.json",
+      "sha256": "8d276a25c360ea562d9540c0036d651551e258ef164326f0bb35397b1131b587",
+      "size": 5302,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_10/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_10/hull/result.json",
+      "sha256": "ff9a8710b0e2205a03caf42606994afaed8083f8235a28b67b0e17bd4d3fb90b",
+      "size": 5514,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_10/hull/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_10/hull/solution.json",
+      "sha256": "c14472e44d4f6a8c35c34371e1642de5ad69680025b97ef609df32dd3e808a38",
+      "size": 6413,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_10/hull/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_10/ric/result.json",
+      "sha256": "e4836dca13727c0d33d885fe8800a46d8843f45918835008acdb89ae80324314",
+      "size": 5057,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_10/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_10/ric/solution.json",
+      "sha256": "8d276a25c360ea562d9540c0036d651551e258ef164326f0bb35397b1131b587",
+      "size": 5302,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_10/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_15/bigm/result.json",
+      "sha256": "88ae1872992bbc6de731ea557c660e136d19777b6f937415a61aa3d58128cba1",
+      "size": 7028,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_15/bigm/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_15/bigm/solution.json",
+      "sha256": "c7cfd342244b7f8e7eec034cfe5cae9e4b7498b9895e47c12448bf150b870111",
+      "size": 9454,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_15/bigm/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_15/gloa/result.json",
+      "sha256": "3a1727e9275330ef8346e6cf17248e3f9feb6a69a895ea21c2cd1055e2d45ca9",
+      "size": 6528,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_15/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_15/gloa/solution.json",
+      "sha256": "911d387bfa51cc2898c4d22fbdfaa099ffe552f069145c392438f504721a9aef",
+      "size": 7748,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_15/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_15/hull/result.json",
+      "sha256": "5fc973c19faec177b585d81d5b861e074a50edc8406fe23fe09792b6eaacf4a0",
+      "size": 7044,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_15/hull/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_15/hull/solution.json",
+      "sha256": "f75c22fd2aa9cd6243a160b250659a26efebed37c3fbf05780704630d47902ae",
+      "size": 9442,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_15/hull/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_15/ric/result.json",
+      "sha256": "76a43fbddadc8cd27e44e1ef835fd7df596696bca6a3f74ffebbbbd49a44e263",
+      "size": 6531,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_15/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_15/ric/solution.json",
+      "sha256": "911d387bfa51cc2898c4d22fbdfaa099ffe552f069145c392438f504721a9aef",
+      "size": 7748,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_15/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_20/bigm/result.json",
+      "sha256": "e04d4fd63e42ef2b98f83cc9acd1625388f0237dad1908b6109a7ed168689c10",
+      "size": 8558,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_20/bigm/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_20/bigm/solution.json",
+      "sha256": "98a0d587d01c49dfd98a0644228d42b61ccc1832ad7c256359043d77953965e4",
+      "size": 12529,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_20/bigm/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_20/gloa/result.json",
+      "sha256": "0e9ac71d1cfbc87c972a333f6830925fa3624b8e308dcda35a9425b2e2b671c0",
+      "size": 7989,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_20/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_20/gloa/solution.json",
+      "sha256": "14adc8f37021cb41da84c76f0302d834161bac7c42cdc9ec20494eb1a1800563",
+      "size": 10136,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_20/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_20/hull/result.json",
+      "sha256": "2e32328eeabeba54a1dae9570f2957608097829d28388a6344aeb84893dafcf0",
+      "size": 8584,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_20/hull/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_20/hull/solution.json",
+      "sha256": "f4689f2c98a268273b1d735fb5a87e9aee9c34fa84082b9d522c2755e4c7aedd",
+      "size": 12473,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_20/hull/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_20/ric/result.json",
+      "sha256": "cc5371b25bde273f1dac3fb07759c292e6382feab4234309945cc1f631392d90",
+      "size": 7993,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_20/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_20/ric/solution.json",
+      "sha256": "14adc8f37021cb41da84c76f0302d834161bac7c42cdc9ec20494eb1a1800563",
+      "size": 10136,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_20/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_25/bigm/result.json",
+      "sha256": "97bcef02095d34c91b98de433feae5b35e1d3452dd8de08ef606f71bc814848a",
+      "size": 10111,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_25/bigm/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_25/bigm/solution.json",
+      "sha256": "858e740bf6c84d974c14fa73f7f4f1935505fb0259a459039942b9ae9bd36463",
+      "size": 15490,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_25/bigm/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_25/gloa/result.json",
+      "sha256": "be539a604ae0e6dd2fadc3cce3e86bdf9bcc7b03f335f6812f665ddabd1fa6a0",
+      "size": 9464,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_25/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_25/gloa/solution.json",
+      "sha256": "a03ee6ee1d2fadef2e4649d4f09ee3b24fe28cf30a922a17573e8af2f54d5b87",
+      "size": 12599,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_25/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_25/hull/result.json",
+      "sha256": "ee437315aec7410ec0ab565e293d3b4eae11263ed1cabbf96f6d9e7a1b907124",
+      "size": 10109,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_25/hull/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_25/hull/solution.json",
+      "sha256": "1caf63534c30a302cca35e0bd566e0365d67a43c02c8e481921db40070004fcf",
+      "size": 15459,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_25/hull/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_25/ric/result.json",
+      "sha256": "f9affec6790c74930c99428dc580429e7504cc05422feb8a7a5e193b280de879",
+      "size": 9466,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_25/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_25/ric/solution.json",
+      "sha256": "a03ee6ee1d2fadef2e4649d4f09ee3b24fe28cf30a922a17573e8af2f54d5b87",
+      "size": 12599,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_25/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_30/bigm/result.json",
+      "sha256": "fe7e1d50528465953901e94930cab2ad6459c79810b72fb99fa550ab8fd24845",
+      "size": 11415,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_30/bigm/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_30/bigm/solution.json",
+      "sha256": "c83aa012e0f7b10fddd42af7a9ed0f924ff7f0340838dd9051391959b2e74bc8",
+      "size": 18504,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_30/bigm/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_30/gloa/result.json",
+      "sha256": "6c5d71308052fb7e7dd42c0694175ea00349b90c3b791bb96751af64f5b3d515",
+      "size": 11077,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_30/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_30/gloa/solution.json",
+      "sha256": "b41b9eba53c7ea8215c5fea85b78c0e0be991b670b18ed27c0d205d57e88ff79",
+      "size": 17587,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_30/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_30/hull/result.json",
+      "sha256": "09d1f1b2e3a5b532ad4fe54731af34f1b8cc05d3c6bf7f36491647c8b379b130",
+      "size": 11293,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_30/hull/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_30/hull/solution.json",
+      "sha256": "37a888fd30357403f0b53b582ef017093b21aad976a311b9658d07910cc2b63b",
+      "size": 17312,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_30/hull/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_30/ric/result.json",
+      "sha256": "79215ea96edc89838f401583bf6a57b91c95c3c49c456a3ad56fd06a033c3740",
+      "size": 11071,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_30/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_30/ric/solution.json",
+      "sha256": "8a70923e81780a792334ccf3d70fdd2490dcd09a903c07461cec7fe54c5bc027",
+      "size": 17868,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_30/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_5/bigm/result.json",
+      "sha256": "76704aa7dfe5fc4fbd6e11a75300e0d43d21484a86e80d04e54bbbd01156c32b",
+      "size": 3988,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_5/bigm/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_5/bigm/solution.json",
+      "sha256": "682b9169d27d5421fe31db14e66dba8e3885cbd311736e09fdc046f4b306b1d0",
+      "size": 3487,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_5/bigm/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_5/gloa/result.json",
+      "sha256": "0605555e568927670beaa0e479f1abce70b45b0fc66b863857d3d5f1c719e0a7",
+      "size": 3587,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_5/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_5/gloa/solution.json",
+      "sha256": "5764cdd3605defc976757afad6e002b730293facc63a8cdadab7006aa1f72790",
+      "size": 2930,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_5/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_5/hull/result.json",
+      "sha256": "5dd4f6e1d73e87eb0688e19cf42f29e40950f272944a9ed9be838ea2dbe129d5",
+      "size": 3991,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_5/hull/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_5/hull/solution.json",
+      "sha256": "25de352262124e59dcbec84fd9422730afaab972cb6e49e4d85fe83bd08eaf67",
+      "size": 3486,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_5/hull/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_5/ric/result.json",
+      "sha256": "b3dd24efebf37c6f7b2ae5c9f9393a9cd2e65fec14d603033ef724db2035821e",
+      "size": 3587,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_5/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/cstr_5/ric/solution.json",
+      "sha256": "5764cdd3605defc976757afad6e002b730293facc63a8cdadab7006aa1f72790",
+      "size": 2930,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/cstr_5/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/dynamic/bigm/result.json",
+      "sha256": "dc19ab64bc99ded70dac7a0b59359a98032b8e625200f46252b891002b5e78ed",
+      "size": 39970,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/dynamic/bigm/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/dynamic/bigm/solution.json",
+      "sha256": "b50ffc75558a2a22acc1eea667528b2abda4b7782fe8002dffd3bd4ee005d142",
+      "size": 67203,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/dynamic/bigm/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/dynamic/gloa/result.json",
+      "sha256": "99e3d097032ce4b352a9a30cec230503d66c4772f5721da15cf73f60397748e3",
+      "size": 39603,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/dynamic/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/dynamic/gloa/solution.json",
+      "sha256": "45c83bd876f52b9687caaec24b6c217e20aae2b93e982bd0ec332f96a19265b8",
+      "size": 67119,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/dynamic/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/dynamic/hull/result.json",
+      "sha256": "7837785e45392d58901e4190bd4f645eff47cbe3c356a602f145e6de7884c11e",
+      "size": 39970,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/dynamic/hull/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/dynamic/hull/solution.json",
+      "sha256": "cd0365c96d08ae361c01bad5cf1a892447d5a90f647463f2a10e2e944066db20",
+      "size": 60654,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/dynamic/hull/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/dynamic/ric/result.json",
+      "sha256": "3b5f7b3ed55d63ffbfa8d0eda5263313901baa6d5c9379f6160417468fe4a1fa",
+      "size": 39603,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/dynamic/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/dynamic/ric/solution.json",
+      "sha256": "b80f92b7beb7b44e4bc23783ea6cd76d8e89137e29e6db0c4bbef54a46880c4d",
+      "size": 67160,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/dynamic/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/small_batch/bigm/result.json",
+      "sha256": "7e28207d857c9efd259bac5a4b626681694fb8cb18c6e43cb4de3c2ee4dbe41c",
+      "size": 3727,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/small_batch/bigm/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/small_batch/bigm/solution.json",
+      "sha256": "32176dee397f86f276364628751b1fa87a578fe5d9effc57f04a85d40276e785",
+      "size": 2317,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/small_batch/bigm/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/small_batch/gloa/result.json",
+      "sha256": "6289e09cbe5057c1ffab417580a7e55c5047c358dcba39acbad377c9a10242a0",
+      "size": 3381,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/small_batch/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/small_batch/gloa/solution.json",
+      "sha256": "72ebcde1b51d4a22a66005170191a9f4e0da6905a2315b7b3c72815b3651c87a",
+      "size": 2271,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/small_batch/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/small_batch/hull/result.json",
+      "sha256": "6eb972c3c102d02cb392415cde5b45211f065d47bbb81c33616492f44bc7232d",
+      "size": 3730,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/small_batch/hull/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/small_batch/hull/solution.json",
+      "sha256": "fb85c73eb934980316015a934024570120c579c7eb188ed17617ea94e83c8e11",
+      "size": 2439,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/small_batch/hull/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/small_batch/ric/result.json",
+      "sha256": "52ce6e45d8ab138a08506ce76bab3394cce3697d9a2504a114a2988dfbef3036",
+      "size": 3379,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/small_batch/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R1/jobs/small_batch/ric/solution.json",
+      "sha256": "72ebcde1b51d4a22a66005170191a9f4e0da6905a2315b7b3c72815b3651c87a",
+      "size": 2271,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R1/jobs/small_batch/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/column/gloa/result.json",
+      "sha256": "ccb03f34fc44ad6f0e2f764b8c7b74055a0ba43eb88823590b25a6b2d3755781",
+      "size": 12182,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/column/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/column/gloa/solution.json",
+      "sha256": "645ae5c9b00be44c37aedbbff1bd608678cf5aba54b068b9c37327eb1cab9f1c",
+      "size": 20188,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/column/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/column/ric/result.json",
+      "sha256": "d60b390abba45f23c6272e0104d009596aee1e9200513d8f3abc39d62bc0cfc2",
+      "size": 12180,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/column/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/column/ric/solution.json",
+      "sha256": "645ae5c9b00be44c37aedbbff1bd608678cf5aba54b068b9c37327eb1cab9f1c",
+      "size": 20188,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/column/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_10/gloa/result.json",
+      "sha256": "73d678d912f78390f57493dec03e42666ab9869dc1c1fe47af61967501f95925",
+      "size": 5302,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_10/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_10/gloa/solution.json",
+      "sha256": "dfa4f98ebd01dadcb530615e40cd89b2a006dd506acf73a7c1697190926b96c2",
+      "size": 6123,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_10/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_10/ric/result.json",
+      "sha256": "ea6a87011fab755f86eeb69e30054924e18d292a2b5cd595c63f06370fd3a872",
+      "size": 5313,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_10/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_10/ric/solution.json",
+      "sha256": "db31ef5c0a875cad7e13ba0d31704be7c0956e4639945b30eeafe41e0f4316b0",
+      "size": 6260,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_10/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_15/gloa/result.json",
+      "sha256": "25805e670139499144ba27510c7f0b81d13755e568e1356709e1ef99cf347de1",
+      "size": 6833,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_15/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_15/gloa/solution.json",
+      "sha256": "d76b60422565c3dbc87bad83c1ebd991d59026248836764e902a9ba0c434a2ca",
+      "size": 9138,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_15/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_15/ric/result.json",
+      "sha256": "11e1c6f1832775448539d426adfd373657e1c1cabbb174ca846419138b960711",
+      "size": 6938,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_15/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_15/ric/solution.json",
+      "sha256": "5fa165b7e8f5a589ac8950a2f960d368d3da3b551f3e146e1e2ccb21eab8406a",
+      "size": 8374,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_15/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_20/gloa/result.json",
+      "sha256": "d6ec36b3111bfd2164e68a38c74884c59bbf2a05c5590d623bf717399de6f92c",
+      "size": 8364,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_20/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_20/gloa/solution.json",
+      "sha256": "5ca987d44aad508af300b6df7814da6ca9ed30824c0eb383186fe2cc4da73291",
+      "size": 11834,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_20/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_20/ric/result.json",
+      "sha256": "7ec19dc3a2744461e2f336fa75a663cdbc1c6fcd53edf2b277fe8cc895150f9a",
+      "size": 8433,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_20/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_20/ric/solution.json",
+      "sha256": "65ed1c2dd5e6e33d5dccf1fddd6d37d4db99c8bd2d74e9f01669b02e41e32354",
+      "size": 11000,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_20/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_25/gloa/result.json",
+      "sha256": "e11bb0cc5066fb11b8028df9a4920b2606246e773e3db7b4e283855c8cf15445",
+      "size": 9893,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_25/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_25/gloa/solution.json",
+      "sha256": "bb19a423380e6334d8636ce5c9cf4015eecd90c8a6d1926ac5ecedbf8b0d92c5",
+      "size": 14887,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_25/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_25/ric/result.json",
+      "sha256": "80cefe398cff04bad61897423016ca86b88c36820da4fc2f34f429973ff21221",
+      "size": 9942,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_25/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_25/ric/solution.json",
+      "sha256": "6dfecb41f954893d3defcc2511b0e4f8285041c49648295e809bc880ab23fec3",
+      "size": 13735,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_25/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_30/gloa/result.json",
+      "sha256": "c67c3da990e522778c1d84771d44a3d726bceb2c41a6bf5865f042fbc96f4a42",
+      "size": 11224,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_30/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_30/gloa/solution.json",
+      "sha256": "ad32cf70e2cf4f4c2490a2c70ad216a833dc2d7dcbf64508cec6a17ebb46c262",
+      "size": 17953,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_30/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_30/ric/result.json",
+      "sha256": "c19e92a5ce82de55ca42d99aabbea9e8871f8ac85868fa115bbc179ae8429a43",
+      "size": 11238,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_30/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_30/ric/solution.json",
+      "sha256": "261904cc2915945f8f2dbda81fdad2c5b02aae8bdb12aeaa814ff6e72d423235",
+      "size": 16370,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_30/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_5/gloa/result.json",
+      "sha256": "4d117ddd91b1c54005bcb18e68865950b6b4e332fe840a1c8bc83c1fd31d8593",
+      "size": 3794,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_5/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_5/gloa/solution.json",
+      "sha256": "6d15e2f88df393170c46a43a510667ec87b464dba9a1246a7fd7f560546640d6",
+      "size": 3252,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_5/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_5/ric/result.json",
+      "sha256": "2cb965a807fc77a3282240dcc9e1b22dbba616ba42e647178a4416e8c92bf190",
+      "size": 3786,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_5/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/cstr_5/ric/solution.json",
+      "sha256": "1fd1271d4df3e4642ec4399d9709c1cd9a239dcd7536a72e3215b4cdf55cb58c",
+      "size": 3383,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/cstr_5/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/dynamic/gloa/result.json",
+      "sha256": "8cc96afc1202f843f5be0b35a61933beb65e82d60880f862cf4363b5e1932251",
+      "size": 39959,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/dynamic/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/dynamic/gloa/solution.json",
+      "sha256": "e2f8355f78e290ef8c9fa37290b567dbd79b84160407df9ed36505b3fbfdb0c7",
+      "size": 66899,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/dynamic/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/dynamic/ric/result.json",
+      "sha256": "3c583b83adb5344d23536266bedc38785045c69d7f064cdb9caa2a9ec1650a67",
+      "size": 39956,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/dynamic/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/dynamic/ric/solution.json",
+      "sha256": "e2f8355f78e290ef8c9fa37290b567dbd79b84160407df9ed36505b3fbfdb0c7",
+      "size": 66899,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/dynamic/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/small_batch/gloa/result.json",
+      "sha256": "f1da8ddbca5017febd20994a716f28f5b87b65ded1f9155e30658175f9edf670",
+      "size": 3529,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/small_batch/gloa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/small_batch/gloa/solution.json",
+      "sha256": "2c9c31e664c6c7f1ac9855195eb1fefd691709e3bc81ee4593d7a4d599bfa3ed",
+      "size": 2269,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/small_batch/gloa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/small_batch/ric/result.json",
+      "sha256": "afda36d3f8b31ce39f36dbc9e8c516c86c37bf14de2feca4b0c7762871680df4",
+      "size": 3527,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/small_batch/ric/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R2/jobs/small_batch/ric/solution.json",
+      "sha256": "2c9c31e664c6c7f1ac9855195eb1fefd691709e3bc81ee4593d7a4d599bfa3ed",
+      "size": 2269,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R2/jobs/small_batch/ric/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/column/loa/result.json",
+      "sha256": "12c6b22aea37aadddca3cf32758a6e8549084f3552dc04890367fe404b29659e",
+      "size": 12217,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/column/loa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/column/loa/solution.json",
+      "sha256": "645ae5c9b00be44c37aedbbff1bd608678cf5aba54b068b9c37327eb1cab9f1c",
+      "size": 20188,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/column/loa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_10/loa/result.json",
+      "sha256": "9658d60b46dd018d5507f01bd5e577fe6ae6570a42aead28d636a65aeb997caa",
+      "size": 5349,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_10/loa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_10/loa/solution.json",
+      "sha256": "db31ef5c0a875cad7e13ba0d31704be7c0956e4639945b30eeafe41e0f4316b0",
+      "size": 6260,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_10/loa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_15/loa/result.json",
+      "sha256": "b59478fad9d00533ec857f629704f6e7f9e6ddc7dac439922b91b68acef2dde3",
+      "size": 7072,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_15/loa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_15/loa/solution.json",
+      "sha256": "a62a7b766864f27141ad4b8d776305b392f2f1040c7619bbf38c5e4fed8c0653",
+      "size": 9194,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_15/loa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_20/loa/result.json",
+      "sha256": "351eb7ddcc866b05b6749edeab01379fc234ab024a5e850bd5b54b3d72c89128",
+      "size": 8480,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_20/loa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_20/loa/solution.json",
+      "sha256": "0698525f26cb4887df8c13a78b95f24e1883080760a23b7c1d84e7689cab653e",
+      "size": 11105,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_20/loa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_25/loa/result.json",
+      "sha256": "bb48d5fd3fc7b45c053705574f54c9e67906fc87b7c84448cd1fa410ad37a510",
+      "size": 10082,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_25/loa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_25/loa/solution.json",
+      "sha256": "ecc5375f2d6ca4582b003c9e4099bba931e5879340fb5691f83c14e7a70051be",
+      "size": 14651,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_25/loa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_30/loa/result.json",
+      "sha256": "768ba432eed8f649f9bec7c361d95951e538ea2338e8552aab79bb32415342ee",
+      "size": 11391,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_30/loa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_30/loa/solution.json",
+      "sha256": "d8177ce81109def66c7f0da10528142a0b32640dc6eee4d75932b6f68bb2e4d0",
+      "size": 17346,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_30/loa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_5/loa/result.json",
+      "sha256": "c163a775863e0ff4ccb38d521a9e810fa284162b3058b70443c8e111a8e65caf",
+      "size": 3818,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_5/loa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/cstr_5/loa/solution.json",
+      "sha256": "1fd1271d4df3e4642ec4399d9709c1cd9a239dcd7536a72e3215b4cdf55cb58c",
+      "size": 3383,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/cstr_5/loa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/dynamic/loa/result.json",
+      "sha256": "a2159a2588bfd7b85b5f2e4d7f725ec25807bfc6b0d1c751e92c58cc7ea704e8",
+      "size": 39990,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/dynamic/loa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/dynamic/loa/solution.json",
+      "sha256": "e2f8355f78e290ef8c9fa37290b567dbd79b84160407df9ed36505b3fbfdb0c7",
+      "size": 66899,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/dynamic/loa/solution.json"
+    },
+    {
+      "displayed_filename": "result.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/small_batch/loa/result.json",
+      "sha256": "39af767d65895ebac7fda0a03dbbddd3e2f222d10df93992b193c0a694c9c2d4",
+      "size": 3561,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/small_batch/loa/result.json"
+    },
+    {
+      "displayed_filename": "solution.json",
+      "path": "reproduction/data/algebraic_audit/raw/R3/jobs/small_batch/loa/solution.json",
+      "sha256": "2c9c31e664c6c7f1ac9855195eb1fefd691709e3bc81ee4593d7a4d599bfa3ed",
+      "size": 2269,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/raw/R3/jobs/small_batch/loa/solution.json"
+    },
+    {
+      "displayed_filename": "repository_comparison.csv",
+      "path": "reproduction/data/algebraic_audit/repository_comparison.csv",
+      "sha256": "3cfbdc23eb9423a910208c176259dfc5c1844f2cf6a5dc09ee1e1791f234008f",
+      "size": 32786,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/repository_comparison.csv"
+    },
+    {
+      "displayed_filename": "repository_validation.json",
+      "path": "reproduction/data/algebraic_audit/repository_validation.json",
+      "sha256": "0f9ad9da9a0c9bd519ab296695876faa2ffe2bce1fb2c9196d726b59ee6a4ac6",
+      "size": 113885,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/repository_validation.json"
+    },
+    {
+      "displayed_filename": "solution_rechecks.json",
+      "path": "reproduction/data/algebraic_audit/solution_rechecks.json",
+      "sha256": "139343ce13982f3d017d9aa164da3ad4b9d00506634d151a1cb3001daec7795b",
+      "size": 81616,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/solution_rechecks.json"
+    },
+    {
+      "displayed_filename": "table8_bound_audit.csv",
+      "path": "reproduction/data/algebraic_audit/table8_bound_audit.csv",
+      "sha256": "624823080f4ef0b852b1d7518e7b9f9fef6d6f3b3a13aae3e3cf16952138b1dc",
+      "size": 32764,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!algebraic_audit/table8_bound_audit.csv"
+    },
+    {
+      "displayed_filename": "figure8_reference.json",
+      "path": "reproduction/data/figure8_reference.json",
+      "sha256": "95c53d0639ffe1947daf968a5b1b430efdc60e32da248f789934c4a17d78e66f",
+      "size": 72198,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "02_Figure8_Reproduction.zip!figure8_manifest.json"
+    },
+    {
+      "displayed_filename": "qhdopt_gdp.py.txt",
+      "path": "reproduction/data/historical/qhdopt_gdp.py.txt",
+      "sha256": "e1d6dc84d18840dde729fcac433dadfa29eb9dd9623fc31a6ff5f189af5121e1",
+      "size": 8163,
+      "purpose": "Historical formulation cited in Supplementary S2; preserved as text, never executed",
+      "provenance": "SECQUOIA/RBFopt_Test@11ba8728a107d6d16ed63e72d334a66662f9ebc1:qhdopt_gdp.py"
+    },
+    {
+      "displayed_filename": "README.txt",
+      "path": "reproduction/data/supporting_data/README.txt",
+      "sha256": "619f12002b9556c43f18d1ac20165dfd61cdba7c908639857941503a141e8f35",
+      "size": 1708,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/README.txt"
+    },
+    {
+      "displayed_filename": "fmqa_fallback_by_family.csv",
+      "path": "reproduction/data/supporting_data/fmqa_fallback_by_family.csv",
+      "sha256": "0f72987a39f0f093cad40fac18fe2026811665fbb79eb8ddc047de74b900003c",
+      "size": 261,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/fmqa_fallback_by_family.csv"
+    },
+    {
+      "displayed_filename": "fmqa_proposal_counts.csv",
+      "path": "reproduction/data/supporting_data/fmqa_proposal_counts.csv",
+      "sha256": "00e9b241f4d5fce93c58b4e24f9ebea0cdaebde7d0f11daea7c4ba2bf0c53379",
+      "size": 99123,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/fmqa_proposal_counts.csv"
+    },
+    {
+      "displayed_filename": "grid_execution_records.json",
+      "path": "reproduction/data/supporting_data/grid_execution_records.json",
+      "sha256": "f3f0c209f24fef1765d11661641fa4e5556e8d3b6eb86dc36dab889db51e48a3",
+      "size": 11570,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/grid_execution_records.json"
+    },
+    {
+      "displayed_filename": "grid_inventory.json",
+      "path": "reproduction/data/supporting_data/grid_inventory.json",
+      "sha256": "b116192fa7fa4051a5b610ef8ae0763956af3af3689578d6174ba0c1771f3fea",
+      "size": 47232,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/grid_inventory.json"
+    },
+    {
+      "displayed_filename": "interval_key.csv",
+      "path": "reproduction/data/supporting_data/interval_key.csv",
+      "sha256": "202864a0a3e3837dd511c4bc0dcbd837f88f3bff1e7956d00a0607a1294730c1",
+      "size": 540,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/interval_key.csv"
+    },
+    {
+      "displayed_filename": "process_model_counts.json",
+      "path": "reproduction/data/supporting_data/process_model_counts.json",
+      "sha256": "100521aa5ddf1f9637bb936ae16b9cf032f570ff2fdbffa190cb067414a63e4a",
+      "size": 3771,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/process_model_counts.json"
+    },
+    {
+      "displayed_filename": "process_nlp_acceptance.json",
+      "path": "reproduction/data/supporting_data/process_nlp_acceptance.json",
+      "sha256": "1fb6365a1b9158a5e6bd68101cfa9d38c2a80571388ffa82f846e5d79eb30d92",
+      "size": 6598,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/process_nlp_acceptance.json"
+    },
+    {
+      "displayed_filename": "protocol_bam.json",
+      "path": "reproduction/data/supporting_data/protocol_bam.json",
+      "sha256": "5d66ef63fb7c953997cc517a6d34bd112533fca5ec962006acc06cf5bc0ba17b",
+      "size": 238620,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/protocol_bam.json"
+    },
+    {
+      "displayed_filename": "protocol_dsda.json",
+      "path": "reproduction/data/supporting_data/protocol_dsda.json",
+      "sha256": "2bb5c7eef6ed69f19f3186e5bdb1ca18a765af06c7931922966e2f082efb9fcc",
+      "size": 144249,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/protocol_dsda.json"
+    },
+    {
+      "displayed_filename": "protocol_fmqa_sa.json",
+      "path": "reproduction/data/supporting_data/protocol_fmqa_sa.json",
+      "sha256": "d55d8d03157cdfec3ec598cb118c44fc2bf89b02f984a2d2b7e6b241a1842bf8",
+      "size": 215439,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/protocol_fmqa_sa.json"
+    },
+    {
+      "displayed_filename": "protocol_rbfopt.json",
+      "path": "reproduction/data/supporting_data/protocol_rbfopt.json",
+      "sha256": "da36e932c3a777a1bdd0da9865dfc04587d2e6a2ed9688e6408195c713034b91",
+      "size": 484749,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/protocol_rbfopt.json"
+    },
+    {
+      "displayed_filename": "stopping_diagnostics.json",
+      "path": "reproduction/data/supporting_data/stopping_diagnostics.json",
+      "sha256": "b258cb1cd3a3c52fbf14b7037d713f04fb6aef3a522bed3a9672d2f5d3d74b42",
+      "size": 3408795,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/stopping_diagnostics.json"
+    },
+    {
+      "displayed_filename": "stopping_diagnostics.txt",
+      "path": "reproduction/data/supporting_data/stopping_diagnostics.txt",
+      "sha256": "2a60857a16f36b7f1e92d15cce5e6b65dad075354d6671eb93bff154d59613ed",
+      "size": 2303,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/stopping_diagnostics.txt"
+    },
+    {
+      "displayed_filename": "success_intervals.csv",
+      "path": "reproduction/data/supporting_data/success_intervals.csv",
+      "sha256": "270651a6ac279ed4c0efc835d2fd5b3d1103ef830dea84f17fce73ce2c16949d",
+      "size": 31495,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/success_intervals.csv"
+    },
+    {
+      "displayed_filename": "terminal_callback_recovery.json",
+      "path": "reproduction/data/supporting_data/terminal_callback_recovery.json",
+      "sha256": "47b9a77b563ff54b423b6111e45df5171b1ed2818c4339f0509a3640366e81b7",
+      "size": 18357,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/terminal_callback_recovery.json"
+    },
+    {
+      "displayed_filename": "version_identification.json",
+      "path": "reproduction/data/supporting_data/version_identification.json",
+      "sha256": "4e429ec00b84735505e52f9c3323162f53bdd2ba870b961d3ff213507941d62d",
+      "size": 907,
+      "purpose": "Frozen numerical evidence and historical execution provenance",
+      "provenance": "01_Latest_Overleaf_Project.zip!supplementary_data.zip!supporting_data/version_identification.json"
+    },
+    {
+      "displayed_filename": "dantzig_20260910_170759_slN8tv.zip",
+      "path": "results/archives/dantzig_20260910_170759_slN8tv.zip",
+      "sha256": "c5b706aa20f5577446d84f829910b5825221a9f6c5713ffc1fd854e7315d6e98",
+      "size": 5626976,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_column_dynamic_ipopt_20261015_205822_gG8bXK.zip",
+      "path": "results/archives/dantzig_column_dynamic_ipopt_20261015_205822_gG8bXK.zip",
+      "sha256": "2f4389c41de2d2cdb83d7c6ed9f49077c53a947156a0b2318158771a826ac34c",
+      "size": 341134,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_cstr30_retry_20260922_153133_ld1g1zau.zip",
+      "path": "results/archives/dantzig_cstr30_retry_20260922_153133_ld1g1zau.zip",
+      "sha256": "44627964b2dcd4eedb4b9def6417c18d1aa701e8c92cba5fe42dda50c8ce7926",
+      "size": 68180,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_cstr30_structural_20261015_214202_pgve882p.zip",
+      "path": "results/archives/dantzig_cstr30_structural_20261015_214202_pgve882p.zip",
+      "sha256": "3a5094a2e99c269cf830cd668c52853c2a3641d9fd4f176c0a7ca076ee110253",
+      "size": 2240056,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip",
+      "path": "results/archives/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip",
+      "sha256": "38f1f99098113f67a0cec623eff88dfdf3e10bda2c7c07a5a356cbabce527677",
+      "size": 10351255,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p.zip",
+      "path": "results/archives/dantzig_dfo_trace_nlp_20261002_012137_ttd0c14p.zip",
+      "sha256": "c1c8939a96ed9fe945074e71c7aa7043f251e6e26024866e6f45a00ed8914be8",
+      "size": 7014738,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_fmqa_20260925_174150_2m7pmr0d.zip",
+      "path": "results/archives/dantzig_fmqa_20260925_174150_2m7pmr0d.zip",
+      "sha256": "ccf0d6c0e265159f3ca5561f11a25165ef983f8288a15ef10947a3e6be3ea79d",
+      "size": 1441119,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip",
+      "path": "results/archives/dantzig_fmqa_grid_20260925_172020_9n7j9oh1.zip",
+      "sha256": "494e8ef5689016ee8892d82d2a65cbc6cc9ad6e70f1d01452d04d9faced1eced",
+      "size": 12291952,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_gdp_20260922_030057_6tb50i44.zip",
+      "path": "results/archives/dantzig_gdp_20260922_030057_6tb50i44.zip",
+      "sha256": "02eee95f5f79ae60815fafe43c803f638782f9ed3b3bb6f1ccf0b1c85257f922",
+      "size": 874366,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_gdp_20260922_033846_u0tjt7i7.zip",
+      "path": "results/archives/dantzig_gdp_20260922_033846_u0tjt7i7.zip",
+      "sha256": "5ef27c2edde6a666922cd5544b4d2b89034bf08569632d36eee4fcd50201b445",
+      "size": 3504859,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_gdp_compare_20260925_172020_5m9m_kxx.zip",
+      "path": "results/archives/dantzig_gdp_compare_20260925_172020_5m9m_kxx.zip",
+      "sha256": "bdc20c0e4349721c25a38fa929c2e0eb263884e91c4ae4d2626ace4073c91e91",
+      "size": 3846010,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip",
+      "path": "results/archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip",
+      "sha256": "7fbb60f75bd46ecefd8788540be2e070656df37d6b80f075aea9e09c5ad33d4e",
+      "size": 539171,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_gdp_compare_20261001_204801_1gfd4d02.zip",
+      "path": "results/archives/dantzig_gdp_compare_20261001_204801_1gfd4d02.zip",
+      "sha256": "a9645e0b12d2870e14a19e689e221068f6092071fea3df2cda590a1d4bdd4498",
+      "size": 366077,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_gdp_gams_20260922_050038_p4q8hy54.zip",
+      "path": "results/archives/dantzig_gdp_gams_20260922_050038_p4q8hy54.zip",
+      "sha256": "e406b8fae2a90191835eb7332d483c719ebb1675d14d3b0e6d3bf5f7789a197b",
+      "size": 10308944,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "fmqa_numpy_legacy_figures_20261012.zip",
+      "path": "results/archives/fmqa_numpy_legacy_figures_20261012.zip",
+      "sha256": "895b1f0c209860e4d4512f9865447c3bf52eeb46f867bfd0217436cea1e3f92a",
+      "size": 13247846,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "fmqa_qhd_20261012_034123_8kcczd4b.zip",
+      "path": "results/archives/fmqa_qhd_20261012_034123_8kcczd4b.zip",
+      "sha256": "bdcb45af02cd8885b6740abbc00835cf6626a7921e8cafa06bcc85abb290b2e3",
+      "size": 24102736,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "fmqa_qhd_points_20261012_234651_f39la8cf.zip",
+      "path": "results/archives/fmqa_qhd_points_20261012_234651_f39la8cf.zip",
+      "sha256": "dfc7e1a9d37e2278b87ddf8d30f3d52c0cbf9007b85324b0d33822161f5396ba",
+      "size": 363719,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "grid_gdp_retry_all_20261009_153057_czhvd9w7.zip",
+      "path": "results/archives/grid_gdp_retry_all_20261009_153057_czhvd9w7.zip",
+      "sha256": "059453681d8c2b326dcd622d97f6ddb59e815ca8d78ff798e5775f90e42a84be",
+      "size": 4517221,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip",
+      "path": "results/archives/grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip",
+      "sha256": "2215cca4babfa79cf71b874c47218502b4937380cb38956c61e163a6b5436e1e",
+      "size": 2067112,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "grid_gdp_run_20261008_210901_dw5vq37s.zip",
+      "path": "results/archives/grid_gdp_run_20261008_210901_dw5vq37s.zip",
+      "sha256": "fb5d962307731a84d5833b1065cd5e94772bdb15c8a4a7f5d05b3ff0b67a7c94",
+      "size": 18593689,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "grid_trace_bam_20261008_190603_5bh3y_t5.zip",
+      "path": "results/archives/grid_trace_bam_20261008_190603_5bh3y_t5.zip",
+      "sha256": "bd4d9bf56deafa864ecdd2e676fc24bd25a6037bdb02a772ebd800eb1a935374",
+      "size": 10501225,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "grid_trace_rbfopt_20261008_190603_og2app39.zip",
+      "path": "results/archives/grid_trace_rbfopt_20261008_190603_og2app39.zip",
+      "sha256": "e02bf06a097b47340c93e04abefd25e97cc61d20eae9b23dee830505fffbcb38",
+      "size": 10392720,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+      "path": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+      "sha256": "b91afb707229766adcdcfb1ee67406377d1d2ef44839b062ec9e0539893bfefa",
+      "size": 6132863,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "ipopt_dfo_cstr_20261015_223017_ncd_12gx.zip",
+      "path": "results/archives/ipopt_dfo_cstr_20261015_223017_ncd_12gx.zip",
+      "sha256": "2b0c56bdc67297661ebb6ab81ed60ca1df10788541bd39e67fcd391f4a48f570",
+      "size": 3558311,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "path": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "sha256": "ed7eaa2c20031b58f5a9c02c0bc89699cf170c7e256a65c92664ac4b1875cc6e",
+      "size": 3506103,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq.zip",
+      "path": "results/archives/ipopt_dfo_non_cstr_20261015_223138_r3ifrgaq.zip",
+      "sha256": "58ff6a845541e4e8d2cb097e05ffacb4b5500d6dbebf1d95c1a255b9315c7ce1",
+      "size": 997850,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "process_dsda_budget_fairness_20261014_pudvsttz_1792004864773526053.zip",
+      "path": "results/archives/process_dsda_budget_fairness_20261014_pudvsttz_1792004864773526053.zip",
+      "sha256": "3669558ab1b0197d0cf2b6ad4ff0df7c8b4f9b1a92a15747bff8909e6f5ef397",
+      "size": 2133614,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "process_dsda_recovered_20261014_5ozwo5rx_1792008943955816015.zip",
+      "path": "results/archives/process_dsda_recovered_20261014_5ozwo5rx_1792008943955816015.zip",
+      "sha256": "7201a5d49d216a9c1eea64ecf649ec4c185dd9c1dafcc41c70117edf600e51b3",
+      "size": 4572929,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "process_followup_20261012_015823_k6eq6mg0.zip",
+      "path": "results/archives/process_followup_20261012_015823_k6eq6mg0.zip",
+      "sha256": "02ad6cf4fe78f94f6890a7b4b354f21019bf18b34fd76f5dc8d59dfc48b5d9cd",
+      "size": 392457,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "small_batch_full_domain_20261012_024647_d4390oed.zip",
+      "path": "results/archives/small_batch_full_domain_20261012_024647_d4390oed.zip",
+      "sha256": "26fc9acc428cd429fe9cd021345c63e28a2d0ff0265f9918a7b474161cedbda4",
+      "size": 594004,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "small_batch_rbfopt_solver_20261013_172454_czzqkizx.zip",
+      "path": "results/archives/small_batch_rbfopt_solver_20261013_172454_czzqkizx.zip",
+      "sha256": "3de4a026eb78e9e962475dbd464af03e89cbcf0719466e9693b3c5b592fab07b",
+      "size": 430506,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "comparison.csv",
+      "path": "results/gdp_comparison_current/analysis/comparison.csv",
+      "sha256": "3cfbdc23eb9423a910208c176259dfc5c1844f2cf6a5dc09ee1e1791f234008f",
+      "size": 32786,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "run.json",
+      "path": "results/grid_gdp_20261009/raw/run.json",
+      "sha256": "f29462ecbce860e9a38a0aa8a0b1931a5a867dde946a19eb281237b986b94afe",
+      "size": 20685,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "gdp_runs.csv",
+      "path": "results/grid_gdp_dfo_20261011/gdp_runs.csv",
+      "sha256": "c7836874aa5e6d835bf39bc161f775fda9585b0f95700a409cb646d1e5d9947e",
+      "size": 24112,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "manifest.json",
+      "path": "results/grid_gdp_dfo_20261011/manifest.json",
+      "sha256": "131402f7be7ddb6a636f293b1db439fec139852e56159c230db2c435733bc2af",
+      "size": 7542,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "runs.csv",
+      "path": "results/grid_gdp_dfo_20261011/runs.csv",
+      "sha256": "de2d8725777d66010cc87f9305c14cf54fff440c3b32cbd8fe06e913bd1ba015",
+      "size": 1232402,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "tts99_summary.csv",
+      "path": "results/grid_gdp_dfo_20261011/tts99_summary.csv",
+      "sha256": "fd0bb1a3bb3dc356ad2bf695b2633e98b756939822a48808e5e8803b5e55e07c",
+      "size": 27547,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "manifest.json",
+      "path": "results/process_ipopt_bam_v2_20261015/integration/manifest.json",
+      "sha256": "281d7d3c7380f5d80780e0e16405e2a7c6b9a683b6375c1ca826a931379422e1",
+      "size": 22833,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "source_manifest.json",
+      "path": "results/process_ipopt_bam_v2_20261015/source_manifest.json",
+      "sha256": "88ee38b2826e7de32c17f8d080697c9762b3fa4987f4d2a8d8ddf449de573c4d",
+      "size": 12432,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cost_table_column.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/cost_table_column.csv",
+      "sha256": "bdb5a484ca4c0761a8c7cf976d7e886f2f2a0e083f3b33b7993d60e9dbb01fa4",
+      "size": 23836,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cost_table_cstr_10.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_10.csv",
+      "sha256": "085f5ed3f48288823704345110ea51705a954642de50b987459284906fa2a356",
+      "size": 31737,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cost_table_cstr_15.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_15.csv",
+      "sha256": "4772f378f77e1a27d28173cf3e65614f100561b62131f796a48a7032a1dc0629",
+      "size": 70574,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cost_table_cstr_20.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_20.csv",
+      "sha256": "36edac12ab3dce3ef977b3987eb51ddae7eeec15a66e5224c9834750936a883d",
+      "size": 124974,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cost_table_cstr_25.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_25.csv",
+      "sha256": "df7a828415ccae183c8c6f960067cd194775740eb7f976b1b1c8552468f553f6",
+      "size": 194796,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cost_table_cstr_30.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_30.csv",
+      "sha256": "def877ff5caf2c98d0533e8c47d804849ff7c33e8362abd0353867c2458644de",
+      "size": 521740,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cost_table_cstr_5.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_5.csv",
+      "sha256": "a4977af3082dcb7a1afe12dac289800458ea77093d9e6b4a6c27f51035b938ed",
+      "size": 8424,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cost_table_dynamic.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/cost_table_dynamic.csv",
+      "sha256": "11e80497ce7c4f6562a7b6887ddb3a73d28a236411e04fdfd6790e7d85fd9a66",
+      "size": 24907,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cost_table_small_batch.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/cost_table_small_batch.csv",
+      "sha256": "726d1bf2030c6212f8e61bf35f15888bdcacc5654b963c9d9e297f91936e9479",
+      "size": 7056,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "group_summary.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/group_summary.csv",
+      "sha256": "6d868a3c62919230a22834493e098f971a11dd7b80ef29765b2830fb909ffbff",
+      "size": 11625,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "run_results.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/run_results.csv",
+      "sha256": "54ffc148d18ff07506c8c3ab96f77c953079a660516e79f6f3198649ee606fa5",
+      "size": 268868,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "timing_coverage.csv",
+      "path": "results/process_ipopt_bam_v2_20261015/tables/timing_coverage.csv",
+      "sha256": "ef751e37ac2687eb8bdda84e8846a80219bde5cd8025c73d39fc04992aa6ffa6",
+      "size": 345,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "bam_cstr_budget_v2.zip",
+      "path": "results/runners/bam_cstr_budget_v2.zip",
+      "sha256": "1eb297dd92fbd379193f6fda91775420a78680cdc348487343b5dab3c06567e0",
+      "size": 2709245,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "bam_non_cstr_budget_v2.zip",
+      "path": "results/runners/bam_non_cstr_budget_v2.zip",
+      "sha256": "783652fc99778ed6f02e4ae4d1ce7802ee7fcefea8d57494466f8ce7bf753c8f",
+      "size": 327001,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "column_dynamic_box_ipopt_20261015.zip",
+      "path": "results/runners/column_dynamic_box_ipopt_20261015.zip",
+      "sha256": "e22b6ed957ad518c0d675b8688247b57531197f89c5abaa1598fbb8f9c7f31d0",
+      "size": 71691,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cstr30_structural_rejections_20261015.zip",
+      "path": "results/runners/cstr30_structural_rejections_20261015.zip",
+      "sha256": "76d219a0a7a03bb62700b08d8c2091849d50628d30a07f8aa030e81aa147be07",
+      "size": 1157451,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cstr_box_ipopt_20_25_20261015.zip",
+      "path": "results/runners/cstr_box_ipopt_20_25_20261015.zip",
+      "sha256": "77f70dd5cd5601fa6732bc3864db08eb887e1a3ca2f403d735110a1b5e02f340",
+      "size": 68320,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "cstr_box_ipopt_5_10_15_20261015.zip",
+      "path": "results/runners/cstr_box_ipopt_5_10_15_20261015.zip",
+      "sha256": "941448dff8479740ef9ff4bf05b95ffbba5c3baf3d973b606a795bd74d031647",
+      "size": 62544,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "dantzig_dfo_trace_nlp_20261002.zip",
+      "path": "results/runners/dantzig_dfo_trace_nlp_20261002.zip",
+      "sha256": "e93b3383b91acd607c8cc025fba08763fa00825ad5e127f041db33a96bff4e38",
+      "size": 10215477,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "gdpopt_baron_highs_runner.zip",
+      "path": "results/runners/gdpopt_baron_highs_runner.zip",
+      "sha256": "afdff35d65c46c596c1b305aa12bda566842d3c5c48fe3b51fa257a64c6f498b",
+      "size": 54062,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "gdpopt_loa_cpu6_runner.zip",
+      "path": "results/runners/gdpopt_loa_cpu6_runner.zip",
+      "sha256": "2162bb7d29f07f60b5a6ebb128098632d6259549483b8ace586b13df101640c5",
+      "size": 60526,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "grid_gdp_error_fix_runner.zip",
+      "path": "results/runners/grid_gdp_error_fix_runner.zip",
+      "sha256": "4374f607e0fb3893db0b1a8178b1f6b99dd857c8a100fa1a3fad4ab9ccc986f5",
+      "size": 284459,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "ipopt_dfo_cstr_20261015.zip",
+      "path": "results/runners/ipopt_dfo_cstr_20261015.zip",
+      "sha256": "79a093ca026f4fe96650b21e73f49763db9a48d9514ec7dd9b654f515cc066d4",
+      "size": 2708751,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "ipopt_dfo_non_cstr_20261015.zip",
+      "path": "results/runners/ipopt_dfo_non_cstr_20261015.zip",
+      "sha256": "b2e61d0e58e1b6e1f76daf91ceaf1631846cbb3048e4ba07066144d85cdc1e3f",
+      "size": 326955,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "process_dsda_fairness_20261014_v5.zip",
+      "path": "results/runners/process_dsda_fairness_20261014_v5.zip",
+      "sha256": "bb2fe80884fddd2bd21b2b52c3b1787ec75ddaca1c3528ddaa2f5babea39cfdb",
+      "size": 591777,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "analyze_grid_gdp_paths.py",
+      "path": "scripts/analyze_grid_gdp_paths.py",
+      "sha256": "f1a949eb3f36c0355b3c40499afd7adc6b6e2dffebd776c4b77d7c2296c6d04e",
+      "size": 37479,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "build_figures.py",
+      "path": "scripts/process_ipopt/build_figures.py",
+      "sha256": "7c40ff03f6badde10b70caee3457fd84312a68ddc4c533dd70a0a17be628f605",
+      "size": 8419,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Repository baseline cb70771b2037301bb6d0e38a2362d49b53fcda7d; historical execution revisions retained in embedded manifests"
+    },
+    {
+      "displayed_filename": "verify_final_process.py",
+      "path": "scripts/verify_final_process.py",
+      "sha256": "6bc1d71d728c5cfb4530f561eba33a8568779d3824c2a1c6fe03b7d829295cd7",
+      "size": 15131,
+      "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
+      "provenance": "Provider code updated in Issue #44 for package-without-Git provenance; execution sources remain in original archives."
+    }
+  ]
+}

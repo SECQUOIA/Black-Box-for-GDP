@@ -7,3 +7,6 @@ results/grid_gdp_retry_20261009/raw/** -text -whitespace
 results/grid_gdp_corrected_20261009/raw/** -text -whitespace
 results/grid_trace_rbfopt_20261010/raw/** -text -whitespace
 results/grid_trace_rbfopt_20261010/trajectories/** -text -whitespace
+# Supplied manuscript companion evidence: retain original hashes and CSV CRLF.
+reproduction/data/** -text -whitespace linguist-generated=true
+reproduction/validation/*.json linguist-generated=true
