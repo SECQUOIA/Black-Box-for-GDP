@@ -1,0 +1,60 @@
+{
+  "formal_server_runs_completed": 0,
+  "formal_server_pilot_status": "not run; package prepared for user upload/execution",
+  "time_estimate": "pending Dantzig pilot; local timings are not comparable",
+  "new_tests": {
+    "command": "python -m pytest tests/test_review_comparison.py -q",
+    "passed": 16
+  },
+  "regression_tests": {
+    "command": "python -m pytest tests/test_grid_trace_runner.py tests/test_final_process_artifacts.py tests/test_ipopt_dfo_cstr.py tests/test_ipopt_dfo_non_cstr.py -q",
+    "passed": 61,
+    "initially_skipped": 2,
+    "skip_reason": "RBFOpt absent in analysis-only Python environment",
+    "skipped_tests_rerun_with_local_rbfopt": "2 passed; initialization only, no auxiliary solve"
+  },
+  "local_actual_rbfopt_smoke": {
+    "scope": "Mac diagnostic only, not formal timing comparison",
+    "case": "Ackley B10 seed0 genetic",
+    "rbfopt": "4.3.0",
+    "callbacks": 10,
+    "status": "completed",
+    "only_candidate_option_diff": true
+  },
+  "frozen_inputs": {
+    "new_plan_slots": 3430,
+    "genetic_jobs": 1190,
+    "uniform_jobs": 1190,
+    "bam_prefix_control_jobs": 1050,
+    "pilot_jobs": 24,
+    "grid_points": 20181,
+    "process_points": 2455,
+    "missing_costs": 0
+  },
+  "retained_results": {
+    "grid_runs": 4200,
+    "process_runs": 560,
+    "process_hits": 291,
+    "process_misses": 268,
+    "process_execution_failures": 1,
+    "corrected_BAM_runs": 140,
+    "corrected_BAM_callbacks": 3430
+  },
+  "new_process_or_NLP_solves": 0,
+  "overleaf_changed": false,
+  "evidence_sha256": {
+    "historical_analysis.zip": "cb55218072a3f003812b2d28c41fe8923a5538e765044b8a20b584576b2c52a2",
+    "local_smoke.zip": "c35bb8555ed0ae7c606026c38fbaf27137e87d5b2fde78cccb5cb2a071708cb2"
+  },
+  "analysis_source_sha256": "cdde929239164930aec89d27453a7186f1d655cc347003085683a3eae53480ed",
+  "checks": [
+    "Ruff passed",
+    "bash -n passed",
+    "Package extracted and input/hash/plan checks passed",
+    "Actual frozen callbacks tested for CSTR, Column, Dynamic and Grid",
+    "No accepted observation preserves historical failure category",
+    "Unknown timing remains null",
+    "Completed failures not replaced on resume",
+    "Cluster bootstrap keeps intact Grid function vectors"
+  ]
+}
