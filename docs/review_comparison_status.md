@@ -15,6 +15,7 @@ items below are separate work.
 | Minor 1: timing endpoint and terminal solutions | recorded and audited; manuscript explanation pending | search, lookup, extraction/export and worker clocks distinct; Process terminal observation retained; no missing point costs |
 | Minor 2: alpha cost scenarios | regenerated for all completed comparisons | `analysis.py`, alpha=.01,.1,1,10,100; recorded-path cost rescaling, not new adaptive runs |
 | Minor 3: success uncertainty and grouping | regenerated; manuscript interpretation pending | paired differences, grouped Grid bootstrap, complete ten-seed conditions; descriptive intervals with no equivalence or multiplicity claim |
+| FMQA-SA versus uniform paired success comparison | completed-record analysis added | [1,190 pairs and 19 descriptive summaries](../results/review_comparison_20261020/fmqa_uniform/README.md); Grid resamples intact function vectors and Process keeps all 14 conditions separate |
 | Minor 4: Yang3 / Bohachevsky2 exclusions | regenerated for all completed comparisons | `grid_exclusions.csv`; no objective definition changed; main descriptive patterns persist |
 | Minor 5: FMQA zero-scale, regularization, exhaustive energy diagnostic | needs additional computation | original QHD converter and wrapper retained in execution snapshots; proposal logs exist, per-iteration fitted weight snapshots have not been established; no reconstructed iteration is claimed historical; no FMQA rerun launched |
 | Minor 6: bound discrepancy and tightened feasibility | needs additional computation | original audit and residual checks retained; no restoration/tightened NLP authorized in this base package; proposed representative test must retain raw bound and witness provenance |
@@ -28,6 +29,9 @@ items below are separate work.
 | Minor 14: bibliography metadata/pinned manuals | analysis pending | DOI/build-specific documentation edits separate; no solver upgrade |
 | Minor 15: commit-content provenance | return manifest and source hashes recorded; release verification pending | execution provider remains `38d917ef`; publication revision is distinct; logged-out release verification remains separate |
 | Typos and terminology | analysis pending | do not edit supplied Overleaf sources here; check ALAMO, NLP/CSTR expansions, capitalization, branch case, and S6/S9 wording separately |
+
+The separate [FMQA-SA versus uniform analysis](../results/review_comparison_20261020/fmqa_uniform/README.md) preserves the original result tables, manifest and audit sources.
+This paired comparison does not complete the FMQA fitted-weight, QUBO or annealing diagnostics, or the tightened-feasibility checks listed above.
 
 ## Nannicini source check
 
