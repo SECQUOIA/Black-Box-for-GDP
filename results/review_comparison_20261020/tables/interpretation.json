@@ -1,0 +1,8 @@
+{
+  "new_data_complete": true,
+  "scope": "Completed first sealed attempts only; no best-of-retries; all unexecuted slots retained in new_slots.csv",
+  "scenario": "T_search + alpha * sum(point costs) + T_prep conditional on recorded paths; not predicted adaptive trajectories under new time limits",
+  "endpoints": "Recorded search-stage endpoint is primary. Incumbent extraction/export clocks of new runs are additional and not added to historical endpoint.",
+  "legacy_DSDA": "Grid lookup subtraction unavailable; retained wall includes lookup. No zero timing assumed.",
+  "inference": "Unequal elapsed times across hosts are not comparable; new formal runs require Dantzig. BAM prefix control does not isolate all BAM components."
+}

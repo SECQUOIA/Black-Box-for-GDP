@@ -1,5 +1,10 @@
 # Additional frozen-data comparisons on Dantzig
 
+The [October 20 return and verified analysis](../results/review_comparison_20261020/README.md)
+now contain all 3,430 slots. The original ZIP preserves the guide and code as
+executed. Use the analysis-only commands in that report to inspect existing
+results; the commands below launch new DFO searches when explicitly requested.
+
 This package prepares the professor's requested comparison. It does not claim
 that genetic candidate search improves RBFOpt. Existing MSRSM/solver results
 remain valid historical measurements and are labelled `rbfopt_msrsm_solver`.
@@ -61,10 +66,21 @@ cd review_comparison_20261020/review_comparison_runner
 bash run_review_comparison_dantzig.sh plan
 ```
 
-Default existing environments: `.venv-dantzig-grid-trace` (Grid) and
-`.venv-dantzig-nlp-overnight` (Process). Existing conda executable:
-`/local/scratch/a/lee4382/miniconda3/bin/conda`. Override `--grid-python`,
-`--process-python`, `--conda` only to select the matching existing environments.
+The frozen runner defaults to `.venv-dantzig-grid-trace` (Grid) and
+`.venv-dantzig-nlp-overnight` (Process), but the completed October 20 run used
+`.venv-dantzig/bin/python` for both. The default Grid environment had newer
+pandas/Pyomo versions and failed preflight before any search. The original
+`.venv-dantzig` environment passed all historical version and binary checks.
+No environment was modified. Reuse the recorded routing explicitly:
+
+```bash
+REVIEW_PY=/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python
+REVIEW_ENV=(--grid-python "$REVIEW_PY" --process-python "$REVIEW_PY")
+```
+
+Existing conda executable: `/local/scratch/a/lee4382/miniconda3/bin/conda`.
+Override `--grid-python`, `--process-python`, `--conda` only to select matching
+existing environments, and retain these options on every launch/resume.
 The old repository path on Dantzig is intentional; the GitHub repository rename
 does not move server directories. Solver paths remain the original `.venv-dantzig/bin`.
 
@@ -76,9 +92,10 @@ ps -eo pid,ppid,psr,pcpu,comm,args --sort=-pcpu | head -35
 # Choose a CPU not occupied/reserved by another experiment; 0 below is an EXAMPLE.
 CPU=0
 RUN_DIR=/local/scratch/a/lee4382/repository/RBFopt_Test/results/review_comparison_$(date +%Y%m%d_%H%M%S)
-bash run_review_comparison_dantzig.sh check --run-dir "$RUN_DIR" --cpu "$CPU"
+bash run_review_comparison_dantzig.sh check --run-dir "$RUN_DIR" --cpu "$CPU" "${REVIEW_ENV[@]}"
+# Continue only after both preflight checks pass.
 nohup bash run_review_comparison_dantzig.sh pilot --run-dir "$RUN_DIR" --cpu "$CPU" \
-  --ack-idle-cpu > "${RUN_DIR}_pilot.log" 2>&1 &
+  --ack-idle-cpu "${REVIEW_ENV[@]}" > "${RUN_DIR}_pilot.log" 2>&1 &
 ```
 
 `check` verifies files, environment, binary hashes and imports, **without any
@@ -108,12 +125,12 @@ before issuing a full-run command. The package never automatically starts all jo
 ```bash
 # Headline Process conditions first (CSTR30, Column, Small Batch, all Dynamic budgets).
 nohup bash run_review_comparison_dantzig.sh run --scope priority \
-  --run-dir "$RUN_DIR" --cpu "$CPU" --ack-idle-cpu > "${RUN_DIR}_priority.log" 2>&1 &
+  --run-dir "$RUN_DIR" --cpu "$CPU" --ack-idle-cpu "${REVIEW_ENV[@]}" > "${RUN_DIR}_priority.log" 2>&1 &
 # After inspecting the pilot, explicitly start the full remaining plan:
 nohup bash run_review_comparison_dantzig.sh run --scope all \
-  --run-dir "$RUN_DIR" --cpu "$CPU" --ack-idle-cpu > "${RUN_DIR}_full.log" 2>&1 &
+  --run-dir "$RUN_DIR" --cpu "$CPU" --ack-idle-cpu "${REVIEW_ENV[@]}" > "${RUN_DIR}_full.log" 2>&1 &
 # Do not run these controllers concurrently against the same RUN_DIR.
-bash run_review_comparison_dantzig.sh resume --run-dir "$RUN_DIR" --cpu "$CPU" --ack-idle-cpu
+bash run_review_comparison_dantzig.sh resume --run-dir "$RUN_DIR" --cpu "$CPU" --ack-idle-cpu "${REVIEW_ENV[@]}"
 ```
 
 Additional filters: `--methods rbfopt_msrsm_genetic`, `--scope grid|process|priority`,
