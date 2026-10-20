@@ -17,6 +17,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+from types import SimpleNamespace
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -216,7 +217,15 @@ def replay(output, figures=False):
     core.SOURCES.clear()
     refresh = importlib.import_module("refresh")
     refresh.OUT = output
-    runs, events, _, _, groups, summary = refresh.load()
+    original_subprocess = refresh.subprocess
+    if (ROOT / "PACKAGE_MANIFEST.json").is_file() and not (ROOT / ".git").exists():
+        # Preserve the hashed historical analysis bytes. Its only subprocess
+        # request records the provider HEAD; numerical analysis is unchanged.
+        refresh.subprocess = SimpleNamespace(check_output=package_git_metadata)
+    try:
+        runs, events, _, _, groups, summary = refresh.load()
+    finally:
+        refresh.subprocess = original_subprocess
     require(summary["outcomes"] == {"target_reached": 291, "target_not_reached": 268, "execution_failed": 1},
             "Final outcomes differ from the recorded comparison")
     require(len(runs) == 560 and len(events) == 12822, "Incomplete final selection")
@@ -250,6 +259,13 @@ def replay(output, figures=False):
             "tts99": summary["tts_statuses"],
             "historical_analysis_revision": old_summary["repository_head"],
             "figures_regenerated": figures}
+
+
+def package_git_metadata(command, *, cwd, text=False):
+    require(command == ["git", "rev-parse", "HEAD"] and Path(cwd).resolve() == ROOT,
+            "Historical replay requested an unexpected subprocess")
+    value = provider_revision() + "\n"
+    return value if text else value.encode()
 
 
 def provider_revision():

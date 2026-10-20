@@ -129,3 +129,17 @@ def test_packaged_source_requires_pin_and_hashes(tmp_path, monkeypatch):
             _sources.source_root("dsda-gdp")
     finally:
         _sources.source_root.cache_clear()
+
+
+def test_historical_replay_metadata_adapter_is_narrow(monkeypatch):
+    from scripts import verify_final_process as replay
+
+    monkeypatch.setattr(replay, "provider_revision", lambda: "a" * 40)
+    assert (
+        replay.package_git_metadata(
+            ["git", "rev-parse", "HEAD"], cwd=replay.ROOT, text=True
+        )
+        == "a" * 40 + "\n"
+    )
+    with pytest.raises(ValueError, match="unexpected subprocess"):
+        replay.package_git_metadata(["ipopt", "model.nl"], cwd=replay.ROOT, text=True)
