@@ -1,0 +1,25 @@
+{
+  "source": "Dantzig executable version banners and BAM runtime information supplied by the authors; archived per-job metadata identifies the experimental configurations.",
+  "bonmin": {
+    "version": "1.8.9",
+    "cbc": "2.10.12",
+    "ipopt": "3.14.19",
+    "platform": "Linux x86_64",
+    "ASL": "20231111"
+  },
+  "standalone_ipopt": {
+    "version": "3.14.19",
+    "platform": "Linux x86_64",
+    "ASL": "20231111"
+  },
+  "bam": {
+    "python_package": "bam-solver",
+    "package_version": "5.0.0",
+    "engine": "2026.9.10",
+    "build": "LNX-int-64",
+    "build_timestamp": "2026-09-10 17:59:06",
+    "internal_alamo_version": null,
+    "internal_baron_version": null
+  },
+  "qualification": "Standalone auxiliary versions do not identify GAMS/IPOPT. GAMS/BARON 25.11.17 does not identify BAM internal BARON. No identity check between later banner output and archived binary hashes is asserted."
+}

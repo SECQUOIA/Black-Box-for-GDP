@@ -1,0 +1,82 @@
+{
+  "snapshot": "cb70771b2037301bb6d0e38a2362d49b53fcda7d",
+  "runs": 45,
+  "witnesses": 9,
+  "rechecked_saved_vectors": 63,
+  "bound_conflicts": 11,
+  "maximum_original_model_violation": 8.947372728933256e-07,
+  "target_attainment": {
+    "ric": 3,
+    "gloa": 1,
+    "loa": 4,
+    "bigm": 7,
+    "hull": 6
+  },
+  "sources": {
+    "R1": {
+      "directory": "results/gdp_comparison_20260925/raw",
+      "archive": "results/archives/dantzig_gdp_compare_20260925_172020_5m9m_kxx.zip",
+      "sha256": "bdc20c0e4349721c25a38fa929c2e0eb263884e91c4ae4d2626ace4073c91e91",
+      "archive_root": "dantzig_gdp_compare_20260925_172020_5m9m_kxx",
+      "runs": 36,
+      "archived_only": [
+        {
+          "directory": "jobs",
+          "files": 180
+        },
+        {
+          "directory": "source",
+          "files": 18
+        },
+        {
+          "directory": "solver_checks",
+          "files": 3
+        }
+      ]
+    },
+    "R2": {
+      "directory": "results/gdp_comparison_20261001/raw",
+      "archive": "results/archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip",
+      "sha256": "7fbb60f75bd46ecefd8788540be2e070656df37d6b80f075aea9e09c5ad33d4e",
+      "archive_root": "dantzig_gdp_compare_20261001_175249_6lvrs3wy",
+      "runs": 18,
+      "archived_only": [
+        {
+          "directory": "jobs",
+          "files": 90
+        },
+        {
+          "directory": "source",
+          "files": 20
+        },
+        {
+          "directory": "solver_checks",
+          "files": 2
+        }
+      ]
+    },
+    "R3": {
+      "directory": "results/gdp_comparison_loa_20261001/raw",
+      "archive": "results/archives/dantzig_gdp_compare_20261001_204801_1gfd4d02.zip",
+      "sha256": "a9645e0b12d2870e14a19e689e221068f6092071fea3df2cda590a1d4bdd4498",
+      "archive_root": "dantzig_gdp_compare_20261001_204801_1gfd4d02",
+      "runs": 9,
+      "archived_only": [
+        {
+          "directory": "jobs",
+          "files": 45
+        },
+        {
+          "directory": "source",
+          "files": 24
+        },
+        {
+          "directory": "solver_checks",
+          "files": 2
+        }
+      ]
+    }
+  },
+  "arithmetic": "IEEE 754 binary64; original CSV strings preserved; derived values use shortest round-trip decimal representation.",
+  "repository_url": "https://github.com/SECQUOIA/RBFopt_Test/tree/cb70771b2037301bb6d0e38a2362d49b53fcda7d"
+}

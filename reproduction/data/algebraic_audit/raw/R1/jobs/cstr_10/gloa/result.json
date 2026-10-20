@@ -1,0 +1,291 @@
+{
+  "case": "cstr",
+  "cstr_size": 10,
+  "instance_id": "cstr_10",
+  "source": {
+    "repository": "https://github.com/SECQUOIA/dsda-gdp",
+    "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+    "files_sha256": {
+      "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+      "gdp/dsda/cstr_10_initialization.json": "c7ed746a610656af44d7382b3656158efecd61d62785a713da4a8b0a7f3b6cb4",
+      "gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe"
+    }
+  },
+  "initialization": "gdp/dsda/cstr_10_initialization.json",
+  "dynamic_preparation": null,
+  "global_fbbt_wall_s": 0.011495537124574184,
+  "globally_implied_bounds": {
+    "Q[1]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[2]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[3]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[4]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[5]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[6]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[7]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[8]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[9]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "Q[10]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        1.0,
+        10
+      ]
+    },
+    "QFR[1]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[2]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[3]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[4]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[5]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[6]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[7]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[8]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[9]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.0
+      ]
+    },
+    "QFR[10]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9
+      ]
+    },
+    "P[B]": {
+      "before": [
+        0,
+        10
+      ],
+      "after": [
+        0,
+        9.5
+      ]
+    }
+  },
+  "template_wall_s": 0.09902921691536903,
+  "template_policy": "built once, independent unsolved clone per method",
+  "method": "gloa",
+  "time_limit_s": 1800,
+  "threads": 1,
+  "status": "finished",
+  "objective": 9.894736842105315,
+  "has_feasible_solution": true,
+  "global_optimality_certified": false,
+  "global_bound_valid": false,
+  "solver_policy": {
+    "nlp": "ipopt",
+    "mip": "cplex"
+  },
+  "certificate_note": "Local IPOPT subproblems: GDPopt bounds/termination do not certify global optimality.",
+  "reformulation_wall_s": 0.02510058507323265,
+  "model_variables": 156,
+  "model_constraints": 271,
+  "candidate_objective": 9.894736842105315,
+  "max_primal_violation": 2.042810365310288e-14,
+  "invalid_or_undefined": [],
+  "selected_disjuncts": [
+    "YR_is_recycle[1]",
+    "YR_is_not_recycle[2]",
+    "YR_is_not_recycle[3]",
+    "YR_is_not_recycle[4]",
+    "YR_is_not_recycle[5]",
+    "YR_is_not_recycle[6]",
+    "YR_is_not_recycle[7]",
+    "YR_is_not_recycle[8]",
+    "YR_is_not_recycle[9]",
+    "YR_is_not_recycle[10]",
+    "YP_is_cstr[1]",
+    "YP_is_bypass[2]",
+    "YP_is_bypass[3]",
+    "YP_is_bypass[4]",
+    "YP_is_bypass[5]",
+    "YP_is_bypass[6]",
+    "YP_is_bypass[7]",
+    "YP_is_bypass[8]",
+    "YP_is_bypass[9]",
+    "YP_is_bypass[10]"
+  ],
+  "selected_booleans": [
+    "YF[1]",
+    "YR[1]",
+    "YP[1]"
+  ],
+  "incumbent_elapsed_s": 14.70494802761823,
+  "gdpopt_iterations": 8,
+  "solve_wall_s": 15.173085007816553,
+  "termination": "optimal",
+  "solver_status": "ok",
+  "reported_lower_bound": 9.894736842105315,
+  "reported_upper_bound": 9.894736842105315,
+  "method_wall_s": 15.260184390936047,
+  "solver_calls": 31,
+  "sum_solver_call_wall_s": 12.706943396478891,
+  "worker_pid": 2638413,
+  "worker_returncode": 0,
+  "worker_wall_s": 15.271591920405626,
+  "hard_time_limit_reached": false
+}
