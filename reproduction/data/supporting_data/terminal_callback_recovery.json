@@ -1,0 +1,476 @@
+{
+  "repository_revision": "ade67082ad2b09583a8f5594b827c97417e0ea99",
+  "sources": [
+    {
+      "alias": "C",
+      "archive": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+      "sha256": "b91afb707229766adcdcfb1ee67406377d1d2ef44839b062ec9e0539893bfefa",
+      "runner_package": "results/runners/ipopt_dfo_cstr_20261015.zip",
+      "runner_package_sha256": "79a093ca026f4fe96650b21e73f49763db9a48d9514ec7dd9b654f515cc066d4",
+      "executed_source_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/reproduction/ipopt_dfo_cstr.py",
+      "executed_source_sha256": "96018769c0e3ac6107a7c61c256ca3cca6ea60a56ffbd576efaa0090ecc251ce"
+    },
+    {
+      "alias": "N",
+      "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "sha256": "ed7eaa2c20031b58f5a9c02c0bc89699cf170c7e256a65c92664ac4b1875cc6e",
+      "runner_package": "results/runners/ipopt_dfo_non_cstr_20261015.zip",
+      "runner_package_sha256": "b2e61d0e58e1b6e1f76daf91ceaf1631846cbb3048e4ba07066144d85cdc1e3f",
+      "executed_source_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/reproduction/ipopt_dfo_non_cstr.py",
+      "executed_source_sha256": "428d982276b8ad4c0ee577289f1ff4edcd989dcb3abbd195da8415c39bc60b96"
+    }
+  ],
+  "counts": {
+    "runs": 560,
+    "target_successes": 291,
+    "target_misses": 268,
+    "execution_failures": 1,
+    "first_hit_at_budget": 20,
+    "bam_terminal_values_returned": 6,
+    "terminal_only_wrapper_successes": 14
+  },
+  "interpretation": "Accepted callback minima persisted by the original post-run summarize() in runs.csv; not native optimizer returned incumbents.",
+  "new_experiments": false,
+  "runs": [
+    {
+      "job_id": "cstr_10_B15_seed1_rbfopt",
+      "case": "cstr_10",
+      "method": "rbfopt",
+      "budget": 15,
+      "seed": 1,
+      "terminal_point": [
+        10,
+        10
+      ],
+      "terminal_accepted_objective": 2.889536968602369,
+      "reference_objective": 2.889536968602369,
+      "target_tolerance": 2.8895369686023693e-05,
+      "best_accepted_before_terminal": 3.130198133113745,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        10,
+        10
+      ],
+      "wrapper_best_accepted_objective": 2.889536968602369,
+      "native_returned_incumbent": null,
+      "archive_alias": "C",
+      "archive": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+      "callback_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_10_B15_seed1_rbfopt/callbacks.jsonl",
+      "result_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_10_B15_seed1_rbfopt/result.json",
+      "summary_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/runs.csv",
+      "summary_row_key": "cstr_10_B15_seed1_rbfopt"
+    },
+    {
+      "job_id": "cstr_10_B15_seed5_rbfopt",
+      "case": "cstr_10",
+      "method": "rbfopt",
+      "budget": 15,
+      "seed": 5,
+      "terminal_point": [
+        10,
+        10
+      ],
+      "terminal_accepted_objective": 2.889536968602369,
+      "reference_objective": 2.889536968602369,
+      "target_tolerance": 2.8895369686023693e-05,
+      "best_accepted_before_terminal": 3.130198133025455,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        10,
+        10
+      ],
+      "wrapper_best_accepted_objective": 2.889536968602369,
+      "native_returned_incumbent": null,
+      "archive_alias": "C",
+      "archive": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+      "callback_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_10_B15_seed5_rbfopt/callbacks.jsonl",
+      "result_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_10_B15_seed5_rbfopt/result.json",
+      "summary_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/runs.csv",
+      "summary_row_key": "cstr_10_B15_seed5_rbfopt"
+    },
+    {
+      "job_id": "cstr_10_B15_seed6_rbfopt",
+      "case": "cstr_10",
+      "method": "rbfopt",
+      "budget": 15,
+      "seed": 6,
+      "terminal_point": [
+        10,
+        10
+      ],
+      "terminal_accepted_objective": 2.889536968602369,
+      "reference_objective": 2.889536968602369,
+      "target_tolerance": 2.8895369686023693e-05,
+      "best_accepted_before_terminal": 3.130198133025455,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        10,
+        10
+      ],
+      "wrapper_best_accepted_objective": 2.889536968602369,
+      "native_returned_incumbent": null,
+      "archive_alias": "C",
+      "archive": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+      "callback_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_10_B15_seed6_rbfopt/callbacks.jsonl",
+      "result_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_10_B15_seed6_rbfopt/result.json",
+      "summary_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/runs.csv",
+      "summary_row_key": "cstr_10_B15_seed6_rbfopt"
+    },
+    {
+      "job_id": "cstr_5_B8_seed5_fmqa_sa",
+      "case": "cstr_5",
+      "method": "fmqa_sa",
+      "budget": 8,
+      "seed": 5,
+      "terminal_point": [
+        5,
+        5
+      ],
+      "terminal_accepted_objective": 3.0620145766081155,
+      "reference_objective": 3.0620145766081155,
+      "target_tolerance": 3.062014576608116e-05,
+      "best_accepted_before_terminal": 3.1301981330254653,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        5,
+        5
+      ],
+      "wrapper_best_accepted_objective": 3.0620145766081155,
+      "native_returned_incumbent": null,
+      "archive_alias": "C",
+      "archive": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+      "callback_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_5_B8_seed5_fmqa_sa/callbacks.jsonl",
+      "result_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_5_B8_seed5_fmqa_sa/result.json",
+      "summary_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/runs.csv",
+      "summary_row_key": "cstr_5_B8_seed5_fmqa_sa"
+    },
+    {
+      "job_id": "cstr_5_B8_seed3_rbfopt",
+      "case": "cstr_5",
+      "method": "rbfopt",
+      "budget": 8,
+      "seed": 3,
+      "terminal_point": [
+        5,
+        5
+      ],
+      "terminal_accepted_objective": 3.0620145766081155,
+      "reference_objective": 3.0620145766081155,
+      "target_tolerance": 3.062014576608116e-05,
+      "best_accepted_before_terminal": 3.1301981330254653,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        5,
+        5
+      ],
+      "wrapper_best_accepted_objective": 3.0620145766081155,
+      "native_returned_incumbent": null,
+      "archive_alias": "C",
+      "archive": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+      "callback_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_5_B8_seed3_rbfopt/callbacks.jsonl",
+      "result_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_5_B8_seed3_rbfopt/result.json",
+      "summary_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/runs.csv",
+      "summary_row_key": "cstr_5_B8_seed3_rbfopt"
+    },
+    {
+      "job_id": "cstr_5_B8_seed7_rbfopt",
+      "case": "cstr_5",
+      "method": "rbfopt",
+      "budget": 8,
+      "seed": 7,
+      "terminal_point": [
+        5,
+        5
+      ],
+      "terminal_accepted_objective": 3.0620145766081155,
+      "reference_objective": 3.0620145766081155,
+      "target_tolerance": 3.062014576608116e-05,
+      "best_accepted_before_terminal": 3.134337036452856,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        5,
+        5
+      ],
+      "wrapper_best_accepted_objective": 3.0620145766081155,
+      "native_returned_incumbent": null,
+      "archive_alias": "C",
+      "archive": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+      "callback_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_5_B8_seed7_rbfopt/callbacks.jsonl",
+      "result_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/jobs/cstr_5_B8_seed7_rbfopt/result.json",
+      "summary_member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/runs.csv",
+      "summary_row_key": "cstr_5_B8_seed7_rbfopt"
+    },
+    {
+      "job_id": "column_B16_seed8_fmqa_sa",
+      "case": "column",
+      "method": "fmqa_sa",
+      "budget": 16,
+      "seed": 8,
+      "terminal_point": [
+        13,
+        4
+      ],
+      "terminal_accepted_objective": 19346.124801006445,
+      "reference_objective": 19346.124801006445,
+      "target_tolerance": 0.19346124801006445,
+      "best_accepted_before_terminal": 19740.340832256203,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        13,
+        4
+      ],
+      "wrapper_best_accepted_objective": 19346.124801006445,
+      "native_returned_incumbent": null,
+      "archive_alias": "N",
+      "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "callback_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/column_B16_seed8_fmqa_sa/callbacks.jsonl",
+      "result_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/column_B16_seed8_fmqa_sa/result.json",
+      "summary_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/runs.csv",
+      "summary_row_key": "column_B16_seed8_fmqa_sa"
+    },
+    {
+      "job_id": "column_B16_seed3_rbfopt",
+      "case": "column",
+      "method": "rbfopt",
+      "budget": 16,
+      "seed": 3,
+      "terminal_point": [
+        13,
+        4
+      ],
+      "terminal_accepted_objective": 19346.124801006445,
+      "reference_objective": 19346.124801006445,
+      "target_tolerance": 0.19346124801006445,
+      "best_accepted_before_terminal": 19740.340832256203,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        13,
+        4
+      ],
+      "wrapper_best_accepted_objective": 19346.124801006445,
+      "native_returned_incumbent": null,
+      "archive_alias": "N",
+      "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "callback_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/column_B16_seed3_rbfopt/callbacks.jsonl",
+      "result_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/column_B16_seed3_rbfopt/result.json",
+      "summary_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/runs.csv",
+      "summary_row_key": "column_B16_seed3_rbfopt"
+    },
+    {
+      "job_id": "dynamic_B12_seed7_fmqa_sa",
+      "case": "dynamic",
+      "method": "fmqa_sa",
+      "budget": 12,
+      "seed": 7,
+      "terminal_point": [
+        1,
+        4
+      ],
+      "terminal_accepted_objective": -212.00878715666533,
+      "reference_objective": -212.00878715666533,
+      "target_tolerance": 0.0021200878715666536,
+      "best_accepted_before_terminal": -88.4153809969213,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        1,
+        4
+      ],
+      "wrapper_best_accepted_objective": -212.00878715666533,
+      "native_returned_incumbent": null,
+      "archive_alias": "N",
+      "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "callback_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/dynamic_B12_seed7_fmqa_sa/callbacks.jsonl",
+      "result_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/dynamic_B12_seed7_fmqa_sa/result.json",
+      "summary_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/runs.csv",
+      "summary_row_key": "dynamic_B12_seed7_fmqa_sa"
+    },
+    {
+      "job_id": "dynamic_B12_seed7_rbfopt",
+      "case": "dynamic",
+      "method": "rbfopt",
+      "budget": 12,
+      "seed": 7,
+      "terminal_point": [
+        1,
+        4
+      ],
+      "terminal_accepted_objective": -212.00878715666533,
+      "reference_objective": -212.00878715666533,
+      "target_tolerance": 0.0021200878715666536,
+      "best_accepted_before_terminal": -207.62611630895003,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        1,
+        4
+      ],
+      "wrapper_best_accepted_objective": -212.00878715666533,
+      "native_returned_incumbent": null,
+      "archive_alias": "N",
+      "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "callback_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/dynamic_B12_seed7_rbfopt/callbacks.jsonl",
+      "result_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/dynamic_B12_seed7_rbfopt/result.json",
+      "summary_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/runs.csv",
+      "summary_row_key": "dynamic_B12_seed7_rbfopt"
+    },
+    {
+      "job_id": "dynamic_B15_seed3_fmqa_sa",
+      "case": "dynamic",
+      "method": "fmqa_sa",
+      "budget": 15,
+      "seed": 3,
+      "terminal_point": [
+        1,
+        4
+      ],
+      "terminal_accepted_objective": -212.00878715666533,
+      "reference_objective": -212.00878715666533,
+      "target_tolerance": 0.0021200878715666536,
+      "best_accepted_before_terminal": -207.62611630895003,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        1,
+        4
+      ],
+      "wrapper_best_accepted_objective": -212.00878715666533,
+      "native_returned_incumbent": null,
+      "archive_alias": "N",
+      "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "callback_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/dynamic_B15_seed3_fmqa_sa/callbacks.jsonl",
+      "result_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/dynamic_B15_seed3_fmqa_sa/result.json",
+      "summary_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/runs.csv",
+      "summary_row_key": "dynamic_B15_seed3_fmqa_sa"
+    },
+    {
+      "job_id": "small_batch_B10_seed5_rbfopt",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "budget": 10,
+      "seed": 5,
+      "terminal_point": [
+        2,
+        2,
+        1
+      ],
+      "terminal_accepted_objective": 167427.6571147878,
+      "reference_objective": 167427.6571147878,
+      "target_tolerance": 1.6742765711478782,
+      "best_accepted_before_terminal": 178545.19583944406,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        2,
+        2,
+        1
+      ],
+      "wrapper_best_accepted_objective": 167427.6571147878,
+      "native_returned_incumbent": null,
+      "archive_alias": "N",
+      "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "callback_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/small_batch_B10_seed5_rbfopt/callbacks.jsonl",
+      "result_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/small_batch_B10_seed5_rbfopt/result.json",
+      "summary_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/runs.csv",
+      "summary_row_key": "small_batch_B10_seed5_rbfopt"
+    },
+    {
+      "job_id": "small_batch_B10_seed7_rbfopt",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "budget": 10,
+      "seed": 7,
+      "terminal_point": [
+        2,
+        2,
+        1
+      ],
+      "terminal_accepted_objective": 167427.6571147878,
+      "reference_objective": 167427.6571147878,
+      "target_tolerance": 1.6742765711478782,
+      "best_accepted_before_terminal": 178545.19583944406,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        2,
+        2,
+        1
+      ],
+      "wrapper_best_accepted_objective": 167427.6571147878,
+      "native_returned_incumbent": null,
+      "archive_alias": "N",
+      "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "callback_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/small_batch_B10_seed7_rbfopt/callbacks.jsonl",
+      "result_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/small_batch_B10_seed7_rbfopt/result.json",
+      "summary_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/runs.csv",
+      "summary_row_key": "small_batch_B10_seed7_rbfopt"
+    },
+    {
+      "job_id": "small_batch_B10_seed9_rbfopt",
+      "case": "small_batch",
+      "method": "rbfopt",
+      "budget": 10,
+      "seed": 9,
+      "terminal_point": [
+        2,
+        2,
+        1
+      ],
+      "terminal_accepted_objective": 167427.6571147878,
+      "reference_objective": 167427.6571147878,
+      "target_tolerance": 1.6742765711478782,
+      "best_accepted_before_terminal": 178545.19583944406,
+      "callback_recorded": true,
+      "accepted": true,
+      "callback_exit": "budget_stop",
+      "value_returned_to_optimizer": false,
+      "wrapper_best_point": [
+        2,
+        2,
+        1
+      ],
+      "wrapper_best_accepted_objective": 167427.6571147878,
+      "native_returned_incumbent": null,
+      "archive_alias": "N",
+      "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "callback_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/small_batch_B10_seed9_rbfopt/callbacks.jsonl",
+      "result_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/jobs/small_batch_B10_seed9_rbfopt/result.json",
+      "summary_member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/runs.csv",
+      "summary_row_key": "small_batch_B10_seed9_rbfopt"
+    }
+  ]
+}
