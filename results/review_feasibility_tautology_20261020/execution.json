@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/private/tmp/issue44-reader-env/bin/python",
+    "-m",
+    "review_diagnostics.feasibility_tautology",
+    "worker",
+    "--directory",
+    "/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_tautology_20261020"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "wall_s": 0.9313570831436664,
+  "external_wall_limit_s": 300
+}

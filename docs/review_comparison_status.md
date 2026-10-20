@@ -17,7 +17,7 @@ See the [original results and limitations](../results/review_comparison_20261020
 | FMQA-SA versus uniform paired comparison | incorporated | [1,190 pairs and 19 summaries](../results/review_comparison_20261020/fmqa_uniform/README.md); publication analysis independently agrees |
 | Minor 4: suite exclusions | incorporated | S10 excludes Yang3 and Bohachevsky2; lattice effect discussed; no shifted-grid rerun |
 | Minor 5: FMQA implementation and energy diagnostic | limited diagnostic incorporated | [Seven reconstructed fits and 3,328 binary strings](../results/review_diagnostics_20261020/README.md) summarized in S10; historical fitted weights remain unavailable; no prevalence or causal claim |
-| Minor 6: numerical feasibility and tightened check | follow-up blocked; manuscript update pending | [New local follow-up](../results/review_feasibility_followup_20261020/README.md) reproduced W03 and verified corrected option-file delivery; one call stopped with TOO_FEW_DOF and no returned point; no tighter witness or stronger claim; previous two option failures preserved |
+| Minor 6: numerical feasibility and tightened check | CSTR15 check completed; manuscript update pending | [One-call identity-preprocessed follow-up](../results/review_feasibility_tautology_20261020/README.md) returned a point with original-GDP violation 3.33e-16, passing 1e-8; the recorded A12 lower-bound discrepancy persists; all three earlier failed calls preserved; numerical evidence for this case only |
 | Minor 7: starred execution profile | incorporated; optional display deferred | Table 5 notes explain replacement of previously failing cases, preserved expressions/settings and corrected preparation; unsuccessful times remain archived |
 | Minor 8: figure annotations / variant labels | incorporated | Seven figures regenerated; BAM prefix shaded; genetic and controls labeled; Figure 6 uses mean cost shares |
 | Minor 9: 63-object partition | preserved | S9 retains 45 selected plus 18 earlier records; nine witnesses form a subset |
@@ -30,9 +30,12 @@ See the [original results and limitations](../results/review_comparison_20261020
 | Typos and terminology | incorporated where verified | ALAMO/NLP/CSTR wording and S6/S9 wording corrected; historical branch capitalization retained from archived source |
 
 The limited FMQA diagnostic was added separately at commit `15663134704b7bb1d4804c94c70edabaffbf8ecd` and has now been summarized without rerunning it.
-Historical fitted weights remain unavailable, and tightened feasibility remains incomplete after the separate one-call CSTR15 follow-up.
-The native options file was accepted, but the preserved fixed NLP contains 156 free variables and 158 equalities, including three satisfied fixed-Boolean equalities.
-No second call was made after the no-solution result, and [proposed reviewer and manuscript wording](../results/review_feasibility_followup_20261020/reviewer_reply.md) has not been applied to the manuscript.
+Historical fitted weights remain unavailable.
+The [earlier CSTR15 follow-up](../results/review_feasibility_followup_20261020/README.md) stopped after its no-solution degrees-of-freedom error and remains preserved unchanged.
+A separate authorized check proved three fixed-Boolean equalities to be exact identities and omitted only those rows from the computational clone, retaining 156 free variables and reducing equalities from 158 to 155.
+Its single new local NLP call returned a point numerically feasible under the original-GDP 1e-8 residual test, including the omitted conditions, with the A12 discrepancy still present.
+The objective is 2.8293940632857546 and the maximum unscaled violation is 3.3306690738754696e-16; no exact-feasibility, global-optimality or mathematical bound-invalidity proof is claimed.
+This new result has not been applied to the manuscript or Overleaf, and other incomplete review items retain their previous status.
 The repository visibility has not been changed, and no Slack message has been sent.
 
 ## Nannicini source check

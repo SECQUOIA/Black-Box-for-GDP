@@ -1,0 +1,509 @@
+WARNING: DEPRECATED: Checking type relative to '_VarData'.  The class
+'_VarData' has been renamed to 'VarData'.  (deprecated in 6.7.2) (called from
+/Users/albertlee0125/Repos/RBFopt_Test/external/dsda-
+gdp/gdp/dsda/model_serializer.py:300)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[1].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[1].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[2].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[2].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[3].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[3].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[4].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[4].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[5].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[5].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[6].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[6].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[7].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[7].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[8].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[8].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[9].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[9].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[10].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[10].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[11].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[11].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[12].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[12].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[13].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[13].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[14].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[14].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[15].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[15].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[1].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:308)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[2].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[3].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[4].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[5].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[6].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[7].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[8].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[9].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[10].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[11].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[12].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[13].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[14].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[15].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[1].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:277)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[2].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[3].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[4].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[5].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[6].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[7].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[8].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[9].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[10].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[11].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[12].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[13].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[14].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[15].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/private/tmp/issue44-reader-env/lib/python3.12/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+Solver log file: '/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_tautology_20261020/ipopt.log'
+Solver solution file: '/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_tautology_20261020/solver_input/model.sol'
+Solver problem files: ('/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_tautology_20261020/solver_input/model.nl',)
+Ipopt 3.12.13: option_file_name=/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_tautology_20261020/ipopt.opt
+
+Using option file "/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_tautology_20261020/ipopt.opt".
+
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.12.13, running with linear solver mumps.
+NOTE: Other linear solvers might be more efficient (see Ipopt documentation).
+
+Number of nonzeros in equality constraint Jacobian...:      407
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:       79
+
+Total number of variables............................:      156
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:      156
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:      155
+Total number of inequality constraints...............:      148
+        inequality constraints with only lower bounds:      148
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  2.8293506e+00 1.00e-02 1.71e-08  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  2.8293936e+00 1.88e-02 1.24e+00  -1.0 1.15e-01    -  9.63e-01 9.90e-01h  1
+   2  2.8318247e+00 1.88e-02 1.63e+02  -1.0 2.16e+00    -  1.67e-01 3.87e-03h  9
+   3  2.9451910e+00 2.11e-01 1.64e+02  -1.0 1.42e+01    -  3.20e-02 2.67e-02f  5
+   4  3.4974079e+00 4.00e-01 3.00e+02  -1.0 6.85e+00    -  2.75e-01 1.24e-01f  4
+   5  3.6372908e+00 3.25e-01 1.29e+03  -1.0 2.21e+00    -  1.00e+00 1.24e-01h  4
+   6  3.6595633e+00 3.20e-01 2.45e+03  -1.0 2.86e+00    -  8.93e-01 1.55e-02h  7
+   7  3.6698368e+00 3.17e-01 3.75e+03  -1.0 2.64e+00    -  9.74e-01 7.73e-03h  8
+   8  3.6732405e+00 3.16e-01 4.58e+03  -1.0 3.53e+00    -  6.09e-01 1.93e-03h 10
+   9  3.6746215e+00 3.16e-01 5.95e+03  -1.0 2.85e+00    -  1.00e+00 9.67e-04h 11
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  4.0878423e+00 1.47e-01 4.91e+03  -1.0 3.34e+00    -  5.60e-01 2.47e-01h  3
+  11  4.3078389e+00 1.26e-01 5.07e+03  -1.0 2.05e+00    -  1.00e+00 2.47e-01h  3
+  12  4.9526029e+00 4.46e-01 7.51e+01  -1.0 1.56e+00    -  1.00e+00 9.90e-01w  1
+  13  4.9328961e+00 6.61e-04 2.44e+03  -1.0 2.56e-02    -  1.00e+00 9.90e-01h  1
+  14  4.9334433e+00 6.97e-06 2.44e+05  -1.0 9.99e-04    -  1.00e+00 9.90e-01h  1
+  15  4.9334486e+00 6.98e-08 2.44e+07  -1.0 9.94e-06    -  1.00e+00 9.90e-01h  1
+  16  4.9334486e+00 4.07e-11 1.00e-06  -1.0 9.06e-08    -  1.00e+00 1.00e+00f  1
+  17  4.5879020e+00 1.12e-01 1.72e+00 -11.0 1.05e+00    -  8.01e-01 1.00e+00f  1
+  18  3.1768454e+00 2.66e-01 6.05e+00 -11.0 8.72e+00    -  3.99e-01 4.29e-01f  1
+  19  2.9550851e+00 1.26e-01 3.69e+01 -11.0 4.35e-01    -  6.46e-03 1.00e+00h  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  20  3.3805882e+00 1.24e-02 2.62e+01 -11.0 1.89e-01    -  8.94e-03 1.00e+00h  1
+  21  3.5347914e+00 2.93e-03 1.61e+01 -11.0 4.39e-02    -  5.12e-03 1.00e+00h  1
+  22  3.2311639e+00 1.56e-02 6.58e+00 -11.0 9.78e-02    -  3.80e-02 1.00e+00f  1
+  23  2.7549179e+00 7.37e-02 4.30e+00 -11.0 2.06e-01    -  2.34e-01 1.00e+00f  1
+  24  2.7568716e+00 7.89e-02 1.84e+00 -11.0 2.01e-01    -  4.10e-01 1.00e+00h  1
+  25  2.8318997e+00 5.49e-03 1.14e-01 -11.0 5.08e-02    -  8.98e-01 1.00e+00h  1
+  26  2.8294000e+00 1.54e-05 1.19e-04 -11.0 3.26e-03    -  1.00e+00 1.00e+00h  1
+  27  2.8293941e+00 2.22e-10 4.77e-07 -11.0 1.08e-05    -  1.00e+00 1.00e+00h  1
+  28  2.8293941e+00 3.33e-16 1.01e-12 -11.0 4.35e-10    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 28
+
+                                   (scaled)                 (unscaled)
+Objective...............:   2.8293940632857550e+00    2.8293940632857550e+00
+Dual infeasibility......:   1.0101010101010103e-12    1.0101010101010103e-12
+Constraint violation....:   3.3306690738754696e-16    3.3306690738754696e-16
+Complementarity.........:   9.0909090910390708e-12    9.0909090910390708e-12
+Overall NLP error.......:   3.3306690738754696e-16    9.0909090910390708e-12
+
+
+Number of objective function evaluations             = 97
+Number of objective gradient evaluations             = 29
+Number of equality constraint evaluations            = 97
+Number of inequality constraint evaluations          = 97
+Number of equality constraint Jacobian evaluations   = 29
+Number of inequality constraint Jacobian evaluations = 29
+Number of Lagrangian Hessian evaluations             = 28
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.035
+Total CPU secs in NLP function evaluations           =      0.001
+
+EXIT: Optimal Solution Found.
