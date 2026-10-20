@@ -1,0 +1,5235 @@
+{
+  "objective": 2.8293940632857546,
+  "maximum_unscaled_primal_violation": 3.3306690738754696e-16,
+  "tolerance": 1e-08,
+  "numerically_feasible_under_stated_residual_test": true,
+  "configuration_matches": true,
+  "discrete_configuration": {
+    "YF_asbinary[1]": 0,
+    "YF_asbinary[2]": 0,
+    "YF_asbinary[3]": 0,
+    "YF_asbinary[4]": 0,
+    "YF_asbinary[5]": 0,
+    "YF_asbinary[6]": 0,
+    "YF_asbinary[7]": 0,
+    "YF_asbinary[8]": 0,
+    "YF_asbinary[9]": 0,
+    "YF_asbinary[10]": 0,
+    "YF_asbinary[11]": 0,
+    "YF_asbinary[12]": 0,
+    "YF_asbinary[13]": 0,
+    "YF_asbinary[14]": 0,
+    "YF_asbinary[15]": 1,
+    "YR_is_recycle[1].binary_indicator_var": 0,
+    "YR_is_recycle[2].binary_indicator_var": 0,
+    "YR_is_recycle[3].binary_indicator_var": 0,
+    "YR_is_recycle[4].binary_indicator_var": 0,
+    "YR_is_recycle[5].binary_indicator_var": 0,
+    "YR_is_recycle[6].binary_indicator_var": 0,
+    "YR_is_recycle[7].binary_indicator_var": 0,
+    "YR_is_recycle[8].binary_indicator_var": 0,
+    "YR_is_recycle[9].binary_indicator_var": 0,
+    "YR_is_recycle[10].binary_indicator_var": 0,
+    "YR_is_recycle[11].binary_indicator_var": 0,
+    "YR_is_recycle[12].binary_indicator_var": 0,
+    "YR_is_recycle[13].binary_indicator_var": 0,
+    "YR_is_recycle[14].binary_indicator_var": 0,
+    "YR_is_recycle[15].binary_indicator_var": 1,
+    "YR_is_not_recycle[1].binary_indicator_var": 1,
+    "YR_is_not_recycle[2].binary_indicator_var": 1,
+    "YR_is_not_recycle[3].binary_indicator_var": 1,
+    "YR_is_not_recycle[4].binary_indicator_var": 1,
+    "YR_is_not_recycle[5].binary_indicator_var": 1,
+    "YR_is_not_recycle[6].binary_indicator_var": 1,
+    "YR_is_not_recycle[7].binary_indicator_var": 1,
+    "YR_is_not_recycle[8].binary_indicator_var": 1,
+    "YR_is_not_recycle[9].binary_indicator_var": 1,
+    "YR_is_not_recycle[10].binary_indicator_var": 1,
+    "YR_is_not_recycle[11].binary_indicator_var": 1,
+    "YR_is_not_recycle[12].binary_indicator_var": 1,
+    "YR_is_not_recycle[13].binary_indicator_var": 1,
+    "YR_is_not_recycle[14].binary_indicator_var": 1,
+    "YR_is_not_recycle[15].binary_indicator_var": 0,
+    "YP_is_cstr[1].binary_indicator_var": 1,
+    "YP_is_cstr[2].binary_indicator_var": 1,
+    "YP_is_cstr[3].binary_indicator_var": 1,
+    "YP_is_cstr[4].binary_indicator_var": 1,
+    "YP_is_cstr[5].binary_indicator_var": 1,
+    "YP_is_cstr[6].binary_indicator_var": 1,
+    "YP_is_cstr[7].binary_indicator_var": 1,
+    "YP_is_cstr[8].binary_indicator_var": 1,
+    "YP_is_cstr[9].binary_indicator_var": 1,
+    "YP_is_cstr[10].binary_indicator_var": 1,
+    "YP_is_cstr[11].binary_indicator_var": 1,
+    "YP_is_cstr[12].binary_indicator_var": 1,
+    "YP_is_cstr[13].binary_indicator_var": 1,
+    "YP_is_cstr[14].binary_indicator_var": 1,
+    "YP_is_cstr[15].binary_indicator_var": 1,
+    "YP_is_bypass[1].binary_indicator_var": 0,
+    "YP_is_bypass[2].binary_indicator_var": 0,
+    "YP_is_bypass[3].binary_indicator_var": 0,
+    "YP_is_bypass[4].binary_indicator_var": 0,
+    "YP_is_bypass[5].binary_indicator_var": 0,
+    "YP_is_bypass[6].binary_indicator_var": 0,
+    "YP_is_bypass[7].binary_indicator_var": 0,
+    "YP_is_bypass[8].binary_indicator_var": 0,
+    "YP_is_bypass[9].binary_indicator_var": 0,
+    "YP_is_bypass[10].binary_indicator_var": 0,
+    "YP_is_bypass[11].binary_indicator_var": 0,
+    "YP_is_bypass[12].binary_indicator_var": 0,
+    "YP_is_bypass[13].binary_indicator_var": 0,
+    "YP_is_bypass[14].binary_indicator_var": 0,
+    "YP_is_bypass[15].binary_indicator_var": 0
+  },
+  "logic_valid": true,
+  "undefined": [],
+  "constraints": [
+    {
+      "name": "unreact_mole[A,15]",
+      "kind": "constraint",
+      "value": -1.5265566588595902e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.5265566588595902e-16
+    },
+    {
+      "name": "unreact_mole[B,15]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "unreact_cont[15]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "react_mole[A,1]",
+      "kind": "constraint",
+      "value": 6.938893903907228e-18,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 6.938893903907228e-18
+    },
+    {
+      "name": "react_mole[A,2]",
+      "kind": "constraint",
+      "value": -3.469446951953614e-18,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.469446951953614e-18
+    },
+    {
+      "name": "react_mole[A,3]",
+      "kind": "constraint",
+      "value": 2.7755575615628914e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.7755575615628914e-17
+    },
+    {
+      "name": "react_mole[A,4]",
+      "kind": "constraint",
+      "value": -1.3877787807814457e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.3877787807814457e-17
+    },
+    {
+      "name": "react_mole[A,5]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "react_mole[A,6]",
+      "kind": "constraint",
+      "value": -1.3877787807814457e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.3877787807814457e-17
+    },
+    {
+      "name": "react_mole[A,7]",
+      "kind": "constraint",
+      "value": 2.7755575615628914e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.7755575615628914e-17
+    },
+    {
+      "name": "react_mole[A,8]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "react_mole[A,9]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "react_mole[A,10]",
+      "kind": "constraint",
+      "value": 6.938893903907228e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 6.938893903907228e-17
+    },
+    {
+      "name": "react_mole[A,11]",
+      "kind": "constraint",
+      "value": -2.7755575615628914e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.7755575615628914e-17
+    },
+    {
+      "name": "react_mole[A,12]",
+      "kind": "constraint",
+      "value": -2.7755575615628914e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.7755575615628914e-17
+    },
+    {
+      "name": "react_mole[A,13]",
+      "kind": "constraint",
+      "value": 6.938893903907228e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 6.938893903907228e-17
+    },
+    {
+      "name": "react_mole[A,14]",
+      "kind": "constraint",
+      "value": -2.7755575615628914e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.7755575615628914e-17
+    },
+    {
+      "name": "react_mole[B,1]",
+      "kind": "constraint",
+      "value": 1.457167719820518e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.457167719820518e-16
+    },
+    {
+      "name": "react_mole[B,2]",
+      "kind": "constraint",
+      "value": 1.700029006457271e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.700029006457271e-16
+    },
+    {
+      "name": "react_mole[B,3]",
+      "kind": "constraint",
+      "value": -1.3877787807814457e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.3877787807814457e-16
+    },
+    {
+      "name": "react_mole[B,4]",
+      "kind": "constraint",
+      "value": -1.3877787807814457e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.3877787807814457e-17
+    },
+    {
+      "name": "react_mole[B,5]",
+      "kind": "constraint",
+      "value": -1.3877787807814457e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.3877787807814457e-16
+    },
+    {
+      "name": "react_mole[B,6]",
+      "kind": "constraint",
+      "value": 9.71445146547012e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 9.71445146547012e-17
+    },
+    {
+      "name": "react_mole[B,7]",
+      "kind": "constraint",
+      "value": -8.326672684688674e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 8.326672684688674e-17
+    },
+    {
+      "name": "react_mole[B,8]",
+      "kind": "constraint",
+      "value": -5.551115123125783e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 5.551115123125783e-17
+    },
+    {
+      "name": "react_mole[B,9]",
+      "kind": "constraint",
+      "value": 5.551115123125783e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 5.551115123125783e-17
+    },
+    {
+      "name": "react_mole[B,10]",
+      "kind": "constraint",
+      "value": -1.3877787807814457e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.3877787807814457e-17
+    },
+    {
+      "name": "react_mole[B,11]",
+      "kind": "constraint",
+      "value": -8.326672684688674e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 8.326672684688674e-17
+    },
+    {
+      "name": "react_mole[B,12]",
+      "kind": "constraint",
+      "value": 2.7755575615628914e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.7755575615628914e-17
+    },
+    {
+      "name": "react_mole[B,13]",
+      "kind": "constraint",
+      "value": -1.3877787807814457e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.3877787807814457e-17
+    },
+    {
+      "name": "react_mole[B,14]",
+      "kind": "constraint",
+      "value": -2.7755575615628914e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.7755575615628914e-17
+    },
+    {
+      "name": "react_cont[1]",
+      "kind": "constraint",
+      "value": 3.732406436971705e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406436971705e-21
+    },
+    {
+      "name": "react_cont[2]",
+      "kind": "constraint",
+      "value": 3.732406436704314e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406436704314e-21
+    },
+    {
+      "name": "react_cont[3]",
+      "kind": "constraint",
+      "value": 3.73240643643386e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.73240643643386e-21
+    },
+    {
+      "name": "react_cont[4]",
+      "kind": "constraint",
+      "value": 3.732406436159855e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406436159855e-21
+    },
+    {
+      "name": "react_cont[5]",
+      "kind": "constraint",
+      "value": 3.7324064358816856e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.7324064358816856e-21
+    },
+    {
+      "name": "react_cont[6]",
+      "kind": "constraint",
+      "value": 3.7324064355985934e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.7324064355985934e-21
+    },
+    {
+      "name": "react_cont[7]",
+      "kind": "constraint",
+      "value": 3.732406435309663e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406435309663e-21
+    },
+    {
+      "name": "react_cont[8]",
+      "kind": "constraint",
+      "value": 3.732406435013823e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406435013823e-21
+    },
+    {
+      "name": "react_cont[9]",
+      "kind": "constraint",
+      "value": 3.732406434709864e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406434709864e-21
+    },
+    {
+      "name": "react_cont[10]",
+      "kind": "constraint",
+      "value": 3.732406434396501e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406434396501e-21
+    },
+    {
+      "name": "react_cont[11]",
+      "kind": "constraint",
+      "value": 3.7324064340724685e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.7324064340724685e-21
+    },
+    {
+      "name": "react_cont[12]",
+      "kind": "constraint",
+      "value": 3.732406433736666e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406433736666e-21
+    },
+    {
+      "name": "react_cont[13]",
+      "kind": "constraint",
+      "value": 3.7324064333883496e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.7324064333883496e-21
+    },
+    {
+      "name": "react_cont[14]",
+      "kind": "constraint",
+      "value": 3.732406433027292e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406433027292e-21
+    },
+    {
+      "name": "split_mole[A]",
+      "kind": "constraint",
+      "value": 3.469446951953614e-18,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.469446951953614e-18
+    },
+    {
+      "name": "split_mole[B]",
+      "kind": "constraint",
+      "value": -5.551115123125783e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 5.551115123125783e-17
+    },
+    {
+      "name": "split_cont",
+      "kind": "constraint",
+      "value": 1.6653345369377348e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.6653345369377348e-16
+    },
+    {
+      "name": "split_add[A]",
+      "kind": "constraint",
+      "value": 6.938893903907228e-18,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 6.938893903907228e-18
+    },
+    {
+      "name": "split_add[B]",
+      "kind": "constraint",
+      "value": 2.220446049250313e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.220446049250313e-16
+    },
+    {
+      "name": "prod_spec",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[2]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[3]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[4]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[5]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[6]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[7]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[8]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[9]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[10]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[11]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[12]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[13]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[14]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "vol_cons[15]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[1]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[2]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[3]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[4]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[5]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[6]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[7]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[8]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[9]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[10]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[11]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[12]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[13]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[14]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[15]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[16]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[17]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[18]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[19]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[20]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[21]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[22]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[23]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[24]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[25]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[26]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[27]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[28]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[29]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[30]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[31]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[32]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[33]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[34]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[35]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[36]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[37]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[38]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[39]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[40]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[41]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[42]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[43]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[44]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[45]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[46]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[47]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[48]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[49]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[50]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[51]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[52]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[53]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[54]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[55]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[56]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[57]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[58]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[59]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[60]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[61]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[62]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[63]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[64]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[65]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[66]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[67]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[68]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[69]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[70]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[71]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[72]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[73]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[74]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[75]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[76]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[77]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[78]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[79]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[80]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[81]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[82]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[83]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[84]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[85]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[86]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[87]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[88]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[89]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[90]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[91]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[92]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[93]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[94]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[95]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[96]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[97]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[98]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[99]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[100]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[101]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[102]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[103]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[104]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[105]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[106]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[107]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[108]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[109]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[110]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[111]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[112]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[113]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[114]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[115]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[116]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[117]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[118]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[119]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[120]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[121]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[122]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[123]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[124]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[125]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[126]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[127]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[128]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[129]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[130]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[131]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[132]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[133]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[134]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[135]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[136]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[137]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[138]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[139]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[140]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[141]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[142]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[143]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[144]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[145]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[146]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[147]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[148]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[149]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[150]",
+      "kind": "constraint",
+      "value": 2.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[151]",
+      "kind": "constraint",
+      "value": 1.0,
+      "lower": 1.0,
+      "upper": null,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_recycle[15].YRD_FR_act[A]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_recycle[15].YRD_FR_act[B]",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_recycle[15].YRD_QFR_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[1].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406332858398e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406332858398e-21
+    },
+    {
+      "name": "YR_is_not_recycle[1].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.7324063320752186e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.7324063320752186e-21
+    },
+    {
+      "name": "YR_is_not_recycle[1].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.732406436971705e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406436971705e-21
+    },
+    {
+      "name": "YR_is_not_recycle[2].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.7324063345111875e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.7324063345111875e-21
+    },
+    {
+      "name": "YR_is_not_recycle[2].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.732406332197911e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406332197911e-21
+    },
+    {
+      "name": "YR_is_not_recycle[2].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.732406436704314e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406436704314e-21
+    },
+    {
+      "name": "YR_is_not_recycle[3].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406335621966e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406335621966e-21
+    },
+    {
+      "name": "YR_is_not_recycle[3].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.732406332326278e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406332326278e-21
+    },
+    {
+      "name": "YR_is_not_recycle[3].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.73240643643386e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.73240643643386e-21
+    },
+    {
+      "name": "YR_is_not_recycle[4].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406336338218e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406336338218e-21
+    },
+    {
+      "name": "YR_is_not_recycle[4].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.73240633246203e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.73240633246203e-21
+    },
+    {
+      "name": "YR_is_not_recycle[4].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.732406436159855e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406436159855e-21
+    },
+    {
+      "name": "YR_is_not_recycle[5].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406336770753e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406336770753e-21
+    },
+    {
+      "name": "YR_is_not_recycle[5].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.732406332607478e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406332607478e-21
+    },
+    {
+      "name": "YR_is_not_recycle[5].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.7324064358816856e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.7324064358816856e-21
+    },
+    {
+      "name": "YR_is_not_recycle[6].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.73240633700254e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.73240633700254e-21
+    },
+    {
+      "name": "YR_is_not_recycle[6].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.732406332765764e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406332765764e-21
+    },
+    {
+      "name": "YR_is_not_recycle[6].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.7324064355985934e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.7324064355985934e-21
+    },
+    {
+      "name": "YR_is_not_recycle[7].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406337095475e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406337095475e-21
+    },
+    {
+      "name": "YR_is_not_recycle[7].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.73240633294118e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.73240633294118e-21
+    },
+    {
+      "name": "YR_is_not_recycle[7].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.732406435309663e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406435309663e-21
+    },
+    {
+      "name": "YR_is_not_recycle[8].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406337095519e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406337095519e-21
+    },
+    {
+      "name": "YR_is_not_recycle[8].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.7324063331396455e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.7324063331396455e-21
+    },
+    {
+      "name": "YR_is_not_recycle[8].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.732406435013823e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406435013823e-21
+    },
+    {
+      "name": "YR_is_not_recycle[9].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406337036624e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406337036624e-21
+    },
+    {
+      "name": "YR_is_not_recycle[9].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.732406333369385e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406333369385e-21
+    },
+    {
+      "name": "YR_is_not_recycle[9].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.732406434709864e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406434709864e-21
+    },
+    {
+      "name": "YR_is_not_recycle[10].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406336943705e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406336943705e-21
+    },
+    {
+      "name": "YR_is_not_recycle[10].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.732406333641932e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406333641932e-21
+    },
+    {
+      "name": "YR_is_not_recycle[10].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.732406434396501e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406434396501e-21
+    },
+    {
+      "name": "YR_is_not_recycle[11].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406336834876e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406336834876e-21
+    },
+    {
+      "name": "YR_is_not_recycle[11].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.732406333973598e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406333973598e-21
+    },
+    {
+      "name": "YR_is_not_recycle[11].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.7324064340724685e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.7324064340724685e-21
+    },
+    {
+      "name": "YR_is_not_recycle[12].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406336723149e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406336723149e-21
+    },
+    {
+      "name": "YR_is_not_recycle[12].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.732406334387619e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406334387619e-21
+    },
+    {
+      "name": "YR_is_not_recycle[12].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.732406433736666e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406433736666e-21
+    },
+    {
+      "name": "YR_is_not_recycle[13].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406336617659e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406336617659e-21
+    },
+    {
+      "name": "YR_is_not_recycle[13].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.732406334917293e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406334917293e-21
+    },
+    {
+      "name": "YR_is_not_recycle[13].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.7324064333883496e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.7324064333883496e-21
+    },
+    {
+      "name": "YR_is_not_recycle[14].neg_YRD_FR_desact[A]",
+      "kind": "constraint",
+      "value": 3.732406336524606e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406336524606e-21
+    },
+    {
+      "name": "YR_is_not_recycle[14].neg_YRD_FR_desact[B]",
+      "kind": "constraint",
+      "value": 3.732406335610501e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406335610501e-21
+    },
+    {
+      "name": "YR_is_not_recycle[14].neg_YRD_QFR_desact",
+      "kind": "constraint",
+      "value": 3.732406433027292e-21,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.732406433027292e-21
+    },
+    {
+      "name": "YP_is_cstr[1].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -2.7755575615628914e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.7755575615628914e-17
+    },
+    {
+      "name": "YP_is_cstr[1].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[1].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[2].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -5.551115123125783e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 5.551115123125783e-17
+    },
+    {
+      "name": "YP_is_cstr[2].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[2].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[3].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -5.551115123125783e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 5.551115123125783e-17
+    },
+    {
+      "name": "YP_is_cstr[3].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[3].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[4].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -5.551115123125783e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 5.551115123125783e-17
+    },
+    {
+      "name": "YP_is_cstr[4].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[4].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[5].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -1.1102230246251565e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.1102230246251565e-16
+    },
+    {
+      "name": "YP_is_cstr[5].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[5].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[6].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -1.6653345369377348e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.6653345369377348e-16
+    },
+    {
+      "name": "YP_is_cstr[6].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[6].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[7].YPD_rate_calc",
+      "kind": "constraint",
+      "value": 1.1102230246251565e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.1102230246251565e-16
+    },
+    {
+      "name": "YP_is_cstr[7].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[7].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[8].YPD_rate_calc",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[8].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[8].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[9].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -2.220446049250313e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.220446049250313e-16
+    },
+    {
+      "name": "YP_is_cstr[9].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[9].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[10].YPD_rate_calc",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[10].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[10].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[11].YPD_rate_calc",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[11].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[11].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[12].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -3.3306690738754696e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.3306690738754696e-16
+    },
+    {
+      "name": "YP_is_cstr[12].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[12].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[13].YPD_rate_calc",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[13].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[13].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[14].YPD_rate_calc",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[14].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[14].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[15].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -1.1102230246251565e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.1102230246251565e-16
+    },
+    {
+      "name": "YP_is_cstr[15].YPD_rate_rel",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[15].YPD_vol_act",
+      "kind": "constraint",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 0.0
+    }
+  ],
+  "bounds": [
+    {
+      "name": "Q[1]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[2]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[3]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[4]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[5]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[6]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[7]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[8]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[9]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[10]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[11]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[12]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[13]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[14]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "Q[15]",
+      "kind": "bound",
+      "value": 1.2455140421451951,
+      "lower": 1.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[1]",
+      "kind": "bound",
+      "value": 3.732406436971705e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[2]",
+      "kind": "bound",
+      "value": 3.732406436704314e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[3]",
+      "kind": "bound",
+      "value": 3.73240643643386e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[4]",
+      "kind": "bound",
+      "value": 3.732406436159855e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[5]",
+      "kind": "bound",
+      "value": 3.7324064358816856e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[6]",
+      "kind": "bound",
+      "value": 3.7324064355985934e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[7]",
+      "kind": "bound",
+      "value": 3.732406435309663e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[8]",
+      "kind": "bound",
+      "value": 3.732406435013823e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[9]",
+      "kind": "bound",
+      "value": 3.732406434709864e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[10]",
+      "kind": "bound",
+      "value": 3.732406434396501e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[11]",
+      "kind": "bound",
+      "value": 3.7324064340724685e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[12]",
+      "kind": "bound",
+      "value": 3.732406433736666e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[13]",
+      "kind": "bound",
+      "value": 3.7324064333883496e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[14]",
+      "kind": "bound",
+      "value": 3.732406433027292e-21,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QFR[15]",
+      "kind": "bound",
+      "value": 0.24551404214519507,
+      "lower": 0.0,
+      "upper": 9.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,1]",
+      "kind": "bound",
+      "value": 0.062275702107260175,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,2]",
+      "kind": "bound",
+      "value": 0.08019519784140342,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,3]",
+      "kind": "bound",
+      "value": 0.10292146201721106,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,4]",
+      "kind": "bound",
+      "value": 0.1315192383007728,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,5]",
+      "kind": "bound",
+      "value": 0.16714854471970603,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,6]",
+      "kind": "bound",
+      "value": 0.21098177750985328,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,7]",
+      "kind": "bound",
+      "value": 0.26406092083045885,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,8]",
+      "kind": "bound",
+      "value": 0.3270853051947314,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,9]",
+      "kind": "bound",
+      "value": 0.4001388703785511,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,10]",
+      "kind": "bound",
+      "value": 0.4824000908341031,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,11]",
+      "kind": "bound",
+      "value": 0.571922485850313,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,12]",
+      "kind": "bound",
+      "value": 0.6656071974816349,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,13]",
+      "kind": "bound",
+      "value": 0.7594738137156939,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,14]",
+      "kind": "bound",
+      "value": 0.8492414807804136,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[A,15]",
+      "kind": "bound",
+      "value": 0.9310804440399247,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,1]",
+      "kind": "bound",
+      "value": 1.1832383400379352,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,2]",
+      "kind": "bound",
+      "value": 1.165318844303792,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,3]",
+      "kind": "bound",
+      "value": 1.1425925801279846,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,4]",
+      "kind": "bound",
+      "value": 1.1139948038444227,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,5]",
+      "kind": "bound",
+      "value": 1.0783654974254895,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,6]",
+      "kind": "bound",
+      "value": 1.034532264635342,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,7]",
+      "kind": "bound",
+      "value": 0.9814531213147366,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,8]",
+      "kind": "bound",
+      "value": 0.918428736950464,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,9]",
+      "kind": "bound",
+      "value": 0.8453751717666442,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,10]",
+      "kind": "bound",
+      "value": 0.7631139513110923,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,11]",
+      "kind": "bound",
+      "value": 0.6735915562948824,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,12]",
+      "kind": "bound",
+      "value": 0.5799068446635605,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,13]",
+      "kind": "bound",
+      "value": 0.48604022842950145,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,14]",
+      "kind": "bound",
+      "value": 0.3962725613647818,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "F[B,15]",
+      "kind": "bound",
+      "value": 0.3144335981052706,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,1]",
+      "kind": "bound",
+      "value": 3.732406332858398e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,2]",
+      "kind": "bound",
+      "value": 3.7324063345111875e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,3]",
+      "kind": "bound",
+      "value": 3.732406335621966e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,4]",
+      "kind": "bound",
+      "value": 3.732406336338218e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,5]",
+      "kind": "bound",
+      "value": 3.732406336770753e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,6]",
+      "kind": "bound",
+      "value": 3.73240633700254e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,7]",
+      "kind": "bound",
+      "value": 3.732406337095475e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,8]",
+      "kind": "bound",
+      "value": 3.732406337095519e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,9]",
+      "kind": "bound",
+      "value": 3.732406337036624e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,10]",
+      "kind": "bound",
+      "value": 3.732406336943705e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,11]",
+      "kind": "bound",
+      "value": 3.732406336834876e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,12]",
+      "kind": "bound",
+      "value": 3.732406336723149e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,13]",
+      "kind": "bound",
+      "value": 3.732406336617659e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,14]",
+      "kind": "bound",
+      "value": 3.732406336524606e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[A,15]",
+      "kind": "bound",
+      "value": 0.012275702107259836,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,1]",
+      "kind": "bound",
+      "value": 3.7324063320752186e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,2]",
+      "kind": "bound",
+      "value": 3.732406332197911e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,3]",
+      "kind": "bound",
+      "value": 3.732406332326278e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,4]",
+      "kind": "bound",
+      "value": 3.73240633246203e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,5]",
+      "kind": "bound",
+      "value": 3.732406332607478e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,6]",
+      "kind": "bound",
+      "value": 3.732406332765764e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,7]",
+      "kind": "bound",
+      "value": 3.73240633294118e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,8]",
+      "kind": "bound",
+      "value": 3.7324063331396455e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,9]",
+      "kind": "bound",
+      "value": 3.732406333369385e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,10]",
+      "kind": "bound",
+      "value": 3.732406333641932e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,11]",
+      "kind": "bound",
+      "value": 3.732406333973598e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,12]",
+      "kind": "bound",
+      "value": 3.732406334387619e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,13]",
+      "kind": "bound",
+      "value": 3.732406334917293e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,14]",
+      "kind": "bound",
+      "value": 3.732406335610501e-21,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "FR[B,15]",
+      "kind": "bound",
+      "value": 0.23323834003793537,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,1]",
+      "kind": "bound",
+      "value": -0.09500000000000064,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,2]",
+      "kind": "bound",
+      "value": -0.12048302746533546,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,3]",
+      "kind": "bound",
+      "value": -0.15161078119859697,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,4]",
+      "kind": "bound",
+      "value": -0.18888835712879024,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,5]",
+      "kind": "bound",
+      "value": -0.2323813781840839,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,6]",
+      "kind": "bound",
+      "value": -0.28139846624420967,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,7]",
+      "kind": "bound",
+      "value": -0.3341230469559413,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,8]",
+      "kind": "bound",
+      "value": -0.3872926334215699,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,9]",
+      "kind": "bound",
+      "value": -0.43610691166869126,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,10]",
+      "kind": "bound",
+      "value": -0.4746019448714478,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,11]",
+      "kind": "bound",
+      "value": -0.4966684184096639,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,12]",
+      "kind": "bound",
+      "value": -0.49763278356348367,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,13]",
+      "kind": "bound",
+      "value": -0.4759022518083242,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,14]",
+      "kind": "bound",
+      "value": -0.43386832001304276,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[A,15]",
+      "kind": "bound",
+      "value": -0.3774408396721702,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,1]",
+      "kind": "bound",
+      "value": 0.09500000000000064,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,2]",
+      "kind": "bound",
+      "value": 0.12048302746533546,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,3]",
+      "kind": "bound",
+      "value": 0.15161078119859697,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,4]",
+      "kind": "bound",
+      "value": 0.18888835712879024,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,5]",
+      "kind": "bound",
+      "value": 0.2323813781840839,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,6]",
+      "kind": "bound",
+      "value": 0.28139846624420967,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,7]",
+      "kind": "bound",
+      "value": 0.3341230469559413,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,8]",
+      "kind": "bound",
+      "value": 0.3872926334215699,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,9]",
+      "kind": "bound",
+      "value": 0.43610691166869126,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,10]",
+      "kind": "bound",
+      "value": 0.4746019448714478,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,11]",
+      "kind": "bound",
+      "value": 0.4966684184096639,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,12]",
+      "kind": "bound",
+      "value": 0.49763278356348367,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,13]",
+      "kind": "bound",
+      "value": 0.4759022518083242,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,14]",
+      "kind": "bound",
+      "value": 0.43386832001304276,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "rate[B,15]",
+      "kind": "bound",
+      "value": 0.3774408396721702,
+      "lower": -10.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[1]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[2]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[3]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[4]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[5]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[6]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[7]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[8]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[9]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[10]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[11]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[12]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[13]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[14]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "V[15]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[1]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[2]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[3]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[4]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[5]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[6]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[7]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[8]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[9]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[10]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[11]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[12]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[13]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[14]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "c[15]",
+      "kind": "bound",
+      "value": 0.18862627088571698,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QR",
+      "kind": "bound",
+      "value": 0.24551404214519507,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "QP",
+      "kind": "bound",
+      "value": 0.9999999999999999,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "R[A]",
+      "kind": "bound",
+      "value": 0.012275702107259836,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "R[B]",
+      "kind": "bound",
+      "value": 0.23323834003793537,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "P[A]",
+      "kind": "bound",
+      "value": 0.050000000000000336,
+      "lower": 0.0,
+      "upper": 10.0,
+      "violation": 0.0
+    },
+    {
+      "name": "P[B]",
+      "kind": "bound",
+      "value": 0.9499999999999998,
+      "lower": 0.0,
+      "upper": 9.5,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[1]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[2]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[3]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[4]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[5]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[6]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[7]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[8]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[9]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[10]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[11]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[12]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[13]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[14]",
+      "kind": "bound",
+      "value": 0.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YF_asbinary[15]",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_recycle[15].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[1].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[2].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[3].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[4].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[5].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[6].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[7].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[8].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[9].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[10].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[11].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[12].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[13].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YR_is_not_recycle[14].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[1].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[2].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[3].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[4].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[5].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[6].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[7].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[8].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[9].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[10].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[11].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[12].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[13].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[14].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    },
+    {
+      "name": "YP_is_cstr[15].binary_indicator_var",
+      "kind": "bound",
+      "value": 1.0,
+      "lower": 0.0,
+      "upper": 1.0,
+      "violation": 0.0
+    }
+  ],
+  "integrality": [
+    {
+      "name": "YF_asbinary[1]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[2]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[3]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[4]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[5]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[6]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[7]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[8]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[9]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[10]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[11]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[12]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[13]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[14]",
+      "value": 0,
+      "violation": 0
+    },
+    {
+      "name": "YF_asbinary[15]",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle[15].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[1].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[2].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[3].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[4].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[5].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[6].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[7].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[8].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[9].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[10].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[11].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[12].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[13].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YR_is_not_recycle[14].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[1].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[2].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[3].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[4].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[5].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[6].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[7].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[8].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[9].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[10].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[11].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[12].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[13].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[14].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr[15].binary_indicator_var",
+      "value": 1,
+      "violation": 0
+    }
+  ],
+  "disjunctions": [
+    {
+      "name": "YP_is_cstr_or_bypass[1]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[2]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[3]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[4]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[5]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[6]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[7]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[8]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[9]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[10]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[11]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[12]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[13]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[14]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YP_is_cstr_or_bypass[15]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[1]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[2]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[3]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[4]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[5]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[6]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[7]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[8]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[9]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[10]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[11]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[12]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[13]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[14]",
+      "indicator_values": [
+        0,
+        1
+      ],
+      "violation": 0
+    },
+    {
+      "name": "YR_is_recycle_or_not[15]",
+      "indicator_values": [
+        1,
+        0
+      ],
+      "violation": 0
+    }
+  ],
+  "logic": [
+    {
+      "name": "cstr_if_recycle[1]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[2]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[3]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[4]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[5]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[6]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[7]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[8]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[9]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[10]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[11]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[12]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[13]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[14]",
+      "valid": true
+    },
+    {
+      "name": "cstr_if_recycle[15]",
+      "valid": true
+    },
+    {
+      "name": "one_unreacted_feed",
+      "valid": true
+    },
+    {
+      "name": "one_recycle",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[1]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[2]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[3]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[4]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[5]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[6]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[7]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[8]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[9]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[10]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[11]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[12]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[13]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[14]",
+      "valid": true
+    },
+    {
+      "name": "unit_in_n[15]",
+      "valid": true
+    }
+  ],
+  "active_constraint_names": [
+    "YP_is_cstr[10].YPD_rate_calc",
+    "YP_is_cstr[10].YPD_rate_rel",
+    "YP_is_cstr[10].YPD_vol_act",
+    "YP_is_cstr[11].YPD_rate_calc",
+    "YP_is_cstr[11].YPD_rate_rel",
+    "YP_is_cstr[11].YPD_vol_act",
+    "YP_is_cstr[12].YPD_rate_calc",
+    "YP_is_cstr[12].YPD_rate_rel",
+    "YP_is_cstr[12].YPD_vol_act",
+    "YP_is_cstr[13].YPD_rate_calc",
+    "YP_is_cstr[13].YPD_rate_rel",
+    "YP_is_cstr[13].YPD_vol_act",
+    "YP_is_cstr[14].YPD_rate_calc",
+    "YP_is_cstr[14].YPD_rate_rel",
+    "YP_is_cstr[14].YPD_vol_act",
+    "YP_is_cstr[15].YPD_rate_calc",
+    "YP_is_cstr[15].YPD_rate_rel",
+    "YP_is_cstr[15].YPD_vol_act",
+    "YP_is_cstr[1].YPD_rate_calc",
+    "YP_is_cstr[1].YPD_rate_rel",
+    "YP_is_cstr[1].YPD_vol_act",
+    "YP_is_cstr[2].YPD_rate_calc",
+    "YP_is_cstr[2].YPD_rate_rel",
+    "YP_is_cstr[2].YPD_vol_act",
+    "YP_is_cstr[3].YPD_rate_calc",
+    "YP_is_cstr[3].YPD_rate_rel",
+    "YP_is_cstr[3].YPD_vol_act",
+    "YP_is_cstr[4].YPD_rate_calc",
+    "YP_is_cstr[4].YPD_rate_rel",
+    "YP_is_cstr[4].YPD_vol_act",
+    "YP_is_cstr[5].YPD_rate_calc",
+    "YP_is_cstr[5].YPD_rate_rel",
+    "YP_is_cstr[5].YPD_vol_act",
+    "YP_is_cstr[6].YPD_rate_calc",
+    "YP_is_cstr[6].YPD_rate_rel",
+    "YP_is_cstr[6].YPD_vol_act",
+    "YP_is_cstr[7].YPD_rate_calc",
+    "YP_is_cstr[7].YPD_rate_rel",
+    "YP_is_cstr[7].YPD_vol_act",
+    "YP_is_cstr[8].YPD_rate_calc",
+    "YP_is_cstr[8].YPD_rate_rel",
+    "YP_is_cstr[8].YPD_vol_act",
+    "YP_is_cstr[9].YPD_rate_calc",
+    "YP_is_cstr[9].YPD_rate_rel",
+    "YP_is_cstr[9].YPD_vol_act",
+    "YR_is_not_recycle[10].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[10].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[10].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[11].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[11].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[11].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[12].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[12].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[12].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[13].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[13].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[13].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[14].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[14].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[14].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[1].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[1].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[1].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[2].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[2].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[2].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[3].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[3].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[3].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[4].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[4].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[4].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[5].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[5].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[5].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[6].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[6].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[6].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[7].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[7].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[7].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[8].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[8].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[8].neg_YRD_QFR_desact",
+    "YR_is_not_recycle[9].neg_YRD_FR_desact[A]",
+    "YR_is_not_recycle[9].neg_YRD_FR_desact[B]",
+    "YR_is_not_recycle[9].neg_YRD_QFR_desact",
+    "YR_is_recycle[15].YRD_FR_act[A]",
+    "YR_is_recycle[15].YRD_FR_act[B]",
+    "YR_is_recycle[15].YRD_QFR_act",
+    "logic_to_linear.transformed_constraints[100]",
+    "logic_to_linear.transformed_constraints[101]",
+    "logic_to_linear.transformed_constraints[102]",
+    "logic_to_linear.transformed_constraints[103]",
+    "logic_to_linear.transformed_constraints[104]",
+    "logic_to_linear.transformed_constraints[105]",
+    "logic_to_linear.transformed_constraints[106]",
+    "logic_to_linear.transformed_constraints[107]",
+    "logic_to_linear.transformed_constraints[108]",
+    "logic_to_linear.transformed_constraints[109]",
+    "logic_to_linear.transformed_constraints[10]",
+    "logic_to_linear.transformed_constraints[110]",
+    "logic_to_linear.transformed_constraints[111]",
+    "logic_to_linear.transformed_constraints[112]",
+    "logic_to_linear.transformed_constraints[113]",
+    "logic_to_linear.transformed_constraints[114]",
+    "logic_to_linear.transformed_constraints[115]",
+    "logic_to_linear.transformed_constraints[116]",
+    "logic_to_linear.transformed_constraints[117]",
+    "logic_to_linear.transformed_constraints[118]",
+    "logic_to_linear.transformed_constraints[119]",
+    "logic_to_linear.transformed_constraints[11]",
+    "logic_to_linear.transformed_constraints[120]",
+    "logic_to_linear.transformed_constraints[121]",
+    "logic_to_linear.transformed_constraints[122]",
+    "logic_to_linear.transformed_constraints[123]",
+    "logic_to_linear.transformed_constraints[124]",
+    "logic_to_linear.transformed_constraints[125]",
+    "logic_to_linear.transformed_constraints[126]",
+    "logic_to_linear.transformed_constraints[127]",
+    "logic_to_linear.transformed_constraints[128]",
+    "logic_to_linear.transformed_constraints[129]",
+    "logic_to_linear.transformed_constraints[12]",
+    "logic_to_linear.transformed_constraints[130]",
+    "logic_to_linear.transformed_constraints[131]",
+    "logic_to_linear.transformed_constraints[132]",
+    "logic_to_linear.transformed_constraints[133]",
+    "logic_to_linear.transformed_constraints[134]",
+    "logic_to_linear.transformed_constraints[135]",
+    "logic_to_linear.transformed_constraints[136]",
+    "logic_to_linear.transformed_constraints[137]",
+    "logic_to_linear.transformed_constraints[138]",
+    "logic_to_linear.transformed_constraints[139]",
+    "logic_to_linear.transformed_constraints[13]",
+    "logic_to_linear.transformed_constraints[140]",
+    "logic_to_linear.transformed_constraints[141]",
+    "logic_to_linear.transformed_constraints[142]",
+    "logic_to_linear.transformed_constraints[143]",
+    "logic_to_linear.transformed_constraints[144]",
+    "logic_to_linear.transformed_constraints[145]",
+    "logic_to_linear.transformed_constraints[146]",
+    "logic_to_linear.transformed_constraints[147]",
+    "logic_to_linear.transformed_constraints[148]",
+    "logic_to_linear.transformed_constraints[149]",
+    "logic_to_linear.transformed_constraints[14]",
+    "logic_to_linear.transformed_constraints[150]",
+    "logic_to_linear.transformed_constraints[151]",
+    "logic_to_linear.transformed_constraints[15]",
+    "logic_to_linear.transformed_constraints[16]",
+    "logic_to_linear.transformed_constraints[17]",
+    "logic_to_linear.transformed_constraints[18]",
+    "logic_to_linear.transformed_constraints[19]",
+    "logic_to_linear.transformed_constraints[1]",
+    "logic_to_linear.transformed_constraints[20]",
+    "logic_to_linear.transformed_constraints[21]",
+    "logic_to_linear.transformed_constraints[22]",
+    "logic_to_linear.transformed_constraints[23]",
+    "logic_to_linear.transformed_constraints[24]",
+    "logic_to_linear.transformed_constraints[25]",
+    "logic_to_linear.transformed_constraints[26]",
+    "logic_to_linear.transformed_constraints[27]",
+    "logic_to_linear.transformed_constraints[28]",
+    "logic_to_linear.transformed_constraints[29]",
+    "logic_to_linear.transformed_constraints[2]",
+    "logic_to_linear.transformed_constraints[30]",
+    "logic_to_linear.transformed_constraints[31]",
+    "logic_to_linear.transformed_constraints[32]",
+    "logic_to_linear.transformed_constraints[33]",
+    "logic_to_linear.transformed_constraints[34]",
+    "logic_to_linear.transformed_constraints[35]",
+    "logic_to_linear.transformed_constraints[36]",
+    "logic_to_linear.transformed_constraints[37]",
+    "logic_to_linear.transformed_constraints[38]",
+    "logic_to_linear.transformed_constraints[39]",
+    "logic_to_linear.transformed_constraints[3]",
+    "logic_to_linear.transformed_constraints[40]",
+    "logic_to_linear.transformed_constraints[41]",
+    "logic_to_linear.transformed_constraints[42]",
+    "logic_to_linear.transformed_constraints[43]",
+    "logic_to_linear.transformed_constraints[44]",
+    "logic_to_linear.transformed_constraints[45]",
+    "logic_to_linear.transformed_constraints[46]",
+    "logic_to_linear.transformed_constraints[47]",
+    "logic_to_linear.transformed_constraints[48]",
+    "logic_to_linear.transformed_constraints[49]",
+    "logic_to_linear.transformed_constraints[4]",
+    "logic_to_linear.transformed_constraints[50]",
+    "logic_to_linear.transformed_constraints[51]",
+    "logic_to_linear.transformed_constraints[52]",
+    "logic_to_linear.transformed_constraints[53]",
+    "logic_to_linear.transformed_constraints[54]",
+    "logic_to_linear.transformed_constraints[55]",
+    "logic_to_linear.transformed_constraints[56]",
+    "logic_to_linear.transformed_constraints[57]",
+    "logic_to_linear.transformed_constraints[58]",
+    "logic_to_linear.transformed_constraints[59]",
+    "logic_to_linear.transformed_constraints[5]",
+    "logic_to_linear.transformed_constraints[60]",
+    "logic_to_linear.transformed_constraints[61]",
+    "logic_to_linear.transformed_constraints[62]",
+    "logic_to_linear.transformed_constraints[63]",
+    "logic_to_linear.transformed_constraints[64]",
+    "logic_to_linear.transformed_constraints[65]",
+    "logic_to_linear.transformed_constraints[66]",
+    "logic_to_linear.transformed_constraints[67]",
+    "logic_to_linear.transformed_constraints[68]",
+    "logic_to_linear.transformed_constraints[69]",
+    "logic_to_linear.transformed_constraints[6]",
+    "logic_to_linear.transformed_constraints[70]",
+    "logic_to_linear.transformed_constraints[71]",
+    "logic_to_linear.transformed_constraints[72]",
+    "logic_to_linear.transformed_constraints[73]",
+    "logic_to_linear.transformed_constraints[74]",
+    "logic_to_linear.transformed_constraints[75]",
+    "logic_to_linear.transformed_constraints[76]",
+    "logic_to_linear.transformed_constraints[77]",
+    "logic_to_linear.transformed_constraints[78]",
+    "logic_to_linear.transformed_constraints[79]",
+    "logic_to_linear.transformed_constraints[7]",
+    "logic_to_linear.transformed_constraints[80]",
+    "logic_to_linear.transformed_constraints[81]",
+    "logic_to_linear.transformed_constraints[82]",
+    "logic_to_linear.transformed_constraints[83]",
+    "logic_to_linear.transformed_constraints[84]",
+    "logic_to_linear.transformed_constraints[85]",
+    "logic_to_linear.transformed_constraints[86]",
+    "logic_to_linear.transformed_constraints[87]",
+    "logic_to_linear.transformed_constraints[88]",
+    "logic_to_linear.transformed_constraints[89]",
+    "logic_to_linear.transformed_constraints[8]",
+    "logic_to_linear.transformed_constraints[90]",
+    "logic_to_linear.transformed_constraints[91]",
+    "logic_to_linear.transformed_constraints[92]",
+    "logic_to_linear.transformed_constraints[93]",
+    "logic_to_linear.transformed_constraints[94]",
+    "logic_to_linear.transformed_constraints[95]",
+    "logic_to_linear.transformed_constraints[96]",
+    "logic_to_linear.transformed_constraints[97]",
+    "logic_to_linear.transformed_constraints[98]",
+    "logic_to_linear.transformed_constraints[99]",
+    "logic_to_linear.transformed_constraints[9]",
+    "prod_spec",
+    "react_cont[10]",
+    "react_cont[11]",
+    "react_cont[12]",
+    "react_cont[13]",
+    "react_cont[14]",
+    "react_cont[1]",
+    "react_cont[2]",
+    "react_cont[3]",
+    "react_cont[4]",
+    "react_cont[5]",
+    "react_cont[6]",
+    "react_cont[7]",
+    "react_cont[8]",
+    "react_cont[9]",
+    "react_mole[A,10]",
+    "react_mole[A,11]",
+    "react_mole[A,12]",
+    "react_mole[A,13]",
+    "react_mole[A,14]",
+    "react_mole[A,1]",
+    "react_mole[A,2]",
+    "react_mole[A,3]",
+    "react_mole[A,4]",
+    "react_mole[A,5]",
+    "react_mole[A,6]",
+    "react_mole[A,7]",
+    "react_mole[A,8]",
+    "react_mole[A,9]",
+    "react_mole[B,10]",
+    "react_mole[B,11]",
+    "react_mole[B,12]",
+    "react_mole[B,13]",
+    "react_mole[B,14]",
+    "react_mole[B,1]",
+    "react_mole[B,2]",
+    "react_mole[B,3]",
+    "react_mole[B,4]",
+    "react_mole[B,5]",
+    "react_mole[B,6]",
+    "react_mole[B,7]",
+    "react_mole[B,8]",
+    "react_mole[B,9]",
+    "split_add[A]",
+    "split_add[B]",
+    "split_cont",
+    "split_mole[A]",
+    "split_mole[B]",
+    "unreact_cont[15]",
+    "unreact_mole[A,15]",
+    "unreact_mole[B,15]",
+    "vol_cons[10]",
+    "vol_cons[11]",
+    "vol_cons[12]",
+    "vol_cons[13]",
+    "vol_cons[14]",
+    "vol_cons[15]",
+    "vol_cons[2]",
+    "vol_cons[3]",
+    "vol_cons[4]",
+    "vol_cons[5]",
+    "vol_cons[6]",
+    "vol_cons[7]",
+    "vol_cons[8]",
+    "vol_cons[9]"
+  ],
+  "largest_residuals": [
+    {
+      "name": "YP_is_cstr[12].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -3.3306690738754696e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 3.3306690738754696e-16
+    },
+    {
+      "name": "split_add[B]",
+      "kind": "constraint",
+      "value": 2.220446049250313e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.220446049250313e-16
+    },
+    {
+      "name": "YP_is_cstr[9].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -2.220446049250313e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 2.220446049250313e-16
+    },
+    {
+      "name": "react_mole[B,2]",
+      "kind": "constraint",
+      "value": 1.700029006457271e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.700029006457271e-16
+    },
+    {
+      "name": "split_cont",
+      "kind": "constraint",
+      "value": 1.6653345369377348e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.6653345369377348e-16
+    },
+    {
+      "name": "YP_is_cstr[6].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -1.6653345369377348e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.6653345369377348e-16
+    },
+    {
+      "name": "unreact_mole[A,15]",
+      "kind": "constraint",
+      "value": -1.5265566588595902e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.5265566588595902e-16
+    },
+    {
+      "name": "react_mole[B,1]",
+      "kind": "constraint",
+      "value": 1.457167719820518e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.457167719820518e-16
+    },
+    {
+      "name": "react_mole[B,3]",
+      "kind": "constraint",
+      "value": -1.3877787807814457e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.3877787807814457e-16
+    },
+    {
+      "name": "react_mole[B,5]",
+      "kind": "constraint",
+      "value": -1.3877787807814457e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.3877787807814457e-16
+    },
+    {
+      "name": "YP_is_cstr[5].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -1.1102230246251565e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.1102230246251565e-16
+    },
+    {
+      "name": "YP_is_cstr[7].YPD_rate_calc",
+      "kind": "constraint",
+      "value": 1.1102230246251565e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.1102230246251565e-16
+    },
+    {
+      "name": "YP_is_cstr[15].YPD_rate_calc",
+      "kind": "constraint",
+      "value": -1.1102230246251565e-16,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 1.1102230246251565e-16
+    },
+    {
+      "name": "react_mole[B,6]",
+      "kind": "constraint",
+      "value": 9.71445146547012e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 9.71445146547012e-17
+    },
+    {
+      "name": "react_mole[B,7]",
+      "kind": "constraint",
+      "value": -8.326672684688674e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 8.326672684688674e-17
+    },
+    {
+      "name": "react_mole[B,11]",
+      "kind": "constraint",
+      "value": -8.326672684688674e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 8.326672684688674e-17
+    },
+    {
+      "name": "react_mole[A,10]",
+      "kind": "constraint",
+      "value": 6.938893903907228e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 6.938893903907228e-17
+    },
+    {
+      "name": "react_mole[A,13]",
+      "kind": "constraint",
+      "value": 6.938893903907228e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 6.938893903907228e-17
+    },
+    {
+      "name": "react_mole[B,8]",
+      "kind": "constraint",
+      "value": -5.551115123125783e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 5.551115123125783e-17
+    },
+    {
+      "name": "react_mole[B,9]",
+      "kind": "constraint",
+      "value": 5.551115123125783e-17,
+      "lower": 0.0,
+      "upper": 0.0,
+      "violation": 5.551115123125783e-17
+    }
+  ],
+  "omitted_identities_rechecked_on_original_GDP": [
+    {
+      "name": "logic_to_linear.transformed_constraints[16]",
+      "active_on_original_GDP": true,
+      "independently_checked": true,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[17]",
+      "active_on_original_GDP": true,
+      "independently_checked": true,
+      "violation": 0.0
+    },
+    {
+      "name": "logic_to_linear.transformed_constraints[18]",
+      "active_on_original_GDP": true,
+      "independently_checked": true,
+      "violation": 0.0
+    }
+  ]
+}

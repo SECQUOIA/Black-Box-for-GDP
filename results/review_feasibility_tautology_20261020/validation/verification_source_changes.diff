@@ -1,0 +1,62 @@
+--- executed_source
++++ published_verification_source
+@@ -278,6 +278,7 @@
+ def seal(directory):
+     manifest = read(directory / "manifest.json")
+     manifest["outputs_sha256"] = prior.file_hashes(directory)
++    manifest["verification_source_sha256"] = source_hashes()
+     manifest["status"] = "completed" if read(directory / "summary.json")["tightened_feasibility_passed"] else "incomplete"
+     save(directory / "manifest.json", manifest)
+ 
+@@ -297,24 +298,28 @@
+     seal(output)
+ 
+ 
+-def verify(directory):
++def verify(directory, input_directory=None):
+     manifest = read(directory / "manifest.json")
+     for path, digest in manifest["outputs_sha256"].items():
+         if sha(directory / path) != digest:
+             raise ValueError("Output hash mismatch: " + path)
+     selection = read(directory / "selection.json")
+-    if source_hashes() != selection["source_sha256"]:
+-        raise ValueError("Current source differs from executed source")
++    if source_hashes() != manifest.get("verification_source_sha256", selection["source_sha256"]):
++        raise ValueError("Current verification source differs from published source")
+     for path, digest in selection["source_sha256"].items():
+         if sha(directory / "execution_sources" / path) != digest:
+             raise ValueError("Execution source snapshot mismatch")
+-    prior_directory = Path(selection["prior_directory"])
++    # Preserve the recorded execution path while permitting another checkout location.
++    prior_directory = input_directory or Path(selection["prior_directory"])
+     if sha(prior_directory / "manifest.json") != selection["prior_manifest_sha256"]:
+         raise ValueError("Prior result manifest changed")
+     prior.verify(prior_directory)
+     reference, before, provenance = f.verify_input(directory)
+     if before != read(directory / "before_residuals.json"):
+         raise ValueError("Original W03 no longer reproduces")
++    saved_before, _ = f.restore(read(directory / "before_solution.json"))
++    if f.independent_check(saved_before, 1e-5) != before:
++        raise ValueError("Saved original W03 vector differs from original record")
+     nlp, proof = preprocess(reference)
+     if proof != read(directory / "preprocessing.json"):
+         raise ValueError("Tautology proof or remaining constraints changed")
+@@ -339,6 +344,9 @@
+     row = prior.comparison_row("tautology_followup", check, provenance["lower_bound"], summary["returned_solution"], 1e-8)
+     if any(summary["assessment"][k] != v for k, v in row.items()):
+         raise ValueError("Assessment does not match independent validation")
++    for name in ("tightened_feasibility_passed", "bound_discrepancy_persists"):
++        if summary[name] != row[name]:
++            raise ValueError("Summary differs from independently checked assessment")
+     return {"verified": True, "new_solver_calls": 0, "original_and_previous_records_rechecked": True, "equivalence_proof_rechecked": True, "returned_point_rechecked": summary["returned_solution"], "summary": summary}
+ 
+ 
+@@ -360,7 +368,7 @@
+     elif args.action == "verify":
+         if args.output is None or args.output.exists():
+             parser.error("verify requires a new --output path")
+-        save(args.output, verify(directory))
++        save(args.output, verify(directory, args.input.resolve() if args.input else None))
+     else:
+         seal(directory)
+ 

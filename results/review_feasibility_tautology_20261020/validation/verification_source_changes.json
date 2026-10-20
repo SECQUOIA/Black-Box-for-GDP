@@ -1,0 +1,11 @@
+{
+  "changed_functions": [
+    "seal",
+    "verify",
+    "main"
+  ],
+  "preprocessing_and_solver_functions_identical": true,
+  "executed_sha256": "a2804a5b309640770ef13fbaa3aea64f3141f3f571d2654e08f637de10a36104",
+  "published_sha256": "87277256d4fab4d09aa7e1adab2c911e9c85dc35888a8a69e302cdd8594165af",
+  "reason": "Relocatable --input for solver-free verification and additional original-vector/summary consistency checks."
+}
