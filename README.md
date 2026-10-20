@@ -1,4 +1,4 @@
-# Black-Box Optimization Benchmarks for Generalized Disjunctive Programming
+# Black-Box-for-GDP
 
 ## Reproduce the manuscript from frozen data
 
