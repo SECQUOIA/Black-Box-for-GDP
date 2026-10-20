@@ -68,3 +68,11 @@ Public release/tag creation, an immutable download URL and logged-out browser
 access checks remain **pending**. The reviewer-observed 404 is retained as an
 access observation with unknown cause. The post-merge checklist is in
 `reproduction/README.md`; Issue #44 must remain open until satisfied.
+
+The first extracted-package trial exposed one additional Git-only metadata read
+inside the hash-pinned historical Process analysis. The replay adapter now supplies
+only that exact `git rev-parse HEAD` metadata request from the package manifest,
+rejects every other command, and restores the original module reference afterward.
+The historical analysis files and their hashes remain unchanged. This trial is
+recorded as a detected packaging issue, not a successful extracted-package replay.
+The subsequent package report is the authority for the final extracted run.
