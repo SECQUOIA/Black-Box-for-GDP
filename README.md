@@ -1,4 +1,4 @@
-# RBFopt_Test
+# Black-Box Optimization Benchmarks for Generalized Disjunctive Programming
 
 ## Reproduce the manuscript from frozen data
 
