@@ -1977,5 +1977,21 @@
       "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
       "provenance": "Provider code updated in Issue #44 for package-without-Git provenance; execution sources remain in original archives."
     }
+  ],
+  "displayed_path_aliases": {
+    "algebraic_audit/": "reproduction/data/algebraic_audit/",
+    "supporting_data/": "reproduction/data/supporting_data/",
+    "figure_sources/": "reproduction/renderers/",
+    "figure_sources/render_figures.py": "reproduction/renderers/figures_2_6_7.py",
+    "gdp/dsda/column_17_initialization.json": "external/dsda-gdp/gdp/dsda/column_17_initialization.json",
+    "gdp/dsda/small_batch_initialization.json": "external/dsda-gdp/gdp/dsda/small_batch_initialization.json",
+    "gdp/dsda/model_serializer.py": "external/dsda-gdp/gdp/dsda/model_serializer.py",
+    "qhdopt_gdp.py": "reproduction/data/historical/qhdopt_gdp.py.txt"
+  },
+  "excluded_reference_only": [
+    "main.tex",
+    "supplementary.tex",
+    "01_Latest_Overleaf_Project.zip",
+    "manuscript_sources.zip"
   ]
 }

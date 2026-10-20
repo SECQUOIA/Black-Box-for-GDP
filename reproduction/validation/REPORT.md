@@ -46,8 +46,9 @@ matching** (RIC 3, GLOA 1, LOA 3, Big-M 6, Hull 6). The manuscript audit's
 tolerance (3, 1, 4, 7, 6). Both original columns are preserved; these are different
 predicates, not an altered experiment or missing result.
 
-Local targeted regression suite: 101 passed (companion, final Process,
-Grid-path, NLP-cost and archive tests). Additional checks and extracted-package
+Local targeted regression suite: 182 passed (companion, GDP models/comparison,
+final Process, Grid-path, NLP-cost and archive tests); 14 existing plotting-library
+deprecation warnings. Additional checks and extracted-package
 execution are recorded in the accompanying JSON reports. CI results are separate;
 local success does not claim that a remote CI run has already completed.
 
@@ -76,3 +77,29 @@ rejects every other command, and restores the original module reference afterwar
 The historical analysis files and their hashes remain unchanged. This trial is
 recorded as a detected packaging issue, not a successful extracted-package replay.
 The subsequent package report is the authority for the final extracted run.
+
+## Final extracted-package result
+
+**Passed**, at implementation commit
+`9039c7defa46bdb610d4b93c335f4650cabad21a`. A newly created standard
+`venv` installed `requirements-lock.txt` using pip. The 268 MiB candidate ZIP
+was extracted into a directory with no `.git`; all 2,332 manifest entries were
+verified both before and after execution. The documented `reproduce.py --replay`
+command completed all three official analyses. Grid and algebraic comparison
+CSVs had zero cell differences; the Process verifier matched all 15 tables
+byte-for-byte. Original experiments and their archived hashes were unchanged.
+
+- [Full package execution report](extracted_package_replay.json)
+- [734 manuscript comparisons](manuscript_comparison.json)
+- [Environment, tests and archive checks](execution_summary.json)
+- [Candidate commit and ZIP checksum](package_candidate.json)
+- [Generated eight PDFs, 23 numbered CSVs, intervals, plotted values and replay logs](regenerated_outputs.zip)
+
+The candidate archive SHA-256 is
+`7262a92dd130a0935b4bd3d562d907a1013a187617127f000ee13f55bc1e0f04`.
+It is a local validation candidate, **not an already published public release**.
+The final PR also adds these reports/path aliases after that implementation
+commit; no generator or experimental record changed in the reporting commit.
+A pair of builds at the preceding implementation commit produced identical
+archive SHA-256 (recorded in execution_summary.json). Final release packaging
+must use the chosen post-merge commit and obtain its own checksum.
