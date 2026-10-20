@@ -3,7 +3,7 @@
 The two major experimental comparisons have been incorporated in the [manuscript and supplementary material](../manuscript/README.md).
 The primary comparison uses RBFOpt genetic and sampling controls, while the solver variant is retained in Supplementary Section S10.
 The 3,430 additional runs and the 4,760 historical runs are preserved unchanged.
-This manuscript revision uses completed records and runs no optimizer or NLP experiment.
+The manuscript revision at `6c0228e8` used completed records and ran no optimizer or NLP experiment.
 The execution provider remains `38d917ef75ef6767c2a9f238d88be19bf0b89160`; the input analysis snapshot is `6e083eb49b497ce4fea90131e18cc0459db682e8`.
 See the [original results and limitations](../results/review_comparison_20261020/README.md) and [publication analysis provenance](../manuscript/analysis_manifest.json).
 
@@ -17,7 +17,7 @@ See the [original results and limitations](../results/review_comparison_20261020
 | FMQA-SA versus uniform paired comparison | incorporated | [1,190 pairs and 19 summaries](../results/review_comparison_20261020/fmqa_uniform/README.md); publication analysis independently agrees |
 | Minor 4: suite exclusions | incorporated | S10 excludes Yang3 and Bohachevsky2; lattice effect discussed; no shifted-grid rerun |
 | Minor 5: FMQA implementation and energy diagnostic | limited diagnostic incorporated | [Seven reconstructed fits and 3,328 binary strings](../results/review_diagnostics_20261020/README.md) summarized in S10; historical fitted weights remain unavailable; no prevalence or causal claim |
-| Minor 6: numerical feasibility and tightened check | partial | Table 8 consistently qualifies numerical feasibility; [W03 recheck completed](../results/review_diagnostics_20261020/README.md); both polishing attempts failed at option parsing; no tighter witness or stronger claim |
+| Minor 6: numerical feasibility and tightened check | follow-up blocked; manuscript update pending | [New local follow-up](../results/review_feasibility_followup_20261020/README.md) reproduced W03 and verified corrected option-file delivery; one call stopped with TOO_FEW_DOF and no returned point; no tighter witness or stronger claim; previous two option failures preserved |
 | Minor 7: starred execution profile | incorporated; optional display deferred | Table 5 notes explain replacement of previously failing cases, preserved expressions/settings and corrected preparation; unsuccessful times remain archived |
 | Minor 8: figure annotations / variant labels | incorporated | Seven figures regenerated; BAM prefix shaded; genetic and controls labeled; Figure 6 uses mean cost shares |
 | Minor 9: 63-object partition | preserved | S9 retains 45 selected plus 18 earlier records; nine witnesses form a subset |
@@ -30,7 +30,9 @@ See the [original results and limitations](../results/review_comparison_20261020
 | Typos and terminology | incorporated where verified | ALAMO/NLP/CSTR wording and S6/S9 wording corrected; historical branch capitalization retained from archived source |
 
 The limited FMQA diagnostic was added separately at commit `15663134704b7bb1d4804c94c70edabaffbf8ecd` and has now been summarized without rerunning it.
-Historical fitted weights remain unavailable, and tightened feasibility remains incomplete.
+Historical fitted weights remain unavailable, and tightened feasibility remains incomplete after the separate one-call CSTR15 follow-up.
+The native options file was accepted, but the preserved fixed NLP contains 156 free variables and 158 equalities, including three satisfied fixed-Boolean equalities.
+No second call was made after the no-solution result, and [proposed reviewer and manuscript wording](../results/review_feasibility_followup_20261020/reviewer_reply.md) has not been applied to the manuscript.
 The repository visibility has not been changed, and no Slack message has been sent.
 
 ## Nannicini source check
