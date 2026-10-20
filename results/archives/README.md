@@ -4,6 +4,15 @@ These are the original result ZIPs retained in the repository.
 They retain their original bytes, including any source snapshots and shell
 scripts present in the server archive.
 
+The [October 20 additional-comparison return](review_comparison_20261020_124949_return_1792527395393579314.zip)
+retains 3,430 new genetic/sampling runs, every callback and controller/worker
+log, and the exact frozen execution package. Its [supplied SHA256](review_comparison_20261020_124949_return_1792527395393579314.zip.sha256)
+and [independent audit and analysis](../review_comparison_20261020/README.md)
+preserve the original bytes. Verify this return with
+`python -m review_comparison.audit --output /tmp/review-comparison-audit`;
+it uses per-attempt seals and a package inventory, so it is not an entry in
+the legacy `result_archives.py` SHA256SUMS catalog.
+
 The catalog key `original-ipopt-evaluations` also exposes the September 22
 GAMS return to the current CSTR and non-CSTR package builders. They verify the
 ZIP and every internal checksum, use a temporary extraction, and record archive
