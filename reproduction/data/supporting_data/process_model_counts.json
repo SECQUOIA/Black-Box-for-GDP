@@ -1,0 +1,110 @@
+[
+  {
+    "case": "cstr",
+    "size": 5,
+    "continuous_variables": 56,
+    "binary_variables": 20,
+    "integer_nonbinary_variables": 0,
+    "fixed_continuous": 0,
+    "algebraic_constraints": 100,
+    "logical_constraints": 12,
+    "disjunctions": 10,
+    "count_scope": "Unfixed original GDP; all active disjunct branches included; Dynamic discretized at nfe=30,ncp=3; before GDP reformulation or presolve."
+  },
+  {
+    "case": "cstr",
+    "size": 10,
+    "continuous_variables": 106,
+    "binary_variables": 40,
+    "integer_nonbinary_variables": 0,
+    "fixed_continuous": 0,
+    "algebraic_constraints": 195,
+    "logical_constraints": 22,
+    "disjunctions": 20,
+    "count_scope": "Unfixed original GDP; all active disjunct branches included; Dynamic discretized at nfe=30,ncp=3; before GDP reformulation or presolve."
+  },
+  {
+    "case": "cstr",
+    "size": 15,
+    "continuous_variables": 156,
+    "binary_variables": 60,
+    "integer_nonbinary_variables": 0,
+    "fixed_continuous": 0,
+    "algebraic_constraints": 290,
+    "logical_constraints": 32,
+    "disjunctions": 30,
+    "count_scope": "Unfixed original GDP; all active disjunct branches included; Dynamic discretized at nfe=30,ncp=3; before GDP reformulation or presolve."
+  },
+  {
+    "case": "cstr",
+    "size": 20,
+    "continuous_variables": 206,
+    "binary_variables": 80,
+    "integer_nonbinary_variables": 0,
+    "fixed_continuous": 0,
+    "algebraic_constraints": 385,
+    "logical_constraints": 42,
+    "disjunctions": 40,
+    "count_scope": "Unfixed original GDP; all active disjunct branches included; Dynamic discretized at nfe=30,ncp=3; before GDP reformulation or presolve."
+  },
+  {
+    "case": "cstr",
+    "size": 25,
+    "continuous_variables": 256,
+    "binary_variables": 100,
+    "integer_nonbinary_variables": 0,
+    "fixed_continuous": 0,
+    "algebraic_constraints": 480,
+    "logical_constraints": 52,
+    "disjunctions": 50,
+    "count_scope": "Unfixed original GDP; all active disjunct branches included; Dynamic discretized at nfe=30,ncp=3; before GDP reformulation or presolve."
+  },
+  {
+    "case": "cstr",
+    "size": 30,
+    "continuous_variables": 306,
+    "binary_variables": 120,
+    "integer_nonbinary_variables": 0,
+    "fixed_continuous": 0,
+    "algebraic_constraints": 575,
+    "logical_constraints": 62,
+    "disjunctions": 60,
+    "count_scope": "Unfixed original GDP; all active disjunct branches included; Dynamic discretized at nfe=30,ncp=3; before GDP reformulation or presolve."
+  },
+  {
+    "case": "column",
+    "size": null,
+    "continuous_variables": 446,
+    "binary_variables": 30,
+    "integer_nonbinary_variables": 0,
+    "fixed_continuous": 5,
+    "algebraic_constraints": 637,
+    "logical_constraints": 16,
+    "disjunctions": 15,
+    "count_scope": "Unfixed original GDP; all active disjunct branches included; Dynamic discretized at nfe=30,ncp=3; before GDP reformulation or presolve."
+  },
+  {
+    "case": "small_batch",
+    "size": null,
+    "continuous_variables": 19,
+    "binary_variables": 18,
+    "integer_nonbinary_variables": 0,
+    "fixed_continuous": 0,
+    "algebraic_constraints": 34,
+    "logical_constraints": 3,
+    "disjunctions": 9,
+    "count_scope": "Unfixed original GDP; all active disjunct branches included; Dynamic discretized at nfe=30,ncp=3; before GDP reformulation or presolve."
+  },
+  {
+    "case": "dynamic",
+    "size": null,
+    "continuous_variables": 1647,
+    "binary_variables": 27,
+    "integer_nonbinary_variables": 0,
+    "fixed_continuous": 0,
+    "algebraic_constraints": 3276,
+    "logical_constraints": 31,
+    "disjunctions": 9,
+    "count_scope": "Unfixed original GDP; all active disjunct branches included; Dynamic discretized at nfe=30,ncp=3; before GDP reformulation or presolve."
+  }
+]

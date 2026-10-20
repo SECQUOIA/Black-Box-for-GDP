@@ -17,6 +17,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+from types import SimpleNamespace
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -216,7 +217,15 @@ def replay(output, figures=False):
     core.SOURCES.clear()
     refresh = importlib.import_module("refresh")
     refresh.OUT = output
-    runs, events, _, _, groups, summary = refresh.load()
+    original_subprocess = refresh.subprocess
+    if (ROOT / "PACKAGE_MANIFEST.json").is_file() and not (ROOT / ".git").exists():
+        # Preserve the hashed historical analysis bytes. Its only subprocess
+        # request records the provider HEAD; numerical analysis is unchanged.
+        refresh.subprocess = SimpleNamespace(check_output=package_git_metadata)
+    try:
+        runs, events, _, _, groups, summary = refresh.load()
+    finally:
+        refresh.subprocess = original_subprocess
     require(summary["outcomes"] == {"target_reached": 291, "target_not_reached": 268, "execution_failed": 1},
             "Final outcomes differ from the recorded comparison")
     require(len(runs) == 560 and len(events) == 12822, "Incomplete final selection")
@@ -252,6 +261,24 @@ def replay(output, figures=False):
             "figures_regenerated": figures}
 
 
+def package_git_metadata(command, *, cwd, text=False):
+    require(command == ["git", "rev-parse", "HEAD"] and Path(cwd).resolve() == ROOT,
+            "Historical replay requested an unexpected subprocess")
+    value = provider_revision() + "\n"
+    return value if text else value.encode()
+
+
+def provider_revision():
+    """Git checkout identity or the verified release-package identity."""
+    package = ROOT / "PACKAGE_MANIFEST.json"
+    if package.is_file() and not (ROOT / ".git").exists():
+        manifest = read(package)
+        record = next(r for r in manifest["files"] if r["path"] == "scripts/verify_final_process.py")
+        require(sha(__file__) == record["sha256"], "Packaged verifier hash differs")
+        return manifest["provider_revision"]
+    return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True, help="New directory for verification/replay outputs")
@@ -270,8 +297,7 @@ def main():
               "replay": replay(output, args.figures),
               "artifact_source_revision": manifest["source_revision"],
               "integrated_main_revision": manifest["integrated_main_revision"],
-              "provider_revision_at_verification": subprocess.check_output(
-                  ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+              "provider_revision_at_verification": provider_revision(),
               "verification_script_sha256": sha(__file__),
               "new_optimization_or_nlp_experiments": False}
     (output / "verification.json").write_text(json.dumps(report, indent=2) + "\n")

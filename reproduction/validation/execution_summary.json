@@ -1,0 +1,22 @@
+{
+  "code_revision": "9039c7defa46bdb610d4b93c335f4650cabad21a",
+  "environment_creation": "python -m venv /private/tmp/issue44-reader-env; python -m pip install -r reproduction/requirements-lock.txt",
+  "source_zip_sha256": "7262a92dd130a0935b4bd3d562d907a1013a187617127f000ee13f55bc1e0f04",
+  "extracted_files": 2332,
+  "git_metadata_present": false,
+  "public_download_tested": false,
+  "logged_out_browser_tested": false,
+  "tests": {
+    "command": "python -m pytest tests/test_manuscript_reproduction.py tests/test_gdp_models.py tests/test_gdp_comparison.py tests/test_gdp_current_analysis.py tests/test_final_process_artifacts.py tests/test_grid_gdp_path_analysis.py tests/test_nlp_cost_analysis.py tests/test_result_archives.py -q",
+    "result": "182 passed, 14 existing matplotlib/pyparsing deprecation warnings"
+  },
+  "lint": "ruff check reproduction tests/test_manuscript_reproduction.py scripts/verify_final_process.py gdp_models/_sources.py: passed",
+  "visual_review": "All eight PDF contact-sheet panels reviewed; Figures 1 and 4 re-inspected at full size after layout adjustment. Figure 1 lowest adjacent tick was removed to avoid overlap; numerical colors and data unchanged. Final Figure 8 one filled square and all values/medians match reference manifest.",
+  "deterministic_packaging": {
+    "revision": "0d61deabd0660730ba73b90d0648cd3ac0d535ba",
+    "two_builds_identical_sha256": "62021fa17c579a3586af083ff9e281af47900ef98a3942964460e41175ca9e95"
+  },
+  "generated_outputs_archive_sha256": "b82e058e41645d632e53ceb9eaedbf39a1aadc37b6a4be87e84ad4526b84581a",
+  "original_result_changes": [],
+  "manuscript_sources_committed": false
+}

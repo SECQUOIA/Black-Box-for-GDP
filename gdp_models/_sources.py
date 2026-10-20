@@ -3,6 +3,7 @@
 import ast
 from functools import lru_cache
 import hashlib
+import json
 import os
 from pathlib import Path
 import subprocess
@@ -23,9 +24,26 @@ def source_root(name):
     ))
     root = base / name
     if not (root / ".git").exists():
-        raise FileNotFoundError(
-            f"Missing source checkout: {root}. Run git submodule update --init."
-        )
+        # A release companion expands exact gitlink blobs without Git metadata.
+        # Never accept an arbitrary unversioned source directory.
+        manifest_path = base.parent / "PACKAGE_MANIFEST.json"
+        if not manifest_path.is_file():
+            raise FileNotFoundError(
+                f"Missing source checkout: {root}. Run git submodule update --init."
+            )
+        manifest = json.loads(manifest_path.read_text())
+        prefix = root.relative_to(base.parent).as_posix() + "/"
+        if manifest.get("submodules", {}).get(prefix.rstrip("/")) != PINS[name]:
+            raise RuntimeError(f"{name}: package does not identify the pinned revision")
+        records = [r for r in manifest["files"] if r["path"].startswith(prefix)]
+        if not records:
+            raise RuntimeError(f"{name}: package source inventory is empty")
+        for record in records:
+            path = (base.parent / record["path"]).resolve()
+            if (not path.is_relative_to(root.resolve()) or not path.is_file()
+                    or hashlib.sha256(path.read_bytes()).hexdigest() != record["sha256"]):
+                raise RuntimeError(f"{name}: packaged source hash mismatch: {record['path']}")
+        return root
     revision = subprocess.check_output(
         ["git", "-C", str(root), "rev-parse", "HEAD"], text=True
     ).strip()
