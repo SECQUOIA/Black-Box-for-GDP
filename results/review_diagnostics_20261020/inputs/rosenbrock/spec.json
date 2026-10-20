@@ -1,0 +1,34 @@
+{
+  "csv_name": "rosenbrock.csv",
+  "case_name": "grid",
+  "grid_size": null,
+  "method": "fmqa_sa",
+  "seed": 0,
+  "n_starts": 3,
+  "max_evaluations": 10,
+  "starting_points": [
+    [
+      4,
+      7
+    ],
+    [
+      30,
+      30
+    ],
+    [
+      12,
+      11
+    ]
+  ],
+  "initial_design_sha256": "4a0fd17a901ceafc17fd349a53f77dec5cc2465a07e66d90823e760884d98b53",
+  "job_id": "grid_rosenbrock_B10_seed0_pytorch",
+  "settings": {
+    "epochs": 1000,
+    "learning_rate": 0.01,
+    "num_reads": 100,
+    "num_sweeps": 1000,
+    "time_limit": 1800
+  },
+  "surrogate_backend": "pytorch_qhd_data",
+  "upstream_commit": "eb3a20d4b5a3773d17ff31d72a35d51f58e84e56"
+}

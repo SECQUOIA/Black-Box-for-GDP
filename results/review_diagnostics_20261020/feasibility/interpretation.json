@@ -1,0 +1,12 @@
+{
+  "status": "tightened_feasibility_incomplete",
+  "nlp_invocations": 2,
+  "returned_new_solutions": 0,
+  "optimization_iterations": 0,
+  "failure": "Both AMPL-driver invocations rejected the command keyword acceptable_iter before optimization.",
+  "attempt_vectors": "Unchanged W03 starting values, not new polished witnesses",
+  "original_audit_reproduced": true,
+  "current_correction": "Native ipopt.opt file plus option_file_name; stop on exception or no returned solution",
+  "correction_solver_tested": false,
+  "additional_calls_performed": false
+}

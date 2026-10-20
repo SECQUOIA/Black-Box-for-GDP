@@ -1,0 +1,14 @@
+{
+  "solver_status": null,
+  "termination": null,
+  "error": "ApplicationError: Solver (ipopt) did not exit normally",
+  "solution_loaded": false,
+  "solve_wall_s": 0.027561125112697482,
+  "independent_residual_check": false,
+  "new_witness_available": false,
+  "objective": 2.82935061823614,
+  "maximum_unscaled_primal_violation": 5.634494497502862e-07,
+  "target": 1e-08,
+  "lower_bound": 3.522552007803194,
+  "lower_bound_minus_original_objective": 0.6932013895670543
+}

@@ -1,0 +1,17 @@
+--- ipopt_dfo_cstr_20261015_174637_r1dzn5tk/reproduction/fmqa_benchmark/vendor/qhd/provenance.json
++++ fmqa_benchmark/vendor/qhd/provenance.json
+@@ -23,5 +23,13 @@
+     "bbo_via_fmqa/fmqa_simulated.py": "ebb553d57daa27c4abb6e729b2facf8f243cc3aa",
+     "bbo_via_fmqa/ising_machine.py": "ff4ed214883feaab5ae86814c2b097c8ee6c3e01",
+     "bbo_via_fmqa/read_grid.py": "294eb5a2e2d0cf7f73b0ded0ffcdb5a094ef397b"
+-  }
++  },
++  "repository_license": {
++    "repository": "https://github.com/SECQUOIA/bbo_via_fmqa",
++    "commit": "e92ac6c9840f74c54fbc8031c5df8bbb1a7f3f3e",
++    "upstream_path": "LICENSE",
++    "local_path": "LICENSE.SECQUOIA",
++    "sha256": "9282a1f984e64cc3efdd8d2677383167386123e1a960e2c4f229f99ea39f073e"
++  },
++  "subset_note": "The adapter reuses the unchanged upstream FM core and training entry point. Historical experiment drivers remain archived reference resources; the adapter does not execute them."
+ }

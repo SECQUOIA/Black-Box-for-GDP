@@ -1,0 +1,76 @@
+{
+  "status": "incomplete",
+  "selection_sha256": "a07ccdeec3c23ba315ac521f09a7f89fe8c508f0123ada93c947fad45363adc9",
+  "nlp_calls": 2,
+  "executions": [
+    {
+      "command": [
+        "/private/tmp/issue44-reader-env/bin/python",
+        "-m",
+        "review_diagnostics.feasibility",
+        "--directory",
+        "/Users/albertlee0125/Repos/RBFopt_Test/results/review_diagnostics_20261020",
+        "--worker",
+        "--attempt",
+        "1",
+        "--ipopt",
+        "/Users/albertlee0125/Solvers/ampl.macos64/ipopt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "wall_s": 0.7250685000326484,
+      "external_wall_limit_s": 300
+    },
+    {
+      "command": [
+        "/private/tmp/issue44-reader-env/bin/python",
+        "-m",
+        "review_diagnostics.feasibility",
+        "--directory",
+        "/Users/albertlee0125/Repos/RBFopt_Test/results/review_diagnostics_20261020",
+        "--worker",
+        "--attempt",
+        "2",
+        "--ipopt",
+        "/Users/albertlee0125/Solvers/ampl.macos64/ipopt"
+      ],
+      "returncode": 0,
+      "timed_out": false,
+      "wall_s": 0.7738468328025192,
+      "external_wall_limit_s": 300
+    }
+  ],
+  "reason_if_not_run": null,
+  "interpretation": "Numerically feasible under the stated residual test only; no exact-feasibility, global-optimality or mathematical bound-invalidity proof.",
+  "environment": {
+    "python": "3.12.13 (main, Jun 23 2026, 15:44:24) [Clang 22.1.3 ]",
+    "executable": "/private/tmp/issue44-reader-env/bin/python",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "versions": {
+      "numpy": "2.2.6",
+      "pyomo": "6.10.0",
+      "scipy": "1.15.3"
+    }
+  },
+  "outputs_sha256": {
+    "attempt_1/execution.json": "ea636da8cd56155671c1d03593e55cfded9d84b46c5322febf1baaba91a5209a",
+    "attempt_1/residuals.json": "8433562d6a8763782ca211bc45c570a13d710a2bad0ddc344770d50685d4688c",
+    "attempt_1/result.json": "b54f32077bc38d58f0c14b912542296137c7bd97052a78040a1ad493c3f05312",
+    "attempt_1/settings.json": "d8a7f063017e82d1b3b2527510bb0f0d9a05478c219317f8dcc91a62cf7fe282",
+    "attempt_1/solution.json": "4abd3fa6674faab5c5b4b8b3f412cb827c4d2d91c67a78b21b64007aebf9c052",
+    "attempt_1/solver_call.json": "bc176d7bf0557a8fb0729e3395688d2ba47caf5de42c02e56be6c40f9efc6cfd",
+    "attempt_1/worker.log": "a71549199b6b1a2b5592d7a7e989db967e1706b3285df3ff9d6d45dfde7aec1c",
+    "attempt_2/execution.json": "e14354d56e5282731fe04888dfd5df5c4e43989a8300da9567d2b270616fc042",
+    "attempt_2/residuals.json": "6c79220d45833276b56fa8ff3a646133ec4394fa71ad5e03d6f0c6025c7d0402",
+    "attempt_2/result.json": "0e14bfa9a52552644d34bd6a012bcc094f4efdc91cb2276452c8862b3e326875",
+    "attempt_2/settings.json": "05cdc9da96c1ad9e605d8f3438acf2b976694de8bd2e9c6d58804e892aaaf4ee",
+    "attempt_2/solution.json": "4abd3fa6674faab5c5b4b8b3f412cb827c4d2d91c67a78b21b64007aebf9c052",
+    "attempt_2/solver_call.json": "38b6a9a3e5dee608172b4306eff00024d300928ab8a0e2e7eed63274043e982a",
+    "attempt_2/worker.log": "b49472f7a54c602bcb0329fe8b092013feb72058ce99d1d1b9871dd41c34967a",
+    "before_after.csv": "83870da672513a9ca549e42c4b0091d5f194feaae95b654f16eb2ee927b8d41f",
+    "before_residuals.json": "d1d92723a4c5e1b15b7586028aebff676c948d094859ab2f8f9322acf9e1f4b9",
+    "before_solution.json": "4abd3fa6674faab5c5b4b8b3f412cb827c4d2d91c67a78b21b64007aebf9c052",
+    "provenance.json": "6ff1f085de3a95643bf53091e9b530100899c0c42ccbeebd593d64a7c11186fc",
+    "solver_version.json": "2eb651ac6fc7a004763386b44a3a84ba58a0a1ee079c08a58e76da13d55563d1"
+  }
+}

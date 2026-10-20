@@ -1,0 +1,7 @@
+# Preserve generated records and copied execution evidence byte-for-byte.
+*.csv -text -whitespace linguist-generated=true
+*.json -text -whitespace linguist-generated=true
+*.jsonl -text -whitespace linguist-generated=true
+*.log -text -whitespace linguist-generated=true
+*.txt -text -whitespace
+source_diffs/** -text -whitespace linguist-generated=true

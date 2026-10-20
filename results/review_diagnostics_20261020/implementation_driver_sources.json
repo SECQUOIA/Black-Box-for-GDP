@@ -1,0 +1,34 @@
+[
+  {
+    "case": "rosenbrock",
+    "archive": "results/archives/fmqa_qhd_20261012_034123_8kcczd4b.zip",
+    "member": "fmqa_qhd_20261012_034123_8kcczd4b/source/process_followup_runner.py",
+    "historical_sha256": "0b0721423765d872266bbef6f60b13669aae2d64834ca9e443fe760ffac74535",
+    "current_sha256": "b6d0c60508301172116ff31499efadfc595e846706409f5d4b9e397dd48e72df",
+    "matches_current": false
+  },
+  {
+    "case": "rosenbrock",
+    "archive": "results/archives/fmqa_qhd_20261012_034123_8kcczd4b.zip",
+    "member": "fmqa_qhd_20261012_034123_8kcczd4b/source/fmqa_qhd_experiment.py",
+    "historical_sha256": "9cc87598ee0a3aa571e68dc159a0a4a95335aa2645a04bbb116a29aee3712815",
+    "current_sha256": "6904c81364fb03efb552d57f6df5590d48247f79a08e618009c339d13c6cab74",
+    "matches_current": false
+  },
+  {
+    "case": "cstr_15",
+    "archive": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+    "member": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk/reproduction/ipopt_dfo_cstr.py",
+    "historical_sha256": "96018769c0e3ac6107a7c61c256ca3cca6ea60a56ffbd576efaa0090ecc251ce",
+    "current_sha256": "d32f813e78012956afee3950fa413635270c34f8d835bbe1891096e3d8aa5eee",
+    "matches_current": false
+  },
+  {
+    "case": "dynamic",
+    "archive": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+    "member": "ipopt_dfo_non_cstr_20261015_172428_o671edu_/reproduction/ipopt_dfo_non_cstr.py",
+    "historical_sha256": "428d982276b8ad4c0ee577289f1ff4edcd989dcb3abbd195da8415c39bc60b96",
+    "current_sha256": "e48212ab03b587903027a64d158d852c9d119b66d2c78e9708ebf4f34a7d9793",
+    "matches_current": false
+  }
+]

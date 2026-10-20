@@ -17,8 +17,8 @@ items below are separate work.
 | Minor 3: success uncertainty and grouping | regenerated; manuscript interpretation pending | paired differences, grouped Grid bootstrap, complete ten-seed conditions; descriptive intervals with no equivalence or multiplicity claim |
 | FMQA-SA versus uniform paired success comparison | completed-record analysis added | [1,190 pairs and 19 descriptive summaries](../results/review_comparison_20261020/fmqa_uniform/README.md); Grid resamples intact function vectors and Process keeps all 14 conditions separate |
 | Minor 4: Yang3 / Bohachevsky2 exclusions | regenerated for all completed comparisons | `grid_exclusions.csv`; no objective definition changed; main descriptive patterns persist |
-| Minor 5: FMQA zero-scale, regularization, exhaustive energy diagnostic | needs additional computation | original QHD converter and wrapper retained in execution snapshots; proposal logs exist, per-iteration fitted weight snapshots have not been established; no reconstructed iteration is claimed historical; no FMQA rerun launched |
-| Minor 6: bound discrepancy and tightened feasibility | needs additional computation | original audit and residual checks retained; no restoration/tightened NLP authorized in this base package; proposed representative test must retain raw bound and witness provenance |
+| Minor 5: FMQA zero-scale, regularization, exhaustive energy diagnostic | limited diagnostic completed; historical weights unavailable | [Seven reconstructed fits and 3,328 binary strings](../results/review_diagnostics_20261020/README.md); nonfinite-coefficient guard rejects synthetic zero-scale output before fallback; no full FMQA benchmark rerun or new SA call |
+| Minor 6: bound discrepancy and tightened feasibility | original W03 recheck completed; tighter check incomplete | [CSTR15 A12/W03 diagnostics](../results/review_diagnostics_20261020/README.md); two calls rejected an AMPL option before optimization; no new witness; corrected options-file path prepared but not solver-tested |
 | Minor 7: Table 5 starred execution profile | analysis pending | historical `gdp_runs.csv`/grid GDP manifest available in repository; exact selection/profile equivalence explanation remains to be drafted and checked; no solver rerun |
 | Minor 8: figure annotations / variant labels | new comparison figures generated; manuscript edits pending | solver/genetic and retained/new labels explicit; Process failure retained; final manuscript Figure2 annotation remains separate |
 | Minor 9: 63-vector partition | addressed in supplied latest manuscript | supplementary.tex lines760–761: 45 selected + 18 earlier RIC/GLOA, nine witnesses a subset (seven selected + two earlier RIC); not reverted or edited |
@@ -31,7 +31,8 @@ items below are separate work.
 | Typos and terminology | analysis pending | do not edit supplied Overleaf sources here; check ALAMO, NLP/CSTR expansions, capitalization, branch case, and S6/S9 wording separately |
 
 The separate [FMQA-SA versus uniform analysis](../results/review_comparison_20261020/fmqa_uniform/README.md) preserves the original result tables, manifest and audit sources.
-This paired comparison does not complete the FMQA fitted-weight, QUBO or annealing diagnostics, or the tightened-feasibility checks listed above.
+The paired comparison remains separate from the [limited implementation and witness diagnostics](../results/review_diagnostics_20261020/README.md).
+The diagnostics preserve historical weights as unknown and tightened feasibility as incomplete, with no change to the original benchmark results.
 
 ## Nannicini source check
 
