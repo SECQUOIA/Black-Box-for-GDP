@@ -87,3 +87,38 @@ The local analysis reran no solver and preserved the returned ZIP, server verifi
 The original strict full-summary verifier's cross-platform derived-ratio mismatch is retained in the [verification report](../results/review_cstr15_dantzig_20261021/verification.json).
 A separate analysis checks every named residual and the unchanged feasibility criterion, and verifies ratios and near-zero residual rankings exactly against their respective recorded data.
 This additional result has not been synchronized into the manuscript or Overleaf; draft wording is provided only in the result README.
+
+## Minor clarification review — 21 October 2026
+
+The latest review requests clarification and final presentation changes rather than another benchmarking campaign.
+The following updates are synchronized with Overleaf and recorded in the [minor-clarification verification](../manuscript/minor_clarification_verification.json).
+
+| Review item | Disposition | Manuscript location |
+|---|---|---|
+| Minor 1: tightened CSTR15 versus Hull | Added the witness-sensitive contrast while preserving W03 and all eleven historical flags | Main Section 4.4 and Supplementary Section S9 |
+| Minor 2: visited-key collection | Resolved by the current 700-run coverage audit: 2,050 distinct keys, with the included methods and union rule explicit | Main Table 1 and Section 4.3.2 |
+| Minor 3: median-cost label | Caption explicitly states median reconstructed search-completion costs over all ten seeds | Table S17 |
+| Minor 4: abstract scope | Added “On the analytical grids” to the budget-100 result | Abstract |
+| CSTR terminology | Standardized to “continuous stirred-tank reactor (CSTR)” | Section 2.1 |
+| MILP abbreviation | Expanded to “mixed-integer linear programming (MILP)” at first use | Section 2.2 |
+| Supplementary pagination | Local paragraph spacing and page allowance retain the S9 introduction on page 22 and the full tightened check on page 25 | Supplementary Section S9 |
+
+For the tighter objective `2.8293940632857546`, the printed Hull bound `2.829394077848967` gives a difference of `1.45632124e-8` and a tolerance ratio of approximately `5.14711e-4`, below the flagging threshold of one.
+The historical Hull comparison against W03 has a ratio of approximately `1.536` and remains unchanged.
+The GLOA discrepancy remains approximately `24,498` times the tolerance.
+This sensitivity comparison does not classify W03 as infeasible, certify the Hull bound, or establish the cause of either bound report.
+All performance-table bodies, equations, figure blocks, numerical datasets, source snapshots and prior verification records remain unchanged.
+No optimizer, NLP, fitting, annealing or benchmark analysis was rerun.
+Both documents compiled in Overleaf with zero errors and warnings; the main manuscript has 33 pages and the supplement has 30 pages.
+The prose retains one sentence per source line.
+PR #48 was already merged before this follow-up; these changes are subsequent work on `review/additional-comparisons`, not part of that merged PR.
+The repository visibility and historical execution-provider revisions are unchanged.
+
+## Resolution of visited-key scope — 21 October 2026
+
+Minor review comment 2 is resolved in Table 1 and Section 4.3.2.
+The [coverage audit and reviewer response](../results/review_process_coverage_20261021/README.md) report 2,050 distinct model/size/coordinate keys from 16,252 charged callbacks in the current 700-run primary Process comparison.
+The union covers DSDA, RBFOpt, BAM, FMQA-SA and uniform sampling over 14 model--budget conditions and ten seeds per condition, excluding RBFOpt (solver).
+The historical count of 1,790 is preserved in its own 560-run context and reconciles as 1,790 - 51 + 311 = 2,050.
+All 2,455 measured keys and all 700 run memberships are exposed in auditable ledgers; failed and rejected evaluations remain included.
+No experiment was rerun, and the existing performance tables, figures, historical manifests and supplementary stopping-audit scope remain unchanged.

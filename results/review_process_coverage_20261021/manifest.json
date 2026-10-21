@@ -1,0 +1,38 @@
+{
+  "input_sha256": {
+    "results/review_comparison_20261020/manifest.json": "03d23f69783e71b0125be6cd8bed63a0b3a296977ffa76b719d26cc09c61022f",
+    "manuscript/analysis_manifest_current.json": "c2b2c39f1d7b82a61118cfb0d1525907065e6929e57322e8b376b345c910c203",
+    "reproduction/validation/checkout_replay.json": "d773eee7a935a04a3615a16bd39dda6e284065713d00a207e14d5fa7c2c4db1f",
+    "results/review_comparison_20261020/tables/completed_runs.csv": "f0764696a4846d391e8d040781e8e32bde72829654e13ca6c1342cf768d1843f",
+    "results/archives/review_comparison_20261020_124949_return_1792527395393579314.zip": "659ddd3d1c1f62def4f8875399b63bdd4899f44ff848afb4ea45c079b3c1dc36",
+    "results/grid_gdp_dfo_20261011/runs.csv": "de2d8725777d66010cc87f9305c14cf54fff440c3b32cbd8fe06e913bd1ba015",
+    "results/process_ipopt_bam_v2_20261015/tables/run_results.csv": "54ffc148d18ff07506c8c3ab96f77c953079a660516e79f6f3198649ee606fa5",
+    "manuscript/tables/run_records.csv": "074509fb982544ba10c6dcadae23465b4b91085c66e2300cde7204ce50f57d83",
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_column.csv": "bdb5a484ca4c0761a8c7cf976d7e886f2f2a0e083f3b33b7993d60e9dbb01fa4",
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_10.csv": "085f5ed3f48288823704345110ea51705a954642de50b987459284906fa2a356",
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_15.csv": "4772f378f77e1a27d28173cf3e65614f100561b62131f796a48a7032a1dc0629",
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_20.csv": "36edac12ab3dce3ef977b3987eb51ddae7eeec15a66e5224c9834750936a883d",
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_25.csv": "df7a828415ccae183c8c6f960067cd194775740eb7f976b1b1c8552468f553f6",
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_30.csv": "def877ff5caf2c98d0533e8c47d804849ff7c33e8362abd0353867c2458644de",
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_5.csv": "a4977af3082dcb7a1afe12dac289800458ea77093d9e6b4a6c27f51035b938ed",
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_dynamic.csv": "11e80497ce7c4f6562a7b6887ddb3a73d28a236411e04fdfd6790e7d85fd9a66",
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_small_batch.csv": "726d1bf2030c6212f8e61bf35f15888bdcacc5654b963c9d9e297f91936e9479",
+    "results/process_ipopt_bam_v2_20261015/tables/callbacks.csv": "d2c0a54340f030e2b61f1416485057e43be87f9f39bd8a26641b2adcb378dc83"
+  },
+  "source_sha256": {
+    "review_comparison/visited_keys.py": "0a762b6e3ae023a92fa5b035482a21d6803a1569676952f09f8d320fdd6b0212",
+    "review_comparison/manuscript.py": "5cc87e1ce8d1d1fb4739b6b76792a71094378973783210b8cebbd865347b1224"
+  },
+  "input_revision": "3dee29c24e4c0eccf7fbcfdd1f72a4126ba8d9a4",
+  "execution_provider_revision": "38d917ef75ef6767c2a9f238d88be19bf0b89160",
+  "python": "3.9.6",
+  "reproduce": "python -m review_comparison.visited_keys --output /tmp/process-coverage-new",
+  "outputs_sha256": {
+    "configuration_coverage.csv": "83b63951fbb62dc51811e23ea8f6dabcdb309d405792df00ae885678d58c932f",
+    "case_summary.csv": "f9aa09b68e9118072fed28aaba8736dc921576831972ccee3f5fa68c7988317a",
+    "method_summary.csv": "edeca04331fa6e250c2090d1ebe14d147e902d0b1c390970b1e531393c1f2c9c",
+    "runs.csv": "cc7cbe59a8cc7a0ceb91b341512854d037f74e5f8e54a5cd45b1d72478003748",
+    "summary.json": "885e5b9d048eb2e1e9d0f708b828000eff1b7006676b586ccf84436bf9d2b0ed"
+  },
+  "note": "Postprocessing of completed records only; historical evidence unchanged."
+}
