@@ -1,0 +1,36 @@
+{
+  "job_id": "dynamic_B12_seed0_fmqa_sa",
+  "case": "dynamic",
+  "seed": 0,
+  "budget": 12,
+  "lower": [
+    1,
+    2
+  ],
+  "upper": [
+    9,
+    9
+  ],
+  "starts": [
+    [
+      2,
+      4
+    ],
+    [
+      9,
+      9
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "settings": {
+    "epochs": 1000,
+    "learning_rate": 0.01,
+    "num_reads": 100,
+    "num_sweeps": 1000,
+    "time_limit": 1800
+  },
+  "method": "fmqa_sa"
+}

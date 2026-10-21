@@ -1,0 +1,9 @@
+# Preserve generated evidence bytes and suppress CSV line-ending conversion.
+*.csv -text -whitespace linguist-generated=true
+*.json -text -whitespace linguist-generated=true
+*.log -text -whitespace linguist-generated=true
+*.nl -text -whitespace linguist-generated=true
+*.row -text -whitespace linguist-generated=true
+*.col -text -whitespace linguist-generated=true
+*.sol -text -whitespace linguist-generated=true
+*.diff -text -whitespace linguist-generated=true

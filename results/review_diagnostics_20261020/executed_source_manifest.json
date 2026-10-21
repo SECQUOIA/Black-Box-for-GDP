@@ -1,0 +1,11 @@
+{
+  "stage": "Sources used for seven fits and two option-rejected NLP calls; before portability correction",
+  "archive_sha256": "82a153e2e445803c2acf852d84bf0400c7dd14c87fe28a136f66ff443773c3d9",
+  "files_sha256": {
+    "review_diagnostics/__init__.py": "5f4f9cdb037eddc3f9be883d93bab845ef98542afdd23d07b11868488ecb4a58",
+    "review_diagnostics/common.py": "d78be3b574c8d84d48edcfba2c7b01a7c1ec8270a2b7803a17a7226224525827",
+    "review_diagnostics/feasibility.py": "a80c36d18425037d43879cdf7a8a9de386f5ef8fd2eb42beff47d996b7abcea3",
+    "review_diagnostics/fmqa.py": "c546b95283939cee73ffa65dd1d797b0508c046d0aa9a8fa486b9fb3447dff85",
+    "review_diagnostics/prepare.py": "c6b66548d1be846d5638c110de39f79d4bf6840ceeff1f6c6f813b8d46461210"
+  }
+}

@@ -1,0 +1,8 @@
+tol 1e-10
+constr_viol_tol 1e-10
+acceptable_iter 0
+bound_relax_factor 0.0
+honor_original_bounds yes
+nlp_scaling_method none
+max_cpu_time 290
+max_iter 3000

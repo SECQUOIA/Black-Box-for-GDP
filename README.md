@@ -1,4 +1,4 @@
-# RBFopt_Test
+# Black-Box-for-GDP
 
 ## Reproduce the manuscript from frozen data
 
@@ -27,6 +27,11 @@ documentation of workflows involving RBFOpt and related discrete search methods.
 ## Benchmark results
 
 Start with the retained result datasets:
+
+- [Additional genetic RBFOpt and sampling comparisons, October 20](results/review_comparison_20261020/README.md):
+  all 3,430 new runs audited against frozen inputs; 1,558 target hits and 1,872
+  misses. Includes matched solver/genetic comparisons, uniform and BAM-prefix
+  controls, raw return archive, timing analysis and reproduction commands.
 
 - [Final IPOPT Process comparison with corrected BAM](results/process_ipopt_bam_v2_20261015/README.md):
   560 runs; 291 target hits, 268 misses and one execution failure. All 140 BAM
