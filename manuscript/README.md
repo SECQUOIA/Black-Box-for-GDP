@@ -16,7 +16,8 @@ The original manifests and verification record retain their historical hashes.
 The [analysis manifest](analysis_manifest_current.json) and [naming-revision verification](revision_verification.json) document the synchronized naming revision.
 The subsequent [prose-only revision](prose_trim_verification.json) removes ten repeated sentences from the main text and updates its PDF and source ZIP.
 The subsequent [minor-clarification verification](minor_clarification_verification.json) records the Hull contrast, Table S17 median-cost caption, abstract scope, terminology and S9 pagination corrections.
-The Table 1 visited-key statement is unchanged pending author investigation of review item 2.
+The [Process coverage audit](../results/review_process_coverage_20261021/README.md) resolves review item 2: the 700 primary runs visit 2,050 distinct model/size/coordinate keys through 16,252 charged callbacks.
+Table 1 explicitly identifies the five methods and excludes the retained RBFOpt (solver) runs.
 The [deletion record](../docs/prose_redundancy_trim.md) identifies each removed sentence and the retained explanation supporting its removal.
 The [status correction record](../results/review_comparison_20261020/status_correction.json) still identifies the earlier README correction, whose exact README and status-document bytes are preserved under [review_history/cstr_status_correction](review_history/cstr_status_correction/).
 The original analytical and process NLP inventories, logs, ZIP archives, manifests and audit implementation are unchanged.
@@ -72,5 +73,6 @@ Compile `main.tex` or `supplementary.tex` in Overleaf with pdfLaTeX and BibTeX u
 [analysis_manifest_current.json](analysis_manifest_current.json) records current input/source/output hashes, bootstrap settings, execution provenance and generation environment.
 [revision_verification.json](revision_verification.json) records the naming-revision checks.
 [prose_trim_verification.json](prose_trim_verification.json) records the preceding prose revision and its publication hashes.
-[minor_clarification_verification.json](minor_clarification_verification.json) records the latest synchronized sources, PDFs and source ZIP.
+[minor_clarification_verification.json](minor_clarification_verification.json) records the preceding clarification revision.
+[coverage_revision_verification.json](coverage_revision_verification.json) records the subsequent resolution of the visited-key comment and the latest synchronized main source, PDF and source ZIP.
 The earlier [verification.json](verification.json), [analysis_manifest.json](analysis_manifest.json) and [publication_manifest.json](publication_manifest.json) document the preceding publication snapshot, not the current display labels or PDFs.

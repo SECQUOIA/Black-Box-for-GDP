@@ -429,8 +429,9 @@ Total & 1,260 & 2,455 & -- & -- \\
 \end{tabular}
 \par\smallskip
 \begin{minipage}{0.96\linewidth}
-\footnotesize Each measured coordinate is a distinct model/size/coordinate key.
-The 2,455 keys cover the complete DFO boxes; the 1,790 keys actually visited by the searches are a subset of this inventory.
+\footnotesize The 2,455 measured keys cover the complete DFO boxes.
+The 700 primary process runs (DSDA, RBFOpt, BAM, FMQA-SA, and uniform sampling; 14 model--budget conditions and ten seeds per condition) visit 2,050 distinct model/size/coordinate keys.
+This union counts each key once across methods, budgets, and seeds and excludes the retained RBFOpt (solver) runs.
 \end{minipage}
 \end{table}
 \FloatBarrier
@@ -990,7 +991,7 @@ All 14 conditions appear in Table~\ref{tab:process-targets}.}
 
 \subsubsection{Evaluation costs and objective consistency}
 Table~\ref{tab:process-cases} and the timing analysis use one final inventory of 2,455 case/size/coordinate keys across the nine models.
-The primary process comparison contains 16,252 charged callbacks.
+The 700 primary process runs make 16,252 charged callbacks to 2,050 distinct keys.
 The additional RBFOpt and uniform ledgers were independently checked against the frozen objective, acceptance, penalty and point-cost records.
 No original process NLP was rerun for these comparisons; failures to obtain accepted solutions do not establish mathematical infeasibility.
 
