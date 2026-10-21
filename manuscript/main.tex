@@ -120,7 +120,6 @@ This is a descriptive decomposition of the tested implementations, not a causal 
     \item A comparison of objective-only search with algebraic GDP implementations that distinguishes target attainment, implementation coverage, and solver-reported certification.
 Its conclusions are conditional on the tested domains and stopping policies: the Grid points have no remaining original continuous degrees of freedom, and the process searches use two or three external coordinates.
 \end{itemize}
-Searches use frozen objective responses; the resulting cost estimates describe the recorded paths rather than measured online optimizer--NLP executions.
 
 \section{Background}
 
@@ -773,7 +772,6 @@ Shading from callback 4 through the smaller of 13 and the budget marks the prese
 \label{sec:grid-gdp-results}
 The analytical formulation in Section~\ref{sec:grid-gdp-formulation} permits comparison with algebraic methods and a specified fixed-point evaluation protocol.
 Completion estimates for the 6,300 primary Grid runs attach individually measured GAMS/IPOPT costs for all 20,181 coordinates to 311,033 recorded callbacks.
-Every actual callback, including a repeated visit, receives the cost of its coordinate under the accounting rules in Section~\ref{sec:cost-accounting}.
 
 The fixed-point measurements have mean and median costs of 0.6522 and 0.3727~s, respectively; the mean is higher because some external solver calls incur long delays.
 Because both coordinates are fixed, the measured point costs primarily reflect the fixed-configuration evaluation protocol, including solver-interface and evaluation overhead, rather than the solution of an NLP with free continuous decision variables.
@@ -993,25 +991,14 @@ All 14 conditions appear in Table~\ref{tab:process-targets}.}
 \subsubsection{Evaluation costs and objective consistency}
 Table~\ref{tab:process-cases} and the timing analysis use one final inventory of 2,455 case/size/coordinate keys across the nine models.
 The primary process comparison contains 16,252 charged callbacks.
-Every callback, including unsuccessful and repeated evaluations, receives its saved cost using the complete case/size/configuration key.
 The additional RBFOpt and uniform ledgers were independently checked against the frozen objective, acceptance, penalty and point-cost records.
 No original process NLP was rerun for these comparisons; failures to obtain accepted solutions do not establish mathematical infeasibility.
-Estimated full-run completion times are available for every seed.
 
-The costs combine recorded NLP evaluations with separately measured structural-rejection processing.
 Detailed reconciliation and source manifests are provided in Supplementary Sections~S4 and S8.
-
-
-
-
-
-The audit establishes consistency of the retrospective cost reconstruction, not independent online replication or global optimality.
-Conclusions about search performance are conditional on this fixed local-solver oracle.
 
 Figure~\ref{fig:nlp-cost} separates optimizer/search overhead from point-evaluation and one-time preparation costs for four illustrative conditions.
 For RBFOpt, the search share is 2.40\% for Column, 3.12\% for Small Batch, 8.26\% for CSTR30, and 42.67\% for Dynamic at \(B=50\).
 DSDA's search share is below 0.2\% in these four conditions.
-The retained search-time component includes all operations retained within the method clock after subtracting measured lookup-processing time, rather than isolated surrogate-solving time.
 Dynamic DSDA executes 221 callbacks across ten \(B=50\) runs, compared with 500 for each of RBFOpt, BAM, and FMQA-SA.
 Its lower cost reflects shorter paths as well as low search overhead; unsuccessful candidates are evaluated and charged within the common box.
 
@@ -1191,7 +1178,6 @@ Times are full-run completion times.
 \subsection{Integrated Numerical Discussion}
 \label{sec:cross-benchmark}
 The comparison separates three sources of performance differences: which configurations a method visits, the evaluation costs of those configurations, and the work required to select them.
-The initialization, fallback, and stopping diagnostics describe the complete implementations without isolating the causal benefit of surrogate learning.
 RBFOpt reaches more Grid targets than the other compared methods at budgets of 30 evaluations and above.
 The prefix and uniform controls show that BAM's low-budget Grid advantage is explained by its fixed initial design, with additional gains from its later search at larger budgets.
 Because the Grid evaluations fix both original coordinates, their measured costs emphasize the evaluation interface; the process cases additionally expose variable NLP and preprocessing costs (see Supplementary Table~S5 for model sizes).
@@ -1215,8 +1201,6 @@ The restricted Column box and the fixed local-solver initialization and acceptan
 
 Algebraic formulations provide competitive reference results when supported, particularly for Small Batch.
 Their expression coverage and access to model structure differ from those of DFO, and the unresolved optimality reports discussed in Section~\ref{sec:process-results} cannot serve as independent certificates.
-
-Hit counts and completion-cost distributions carry the primary evidence, with empirical TTS99 providing a secondary restart summary.
 
 \section{Conclusions}
 This study compared four GDP configuration-search implementations with sampling controls under a shared evaluation protocol, separating target attainment, configuration-evaluation cost, and search overhead.

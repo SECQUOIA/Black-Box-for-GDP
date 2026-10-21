@@ -13,7 +13,9 @@ This is numerical evidence for the retained point, not a proof of exact mathemat
 The current sources, bibliography, PDFs, figures and source distribution ZIP are synchronized with the Chrome Overleaf revision.
 The main text and Supplementary Section S9 include the successful CSTR15 follow-up; earlier unsuccessful calls remain historical evidence.
 The original manifests and verification record retain their historical hashes.
-The [current analysis manifest](analysis_manifest_current.json) and [current revision verification](revision_verification.json) describe this later publication revision.
+The [analysis manifest](analysis_manifest_current.json) and [naming-revision verification](revision_verification.json) document the synchronized naming revision.
+The subsequent [prose-only revision](prose_trim_verification.json) removes ten repeated sentences from the main text and updates its PDF and source ZIP.
+The [deletion record](../docs/prose_redundancy_trim.md) identifies each removed sentence and the retained explanation supporting its removal.
 The [status correction record](../results/review_comparison_20261020/status_correction.json) still identifies the earlier README correction, whose exact README and status-document bytes are preserved under [review_history/cstr_status_correction](review_history/cstr_status_correction/).
 The original analytical and process NLP inventories, logs, ZIP archives, manifests and audit implementation are unchanged.
 No new optimization or NLP execution is part of this revision.
@@ -66,5 +68,6 @@ Ten-seed boundary cases may produce degenerate intervals.
 
 Compile `main.tex` or `supplementary.tex` in Overleaf with pdfLaTeX and BibTeX using the supplied figure directory and bibliography.
 [analysis_manifest_current.json](analysis_manifest_current.json) records current input/source/output hashes, bootstrap settings, execution provenance and generation environment.
-[revision_verification.json](revision_verification.json) records the current checks.
+[revision_verification.json](revision_verification.json) records the naming-revision checks.
+[prose_trim_verification.json](prose_trim_verification.json) records the subsequent prose revision and its current publication hashes.
 The earlier [verification.json](verification.json), [analysis_manifest.json](analysis_manifest.json) and [publication_manifest.json](publication_manifest.json) document the preceding publication snapshot, not the current display labels or PDFs.
