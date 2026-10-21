@@ -18,6 +18,7 @@ See the [original results and limitations](../results/review_comparison_20261020
 | Minor 4: suite exclusions | incorporated | S10 excludes Yang3 and Bohachevsky2; lattice effect discussed; no shifted-grid rerun |
 | Minor 5: FMQA implementation and energy diagnostic | limited diagnostic incorporated | [Seven reconstructed fits and 3,328 binary strings](../results/review_diagnostics_20261020/README.md) summarized in S10; historical fitted weights remain unavailable; no prevalence or causal claim |
 | Minor 6: numerical feasibility and tightened check | CSTR15 check completed and synchronized in main text and S9 | [One-call identity-preprocessed follow-up](../results/review_feasibility_tautology_20261020/README.md), retained in `854a1a7fc5a20a5489d82ef7991a16aaf89025f3`, passed the original-GDP 1e-8 residual test; the recorded A12 lower-bound discrepancy persists; all three earlier failed calls preserved; numerical evidence for this case only |
+| Additional CSTR15 check in the Dantzig GAMS environment | completed; manuscript update pending | [Returned result and local comparison](../results/review_cstr15_dantzig_20261021/README.md); one GAMS/IPOPT call passed the original-GDP 1e-8 test; GLOA discrepancy persists and Hull is within tolerance; raw archive and execution revision preserved |
 | Minor 7: starred execution profile | incorporated; optional display deferred | Table 5 notes explain replacement of previously failing cases, preserved expressions/settings and corrected preparation; unsuccessful times remain archived |
 | Minor 8: figure annotations / variant labels | incorporated | Seven figures regenerated; BAM prefix shaded; RBFOpt and controls labeled; Figure 6 uses mean cost shares |
 | Minor 9: 63-object partition | preserved | S9 retains 45 selected plus 18 earlier records; nine witnesses form a subset |
@@ -74,3 +75,15 @@ Method names replace the former single-letter plot labels and RBFOpt setting abb
 The main performance tables, callback records and paired numerical results retain their values.
 Seven data figures are regenerated solely from the retained records with the current labels.
 The seven reconstructed FMQA fits still do not certify unsaved historical weights.
+
+## Additional Dantzig CSTR15 result
+
+The [2026-10-21 Dantzig check](../results/review_cstr15_dantzig_20261021/README.md) used GAMS 52.2.0, IPOPT 3.14.19 and MUMPS 5.8.1 in one server NLP call from the original W03 start.
+It returned objective `2.8293940632857595` and maximum unscaled original-GDP violation `1.1102230246251565e-16`, passing the `1e-8` numerical criterion.
+The objective differs from the retained macOS AMPL/IPOPT result by `4.884981308350689e-15`, with the same discrete configuration.
+The GLOA A12 discrepancy persists, whereas the Hull A15 difference is within the existing audit tolerance.
+The server used execution revision `70bf17ca95e5ee1b98069e494c22fcafd6398960`; the original comparison execution-provider revision remains unchanged.
+The local analysis reran no solver and preserved the returned ZIP, server verification and all earlier success/failure records.
+The original strict full-summary verifier's cross-platform derived-ratio mismatch is retained in the [verification report](../results/review_cstr15_dantzig_20261021/verification.json).
+A separate analysis checks every named residual and the unchanged feasibility criterion, and verifies ratios and near-zero residual rankings exactly against their respective recorded data.
+This additional result has not been synchronized into the manuscript or Overleaf; draft wording is provided only in the result README.

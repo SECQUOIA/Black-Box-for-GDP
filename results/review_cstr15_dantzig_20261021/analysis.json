@@ -1,0 +1,188 @@
+{
+  "server_new_NLP_calls": 1,
+  "new_NLP_calls_in_analysis": 0,
+  "same_original_W03_start": true,
+  "same_discrete_configuration": true,
+  "discrete_value_count": 75,
+  "solution_variable_count": 231,
+  "Dantzig_minus_local_objective": 4.884981308350689e-15,
+  "maximum_absolute_variable_difference": 2.416775557456674e-09,
+  "maximum_difference_variable": "F[B,12]",
+  "server_execution_revision": "70bf17ca95e5ee1b98069e494c22fcafd6398960",
+  "historical_execution_provider_revision": "38d917ef75ef6767c2a9f238d88be19bf0b89160",
+  "local_success_retention_revision": "854a1a7fc5a20a5489d82ef7991a16aaf89025f3",
+  "server_environment": {
+    "environment": {
+      "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-gdp/bin/python",
+      "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34",
+      "versions": {
+        "numpy": "2.4.6",
+        "pyomo": "6.10.0"
+      }
+    },
+    "verified_historical_dependency_versions": {
+      "pyomo": "6.10.0",
+      "sympy": "1.14.0",
+      "numpy": "2.4.6",
+      "networkx": "3.6.1",
+      "matplotlib": "3.11.2"
+    },
+    "host": "dantzig.ecn.purdue.edu",
+    "gams_executable": "/package/gams/52.2/gams",
+    "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+    "gams_version_from_matching_historical_binary": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "support_files_sha256": {
+      "/package/gams/52.2/libipopt.so": "286e96f2955818bdec53b55ec700a11bfbc69660d52c1113b10c3ec8e276df99",
+      "/package/gams/52.2/gmscmpun.txt": "44ecc9807ec5e9017c6854ef7cdd3f484e02a7d29995aa0c5cfa3e052bb1202a",
+      "/package/gams/52.2/optipopt.def": "717ece2d8e59fd285e5d25bea10246deccbdd90327c6f425e1891b81ffd92c05"
+    },
+    "option_definition": "/package/gams/52.2/optipopt.def",
+    "option_documentation": "https://www.gams.com/52/docs/S_IPOPT.html#IPOPT_SPECIFICATION_OF_OPTIONS",
+    "threads": {
+      "OMP_NUM_THREADS": "1",
+      "OMP_THREAD_LIMIT": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1",
+      "GOTO_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "NUMEXPR_MAX_THREADS": "1",
+      "OMP_DYNAMIC": "FALSE",
+      "MKL_DYNAMIC": "FALSE"
+    },
+    "affinity": [
+      2
+    ],
+    "ipopt_mumps_version_confirmation": "Pending the sole actual solve log; no version/license trial was run"
+  },
+  "server_protocol": {
+    "solver_entry_count": 1,
+    "banners": [
+      [
+        "3.14.19",
+        "MUMPS",
+        "5.8.1"
+      ]
+    ],
+    "iterations": [
+      "8"
+    ],
+    "option_echo": {
+      "acceptable_iter": {
+        "value": "0",
+        "used": "yes"
+      },
+      "bound_relax_factor": {
+        "value": "0",
+        "used": "yes"
+      },
+      "constr_viol_tol": {
+        "value": "1e-10",
+        "used": "yes"
+      },
+      "honor_original_bounds": {
+        "value": "yes",
+        "used": "yes"
+      },
+      "linear_solver": {
+        "value": "mumps",
+        "used": "yes"
+      },
+      "max_iter": {
+        "value": "3000",
+        "used": "yes"
+      },
+      "nlp_scaling_method": {
+        "value": "none",
+        "used": "yes"
+      },
+      "tol": {
+        "value": "1e-10",
+        "used": "yes"
+      },
+      "warm_start_init_point": {
+        "value": "no",
+        "used": "yes"
+      }
+    },
+    "option_errors": [],
+    "environment_and_options_confirmed": true,
+    "exit_messages": [
+      "EXIT: Optimal Solution Found."
+    ],
+    "too_few_dof": false
+  },
+  "server_raw_statistics": {
+    "MODELSTAT": 2.0,
+    "SOLVESTAT": 1.0,
+    "OBJEST": null,
+    "OBJVAL": 2.8293940632857595,
+    "NUMVAR": 157.0,
+    "NUMEQU": 156.0,
+    "NUMDVAR": 0.0,
+    "NUMNZ": 423.0,
+    "ETSOLVE": 0.12499995063990355
+  },
+  "local_solver": {
+    "path": "/Users/albertlee0125/Solvers/ampl.macos64/ipopt",
+    "sha256": "40a19ebcfe47d646e8f5696102ffd7363559b2698c10b270bb8e6f981a30e145",
+    "version": "Ipopt 3.12.13 (Darwin x86_64), ASL(20211109)\n\n"
+  },
+  "local_options": "tol 1e-10\nconstr_viol_tol 1e-10\nacceptable_iter 0\nbound_relax_factor 0.0\nhonor_original_bounds yes\nnlp_scaling_method none\nmax_cpu_time 290\nmax_iter 3000\n",
+  "server_options": "tol 1e-10\nconstr_viol_tol 1e-10\nacceptable_iter 0\nbound_relax_factor 0\nhonor_original_bounds yes\nnlp_scaling_method none\nmax_iter 3000\nwarm_start_init_point no\nlinear_solver mumps\n",
+  "local_worker_result": {
+    "solver_status": "ok",
+    "termination": "optimal",
+    "solver_message": "Ipopt 3.12.13\\x3a Optimal Solution Found",
+    "error": null,
+    "returned_vector_present": true,
+    "solution_loaded": true,
+    "solve_and_check_wall_s": 0.19768908293917775,
+    "lower_bound": 3.522552007803194,
+    "independent_check_available": true
+  },
+  "server_worker_result": {
+    "command": [
+      "/package/gams/52.2/gams",
+      "model.gms",
+      "lo=3",
+      "o=model.lst",
+      "reslim=290",
+      "threads=1"
+    ],
+    "returncode": 0,
+    "error": null,
+    "wall_s": 0.6448103890288621
+  },
+  "equations": {
+    "original_active": {
+      "variables": 156,
+      "constraints": 306,
+      "equalities": 158
+    },
+    "after_three_identity_rows": {
+      "variables": 156,
+      "constraints": 303,
+      "equalities": 155
+    },
+    "GAMS_export_including_objective": 304,
+    "exact_satisfied_constant_inequalities": 148,
+    "GAMS_generated_equations_including_objective": 156,
+    "IPOPT_variables": 156,
+    "IPOPT_equalities": 155,
+    "IPOPT_inequalities": 0
+  },
+  "limitations": [
+    "Single fixed-configuration numerical check, not exact feasibility or global optimality.",
+    "GLOA discrepancy cause is not established.",
+    "Different interfaces, solver versions and treatment of constant inequalities prevent causal attribution of iteration/time differences.",
+    "Diagnostic elapsed times are not added to benchmark performance tables."
+  ]
+}
