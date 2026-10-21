@@ -1,0 +1,69 @@
+{
+  "purpose": "Current CSTR15 status wording only; historical records, manifests and audit criteria are preserved.",
+  "baseline_revision": "f291cee85aa2b89eb73f0ffbe831f6ff1fcd95a8",
+  "completed_followup_revision": "854a1a7fc5a20a5489d82ef7991a16aaf89025f3",
+  "execution_provider_revision": "38d917ef75ef6767c2a9f238d88be19bf0b89160",
+  "updated_files": {
+    "docs/review_comparison_status.md": {
+      "previous_sha256": "29e94b6d96d2513cf85531a92957587a1cf0078c4d20d34a016b231c1c9408c7",
+      "current_sha256": "68f1459e25333c017074d53b5525707ce8ce43e8bbfe36068eff6b975883bcc5"
+    },
+    "manuscript/README.md": {
+      "previous_sha256": "331d2979001c572a45029ceb9f4fc80fc9d99936150196850a47e821c50c5369",
+      "current_sha256": "cc42a3892c3c31a7b4970790c2a0749bb8da99b25da8191da6eb0ee384c0d472"
+    },
+    "results/review_comparison_20261020/README.md": {
+      "previous_sha256": "6f7690e6d9d65813ab36230af307913ed4caec6348e76473d92864a6b07b073e",
+      "current_sha256": "2c12e1f0fd16e47e1eac078266176fc1d6d8147fd36b9a33a86d996379a81e84"
+    },
+    "results/review_comparison_20261020/fmqa_uniform/README.md": {
+      "previous_sha256": "f641a03960145e89832a41ed25f44aafa77385a012551c02e846823506de9ce3",
+      "current_sha256": "3bca60477c98da2656fb088aa5ac3d640c070c01a16e5c2309c56b74b3e356e9"
+    },
+    "review_comparison/fmqa_uniform.py": {
+      "previous_sha256": "da2f682f012d4dbfcbc5f60f3e0972bfe7c8acc6fb5bdf10b59c83e81b7ede7f",
+      "current_sha256": "2cb3c42717916cd6eda66f57933e358ebe27f864758b753d55f4257b15f1d1c1"
+    }
+  },
+  "preserved_files_sha256": {
+    "results/review_comparison_20261020/manifest.json": "03d23f69783e71b0125be6cd8bed63a0b3a296977ffa76b719d26cc09c61022f",
+    "results/review_comparison_20261020/fmqa_uniform/manifest.json": "bfe75637cd8e9f7dc7af16e06c86ee8b4719f62ee2d49a5a9712e445fb754ce3",
+    "manuscript/analysis_manifest.json": "78ee391cf5f37cbbc065cb32f1f5df8a435a87cf0c04d5c8ef680ed6f1834981",
+    "manuscript/publication_manifest.json": "37c003dbd4f9d3c05e9906697392fe247125a94a38886d80af26e6e879b4cac0",
+    "manuscript/verification.json": "3788ee8ffbab75bb2f1250c8c28ad407b7659027150e71ce5d5d314ce37054e8",
+    "results/review_diagnostics_20261020/manifest.json": "61e51a1156ab6cd80544b09a7459502a14d9c060a934e80285c5bbbea161ecdb",
+    "results/review_diagnostics_20261020/README.md": "d70ebc2415e216e36284d7c3277d451cb623f436ced515467ae98a6fca4ecdfa",
+    "results/review_diagnostics_20261020/feasibility/interpretation.json": "fd3dcec94b87ff3740690eb43e794b5d5ae19f42a2f3bd61199b0c1537f7b045",
+    "results/review_feasibility_followup_20261020/manifest.json": "375efd95ce6a2b47aaffee854957497ac629b5b465eb23f0adbf22fd6e682a70",
+    "results/review_feasibility_followup_20261020/README.md": "13fce5e47063a63cd9fd34db206eae42f59dd7c3b23cc94128af561f7f273a68",
+    "results/review_feasibility_followup_20261020/summary.json": "0cf493f1e6d5c75f0148640b438777ede23c0235d3b7e8420a3cbe897b10e62d",
+    "results/review_feasibility_tautology_20261020/manifest.json": "cdd53162738d5dbda40800fa553cc12b3dd842c4a21628e76834a7f92b92996d",
+    "results/review_feasibility_tautology_20261020/summary.json": "bdb37c0c0582115d174bf61cd15cb4fe1a0ab169d6cd97537404b18ffb959308",
+    "results/review_feasibility_tautology_20261020/residuals.json": "961ea3c54b6ecde2e790ad217f42c2cecef1748e94296ce9ffa3e7a1f2e29a62",
+    "results/review_feasibility_tautology_20261020/before_after.csv": "54e725fc8fe830db3ef0012f9fe3ce8574415d640db185bb04beda8d38a03c05",
+    "results/review_feasibility_tautology_20261020/solution.json": "c46451b0d311844fadb11814615fad50d8b3b49c5d94fa152e03b7ced823f2d9",
+    "results/review_comparison_20261020/fmqa_uniform/paired_runs.csv": "24bd86aecae9249afbfd173f93e3d1fad160c4308241e6eeef4f0ecad5f12d1c",
+    "results/review_comparison_20261020/fmqa_uniform/paired_success.csv": "fc07de52c5fc2648d3b2df79173849a4c15f4e63c2940e421912049b99f10eb8",
+    "review_comparison/analysis.py": "cdde929239164930aec89d27453a7186f1d655cc347003085683a3eae53480ed",
+    "review_comparison/runner.py": "46b8bfd176fe85cba8f6723022f2b4fa375fb034d22e8d1e60e8215870719482",
+    "review_comparison/common.py": "8d2cfc82d7f7f29f762908cb214fcc5783316d7165d77262913450b596adf3a9",
+    "review_comparison/audit.py": "a8b1dedeacf2e1205211ae6b6a4c952948b1144c06a386526dda4efef94fecdb"
+  },
+  "preservation_check": {
+    "baseline_files_hashed": 268,
+    "unchanged_files": 265,
+    "changed_files": [
+      "manuscript/README.md",
+      "results/review_comparison_20261020/README.md",
+      "results/review_comparison_20261020/fmqa_uniform/README.md"
+    ],
+    "scope": "All tracked files in the three diagnostic result directories, manuscript/, and results/review_comparison_20261020/; only the three current README status descriptions changed."
+  },
+  "historical_hashes": "Existing manifests identify their original publication bytes; their README and report-source hashes are not rewritten to describe this later status correction.",
+  "validation_command": "python -m pytest tests/test_review_comparison_fmqa_uniform.py -q",
+  "scope_exclusions": [
+    "Manuscript sources, bibliography, PDFs, figures and distribution ZIPs",
+    "Overleaf and repository visibility",
+    "Optimization, NLP, model fitting and annealing"
+  ]
+}

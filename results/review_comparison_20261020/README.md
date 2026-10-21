@@ -139,9 +139,13 @@ both retain 47.89%, versus solver/genetic 16.84%/15.79%.
   below were generated locally from verified tables and visually checked;
   their input/output hashes and Matplotlib version are recorded separately.
 
-This completes the additional genetic/sampling experiments and their frozen
-analysis. It does not complete the FMQA fitted-weight diagnostics, tightened
-feasibility experiments, manuscript edits or public-release/access checklist.
+This completes the additional genetic/sampling experiments and their frozen analysis.
+The separate [limited FMQA diagnostic](../review_diagnostics_20261020/README.md) verifies seven reconstructed fits; historical fitted weights remain unavailable.
+The later [CSTR15 follow-up](../review_feasibility_tautology_20261020/summary.json), retained in commit `854a1a7fc5a20a5489d82ef7991a16aaf89025f3`, passed the `1e-8` numerical feasibility check on the original GDP with objective `2.8293940632857546` and maximum unscaled violation `3.3306690738754696e-16`.
+The recorded A12 lower-bound discrepancy persists, with a difference of `0.6931579445174396`.
+This is numerical evidence for the retained point, not a proof of exact mathematical feasibility, global optimality or a solver defect.
+Earlier option errors and the no-solution `TOO_FEW_DOF` follow-up remain historical records; manuscript synchronization and public-release/access checks are outside this status correction.
+The original manifests retain their historical hashes; [status_correction.json](status_correction.json) separately records the documentation-only updates and preserved evidence.
 See [review disposition](../../docs/review_comparison_status.md).
 
 ## Files, provenance and reproduction

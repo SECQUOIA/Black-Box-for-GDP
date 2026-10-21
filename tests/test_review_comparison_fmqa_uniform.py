@@ -237,6 +237,7 @@ def test_cli_repeat_csv_bytes_hashes_and_no_overwrite(tmp_path):
         )
     for name in ("paired_runs.csv", "paired_success.csv", "README.md"):
         assert (outputs[0] / name).read_bytes() == (outputs[1] / name).read_bytes()
+        assert (outputs[0] / name).read_bytes() == (INPUT.parent.parent / "fmqa_uniform" / name).read_bytes()
     assert len(csvrows(outputs[0] / "paired_success.csv")) == 19
     manifest = json.loads((outputs[0] / "manifest.json").read_text())
     assert manifest["input"]["sha256"] == sha(INPUT)
@@ -252,3 +253,44 @@ def test_cli_repeat_csv_bytes_hashes_and_no_overwrite(tmp_path):
     with pytest.raises(FileExistsError):
         analysis.run(INPUT, outputs[0], MANIFEST)
     assert sha(outputs[0] / "manifest.json") == before
+
+
+def test_current_cstr15_status_matches_retained_evidence():
+    directory = ROOT / "results/review_feasibility_tautology_20261020"
+    summary = json.loads((directory / "summary.json").read_text())
+    residuals = json.loads((directory / "residuals.json").read_text())
+    assessment = summary["assessment"]
+    assert summary["returned_solution"] and summary["tightened_feasibility_passed"]
+    assert summary["bound_discrepancy_persists"]
+    for key in ("objective", "maximum_unscaled_primal_violation"):
+        assert assessment[key] == residuals[key]
+    assert residuals["maximum_unscaled_primal_violation"] <= residuals["tolerance"] == 1e-8
+    assert assessment["bound_minus_witness"] == assessment["reported_gloa_lower_bound"] - assessment["objective"]
+    assert assessment["bound_minus_witness"] > assessment["audit_tolerance"]
+    for name in (
+        "docs/review_comparison_status.md",
+        "manuscript/README.md",
+        "results/review_comparison_20261020/README.md",
+        "results/review_comparison_20261020/fmqa_uniform/README.md",
+    ):
+        text = (ROOT / name).read_text()
+        for key in ("objective", "maximum_unscaled_primal_violation", "bound_minus_witness"):
+            assert str(assessment[key]) in text, (name, key)
+        assert "854a1a7fc5a20a5489d82ef7991a16aaf89025f3" in text
+        assert "not a proof of exact mathematical feasibility, global optimality or a solver defect" in text
+        assert "review_feasibility_tautology_20261020/" in text
+    historical = json.loads((ROOT / "results/review_diagnostics_20261020/feasibility/interpretation.json").read_text())
+    earlier = json.loads((ROOT / "results/review_feasibility_followup_20261020/summary.json").read_text())
+    assert historical["status"] == "tightened_feasibility_incomplete"
+    assert historical["returned_new_solutions"] == 0
+    assert earlier["returned_solutions"] == 0
+    assert earlier["tightened_feasibility_passed"] is False
+    assert earlier["bound_discrepancy_persists"] is None
+
+
+def test_status_correction_preserves_original_manifests_and_evidence():
+    correction = json.loads((INPUT.parent.parent / "status_correction.json").read_text())
+    for name, digest in correction["preserved_files_sha256"].items():
+        assert sha(ROOT / name) == digest, name
+    for name, record in correction["updated_files"].items():
+        assert sha(ROOT / name) == record["current_sha256"], name
