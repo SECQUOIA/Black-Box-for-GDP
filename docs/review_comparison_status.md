@@ -1,15 +1,15 @@
 # Professor review disposition — manuscript revision
 
 The two major experimental comparisons have been incorporated in the [manuscript and supplementary material](../manuscript/README.md).
-The primary comparison uses RBFOpt genetic and sampling controls, while the solver variant is retained in Supplementary Section S10.
+The primary comparison uses RBFOpt and sampling controls, while the solver variant is retained in Supplementary Section S10.
 The 3,430 additional runs and the 4,760 historical runs are preserved unchanged.
-The manuscript revision at `6c0228e8` used completed records and ran no optimizer or NLP experiment.
+The current manuscript synchronizes the latest Overleaf sources and PDFs using completed records, with no new optimizer, NLP, fitting or annealing execution.
 The execution provider remains `38d917ef75ef6767c2a9f238d88be19bf0b89160`; the input analysis snapshot is `6e083eb49b497ce4fea90131e18cc0459db682e8`.
-See the [original results and limitations](../results/review_comparison_20261020/README.md) and [publication analysis provenance](../manuscript/analysis_manifest.json).
+See the [original results and limitations](../results/review_comparison_20261020/README.md) and [publication analysis provenance](../manuscript/analysis_manifest_current.json).
 
 | Review item | Status | Evidence / remaining action |
 |---|---|---|
-| Major: matched MSRSM genetic comparison | incorporated | Primary tables and figures use genetic; S10 retains solver results, paired comparisons, other auxiliary solver calls, and timing-environment limitations |
+| Major: matched MSRSM genetic comparison | incorporated | Primary tables and figures use RBFOpt; S10 retains solver results, paired comparisons, other auxiliary solver calls, and timing-environment limitations |
 | Major: uniform and BAM-prefix controls | incorporated | Uniform in both suites; Grid prefix control; first-hit and completion profiles; B10 equality and higher-budget differences discussed |
 | Minor 1: timing endpoint and terminal solutions | incorporated | Main timing definition and figure captions exclude final extraction/export; historical terminal audit preserved with solver labels; additional terminal observations linked in S10 |
 | Minor 2: alpha cost scenarios | incorporated | S10 scenarios rescale point costs on retained paths; all existing scenario results remain unchanged |
@@ -17,15 +17,15 @@ See the [original results and limitations](../results/review_comparison_20261020
 | FMQA-SA versus uniform paired comparison | incorporated | [1,190 pairs and 19 summaries](../results/review_comparison_20261020/fmqa_uniform/README.md); publication analysis independently agrees |
 | Minor 4: suite exclusions | incorporated | S10 excludes Yang3 and Bohachevsky2; lattice effect discussed; no shifted-grid rerun |
 | Minor 5: FMQA implementation and energy diagnostic | limited diagnostic incorporated | [Seven reconstructed fits and 3,328 binary strings](../results/review_diagnostics_20261020/README.md) summarized in S10; historical fitted weights remain unavailable; no prevalence or causal claim |
-| Minor 6: numerical feasibility and tightened check | CSTR15 check completed; manuscript synchronization outside this correction | [One-call identity-preprocessed follow-up](../results/review_feasibility_tautology_20261020/README.md), retained in `854a1a7fc5a20a5489d82ef7991a16aaf89025f3`, passed the original-GDP 1e-8 residual test; the recorded A12 lower-bound discrepancy persists; all three earlier failed calls preserved; numerical evidence for this case only |
+| Minor 6: numerical feasibility and tightened check | CSTR15 check completed and synchronized in main text and S9 | [One-call identity-preprocessed follow-up](../results/review_feasibility_tautology_20261020/README.md), retained in `854a1a7fc5a20a5489d82ef7991a16aaf89025f3`, passed the original-GDP 1e-8 residual test; the recorded A12 lower-bound discrepancy persists; all three earlier failed calls preserved; numerical evidence for this case only |
 | Minor 7: starred execution profile | incorporated; optional display deferred | Table 5 notes explain replacement of previously failing cases, preserved expressions/settings and corrected preparation; unsuccessful times remain archived |
-| Minor 8: figure annotations / variant labels | incorporated | Seven figures regenerated; BAM prefix shaded; genetic and controls labeled; Figure 6 uses mean cost shares |
+| Minor 8: figure annotations / variant labels | incorporated | Seven figures regenerated; BAM prefix shaded; RBFOpt and controls labeled; Figure 6 uses mean cost shares |
 | Minor 9: 63-object partition | preserved | S9 retains 45 selected plus 18 earlier records; nine witnesses form a subset |
 | Minor 10: availability wording | incorporated | Private status and planned post-submission release stated; administrator action still required |
 | Minor 11: GDP/process bibliography | preserved | No substantive correction requested; publication years unchanged |
-| Minor 12: Nannicini configuration context | incorporated | Section 3.3.3 explains MSRSM candidate-search context without assuming the new result |
+| Minor 12: Nannicini configuration context | incorporated | S10 explains the MSRSM candidate-search comparison and cited implementation context |
 | Minor 13: statistical references / TTS meaning | incorporated | Clopper–Pearson issue 4 retained; TTS remains an empirical estimate, not a guarantee |
-| Minor 14: metadata / pinned manuals | partial | Three DOIs and D-Wave 1.6.0 release link added; exact build-specific BAM/Pyomo documentation still requires verification |
+| Minor 14: metadata / pinned documentation | incorporated with source distinction | Pyomo 6.10.0 documentation and bam-solver 5.0.0 interface documentation are version-pinned; the latter is not claimed to be an archived full engine manual |
 | Minor 15: commit-content provenance | partial | Repository URLs updated; historical provider revisions preserved; logged-out public commit-content verification awaits release |
 | Typos and terminology | incorporated where verified | ALAMO/NLP/CSTR wording and S6/S9 wording corrected; historical branch capitalization retained from archived source |
 
@@ -38,9 +38,9 @@ The [saved summary](../results/review_feasibility_tautology_20261020/summary.jso
 This is numerical evidence for the retained point, not a proof of exact mathematical feasibility, global optimality or a solver defect.
 The option-error report in `results/review_diagnostics_20261020/` and the `TOO_FEW_DOF` report in `results/review_feasibility_followup_20261020/` describe earlier unsuccessful allocations and remain unchanged.
 The original execution provider and comparison input snapshot above are distinct from the CSTR15 completion commit and remain unchanged.
-This correction updates current repository status descriptions only; manuscript sources, bibliography, PDFs, figures and distribution ZIPs remain unchanged, and Overleaf was not accessed.
-Obsolete incomplete-status wording in the manuscript copies is outside this correction, and no manuscript synchronization is claimed.
-Other incomplete review items retain their previous status.
+The earlier status-only correction excluded manuscript files.
+The subsequent author-authorized revision now synchronizes the Overleaf manuscript, bibliography, PDFs and figures, including the successful CSTR15 result.
+Original result archives, manifests and execution-provider revisions remain unchanged.
 The repository visibility has not been changed, and no Slack message has been sent.
 
 ## Nannicini source check
@@ -50,3 +50,27 @@ Sections 4.2.3 and 5.2 of the [publisher PDF](https://ojmo.centre-mersenne.org/i
 Those experiments use more intensive genetic settings than the defaults, and other surrogate-minimization operations retain Ipopt/Bonmin regardless of candidate-search strategy.
 These observations motivate the present matched comparison without establishing its outcome or invalidating the preserved solver-option records.
 The new performance runs keep the recorded default GA parameters.
+
+## Latest minor review and naming revision
+
+The primary method name is RBFOpt in all current prose, table headings and plot labels.
+Its default candidate-search option is stated once in the main methodology; implementation identifiers in historical records remain unchanged.
+The main text contains one pointer to the RBFOpt (solver) comparison in Supplementary Section S10.
+Method names replace the former single-letter plot labels and RBFOpt setting abbreviations.
+
+| Latest review item | Current disposition |
+|---|---|
+| 1: population size | Base parameter 400 and 20 generations distinguished from effective populations 408 and 412 |
+| 2: Bonmin events | S10 classifies all 154 recorded exceptions, explains candidate recovery, and retains uncertainty about underlying solver causes |
+| 3: CSTR15 counts | S5/S9 explain 290 - 135 + 151 = 306 constraints and 60 + 15 = 75 discrete values |
+| 4: displayed Process pairs | S18 includes Dynamic B12 RBFOpt versus DSDA and Small Batch FMQA-SA versus Uniform, retaining paired outcomes and exploratory intervals |
+| 5: fixed-path costs | Section 4.4 reports the RBFOpt/BAM median-order reversal at tenfold point cost without claiming a live adaptive crossover |
+| 6: readable cost ticks | Dynamic B30/B37 numerical logarithmic ticks are present in Figures 7 and 8 |
+| 7: exclusions | Main text and S10 include DSDA 44.21% and FMQA-SA 57.89% in the two-function exclusion summary |
+| 8-10: references | Accepted references and publication years retained |
+| 11: pinned documentation | Pyomo 6.10.0 and bam-solver 5.0.0 interface documentation replace moving links; external cited-commit access still awaits administrator release |
+| Small corrections | CSTR expansion, source-verified QHD_Data capitalization, Hamiltonian/FMQA/Boolean capitalization and S9 pagination checked |
+
+The main performance tables, callback records and paired numerical results retain their values.
+Seven data figures are regenerated solely from the retained records with the current labels.
+The seven reconstructed FMQA fits still do not certify unsaved historical weights.

@@ -43,16 +43,17 @@ LABEL = dict(
         ALL,
         [
             "DSDA",
-            "RBFOpt genetic",
+            "RBFOpt",
             "BAM",
             "FMQA-SA",
             "Uniform",
-            "BAM prefix + U",
-            "RBFOpt solver",
+            "BAM-prefix control",
+            "RBFOpt (solver)",
         ],
     )
 )
-SHORT = dict(zip(ALL, ["D", "R-G", "B", "F", "U", "B+U", "R-S"]))
+AXIS_LABEL = dict(LABEL)
+AXIS_LABEL[PRE] = "BAM-prefix\ncontrol"
 COLOR = dict(
     zip(
         ALL,
@@ -93,6 +94,43 @@ def pname(c):
             "dynamic": "Dynamic",
         }.get(c, c.replace("_", " ").title())
     )
+
+
+def process_pair(groups, case, budget, new, reference):
+    """Summarize one complete, seed-paired Process condition without pooling."""
+    from .analysis import paired_interval
+
+    pairs = []
+    for method in (new, reference):
+        records = groups["process", case, budget, method]
+        by_seed = {r["seed"]: r["hit"] for r in records}
+        if len(records) != 10 or set(by_seed) != set(range(10)):
+            raise ValueError(f"Incomplete or duplicate paired seeds: {case}, {budget}, {method}")
+        pairs.append(by_seed)
+    a, b = pairs
+    differences = [int(a[s]) - int(b[s]) for s in range(10)]
+    low, high = paired_interval([differences], seed=20261020, replications=2000, clustered=False)
+    return dict(
+        scope="process", case=case, budget=budget, new=new, reference=reference,
+        pairs=10, both_success=sum(a[s] and b[s] for s in range(10)),
+        new_only_success=sum(a[s] and not b[s] for s in range(10)),
+        reference_only_success=sum(not a[s] and b[s] for s in range(10)),
+        neither_success=sum(not a[s] and not b[s] for s in range(10)),
+        difference=st.mean(differences), low=low, high=high,
+        bootstrap_seed=20261020, bootstrap_replications=2000,
+        bootstrap_unit="paired seeds within this condition",
+    )
+
+
+def label_dynamic_cost_axis(ax, axis):
+    """Label intermediate seconds in the narrow B30/B37 logarithmic panels."""
+    from matplotlib.ticker import FixedLocator, FuncFormatter
+
+    limits = ax.get_xlim() if axis == "x" else ax.get_ylim()
+    ticks = [v for v in (10, 15, 20, 30, 40, 50, 60, 80, 100) if limits[0] <= v <= limits[1]]
+    target = ax.xaxis if axis == "x" else ax.yaxis
+    target.set_major_locator(FixedLocator(ticks))
+    target.set_major_formatter(FuncFormatter(lambda value, _: f"{value:g}"))
 
 
 def load():
@@ -336,6 +374,21 @@ def tables(rows, groups, out):
                     )
                 )
     csvwrite(out / "paired_comparisons.csv", paired)
+    selected_process = [
+        process_pair(groups, "dynamic", 12, GEN, "dsda"),
+        process_pair(groups, "small_batch", 10, "fmqa_sa", UNI),
+    ]
+    csvwrite(out / "paired_process_selected.csv", selected_process)
+    write(
+        "paired_process_selected.tex",
+        [
+            f"{pname(r['case'])} & {r['budget']} & {LABEL[r['new']]} -- {LABEL[r['reference']]} & "
+            + "/".join(str(r[k]) for k in ("both_success", "new_only_success", "reference_only_success", "neither_success"))
+            + f" & {100 * r['difference']:.0f} & [{100 * r['low']:.0f}, {100 * r['high']:.0f}]"
+            + r" \\"
+            for r in selected_process
+        ],
+    )
     write(
         "paired_grid.tex",
         [
@@ -584,9 +637,11 @@ def figures(rows, groups, out):
             yscale="log",
             title=f"Budget B={b}",
             xticks=range(len(GRID)),
-            xticklabels=[SHORT[m] for m in GRID],
+            xticklabels=[AXIS_LABEL[m] for m in GRID],
             ylabel="Empirical TTS99 (s)",
         )
+        ax.tick_params(axis="x", labelsize=9)
+        plt.setp(ax.get_xticklabels(), rotation=35, ha="right", rotation_mode="anchor")
         ax.grid(axis="y", alpha=0.2)
     fig.legend(
         handles=handles(GRID), loc="lower center", ncol=3, frameon=False, fontsize=9.8
@@ -610,6 +665,8 @@ def figures(rows, groups, out):
                 ax.set(xscale="log", xlabel="Completion cost (s)")
                 ax.xaxis.set_major_locator(LogLocator(numticks=3))
                 ax.xaxis.set_minor_formatter(NullFormatter())
+                if c == "dynamic" and b in (30, 37):
+                    label_dynamic_cost_axis(ax, "x")
             ax.grid(axis="y", alpha=0.2)
         for ax in axs[:, 0]:
             ax.set_ylabel("Target-hit fraction")
@@ -678,7 +735,7 @@ def figures(rows, groups, out):
             ylim=(0, 128),
             yticks=[0, 50, 100],
             xticks=range(5),
-            xticklabels=[SHORT[m] for m in PRIMARY],
+            xticklabels=[AXIS_LABEL[m] for m in PRIMARY],
             ylabel="Share of mean total (%)",
         )
         ax.text(
@@ -701,7 +758,7 @@ def figures(rows, groups, out):
     )
     fig.tight_layout(rect=(0, 0.07, 1, 1))
     save(fig, "process_cost_breakdown")
-    fig, axs = plt.subplots(3, 3, figsize=(8.2, 7.5))
+    fig, axs = plt.subplots(3, 3, figsize=(8.2, 8.7))
     for ax, (c, b) in zip(axs.flat, PANELS):
         for j, m in enumerate(PRIMARY):
             rr = groups["process", c, b, m]
@@ -723,10 +780,14 @@ def figures(rows, groups, out):
             title=f"{pname(c)} (B={b})",
             yscale="log",
             xticks=range(5),
-            xticklabels=[SHORT[m] for m in PRIMARY],
+            xticklabels=[AXIS_LABEL[m] for m in PRIMARY],
         )
+        ax.tick_params(axis="x", labelsize=9)
+        plt.setp(ax.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor")
         ax.yaxis.set_major_locator(LogLocator(numticks=3))
         ax.yaxis.set_minor_formatter(NullFormatter())
+        if c == "dynamic" and b in (30, 37):
+            label_dynamic_cost_axis(ax, "y")
         ax.grid(axis="y", alpha=0.2)
     for ax in axs[:, 0]:
         ax.set_ylabel("Completion cost (s)")
@@ -743,7 +804,7 @@ def figures(rows, groups, out):
         ncol=3,
         frameon=False,
     )
-    fig.tight_layout(rect=(0, 0.06, 1, 1))
+    fig.tight_layout(rect=(0, 0.06, 1, 1), h_pad=1.8)
     save(fig, "process_completion_scatter")
     dump(out / "figure_values.json", checks)
 

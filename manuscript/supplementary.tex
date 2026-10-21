@@ -234,7 +234,7 @@ The target sets at \(F\leq10^{-5}\) also agree.
 \clearpage
 \section{Executable protocol and implementation settings}\label{sec:supp-protocol}
 The companion protocol files and \nolinkurl{grid_execution_records.json} preserve the historical execution settings, with \nolinkurl{protocol_rbfopt.json} referring specifically to the solver variant.
-The primary RBFOpt results use genetic candidate search; the additional archive supplies the matched initial coordinates, seeds, budgets and actual settings (Section~S10).
+The additional archive supplies the matched initial coordinates, seeds, budgets and actual settings for the primary RBFOpt results (Section~S10).
 
 For each process condition and seed (0--9), all methods share the same three integer Latin-hypercube starts.
 Python and NumPy use the job seed, and RBFOpt also receives \nolinkurl{rand_seed}.
@@ -253,7 +253,8 @@ Grid DSDA ranks the initial points and attempts successive descents until reachi
 It enumerates the full \(L_\infty\) neighborhood as the lexicographic Cartesian product of \((-1,0,1)\), excluding the zero direction and out-of-bounds points; ties select the first point, and improvement must exceed \(10^{-12}\).
 
 Primary RBFOpt 4.3.0 uses MSRSM, \nolinkurl{rbf=auto}, \nolinkurl{global_search_method=genetic}, integer variables, and \nolinkurl{do_init_strategy=False}.
-The genetic population size is 400 with 20 generations; only the global-search option differs from the retained solver settings.
+The recorded defaults are \nolinkurl{ga_base_population_size=400} and \nolinkurl{ga_num_generations=20}; only the global-search option differs from the retained solver settings.
+RBFOpt 4.3.0 uses an effective population of $400+\lfloor 20n/5\rfloor$, where $n$ is the dimension passed to the genetic-search routine, giving 408 and 412 for two and three search variables.
 Recorded defaults include \nolinkurl{max_iterations=1000}, \nolinkurl{max_cycles=1000}, \nolinkurl{max_stalled_iterations=100}, \nolinkurl{max_clock_time=1e30}, \nolinkurl{target_objval=-1e10}, and \nolinkurl{eps_opt=0.01}.
 Bonmin solves surrogate MINLPs, and the configured IPOPT executable supports surrogate NLPs; these are distinct from GAMS/IPOPT process evaluations.
 BAM 5.0.0 receives \nolinkurl{x0=None}, all-integer variables, the three evaluated starts, and \nolinkurl{max_evals}=B-3, with other options at package defaults; its local models use ALAMO/BARON.
@@ -331,9 +332,9 @@ Process success is defined by the wrapper's best accepted configuration, includi
 The non-BAM runners record callback \(B\) before raising \texttt{BudgetStop}; \texttt{worker()} records normal budget completion, and \texttt{summarize()} selects the minimum \texttt{raw\_objective} among \texttt{accepted=True} records.
 Its coordinates and objective are stored as \texttt{best\_point} and \texttt{best\_accepted\_objective} in \texttt{runs.csv}.
 
-The following terminal audit concerns the original 560-run comparison containing RBFOpt solver: 291 hits, 268 misses, and one execution failure.
-The new genetic and uniform terminal observations are separately preserved in the additional archive and the manuscript companion table \nolinkurl{new_terminal_hits.csv}.
-Twenty hits first occur at callback \(B\): six values return normally to BAM, while ten RBFOpt-solver and four FMQA-SA hits are preserved only in the wrapper summary.
+The following terminal audit concerns the original 560-run comparison containing RBFOpt (solver): 291 hits, 268 misses, and one execution failure.
+The new RBFOpt and uniform terminal observations are separately preserved in the additional archive and the manuscript companion table \nolinkurl{new_terminal_hits.csv}.
+Twenty hits first occur at callback \(B\): six values return normally to BAM, while ten RBFOpt (solver) and four FMQA-SA hits are preserved only in the wrapper summary.
 For these 14 terminal-only cases (Table~\ref{tab:supp-terminal-recovery}), the accepted callback coordinates and objective match the final summary and reference exactly.
 All have \texttt{budget\_stop} and a null \texttt{backend\_result\_at\_budget}; their native returned incumbents are therefore unavailable.
 Hit counts, completion profiles, and restart estimates consistently use the wrapper metric.
@@ -351,20 +352,20 @@ C and N identify the source archives below.}
 \toprule
 Case & $B$ & Method & Seed & $\xi_B=\xi_{\rm wrap}$ & $f_B=f_{\rm wrap}=f_{\rm ref}$ & Source \\
 \midrule
-CSTR 10 & 15 & RBFOpt solver & 1 & $(10,10)$ & 2.889536968602369 & C \\
-CSTR 10 & 15 & RBFOpt solver & 5 & $(10,10)$ & 2.889536968602369 & C \\
-CSTR 10 & 15 & RBFOpt solver & 6 & $(10,10)$ & 2.889536968602369 & C \\
+CSTR 10 & 15 & RBFOpt (solver) & 1 & $(10,10)$ & 2.889536968602369 & C \\
+CSTR 10 & 15 & RBFOpt (solver) & 5 & $(10,10)$ & 2.889536968602369 & C \\
+CSTR 10 & 15 & RBFOpt (solver) & 6 & $(10,10)$ & 2.889536968602369 & C \\
 CSTR 5 & 8 & FMQA-SA & 5 & $(5,5)$ & 3.0620145766081155 & C \\
-CSTR 5 & 8 & RBFOpt solver & 3 & $(5,5)$ & 3.0620145766081155 & C \\
-CSTR 5 & 8 & RBFOpt solver & 7 & $(5,5)$ & 3.0620145766081155 & C \\
+CSTR 5 & 8 & RBFOpt (solver) & 3 & $(5,5)$ & 3.0620145766081155 & C \\
+CSTR 5 & 8 & RBFOpt (solver) & 7 & $(5,5)$ & 3.0620145766081155 & C \\
 Column & 16 & FMQA-SA & 8 & $(13,4)$ & 19346.124801006445 & N \\
-Column & 16 & RBFOpt solver & 3 & $(13,4)$ & 19346.124801006445 & N \\
+Column & 16 & RBFOpt (solver) & 3 & $(13,4)$ & 19346.124801006445 & N \\
 Dynamic & 12 & FMQA-SA & 7 & $(1,4)$ & -212.00878715666533 & N \\
-Dynamic & 12 & RBFOpt solver & 7 & $(1,4)$ & -212.00878715666533 & N \\
+Dynamic & 12 & RBFOpt (solver) & 7 & $(1,4)$ & -212.00878715666533 & N \\
 Dynamic & 15 & FMQA-SA & 3 & $(1,4)$ & -212.00878715666533 & N \\
-Small Batch & 10 & RBFOpt solver & 5 & $(2,2,1)$ & 167427.6571147878 & N \\
-Small Batch & 10 & RBFOpt solver & 7 & $(2,2,1)$ & 167427.6571147878 & N \\
-Small Batch & 10 & RBFOpt solver & 9 & $(2,2,1)$ & 167427.6571147878 & N \\
+Small Batch & 10 & RBFOpt (solver) & 5 & $(2,2,1)$ & 167427.6571147878 & N \\
+Small Batch & 10 & RBFOpt (solver) & 7 & $(2,2,1)$ & 167427.6571147878 & N \\
+Small Batch & 10 & RBFOpt (solver) & 9 & $(2,2,1)$ & 167427.6571147878 & N \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -379,7 +380,7 @@ Repository and experimental revisions are given in Section~\ref{sec:supp-data}.
 \label{sec:supp-stopping}
 
 The retained historical stopping audit uses 4,200 Grid runs and 560 process runs, with RBFOpt explicitly referring to the solver variant.
-All new genetic and sampling runs reach their declared callback budgets; their first-hit and post-target counts can be reconstructed from \nolinkurl{manuscript/tables/run_records.csv}.
+All new RBFOpt and sampling runs reach their declared callback budgets; their first-hit and post-target counts can be reconstructed from \nolinkurl{manuscript/tables/run_records.csv}.
 Table~\ref{tab:supp-stopping} pools the tested conditions and budgets, with 1,050 runs per Grid row and 140 per process row; \nolinkurl{stopping_diagnostics.json} provides run-level and condition-level records.
 
 \begin{table}[htbp]
@@ -393,12 +394,12 @@ The final column is the median number of additional callbacks after first target
 Method & Budget & Local & Target & Failure & Callbacks & After target \\
 \midrule
 Grid DSDA    & 536  & 212 & 302 & 0 & 38,033 & 10 (382) \\
-Grid RBFOpt solver & 1050 & 0   & 0   & 0 & 54,600 & 40 (661) \\
+Grid RBFOpt (solver) & 1050 & 0   & 0   & 0 & 54,600 & 40 (661) \\
 Grid BAM     & 1050 & 0   & 0   & 0 & 54,600 & 45 (626) \\
 Grid FMQA-SA & 1050 & 0   & 0   & 0 & 54,600 & 31 (370) \\
 \midrule
 Process DSDA    & 73  & 66 & 0 & 1 & 2,532 & 6 (75) \\
-Process RBFOpt solver & 140 & 0  & 0 & 0 & 3,430 & 14 (127) \\
+Process RBFOpt (solver) & 140 & 0  & 0 & 0 & 3,430 & 14 (127) \\
 Process BAM     & 140 & 0  & 0 & 0 & 3,430 & 7 (47) \\
 Process FMQA-SA & 140 & 0  & 0 & 0 & 3,430 & 7.5 (42) \\
 \bottomrule
@@ -421,7 +422,8 @@ These diagnostics do not isolate causal runtime contributions, and total runtime
 Counts below describe the unfixed original GDP before reformulation or presolve, including all active disjunct branches, not the smaller NLP for a particular selected configuration.
 Fixed continuous variables remain in the continuous-variable count.
 Dynamic is discretized with 30 finite elements per stage and three Radau points.
-Binary counts refer to the indicator variables already constructed by the model.
+Binary counts refer to the indicator variables already constructed by the model, before Boolean-to-binary conversion.
+Section~S9 reconciles these counts with the configuration-specific CSTR15 feasibility check.
 All nine models have zero additional nonbinary integer variables.
 
 \begin{table}[htbp]
@@ -561,7 +563,7 @@ TTS99 multiplies the median full-run cost by a plug-in independent-restart count
 It is a descriptive summary under independence and representative-cost assumptions, not a runtime percentile or a 99\% guarantee; no first-hit time is inferred from full-run overhead.
 
 The following tables cover 70 primary process groups and 630 primary Grid problem--method--budget groups.
-R-G denotes RBFOpt genetic, U denotes uniform, and B+U denotes the BAM-prefix control; solver-variant comparisons are in Section~S10.
+Comparisons with RBFOpt (solver) are reported in Section~S10.
 Cells report \(h\,[p_L,p_U]\), with limits rounded to two decimals; displayed endpoints may be rounded interior bounds.
 The primary counts and interval tables are regenerated from \nolinkurl{manuscript/tables/run_records.csv}; the original companion \nolinkurl{success_intervals.csv} is retained as a historical solver-variant artifact.
 Seed indices remain paired across methods within each problem/budget, but intervals are calculated separately for each group, not by pooling the heterogeneous 21-function suite.
@@ -575,7 +577,7 @@ Seed indices remain paired across methods within each problem/budget, but interv
 All failures remain in the ten-run denominator.}
 \setlength{\tabcolsep}{3pt}\footnotesize\begin{tabular}{lrlllll}
 \toprule
-Case & $B$ & DSDA & R-G & BAM & FMQA-SA & U\\\midrule
+Case & $B$ & DSDA & RBFOpt & BAM & FMQA-SA & Uniform\\\midrule
 Column & 16 & 5 [0.19, 0.81] & 5 [0.19, 0.81] & 0 [0.00, 0.31] & 4 [0.12, 0.74] & 0 [0.00, 0.31] \\
 CSTR 5 & 8 & 2 [0.03, 0.56] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 3 [0.07, 0.65] & 4 [0.12, 0.74] \\
 CSTR 10 & 15 & 2 [0.03, 0.56] & 9 [0.55, 1.00] & 1 [0.00, 0.45] & 2 [0.03, 0.56] & 1 [0.00, 0.45] \\
@@ -600,7 +602,7 @@ Dynamic & 50 & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 6 [0.26, 0.
 Each cell is $h\,[p_L,p_U]$ from ten seeds.}
 \setlength{\tabcolsep}{2pt}\footnotesize\begin{tabular}{lllllll}
 \toprule
-Function & DSDA & R-G & BAM & FMQA-SA & U & B+U\\\midrule
+Function & DSDA & RBFOpt & BAM & FMQA-SA & Uniform & \shortstack{BAM-prefix\\control}\\\midrule
 Ackley & 0 [0.00, 0.31] & 4 [0.12, 0.74] & 10 [0.69, 1.00] & 0 [0.00, 0.31] & 0 [0.00, 0.31] & 10 [0.69, 1.00] \\
 Alpine1 & 0 [0.00, 0.31] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 0 [0.00, 0.31] & 0 [0.00, 0.31] & 10 [0.69, 1.00] \\
 Alpine2 & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 1 [0.00, 0.45] \\
@@ -632,7 +634,7 @@ Xin She Yang3 & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 
 Each cell is $h\,[p_L,p_U]$ from ten seeds.}
 \setlength{\tabcolsep}{2pt}\footnotesize\begin{tabular}{lllllll}
 \toprule
-Function & DSDA & R-G & BAM & FMQA-SA & U & B+U\\\midrule
+Function & DSDA & RBFOpt & BAM & FMQA-SA & Uniform & \shortstack{BAM-prefix\\control}\\\midrule
 Ackley & 0 [0.00, 0.31] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 1 [0.00, 0.45] & 0 [0.00, 0.31] & 10 [0.69, 1.00] \\
 Alpine1 & 1 [0.00, 0.45] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 3 [0.07, 0.65] & 0 [0.00, 0.31] & 10 [0.69, 1.00] \\
 Alpine2 & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 2 [0.03, 0.56] \\
@@ -664,7 +666,7 @@ Xin She Yang3 & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 
 Each cell is $h\,[p_L,p_U]$ from ten seeds.}
 \setlength{\tabcolsep}{2pt}\footnotesize\begin{tabular}{lllllll}
 \toprule
-Function & DSDA & R-G & BAM & FMQA-SA & U & B+U\\\midrule
+Function & DSDA & RBFOpt & BAM & FMQA-SA & Uniform & \shortstack{BAM-prefix\\control}\\\midrule
 Ackley & 0 [0.00, 0.31] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 4 [0.12, 0.74] & 0 [0.00, 0.31] & 10 [0.69, 1.00] \\
 Alpine1 & 1 [0.00, 0.45] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 3 [0.07, 0.65] & 0 [0.00, 0.31] & 10 [0.69, 1.00] \\
 Alpine2 & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 2 [0.03, 0.56] & 1 [0.00, 0.45] & 2 [0.03, 0.56] \\
@@ -696,7 +698,7 @@ Xin She Yang3 & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 
 Each cell is $h\,[p_L,p_U]$ from ten seeds.}
 \setlength{\tabcolsep}{2pt}\footnotesize\begin{tabular}{lllllll}
 \toprule
-Function & DSDA & R-G & BAM & FMQA-SA & U & B+U\\\midrule
+Function & DSDA & RBFOpt & BAM & FMQA-SA & Uniform & \shortstack{BAM-prefix\\control}\\\midrule
 Ackley & 0 [0.00, 0.31] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 5 [0.19, 0.81] & 1 [0.00, 0.45] & 10 [0.69, 1.00] \\
 Alpine1 & 1 [0.00, 0.45] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 4 [0.12, 0.74] & 1 [0.00, 0.45] & 10 [0.69, 1.00] \\
 Alpine2 & 1 [0.00, 0.45] & 2 [0.03, 0.56] & 1 [0.00, 0.45] & 2 [0.03, 0.56] & 1 [0.00, 0.45] & 2 [0.03, 0.56] \\
@@ -728,7 +730,7 @@ Xin She Yang3 & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 
 Each cell is $h\,[p_L,p_U]$ from ten seeds.}
 \setlength{\tabcolsep}{2pt}\footnotesize\begin{tabular}{lllllll}
 \toprule
-Function & DSDA & R-G & BAM & FMQA-SA & U & B+U\\\midrule
+Function & DSDA & RBFOpt & BAM & FMQA-SA & Uniform & \shortstack{BAM-prefix\\control}\\\midrule
 Ackley & 0 [0.00, 0.31] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 8 [0.44, 0.97] & 1 [0.00, 0.45] & 10 [0.69, 1.00] \\
 Alpine1 & 1 [0.00, 0.45] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 5 [0.19, 0.81] & 1 [0.00, 0.45] & 10 [0.69, 1.00] \\
 Alpine2 & 1 [0.00, 0.45] & 3 [0.07, 0.65] & 1 [0.00, 0.45] & 2 [0.03, 0.56] & 1 [0.00, 0.45] & 2 [0.03, 0.56] \\
@@ -880,40 +882,68 @@ W09 & Dynamic & RIC & -212.00878715666482 & 8.313e-13 & R1 \\
 \noindent R3: \nolinkurl{results/gdp_comparison_loa_20261001/raw}.\par
 
 Within \nolinkurl{algebraic_audit/}, \nolinkurl{manifest.json} identifies the source archives; \nolinkurl{repository_comparison.csv} contains the selected-run results; and \nolinkurl{solution_rechecks.json} and \nolinkurl{repository_validation.json} provide the original-model checks and validation metadata.
-A separate check of the archived CSTR15 LOA witness W03 reproduces its objective $2.82935061823614$ and maximum unscaled violation $5.634494497502862\times10^{-7}$ in the pinned original GDP~\citep{additionalDiagnostics}.
-The recorded A12 GLOA lower bound remains $3.522552007803194$, with a bound-minus-witness difference of $0.6932013895670543$ under the original audit convention.
-Two bounded polishing invocations rejected an unsupported AMPL-driver option before optimization and returned no new witness.
-Tightened feasibility is therefore not established, and these failed invocations neither establish nor disprove persistence of the discrepancy at a tighter residual threshold.
-The original numerical-feasibility qualification is retained.
+\paragraph{Additional tightened-feasibility check for CSTR15.}
+The original W03 objective and residual in Table~\ref{tab:witnesses} were independently reproduced before the follow-up.
+A separate local IPOPT 3.12.13 solve retained W03's discrete configuration and continuous starting values and targeted an independently checked original-GDP residual of $10^{-8}$~\citep{cstrTightenedFeasibility}.
+Before that solve, three fixed-Boolean equalities were verified to be exact identities $1=1$ and omitted only from a computational clone, reducing its equality count from 158 to 155 while retaining 156 free continuous variables.
+This preprocessing preserves the feasible set for the fixed configuration; the original GDP, objective, variable bounds, and all other constraints were unchanged.
+The single invocation terminated normally after 28 iterations and returned objective $2.8293940632857546$.
+Independent reevaluation in a freshly restored original GDP gave maximum unscaled violation $3.3306690738754696\times10^{-16}$, passing the $10^{-8}$ target.
+The check covered 306 applicable algebraic constraints, variable bounds, integrality, disjunctions, and 32 original logical conditions.
+Table~S5 counts 290 algebraic constraints before reformulation; excluding 135 nonselected-branch rows and adding 151 rows encoding logic gives $290-135+151=306$.
+The 75 checked discrete values comprise Table~S5's 60 disjunct-indicator binaries plus 15 feed-selection binaries, all matching W03.
+The three omitted identities were rechecked with zero residual.
+
+The recorded A12 GLOA lower bound remains $3.522552007803194$, exceeding the new point's objective by $0.6931579445174396$.
+Under the unchanged audit rule, the comparison tolerance is $10^{-5}\max\{1,|f|\}=2.829394063285755\times10^{-5}$, so the difference is approximately $24{,}498$ times that tolerance.
+Thus the numerical bound discrepancy persists for this CSTR15 case at the tighter residual threshold.
+This result does not establish exact mathematical feasibility, global optimality, the cause of the reported bound, or a corresponding conclusion for other cases.
+
+This additional validation preserves W03 and all historical audit classifications, performance values, and timings.
+The two earlier option-rejected invocations and the subsequent degrees-of-freedom failure returned no point and remain archived.
+The new vector, identity proofs, solver log, original-GDP residuals, and source hashes are archived separately at the cited revision~\citep{cstrTightenedFeasibility}.
 
 
 \FloatBarrier
 
 \clearpage
 \section{Additional candidate-search and sampling comparisons}\label{sec:supp-additional}
-The primary comparison uses RBFOpt genetic, uniform sampling, and the Grid BAM-prefix control described in the main text.
-The 3,430 additional runs comprise 1,190 genetic runs, 1,190 uniform runs, and 1,050 Grid prefix-control runs.
+The primary comparison uses RBFOpt, uniform sampling, and the Grid BAM-prefix control described in the main text.
+The 3,430 additional runs comprise 1,190 RBFOpt runs, 1,190 uniform runs, and 1,050 Grid prefix-control runs.
 All completed their budgets, with 1,558 target hits and 1,872 misses; no failed, interrupted or missing additional slot was replaced.
 The retained 4,760 historical records remain unchanged, giving 8,190 records in the combined archive.
 The additional execution-provider revision is \nolinkurl{38d917ef75ef6767c2a9f238d88be19bf0b89160}; the later publication/analysis snapshot is identified separately~\citep{additionalComparisons}.
 The archive contains settings, runtime records, first-hit observations and every charged callback, including unaccepted evaluations and terminal observations.
 No original NLP was rerun, and each new trajectory uses its own recorded search time and sum of saved point costs plus one-time Dynamic preparation.
 
-\subsection{Retained solver variant}
+\subsection{Comparison with RBFOpt (solver)}
+RBFOpt (solver) denotes the retained setting with \nolinkurl{global_search_method=solver}, while the primary RBFOpt setting uses \nolinkurl{global_search_method=genetic}.
+\citet{nannicini2021implementation} reported difficulty and higher expense for mathematical-solver candidate search and excluded the MSRSM--solver combination from the principal comparison.
+This motivates the matched comparison rather than assuming that one option must perform better on the present problems.
 Only \nolinkurl{global_search_method} differs in all 1,190 matched settings comparisons.
-Across all Grid budgets the solver and genetic variants reach 661/1,050 and 658/1,050 targets; across Process they reach 127/140 and 126/140.
+The retained RBFOpt (solver) records comprise 1,050 Grid runs and 140 Process runs, all with reconstructed completion costs.
+The original Grid RBFOpt (solver) trace watchdog was disabled.
+Across all Grid budgets, RBFOpt (solver) and RBFOpt reach 661/1,050 and 658/1,050 targets, respectively; across Process they reach 127/140 and 126/140.
 These totals summarize heterogeneous conditions and are not independent replications of one common success probability.
-Genetic changes Process hit counts from 10 to 9 for CSTR10, 10 to 8 for CSTR15, 4 to 5 for Column, and 9 to 10 for Dynamic B12; the other condition totals agree.
-The median matched solver/genetic search-time ratio is 14.81 for Grid and 6.58 for Process; median reconstructed total-cost ratios are 2.12 and 1.18.
+Relative to RBFOpt (solver), RBFOpt changes Process hit counts from 10 to 9 for CSTR10, 10 to 8 for CSTR15, 4 to 5 for Column, and 9 to 10 for Dynamic B12; the other condition totals agree.
+The median matched ratio of RBFOpt (solver) to RBFOpt search time is 14.81 for Grid and 6.58 for Process; median reconstructed total-cost ratios are 2.12 and 1.18.
 These are medians of paired ratios, not ratios of marginal medians.
+At Grid B=100, RBFOpt (solver) has a median completion estimate of 365.74~s and reaches 172/210 targets, compared with 70.81~s and 171/210 for RBFOpt.
+RBFOpt substantially reduces the observed search overhead while retaining similar aggregate target counts; these observations do not establish equivalence.
 The same host, package versions and solver binaries were used, but CPU affinity and the kernel differ, so this is not a simultaneous controlled timing experiment.
-Other surrogate mathematical-solver calls remain enabled for genetic; 696 Process Bonmin starts include 154 error events, all preserved separately from DFO run status, with every affected DFO run completing its budget.
+Other surrogate mathematical-solver calls remain enabled for RBFOpt; the 696 Process Bonmin starts comprise 457 \texttt{ok/optimal} returns, 85 \texttt{warning/infeasible} returns, and 154 errors.
+Each error records Pyomo's rejection of a \texttt{SolverResults} object with status \texttt{error}; the retained logs do not identify the underlying Bonmin cause.
+RBFOpt 4.3.0 handles an unavailable surrogate minimizer by using its best interpolation node as a reference for an adjusted genetic search; absent or near-duplicate candidates are discarded, and the search advances or restarts under its normal rules.
+All 30 affected CSTR runs completed their full callback budgets, with 28 reaching the target and two not reaching it.
+These surrogate events are distinct from process-NLP failures, and their elapsed time remains included in recorded search overhead.
 
 \begin{table}[htbp]\centering\small
-\caption{Retained solver and primary genetic variants on Grid.
+\caption{RBFOpt (solver) and RBFOpt on Grid.
 Costs are medians of reconstructed search-completion costs over all 210 runs, including misses.}
 \begin{tabular}{rcrcr}\toprule
-$B$ & Solver hits & Solver cost (s) & Genetic hits & Genetic cost (s)\\\midrule
+& \multicolumn{2}{c}{RBFOpt (solver)} & \multicolumn{2}{c}{RBFOpt}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+$B$ & Target hits & Cost (s) & Target hits & Cost (s)\\\midrule
 10 & 45/210 & 5.02 & 42/210 & 3.88 \\
 30 & 133/210 & 24.62 & 130/210 & 12.79 \\
 50 & 151/210 & 75.56 & 154/210 & 28.09 \\
@@ -922,10 +952,12 @@ $B$ & Solver hits & Solver cost (s) & Genetic hits & Genetic cost (s)\\\midrule
 \bottomrule\end{tabular}\end{table}
 
 \begin{table}[htbp]\centering\small
-\caption{Matched RBFOpt variants for all Process conditions.
+\caption{Matched RBFOpt (solver) and RBFOpt results for all Process conditions.
 Costs include all ten seeds; hit counts concern the frozen numerical oracle.}
 \begin{tabular}{lrcrcr}\toprule
-Case & $B$ & Solver hits & Cost (s) & Genetic hits & Cost (s)\\\midrule
+& & \multicolumn{2}{c}{RBFOpt (solver)} & \multicolumn{2}{c}{RBFOpt}\\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+Case & $B$ & Target hits & Cost (s) & Target hits & Cost (s)\\\midrule
 Column & 16 & 4/10 & 37.35 & 5/10 & 33.54 \\
 CSTR 5 & 8 & 10/10 & 11.01 & 10/10 & 10.45 \\
 CSTR 10 & 15 & 10/10 & 22.17 & 9/10 & 20.09 \\
@@ -952,21 +984,35 @@ Intervals are exploratory and unadjusted for multiple comparisons; ten-seed boun
 Full condition-level comparisons are in \nolinkurl{manuscript/tables/paired_comparisons.csv}, with the independently preserved FMQA--uniform analysis under \nolinkurl{results/review_comparison_20261020/fmqa_uniform/}.
 
 \begin{table}[htbp]\centering\small
-\caption{Selected paired Grid success differences, in percentage points.
-The first method minus the second defines the sign.}
+\caption{Selected paired success differences, in percentage points.
+The first method minus the second defines the sign; Process intervals concern the stated condition only.}
+\textbf{Grid}\par\smallskip
 \begin{tabular}{rlrr}\toprule
 $B$ & Contrast & Difference & 95\% interval\\\midrule
-10 & RBFOpt genetic -- RBFOpt solver & -1.43 & [-6.67, 3.81] \\
-100 & RBFOpt genetic -- RBFOpt solver & -0.48 & [-6.19, 5.71] \\
-10 & RBFOpt genetic -- Uniform & 13.33 & [5.71, 24.29] \\
-100 & RBFOpt genetic -- Uniform & 60.00 & [42.86, 75.71] \\
-10 & BAM -- BAM prefix + U & 0.00 & [0.00, 0.00] \\
-100 & BAM -- BAM prefix + U & 10.95 & [0.48, 23.81] \\
+10 & RBFOpt -- RBFOpt (solver) & -1.43 & [-6.67, 3.81] \\
+100 & RBFOpt -- RBFOpt (solver) & -0.48 & [-6.19, 5.71] \\
+10 & RBFOpt -- Uniform & 13.33 & [5.71, 24.29] \\
+100 & RBFOpt -- Uniform & 60.00 & [42.86, 75.71] \\
+10 & BAM -- BAM-prefix control & 0.00 & [0.00, 0.00] \\
+100 & BAM -- BAM-prefix control & 10.95 & [0.48, 23.81] \\
 10 & FMQA-SA -- Uniform & 0.95 & [-0.95, 2.86] \\
 100 & FMQA-SA -- Uniform & 40.00 & [28.57, 52.38] \\
-10 & DSDA -- RBFOpt genetic & -13.81 & [-24.29, -6.19] \\
-100 & DSDA -- RBFOpt genetic & -31.90 & [-46.19, -18.10] \\
-\bottomrule\end{tabular}\end{table}
+10 & DSDA -- RBFOpt & -13.81 & [-24.29, -6.19] \\
+100 & DSDA -- RBFOpt & -31.90 & [-46.19, -18.10] \\
+\bottomrule\end{tabular}
+\par\medskip
+\textbf{Process: ten paired seeds per condition}\par\smallskip
+\begin{tabular}{lrcrrr}\toprule
+Case & $B$ & Contrast & Outcomes & Difference & 95\% interval\\\midrule
+Dynamic & 12 & RBFOpt -- DSDA & 4/6/0/0 & 60 & [30, 90] \\
+Small Batch & 10 & FMQA-SA -- Uniform & 2/4/2/2 & 20 & [-30, 60] \\
+\bottomrule\end{tabular}
+\par\smallskip
+\begin{minipage}{0.95\textwidth}\footnotesize
+Outcomes list both successful / first only / second only / neither successful.
+The descriptive intervals resample functions for Grid and paired seeds within each Process condition; they do not establish general superiority or equivalence.
+\end{minipage}
+\end{table}
 \FloatBarrier
 
 \subsection{Fixed-path point-cost scenarios and suite exclusions}
@@ -978,15 +1024,15 @@ This changes saved point costs only, retaining trajectories, target indicators a
 The relative importance of the candidate-search overhead decreases as evaluation costs dominate.
 Excluding Xin-She Yang~3 and Bohachevsky~2 preserves the main descriptive pattern.
 For the sampled Bohachevsky~2 lattice, $\cos(3\pi a_i)=1$ at every coordinate, leaving an objective nearly redundant with sampled Sum of Squares after normalization.
-Without both functions, B=100 rates are 79.47\% for genetic, 80.00\% for solver, 66.84\% for BAM, 54.74\% for its prefix control, and 17.89\% for uniform.
-At B=10, BAM and its prefix control each retain 47.89\%, compared with genetic 15.79\% and solver 16.84\%.
+Without both functions, B=100 rates are 79.47\% for RBFOpt, 80.00\% for RBFOpt (solver), 66.84\% for BAM, 57.89\% for FMQA-SA, 54.74\% for the BAM-prefix control, 44.21\% for DSDA, and 17.89\% for uniform.
+At B=10, BAM and its prefix control each retain 47.89\%, compared with RBFOpt 15.79\% and RBFOpt (solver) 16.84\%.
 The full exclusion tables remain in \nolinkurl{results/review_comparison_20261020/tables/grid_exclusions.csv}.
 
 \begin{table}[htbp]\centering\small
 \caption{Median Grid B=100 completion costs in fixed-path point-cost scenarios, in seconds.
-R-G and R-S denote RBFOpt genetic and solver, respectively.}
+The original recorded trajectories are retained.}
 \begin{tabular}{rrrrrrr}\toprule
-$\alpha$ & DSDA & R-G & BAM & FMQA-SA & Uniform & R-S\\\midrule
+$\alpha$ & DSDA & RBFOpt & BAM & FMQA-SA & Uniform & \shortstack{RBFOpt\\(solver)}\\\midrule
 0.01 & 0.24 & 8.15 & 1.06 & 62.69 & 0.61 & 307.42 \\
 0.1 & 2.42 & 14.85 & 6.89 & 68.13 & 6.05 & 311.40 \\
 1 & 24.14 & 70.81 & 64.42 & 124.13 & 60.51 & 365.74 \\
@@ -1002,8 +1048,7 @@ A separate implementation audit and bounded diagnostic analysis retain the origi
 Three runs were fixed before fitting: Rosenbrock B10 seed0, CSTR15 B22 seed0, and Dynamic B12 seed0.
 The selection rule takes the first SA-selected proposal, the first uniform-fallback proposal when present, and the final proposal, removing duplicates.
 This yields seven distinct iterations: Rosenbrock 1 and 7, CSTR15 1 and 19, and Dynamic 1, 2 and 9.
-The selected archives contain no saved historical fitted weights or QUBOs, so all seven models are labeled reconstructed diagnostic fits from the pre-proposal observations, recorded targets, seeds and archived sources.
-No new SA call or full benchmark run is included in this diagnostic.
+The selected archives lack the original fitted weights and QUBOs, so the seven models were reconstructed from pre-proposal observations, recorded targets, seeds, and archived sources without new SA calls or benchmark runs.
 All 3,328 enumerated binary strings satisfy the recorded combined absolute/relative FM--QUBO--BQM energy-identity tolerance, with absolute tolerance $10^{-6}$ and relative tolerance $10^{-5}$.
 Stored sample energies agree with reconstruction under absolute and relative tolerances of $10^{-5}$; their largest absolute difference is approximately $1.328\times10^{-6}$.
 This agreement does not establish identity of the historical and reconstructed energy landscapes at unsampled states.
@@ -1013,7 +1058,7 @@ Their selected-point gaps above the reconstructed eligible minimum are approxima
 These purposively selected examples illustrate admissibility and fallback behavior without estimating prevalence or isolating causal contributions of learning, annealing and fallback.
 Synthetic constant-model checks show that zero coefficient scaling produces nonfinite coefficients and a propagated wrapper error before annealing or uniform fallback.
 The occurrence of that boundary in historical fitted models remains unknown.
-Input hashes, fitted weights, training prefixes, exhaustive energies and recorded-sample comparisons are preserved under \nolinkurl{results/review_diagnostics_20261020/fmqa/}.
+Input hashes, reconstructed fitted weights, training prefixes, exhaustive energies, and recorded-sample comparisons are preserved under \nolinkurl{results/review_diagnostics_20261020/fmqa/}.
 
 \bibliographystyle{elsarticle-harv}
 \bibliography{reference}
