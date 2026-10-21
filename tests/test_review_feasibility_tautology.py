@@ -13,8 +13,7 @@ PRIOR = ROOT / "results/review_feasibility_followup_20261020"
 
 
 @pytest.fixture
-def original():
-    pytest.importorskip("pyomo")
+def original(cstr_diagnostic_sources):
     return f.verify_input(PRIOR)
 
 
@@ -79,7 +78,7 @@ def test_original_gdp_rechecks_omitted_logic_and_discrete_configuration(original
     assert any(r["violation"] > 0 for r in bad["omitted_identities_rechecked_on_original_GDP"])
 
 
-def test_prewritten_nl_symbol_map_loads_actual_returned_values(tmp_path):
+def test_prewritten_nl_symbol_map_loads_actual_returned_values(tmp_path, pyomo_env):
     from pyomo.opt import SolverResults, SolverStatus, TerminationCondition
     from gdp_models.comparison import pyo
 
@@ -97,7 +96,7 @@ def test_prewritten_nl_symbol_map_loads_actual_returned_values(tmp_path):
     assert m.x.value == 1.25
 
 
-def test_no_or_incomplete_returned_vector_cannot_reuse_initial_values(tmp_path):
+def test_no_or_incomplete_returned_vector_cannot_reuse_initial_values(tmp_path, pyomo_env):
     from pyomo.opt import SolverResults, SolverStatus
     from gdp_models.comparison import pyo
 
@@ -126,7 +125,7 @@ def test_no_solution_assessment_has_no_new_objective(tmp_path):
     assert not (tmp_path / "solution.json").exists()
 
 
-def test_existing_output_and_call_marker_prevent_invocation(tmp_path):
+def test_existing_output_and_call_marker_prevent_invocation(tmp_path, pyomo_env):
     with pytest.raises(FileExistsError):
         t.prepare(PRIOR, tmp_path, Path(sys.executable))
     save(tmp_path / "solver_call.json", {"test_marker": True})
@@ -156,7 +155,7 @@ def test_controller_never_retries_even_without_a_point(tmp_path, monkeypatch, ti
     assert read(output / "execution.json")["timed_out"] == timed_out
 
 
-def test_retained_returned_point_replays_without_solver(monkeypatch):
+def test_retained_returned_point_replays_without_solver(monkeypatch, cstr_diagnostic_sources):
     from gdp_models.comparison import pyo
 
     def forbidden(*args, **kwargs):
@@ -171,7 +170,7 @@ def test_retained_returned_point_replays_without_solver(monkeypatch):
     assert assessment["bound_minus_witness"] > assessment["audit_tolerance"]
 
 
-def test_replay_rejects_summary_disagreeing_with_independent_check(tmp_path):
+def test_replay_rejects_summary_disagreeing_with_independent_check(tmp_path, cstr_diagnostic_sources):
     import shutil
 
     directory = tmp_path / "copied_result"

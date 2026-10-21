@@ -11,8 +11,7 @@ from review_diagnostics.common import ROOT, bounded, read, save
 
 
 @pytest.fixture
-def witness():
-    pytest.importorskip("pyomo")
+def witness(cstr_diagnostic_sources):
     return f.verify_input(ROOT / "results/review_diagnostics_20261020")
 
 
@@ -112,7 +111,7 @@ def test_external_deadline_kills_worker(tmp_path):
     assert report["wall_s"] < 3
 
 
-def test_attempt_cannot_be_repeated_or_retry_an_interface_error(tmp_path):
+def test_attempt_cannot_be_repeated_or_retry_an_interface_error(tmp_path, pyomo_env):
     first = tmp_path / "feasibility/attempt_1"
     save(first / "solver_call.json", {"call_started": True})
     with pytest.raises(FileExistsError, match="already invoked"):
