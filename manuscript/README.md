@@ -9,6 +9,9 @@ The separate diagnostic commit `15663134704b7bb1d4804c94c70edabaffbf8ecd` is sum
 That diagnostic verified seven reconstructed FM fits, while historical weights remain unknown, and recorded two option-rejected NLP calls without a new solution.
 The later [CSTR15 follow-up](../results/review_feasibility_tautology_20261020/summary.json), retained in commit `854a1a7fc5a20a5489d82ef7991a16aaf89025f3`, passed the `1e-8` numerical feasibility check on the original GDP with objective `2.8293940632857546` and maximum unscaled violation `3.3306690738754696e-16`.
 The recorded A12 lower-bound discrepancy persists, with a difference of `0.6931579445174396`.
+The subsequent [Dantzig validation](../results/review_cstr15_dantzig_20261021/README.md) used GAMS 52.2.0/IPOPT 3.14.19 and returned objective `2.8293940632857595` with maximum unscaled original-GDP violation `1.1102230246251565e-16`, also passing `1e-8`.
+Its objective differs from the retained local check by `4.884981308350689e-15`; the GLOA discrepancy persists, while the Hull comparison is within the unchanged audit tolerance.
+The main text and S9 now use this Dantzig check, retaining the local result and the limitations of comparisons across solver interfaces.
 This is numerical evidence for the retained point, not a proof of exact mathematical feasibility, global optimality or a solver defect.
 The current sources, bibliography, PDFs, figures and source distribution ZIP are synchronized with the Chrome Overleaf revision.
 The main text and Supplementary Section S9 include the successful CSTR15 follow-up; earlier unsuccessful calls remain historical evidence.
@@ -74,5 +77,13 @@ Compile `main.tex` or `supplementary.tex` in Overleaf with pdfLaTeX and BibTeX u
 [revision_verification.json](revision_verification.json) records the naming-revision checks.
 [prose_trim_verification.json](prose_trim_verification.json) records the preceding prose revision and its publication hashes.
 [minor_clarification_verification.json](minor_clarification_verification.json) records the preceding clarification revision.
-[coverage_revision_verification.json](coverage_revision_verification.json) records the subsequent resolution of the visited-key comment and the latest synchronized main source, PDF and source ZIP.
+[coverage_revision_verification.json](coverage_revision_verification.json) records the subsequent resolution of the visited-key comment and its synchronized main source, PDF and source ZIP.
 The earlier [verification.json](verification.json), [analysis_manifest.json](analysis_manifest.json) and [publication_manifest.json](publication_manifest.json) document the preceding publication snapshot, not the current display labels or PDFs.
+
+The [submission revision verification](submission_revision_verification.json) records the current sources, both PDFs, source ZIP, local checks and Overleaf synchronization.
+Data availability and S8 distinguish the original execution snapshots from the [current figure/table analysis and Process coverage audit](https://github.com/SECQUOIA/Black-Box-for-GDP/tree/3c60f4707b454a9d3e4330466ec5f9372b418f54).
+The Dantzig validation is separately pinned at commit `5c124ffdfb2fc0b54673ae784d368f4b2afce973`, retaining execution revision `70bf17ca95e5ee1b98069e494c22fcafd6398960`.
+Section 4.4 removes two repeated Dynamic timing sentences and retains the explanation based on callback counts and evaluations after target attainment.
+All section titles, performance-table bodies, equations and figure blocks are unchanged.
+The original strict cross-platform full-summary mismatch remains documented in the Dantzig verification report; independent residual and bound-classification checks pass.
+This manuscript synchronization does not rerun any experiment.

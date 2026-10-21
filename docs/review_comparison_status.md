@@ -86,7 +86,7 @@ The server used execution revision `70bf17ca95e5ee1b98069e494c22fcafd6398960`; t
 The local analysis reran no solver and preserved the returned ZIP, server verification and all earlier success/failure records.
 The original strict full-summary verifier's cross-platform derived-ratio mismatch is retained in the [verification report](../results/review_cstr15_dantzig_20261021/verification.json).
 A separate analysis checks every named residual and the unchanged feasibility criterion, and verifies ratios and near-zero residual rankings exactly against their respective recorded data.
-This additional result has not been synchronized into the manuscript or Overleaf; draft wording is provided only in the result README.
+This additional result is now synchronized into the main manuscript and Supplementary Section S9 in Overleaf; the earlier local result remains explicitly identified.
 
 ## Minor clarification review — 21 October 2026
 
@@ -95,7 +95,7 @@ The following updates are synchronized with Overleaf and recorded in the [minor-
 
 | Review item | Disposition | Manuscript location |
 |---|---|---|
-| Minor 1: tightened CSTR15 versus Hull | Added the witness-sensitive contrast while preserving W03 and all eleven historical flags | Main Section 4.4 and Supplementary Section S9 |
+| Minor 1: tightened CSTR15 versus Hull | Added the witness-sensitive contrast while preserving W03 and all eleven historical flags | Main Section 4.3.3 and Supplementary Section S9 |
 | Minor 2: visited-key collection | Resolved by the current 700-run coverage audit: 2,050 distinct keys, with the included methods and union rule explicit | Main Table 1 and Section 4.3.2 |
 | Minor 3: median-cost label | Caption explicitly states median reconstructed search-completion costs over all ten seeds | Table S17 |
 | Minor 4: abstract scope | Added “On the analytical grids” to the budget-100 result | Abstract |
@@ -122,3 +122,19 @@ The union covers DSDA, RBFOpt, BAM, FMQA-SA and uniform sampling over 14 model--
 The historical count of 1,790 is preserved in its own 560-run context and reconciles as 1,790 - 51 + 311 = 2,050.
 All 2,455 measured keys and all 700 run memberships are exposed in auditable ledgers; failed and rejected evaluations remain included.
 No experiment was rerun, and the existing performance tables, figures, historical manifests and supplementary stopping-audit scope remain unchanged.
+
+## Submission revision — Dantzig result and reproducibility links
+
+The main manuscript and S9 now report the completed Dantzig validation, with the original W03 configuration and starting values preserved.
+The numerical result passes `1e-8`, retains the GLOA discrepancy and places the tightened Hull comparison within the existing audit tolerance.
+The original benchmark performance tables, figures, callback data, manifests and execution revisions are unchanged.
+Data availability and S8 link the current publication analysis and 2,050-key coverage audit at fixed revision `3c60f4707b454a9d3e4330466ec5f9372b418f54`.
+The Dantzig evidence is separately cited at revision `5c124ffdfb2fc0b54673ae784d368f4b2afce973`.
+Section 4.4 removes two Dynamic timing sentences already covered in Section 4.3.3 and retains the callback-count explanation.
+The section structure is unchanged, and all edited prose uses one sentence per source line.
+The environment statement applies to the benchmark performance runs; S10.4 explicitly identifies the reconstructed FMQA fits as local diagnostics.
+The seven reconstructed FMQA fits still cannot verify unsaved historical weights.
+The [submission verification](../manuscript/submission_revision_verification.json) records 81 passing local tests, source/PDF synchronization, numerical preservation and checks of the final rendered pages.
+No optimizer, NLP, fitting, annealing or server experiment was rerun during this manuscript revision, and no CI workflow was requested.
+The follow-up branch is `review/cstr15-dantzig-results`; PR #48 remains merged and unchanged.
+Repository visibility and unauthenticated external access to the cited commits remain administrator-controlled release items.
