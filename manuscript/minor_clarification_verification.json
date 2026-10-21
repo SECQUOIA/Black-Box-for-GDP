@@ -1,0 +1,106 @@
+{
+  "baseline_revision": "b64453de045b4130e7b8370c6ee63a2c262716b4",
+  "pr_48_merge_revision": "d05b392d4a93e4233a2ee69617da2767395fd27b",
+  "scope": "Minor clarification review, excluding item 2 at the author's instruction.",
+  "review_items_completed": [
+    1,
+    3,
+    4,
+    "CSTR terminology",
+    "MILP expansion",
+    "S9 pagination"
+  ],
+  "review_items_deferred": {
+    "2": "Author investigation; original Table 1 footnote unchanged."
+  },
+  "new_optimizer_nlp_fitting_annealing_or_benchmark_analysis_runs": 0,
+  "arithmetic_crosscheck": {
+    "method": "Decimal arithmetic on the printed objective and bounds; no solve or reclassification of historical records.",
+    "objective": "2.8293940632857546",
+    "hull_bound": "2.829394077848967",
+    "tolerance": "0.000028293940632857546",
+    "hull_difference": "1.45632124E-8",
+    "hull_ratio": "0.0005147113507083508939500010090",
+    "hull_flag_for_tightened_point": false,
+    "gloa_ratio": "24498.45899911446610259309270"
+  },
+  "source_structure_checks": {
+    "excluded_table_1_statement_unchanged": true,
+    "all_table_bodies_unchanged": true,
+    "all_displayed_equation_blocks_unchanged": true,
+    "all_figure_blocks_unchanged": true,
+    "reference_database_unchanged": true,
+    "historical_flags_and_w03_unchanged": true,
+    "one_sentence_per_source_line_retained": true
+  },
+  "compilation": {
+    "provider": "Overleaf through Chrome",
+    "main": {
+      "pages": 33,
+      "errors": 0,
+      "warnings": 0,
+      "info": 1
+    },
+    "supplementary": {
+      "pages": 30,
+      "errors": 0,
+      "warnings": 0,
+      "info": 3
+    }
+  },
+  "visual_review_pages": {
+    "main": [
+      1,
+      3,
+      4,
+      29
+    ],
+    "supplementary": [
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
+  },
+  "overleaf_before_source_zip_sha256": "ce7ee717825aad801ce125f094962b20d45421b056a456323c9d6cb985446683",
+  "overleaf_after_source_zip_sha256": "4c4afee6a354f5180912ff4e0a6759ad87f56dc90564cbb02f7220a3d58ed274",
+  "overleaf_roundtrip_sha256": {
+    "main.tex": "c8f56687261605f47d1d816bc23f387a307e4abb9fa90710e111b71daece035d",
+    "supplementary.tex": "27da4d15b29881d8ba9d4b53365fdcc8005aa852f220376915b8fb09701ef3d3",
+    "reference.bib": "611b48d8b10bb63da67a9b34c23297c34806361f7068249bc61ac6e0466035ca",
+    "figures/figure_B_grid_evaluation_profiles.pdf": "303f90e9b25fa985021fe620eb4b05adea4ea844eae275a5c5cde03016e58211",
+    "figures/figure_C_grid_completion_profiles.pdf": "48d6bea5d6d4311a660c57f329fd13987419217b7aa23f1262b1bc67fdcaf90b",
+    "figures/figure_D_grid_tts99.pdf": "2058a2b3f03e88f8bb5bdba5ae878fed6dcaabfeb96fe3f92632737182846482",
+    "figures/grid_rosenbrock_landscape.pdf": "96b153a7fc45afddd1af583788f14d276ce77928de3c5ca01e650105c582dba3",
+    "figures/process_completion_profiles.pdf": "556b8d9d684348694d3533058fb3b35cc4eb4754e6dd4ba770244eaf526f9831",
+    "figures/process_completion_scatter.pdf": "5f3a4eb5008dd258d6313754aca11729fa4a5aad16dda79343f5357956a69022",
+    "figures/process_cost_breakdown.pdf": "c14c7f0a4fc9720dfe776e06ff117402728e570c15f67025a002ce20a9fdd76f",
+    "figures/process_evaluation_profiles.pdf": "1321db36c2e70890bf36e85f046170d6318268d173ae45f03a406d842708b112"
+  },
+  "prior_tracked_files": 1884,
+  "prior_tracked_files_unchanged": 1877,
+  "changed_tracked_files": [
+    "docs/review_comparison_status.md",
+    "manuscript/README.md",
+    "manuscript/main.pdf",
+    "manuscript/main.tex",
+    "manuscript/manuscript_sources.zip",
+    "manuscript/supplementary.pdf",
+    "manuscript/supplementary.tex"
+  ],
+  "output_sha256": {
+    "docs/review_comparison_status.md": "4c795af7c50061a3cf31052c59f804a8f980921d4e2e75a922f5a855bbfa591e",
+    "manuscript/README.md": "13e42254c47ccf25258f7eb6fd4278ca7579b91b58e031beb8f3ca249173c265",
+    "manuscript/main.pdf": "dd11d6e4927ddb57cadfb22e1f3333fd6cbef1170bbae420dd9c6641df74aaa9",
+    "manuscript/main.tex": "c8f56687261605f47d1d816bc23f387a307e4abb9fa90710e111b71daece035d",
+    "manuscript/manuscript_sources.zip": "baef997a92a9800d5198abed4fe1bab9fc8a44922264291b222ee701cefa2486",
+    "manuscript/supplementary.pdf": "c81d439c2def1f94fbc543a0f0d9f1acea3d3e2d6e756b755e8e7fb1b37180dc",
+    "manuscript/supplementary.tex": "27da4d15b29881d8ba9d4b53365fdcc8005aa852f220376915b8fb09701ef3d3"
+  },
+  "validation_scope": "Source structure, decimal arithmetic, Overleaf compilation, visual inspection, roundtrip comparison and all tracked-file hashes; no new test-suite or historical audit replay for this editorial change."
+}
