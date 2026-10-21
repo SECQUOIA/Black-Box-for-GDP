@@ -3,7 +3,12 @@
 The main manuscript uses RBFOpt MSRSM with genetic candidate search, uniform sampling in both suites, and the BAM-prefix sampling control on Grid.
 The solver variant is retained in Supplementary Section S10, with a brief main-text comparison.
 The separate diagnostic commit `15663134704b7bb1d4804c94c70edabaffbf8ecd` is summarized in S9/S10 without rerunning it.
-Its seven reconstructed FM fits are verified, while historical weights remain unknown and tightened-feasibility polishing remains incomplete.
+That diagnostic verified seven reconstructed FM fits, while historical weights remain unknown, and recorded two option-rejected NLP calls without a new solution.
+The later [CSTR15 follow-up](../results/review_feasibility_tautology_20261020/summary.json), retained in commit `854a1a7fc5a20a5489d82ef7991a16aaf89025f3`, passed the `1e-8` numerical feasibility check on the original GDP with objective `2.8293940632857546` and maximum unscaled violation `3.3306690738754696e-16`.
+The recorded A12 lower-bound discrepancy persists, with a difference of `0.6931579445174396`.
+This is numerical evidence for the retained point, not a proof of exact mathematical feasibility, global optimality or a solver defect.
+The manuscript sources, bibliography, PDFs and distribution ZIP in this directory retain their earlier snapshot, including obsolete incomplete-status wording; this README correction does not synchronize them with Overleaf.
+The existing manifests retain their historical hashes, and the [status correction record](../results/review_comparison_20261020/status_correction.json) identifies this later README change separately.
 The original analytical and process NLP inventories, logs, ZIP archives, manifests and audit implementation are unchanged.
 No new optimization or NLP execution is part of this revision.
 

@@ -62,7 +62,12 @@ The Grid B10 interval includes zero, while the intervals for B30 through B100 li
 Process differences vary by condition, including ties and conditions favoring uniform.
 The four joint outcomes in `paired_success.csv` distinguish agreement from discordant seeds even when marginal hit counts match.
 This comparison cannot separate the causal contributions of FMQA learning, fitted weights, QUBO conversion, annealing or fallback.
-FMQA fitted-weight diagnostics and tightened-feasibility checks remain separate, unfinished work.
+The separate [limited FMQA diagnostic](../../review_diagnostics_20261020/README.md) verifies seven reconstructed fits; historical fitted weights remain unavailable.
+The later [CSTR15 follow-up](../../review_feasibility_tautology_20261020/summary.json), retained in commit `854a1a7fc5a20a5489d82ef7991a16aaf89025f3`, passed the `1e-8` numerical feasibility check on the original GDP with objective `2.8293940632857546` and maximum unscaled violation `3.3306690738754696e-16`.
+The recorded A12 lower-bound discrepancy persists, with a difference of `0.6931579445174396`.
+This is numerical evidence for the retained point, not a proof of exact mathematical feasibility, global optimality or a solver defect.
+Earlier option errors and the no-solution `TOO_FEW_DOF` follow-up remain historical records; this status correction does not synchronize manuscript files or change these paired counts.
+The original manifests retain their historical hashes; [status_correction.json](../status_correction.json) separately records the documentation-only updates and preserved evidence.
 
 ## Reproduce locally or on Dantzig
 
