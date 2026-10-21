@@ -558,7 +558,7 @@ Every callback consumes the same budget and saved point cost under the common ac
 
 \subsection{Execution environment and algebraic comparisons}
 \label{sec:protocol}
-All computational experiments were conducted on the Dantzig server, equipped with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
+The benchmark performance experiments were conducted on the Dantzig server, equipped with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
 All optimization methods and numerical libraries were configured for single-threaded execution.
 The software environment included Pyomo 6.10.0, GAMS 52.2, RBFOpt 4.3.0, BAM 5.0.0, PyTorch 2.8.0, and HiGHS 1.12.0.
 The additional comparisons used the same recorded host, Python/package versions and Bonmin/IPOPT binaries as their historical references.
@@ -1131,8 +1131,8 @@ The smaller Hull exceedances for CSTR5, CSTR10, and CSTR15 are only about 1.00, 
 These are numerical-consistency observations, not demonstrated software defects or evidence of general solver inferiority; the cause in GDPopt or BARON remains unresolved.
 LOA's time-limited CSTR15 run also returns an objective below the lookup reference, illustrating why target attainment and certification are assessed separately.
 
-A separate CSTR15 check retained witness W03's discrete configuration (Supplementary Section~S9)~\citep{cstrTightenedFeasibility}.
-The returned objective was $2.8293940632857546$, with maximum unscaled original-GDP violation $3.33\times10^{-16}$, passing a $10^{-8}$ residual target.
+A separate CSTR15 check on Dantzig using GAMS 52.2.0/IPOPT 3.14.19 retained witness W03's discrete configuration and starting values (Supplementary Section~S9)~\citep{cstrDantzigValidation}.
+The returned objective was $2.8293940632857595$, with maximum unscaled original-GDP violation $1.11\times10^{-16}$, passing a $10^{-8}$ residual target.
 The recorded GLOA lower bound still exceeds this objective by $0.6931579445$, approximately $24{,}498$ times the audit tolerance, so the numerical discrepancy persists at the tighter threshold without establishing exact feasibility or its cause.
 In contrast, the Hull lower bound exceeds the tightened objective by only $5.15\times10^{-4}$ times the comparison tolerance, below the flagging threshold.
 This additional check leaves the historical performance values and audit classifications unchanged.
@@ -1190,9 +1190,7 @@ At Grid B=100, RBFOpt costs 70.81 versus 64.42~s for BAM at the recorded scale, 
 This scenario retains the recorded trajectories, search overhead and preparation cost; it neither predicts adaptation to different live time limits nor identifies a universal crossover.
 
 Dynamic illustrates how budget and stopping behavior change completion-time rankings.
-RBFOpt reaches all ten targets at \(B=12\) with a 12.29~s median completion estimate, while DSDA first does so at \(B=30\) with 26.61~s.
-At the common budget \(B=30\), DSDA instead has the lower completion estimate, 26.61 versus 34.19~s.
-At that budget, DSDA uses a median of 23.5 callbacks (range 15--30), versus 30 in every RBFOpt run, with median post-target counts of 6.5 and 23, respectively (\nolinkurl{manuscript/tables/run_records.csv}; Supplementary Section~S10).
+At \(B=30\), DSDA uses a median of 23.5 callbacks (range 15--30), versus 30 in every RBFOpt run, with median post-target counts of 6.5 and 23, respectively (\nolinkurl{manuscript/tables/run_records.csv}; Supplementary Section~S10).
 These retrospective comparisons combine candidate selection and stopping behavior; they identify neither an out-of-sample budget policy nor first-target times within optimizer overhead.
 
 The process results also depend on how unsuccessful configurations are handled.
@@ -1222,8 +1220,9 @@ The authors acknowledge and express sincere gratitude to the Davidson School of 
 
 \section*{Data and code availability}
 The code, frozen evaluation data, archived execution records, and analysis scripts are maintained in \nolinkurl{SECQUOIA/Black-Box-for-GDP}; the repository remains private at this revision and public release is planned after submission, subject to the repository administrator enabling access~\citep{rbfoptTestArchive,additionalComparisons}.
-The additional comparisons are identified by commit \nolinkurl{6e083eb49b497ce4fea90131e18cc0459db682e8} on \nolinkurl{review/additional-comparisons}.
-Supplementary Section~S8 links the selected Grid and Process datasets, source manifests, and regeneration instructions.
+The original additional-comparison analysis is pinned at commit \nolinkurl{6e083eb49b497ce4fea90131e18cc0459db682e8}.
+The current figure and table generation files and the 2,050-key Process coverage audit are pinned separately at commit \nolinkurl{3c60f4707b454a9d3e4330466ec5f9372b418f54}~\citep{currentPublicationAnalysis}.
+Supplementary Section~S8 links these analyses, the selected datasets, source manifests, and regeneration instructions; the Dantzig CSTR15 validation has its own archived snapshot~\citep{cstrDantzigValidation}.
 The original execution revisions and source hashes are retained separately from this repository snapshot.
 
 \bibliographystyle{elsarticle-harv}
