@@ -83,7 +83,7 @@ The following updates are synchronized with Overleaf and recorded in the [minor-
 | Review item | Disposition | Manuscript location |
 |---|---|---|
 | Minor 1: tightened CSTR15 versus Hull | Added the witness-sensitive contrast while preserving W03 and all eleven historical flags | Main Section 4.4 and Supplementary Section S9 |
-| Minor 2: visited-key collection | Deferred at the author's instruction; the Table 1 footnote remains unchanged | Main Table 1 |
+| Minor 2: visited-key collection | Resolved by the current 700-run coverage audit: 2,050 distinct keys, with the included methods and union rule explicit | Main Table 1 and Section 4.3.2 |
 | Minor 3: median-cost label | Caption explicitly states median reconstructed search-completion costs over all ten seeds | Table S17 |
 | Minor 4: abstract scope | Added “On the analytical grids” to the budget-100 result | Abstract |
 | CSTR terminology | Standardized to “continuous stirred-tank reactor (CSTR)” | Section 2.1 |
@@ -100,3 +100,12 @@ Both documents compiled in Overleaf with zero errors and warnings; the main manu
 The prose retains one sentence per source line.
 PR #48 was already merged before this follow-up; these changes are subsequent work on `review/additional-comparisons`, not part of that merged PR.
 The repository visibility and historical execution-provider revisions are unchanged.
+
+## Resolution of visited-key scope — 21 October 2026
+
+Minor review comment 2 is resolved in Table 1 and Section 4.3.2.
+The [coverage audit and reviewer response](../results/review_process_coverage_20261021/README.md) report 2,050 distinct model/size/coordinate keys from 16,252 charged callbacks in the current 700-run primary Process comparison.
+The union covers DSDA, RBFOpt, BAM, FMQA-SA and uniform sampling over 14 model--budget conditions and ten seeds per condition, excluding RBFOpt (solver).
+The historical count of 1,790 is preserved in its own 560-run context and reconciles as 1,790 - 51 + 311 = 2,050.
+All 2,455 measured keys and all 700 run memberships are exposed in auditable ledgers; failed and rejected evaluations remain included.
+No experiment was rerun, and the existing performance tables, figures, historical manifests and supplementary stopping-audit scope remain unchanged.
