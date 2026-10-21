@@ -1,4 +1,4 @@
-# RBFopt_Test
+# Black-Box-for-GDP
 
 ## Reproduce the manuscript from frozen data
 
