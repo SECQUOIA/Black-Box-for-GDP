@@ -1,0 +1,150 @@
+{
+  "kind": "Publication naming revision and synchronization of completed Overleaf edits",
+  "baseline_revision": "17c75d1d692241f6154d182ada9bedbc8d0077e2",
+  "execution_provider_revision": "38d917ef75ef6767c2a9f238d88be19bf0b89160",
+  "input_analysis_revision": "6e083eb49b497ce4fea90131e18cc0459db682e8",
+  "new_optimizer_nlp_training_or_annealing_runs": 0,
+  "label": "RBFOpt",
+  "default_option_statement": "Main Section 3.3.3 states the default genetic candidate-search option; it is not part of the method label.",
+  "solver_comparison_location": "Supplementary Section S10; one pointer remains in the main methodology.",
+  "overleaf": {
+    "project": "https://www.overleaf.com/project/6939f99b80a7684cfe622805",
+    "transport": "Chrome native UI upload, compile and download",
+    "before_source_zip_sha256": "d07af1fcb6cf9ee16677009aafed7f5e667f5b4edc50b8ed4292d4307b98c9c7",
+    "after_source_zip_sha256": "44de9ca499c756c4a25c454eb5578b6763c4126788b13590217469fb314647fd",
+    "uploaded_source_and_figure_roundtrip_sha256": {
+      "main.tex": "d7265bbf928a2c39ade602a98462ef0d0ba3104d513fdfa7a93af85ad67ea9e7",
+      "supplementary.tex": "b4984a00f1e98b8c364e310fc852a4c909a6b1245bdcd6cc3ebf6cf23a3cee97",
+      "reference.bib": "611b48d8b10bb63da67a9b34c23297c34806361f7068249bc61ac6e0466035ca",
+      "figures/figure_B_grid_evaluation_profiles.pdf": "303f90e9b25fa985021fe620eb4b05adea4ea844eae275a5c5cde03016e58211",
+      "figures/figure_C_grid_completion_profiles.pdf": "48d6bea5d6d4311a660c57f329fd13987419217b7aa23f1262b1bc67fdcaf90b",
+      "figures/figure_D_grid_tts99.pdf": "2058a2b3f03e88f8bb5bdba5ae878fed6dcaabfeb96fe3f92632737182846482",
+      "figures/process_completion_profiles.pdf": "556b8d9d684348694d3533058fb3b35cc4eb4754e6dd4ba770244eaf526f9831",
+      "figures/process_completion_scatter.pdf": "5f3a4eb5008dd258d6313754aca11729fa4a5aad16dda79343f5357956a69022",
+      "figures/process_cost_breakdown.pdf": "c14c7f0a4fc9720dfe776e06ff117402728e570c15f67025a002ce20a9fdd76f",
+      "figures/process_evaluation_profiles.pdf": "1321db36c2e70890bf36e85f046170d6318268d173ae45f03a406d842708b112"
+    },
+    "main_compile": {
+      "pages": 33,
+      "errors": 0,
+      "warnings": 0,
+      "info": 1
+    },
+    "supplementary_compile": {
+      "pages": 31,
+      "errors": 0,
+      "warnings": 0,
+      "info": 0
+    },
+    "pdfs": "Downloaded from the same Overleaf project after compilation; visually checked affected figure/table pages.",
+    "prose_format": "One sentence per source line; mathematical display and table rows retain LaTeX structure."
+  },
+  "validation": {
+    "related_tests_passed": 54,
+    "test_command": "python -m pytest tests/test_review_comparison.py tests/test_review_comparison_audit.py tests/test_review_comparison_fmqa_uniform.py tests/test_review_comparison_manuscript.py tests/test_review_minor_presentation.py -q",
+    "targeted_ruff": "passed",
+    "audit_command": "python -m review_comparison.audit --output /tmp/gdp-original-audit",
+    "audit_replay": [
+      {
+        "file": "completed_runs.csv",
+        "sha256": "f0764696a4846d391e8d040781e8e32bde72829654e13ca6c1342cf768d1843f",
+        "byte_identical": true
+      },
+      {
+        "file": "condition_summary.csv",
+        "sha256": "6c90c58cf2c364d69910fa397ede4a8cbd24c996765ae61e50269de9797f27ef",
+        "byte_identical": true
+      },
+      {
+        "file": "fixed_path_sensitivity.csv",
+        "sha256": "f52c2b7ae2882dc89a370bccda63f31546086e6380a145d23eade185e4f139f9",
+        "byte_identical": true
+      },
+      {
+        "file": "grid_exclusions.csv",
+        "sha256": "273f6c54d7e4f2b40b0e10cc0c7d2a40c278fc1fc6ba263e992c57aa343ab552",
+        "byte_identical": true
+      },
+      {
+        "file": "interpretation.json",
+        "sha256": "cf660d569192dfce60712a3c160dc0491d7104467d69585828663d6bb549b271",
+        "byte_identical": true
+      },
+      {
+        "file": "new_slots.csv",
+        "sha256": "a1b786a406c95f5d3cec34683e57f688fdba566e68e182a80c89d3585abbf92f",
+        "byte_identical": true
+      },
+      {
+        "file": "paired_success.csv",
+        "sha256": "9420c3dd6d4dff462bc6e3fd16d24c01fd68845cde5e1b10adc8d6507873b0e6",
+        "byte_identical": true
+      },
+      {
+        "file": "progress.json",
+        "sha256": "fdceb3a8a548a1239288179a0665c24e4601b75ed6805a5f9db406487681aeea",
+        "byte_identical": true
+      }
+    ],
+    "protected_file_count": 1483,
+    "protected_files_changed": [],
+    "numerical_output_sha256": {
+      "figures/figure_values.json": "014e747f778d6fdcb52178aa7b6880da95831733109b9c55fdb2fc1cf03bdab5",
+      "tables/new_terminal_hits.csv": "7122e17558f5fa36c6e1f7e23372df80d83885ce60a47a05e40865b6a259a9ee",
+      "tables/numerical_summary.json": "ebbcf98fc7284c6072659b126b5c1a043ee9b6eb4e3123dbe613c8244a5a1aaf",
+      "tables/paired_comparisons.csv": "70332e70d38b361cb508414525a6861a76a544d34aef23993d4419e0748fa59a",
+      "tables/paired_process_selected.csv": "8ca45c3a8e8d4428a75c14674e668f3f4a39c1098d6b3c781c774bdcbd740648",
+      "tables/run_records.csv": "074509fb982544ba10c6dcadae23465b4b91085c66e2300cde7204ce50f57d83"
+    },
+    "numerical_comparison": "The six numerical CSV/JSON outputs are byte-identical to the immediately preceding presentation analysis; performance counts and costs are unchanged.",
+    "historical_protected_sha256": {
+      "manuscript/analysis_manifest.json": "78ee391cf5f37cbbc065cb32f1f5df8a435a87cf0c04d5c8ef680ed6f1834981",
+      "manuscript/verification.json": "3788ee8ffbab75bb2f1250c8c28ad407b7659027150e71ce5d5d314ce37054e8",
+      "manuscript/publication_manifest.json": "37c003dbd4f9d3c05e9906697392fe247125a94a38886d80af26e6e879b4cac0",
+      "review_comparison/analysis.py": "cdde929239164930aec89d27453a7186f1d655cc347003085683a3eae53480ed",
+      "review_comparison/runner.py": "46b8bfd176fe85cba8f6723022f2b4fa375fb034d22e8d1e60e8215870719482",
+      "review_comparison/common.py": "8d2cfc82d7f7f29f762908cb214fcc5783316d7165d77262913450b596adf3a9",
+      "review_comparison/audit.py": "a8b1dedeacf2e1205211ae6b6a4c952948b1144c06a386526dda4efef94fecdb"
+    },
+    "status_correction_history": "Exact prior README and status-document bytes remain checked against the original status_correction.json hashes under manuscript/review_history/cstr_status_correction; all other historical hash assertions are unchanged."
+  },
+  "environment": {
+    "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:07:20) [Clang 20.1.8 ]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "matplotlib": "3.10.9"
+  },
+  "files_sha256": {
+    "docs/review_comparison_status.md": "cc601e11baae2479add77cf2cf20ad3d492229ea6637721d054f4fc20fcff4e4",
+    "manuscript/README.md": "192ca42bf184796369b800a2e9fe3daf272511a300f3dc3305357ea51cac878c",
+    "manuscript/analysis_manifest_current.json": "c2b2c39f1d7b82a61118cfb0d1525907065e6929e57322e8b376b345c910c203",
+    "manuscript/figures/figure_B_grid_evaluation_profiles.pdf": "303f90e9b25fa985021fe620eb4b05adea4ea844eae275a5c5cde03016e58211",
+    "manuscript/figures/figure_B_grid_evaluation_profiles.png": "2159b0ff7a7c540f5d09f668a65a27612f03bde702e578613b8e81af04d63fef",
+    "manuscript/figures/figure_C_grid_completion_profiles.pdf": "48d6bea5d6d4311a660c57f329fd13987419217b7aa23f1262b1bc67fdcaf90b",
+    "manuscript/figures/figure_C_grid_completion_profiles.png": "00a315430ba97588c276bea3d4f2e76e174fc1957876dbc36e1a86d51f83ac95",
+    "manuscript/figures/figure_D_grid_tts99.pdf": "2058a2b3f03e88f8bb5bdba5ae878fed6dcaabfeb96fe3f92632737182846482",
+    "manuscript/figures/figure_D_grid_tts99.png": "40683001aaa7ed7e6785908fa9b741868c416b76f7e7e5a2b5c55d8f782fd4ae",
+    "manuscript/figures/process_completion_profiles.pdf": "556b8d9d684348694d3533058fb3b35cc4eb4754e6dd4ba770244eaf526f9831",
+    "manuscript/figures/process_completion_profiles.png": "0da20c49427d1500c39c8d9888c927a575b12f22f98ceae61e5a4618a9224ef2",
+    "manuscript/figures/process_completion_scatter.pdf": "5f3a4eb5008dd258d6313754aca11729fa4a5aad16dda79343f5357956a69022",
+    "manuscript/figures/process_completion_scatter.png": "8a94f03178ac1fdbc3140df07752ba0dde7fb97e08edf0ffa23453eb50381f33",
+    "manuscript/figures/process_cost_breakdown.pdf": "c14c7f0a4fc9720dfe776e06ff117402728e570c15f67025a002ce20a9fdd76f",
+    "manuscript/figures/process_cost_breakdown.png": "5a2e789de19e8b9f99c0eedf9715967414329de788b82fe5b3e6af9efb7ee53e",
+    "manuscript/figures/process_evaluation_profiles.pdf": "1321db36c2e70890bf36e85f046170d6318268d173ae45f03a406d842708b112",
+    "manuscript/figures/process_evaluation_profiles.png": "7752f805ee390b7d9240ec88442650f564ffd41689793976f35590c7ec300dbb",
+    "manuscript/main.pdf": "f75dc8f2e46b7c205c5b6a413d087ddee1a693319e67af420ff730d3556c212d",
+    "manuscript/main.tex": "d7265bbf928a2c39ade602a98462ef0d0ba3104d513fdfa7a93af85ad67ea9e7",
+    "manuscript/manuscript_sources.zip": "7cbb9b300a65f26dc6061b9c23ffe8628ff4251858fcf20483f4574c5c41380d",
+    "manuscript/reference.bib": "611b48d8b10bb63da67a9b34c23297c34806361f7068249bc61ac6e0466035ca",
+    "manuscript/review_history/cstr_status_correction/docs/review_comparison_status.md": "68f1459e25333c017074d53b5525707ce8ce43e8bbfe36068eff6b975883bcc5",
+    "manuscript/review_history/cstr_status_correction/manuscript/README.md": "cc42a3892c3c31a7b4970790c2a0749bb8da99b25da8191da6eb0ee384c0d472",
+    "manuscript/supplementary.pdf": "55fb463379a4b9aa5b0da62b959c625ec4cb1574999aadbacbcdd1cdd9474713",
+    "manuscript/supplementary.tex": "b4984a00f1e98b8c364e310fc852a4c909a6b1245bdcd6cc3ebf6cf23a3cee97",
+    "manuscript/tables/grid_cost.tex": "b88861dc47c68adf38645aeef486479b9623f2abeb9db0fa1d572db1d5bd60f8",
+    "manuscript/tables/paired_grid.tex": "a03dcdcce0dea2ae68aecaec370279a164be9a42ce25f33be7f197b225920766",
+    "manuscript/tables/paired_process_selected.csv": "8ca45c3a8e8d4428a75c14674e668f3f4a39c1098d6b3c781c774bdcbd740648",
+    "manuscript/tables/paired_process_selected.tex": "39955cf95a4ae19a6e02c23154b50742c79d7f8ae7f294e60022e721a8efbb6a",
+    "review_comparison/manuscript.py": "5cc87e1ce8d1d1fb4739b6b76792a71094378973783210b8cebbd865347b1224",
+    "tests/test_review_comparison_fmqa_uniform.py": "8403a17b332f7138c8cea9ced89cd5eefefd7ae06d11940e396686a42583ec05",
+    "tests/test_review_minor_presentation.py": "c3170379ee1cacc9f9d71bce2be0bced4bfe39607645bfcafbd4d329f3fb1596"
+  }
+}

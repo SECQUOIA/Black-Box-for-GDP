@@ -1,14 +1,20 @@
-# Major revision manuscript — 20 October 2026
+# Revised manuscript — 20 October 2026
 
-The main manuscript uses RBFOpt MSRSM with genetic candidate search, uniform sampling in both suites, and the BAM-prefix sampling control on Grid.
-The solver variant is retained in Supplementary Section S10, with a brief main-text comparison.
+The primary method is labeled RBFOpt throughout the manuscript, tables and figures.
+Section 3.3.3 states that its candidate-search option is the version 4.3.0 default.
+The primary comparison also includes uniform sampling in both suites and the BAM-prefix control on Grid.
+The main text refers readers to Supplementary Section S10 for the RBFOpt (solver) setting, results and paired comparisons.
+That section preserves all 1,190 matched historical runs, numerical comparisons, auxiliary-solver errors and timing-environment limitations.
 The separate diagnostic commit `15663134704b7bb1d4804c94c70edabaffbf8ecd` is summarized in S9/S10 without rerunning it.
 That diagnostic verified seven reconstructed FM fits, while historical weights remain unknown, and recorded two option-rejected NLP calls without a new solution.
 The later [CSTR15 follow-up](../results/review_feasibility_tautology_20261020/summary.json), retained in commit `854a1a7fc5a20a5489d82ef7991a16aaf89025f3`, passed the `1e-8` numerical feasibility check on the original GDP with objective `2.8293940632857546` and maximum unscaled violation `3.3306690738754696e-16`.
 The recorded A12 lower-bound discrepancy persists, with a difference of `0.6931579445174396`.
 This is numerical evidence for the retained point, not a proof of exact mathematical feasibility, global optimality or a solver defect.
-The manuscript sources, bibliography, PDFs and distribution ZIP in this directory retain their earlier snapshot, including obsolete incomplete-status wording; this README correction does not synchronize them with Overleaf.
-The existing manifests retain their historical hashes, and the [status correction record](../results/review_comparison_20261020/status_correction.json) identifies this later README change separately.
+The current sources, bibliography, PDFs, figures and source distribution ZIP are synchronized with the Chrome Overleaf revision.
+The main text and Supplementary Section S9 include the successful CSTR15 follow-up; earlier unsuccessful calls remain historical evidence.
+The original manifests and verification record retain their historical hashes.
+The [current analysis manifest](analysis_manifest_current.json) and [current revision verification](revision_verification.json) describe this later publication revision.
+The [status correction record](../results/review_comparison_20261020/status_correction.json) still identifies the earlier README correction, whose exact README and status-document bytes are preserved under [review_history/cstr_status_correction](review_history/cstr_status_correction/).
 The original analytical and process NLP inventories, logs, ZIP archives, manifests and audit implementation are unchanged.
 No new optimization or NLP execution is part of this revision.
 
@@ -29,12 +35,12 @@ Historical companion files referenced in S4–S9 are preserved under `reproducti
 
 ## Numerical scope
 
-At Grid B=100, genetic reaches 171/210 targets (81.4%), BAM 147/210 (70.0%), FMQA-SA 129/210 (61.4%), uniform 45/210 (21.4%), and the BAM-prefix control 124/210 (59.0%).
-The genetic median reconstructed search-completion cost is 70.81 s, compared with 64.42 s for BAM, 60.51 s for uniform and 365.74 s for the retained solver variant.
+At Grid B=100, RBFOpt reaches 171/210 targets (81.4%), BAM 147/210 (70.0%), FMQA-SA 129/210 (61.4%), uniform 45/210 (21.4%), and the BAM-prefix control 124/210 (59.0%).
+The RBFOpt median reconstructed search-completion cost is 70.81 s, compared with 64.42 s for BAM, 60.51 s for uniform and 365.74 s for the retained solver variant.
 The primary Process comparison retains all 700 runs, including 326 target hits, 373 misses and one DSDA execution failure.
-Genetic reaches 126/140 Process targets versus 127/140 for solver; the primary figures include all 16,252 charged callbacks.
+RBFOpt reaches 126/140 Process targets versus 127/140 for RBFOpt (solver); the primary figures include all 16,252 charged callbacks.
 Process totals are descriptive across heterogeneous conditions, including six related Dynamic budgets.
-Each genetic trajectory uses its own saved search time, every charged point cost and the one-time Dynamic preparation cost.
+Each RBFOpt trajectory uses its own saved search time, every charged point cost and the one-time Dynamic preparation cost.
 The cost endpoint excludes final wrapper result extraction/export and does not claim measured online optimizer–NLP runtime.
 CPU affinity and kernel differed between historical and additional runs, so the timing comparison is not a simultaneous controlled experiment.
 
@@ -44,7 +50,7 @@ Run these commands from the repository root with the recorded analysis dependenc
 
 ```sh
 python -m review_comparison.manuscript --output /tmp/gdp-publication-analysis
-python -m pytest tests/test_review_comparison.py tests/test_review_comparison_audit.py tests/test_review_comparison_fmqa_uniform.py tests/test_review_comparison_manuscript.py -q
+python -m pytest tests/test_review_comparison.py tests/test_review_comparison_audit.py tests/test_review_comparison_fmqa_uniform.py tests/test_review_comparison_manuscript.py tests/test_review_minor_presentation.py -q
 python -m review_comparison.audit --output /tmp/gdp-original-audit
 ```
 
@@ -59,5 +65,6 @@ Intervals are exploratory descriptive percentile intervals without equivalence, 
 Ten-seed boundary cases may produce degenerate intervals.
 
 Compile `main.tex` or `supplementary.tex` in Overleaf with pdfLaTeX and BibTeX using the supplied figure directory and bibliography.
-[analysis_manifest.json](analysis_manifest.json) records input/source/output hashes, bootstrap settings, execution provenance and generation environment.
-[verification.json](verification.json) records numerical reproduction and original-audit checks for this manuscript revision.
+[analysis_manifest_current.json](analysis_manifest_current.json) records current input/source/output hashes, bootstrap settings, execution provenance and generation environment.
+[revision_verification.json](revision_verification.json) records the current checks.
+The earlier [verification.json](verification.json), [analysis_manifest.json](analysis_manifest.json) and [publication_manifest.json](publication_manifest.json) document the preceding publication snapshot, not the current display labels or PDFs.

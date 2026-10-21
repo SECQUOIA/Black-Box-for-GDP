@@ -68,7 +68,7 @@
 
 \begin{abstract}
 Selecting configurations in generalized disjunctive programming (GDP) can require repeated, costly subproblem evaluations.
-We compare RBFOpt with genetic candidate search, Branch-and-Model (BAM), factorization-machine-based optimization with simulated annealing, and a budget-limited discrete steepest descent implementation against sampling controls to examine whether higher target attainment under an evaluation budget translates into lower computational cost.
+We compare RBFOpt, Branch-and-Model (BAM), factorization-machine-based optimization with simulated annealing, and a budget-limited discrete steepest descent implementation against sampling controls to examine whether higher target attainment under an evaluation budget translates into lower computational cost.
 The controlled comparison separates attainment of a reference objective, configuration-evaluation cost, and optimizer overhead using stored objective responses and separately measured subproblem costs.
 Here we show, across 21 analytical grids and four process GDP benchmark families, that target attainment and computational cost can favor different methods.
 BAM and a control preserving its fixed sampling prefix attain the same targets at ten evaluations; BAM adds coverage over this control at larger budgets.
@@ -106,18 +106,14 @@ Factorization machines provide another approach for modeling interactions betwee
 Here we test the classical simulated-annealing variant (FMQA-SA).
 We compare these methods to investigate whether they can identify high-quality solutions with fewer configuration evaluations, while accounting for the computational overhead of each search strategy.
 
-Although the number of objective evaluations is an important measure of DFO performance~\citep{more2009benchmarking}, fewer evaluations do not necessarily result in lower computational costs.
-In GDP problems, the cost of evaluating a configuration can vary depending on the NLP subproblem and its feasibility, while DFO methods also require computational effort to select new points.
-Therefore, evaluating these methods requires considering both the number and cost of objective evaluations, as well as the computational overhead of the search algorithms.
-This study provides a controlled empirical comparison that separates reference-target attainment, configuration-evaluation cost, and optimizer-side computation.
-The methods share frozen raw oracle responses, the first three evaluated configurations, candidate domains, evaluation-budget accounting, and assessment targets.
-Subsequent sampling, response handling, and stopping rules remain implementation-specific.
-Relative to the cited LD-SDA studies, the comparison broadens the configuration-selection strategies and quantifies how evaluation outcomes and search overhead change their cost rankings.
+Fewer objective evaluations need not imply lower computational cost~\citep{more2009benchmarking}, because configuration costs vary and search algorithms incur overhead when selecting new points.
+Relative to the cited LD-SDA studies, this comparison broadens the configuration-selection strategies and separates reference-target attainment, configuration-evaluation cost, and search overhead.
+The methods share frozen raw oracle responses, while subsequent sampling, response handling, and stopping remain implementation-specific.
 The resulting contributions are:
 
 \begin{itemize}
     \item A paired comparison on 21 analytical Grid-GDP benchmarks and four published process GDP families, sharing the first three evaluated configurations, candidate domains, evaluation-budget accounting, and assessment targets.
-These experiments compare the four search implementations with uniform sampling, a Grid BAM-prefix control, and a matched RBFOpt candidate-search sensitivity analysis.
+These experiments compare the four search implementations with uniform sampling and a Grid BAM-prefix control.
     \item A decomposition of recorded-path costs into configuration evaluation and optimizer overhead, with unsuccessful and repeated evaluations retained.
 The records identify initialization-driven Grid attainment for BAM, frequent uniform fallback in FMQA-SA, and post-target continuation as mechanisms relevant to the observed rankings.
 This is a descriptive decomposition of the tested implementations, not a causal ablation of their components.
@@ -190,7 +186,7 @@ Let \(v_{\mathrm{lookup}}(\boldsymbol\xi)\) denote the stored experimental respo
 For the process cases, a finite response is the objective of an accepted IPOPT solution under the specified initialization and acceptance rules; it is not assumed equal to the theoretical value \(\Phi(\boldsymbol\xi)\).
 Unaccepted or logically inadmissible configurations retain their outcome status and receive the method-specific responses defined in Section~\ref{sec:methodology}.
 Neither a penalty nor a local-solver termination label proves mathematical infeasibility.
-The benchmark implementations have no additional nonbinary integer variables after the external choices are specified: Grid choices fix both original coordinates; CSTR choices fix reactor/bypass and recycle alternatives; Column choices fix the tray configuration; Small Batch choices fix parallel-unit counts; and Dynamic choices fix the stagewise modes.
+The benchmark implementations have no additional nonbinary integer variables after the external choices are specified: Grid choices fix both original coordinates; continuously stirred tank reactor (CSTR) choices fix reactor/bypass and recycle alternatives; Column choices fix the tray configuration; Small Batch choices fix parallel-unit counts; and Dynamic choices fix the stagewise modes.
 Remaining original decisions are continuous.
 Supplementary Sections~S1 and S5 report the coordinate mappings and unfixed model sizes, respectively (Tables~S1 and S5).
 
@@ -275,8 +271,7 @@ Moreover, a binary string need not decode to an in-domain, logically admissible 
 
 The factorization machine with quantum annealing (FMQA) framework combines FM surrogate fitting with annealing-based candidate generation~\citep{kitai2020designing}.
 Starting from observed evaluations, the method fits the FM, samples binary candidates from the resulting quadratic model, and evaluates a selected decoded configuration through the objective oracle before updating the training data.
-In the present experiments, the objective is evaluated using a precomputed lookup oracle rather than solving a fixed-configuration NLP during the search, as described in Section~\ref{sec:methodology}.
-These surrogate models are fitted to method-specific responses derived from \(v_{\mathrm{lookup}}\), rather than to certified values of \(\Phi\).
+In the present experiments, these surrogates are fitted to method-specific responses derived from the precomputed lookup oracle \(v_{\mathrm{lookup}}\), rather than certified values of \(\Phi\) (Section~\ref{sec:methodology}).
 
 The simulated annealing variant of FMQA (FMQA-SA) uses classical simulated annealing to sample binary candidates from the learned QUBO.
 Temperature-dependent acceptance of uphill moves supports exploration, while gradual cooling favors lower-energy solutions~\citep{kirkpatrick1983optimization}.
@@ -447,7 +442,6 @@ The 2,455 keys cover the complete DFO boxes; the 1,790 keys actually visited by 
 Each Grid-GDP benchmark uses ten initial designs and evaluation budgets \(B\in\{10,30,50,70,100\}\).
 The primary Grid comparison comprises four search implementations and two sampling controls, giving \(21\times10\times5\times6=6{,}300\) runs.
 The process benchmarks comprise 14 model--budget conditions, each evaluated with ten paired seeds, giving 140 runs per method and 700 runs across the four search implementations and uniform sampling (Table~\ref{tab:process-cases}).
-An additional 1,190 retained RBFOpt solver-variant runs provide the matched sensitivity comparison in Supplementary Section~S10; all 8,190 records, including the original execution failure, are preserved.
 For each problem--budget--seed combination, three distinct initial configurations are generated using seeded Latin hypercube sampling, mapped to integer coordinates, and shared in the same order across all methods and sampling controls.
 This common design controls the first three evaluations; subsequent sampling, response handling, and stopping rules follow the individual implementations.
 All process cases use seeds 0--9, with no replacement of failed starts.
@@ -483,14 +477,14 @@ FMQA-SA & Budget or 1,800 s method limit; no benchmark target supplied. & Rank-e
 \\
 Uniform & Budget; no benchmark target supplied. & Uniform unseen integer configurations after the shared starts.
 \\
-BAM prefix + U & Budget; Grid only. & Preserve BAM callbacks 4--13, then sample uniformly without replacement.
+BAM-prefix control & Budget; Grid only. & Preserve BAM callbacks 4--13, then sample uniformly without replacement.
 \\
 \bottomrule
 \end{tabular}
 \par\smallskip
 \begin{minipage}{0.96\linewidth}\footnotesize
 Original process jobs and the additional process comparisons have 2,100 s worker watchdogs; the additional Grid comparisons have the watchdog disabled.
-The retained original Grid RBFOpt-solver/BAM trace watchdogs were also disabled, while Grid FMQA-SA used 2,100 s.
+Grid BAM trace watchdogs were also disabled, while Grid FMQA-SA used 2,100 s.
 Seeds are 0--9.
 Actual repeated/unsuccessful callbacks consume budget; internal cache accesses without callbacks do not.
 Process DSDA fails if all initial points are unaccepted; starts are never replaced.
@@ -510,22 +504,18 @@ If the evaluation budget \(B\) is exhausted, the best solution found is retained
 For the process benchmarks, DSDA starts from the best feasible configuration among the three evaluated initial points.
 For Grid-GDP benchmarks, initial configurations are ranked by objective value, and successive descents are attempted until the evaluation budget is exhausted or the stored target is reached within an absolute tolerance of \(10^{-12}\).
 This algorithmic stopping tolerance is distinct from the \(10^{-5}\) assessment tolerance in Equation~\eqref{eqn:target}, which is applied to all methods.
-For all process benchmarks, DSDA searches within the declared integer bounds without precomputed feasibility filtering.
-Unsuccessful and repeated objective evaluations count toward the evaluation budget.
-Unaccepted evaluations return \(+\infty\) for CSTR and \(10^6\) for the other process cases.
+For all process benchmarks, DSDA searches within the declared integer bounds without precomputed feasibility filtering, using the callback accounting and unaccepted-response policy stated above.
 
 \subsubsection{RBFOpt}
-RBFOpt denotes the MSRSM variant with automatic RBF selection and the default genetic candidate-search option of version 4.3.0, unless explicitly labeled solver~\citep{costa2018rbfopt,nannicini2021implementation}.
-The settings are \texttt{rbf=auto} and \nolinkurl{global_search_method=genetic}, with the recorded default population size 400 and 20 generations.
+RBFOpt uses MSRSM, automatic RBF selection, and the default genetic candidate-search option of version 4.3.0~\citep{costa2018rbfopt,nannicini2021implementation}.
+The settings are \texttt{rbf=auto} and \nolinkurl{global_search_method=genetic}, with the recorded defaults \nolinkurl{ga_base_population_size=400} and \nolinkurl{ga_num_generations=20}.
+The implementation determines the effective population size from the search dimension (Supplementary Section~S4).
 All external variables are integers, and the three shared initial configurations are supplied with additional package initialization disabled.
 These shared-start and budget settings define the experimental protocol; the implementation is not described as an entirely default package invocation.
-The retained solver variant differs only in \nolinkurl{global_search_method=solver} across all 1,190 matched configuration records.
-\citet{nannicini2021implementation} reported difficulty and higher expense for mathematical-solver candidate search and excluded the MSRSM--solver combination from the principal comparison.
-This motivates the matched comparison rather than assuming that one option must perform better on the present problems.
-Other surrogate-minimization operations still use Bonmin/IPOPT under genetic search, so this variant is not solver-free.
+Other surrogate-minimization operations use Bonmin/IPOPT.
 These calls contribute to search time but not the objective-evaluation budget.
 Unaccepted oracle responses follow the common policy stated above.
-The retained solver results and paired differences are reported in Supplementary Section~S10.
+The RBFOpt (solver) setting, results, and paired comparisons are reported in Supplementary Section~S10.
 
 \subsubsection{BAM}
 BAM uses local algebraic surrogate models optimized by BARON to generate candidate configurations~\citep{ma2023bam,bamManual}.
@@ -616,7 +606,7 @@ For the process experiments, \(f_{\mathrm{ref}}\) is the minimum accepted object
 For process runs, the reported solution is the accepted configuration with the lowest objective recorded by the wrapper within budget.
 Its coordinates and objective are preserved in the final \texttt{runs.csv} summary, including when first observed at callback \(B\).
 This solution need not equal the native optimizer's returned incumbent.
-Terminal accepted observations are retained under the same rule in the genetic and uniform comparisons.
+Terminal accepted observations are retained under the same rule in the RBFOpt and uniform comparisons.
 Supplementary Section~S4.3 preserves the historical terminal-callback audit with explicit variant labels, and Section~S10 links the additional terminal records.
 For the full-process-GDP comparison, a feasible objective at or below \(f_{\mathrm{ref}}+10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) counts as attainment, so solutions better than the reference are also included.
 
@@ -664,7 +654,7 @@ The point cost \(c(\boldsymbol\xi^{(q)})\) is measured separately for the same b
 The term \(t_{\mathrm{prep}}\) accounts for one-time model preparation not already included in the point costs.
 The retained search time includes surrogate fitting, candidate generation, auxiliary optimization, and recording performed within the method clock.
 For the historical process runners, \(T_{\mathrm{recorded}}\) is the \texttt{dfo\_wall\_s} interval ending after optimizer termination and status checks, immediately before \texttt{result.json} is written.
-For the additional genetic and sampling runs, it is the recorded search-stage interval, with later incumbent extraction and export recorded separately and excluded.
+For the additional RBFOpt and sampling runs, it is the recorded search-stage interval, with later incumbent extraction and export recorded separately and excluded.
 Callback logging within that interval is included.
 The later \texttt{summarize()} pass reconstructs the best accepted configuration from the callback records and writes \texttt{runs.csv}; these final result-extraction and summary-writing operations are excluded from the completion estimates.
 Their cost was not measured separately in the historical runs, and no claim that it is negligible is made.
@@ -685,7 +675,7 @@ Their positive total processing times are measured rather than set to zero.
 Costs are joined by the complete model/size/coordinate key, never by the coordinate tuple alone.
 No cross-size CSTR timing substitution or successful-retry selection is used.
 For Dynamic, the original model-template construction and discretization cost is included once per run through \(t_{\mathrm{prep}}\); additional campaign-level preparation is not charged repeatedly.
-All in-budget evaluations have measured point costs, and estimated full-run completion times are available for all 700 primary process runs and 140 retained solver-variant runs.
+All in-budget evaluations have measured point costs, and estimated full-run completion times are available for all 700 primary process runs.
 The sole execution failure, a Column DSDA initialization failure, retains its recorded cost and contributes zero target success.
 These estimates retain the recorded lookup trajectories rather than measuring online optimizer--NLP executions.
 
@@ -728,7 +718,6 @@ TTS99 is not calculated for the algebraic methods, which have only one run per p
 \subsection{Search Performance on Analytical Grid-GDP Benchmarks}
 \label{sec:grid-search-results}
 The evaluation budget changes the observed ordering of the search implementations and sampling controls (Table~\ref{tab:grid-hits}).
-R-G denotes RBFOpt genetic and B+U denotes the BAM-prefix control throughout the revised tables and figures.
 At ten evaluations, BAM and its prefix control each reach 111 of 210 targets (52.9\%), compared with 42 (20.0\%) for RBFOpt and 14 (6.7\%) for uniform sampling.
 Of BAM's 111 successes, 11 occur during shared initialization and 100 at two predetermined Sobol sampling points (10 at a corner and 90 at the grid center), before surrogate-guided candidate selection.
 At all tested budgets from 30 onward, RBFOpt achieves the highest aggregate target-hit fraction, reaching 171 of 210 runs (81.4\%) at 100 evaluations, compared with 147 (70.0\%) for BAM, 124 (59.0\%) for the prefix control, and 45 (21.4\%) for uniform sampling.
@@ -740,7 +729,7 @@ These observations establish the importance of the fixed design at low budgets w
 Target-set cardinality varies substantially across the analytical benchmarks (Supplementary Table~S6).
 In particular, 870 of 961 configurations (approximately 90.5\%) satisfy the Xin-She Yang~3 (historical variant) target, so this instance contributes ten successes per method even at the smallest budget, \(B=10\) (Supplementary Table~S9).
 Aggregate attainment therefore combines search behavior with heterogeneous target-set difficulty.
-Excluding both Xin-She Yang~3 and the nearly redundant sampled Bohachevsky~2 case leaves the B=100 ordering unchanged: RBFOpt 79.47\%, BAM 66.84\%, prefix control 54.74\%, and uniform 17.89\% (Supplementary Section~S10).
+Excluding both Xin-She Yang~3 and the nearly redundant sampled Bohachevsky~2 case leaves the B=100 ordering unchanged: RBFOpt 79.47\%, BAM 66.84\%, FMQA-SA 57.89\%, prefix control 54.74\%, DSDA 44.21\%, and uniform 17.89\% (Supplementary Section~S10).
 
 
 \begin{table}[htbp]
@@ -749,11 +738,10 @@ Excluding both Xin-She Yang~3 and the nearly redundant sampled Bohachevsky~2 cas
 Each cell contains 210 runs (21 functions and ten seeds).
 The evaluation budget includes the three shared initial evaluations, and repeated objective callbacks are counted toward the evaluation budget.
 BAM's 111 hits at $B=10$ all precede surrogate-guided selection (11 shared-initialization hits and 100 at two predetermined Sobol points).
-R-G is RBFOpt genetic; B+U is the BAM-prefix control.
 Per-function integer hit counts are in Supplementary Tables~S9--S13.}
 \label{tab:grid-hits}
 \begin{tabular}{rcccccc}\toprule
-Budget $B$ & DSDA & R-G & BAM & FMQA-SA & Uniform & B+U\\\midrule
+Budget $B$ & DSDA & RBFOpt & BAM & FMQA-SA & Uniform & \shortstack{BAM-prefix\\control}\\\midrule
 10 & 6.2 & 20.0 & 52.9 & 7.6 & 6.7 & 52.9 \\
 30 & 35.7 & 61.9 & 54.8 & 22.4 & 11.9 & 54.8 \\
 50 & 42.4 & 73.3 & 57.6 & 36.2 & 13.8 & 56.7 \\
@@ -785,7 +773,6 @@ Shading from callback 4 through the smaller of 13 and the budget marks the prese
 \label{sec:grid-gdp-results}
 The analytical formulation in Section~\ref{sec:grid-gdp-formulation} permits comparison with algebraic methods and a specified fixed-point evaluation protocol.
 Completion estimates for the 6,300 primary Grid runs attach individually measured GAMS/IPOPT costs for all 20,181 coordinates to 311,033 recorded callbacks.
-The 1,050 retained RBFOpt-solver runs are reported separately in Supplementary Section~S10.
 Every actual callback, including a repeated visit, receives the cost of its coordinate under the accounting rules in Section~\ref{sec:cost-accounting}.
 
 The fixed-point measurements have mean and median costs of 0.6522 and 0.3727~s, respectively; the mean is higher because some external solver calls incur long delays.
@@ -793,12 +780,9 @@ Because both coordinates are fixed, the measured point costs primarily reflect t
 At \(B=100\), RBFOpt reaches more targets than BAM with a median completion estimate of 70.81 versus 64.42~s (Table~\ref{tab:grid-cost}).
 Their median summed point costs are 60.84 and 63.97~s, while their median retained search components are 7.579 and 0.430~s.
 Uniform and the BAM-prefix control have median costs of 60.51 and 61.81~s, respectively, but lower target coverage.
-The matched solver variant has a 365.74~s median completion estimate and 172/210 hits at this budget, compared with 70.81~s and 171/210 for genetic.
-Thus the large retained search component of the solver setting is substantially reduced by default genetic candidate search, with similar aggregate attainment; this is not an equivalence claim (Supplementary Section~S10).
 FMQA-SA's 62.04~s median search component is comparable to its 62.34~s median summed point cost, contributing to a 124.13~s median completion estimate.
 DSDA has a small retained search component (approximately 0.0032~s) and can terminate below the evaluation budget, giving a median completion estimate of 24.14~s alongside its lower target coverage.
 The medians of separate cost components need not sum to the median total.
-Supplementary Section~S4.4 preserves the historical stopping audit, with RBFOpt explicitly labeled solver.
 The primary-variant callback counts and first-hit records are provided in \nolinkurl{manuscript/tables/run_records.csv}, helping distinguish early termination from the costs of the configurations evaluated.
 
 \begin{table}[htbp]
@@ -806,17 +790,17 @@ The primary-variant callback counts and first-hit records are provided in \nolin
 \caption{Grid-GDP DFO results at $B=100$, with 210 runs per method.
 All time columns are medians over target hits and misses.
 Component medians need not sum to the completion median; none of these columns is a first-hit time or TTS99 estimate.
-The historical stopping audit, including the solver variant, is preserved in Supplementary Table~S4 and \nolinkurl{stopping_diagnostics.json}; the additional primary-variant records are identified in Section~S10.}
+The historical stopping audit is preserved in Supplementary Table~S4 and \nolinkurl{stopping_diagnostics.json}; the primary records are identified in Section~S10.}
 \label{tab:grid-cost}
 \small
 \begin{tabular}{lrrrr}\toprule
 Method & Target hits & \shortstack{Median full-run\\completion (s)} & \shortstack{Median summed\\point cost (s)} & \shortstack{Median retained\\search time (s)}\\\midrule
 DSDA & 104/210 & 24.14 & 24.14 & 0.0032 \\
-RBFOpt genetic & 171/210 & 70.81 & 60.84 & 7.5790 \\
+RBFOpt & 171/210 & 70.81 & 60.84 & 7.5790 \\
 BAM & 147/210 & 64.42 & 63.97 & 0.4301 \\
 FMQA-SA & 129/210 & 124.13 & 62.34 & 62.0359 \\
 Uniform & 45/210 & 60.51 & 60.51 & 0.0026 \\
-BAM prefix + U & 124/210 & 61.81 & 61.80 & 0.0026 \\
+BAM-prefix control & 124/210 & 61.81 & 61.80 & 0.0026 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -826,10 +810,8 @@ Figure~\ref{fig:tts99} combines empirical hit rates with median estimated full-r
 At \(B=100\), the medians of the 21 problem-specific TTS99 estimates are 194.10~s for DSDA, 73.80~s for RBFOpt, 84.77~s for BAM, 757.81~s for FMQA-SA, 2,202.89~s for uniform, and 83.22~s for the prefix control, retaining infinite values.
 DSDA and BAM nevertheless have zero observed hits on four and two functions, respectively; RBFOpt and FMQA-SA have at least one hit on every function at that evaluation budget.
 Uniform has seven zero-hit functions and the prefix control has two.
-Suite medians therefore need to be interpreted together with unresolved zero-hit cases.
-For applications requiring coverage across heterogeneous problems, the infinity counts are as relevant as the median; for a known problem, its own hit rate and completion cost are more informative than the suite median.
-Because each success probability is estimated from only ten seeds per function, TTS99 is a descriptive restart estimate based on median run costs.
-It is not a measured solution time or a guarantee of 99\% success.
+Suite medians should therefore be read alongside zero-hit counts; for a known problem, its own hit rate and completion cost are more informative.
+The ten-seed TTS99 values retain the descriptive interpretation and uncertainty limits in Section~\ref{sec:cost-accounting}.
 
 Table~\ref{tab:grid-gdp-outcomes} reports the algebraic solver results separately because their iterations and subsolver calls are not equivalent to DFO callbacks and one selected run is included per problem and method.
 The algebraic solver families and configurations are described in Section~\ref{sec:protocol}.
@@ -862,7 +844,6 @@ The cost decomposition at \(B=100\) is given in Table~\ref{tab:grid-cost}.}
 \begin{figure}[htbp]
 \centering\includegraphics[width=\linewidth]{figures/figure_D_grid_tts99.pdf}
 \caption{Empirical TTS99 for each of the 21 Grid functions at budgets 10 and 100.
-D, R-G, B, F, U, and B+U denote DSDA, RBFOpt genetic, BAM, FMQA-SA, uniform, and the BAM-prefix control.
 Each dot is a function-specific ten-seed estimate; black bars denote suite medians when finite.
 Triangles on the upper dotted line denote infinite estimates from zero observed hits and are not assigned a finite runtime.
 The vertical axis is logarithmic.
@@ -954,13 +935,10 @@ BAM reaches four targets at \(B=30\), seven at \(B=37\), and all ten at \(B=50\)
 FMQA-SA reaches six targets at \(B=50\).
 All 140 BAM runs terminate at their declared evaluation limits, with complete records for all 3,430 evaluations and no budget-control failures.
 
-FMQA-SA uses uniform unseen-point fallback in 1,573 of 3,010 process proposals (52.26\%).
-The pooled rates are 27.41\% for CSTR, 63.08\% for Column, 72.81\% for Dynamic, and 82.86\% for Small Batch (Supplementary Section~S4.2).
-Uniform fallback therefore accounts for most proposals in the latter three families.
+The process fallback rate of 52.26\% reported in Section~3.3.5 comprises pooled rates of 27.41\% for CSTR, 63.08\% for Column, 72.81\% for Dynamic, and 82.86\% for Small Batch (Supplementary Section~S4.2).
 FMQA-SA reaches 42/140 process targets compared with 36/140 for uniform, whereas its Grid B=100 count is 129/210 compared with 45/210.
-The benefit over sampling therefore differs across the two suites.
-These comparisons characterize the complete implementation and do not isolate the causal contributions of fitting, annealing, and fallback.
-Seven separately reconstructed FM fits provide a limited conversion and proposal-eligibility diagnostic, with historical fitted weights unavailable (Supplementary Section~S10).
+The observed benefit over sampling differs across the two suites and concerns the complete implementation, without isolating fitting, annealing, or fallback contributions.
+Seven reconstructed FM fits support limited conversion and proposal-eligibility checks, but do not verify the unsaved historical weights or QUBOs (Supplementary Section~S10).
 
 \begin{table}[htbp]
 \centering
@@ -969,7 +947,7 @@ Entries are target hits of the wrapper-reported best-accepted configuration divi
 \label{tab:process-targets}
 \small
 \begin{tabular}{@{}lrccccc@{}}\toprule
-Case & $B$ & DSDA & R-G & BAM & FMQA-SA & Uniform \\
+Case & $B$ & DSDA & RBFOpt & BAM & FMQA-SA & Uniform \\
 \midrule
 Column & 16 & 5/10\textsuperscript{F1} & 5/10 & 0/10 & 4/10 & 0/10 \\
 CSTR 5 & 8 & 2/10 & 10/10 & 10/10 & 3/10 & 4/10 \\
@@ -991,7 +969,7 @@ Dynamic & 50 & 10/10 & 10/10 & 10/10 & 6/10 & 6/10 \\
 \begin{minipage}{0.96\linewidth}
 \footnotesize Superscript F$n$ denotes $n$ execution failures, which remain in the denominator and do not count as hits.
 The only failure is a Column DSDA initialization failure.
-All 70 primary groups use seeds 0--9; R-G denotes RBFOpt genetic.
+All 70 primary groups use seeds 0--9.
 All methods use the stated initialization and stopping policies.
 An accepted target configuration at callback $B$ counts because its coordinates and objective are preserved in the final wrapper summary.
 BAM also returns that value to its native optimizer; the other methods retain the wrapper stop (Supplementary Section~S4.3, Table~S3).
@@ -1016,7 +994,7 @@ All 14 conditions appear in Table~\ref{tab:process-targets}.}
 Table~\ref{tab:process-cases} and the timing analysis use one final inventory of 2,455 case/size/coordinate keys across the nine models.
 The primary process comparison contains 16,252 charged callbacks.
 Every callback, including unsuccessful and repeated evaluations, receives its saved cost using the complete case/size/configuration key.
-The additional genetic and uniform ledgers were independently checked against the frozen objective, acceptance, penalty and point-cost records.
+The additional RBFOpt and uniform ledgers were independently checked against the frozen objective, acceptance, penalty and point-cost records.
 No original process NLP was rerun for these comparisons; failures to obtain accepted solutions do not establish mathematical infeasibility.
 Estimated full-run completion times are available for every seed.
 
@@ -1031,7 +1009,7 @@ The audit establishes consistency of the retrospective cost reconstruction, not 
 Conclusions about search performance are conditional on this fixed local-solver oracle.
 
 Figure~\ref{fig:nlp-cost} separates optimizer/search overhead from point-evaluation and one-time preparation costs for four illustrative conditions.
-For RBFOpt genetic, the search share is 2.40\% for Column, 3.12\% for Small Batch, 8.26\% for CSTR30, and 42.67\% for Dynamic at \(B=50\).
+For RBFOpt, the search share is 2.40\% for Column, 3.12\% for Small Batch, 8.26\% for CSTR30, and 42.67\% for Dynamic at \(B=50\).
 DSDA's search share is below 0.2\% in these four conditions.
 The retained search-time component includes all operations retained within the method clock after subtracting measured lookup-processing time, rather than isolated surrogate-solving time.
 Dynamic DSDA executes 221 callbacks across ten \(B=50\) runs, compared with 500 for each of RBFOpt, BAM, and FMQA-SA.
@@ -1042,7 +1020,7 @@ Its lower cost reflects shorter paths as well as low search overhead; unsuccessf
 \caption{Relative computational costs for four process conditions.
 Each bar uses all ten seeds, including target misses and the timed execution failure; shares are $100\overline{T}_k/\overline{T}_{\mathrm{total}}$, and the numbers labeled 'Mean total (s)' above the bars give mean reconstructed completion times.
 Hatching denotes search overhead, gray denotes point evaluations, and crosshatching denotes one-time Dynamic preparation.
-Shares below 8\% are unlabeled; D, R-G, B, F, and U identify the five primary methods.
+Shares below 8\% are unlabeled.
 Every in-budget repeated or unsuccessful evaluation is charged.
 Structural-rejection costs are measured separately; each NLP point cost is taken from the same recorded attempt as its objective and acceptance status.}
 \label{fig:nlp-cost}
@@ -1082,7 +1060,6 @@ Figure~\ref{fig:process-scatter} shows the variation among individual timed runs
 \centering\includegraphics[width=\linewidth]{figures/process_completion_scatter.pdf}
 \caption{Individual reconstructed completion times for nine process conditions.
 Reconstructed search-completion costs exclude the final wrapper result-extraction and summary-writing pass; see Section~\ref{sec:cost-accounting}.
-D, R-G, B, F, and U denote DSDA, RBFOpt genetic, BAM, FMQA-SA, and uniform.
 Circles denote target hits, crosses target misses, and filled squares timed execution failures; horizontal offsets follow seed order.
 Black lines are medians over all ten seeds, whose completion costs are available in every group.
 Misses retain finite costs.
@@ -1094,13 +1071,13 @@ These points are neither first-target times nor TTS99 estimates.}
 \begin{table}[p]
 \centering
 \caption{Process full-run completion costs and empirical median-cost restart estimates, in seconds.
-Both panels use all ten paired seeds, including misses and timed execution failures; R-G denotes RBFOpt genetic.}
+Both panels use all ten paired seeds, including misses and timed execution failures.}
 \label{tab:process-tts99}
 \small
 \setlength{\tabcolsep}{6pt}
 \textbf{(a) Median reconstructed full-run completion cost}
 \par\smallskip\begin{tabular}{@{}lrccccc@{}}\toprule
-Case & $B$ & DSDA & R-G & BAM & FMQA-SA & Uniform \\\midrule
+Case & $B$ & DSDA & RBFOpt & BAM & FMQA-SA & Uniform \\\midrule
 Column & 16 & 37.91 & 33.54 & 37.97 & 29.72 & 26.29 \\
 CSTR 5 & 8 & 10.66 & 10.45 & 10.67 & 13.92 & 9.44 \\
 CSTR 10 & 15 & 20.98 & 20.09 & 18.54 & 27.07 & 17.75 \\
@@ -1118,7 +1095,7 @@ Dynamic & 50 & 26.60 & 65.14 & 33.98 & 61.31 & 33.12 \\
 \bottomrule\end{tabular}\par\medskip
 \textbf{(b) Empirical median-cost restart estimate (TTS99)}
 \par\smallskip\begin{tabular}{@{}lrccccc@{}}\toprule
-Case & $B$ & DSDA & R-G & BAM & FMQA-SA & Uniform \\\midrule
+Case & $B$ & DSDA & RBFOpt & BAM & FMQA-SA & Uniform \\\midrule
 Column & 16 & 265.36 & 234.79 & \(\infty\) & 297.25 & \(\infty\) \\
 CSTR 5 & 8 & 223.89 & 10.45 & 10.67 & 180.98 & 94.38 \\
 CSTR 10 & 15 & 440.66 & 40.17 & 815.87 & 568.40 & 781.18 \\
@@ -1156,24 +1133,20 @@ All five methods attain the Small Batch reference.
 Big-\(M\) and Hull complete in 0.55 and 0.57~s, respectively, compared with median DFO completion estimates ranging from 3.49 to 9.09~s.
 This demonstrates the competitiveness of algebraic methods when the formulation is available, although the different information access and timing protocols prevent direct speedup claims.
 
-These algebraic executions provide contextual reference results for the DFO study, rather than an assessment of the intrinsic performance of the underlying algorithms.
-Solver termination, primal feasibility, reference-target attainment, and optimality certification are assessed separately.
-All six CSTR GLOA runs finish with a numerically feasible solution under the stated residual test and report \texttt{optimal}, but none attains the IPOPT-table reference.
-They are classified as target misses, not execution failures.
-The references are best accepted table values, not independently certified global optima.
-The archived GLOA and RIC vectors were re-evaluated in the same original GDP model for each size, using the original objective and variable-name mapping.
-Every paired RIC objective is better.
-The gaps are 2.23--27.57\% of the RIC values, or approximately 2,228--27,571 times the comparison tolerance \(10^{-5}\max\{1,|f_{\mathrm{RIC}}|\}\).
-Thus these six discrepancies exceed the stated tolerance substantially.
-Together with Column Big-\(M\) and CSTR30 Hull, eight raw \texttt{optimal} reports fail the reference-target test.
-Their original objectives, completion times, and termination labels are retained, while independent optimality certification remains unresolved.
-The six GLOA reported lower bounds equal their returned objectives and also exceed the checked RIC values.
-Table~\ref{tab:full-gdp} applies the same bound-consistency flag to GDPopt and reformulations.
-The smaller Hull bound exceedances for CSTR5, CSTR10, and CSTR15 are only about 1.00, 1.81, and 1.54 times the comparison tolerance, respectively; they remain numerical-consistency questions, rather than evidence identifying a solver defect.
-No specific cause in GDPopt or BARON has been established.
-Investigation of solver internals is outside the scope of this DFO comparison; the conflicting reports are retained as observations of the configured implementations and do not support global-optimality or general solver-superiority claims.
-Furthermore, LOA finds a CSTR15 objective below the lookup reference but reaches the time limit.
-These observations highlight the distinction between target attainment, feasible solutions, and valid global-optimality certificates.
+These single-run algebraic comparisons distinguish numerical feasibility, reference-target attainment, solver termination, and optimality certification.
+All six CSTR GLOA runs report \texttt{optimal} with numerically feasible solutions, but miss the IPOPT-table references, which are not independently certified global optima.
+Reevaluation of the archived GLOA and RIC vectors in the same original GDP, using its objective and variable-name mapping, gives a better RIC objective for every size.
+The gaps are 2.23--27.57\% of the RIC values, approximately 2,228--27,571 times the comparison tolerance \(10^{-5}\max\{1,|f_{\mathrm{RIC}}|\}\).
+Together with Column Big-\(M\) and CSTR30 Hull, eight raw \texttt{optimal} reports are target misses, with their original objectives, times, and termination labels retained.
+The six GLOA lower bounds equal their returned objectives and exceed the checked RIC values; Table~\ref{tab:full-gdp} applies the same bound-consistency flag to all methods.
+The smaller Hull exceedances for CSTR5, CSTR10, and CSTR15 are only about 1.00, 1.81, and 1.54 times the comparison tolerance, respectively.
+These are numerical-consistency observations, not demonstrated software defects or evidence of general solver inferiority; the cause in GDPopt or BARON remains unresolved.
+LOA's time-limited CSTR15 run also returns an objective below the lookup reference, illustrating why target attainment and certification are assessed separately.
+
+A separate CSTR15 check retained witness W03's discrete configuration (Supplementary Section~S9)~\citep{cstrTightenedFeasibility}.
+The returned objective was $2.8293940632857546$, with maximum unscaled original-GDP violation $3.33\times10^{-16}$, passing a $10^{-8}$ residual target.
+The recorded GLOA lower bound still exceeds this objective by $0.6931579445$, approximately $24{,}498$ times the audit tolerance, so the numerical discrepancy persists at the tighter threshold without establishing exact feasibility or its cause.
+This additional check leaves the historical performance values and audit classifications unchanged.
 
 \begin{table}[htbp]
 \centering
@@ -1219,22 +1192,20 @@ Times are full-run completion times.
 \label{sec:cross-benchmark}
 The comparison separates three sources of performance differences: which configurations a method visits, the evaluation costs of those configurations, and the work required to select them.
 The initialization, fallback, and stopping diagnostics describe the complete implementations without isolating the causal benefit of surrogate learning.
-RBFOpt genetic retains greater Grid coverage at larger budgets while substantially reducing the overhead observed for the retained solver candidate-search setting.
+RBFOpt reaches more Grid targets than the other compared methods at budgets of 30 evaluations and above.
 The prefix and uniform controls show that BAM's low-budget Grid advantage is explained by its fixed initial design, with additional gains from its later search at larger budgets.
 Because the Grid evaluations fix both original coordinates, their measured costs emphasize the evaluation interface; the process cases additionally expose variable NLP and preprocessing costs (see Supplementary Table~S5 for model sizes).
 These distinctions limit extrapolation from either benchmark family alone.
 
-Dynamic illustrates how the tested budget changes completion-time rankings.
-For Dynamic, RBFOpt reaches all ten targets at \(B=12\) with a 12.29~s median completion estimate, while DSDA first does so at \(B=30\) with 26.61~s.
+The fixed-path point-cost scenarios in Supplementary Table~S19 also change the ordering of median costs.
+At Grid B=100, RBFOpt costs 70.81 versus 64.42~s for BAM at the recorded scale, but 619.68 versus 640.12~s when saved evaluation costs are multiplied by ten.
+This scenario retains the recorded trajectories, search overhead and preparation cost; it neither predicts adaptation to different live time limits nor identifies a universal crossover.
+
+Dynamic illustrates how budget and stopping behavior change completion-time rankings.
+RBFOpt reaches all ten targets at \(B=12\) with a 12.29~s median completion estimate, while DSDA first does so at \(B=30\) with 26.61~s.
 At the common budget \(B=30\), DSDA instead has the lower completion estimate, 26.61 versus 34.19~s.
-
-These retrospective comparisons identify neither an out-of-sample budget-selection policy nor actual first-target times within the optimizer overhead.
-
-
-Stopping diagnostics clarify this comparison (Supplementary Section~S4.4).
-At Dynamic \(B=30\), DSDA and RBFOpt each attain the target in all ten runs, but DSDA uses a median of 23.5 callbacks (range 15--30), whereas RBFOpt uses 30 in every run.
-The median numbers of callbacks after first target attainment are 6.5 and 23, respectively.
-Completion-cost comparisons therefore assess candidate selection together with stopping behavior, without isolating their causal contributions.
+At that budget, DSDA uses a median of 23.5 callbacks (range 15--30), versus 30 in every RBFOpt run, with median post-target counts of 6.5 and 23, respectively (\nolinkurl{manuscript/tables/run_records.csv}; Supplementary Section~S10).
+These retrospective comparisons combine candidate selection and stopping behavior; they identify neither an out-of-sample budget policy nor first-target times within optimizer overhead.
 
 The process results also depend on how unsuccessful configurations are handled.
 Logical rejection can be inexpensive, and early termination can reduce both evaluation count and total cost; such evaluations remain charged and all failed runs remain in the denominator.
@@ -1249,7 +1220,6 @@ Hit counts and completion-cost distributions carry the primary evidence, with em
 
 \section{Conclusions}
 This study compared four GDP configuration-search implementations with sampling controls under a shared evaluation protocol, separating target attainment, configuration-evaluation cost, and search overhead.
-A matched candidate-search comparison shows that RBFOpt genetic substantially reduces observed search overhead relative to the retained solver variant, with similar aggregate target counts.
 Across the analytical and process benchmarks, higher target coverage did not consistently yield lower estimated full-run completion times.
 Initialization, fallback sampling, search computation, and stopping behavior help interpret these trade-offs, but their causal effects were not isolated.
 

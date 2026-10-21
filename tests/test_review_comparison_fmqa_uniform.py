@@ -293,4 +293,10 @@ def test_status_correction_preserves_original_manifests_and_evidence():
     for name, digest in correction["preserved_files_sha256"].items():
         assert sha(ROOT / name) == digest, name
     for name, record in correction["updated_files"].items():
-        assert sha(ROOT / name) == record["current_sha256"], name
+        # These two living documents were subsequently updated with the authorized
+        # Overleaf revision; retain the exact status-correction publication bytes.
+        if name in {"docs/review_comparison_status.md", "manuscript/README.md"}:
+            path = ROOT / "manuscript/review_history/cstr_status_correction" / name
+        else:
+            path = ROOT / name
+        assert sha(path) == record["current_sha256"], name
