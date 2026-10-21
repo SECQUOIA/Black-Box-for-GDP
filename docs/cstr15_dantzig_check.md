@@ -1,7 +1,7 @@
 # CSTR15 W03 single-call Dantzig check
 
 This package prepares one additional fixed-configuration GAMS/IPOPT numerical check from the original W03 vector.
-Server execution is pending; packaging and local validation invoke no NLP solver.
+Packaging and local validation invoked no NLP solver; the subsequent [returned Dantzig result](../results/review_cstr15_dantzig_20261021/README.md) is now available.
 The user runs the package on Dantzig and returns its result ZIP for independent verification.
 The previous macOS success and failures, historical execution-provider revisions, performance tables and manuscript files remain unchanged.
 
@@ -127,6 +127,9 @@ Solver-free verification can run on macOS using this checkout or the extracted r
 It does not require the GAMS binary, server CPU affinity or server Python version.
 It verifies saved hashes, reconstructs the original GDP, repeats the exact identity proof and recomputes the returned point's residuals and comparison.
 The exported floating-point vector is preserved exactly, with a `1e-12` numerical comparison tolerance for cross-platform replay reports; the feasibility criterion itself remains `1e-8`.
+The returned October 21 result exposes a cross-platform mismatch in the original verifier's derived Hull ratio and near-zero residual ranking comparisons, while all named primal checks and feasibility classifications agree.
+That original verifier and its failure are preserved in the [result analysis](../results/review_cstr15_dantzig_20261021/README.md).
+For this returned result, run `python -m review_diagnostics.cstr15_gams_analysis --output /path/to/new/analysis` from the results branch to reproduce the separate full comparison and explicit metadata checks without a solver.
 
 ## Returned evidence and interpretation
 
@@ -149,8 +152,8 @@ The generated result README contains conditional reviewer/manuscript wording, bu
 
 `manifest.json` hashes the prepared or completed outputs, while the return ZIP's `RETURN_MANIFEST.json` also hashes any later verification reports.
 Neither manifest replaces an original execution-provider revision.
-After the user returns the actual result ZIP, verification and the actual result link can be added to `docs/review_comparison_status.md`.
-That status document is intentionally not marked complete while server execution is pending.
+The returned result and solver-free local comparison are now linked from `docs/review_comparison_status.md`.
+The original server archive and its execution revision are retained unchanged alongside the new analysis.
 
 ## Local validation
 

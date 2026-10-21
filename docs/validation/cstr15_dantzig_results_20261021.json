@@ -1,0 +1,68 @@
+{
+  "base_revision": "70bf17ca95e5ee1b98069e494c22fcafd6398960",
+  "upstream_main_at_branch_creation": "d05b392d4a93e4233a2ee69617da2767395fd27b",
+  "new_solver_calls_during_import_and_analysis": 0,
+  "server_calls_in_original_record": 1,
+  "tests": {
+    "command": "python -m pytest tests/test_cstr15_gams_analysis.py tests/test_cstr15_gams.py tests/test_review_diagnostics_feasibility.py tests/test_review_feasibility_followup.py tests/test_review_feasibility_tautology.py -q",
+    "passed": 68,
+    "failed": 0,
+    "warnings": 14,
+    "log_sha256": "fe26f9f0c964d0b9fc6ab7bdd1b470eed7a79264d5576fcb4b19293b594c4a04"
+  },
+  "lint": {
+    "command": "python -m ruff check review_diagnostics/cstr15_gams_analysis.py tests/test_cstr15_gams_analysis.py",
+    "passed": true
+  },
+  "deterministic_csv_replay": {
+    "command": "python -m review_diagnostics.cstr15_gams_analysis --output /path/to/new/analysis",
+    "identical_files": [
+      "comparison.csv",
+      "bound_comparison.csv"
+    ],
+    "byte_identical": true
+  },
+  "preservation": {
+    "reference_inventory": "docs/validation/cstr15_dantzig_preparation_20261021.json",
+    "protected_files_verified": 340,
+    "intentional_status_document_update": [
+      "docs/review_comparison_status.md"
+    ],
+    "other_existing_tracked_changes": [
+      "docs/cstr15_dantzig_check.md",
+      "docs/review_comparison_status.md",
+      "results/archives/README.md"
+    ],
+    "original_upload_identical": true,
+    "return_zip_sha256": "7c254d626bfa1fb087151ca20acd238b70b5946a51b6b197b11a4b056c147837",
+    "return_manifest_members_verified": 41,
+    "historical_raw_data_and_execution_sources_changed": false,
+    "manuscript_changed": false
+  },
+  "original_strict_replay": {
+    "passed": false,
+    "error": "Saved summary disagrees with independent replay",
+    "source_modified": false
+  },
+  "independent_replay": {
+    "primal_and_provenance_verified": true,
+    "all_named_residuals_verified": true,
+    "feasibility_tolerance": 1e-08,
+    "primitive_value_comparison_relative_and_absolute_tolerance": 1e-12,
+    "derived_values_and_rankings": "Checked exactly against their own primitive data; not compared by an unscaled tolerance across different objectives.",
+    "bound_classifications_changed": false
+  },
+  "analysis_environment": {
+    "python": "3.12.13 (main, Jun 23 2026, 15:44:24) [Clang 22.1.3 ]",
+    "executable": "/private/tmp/pr48-local-ci-854a1a7/fmqa-env/bin/python",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "versions": {
+      "numpy": "2.2.6",
+      "torch": "2.13.0",
+      "dimod": "0.12.21",
+      "dwave-samplers": "1.6.0",
+      "pyomo": "6.10.0",
+      "scipy": "1.15.3"
+    }
+  }
+}
