@@ -1,0 +1,1828 @@
+[
+  {
+    "name": "unreact_mole[A,15]",
+    "free_variables": [
+      "FR[A,15]",
+      "F[A,15]",
+      "rate[A,15]",
+      "V[15]"
+    ],
+    "is_linear": false,
+    "value": 3.245443841171092e-07,
+    "rhs": 0.0,
+    "expression": "0.99 + FR[A,15] - F[A,15] + rate[A,15]*V[15]  ==  0"
+  },
+  {
+    "name": "unreact_mole[B,15]",
+    "free_variables": [
+      "FR[B,15]",
+      "F[B,15]",
+      "rate[B,15]",
+      "V[15]"
+    ],
+    "is_linear": false,
+    "value": -4.4748559611951233e-07,
+    "rhs": 0.0,
+    "expression": "0.01 + FR[B,15] - F[B,15] + rate[B,15]*V[15]  ==  0"
+  },
+  {
+    "name": "unreact_cont[15]",
+    "free_variables": [
+      "QFR[15]",
+      "Q[15]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "1 + QFR[15] - Q[15]  ==  0"
+  },
+  {
+    "name": "react_mole[A,1]",
+    "free_variables": [
+      "F[A,2]",
+      "FR[A,1]",
+      "F[A,1]",
+      "rate[A,1]",
+      "V[1]"
+    ],
+    "is_linear": false,
+    "value": 7.489721176937025e-08,
+    "rhs": 0.0,
+    "expression": "F[A,2] + FR[A,1] - F[A,1] + rate[A,1]*V[1]  ==  0"
+  },
+  {
+    "name": "react_mole[A,2]",
+    "free_variables": [
+      "F[A,3]",
+      "FR[A,2]",
+      "F[A,2]",
+      "rate[A,2]",
+      "V[2]"
+    ],
+    "is_linear": false,
+    "value": 9.017607083619539e-08,
+    "rhs": 0.0,
+    "expression": "F[A,3] + FR[A,2] - F[A,2] + rate[A,2]*V[2]  ==  0"
+  },
+  {
+    "name": "react_mole[A,3]",
+    "free_variables": [
+      "F[A,4]",
+      "FR[A,3]",
+      "F[A,3]",
+      "rate[A,3]",
+      "V[3]"
+    ],
+    "is_linear": false,
+    "value": 1.2560584778179007e-07,
+    "rhs": 0.0,
+    "expression": "F[A,4] + FR[A,3] - F[A,3] + rate[A,3]*V[3]  ==  0"
+  },
+  {
+    "name": "react_mole[A,4]",
+    "free_variables": [
+      "F[A,5]",
+      "FR[A,4]",
+      "F[A,4]",
+      "rate[A,4]",
+      "V[4]"
+    ],
+    "is_linear": false,
+    "value": 1.422897975486559e-07,
+    "rhs": 0.0,
+    "expression": "F[A,5] + FR[A,4] - F[A,4] + rate[A,4]*V[4]  ==  0"
+  },
+  {
+    "name": "react_mole[A,5]",
+    "free_variables": [
+      "F[A,6]",
+      "FR[A,5]",
+      "F[A,5]",
+      "rate[A,5]",
+      "V[5]"
+    ],
+    "is_linear": false,
+    "value": 1.9319204012935298e-07,
+    "rhs": 0.0,
+    "expression": "F[A,6] + FR[A,5] - F[A,5] + rate[A,5]*V[5]  ==  0"
+  },
+  {
+    "name": "react_mole[A,6]",
+    "free_variables": [
+      "F[A,7]",
+      "FR[A,6]",
+      "F[A,6]",
+      "rate[A,6]",
+      "V[6]"
+    ],
+    "is_linear": false,
+    "value": 2.398556401758678e-07,
+    "rhs": 0.0,
+    "expression": "F[A,7] + FR[A,6] - F[A,6] + rate[A,6]*V[6]  ==  0"
+  },
+  {
+    "name": "react_mole[A,7]",
+    "free_variables": [
+      "F[A,8]",
+      "FR[A,7]",
+      "F[A,7]",
+      "rate[A,7]",
+      "V[7]"
+    ],
+    "is_linear": false,
+    "value": 2.908126771200559e-07,
+    "rhs": 0.0,
+    "expression": "F[A,8] + FR[A,7] - F[A,7] + rate[A,7]*V[7]  ==  0"
+  },
+  {
+    "name": "react_mole[A,8]",
+    "free_variables": [
+      "F[A,9]",
+      "FR[A,8]",
+      "F[A,8]",
+      "rate[A,8]",
+      "V[8]"
+    ],
+    "is_linear": false,
+    "value": 3.9120499409350806e-07,
+    "rhs": 0.0,
+    "expression": "F[A,9] + FR[A,8] - F[A,8] + rate[A,8]*V[8]  ==  0"
+  },
+  {
+    "name": "react_mole[A,9]",
+    "free_variables": [
+      "F[A,10]",
+      "FR[A,9]",
+      "F[A,9]",
+      "rate[A,9]",
+      "V[9]"
+    ],
+    "is_linear": false,
+    "value": 3.903830939067099e-07,
+    "rhs": 0.0,
+    "expression": "F[A,10] + FR[A,9] - F[A,9] + rate[A,9]*V[9]  ==  0"
+  },
+  {
+    "name": "react_mole[A,10]",
+    "free_variables": [
+      "F[A,11]",
+      "FR[A,10]",
+      "F[A,10]",
+      "rate[A,10]",
+      "V[10]"
+    ],
+    "is_linear": false,
+    "value": 4.279463032969e-07,
+    "rhs": 0.0,
+    "expression": "F[A,11] + FR[A,10] - F[A,10] + rate[A,10]*V[10]  ==  0"
+  },
+  {
+    "name": "react_mole[A,11]",
+    "free_variables": [
+      "F[A,12]",
+      "FR[A,11]",
+      "F[A,11]",
+      "rate[A,11]",
+      "V[11]"
+    ],
+    "is_linear": false,
+    "value": 3.872807755322949e-07,
+    "rhs": 0.0,
+    "expression": "F[A,12] + FR[A,11] - F[A,11] + rate[A,11]*V[11]  ==  0"
+  },
+  {
+    "name": "react_mole[A,12]",
+    "free_variables": [
+      "F[A,13]",
+      "FR[A,12]",
+      "F[A,12]",
+      "rate[A,12]",
+      "V[12]"
+    ],
+    "is_linear": false,
+    "value": 4.512423118913089e-07,
+    "rhs": 0.0,
+    "expression": "F[A,13] + FR[A,12] - F[A,12] + rate[A,12]*V[12]  ==  0"
+  },
+  {
+    "name": "react_mole[A,13]",
+    "free_variables": [
+      "F[A,14]",
+      "FR[A,13]",
+      "F[A,13]",
+      "rate[A,13]",
+      "V[13]"
+    ],
+    "is_linear": false,
+    "value": 4.2621694547329003e-07,
+    "rhs": 0.0,
+    "expression": "F[A,14] + FR[A,13] - F[A,13] + rate[A,13]*V[13]  ==  0"
+  },
+  {
+    "name": "react_mole[A,14]",
+    "free_variables": [
+      "F[A,15]",
+      "FR[A,14]",
+      "F[A,14]",
+      "rate[A,14]",
+      "V[14]"
+    ],
+    "is_linear": false,
+    "value": 3.8293071535910883e-07,
+    "rhs": 0.0,
+    "expression": "F[A,15] + FR[A,14] - F[A,14] + rate[A,14]*V[14]  ==  0"
+  },
+  {
+    "name": "react_mole[B,1]",
+    "free_variables": [
+      "F[B,2]",
+      "FR[B,1]",
+      "F[B,1]",
+      "rate[B,1]",
+      "V[1]"
+    ],
+    "is_linear": false,
+    "value": -1.477696737993417e-07,
+    "rhs": 0.0,
+    "expression": "F[B,2] + FR[B,1] - F[B,1] + rate[B,1]*V[1]  ==  0"
+  },
+  {
+    "name": "react_mole[B,2]",
+    "free_variables": [
+      "F[B,3]",
+      "FR[B,2]",
+      "F[B,2]",
+      "rate[B,2]",
+      "V[2]"
+    ],
+    "is_linear": false,
+    "value": -1.7487638387728155e-07,
+    "rhs": 0.0,
+    "expression": "F[B,3] + FR[B,2] - F[B,2] + rate[B,2]*V[2]  ==  0"
+  },
+  {
+    "name": "react_mole[B,3]",
+    "free_variables": [
+      "F[B,4]",
+      "FR[B,3]",
+      "F[B,3]",
+      "rate[B,3]",
+      "V[3]"
+    ],
+    "is_linear": false,
+    "value": -2.167158017797599e-07,
+    "rhs": 0.0,
+    "expression": "F[B,4] + FR[B,3] - F[B,3] + rate[B,3]*V[3]  ==  0"
+  },
+  {
+    "name": "react_mole[B,4]",
+    "free_variables": [
+      "F[B,5]",
+      "FR[B,4]",
+      "F[B,4]",
+      "rate[B,4]",
+      "V[4]"
+    ],
+    "is_linear": false,
+    "value": -2.683997565242069e-07,
+    "rhs": 0.0,
+    "expression": "F[B,5] + FR[B,4] - F[B,4] + rate[B,4]*V[4]  ==  0"
+  },
+  {
+    "name": "react_mole[B,5]",
+    "free_variables": [
+      "F[B,6]",
+      "FR[B,5]",
+      "F[B,5]",
+      "rate[B,5]",
+      "V[5]"
+    ],
+    "is_linear": false,
+    "value": -2.8992915508674333e-07,
+    "rhs": 0.0,
+    "expression": "F[B,6] + FR[B,5] - F[B,5] + rate[B,5]*V[5]  ==  0"
+  },
+  {
+    "name": "react_mole[B,6]",
+    "free_variables": [
+      "F[B,7]",
+      "FR[B,6]",
+      "F[B,6]",
+      "rate[B,6]",
+      "V[6]"
+    ],
+    "is_linear": false,
+    "value": -3.4002766626656244e-07,
+    "rhs": 0.0,
+    "expression": "F[B,7] + FR[B,6] - F[B,6] + rate[B,6]*V[6]  ==  0"
+  },
+  {
+    "name": "react_mole[B,7]",
+    "free_variables": [
+      "F[B,8]",
+      "FR[B,7]",
+      "F[B,7]",
+      "rate[B,7]",
+      "V[7]"
+    ],
+    "is_linear": false,
+    "value": -3.9390938812167153e-07,
+    "rhs": 0.0,
+    "expression": "F[B,8] + FR[B,7] - F[B,7] + rate[B,7]*V[7]  ==  0"
+  },
+  {
+    "name": "react_mole[B,8]",
+    "free_variables": [
+      "F[B,9]",
+      "FR[B,8]",
+      "F[B,8]",
+      "rate[B,8]",
+      "V[8]"
+    ],
+    "is_linear": false,
+    "value": -4.968586910514272e-07,
+    "rhs": 0.0,
+    "expression": "F[B,9] + FR[B,8] - F[B,8] + rate[B,8]*V[8]  ==  0"
+  },
+  {
+    "name": "react_mole[B,9]",
+    "free_variables": [
+      "F[B,10]",
+      "FR[B,9]",
+      "F[B,9]",
+      "rate[B,9]",
+      "V[9]"
+    ],
+    "is_linear": false,
+    "value": -4.983439749750573e-07,
+    "rhs": 0.0,
+    "expression": "F[B,10] + FR[B,9] - F[B,9] + rate[B,9]*V[9]  ==  0"
+  },
+  {
+    "name": "react_mole[B,10]",
+    "free_variables": [
+      "F[B,11]",
+      "FR[B,10]",
+      "F[B,10]",
+      "rate[B,10]",
+      "V[10]"
+    ],
+    "is_linear": false,
+    "value": -5.38066937297299e-07,
+    "rhs": 0.0,
+    "expression": "F[B,11] + FR[B,10] - F[B,10] + rate[B,10]*V[10]  ==  0"
+  },
+  {
+    "name": "react_mole[B,11]",
+    "free_variables": [
+      "F[B,12]",
+      "FR[B,11]",
+      "F[B,11]",
+      "rate[B,11]",
+      "V[11]"
+    ],
+    "is_linear": false,
+    "value": -5.016827005766e-07,
+    "rhs": 0.0,
+    "expression": "F[B,12] + FR[B,11] - F[B,11] + rate[B,11]*V[11]  ==  0"
+  },
+  {
+    "name": "react_mole[B,12]",
+    "free_variables": [
+      "F[B,13]",
+      "FR[B,12]",
+      "F[B,12]",
+      "rate[B,12]",
+      "V[12]"
+    ],
+    "is_linear": false,
+    "value": -5.634494497502862e-07,
+    "rhs": 0.0,
+    "expression": "F[B,13] + FR[B,12] - F[B,12] + rate[B,12]*V[12]  ==  0"
+  },
+  {
+    "name": "react_mole[B,13]",
+    "free_variables": [
+      "F[B,14]",
+      "FR[B,13]",
+      "F[B,13]",
+      "rate[B,13]",
+      "V[13]"
+    ],
+    "is_linear": false,
+    "value": -5.429035575127417e-07,
+    "rhs": 0.0,
+    "expression": "F[B,14] + FR[B,13] - F[B,13] + rate[B,13]*V[13]  ==  0"
+  },
+  {
+    "name": "react_mole[B,14]",
+    "free_variables": [
+      "F[B,15]",
+      "FR[B,14]",
+      "F[B,14]",
+      "rate[B,14]",
+      "V[14]"
+    ],
+    "is_linear": false,
+    "value": -5.022085893813255e-07,
+    "rhs": 0.0,
+    "expression": "F[B,15] + FR[B,14] - F[B,14] + rate[B,14]*V[14]  ==  0"
+  },
+  {
+    "name": "react_cont[1]",
+    "free_variables": [
+      "Q[2]",
+      "QFR[1]",
+      "Q[1]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[2] + QFR[1] - Q[1]  ==  0"
+  },
+  {
+    "name": "react_cont[2]",
+    "free_variables": [
+      "Q[3]",
+      "QFR[2]",
+      "Q[2]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[3] + QFR[2] - Q[2]  ==  0"
+  },
+  {
+    "name": "react_cont[3]",
+    "free_variables": [
+      "Q[4]",
+      "QFR[3]",
+      "Q[3]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[4] + QFR[3] - Q[3]  ==  0"
+  },
+  {
+    "name": "react_cont[4]",
+    "free_variables": [
+      "Q[5]",
+      "QFR[4]",
+      "Q[4]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[5] + QFR[4] - Q[4]  ==  0"
+  },
+  {
+    "name": "react_cont[5]",
+    "free_variables": [
+      "Q[6]",
+      "QFR[5]",
+      "Q[5]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[6] + QFR[5] - Q[5]  ==  0"
+  },
+  {
+    "name": "react_cont[6]",
+    "free_variables": [
+      "Q[7]",
+      "QFR[6]",
+      "Q[6]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[7] + QFR[6] - Q[6]  ==  0"
+  },
+  {
+    "name": "react_cont[7]",
+    "free_variables": [
+      "Q[8]",
+      "QFR[7]",
+      "Q[7]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[8] + QFR[7] - Q[7]  ==  0"
+  },
+  {
+    "name": "react_cont[8]",
+    "free_variables": [
+      "Q[9]",
+      "QFR[8]",
+      "Q[8]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[9] + QFR[8] - Q[8]  ==  0"
+  },
+  {
+    "name": "react_cont[9]",
+    "free_variables": [
+      "Q[10]",
+      "QFR[9]",
+      "Q[9]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[10] + QFR[9] - Q[9]  ==  0"
+  },
+  {
+    "name": "react_cont[10]",
+    "free_variables": [
+      "Q[11]",
+      "QFR[10]",
+      "Q[10]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[11] + QFR[10] - Q[10]  ==  0"
+  },
+  {
+    "name": "react_cont[11]",
+    "free_variables": [
+      "Q[12]",
+      "QFR[11]",
+      "Q[11]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[12] + QFR[11] - Q[11]  ==  0"
+  },
+  {
+    "name": "react_cont[12]",
+    "free_variables": [
+      "Q[13]",
+      "QFR[12]",
+      "Q[12]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[13] + QFR[12] - Q[12]  ==  0"
+  },
+  {
+    "name": "react_cont[13]",
+    "free_variables": [
+      "Q[14]",
+      "QFR[13]",
+      "Q[13]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[14] + QFR[13] - Q[13]  ==  0"
+  },
+  {
+    "name": "react_cont[14]",
+    "free_variables": [
+      "Q[15]",
+      "QFR[14]",
+      "Q[14]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "Q[15] + QFR[14] - Q[14]  ==  0"
+  },
+  {
+    "name": "split_mole[A]",
+    "free_variables": [
+      "F[A,1]",
+      "P[A]",
+      "R[A]"
+    ],
+    "is_linear": true,
+    "value": -5.576475900319344e-08,
+    "rhs": 0.0,
+    "expression": "F[A,1] - P[A] - R[A]  ==  0"
+  },
+  {
+    "name": "split_mole[B]",
+    "free_variables": [
+      "F[B,1]",
+      "P[B]",
+      "R[B]"
+    ],
+    "is_linear": true,
+    "value": -6.619537287755328e-08,
+    "rhs": 0.0,
+    "expression": "F[B,1] - P[B] - R[B]  ==  0"
+  },
+  {
+    "name": "split_cont",
+    "free_variables": [
+      "Q[1]",
+      "QP",
+      "QR"
+    ],
+    "is_linear": true,
+    "value": 8.326672684688674e-17,
+    "rhs": 0.0,
+    "expression": "Q[1] - QP - QR  ==  0"
+  },
+  {
+    "name": "split_add[A]",
+    "free_variables": [
+      "P[A]",
+      "Q[1]",
+      "F[A,1]",
+      "QP"
+    ],
+    "is_linear": false,
+    "value": -4.5066307623187196e-08,
+    "rhs": 0.0,
+    "expression": "P[A]*Q[1] - F[A,1]*QP  ==  0"
+  },
+  {
+    "name": "split_add[B]",
+    "free_variables": [
+      "P[B]",
+      "Q[1]",
+      "F[B,1]",
+      "QP"
+    ],
+    "is_linear": false,
+    "value": -1.361901991181469e-08,
+    "rhs": 0.0,
+    "expression": "P[B]*Q[1] - F[B,1]*QP  ==  0"
+  },
+  {
+    "name": "prod_spec",
+    "free_variables": [
+      "QP",
+      "P[B]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "0.95*QP - P[B]  ==  0"
+  },
+  {
+    "name": "vol_cons[2]",
+    "free_variables": [
+      "V[2]",
+      "V[1]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[2] - V[1]  ==  0"
+  },
+  {
+    "name": "vol_cons[3]",
+    "free_variables": [
+      "V[3]",
+      "V[2]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[3] - V[2]  ==  0"
+  },
+  {
+    "name": "vol_cons[4]",
+    "free_variables": [
+      "V[4]",
+      "V[3]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[4] - V[3]  ==  0"
+  },
+  {
+    "name": "vol_cons[5]",
+    "free_variables": [
+      "V[5]",
+      "V[4]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[5] - V[4]  ==  0"
+  },
+  {
+    "name": "vol_cons[6]",
+    "free_variables": [
+      "V[6]",
+      "V[5]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[6] - V[5]  ==  0"
+  },
+  {
+    "name": "vol_cons[7]",
+    "free_variables": [
+      "V[7]",
+      "V[6]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[7] - V[6]  ==  0"
+  },
+  {
+    "name": "vol_cons[8]",
+    "free_variables": [
+      "V[8]",
+      "V[7]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[8] - V[7]  ==  0"
+  },
+  {
+    "name": "vol_cons[9]",
+    "free_variables": [
+      "V[9]",
+      "V[8]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[9] - V[8]  ==  0"
+  },
+  {
+    "name": "vol_cons[10]",
+    "free_variables": [
+      "V[10]",
+      "V[9]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[10] - V[9]  ==  0"
+  },
+  {
+    "name": "vol_cons[11]",
+    "free_variables": [
+      "V[11]",
+      "V[10]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[11] - V[10]  ==  0"
+  },
+  {
+    "name": "vol_cons[12]",
+    "free_variables": [
+      "V[12]",
+      "V[11]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[12] - V[11]  ==  0"
+  },
+  {
+    "name": "vol_cons[13]",
+    "free_variables": [
+      "V[13]",
+      "V[12]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[13] - V[12]  ==  0"
+  },
+  {
+    "name": "vol_cons[14]",
+    "free_variables": [
+      "V[14]",
+      "V[13]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[14] - V[13]  ==  0"
+  },
+  {
+    "name": "vol_cons[15]",
+    "free_variables": [
+      "V[15]",
+      "V[14]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "V[15] - V[14]  ==  0"
+  },
+  {
+    "name": "YR_is_recycle[15].YRD_FR_act[A]",
+    "free_variables": [
+      "FR[A,15]",
+      "R[A]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "FR[A,15] - R[A]  ==  0"
+  },
+  {
+    "name": "YR_is_recycle[15].YRD_FR_act[B]",
+    "free_variables": [
+      "FR[B,15]",
+      "R[B]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "FR[B,15] - R[B]  ==  0"
+  },
+  {
+    "name": "YR_is_recycle[15].YRD_QFR_act",
+    "free_variables": [
+      "QFR[15]",
+      "QR"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "QFR[15] - QR  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[1].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,1]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,1]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[1].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,1]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,1]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[1].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[1]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[1]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[2].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,2]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,2]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[2].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,2]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,2]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[2].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[2]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[2]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[3].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,3]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,3]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[3].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,3]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,3]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[3].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[3]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[3]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[4].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,4]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,4]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[4].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,4]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,4]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[4].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[4]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[4]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[5].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,5]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,5]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[5].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,5]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,5]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[5].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[5]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[5]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[6].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,6]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,6]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[6].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,6]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,6]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[6].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[6]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[6]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[7].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,7]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,7]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[7].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,7]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,7]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[7].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[7]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[7]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[8].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,8]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,8]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[8].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,8]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,8]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[8].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[8]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[8]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[9].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,9]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,9]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[9].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,9]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,9]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[9].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[9]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[9]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[10].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,10]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,10]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[10].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,10]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,10]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[10].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[10]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[10]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[11].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,11]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,11]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[11].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,11]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,11]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[11].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[11]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[11]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[12].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,12]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,12]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[12].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,12]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,12]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[12].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[12]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[12]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[13].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,13]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,13]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[13].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,13]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,13]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[13].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[13]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[13]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[14].neg_YRD_FR_desact[A]",
+    "free_variables": [
+      "FR[A,14]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[A,14]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[14].neg_YRD_FR_desact[B]",
+    "free_variables": [
+      "FR[B,14]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "FR[B,14]  ==  0"
+  },
+  {
+    "name": "YR_is_not_recycle[14].neg_YRD_QFR_desact",
+    "free_variables": [
+      "QFR[14]"
+    ],
+    "is_linear": true,
+    "value": 0,
+    "rhs": 0.0,
+    "expression": "QFR[14]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[1].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,1]",
+      "Q[1]",
+      "F[A,1]",
+      "F[B,1]"
+    ],
+    "is_linear": false,
+    "value": -4.635044825729295e-08,
+    "rhs": 0.0,
+    "expression": "rate[A,1]*Q[1]*Q[1] + 2*F[A,1]*F[B,1]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[1].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,1]",
+      "rate[A,1]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,1] + rate[A,1]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[1].YPD_vol_act",
+    "free_variables": [
+      "c[1]",
+      "V[1]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[1] - V[1]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[2].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,2]",
+      "Q[2]",
+      "F[A,2]",
+      "F[B,2]"
+    ],
+    "is_linear": false,
+    "value": -2.250604830278391e-08,
+    "rhs": 0.0,
+    "expression": "rate[A,2]*Q[2]*Q[2] + 2*F[A,2]*F[B,2]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[2].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,2]",
+      "rate[A,2]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,2] + rate[A,2]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[2].YPD_vol_act",
+    "free_variables": [
+      "c[2]",
+      "V[2]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[2] - V[2]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[3].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,3]",
+      "Q[3]",
+      "F[A,3]",
+      "F[B,3]"
+    ],
+    "is_linear": false,
+    "value": 5.05326902822123e-08,
+    "rhs": 0.0,
+    "expression": "rate[A,3]*Q[3]*Q[3] + 2*F[A,3]*F[B,3]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[3].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,3]",
+      "rate[A,3]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,3] + rate[A,3]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[3].YPD_vol_act",
+    "free_variables": [
+      "c[3]",
+      "V[3]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[3] - V[3]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[4].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,4]",
+      "Q[4]",
+      "F[A,4]",
+      "F[B,4]"
+    ],
+    "is_linear": false,
+    "value": -8.160463460527012e-08,
+    "rhs": 0.0,
+    "expression": "rate[A,4]*Q[4]*Q[4] + 2*F[A,4]*F[B,4]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[4].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,4]",
+      "rate[A,4]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,4] + rate[A,4]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[4].YPD_vol_act",
+    "free_variables": [
+      "c[4]",
+      "V[4]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[4] - V[4]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[5].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,5]",
+      "Q[5]",
+      "F[A,5]",
+      "F[B,5]"
+    ],
+    "is_linear": false,
+    "value": -1.6550593673336778e-09,
+    "rhs": 0.0,
+    "expression": "rate[A,5]*Q[5]*Q[5] + 2*F[A,5]*F[B,5]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[5].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,5]",
+      "rate[A,5]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,5] + rate[A,5]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[5].YPD_vol_act",
+    "free_variables": [
+      "c[5]",
+      "V[5]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[5] - V[5]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[6].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,6]",
+      "Q[6]",
+      "F[A,6]",
+      "F[B,6]"
+    ],
+    "is_linear": false,
+    "value": -1.3789066000136074e-09,
+    "rhs": 0.0,
+    "expression": "rate[A,6]*Q[6]*Q[6] + 2*F[A,6]*F[B,6]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[6].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,6]",
+      "rate[A,6]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,6] + rate[A,6]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[6].YPD_vol_act",
+    "free_variables": [
+      "c[6]",
+      "V[6]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[6] - V[6]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[7].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,7]",
+      "Q[7]",
+      "F[A,7]",
+      "F[B,7]"
+    ],
+    "is_linear": false,
+    "value": -1.1740823868677808e-09,
+    "rhs": 0.0,
+    "expression": "rate[A,7]*Q[7]*Q[7] + 2*F[A,7]*F[B,7]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[7].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,7]",
+      "rate[A,7]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,7] + rate[A,7]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[7].YPD_vol_act",
+    "free_variables": [
+      "c[7]",
+      "V[7]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[7] - V[7]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[8].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,8]",
+      "Q[8]",
+      "F[A,8]",
+      "F[B,8]"
+    ],
+    "is_linear": false,
+    "value": 3.98407317359073e-07,
+    "rhs": 0.0,
+    "expression": "rate[A,8]*Q[8]*Q[8] + 2*F[A,8]*F[B,8]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[8].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,8]",
+      "rate[A,8]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,8] + rate[A,8]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[8].YPD_vol_act",
+    "free_variables": [
+      "c[8]",
+      "V[8]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[8] - V[8]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[9].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,9]",
+      "Q[9]",
+      "F[A,9]",
+      "F[B,9]"
+    ],
+    "is_linear": false,
+    "value": -9.261931221971054e-10,
+    "rhs": 0.0,
+    "expression": "rate[A,9]*Q[9]*Q[9] + 2*F[A,9]*F[B,9]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[9].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,9]",
+      "rate[A,9]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,9] + rate[A,9]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[9].YPD_vol_act",
+    "free_variables": [
+      "c[9]",
+      "V[9]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[9] - V[9]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[10].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,10]",
+      "Q[10]",
+      "F[A,10]",
+      "F[B,10]"
+    ],
+    "is_linear": false,
+    "value": -8.670089091111777e-10,
+    "rhs": 0.0,
+    "expression": "rate[A,10]*Q[10]*Q[10] + 2*F[A,10]*F[B,10]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[10].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,10]",
+      "rate[A,10]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,10] + rate[A,10]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[10].YPD_vol_act",
+    "free_variables": [
+      "c[10]",
+      "V[10]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[10] - V[10]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[11].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,11]",
+      "Q[11]",
+      "F[A,11]",
+      "F[B,11]"
+    ],
+    "is_linear": false,
+    "value": -4.913712492449207e-07,
+    "rhs": 0.0,
+    "expression": "rate[A,11]*Q[11]*Q[11] + 2*F[A,11]*F[B,11]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[11].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,11]",
+      "rate[A,11]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,11] + rate[A,11]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[11].YPD_vol_act",
+    "free_variables": [
+      "c[11]",
+      "V[11]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[11] - V[11]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[12].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,12]",
+      "Q[12]",
+      "F[A,12]",
+      "F[B,12]"
+    ],
+    "is_linear": false,
+    "value": -3.3851325076383887e-09,
+    "rhs": 0.0,
+    "expression": "rate[A,12]*Q[12]*Q[12] + 2*F[A,12]*F[B,12]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[12].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,12]",
+      "rate[A,12]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,12] + rate[A,12]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[12].YPD_vol_act",
+    "free_variables": [
+      "c[12]",
+      "V[12]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[12] - V[12]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[13].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,13]",
+      "Q[13]",
+      "F[A,13]",
+      "F[B,13]"
+    ],
+    "is_linear": false,
+    "value": -9.256503341603661e-10,
+    "rhs": 0.0,
+    "expression": "rate[A,13]*Q[13]*Q[13] + 2*F[A,13]*F[B,13]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[13].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,13]",
+      "rate[A,13]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,13] + rate[A,13]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[13].YPD_vol_act",
+    "free_variables": [
+      "c[13]",
+      "V[13]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[13] - V[13]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[14].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,14]",
+      "Q[14]",
+      "F[A,14]",
+      "F[B,14]"
+    ],
+    "is_linear": false,
+    "value": -1.0402344541304842e-09,
+    "rhs": 0.0,
+    "expression": "rate[A,14]*Q[14]*Q[14] + 2*F[A,14]*F[B,14]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[14].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,14]",
+      "rate[A,14]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,14] + rate[A,14]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[14].YPD_vol_act",
+    "free_variables": [
+      "c[14]",
+      "V[14]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[14] - V[14]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[15].YPD_rate_calc",
+    "free_variables": [
+      "rate[A,15]",
+      "Q[15]",
+      "F[A,15]",
+      "F[B,15]"
+    ],
+    "is_linear": false,
+    "value": -1.2237402202686098e-09,
+    "rhs": 0.0,
+    "expression": "rate[A,15]*Q[15]*Q[15] + 2*F[A,15]*F[B,15]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[15].YPD_rate_rel",
+    "free_variables": [
+      "rate[B,15]",
+      "rate[A,15]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "rate[B,15] + rate[A,15]  ==  0"
+  },
+  {
+    "name": "YP_is_cstr[15].YPD_vol_act",
+    "free_variables": [
+      "c[15]",
+      "V[15]"
+    ],
+    "is_linear": true,
+    "value": 0.0,
+    "rhs": 0.0,
+    "expression": "c[15] - V[15]  ==  0"
+  },
+  {
+    "name": "logic_to_linear.transformed_constraints[16]",
+    "free_variables": [],
+    "is_linear": true,
+    "value": 1,
+    "rhs": 1.0,
+    "expression": "YF_asbinary[1] + YF_asbinary[2] + YF_asbinary[3] + YF_asbinary[4] + YF_asbinary[5] + YF_asbinary[6] + YF_asbinary[7] + YF_asbinary[8] + YF_asbinary[9] + YF_asbinary[10] + YF_asbinary[11] + YF_asbinary[12] + YF_asbinary[13] + YF_asbinary[14] + YF_asbinary[15]  ==  1"
+  },
+  {
+    "name": "logic_to_linear.transformed_constraints[17]",
+    "free_variables": [],
+    "is_linear": true,
+    "value": 1,
+    "rhs": 1.0,
+    "expression": "YR_is_recycle[1].binary_indicator_var + YR_is_recycle[2].binary_indicator_var + YR_is_recycle[3].binary_indicator_var + YR_is_recycle[4].binary_indicator_var + YR_is_recycle[5].binary_indicator_var + YR_is_recycle[6].binary_indicator_var + YR_is_recycle[7].binary_indicator_var + YR_is_recycle[8].binary_indicator_var + YR_is_recycle[9].binary_indicator_var + YR_is_recycle[10].binary_indicator_var + YR_is_recycle[11].binary_indicator_var + YR_is_recycle[12].binary_indicator_var + YR_is_recycle[13].binary_indicator_var + YR_is_recycle[14].binary_indicator_var + YR_is_recycle[15].binary_indicator_var  ==  1"
+  },
+  {
+    "name": "logic_to_linear.transformed_constraints[18]",
+    "free_variables": [],
+    "is_linear": true,
+    "value": 1,
+    "rhs": 1.0,
+    "expression": "YP_is_cstr[1].binary_indicator_var  ==  1"
+  }
+]

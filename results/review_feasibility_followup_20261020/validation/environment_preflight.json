@@ -1,0 +1,16 @@
+{
+  "requested_python": "/Users/albertlee0125/Repos/RBFopt_Test/.venv/bin/python",
+  "requested_environment": {
+    "python": "3.13.12",
+    "pyomo": "6.10.0",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1"
+  },
+  "requested_environment_test_result": "2 passed, 4 setup errors: ModuleNotFoundError: No module named networkx",
+  "solver_calls_in_failed_preflight": 0,
+  "selected_existing_python": "/private/tmp/issue44-reader-env/bin/python",
+  "selected_environment": "Python 3.12.13, Pyomo 6.10.0, NetworkX 3.4.2, NumPy 2.2.6, SciPy 1.15.3, Matplotlib 3.10.3",
+  "solver_path": "/Users/albertlee0125/Solvers/ampl.macos64/ipopt",
+  "solver_version": "Ipopt 3.12.13 (Darwin x86_64), ASL(20211109)",
+  "installation_or_solver_replacement": false
+}

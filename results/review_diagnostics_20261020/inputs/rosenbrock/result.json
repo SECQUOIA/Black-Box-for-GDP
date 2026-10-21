@@ -1,0 +1,116 @@
+{
+  "spec": {
+    "csv_name": "rosenbrock.csv",
+    "case_name": "grid",
+    "grid_size": null,
+    "method": "fmqa_sa",
+    "seed": 0,
+    "n_starts": 3,
+    "max_evaluations": 10,
+    "starting_points": [
+      [
+        4,
+        7
+      ],
+      [
+        30,
+        30
+      ],
+      [
+        12,
+        11
+      ]
+    ],
+    "initial_design_sha256": "4a0fd17a901ceafc17fd349a53f77dec5cc2465a07e66d90823e760884d98b53",
+    "job_id": "grid_rosenbrock_B10_seed0_pytorch",
+    "settings": {
+      "epochs": 1000,
+      "learning_rate": 0.01,
+      "num_reads": 100,
+      "num_sweeps": 1000,
+      "time_limit": 1800
+    },
+    "surrogate_backend": "pytorch_qhd_data",
+    "upstream_commit": "eb3a20d4b5a3773d17ff31d72a35d51f58e84e56"
+  },
+  "completed_utc": "2026-10-12T20:01:19.841326+00:00",
+  "status": "completed",
+  "result_record": {
+    "csv_name": "rosenbrock.csv",
+    "method": "FMQA-SA (PyTorch QHD_Data)",
+    "seed": 0,
+    "n_starts": 3,
+    "max_evals": 10,
+    "best_value": 0.0006377058963389,
+    "best_point": [
+      13,
+      8
+    ],
+    "total_evals": 10,
+    "wall_time_s": 4.980482633000065,
+    "found_optimum": false,
+    "incumbent_trajectory": [
+      0.1984587986880579,
+      0.0402526260098978,
+      0.0045269245727764,
+      0.002243780005637,
+      0.0008424016161514,
+      0.0008424016161514,
+      0.0008424016161514,
+      0.0006377058963389,
+      0.0006377058963389,
+      0.0006377058963389
+    ],
+    "initial_evals": 3,
+    "adaptive_evals": 7,
+    "unique_evals": 10,
+    "solver_evalcount": null,
+    "solver_iterations": null,
+    "solver_status": "completed",
+    "solver_message": ""
+  },
+  "trace": {
+    "path": "evaluations.jsonl",
+    "sha256": "f93ab00cccf6349dfecfa48367dd3de2bbd74f5c668b5e10bbe2f4a58c077cc6",
+    "evaluations": 10
+  },
+  "search_wall_s": 4.980482633000065,
+  "lookup_wall_s": 1.5628997061867267e-05,
+  "clock_scope": "original FMQA optimize clock, including trace/checkpoint writes",
+  "fmqa_state": {
+    "status": "completed",
+    "best_value": 0.0006377058963389,
+    "best_point": [
+      13,
+      8
+    ],
+    "has_feasible_solution": true,
+    "total_evals": 10,
+    "initial_evals": 3,
+    "adaptive_evals": 7,
+    "unique_evals": 10,
+    "incumbent_trajectory": [
+      0.1984587986880579,
+      0.0402526260098978,
+      0.0045269245727764,
+      0.002243780005637,
+      0.0008424016161514,
+      0.0008424016161514,
+      0.0008424016161514,
+      0.0006377058963389,
+      0.0006377058963389,
+      0.0006377058963389
+    ],
+    "wall_time_s": 4.980482633000065,
+    "training_wall_s": 4.869023737999669,
+    "annealing_wall_s": 0.09301469000274665,
+    "objective_wall_s": 1.5628997061867267e-05,
+    "fallback_count": 0,
+    "bit_widths": [
+      5,
+      5
+    ]
+  },
+  "worker_returncode": 0,
+  "worker_wall_s": 6.622603258998424
+}

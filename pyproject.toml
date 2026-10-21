@@ -78,6 +78,8 @@ py-modules = [
 ]
 packages = [
     "fmqa_benchmark",
+    "review_comparison",
+    "review_diagnostics",
     "gdp_models",
     "benchmark_grids",
     "case_studies",

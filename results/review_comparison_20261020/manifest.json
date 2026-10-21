@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "return_archive": {
+    "path": "results/archives/review_comparison_20261020_124949_return_1792527395393579314.zip",
+    "name": "review_comparison_20261020_124949_return_1792527395393579314.zip",
+    "sha256": "659ddd3d1c1f62def4f8875399b63bdd4899f44ff848afb4ea45c079b3c1dc36",
+    "members": 38461,
+    "bytes": 62332127,
+    "root": "review_comparison_20261020_124949"
+  },
+  "supplied_checksum_file_sha256": "aee413e1f7df4156f63abf90ca27f38cb6d8b9d17cc158bece7796d9229555e7",
+  "execution_provider_revision": "38d917ef75ef6767c2a9f238d88be19bf0b89160",
+  "publication_revision": "Use the commit containing this manifest; execution revision above remains historical.",
+  "execution_package": {
+    "path": "results/runners/review_comparison_20261020.zip",
+    "sha256": "a103d34c2266f075e6ae554481441878e087466fcb1a15203c92c8df64cbd0f1",
+    "inventory_sha256": "11988734cacc15a640940f68ff0ae74307a5fb88e5565685e82c4775ee2f426b"
+  },
+  "retained_analysis_member": "review_comparison_20261020_124949/analysis_1792527370886192233",
+  "historical_input_files_unchanged": {
+    "results/grid_gdp_dfo_20261011/runs.csv": {
+      "sha256": "de2d8725777d66010cc87f9305c14cf54fff440c3b32cbd8fe06e913bd1ba015",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/historical_grid_runs.csv"
+    },
+    "results/process_ipopt_bam_v2_20261015/tables/run_results.csv": {
+      "sha256": "54ffc148d18ff07506c8c3ab96f77c953079a660516e79f6f3198649ee606fa5",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/historical_process_runs.csv"
+    },
+    "results/grid_gdp_20261009/raw/point_timings.csv": {
+      "sha256": "2490d8f8de368d9b54d6cd3d9082ace5c74dfa2ebb84fd266b0488a43a7fcd0f",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/grid_point_timings.csv"
+    },
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_15.csv": {
+      "sha256": "4772f378f77e1a27d28173cf3e65614f100561b62131f796a48a7032a1dc0629",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/cost_table_cstr_15.csv"
+    },
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_10.csv": {
+      "sha256": "085f5ed3f48288823704345110ea51705a954642de50b987459284906fa2a356",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/cost_table_cstr_10.csv"
+    },
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_5.csv": {
+      "sha256": "a4977af3082dcb7a1afe12dac289800458ea77093d9e6b4a6c27f51035b938ed",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/cost_table_cstr_5.csv"
+    },
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_column.csv": {
+      "sha256": "bdb5a484ca4c0761a8c7cf976d7e886f2f2a0e083f3b33b7993d60e9dbb01fa4",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/cost_table_column.csv"
+    },
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_dynamic.csv": {
+      "sha256": "11e80497ce7c4f6562a7b6887ddb3a73d28a236411e04fdfd6790e7d85fd9a66",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/cost_table_dynamic.csv"
+    },
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_small_batch.csv": {
+      "sha256": "726d1bf2030c6212f8e61bf35f15888bdcacc5654b963c9d9e297f91936e9479",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/cost_table_small_batch.csv"
+    },
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_20.csv": {
+      "sha256": "36edac12ab3dce3ef977b3987eb51ddae7eeec15a66e5224c9834750936a883d",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/cost_table_cstr_20.csv"
+    },
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_30.csv": {
+      "sha256": "def877ff5caf2c98d0533e8c47d804849ff7c33e8362abd0353867c2458644de",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/cost_table_cstr_30.csv"
+    },
+    "results/process_ipopt_bam_v2_20261015/tables/cost_table_cstr_25.csv": {
+      "sha256": "df7a828415ccae183c8c6f960067cd194775740eb7f976b1b1c8552468f553f6",
+      "return_member": "review_comparison_20261020_124949/reproduction/data/cost_table_cstr_25.csv"
+    }
+  },
+  "historical_archive_files_unchanged": [
+    {
+      "path": "results/archives/grid_trace_rbfopt_20261008_190603_og2app39.zip",
+      "sha256": "e02bf06a097b47340c93e04abefd25e97cc61d20eae9b23dee830505fffbcb38",
+      "archive_root": "grid_trace_rbfopt_20261008_190603_og2app39"
+    },
+    {
+      "path": "results/archives/grid_trace_bam_20261008_190603_5bh3y_t5.zip",
+      "sha256": "bd4d9bf56deafa864ecdd2e676fc24bd25a6037bdb02a772ebd800eb1a935374",
+      "archive_root": "grid_trace_bam_20261008_190603_5bh3y_t5"
+    },
+    {
+      "path": "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip",
+      "sha256": "b91afb707229766adcdcfb1ee67406377d1d2ef44839b062ec9e0539893bfefa",
+      "archive_root": "ipopt_dfo_cstr_20261015_174637_r1dzn5tk"
+    },
+    {
+      "path": "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip",
+      "sha256": "ed7eaa2c20031b58f5a9c02c0bc89699cf170c7e256a65c92664ac4b1875cc6e",
+      "archive_root": "ipopt_dfo_non_cstr_20261015_172428_o671edu_"
+    }
+  ],
+  "analysis_sources_sha256": {
+    "review_comparison/audit.py": "a8b1dedeacf2e1205211ae6b6a4c952948b1144c06a386526dda4efef94fecdb",
+    "review_comparison/plot_return.py": "5e4fc6efbef34aae30e8b8ee66e5fa695ad23aba711f5fe7a67c556f25bf1505",
+    "review_comparison/analysis.py": "cdde929239164930aec89d27453a7186f1d655cc347003085683a3eae53480ed",
+    "review_comparison/runner.py": "46b8bfd176fe85cba8f6723022f2b4fa375fb034d22e8d1e60e8215870719482",
+    "review_comparison/worker.py": "7ef4ba0a9c86f5c0fa71b813eb250162d367113e83facc9441fed30cde2ad8a7",
+    "review_comparison/common.py": "8d2cfc82d7f7f29f762908cb214fcc5783316d7165d77262913450b596adf3a9",
+    "tests/test_review_comparison.py": "9ad471144e0b9e3f155c5bb917b038fcbbfa698eec2b6b19fd0fb66344aa9d20",
+    "tests/test_review_comparison_audit.py": "0d419c47409a05f6762753ff2af6fa09f6611f9803c140e1fce8b3543d32a325"
+  },
+  "published_files_sha256": {
+    "README.md": "6f7690e6d9d65813ab36230af307913ed4caec6348e76473d92864a6b07b073e",
+    "figures/grid_comparison.pdf": "7bb5201ef196397ef9dd5be1f3a4f477f7708a08c08902ef319ea6a928fc547a",
+    "figures/grid_comparison.png": "83c386c4f229f0f7aa37053a7b17263bfb6c1bf8bf303022a9ad3e94800da8ec",
+    "figures/process_target_counts.pdf": "4fe855d0aa7c8b09a0efde87c6ac778d91f87e5ab0251bf3ff2e454edb9e605e",
+    "figures/process_target_counts.png": "419de4fdf777bb88b0813f859944b540ed389094d2ac6166ea6fa91d4ae99a42",
+    "new_run_audit.csv": "e4d7bb75879e2aeb3c904536cb88c8f380e4482dfe6f2ad7ffe9651fc12b6d63",
+    "tables/completed_runs.csv": "f0764696a4846d391e8d040781e8e32bde72829654e13ca6c1342cf768d1843f",
+    "tables/condition_summary.csv": "6c90c58cf2c364d69910fa397ede4a8cbd24c996765ae61e50269de9797f27ef",
+    "tables/grid_budget_summary.csv": "9b23b1161bc7a0db5b0446e584314d10ab67c6299f09af832aa5e7948c7c5b14",
+    "tables/grid_exclusions.csv": "273f6c54d7e4f2b40b0e10cc0c7d2a40c278fc1fc6ba263e992c57aa343ab552",
+    "tables/interpretation.json": "cf660d569192dfce60712a3c160dc0491d7104467d69585828663d6bb549b271",
+    "tables/method_summary.csv": "52389075bc3c5d4a9f043d1a2f3d38b5d6a6502f99a0aa4abc6f02644825e29d",
+    "tables/new_slots.csv": "a1b786a406c95f5d3cec34683e57f688fdba566e68e182a80c89d3585abbf92f",
+    "tables/paired_success.csv": "9420c3dd6d4dff462bc6e3fd16d24c01fd68845cde5e1b10adc8d6507873b0e6",
+    "tables/rbfopt_paired_runs.csv": "ae3a3e51be25fac1e8b5e741aa1cbb9d5b74914a57035d27c71470c04a5b9411",
+    "tables/rbfopt_timing_summary.csv": "bcb69a140d142de2ba9727110db3537b6d086181cc9932b38516a445b2fafa57",
+    "validation/tests.log": "f0ddbcbb87e5c047186ed94a32984eae4c9f91b741ebd7afec7b8249d3dc30d1",
+    "verification.json": "06630b206be034c850952497d599ba5b4e89a903f0ea1cbdc8011f29668371f9"
+  },
+  "figure_manifest": {
+    "path": "figures/manifest.json",
+    "sha256": "e8a9f246212a9892739e4facacc6e629b5375229136a506fa05de1a1ab01f133"
+  },
+  "large_table_archived_only": "review_comparison_20261020_124949/analysis_1792527370886192233/fixed_path_sensitivity.csv",
+  "reproduce": "python -m review_comparison.audit --output /tmp/review-comparison-audit",
+  "plot": "python -m review_comparison.plot_return --tables /tmp/review-comparison-audit/tables --output /tmp/review-comparison-figures",
+  "tests": {
+    "command": "python -m pytest tests/test_review_comparison.py tests/test_review_comparison_audit.py tests/test_final_process_artifacts.py -q",
+    "result": "29 passed; 14 existing Pyparsing deprecation warnings",
+    "python": "3.12.13"
+  },
+  "new_optimization_or_nlp_experiments_during_import": false
+}

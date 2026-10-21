@@ -1,0 +1,199 @@
+{
+  "zero_scale_cases": [
+    {
+      "kind": "synthetic constant FM; manually assigned weights; no fit",
+      "bias": 0.0,
+      "Q_all_zero_before_scaling": true,
+      "unscaled_energy": 0.0,
+      "scaling_factor": 0.0,
+      "scaled_coefficients": {
+        "(np.int64(0), np.int64(0))": "nan",
+        "(np.int64(0), np.int64(1))": "nan",
+        "(np.int64(1), np.int64(0))": "nan",
+        "(np.int64(1), np.int64(1))": "nan"
+      },
+      "scaled_offset": "nan",
+      "warnings": [
+        "invalid value encountered in scalar divide",
+        "invalid value encountered in divide"
+      ],
+      "historical_wrapper_guard_exception": "ValueError: PyTorch FMBQM has invalid coefficients, dtype or device",
+      "uniform_fallback_invoked": false,
+      "training_calls": 0,
+      "sa_calls": 0
+    },
+    {
+      "kind": "synthetic constant FM; manually assigned weights; no fit",
+      "bias": 3.0,
+      "Q_all_zero_before_scaling": true,
+      "unscaled_energy": 3.0,
+      "scaling_factor": 0.0,
+      "scaled_coefficients": {
+        "(np.int64(0), np.int64(0))": "nan",
+        "(np.int64(0), np.int64(1))": "nan",
+        "(np.int64(1), np.int64(0))": "nan",
+        "(np.int64(1), np.int64(1))": "nan"
+      },
+      "scaled_offset": "inf",
+      "warnings": [
+        "divide by zero encountered in scalar divide",
+        "invalid value encountered in divide"
+      ],
+      "historical_wrapper_guard_exception": "ValueError: PyTorch FMBQM has invalid coefficients, dtype or device",
+      "uniform_fallback_invoked": false,
+      "training_calls": 0,
+      "sa_calls": 0
+    }
+  ],
+  "nonzero_control": {
+    "rows": [
+      {
+        "bits": "00",
+        "point": [
+          0,
+          0
+        ],
+        "fm_prediction_float32": 3.0,
+        "fm_formula_float64": 3.0,
+        "unscaled_qubo_with_bias": 3.0,
+        "bqm_scaled_energy_with_offset": 1.5,
+        "restored_bqm_energy": 3.0,
+        "scaling_factor": 2.0,
+        "valid_domain": true,
+        "already_evaluated": true,
+        "eligible": false,
+        "classification": "already_evaluated",
+        "maximum_absolute_identity_error": 0.0,
+        "maximum_relative_identity_error": 0.0,
+        "identity_pass": true
+      },
+      {
+        "bits": "01",
+        "point": [
+          0,
+          1
+        ],
+        "fm_prediction_float32": 2.0,
+        "fm_formula_float64": 2.0,
+        "unscaled_qubo_with_bias": 2.0,
+        "bqm_scaled_energy_with_offset": 1.0,
+        "restored_bqm_energy": 2.0,
+        "scaling_factor": 2.0,
+        "valid_domain": true,
+        "already_evaluated": false,
+        "eligible": true,
+        "classification": "eligible",
+        "maximum_absolute_identity_error": 0.0,
+        "maximum_relative_identity_error": 0.0,
+        "identity_pass": true
+      },
+      {
+        "bits": "10",
+        "point": [
+          1,
+          0
+        ],
+        "fm_prediction_float32": 5.0,
+        "fm_formula_float64": 5.0,
+        "unscaled_qubo_with_bias": 5.0,
+        "bqm_scaled_energy_with_offset": 2.5,
+        "restored_bqm_energy": 5.0,
+        "scaling_factor": 2.0,
+        "valid_domain": true,
+        "already_evaluated": false,
+        "eligible": true,
+        "classification": "eligible",
+        "maximum_absolute_identity_error": 0.0,
+        "maximum_relative_identity_error": 0.0,
+        "identity_pass": true
+      },
+      {
+        "bits": "11",
+        "point": [
+          1,
+          1
+        ],
+        "fm_prediction_float32": 6.0,
+        "fm_formula_float64": 6.0,
+        "unscaled_qubo_with_bias": 6.0,
+        "bqm_scaled_energy_with_offset": 3.0,
+        "restored_bqm_energy": 6.0,
+        "scaling_factor": 2.0,
+        "valid_domain": true,
+        "already_evaluated": false,
+        "eligible": true,
+        "classification": "eligible",
+        "maximum_absolute_identity_error": 0.0,
+        "maximum_relative_identity_error": 0.0,
+        "identity_pass": true
+      }
+    ],
+    "weights": {
+      "bias": 3.0,
+      "linear": [
+        2.0,
+        -1.0
+      ],
+      "V": [
+        [
+          1.0,
+          2.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "unscaled_Q": [
+        [
+          2.0,
+          2.0
+        ],
+        [
+          0.0,
+          -1.0
+        ]
+      ],
+      "scaled_linear": {
+        "0": 1.0,
+        "1": -0.5
+      },
+      "scaled_quadratic": [
+        [
+          1,
+          0,
+          1.0
+        ]
+      ],
+      "scaled_offset": 1.5,
+      "scaling_factor": 2.0
+    }
+  },
+  "explicit_regularization": "No explicit penalty in MSELoss; Adam called with lr only",
+  "adam_default_weight_decay": 0,
+  "historical_zero_scale_occurrence": "Not established: no historical fitted-weight snapshots; selected logs show no such fit exception."
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "reconstructed diagnostic fit",
+  "points": [
+    [
+      2,
+      4
+    ],
+    [
+      9,
+      9
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "raw_values": [
+    -137.17970426594525,
+    -28.596739199868257,
+    -55.81190615376708
+  ],
+  "training_targets": [
+    0.0,
+    1.0,
+    0.7493606208180322
+  ],
+  "fm_seed": 1722792822,
+  "sa_seed": 1421746522,
+  "settings": {
+    "epochs": 1000,
+    "learning_rate": 0.01,
+    "num_reads": 100,
+    "num_sweeps": 1000,
+    "time_limit": 1800
+  }
+}
