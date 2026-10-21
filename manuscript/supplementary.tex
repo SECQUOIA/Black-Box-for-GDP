@@ -755,6 +755,8 @@ Xin She Yang3 & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 
 \bottomrule\end{tabular}\end{table}
 
 \clearpage
+\begingroup
+\setlength{\parskip}{2pt}
 \section{Data sources and reproducibility}\label{sec:supp-data}
 The manuscript and supplement cite the snapshot of \texttt{main} at commit \nolinkurl{cb70771b2037301bb6d0e38a2362d49b53fcda7d}, accessed October 19, 2026~\citep{rbfoptTestArchive}.
 The selected Grid and process analyses are \nolinkurl{results/grid_gdp_dfo_20261011} and \nolinkurl{results/process_ipopt_bam_v2_20261015} in that snapshot.
@@ -766,6 +768,7 @@ The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/blob/cb70771b2037301bb6d
 The companion \nolinkurl{figure_sources/} directory provides code, input identifiers, and rendering instructions for manuscript Figures~2, 6, and~7.
 
 \section{Feasibility and bound consistency of the algebraic results}\label{sec:bound-audit}
+\enlargethispage{\baselineskip}
 Tables~\ref{tab:bound-audit} and~\ref{tab:witnesses} provide the evidence for the $\dagger$ annotations in manuscript Table~8: all 45 selected runs and nine saved feasible comparison solutions, using the snapshot in Section~\ref{sec:supp-data}.
 The companion \nolinkurl{algebraic_audit/} directory contains \nolinkurl{table8_bound_audit.csv} and \nolinkurl{feasible_witnesses.csv}, joined by witness ID, together with 63 byte-preserved original result objects and saved vectors, original-GDP rechecks, and archive provenance.
 The 63 checked vectors comprise 45 selected-run vectors and 18 earlier RIC/GLOA vectors (nine per method, September 25 archive); the nine displayed witnesses are a subset: seven selected-run vectors and two earlier RIC vectors (Column and Dynamic).
@@ -796,6 +799,7 @@ These conflicting bounds and \nolinkurl{optimal} reports provide no independent 
 
 
 
+\par\endgroup
 \begin{landscape}
 \fontsize{9}{11}\selectfont
 \setlength{\tabcolsep}{4pt}
@@ -861,6 +865,9 @@ A45 & Dynamic & Hull & -28.596739198040982 & -557.0326287276312 & 1.344e-09 & W0
 \end{longtable}
 \end{landscape}
 \clearpage
+\begingroup
+\setlength{\parskip}{2pt}
+\enlargethispage{\baselineskip}
 \begin{table}[htbp]\centering\small
 \caption{Saved feasible comparison solutions.
 The CSV links to each full vector and includes original archive/member paths and hashes, reevaluated objective, and unrounded violation.}\label{tab:witnesses}
@@ -894,9 +901,8 @@ Table~S5 counts 290 algebraic constraints before reformulation; excluding 135 no
 The 75 checked discrete values comprise Table~S5's 60 disjunct-indicator binaries plus 15 feed-selection binaries, all matching W03.
 The three omitted identities were rechecked with zero residual.
 
-The recorded A12 GLOA lower bound remains $3.522552007803194$, exceeding the new point's objective by $0.6931579445174396$.
-Under the unchanged audit rule, the comparison tolerance is $10^{-5}\max\{1,|f|\}=2.829394063285755\times10^{-5}$, so the difference is approximately $24{,}498$ times that tolerance.
-Thus the numerical bound discrepancy persists for this CSTR15 case at the tighter residual threshold.
+The recorded A12 GLOA lower bound $3.522552007803194$ exceeds the tightened objective by $0.6931579445174396$, approximately $24{,}498$ times the unchanged comparison tolerance $10^{-5}\max\{1,|f|\}=2.829394063285755\times10^{-5}$.
+For Hull, the recorded lower bound $2.829394077848967$ exceeds this objective by only $1.45632\times10^{-8}$, giving $\rho\approx5.14711\times10^{-4}<1$ and no flag for this comparison, versus $\rho\approx1.536$ with historical witness W03.
 This result does not establish exact mathematical feasibility, global optimality, the cause of the reported bound, or a corresponding conclusion for other cases.
 
 This additional validation preserves W03 and all historical audit classifications, performance values, and timings.
@@ -905,6 +911,7 @@ The new vector, identity proofs, solver log, original-GDP residuals, and source 
 
 
 \FloatBarrier
+\par\endgroup
 
 \clearpage
 \section{Additional candidate-search and sampling comparisons}\label{sec:supp-additional}
@@ -953,7 +960,7 @@ $B$ & Target hits & Cost (s) & Target hits & Cost (s)\\\midrule
 
 \begin{table}[htbp]\centering\small
 \caption{Matched RBFOpt (solver) and RBFOpt results for all Process conditions.
-Costs include all ten seeds; hit counts concern the frozen numerical oracle.}
+The cost columns report median reconstructed search-completion costs over all ten seeds; hit counts concern the frozen numerical oracle.}
 \begin{tabular}{lrcrcr}\toprule
 & & \multicolumn{2}{c}{RBFOpt (solver)} & \multicolumn{2}{c}{RBFOpt}\\
 \cmidrule(lr){3-4}\cmidrule(lr){5-6}

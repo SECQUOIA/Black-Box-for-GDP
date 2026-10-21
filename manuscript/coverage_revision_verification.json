@@ -1,0 +1,91 @@
+{
+  "baseline_revision": "3dee29c24e4c0eccf7fbcfdd1f72a4126ba8d9a4",
+  "scope": "Resolve minor review comment 2 using the current primary Process population.",
+  "local_branch": "review/process-visited-keys",
+  "coverage_evidence": "results/review_process_coverage_20261021/manifest.json",
+  "coverage_manifest_sha256": "ef8ea404c34ebd81182f31378ce8c1bf618341756a6a6f67587b2b8a9f7e02c5",
+  "coverage": {
+    "inventory": 2455,
+    "primary_runs": 700,
+    "primary_callbacks": 16252,
+    "primary_visited": 2050,
+    "historical_visited": 1790,
+    "primary_only": 311,
+    "historical_only": 51,
+    "historical_runs": 560,
+    "historical_callbacks": 12822,
+    "shared_visited": 1739,
+    "primary_outcomes": {
+      "execution_failed": 1,
+      "target_not_reached": 373,
+      "target_reached": 326
+    },
+    "key_definition": "model, size, integer coordinates; method, seed and budget are unioned",
+    "primary_methods": [
+      "dsda",
+      "rbfopt_msrsm_genetic",
+      "bam",
+      "fmqa_sa",
+      "uniform_without_replacement"
+    ],
+    "excluded_method": "rbfopt_msrsm_solver",
+    "new_optimization_or_nlp_runs": 0
+  },
+  "verification": {
+    "tests": "10 passed; tests/test_review_visited_keys.py",
+    "targeted_ruff": "passed",
+    "fresh_reproductions_byte_identical": true,
+    "generated_files_compared": 6,
+    "overleaf_roundtrip_files_matched": 11,
+    "all_table_bodies_equations_and_figure_blocks_unchanged": true,
+    "supplementary_source_and_pdf_unchanged": true,
+    "prior_manifests_unchanged": true,
+    "one_sentence_per_source_line_retained": true,
+    "csv_line_endings": "LF; generated rows unchanged"
+  },
+  "compilation": {
+    "provider": "Overleaf through Chrome",
+    "main_pages": 33,
+    "errors": 0,
+    "warnings": 0,
+    "info": 1
+  },
+  "visual_review_pages": [
+    9,
+    10,
+    22
+  ],
+  "source_sha256": {
+    "main.tex": "55532502aa55ddee0d36323271da888a0bc777905b514f53e4dfd324a2f873ad",
+    "supplementary.tex": "27da4d15b29881d8ba9d4b53365fdcc8005aa852f220376915b8fb09701ef3d3",
+    "reference.bib": "611b48d8b10bb63da67a9b34c23297c34806361f7068249bc61ac6e0466035ca",
+    "figures/figure_B_grid_evaluation_profiles.pdf": "303f90e9b25fa985021fe620eb4b05adea4ea844eae275a5c5cde03016e58211",
+    "figures/figure_C_grid_completion_profiles.pdf": "48d6bea5d6d4311a660c57f329fd13987419217b7aa23f1262b1bc67fdcaf90b",
+    "figures/figure_D_grid_tts99.pdf": "2058a2b3f03e88f8bb5bdba5ae878fed6dcaabfeb96fe3f92632737182846482",
+    "figures/grid_rosenbrock_landscape.pdf": "96b153a7fc45afddd1af583788f14d276ce77928de3c5ca01e650105c582dba3",
+    "figures/process_completion_profiles.pdf": "556b8d9d684348694d3533058fb3b35cc4eb4754e6dd4ba770244eaf526f9831",
+    "figures/process_completion_scatter.pdf": "5f3a4eb5008dd258d6313754aca11729fa4a5aad16dda79343f5357956a69022",
+    "figures/process_cost_breakdown.pdf": "c14c7f0a4fc9720dfe776e06ff117402728e570c15f67025a002ce20a9fdd76f",
+    "figures/process_evaluation_profiles.pdf": "1321db36c2e70890bf36e85f046170d6318268d173ae45f03a406d842708b112"
+  },
+  "overleaf_before_zip_sha256": "a87612e13974f2c1b234403020d8a3f03c1a92ce23be20655d34cb38b3fab3f9",
+  "overleaf_after_zip_sha256": "d6343f4f8c00e7a7dcce3efd9d84466e3a06ec1a7829bdcd255bc02ed6b8c405",
+  "prior_tracked_files": 1885,
+  "prior_tracked_files_unchanged": 1880,
+  "changed_tracked_files": [
+    "docs/review_comparison_status.md",
+    "manuscript/README.md",
+    "manuscript/main.pdf",
+    "manuscript/main.tex",
+    "manuscript/manuscript_sources.zip"
+  ],
+  "output_sha256": {
+    "docs/review_comparison_status.md": "519b7436a7c6654d1f5d0a4ab534ee788b8e9e438e2e8484d9a394ab9b4c88a6",
+    "manuscript/README.md": "ca59ecd2846268deea36c8d9c816966388d7a62fd1170807a36e3a7ef82c2caa",
+    "manuscript/main.pdf": "33552bca755ef1b682e703612ece4892cf41564cf8fd812b48bf81a3c3cf19af",
+    "manuscript/main.tex": "55532502aa55ddee0d36323271da888a0bc777905b514f53e4dfd324a2f873ad",
+    "manuscript/manuscript_sources.zip": "c5256d84529ff4405966856d160a646fb2c1e94e0a3d6ea34845b745f72ec8c1"
+  },
+  "no_optimizer_nlp_fitting_or_annealing_runs": true,
+  "historical_scope_note": "The original 560-run stopping/terminal audit remains explicitly historical in Supplementary Section S4; no historical counts or results were overwritten."
+}
