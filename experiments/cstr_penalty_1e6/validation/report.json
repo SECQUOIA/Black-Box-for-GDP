@@ -1,0 +1,25 @@
+{
+  "protocol_tests_passed": 13,
+  "protocol_test_seconds": 2.137,
+  "baseline_publication_matches": 120,
+  "baseline_fields_checked": [
+    "category",
+    "best_accepted_objective",
+    "charged_evaluations",
+    "retained_search_time",
+    "same_key_point_cost_sum"
+  ],
+  "planned_formal_runs": 120,
+  "formal_completed": 0,
+  "formal_failed": 0,
+  "formal_not_run": 120,
+  "new_optimizer_runs": 0,
+  "new_nlp_solves": 0,
+  "rbfopt_coordinate_outputs": [
+    "jobs/*/callbacks.jsonl",
+    "rbfopt_coordinates.csv"
+  ],
+  "existing_files_changed": false,
+  "commit_or_push": false,
+  "packaging_copy_verified": "Exact inventory copy retains validation logs; run/resume simulation passed"
+}
