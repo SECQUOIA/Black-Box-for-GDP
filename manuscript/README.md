@@ -1,5 +1,15 @@
 # Revised manuscript — 21 October 2026
 
+## Figure label update — 23 October 2026
+
+The seven current data figures now display `D-SDA` instead of `DSDA`.
+The [figure label verification](figure_label_revision.json) records the regenerated PDF/PNG hashes, unchanged numerical records, and validation against the preceding branch revision.
+The same seven PDFs were uploaded to the existing Overleaf `figures/` folder without editing manuscript sources or review comments.
+Overleaf remains the source of truth for ongoing manuscript edits; the repository `.tex` files, compiled manuscript PDFs, source ZIP, and earlier manifests remain the 21 October snapshots described below.
+The reproduction command below generates the updated labels from retained records without running optimizers.
+
+## Retained manuscript snapshot — 21 October 2026
+
 The primary method is labeled RBFOpt throughout the manuscript, tables and figures.
 Section 3.3.3 states that its candidate-search option is the version 4.3.0 default.
 The primary comparison also includes uniform sampling in both suites and the BAM-prefix control on Grid.
