@@ -25,6 +25,11 @@ times. The [verified import](../column_dynamic_box_ipopt/INDEX.txt) preserves
 original CSVs, records, logs and execution sources. Its adjacent `.zip.sha256`
 checks the original archive; previous DFO inputs and results remain unchanged.
 
+The [October 21 CSTR15 return](review_cstr15_dantzig_20261021_161412_30959_return_1792599258428957007.zip) retains the single GAMS/IPOPT call, original W03 start, submitted input, logs, listing, returned vector and server verification.
+Its adjacent `.zip.sha256` and internal `RETURN_MANIFEST.json` preserve the uploaded bytes.
+The [solver-free local comparison](../review_cstr15_dantzig_20261021/README.md) records the numerical result and the cross-platform derived-metadata replay difference without changing the original verifier or raw evidence.
+Verify and regenerate this return with `python -m review_diagnostics.cstr15_gams_analysis --output /path/to/new/analysis`; its return-manifest format is separate from the legacy `result_archives.py` catalog.
+
 ## Reviewing detailed records
 
 Summary CSVs, figures, run settings, provenance manifests and indexes remain

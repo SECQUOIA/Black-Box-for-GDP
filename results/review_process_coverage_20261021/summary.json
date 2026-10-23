@@ -1,0 +1,27 @@
+{
+  "inventory": 2455,
+  "primary_runs": 700,
+  "primary_callbacks": 16252,
+  "primary_visited": 2050,
+  "historical_visited": 1790,
+  "primary_only": 311,
+  "historical_only": 51,
+  "historical_runs": 560,
+  "historical_callbacks": 12822,
+  "shared_visited": 1739,
+  "primary_outcomes": {
+    "execution_failed": 1,
+    "target_not_reached": 373,
+    "target_reached": 326
+  },
+  "key_definition": "model, size, integer coordinates; method, seed and budget are unioned",
+  "primary_methods": [
+    "dsda",
+    "rbfopt_msrsm_genetic",
+    "bam",
+    "fmqa_sa",
+    "uniform_without_replacement"
+  ],
+  "excluded_method": "rbfopt_msrsm_solver",
+  "new_optimization_or_nlp_runs": 0
+}

@@ -755,17 +755,21 @@ Xin She Yang3 & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 
 \bottomrule\end{tabular}\end{table}
 
 \clearpage
+\begingroup
+\setlength{\parskip}{2pt}
 \section{Data sources and reproducibility}\label{sec:supp-data}
-The manuscript and supplement cite the snapshot of \texttt{main} at commit \nolinkurl{cb70771b2037301bb6d0e38a2362d49b53fcda7d}, accessed October 19, 2026~\citep{rbfoptTestArchive}.
+The historical inputs are pinned to the snapshot of \texttt{main} at commit \nolinkurl{cb70771b2037301bb6d0e38a2362d49b53fcda7d}, accessed October 19, 2026~\citep{rbfoptTestArchive}.
 The selected Grid and process analyses are \nolinkurl{results/grid_gdp_dfo_20261011} and \nolinkurl{results/process_ipopt_bam_v2_20261015} in that snapshot.
 The process return archives retain their experimental revision \nolinkurl{ade67082ad2b09583a8f5594b827c97417e0ea99}; per-job settings and source hashes are supplied in the companion files described in Section~\ref{sec:supp-protocol}.
 
 The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/blob/cb70771b2037301bb6d0e38a2362d49b53fcda7d/results/process_ipopt_bam_v2_20261015/integration/manifest.json}{Process integration manifest} links the original archives, runner packages, frozen inputs, revisions, and hashes.
 The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/blob/cb70771b2037301bb6d0e38a2362d49b53fcda7d/results/process_ipopt_bam_v2_20261015/README.md}{Process reproduction guide} and \href{https://github.com/SECQUOIA/Black-Box-for-GDP/blob/cb70771b2037301bb6d0e38a2362d49b53fcda7d/results/grid_gdp_dfo_20261011/README.md}{Grid reproduction guide} provide verification and table-regeneration commands.
 The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/blob/cb70771b2037301bb6d0e38a2362d49b53fcda7d/results/grid_gdp_dfo_20261011/gdp_runs.csv}{Grid algebraic-run index} records all 105 selected problem--method outcomes, including times for executed target misses, statuses, termination labels, and original-result paths and hashes.
-The companion \nolinkurl{figure_sources/} directory provides code, input identifiers, and rendering instructions for manuscript Figures~2, 6, and~7.
+The current \href{https://github.com/SECQUOIA/Black-Box-for-GDP/blob/3c60f4707b454a9d3e4330466ec5f9372b418f54/manuscript/README.md}{publication analysis} and \href{https://github.com/SECQUOIA/Black-Box-for-GDP/blob/3c60f4707b454a9d3e4330466ec5f9372b418f54/results/review_process_coverage_20261021/README.md}{700-run Process coverage audit} are pinned separately at commit \nolinkurl{3c60f4707b454a9d3e4330466ec5f9372b418f54}~\citep{currentPublicationAnalysis}.
+These guides provide figure/table regeneration commands and the 2,050-key union ledger, retaining the original execution revisions and inputs.
 
 \section{Feasibility and bound consistency of the algebraic results}\label{sec:bound-audit}
+\enlargethispage{\baselineskip}
 Tables~\ref{tab:bound-audit} and~\ref{tab:witnesses} provide the evidence for the $\dagger$ annotations in manuscript Table~8: all 45 selected runs and nine saved feasible comparison solutions, using the snapshot in Section~\ref{sec:supp-data}.
 The companion \nolinkurl{algebraic_audit/} directory contains \nolinkurl{table8_bound_audit.csv} and \nolinkurl{feasible_witnesses.csv}, joined by witness ID, together with 63 byte-preserved original result objects and saved vectors, original-GDP rechecks, and archive provenance.
 The 63 checked vectors comprise 45 selected-run vectors and 18 earlier RIC/GLOA vectors (nine per method, September 25 archive); the nine displayed witnesses are a subset: seven selected-run vectors and two earlier RIC vectors (Column and Dynamic).
@@ -796,6 +800,7 @@ These conflicting bounds and \nolinkurl{optimal} reports provide no independent 
 
 
 
+\par\endgroup
 \begin{landscape}
 \fontsize{9}{11}\selectfont
 \setlength{\tabcolsep}{4pt}
@@ -861,6 +866,9 @@ A45 & Dynamic & Hull & -28.596739198040982 & -557.0326287276312 & 1.344e-09 & W0
 \end{longtable}
 \end{landscape}
 \clearpage
+\begingroup
+\setlength{\parskip}{2pt}
+\enlargethispage{\baselineskip}
 \begin{table}[htbp]\centering\small
 \caption{Saved feasible comparison solutions.
 The CSV links to each full vector and includes original archive/member paths and hashes, reevaluated objective, and unrounded violation.}\label{tab:witnesses}
@@ -883,28 +891,30 @@ W09 & Dynamic & RIC & -212.00878715666482 & 8.313e-13 & R1 \\
 
 Within \nolinkurl{algebraic_audit/}, \nolinkurl{manifest.json} identifies the source archives; \nolinkurl{repository_comparison.csv} contains the selected-run results; and \nolinkurl{solution_rechecks.json} and \nolinkurl{repository_validation.json} provide the original-model checks and validation metadata.
 \paragraph{Additional tightened-feasibility check for CSTR15.}
-The original W03 objective and residual in Table~\ref{tab:witnesses} were independently reproduced before the follow-up.
-A separate local IPOPT 3.12.13 solve retained W03's discrete configuration and continuous starting values and targeted an independently checked original-GDP residual of $10^{-8}$~\citep{cstrTightenedFeasibility}.
-Before that solve, three fixed-Boolean equalities were verified to be exact identities $1=1$ and omitted only from a computational clone, reducing its equality count from 158 to 155 while retaining 156 free continuous variables.
-This preprocessing preserves the feasible set for the fixed configuration; the original GDP, objective, variable bounds, and all other constraints were unchanged.
-The single invocation terminated normally after 28 iterations and returned objective $2.8293940632857546$.
-Independent reevaluation in a freshly restored original GDP gave maximum unscaled violation $3.3306690738754696\times10^{-16}$, passing the $10^{-8}$ target.
+The original W03 values in Table~\ref{tab:witnesses} were independently reproduced before the follow-up.
+A separate Dantzig GAMS 52.2.0/IPOPT 3.14.19 solve with MUMPS 5.8.1 retained W03's discrete configuration and continuous starting values and targeted an independently checked original-GDP residual of $10^{-8}$~\citep{cstrDantzigValidation}.
+Three fixed-Boolean equalities were verified as exact identities $1=1$ and omitted only from a computational clone, reducing 158 equalities to 155 with 156 free continuous variables.
+The fixed-configuration feasible set, original GDP, objective, variable bounds and all other constraints were unchanged.
+The GAMS export also removed 148 exactly satisfied constant inequalities; the independent check retained all original applicable constraints.
+The single invocation terminated normally after eight iterations and returned objective $2.8293940632857595$.
+A freshly restored original-GDP recheck gave maximum unscaled violation $1.1102230246251565\times10^{-16}$, passing the $10^{-8}$ target.
 The check covered 306 applicable algebraic constraints, variable bounds, integrality, disjunctions, and 32 original logical conditions.
 Table~S5 counts 290 algebraic constraints before reformulation; excluding 135 nonselected-branch rows and adding 151 rows encoding logic gives $290-135+151=306$.
 The 75 checked discrete values comprise Table~S5's 60 disjunct-indicator binaries plus 15 feed-selection binaries, all matching W03.
 The three omitted identities were rechecked with zero residual.
 
-The recorded A12 GLOA lower bound remains $3.522552007803194$, exceeding the new point's objective by $0.6931579445174396$.
-Under the unchanged audit rule, the comparison tolerance is $10^{-5}\max\{1,|f|\}=2.829394063285755\times10^{-5}$, so the difference is approximately $24{,}498$ times that tolerance.
-Thus the numerical bound discrepancy persists for this CSTR15 case at the tighter residual threshold.
-This result does not establish exact mathematical feasibility, global optimality, the cause of the reported bound, or a corresponding conclusion for other cases.
+The recorded A12 GLOA lower bound $3.522552007803194$ exceeds the tightened objective by $0.6931579445174347$, approximately $24{,}498$ times the unchanged comparison tolerance $10^{-5}\max\{1,|f|\}=2.8293940632857597\times10^{-5}$.
+For Hull, the recorded lower bound $2.829394077848967$ exceeds this objective by only $1.45632\times10^{-8}$, giving $\rho\approx5.14711\times10^{-4}<1$ and no flag for this comparison, versus $\rho\approx1.536$ with historical witness W03.
+This result establishes neither exact feasibility, global optimality, the bound discrepancy's cause nor conclusions for other cases.
 
-This additional validation preserves W03 and all historical audit classifications, performance values, and timings.
-The two earlier option-rejected invocations and the subsequent degrees-of-freedom failure returned no point and remain archived.
-The new vector, identity proofs, solver log, original-GDP residuals, and source hashes are archived separately at the cited revision~\citep{cstrTightenedFeasibility}.
+The retained local AMPL/IPOPT 3.12.13 check also passed $10^{-8}$, with an objective difference of $4.9\times10^{-15}$~\citep{cstrTightenedFeasibility}.
+Interface and constant-row differences prevent attributing iteration or timing differences solely to the solver version.
+Both checks preserve W03, audit classifications, performance values, timings and earlier failed diagnostics.
+The Dantzig vectors, proofs, logs, residuals and hashes are archived separately~\citep{cstrDantzigValidation}.
 
 
 \FloatBarrier
+\par\endgroup
 
 \clearpage
 \section{Additional candidate-search and sampling comparisons}\label{sec:supp-additional}
@@ -953,7 +963,7 @@ $B$ & Target hits & Cost (s) & Target hits & Cost (s)\\\midrule
 
 \begin{table}[htbp]\centering\small
 \caption{Matched RBFOpt (solver) and RBFOpt results for all Process conditions.
-Costs include all ten seeds; hit counts concern the frozen numerical oracle.}
+The cost columns report median reconstructed search-completion costs over all ten seeds; hit counts concern the frozen numerical oracle.}
 \begin{tabular}{lrcrcr}\toprule
 & & \multicolumn{2}{c}{RBFOpt (solver)} & \multicolumn{2}{c}{RBFOpt}\\
 \cmidrule(lr){3-4}\cmidrule(lr){5-6}
@@ -1045,6 +1055,7 @@ $\alpha$ & DSDA & RBFOpt & BAM & FMQA-SA & Uniform & \shortstack{RBFOpt\\(solver
 
 \subsection{Limited reconstructed FMQA diagnostics}
 A separate implementation audit and bounded diagnostic analysis retain the original benchmark paths and performance timings~\citep{additionalDiagnostics}.
+The diagnostic fits were reconstructed locally on macOS, separately from the timed benchmark runs.
 Three runs were fixed before fitting: Rosenbrock B10 seed0, CSTR15 B22 seed0, and Dynamic B12 seed0.
 The selection rule takes the first SA-selected proposal, the first uniform-fallback proposal when present, and the final proposal, removing duplicates.
 This yields seven distinct iterations: Rosenbrock 1 and 7, CSTR15 1 and 19, and Dynamic 1, 2 and 9.

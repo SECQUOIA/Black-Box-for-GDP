@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-23",
+  "scope": "Display-label correction in seven current data figures; retained-run analysis only.",
+  "baseline_revision": "8c7515d602802ab7b5b23eef4373988036a7f7ce",
+  "change": {
+    "from": "DSDA",
+    "to": "D-SDA",
+    "internal_method_key": "dsda"
+  },
+  "experiments_run": 0,
+  "source_sha256": {
+    "review_comparison/manuscript.py": "722e882326da300719c59a305af1a874dcb3b3fef09584579e70ac49b00193b7"
+  },
+  "output_sha256": {
+    "manuscript/figures/figure_B_grid_evaluation_profiles.pdf": "4dab11b8d220a477638ef014de65d6d1de9304d94fb5175f426b839ea24cad99",
+    "manuscript/figures/figure_B_grid_evaluation_profiles.png": "6d99003527519c5c60df333ec3b6e5866988eee29271a4ad234e120a1632bf55",
+    "manuscript/figures/figure_C_grid_completion_profiles.pdf": "9bba6e1b7239f5540166ace525b924a67e303cbed73c137b4c81354814228539",
+    "manuscript/figures/figure_C_grid_completion_profiles.png": "7310eb3bfab194a86b891e27639d9e680f0e437b7a112eb604df72b4b91775b0",
+    "manuscript/figures/figure_D_grid_tts99.pdf": "05dfe5958ebea068b94c7e327776cb43ac8eca7cf1c7f212a4e01069588f9433",
+    "manuscript/figures/figure_D_grid_tts99.png": "39b3ea0f4f8529485bf84d4d552a4b8fc9f54ad7492b8c84384fa1f28e6ad98c",
+    "manuscript/figures/process_completion_profiles.pdf": "c881db72e00081b979f2219fbb024e4e1a311b3d62c71e5ae07c0ea351f30cdb",
+    "manuscript/figures/process_completion_profiles.png": "16a1e1966e1d51761219190891c586e8c83b59c8cb761b30745f32ab3bec155a",
+    "manuscript/figures/process_completion_scatter.pdf": "6ec2546adaf64834132001beee14e468b8c8a08c7e7d9aea9b0bec3f16db84ce",
+    "manuscript/figures/process_completion_scatter.png": "78b5a4761d88a52099138b836eb9a317dcea47b0ea54592bf91dfa6dbd0f099a",
+    "manuscript/figures/process_cost_breakdown.pdf": "6ba434381ec3463f2d8f1a5a1cab5f1c75c5501889cabb5065a216ee5131f552",
+    "manuscript/figures/process_cost_breakdown.png": "c14870c9efce7075e41d8e481d6c3e02c182fc6bb0b5e502501935f925c240ed",
+    "manuscript/figures/process_evaluation_profiles.pdf": "f9ab7a8b28e0deb9bb58e2fe809887c4c69b0c2ffab03955ca4e8ab9d71ef138",
+    "manuscript/figures/process_evaluation_profiles.png": "cccc722fc2fb8cc8d93d60989ca5f8503fcf183b11eed1bf8159682d0e1d5f38"
+  },
+  "unchanged_numerical_record_sha256": {
+    "manuscript/figures/figure_values.json": "014e747f778d6fdcb52178aa7b6880da95831733109b9c55fdb2fc1cf03bdab5",
+    "manuscript/tables/run_records.csv": "074509fb982544ba10c6dcadae23465b4b91085c66e2300cde7204ce50f57d83",
+    "manuscript/tables/paired_comparisons.csv": "70332e70d38b361cb508414525a6861a76a544d34aef23993d4419e0748fa59a",
+    "manuscript/tables/numerical_summary.json": "ebbcf98fc7284c6072659b126b5c1a043ee9b6eb4e3123dbe613c8244a5a1aaf"
+  },
+  "pdf_text_validation": {
+    "figure_B_grid_evaluation_profiles.pdf": {
+      "label_replacements": 1,
+      "all_other_pdf_text_unchanged": true,
+      "pages": 1
+    },
+    "figure_C_grid_completion_profiles.pdf": {
+      "label_replacements": 1,
+      "all_other_pdf_text_unchanged": true,
+      "pages": 1
+    },
+    "figure_D_grid_tts99.pdf": {
+      "label_replacements": 3,
+      "all_other_pdf_text_unchanged": true,
+      "pages": 1
+    },
+    "process_completion_profiles.pdf": {
+      "label_replacements": 1,
+      "all_other_pdf_text_unchanged": true,
+      "pages": 1
+    },
+    "process_completion_scatter.pdf": {
+      "label_replacements": 9,
+      "all_other_pdf_text_unchanged": true,
+      "pages": 1
+    },
+    "process_cost_breakdown.pdf": {
+      "label_replacements": 4,
+      "all_other_pdf_text_unchanged": true,
+      "pages": 1
+    },
+    "process_evaluation_profiles.pdf": {
+      "label_replacements": 1,
+      "all_other_pdf_text_unchanged": true,
+      "pages": 1
+    }
+  },
+  "visual_validation": "All seven rendered PDFs inspected for label placement and clipping.",
+  "tests": {
+    "command": "python -m pytest tests/test_review_comparison_manuscript.py tests/test_review_minor_presentation.py -q",
+    "passed": 10
+  },
+  "environment": {
+    "python": "3.13.12",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "matplotlib": "3.10.9"
+  },
+  "reproduction_command": "python -m review_comparison.manuscript --output /tmp/gdp-publication-analysis",
+  "overleaf_scope": "Replace only these seven PDFs in figures/; manuscript sources, native comments and tracked edits are not edited.",
+  "preserved_snapshots": "Existing manuscript .tex files, compiled manuscript PDFs, ZIP files, manifests, experiment archives and generated tables remain unchanged."
+}

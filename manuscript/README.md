@@ -1,4 +1,14 @@
-# Revised manuscript — 20 October 2026
+# Revised manuscript — 21 October 2026
+
+## Figure label update — 23 October 2026
+
+The seven current data figures now display `D-SDA` instead of `DSDA`.
+The [figure label verification](figure_label_revision.json) records the regenerated PDF/PNG hashes, unchanged numerical records, and validation against the preceding branch revision.
+The same seven PDFs were uploaded to the existing Overleaf `figures/` folder without editing manuscript sources or review comments.
+Overleaf remains the source of truth for ongoing manuscript edits; the repository `.tex` files, compiled manuscript PDFs, source ZIP, and earlier manifests remain the 21 October snapshots described below.
+The reproduction command below generates the updated labels from retained records without running optimizers.
+
+## Retained manuscript snapshot — 21 October 2026
 
 The primary method is labeled RBFOpt throughout the manuscript, tables and figures.
 Section 3.3.3 states that its candidate-search option is the version 4.3.0 default.
@@ -9,12 +19,18 @@ The separate diagnostic commit `15663134704b7bb1d4804c94c70edabaffbf8ecd` is sum
 That diagnostic verified seven reconstructed FM fits, while historical weights remain unknown, and recorded two option-rejected NLP calls without a new solution.
 The later [CSTR15 follow-up](../results/review_feasibility_tautology_20261020/summary.json), retained in commit `854a1a7fc5a20a5489d82ef7991a16aaf89025f3`, passed the `1e-8` numerical feasibility check on the original GDP with objective `2.8293940632857546` and maximum unscaled violation `3.3306690738754696e-16`.
 The recorded A12 lower-bound discrepancy persists, with a difference of `0.6931579445174396`.
+The subsequent [Dantzig validation](../results/review_cstr15_dantzig_20261021/README.md) used GAMS 52.2.0/IPOPT 3.14.19 and returned objective `2.8293940632857595` with maximum unscaled original-GDP violation `1.1102230246251565e-16`, also passing `1e-8`.
+Its objective differs from the retained local check by `4.884981308350689e-15`; the GLOA discrepancy persists, while the Hull comparison is within the unchanged audit tolerance.
+The main text and S9 now use this Dantzig check, retaining the local result and the limitations of comparisons across solver interfaces.
 This is numerical evidence for the retained point, not a proof of exact mathematical feasibility, global optimality or a solver defect.
 The current sources, bibliography, PDFs, figures and source distribution ZIP are synchronized with the Chrome Overleaf revision.
 The main text and Supplementary Section S9 include the successful CSTR15 follow-up; earlier unsuccessful calls remain historical evidence.
 The original manifests and verification record retain their historical hashes.
 The [analysis manifest](analysis_manifest_current.json) and [naming-revision verification](revision_verification.json) document the synchronized naming revision.
 The subsequent [prose-only revision](prose_trim_verification.json) removes ten repeated sentences from the main text and updates its PDF and source ZIP.
+The subsequent [minor-clarification verification](minor_clarification_verification.json) records the Hull contrast, Table S17 median-cost caption, abstract scope, terminology and S9 pagination corrections.
+The [Process coverage audit](../results/review_process_coverage_20261021/README.md) resolves review item 2: the 700 primary runs visit 2,050 distinct model/size/coordinate keys through 16,252 charged callbacks.
+Table 1 explicitly identifies the five methods and excludes the retained RBFOpt (solver) runs.
 The [deletion record](../docs/prose_redundancy_trim.md) identifies each removed sentence and the retained explanation supporting its removal.
 The [status correction record](../results/review_comparison_20261020/status_correction.json) still identifies the earlier README correction, whose exact README and status-document bytes are preserved under [review_history/cstr_status_correction](review_history/cstr_status_correction/).
 The original analytical and process NLP inventories, logs, ZIP archives, manifests and audit implementation are unchanged.
@@ -69,5 +85,15 @@ Ten-seed boundary cases may produce degenerate intervals.
 Compile `main.tex` or `supplementary.tex` in Overleaf with pdfLaTeX and BibTeX using the supplied figure directory and bibliography.
 [analysis_manifest_current.json](analysis_manifest_current.json) records current input/source/output hashes, bootstrap settings, execution provenance and generation environment.
 [revision_verification.json](revision_verification.json) records the naming-revision checks.
-[prose_trim_verification.json](prose_trim_verification.json) records the subsequent prose revision and its current publication hashes.
+[prose_trim_verification.json](prose_trim_verification.json) records the preceding prose revision and its publication hashes.
+[minor_clarification_verification.json](minor_clarification_verification.json) records the preceding clarification revision.
+[coverage_revision_verification.json](coverage_revision_verification.json) records the subsequent resolution of the visited-key comment and its synchronized main source, PDF and source ZIP.
 The earlier [verification.json](verification.json), [analysis_manifest.json](analysis_manifest.json) and [publication_manifest.json](publication_manifest.json) document the preceding publication snapshot, not the current display labels or PDFs.
+
+The [submission revision verification](submission_revision_verification.json) records the current sources, both PDFs, source ZIP, local checks and Overleaf synchronization.
+Data availability and S8 distinguish the original execution snapshots from the [current figure/table analysis and Process coverage audit](https://github.com/SECQUOIA/Black-Box-for-GDP/tree/3c60f4707b454a9d3e4330466ec5f9372b418f54).
+The Dantzig validation is separately pinned at commit `5c124ffdfb2fc0b54673ae784d368f4b2afce973`, retaining execution revision `70bf17ca95e5ee1b98069e494c22fcafd6398960`.
+Section 4.4 removes two repeated Dynamic timing sentences and retains the explanation based on callback counts and evaluations after target attainment.
+All section titles, performance-table bodies, equations and figure blocks are unchanged.
+The original strict cross-platform full-summary mismatch remains documented in the Dantzig verification report; independent residual and bound-classification checks pass.
+This manuscript synchronization does not rerun any experiment.
