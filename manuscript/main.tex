@@ -72,7 +72,7 @@ We compare RBFOpt, Branch-and-Model (BAM), factorization-machine-based optimizat
 The controlled comparison separates attainment of a reference objective, configuration-evaluation cost, and optimizer overhead using stored objective responses and separately measured subproblem costs.
 Here we show, across 21 analytical grids and four process GDP benchmark families, that target attainment and computational cost can favor different methods.
 BAM and a control preserving its fixed sampling prefix attain the same targets at ten evaluations; BAM adds coverage over this control at larger budgets.
-At 100 evaluations, RBFOpt reaches the reference target in 81.4\% of runs compared with 70.0\% for BAM and 21.4\% for uniform sampling, with median reconstructed search-completion costs of 70.81, 64.42, and 60.51~s, respectively.
+On the analytical grids at 100 evaluations, RBFOpt reaches the reference target in 81.4\% of runs compared with 70.0\% for BAM and 21.4\% for uniform sampling, with median reconstructed search-completion costs of 70.81, 64.42, and 60.51~s, respectively.
 For the dynamic process benchmark, RBFOpt reaches the target in all ten runs at the smallest tested budget of 12 evaluations, whereas discrete steepest descent first does so at the tested budget of 30.
 Conventional algebraic methods remain competitive when model expressions and suitable solvers are available.
 Black-box search completion times are estimated along recorded search paths rather than measured in online optimizer--subproblem executions.
@@ -185,7 +185,7 @@ Let \(v_{\mathrm{lookup}}(\boldsymbol\xi)\) denote the stored experimental respo
 For the process cases, a finite response is the objective of an accepted IPOPT solution under the specified initialization and acceptance rules; it is not assumed equal to the theoretical value \(\Phi(\boldsymbol\xi)\).
 Unaccepted or logically inadmissible configurations retain their outcome status and receive the method-specific responses defined in Section~\ref{sec:methodology}.
 Neither a penalty nor a local-solver termination label proves mathematical infeasibility.
-The benchmark implementations have no additional nonbinary integer variables after the external choices are specified: Grid choices fix both original coordinates; continuously stirred tank reactor (CSTR) choices fix reactor/bypass and recycle alternatives; Column choices fix the tray configuration; Small Batch choices fix parallel-unit counts; and Dynamic choices fix the stagewise modes.
+The benchmark implementations have no additional nonbinary integer variables after the external choices are specified: Grid choices fix both original coordinates; continuous stirred-tank reactor (CSTR) choices fix reactor/bypass and recycle alternatives; Column choices fix the tray configuration; Small Batch choices fix parallel-unit counts; and Dynamic choices fix the stagewise modes.
 Remaining original decisions are continuous.
 Supplementary Sections~S1 and S5 report the coordinate mappings and unfixed model sizes, respectively (Tables~S1 and S5).
 
@@ -206,7 +206,7 @@ For nonconvex GDP problems, these linearizations may not provide valid global lo
 \citet{bergamini2005logic} developed a GLOA approach for process networks using piecewise under- and overestimators.
 
 GDPopt provides implementations of logic-based methods within Pyomo.GDP~\citep{chen2022pyomogdp,pyomoGDPopt}.
-Its relaxation with integer cuts (RIC) method uses an MILP relaxation to select configurations and adds no-good cuts to exclude evaluated discrete assignments, without generating the successive outer-approximation cuts used by LOA~\citep{pyomoGDPopt}.
+Its relaxation with integer cuts (RIC) method uses a mixed-integer linear programming (MILP) relaxation to select configurations and adds no-good cuts to exclude evaluated discrete assignments, without generating the successive outer-approximation cuts used by LOA~\citep{pyomoGDPopt}.
 
 LD-SDA is an existing alternative that searches ordered external configurations through improving neighborhood moves and discrete line searches~\citep{ovalle2025logic}.
 It selects the best improving neighbor, continues along the resulting direction while improvement persists, and resumes neighborhood exploration.
@@ -429,8 +429,9 @@ Total & 1,260 & 2,455 & -- & -- \\
 \end{tabular}
 \par\smallskip
 \begin{minipage}{0.96\linewidth}
-\footnotesize Each measured coordinate is a distinct model/size/coordinate key.
-The 2,455 keys cover the complete DFO boxes; the 1,790 keys actually visited by the searches are a subset of this inventory.
+\footnotesize The 2,455 measured keys cover the complete DFO boxes.
+The 700 primary process runs (DSDA, RBFOpt, BAM, FMQA-SA, and uniform sampling; 14 model--budget conditions and ten seeds per condition) visit 2,050 distinct model/size/coordinate keys.
+This union counts each key once across methods, budgets, and seeds and excludes the retained RBFOpt (solver) runs.
 \end{minipage}
 \end{table}
 \FloatBarrier
@@ -557,7 +558,7 @@ Every callback consumes the same budget and saved point cost under the common ac
 
 \subsection{Execution environment and algebraic comparisons}
 \label{sec:protocol}
-All computational experiments were conducted on the Dantzig server, equipped with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
+The benchmark performance experiments were conducted on the Dantzig server, equipped with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
 All optimization methods and numerical libraries were configured for single-threaded execution.
 The software environment included Pyomo 6.10.0, GAMS 52.2, RBFOpt 4.3.0, BAM 5.0.0, PyTorch 2.8.0, and HiGHS 1.12.0.
 The additional comparisons used the same recorded host, Python/package versions and Bonmin/IPOPT binaries as their historical references.
@@ -990,7 +991,7 @@ All 14 conditions appear in Table~\ref{tab:process-targets}.}
 
 \subsubsection{Evaluation costs and objective consistency}
 Table~\ref{tab:process-cases} and the timing analysis use one final inventory of 2,455 case/size/coordinate keys across the nine models.
-The primary process comparison contains 16,252 charged callbacks.
+The 700 primary process runs make 16,252 charged callbacks to 2,050 distinct keys.
 The additional RBFOpt and uniform ledgers were independently checked against the frozen objective, acceptance, penalty and point-cost records.
 No original process NLP was rerun for these comparisons; failures to obtain accepted solutions do not establish mathematical infeasibility.
 
@@ -1130,9 +1131,10 @@ The smaller Hull exceedances for CSTR5, CSTR10, and CSTR15 are only about 1.00, 
 These are numerical-consistency observations, not demonstrated software defects or evidence of general solver inferiority; the cause in GDPopt or BARON remains unresolved.
 LOA's time-limited CSTR15 run also returns an objective below the lookup reference, illustrating why target attainment and certification are assessed separately.
 
-A separate CSTR15 check retained witness W03's discrete configuration (Supplementary Section~S9)~\citep{cstrTightenedFeasibility}.
-The returned objective was $2.8293940632857546$, with maximum unscaled original-GDP violation $3.33\times10^{-16}$, passing a $10^{-8}$ residual target.
+A separate CSTR15 check on Dantzig using GAMS 52.2.0/IPOPT 3.14.19 retained witness W03's discrete configuration and starting values (Supplementary Section~S9)~\citep{cstrDantzigValidation}.
+The returned objective was $2.8293940632857595$, with maximum unscaled original-GDP violation $1.11\times10^{-16}$, passing a $10^{-8}$ residual target.
 The recorded GLOA lower bound still exceeds this objective by $0.6931579445$, approximately $24{,}498$ times the audit tolerance, so the numerical discrepancy persists at the tighter threshold without establishing exact feasibility or its cause.
+In contrast, the Hull lower bound exceeds the tightened objective by only $5.15\times10^{-4}$ times the comparison tolerance, below the flagging threshold.
 This additional check leaves the historical performance values and audit classifications unchanged.
 
 \begin{table}[htbp]
@@ -1188,9 +1190,7 @@ At Grid B=100, RBFOpt costs 70.81 versus 64.42~s for BAM at the recorded scale, 
 This scenario retains the recorded trajectories, search overhead and preparation cost; it neither predicts adaptation to different live time limits nor identifies a universal crossover.
 
 Dynamic illustrates how budget and stopping behavior change completion-time rankings.
-RBFOpt reaches all ten targets at \(B=12\) with a 12.29~s median completion estimate, while DSDA first does so at \(B=30\) with 26.61~s.
-At the common budget \(B=30\), DSDA instead has the lower completion estimate, 26.61 versus 34.19~s.
-At that budget, DSDA uses a median of 23.5 callbacks (range 15--30), versus 30 in every RBFOpt run, with median post-target counts of 6.5 and 23, respectively (\nolinkurl{manuscript/tables/run_records.csv}; Supplementary Section~S10).
+At \(B=30\), DSDA uses a median of 23.5 callbacks (range 15--30), versus 30 in every RBFOpt run, with median post-target counts of 6.5 and 23, respectively (\nolinkurl{manuscript/tables/run_records.csv}; Supplementary Section~S10).
 These retrospective comparisons combine candidate selection and stopping behavior; they identify neither an out-of-sample budget policy nor first-target times within optimizer overhead.
 
 The process results also depend on how unsuccessful configurations are handled.
@@ -1220,8 +1220,9 @@ The authors acknowledge and express sincere gratitude to the Davidson School of 
 
 \section*{Data and code availability}
 The code, frozen evaluation data, archived execution records, and analysis scripts are maintained in \nolinkurl{SECQUOIA/Black-Box-for-GDP}; the repository remains private at this revision and public release is planned after submission, subject to the repository administrator enabling access~\citep{rbfoptTestArchive,additionalComparisons}.
-The additional comparisons are identified by commit \nolinkurl{6e083eb49b497ce4fea90131e18cc0459db682e8} on \nolinkurl{review/additional-comparisons}.
-Supplementary Section~S8 links the selected Grid and Process datasets, source manifests, and regeneration instructions.
+The original additional-comparison analysis is pinned at commit \nolinkurl{6e083eb49b497ce4fea90131e18cc0459db682e8}.
+The current figure and table generation files and the 2,050-key Process coverage audit are pinned separately at commit \nolinkurl{3c60f4707b454a9d3e4330466ec5f9372b418f54}~\citep{currentPublicationAnalysis}.
+Supplementary Section~S8 links these analyses, the selected datasets, source manifests, and regeneration instructions; the Dantzig CSTR15 validation has its own archived snapshot~\citep{cstrDantzigValidation}.
 The original execution revisions and source hashes are retained separately from this repository snapshot.
 
 \bibliographystyle{elsarticle-harv}

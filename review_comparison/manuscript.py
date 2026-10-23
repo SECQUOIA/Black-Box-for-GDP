@@ -42,7 +42,7 @@ LABEL = dict(
     zip(
         ALL,
         [
-            "DSDA",
+            "D-SDA",
             "RBFOpt",
             "BAM",
             "FMQA-SA",

@@ -12,3 +12,5 @@ reproduction/data/** -text -whitespace linguist-generated=true
 reproduction/validation/*.json linguist-generated=true
 # Audited October 20 return tables: retain exact server CSV bytes and hashes.
 results/review_comparison_20261020/**/*.csv -text -whitespace linguist-generated=true
+# Separate CSTR penalty analysis: preserve coordinate and audit CSV bytes.
+results/cstr_penalty_1e6_analysis_20261022/*.csv -text -whitespace linguist-generated=true
