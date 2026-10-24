@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-23",
+  "pr49_prior_head": "ef93072d1ac28dbcf22ecc8b448f3e6869fbbdaf",
+  "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:07:20) [Clang 20.1.8 ]",
+  "versions": {
+    "pyomo": "6.10.0",
+    "numpy": "2.4.6",
+    "sympy": "1.14.0",
+    "networkx": "3.6.1"
+  },
+  "installed_pyomo_sources_sha256": {
+    "pyomo.contrib.fbbt.fbbt": "b0f724bd5e7fe1fb872fa6b6f9cef1d64711266215af16221815192080ac5c75",
+    "pyomo.contrib.fbbt.interval": "38b7bca9f9f80559e94c50bf12939393797241b2f3d89f3c83e720b4d061645c",
+    "pyomo.contrib.gdpopt.gloa": "36bd3999334bd103347300ee228b61ae5d4bbb9f6bba5e215f751264e69e9877",
+    "pyomo.contrib.gdpopt.solve_subproblem": "bfe447752b632435b7adc40e76501408d6a2fc44b20fe3723b908b1fe702bf11"
+  },
+  "auditor_regression_tests": {
+    "passed": 7,
+    "failed": 0,
+    "log": "audit_tests.log"
+  },
+  "original_diagnostic_regressions_repeated_on_temporary_copy": {
+    "passed": 5,
+    "failed": 0,
+    "log": "diagnostic_recheck/regressions.log",
+    "cstr_cut_recheck": "diagnostic_recheck/cstr_probe.json"
+  },
+  "presolve_replay": {
+    "reference_minimizers_rejected": 4,
+    "returned_points_accepted": 3,
+    "file": "presolve_probe.json",
+    "scope": "Local preprocessing only, no optimizer or server rerun"
+  },
+  "optimization_solver_calls": 0,
+  "returned_vectors_checked": 105,
+  "vectors_passing_existing_1e_minus_5": 105,
+  "vectors_passing_stricter_1e_minus_8": 102,
+  "deterministic_audit_outputs": [
+    "jobs.json",
+    "jobs.csv",
+    "summary.json",
+    "summary.csv",
+    "audit.json"
+  ],
+  "reproduction": "All five outputs identical byte-for-byte in a second output directory",
+  "static_checks": [
+    "ruff passed",
+    "git diff --check passed"
+  ],
+  "archive_integrity": "4 returned ZIPs and diagnostic ZIP checked; all job seals, source hashes and 235 original diagnostic external checksums passed",
+  "credential_pattern_scan": "No private key, GitHub token or AWS access-key pattern found in the five new archives",
+  "source_file_sha256": {
+    "scripts/analyze_grid_scip_return.py": "abcfd4aabb78a8378ff8b0961c13b6666b6696a0d2fa1ad0fe14c1bdb928d1b2",
+    "scripts/probe_grid_scip_presolve.py": "31a413cb2f52cfe6af6de565d4f4e39f93d1ce8069a82b658e04c6f1d0c7b5d5",
+    "tests/test_grid_scip_return.py": "2e81a8e631b3e3ab38e1829df158cdc8b982017204952a29dc0e9d4dee5b525a"
+  }
+}
