@@ -4,6 +4,14 @@ These are the original result ZIPs retained in the repository.
 They retain their original bytes, including any source snapshots and shell
 scripts present in the server archive.
 
+The [October 23 SCIP Grid returns](../grid_scip_20261023/README.md) retain four
+independent MINLP/GLOA/LOA/RIC result ZIPs and their SHA256 sidecars. The audit
+checks all 105 returned solution vectors against the original GDP and grid
+reference, separates actual solver calls from configured solvers, and reconciles
+the returns with the preserved GDPopt diagnostic package. These additions are
+verified by `scripts/analyze_grid_scip_return.py`, independently of the legacy
+archive catalog.
+
 The [October 20 additional-comparison return](review_comparison_20261020_124949_return_1792527395393579314.zip)
 retains 3,430 new genetic/sampling runs, every callback and controller/worker
 log, and the exact frozen execution package. Its [supplied SHA256](review_comparison_20261020_124949_return_1792527395393579314.zip.sha256)

@@ -1,0 +1,10 @@
+test_no_good_cut_really_excludes_target_assignment (__main__.TestDataFlow.test_no_good_cut_really_excludes_target_assignment) ... ok
+test_original_presolve_discards_zero_objective_before_solver (__main__.TestDataFlow.test_original_presolve_discards_zero_objective_before_solver) ... ok
+test_patch_does_not_accept_genuinely_infeasible_sine (__main__.TestDataFlow.test_patch_does_not_accept_genuinely_infeasible_sine) ... ok
+test_patched_presolve_reaches_solver_without_changing_objective (__main__.TestDataFlow.test_patched_presolve_reaches_solver_without_changing_objective) ... ok
+test_saved_witness_survives_only_corrected_cut_generator (__main__.TestDataFlow.test_saved_witness_survives_only_corrected_cut_generator) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 8.392s
+
+OK
