@@ -12,6 +12,13 @@ the returns with the preserved GDPopt diagnostic package. These additions are
 verified by `scripts/analyze_grid_scip_return.py`, independently of the legacy
 archive catalog.
 
+The English report also compares the actual solver calls in the three earlier
+BARON-configured Grid archives. Reproduce that inventory with
+`python scripts/audit_legacy_grid_solver_calls.py --output /tmp/grid-legacy-solver-calls.json`.
+Both the earlier and new Grid GDPopt benchmarks called HiGHS, despite their
+different configured NLP solvers; direct reformulations actually called
+BARON or SCIP. Archive bytes and historical result tables are unchanged.
+
 The [October 20 additional-comparison return](review_comparison_20261020_124949_return_1792527395393579314.zip)
 retains 3,430 new genetic/sampling runs, every callback and controller/worker
 log, and the exact frozen execution package. Its [supplied SHA256](review_comparison_20261020_124949_return_1792527395393579314.zip.sha256)

@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-24",
+  "scope": "English report and actual historical solver-call audit; no optimization rerun",
+  "base_commit": "a2e68eef64314fc0f28fe96f16b48546375e8186",
+  "auditor_regression_tests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "existing_audit_outputs_reproduced_byte_for_byte": [
+    "audit.json",
+    "jobs.csv",
+    "jobs.json",
+    "summary.csv",
+    "summary.json"
+  ],
+  "historical_inventory_reproduced_byte_for_byte": "legacy_solver_calls.json",
+  "historical_archives": [
+    {
+      "archive": "grid_gdp_run_20261008_210901_dw5vq37s.zip",
+      "sha256": "fb5d962307731a84d5833b1065cd5e94772bdb15c8a4a7f5d05b3ff0b67a7c94",
+      "internal_checksums_verified": 807
+    },
+    {
+      "archive": "grid_gdp_retry_all_20261009_153057_czhvd9w7.zip",
+      "sha256": "059453681d8c2b326dcd622d97f6ddb59e815ca8d78ff798e5775f90e42a84be",
+      "internal_checksums_verified": 210
+    },
+    {
+      "archive": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip",
+      "sha256": "2215cca4babfa79cf71b874c47218502b4937380cb38956c61e163a6b5436e1e",
+      "internal_checksums_verified": 130
+    }
+  ],
+  "original_grid_gdpopt_highs_calls": 41584,
+  "unchanged_profile_retry_highs_calls": 19114,
+  "corrected_profile_retry_highs_calls": 8418,
+  "historical_grid_gdpopt_baron_calls": 0,
+  "historical_grid_gdpopt_scip_calls": 0,
+  "original_bigm_hull_baron_calls": 10,
+  "new_grid_gdpopt_highs_calls": 61063,
+  "new_bigm_hull_scip_calls": 42,
+  "optimization_solver_calls_during_update": 0,
+  "source_file_sha256": {
+    "scripts/audit_legacy_grid_solver_calls.py": "5a626bcaf905a32f91cdb4261ce8c0aeb3f3ca90228e8647c4035c624ea86f18"
+  },
+  "checks": [
+    "ruff passed",
+    "git diff --check passed",
+    "English report contains no Korean text",
+    "relative Markdown links resolve",
+    "report counts agree with archived call inventory"
+  ]
+}

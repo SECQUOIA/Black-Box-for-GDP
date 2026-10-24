@@ -1,0 +1,3141 @@
+{
+  "scope": "Recorded benchmark solver_calls.jsonl entries only; excludes preflight and point enumeration",
+  "count_interpretation": "Counts call records, including failed calls; does not imply successful solves",
+  "retry_interpretation": "Archives are separate attempts, not additional unique benchmark cases",
+  "optimization_solver_calls_during_audit": 0,
+  "analysis_source_sha256": "5a626bcaf905a32f91cdb4261ce8c0aeb3f3ca90228e8647c4035c624ea86f18",
+  "archives": [
+    {
+      "archive": "grid_gdp_run_20261008_210901_dw5vq37s.zip",
+      "sha256": "fb5d962307731a84d5833b1065cd5e94772bdb15c8a4a7f5d05b3ff0b67a7c94",
+      "internal_checksums_verified": 807,
+      "summary": [
+        {
+          "method": "bigm",
+          "jobs_with_call_journals": 5,
+          "recorded_solver_calls": 5,
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 5
+          }
+        },
+        {
+          "method": "gloa",
+          "jobs_with_call_journals": 21,
+          "recorded_solver_calls": 14278,
+          "actual_solver_model_type_counts": {
+            "highs/mip": 14278
+          }
+        },
+        {
+          "method": "hull",
+          "jobs_with_call_journals": 5,
+          "recorded_solver_calls": 5,
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 5
+          }
+        },
+        {
+          "method": "loa",
+          "jobs_with_call_journals": 21,
+          "recorded_solver_calls": 14035,
+          "actual_solver_model_type_counts": {
+            "highs/mip": 14035
+          }
+        },
+        {
+          "method": "ric",
+          "jobs_with_call_journals": 21,
+          "recorded_solver_calls": 13271,
+          "actual_solver_model_type_counts": {
+            "highs/mip": 13271
+          }
+        }
+      ],
+      "jobs": [
+        {
+          "grid_name": "ackley",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/ackley/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/ackley/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 988,
+          "actual_solver_counts": {
+            "highs": 988
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 988
+          },
+          "call_status_counts": {
+            "returned": 988
+          }
+        },
+        {
+          "grid_name": "ackley",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/ackley/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/ackley/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 386,
+          "actual_solver_counts": {
+            "highs": 386
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 386
+          },
+          "call_status_counts": {
+            "returned": 386
+          }
+        },
+        {
+          "grid_name": "ackley",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/ackley/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/ackley/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 988,
+          "actual_solver_counts": {
+            "highs": 988
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 988
+          },
+          "call_status_counts": {
+            "returned": 988
+          }
+        },
+        {
+          "grid_name": "alpine1",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine1/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine1/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 2,
+          "actual_solver_counts": {
+            "highs": 2
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2
+          },
+          "call_status_counts": {
+            "returned": 2
+          }
+        },
+        {
+          "grid_name": "alpine1",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine1/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine1/loa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 2,
+          "actual_solver_counts": {
+            "highs": 2
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2
+          },
+          "call_status_counts": {
+            "returned": 2
+          }
+        },
+        {
+          "grid_name": "alpine1",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine1/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine1/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 2,
+          "actual_solver_counts": {
+            "highs": 2
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2
+          },
+          "call_status_counts": {
+            "returned": 2
+          }
+        },
+        {
+          "grid_name": "alpine2",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine2/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine2/gloa/result.json",
+          "status": "finished",
+          "termination": "maxTimeLimit",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1530,
+          "actual_solver_counts": {
+            "highs": 1530
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1530
+          },
+          "call_status_counts": {
+            "returned": 1530
+          }
+        },
+        {
+          "grid_name": "alpine2",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine2/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine2/loa/result.json",
+          "status": "finished",
+          "termination": "maxTimeLimit",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1410,
+          "actual_solver_counts": {
+            "highs": 1410
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1410
+          },
+          "call_status_counts": {
+            "returned": 1410
+          }
+        },
+        {
+          "grid_name": "alpine2",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine2/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/alpine2/ric/result.json",
+          "status": "finished",
+          "termination": "maxTimeLimit",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1501,
+          "actual_solver_counts": {
+            "highs": 1501
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1501
+          },
+          "call_status_counts": {
+            "returned": 1501
+          }
+        },
+        {
+          "grid_name": "bohachevsky2",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/bohachevsky2/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/bohachevsky2/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 240,
+          "actual_solver_counts": {
+            "highs": 240
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 240
+          },
+          "call_status_counts": {
+            "returned": 240
+          }
+        },
+        {
+          "grid_name": "bohachevsky2",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/bohachevsky2/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/bohachevsky2/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 212,
+          "actual_solver_counts": {
+            "highs": 212
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 212
+          },
+          "call_status_counts": {
+            "returned": 212
+          }
+        },
+        {
+          "grid_name": "bohachevsky2",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/bohachevsky2/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/bohachevsky2/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 240,
+          "actual_solver_counts": {
+            "highs": 240
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 240
+          },
+          "call_status_counts": {
+            "returned": 240
+          }
+        },
+        {
+          "grid_name": "camel3",
+          "method": "bigm",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/camel3/bigm/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/camel3/bigm/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "minlp": "baron",
+            "baron_lp_subsolver": "cplex",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 3",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1,
+          "actual_solver_counts": {
+            "baron": 1
+          },
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 1
+          },
+          "call_status_counts": {
+            "returned": 1
+          }
+        },
+        {
+          "grid_name": "camel3",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/camel3/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/camel3/gloa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 35,
+          "actual_solver_counts": {
+            "highs": 35
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 35
+          },
+          "call_status_counts": {
+            "returned": 35
+          }
+        },
+        {
+          "grid_name": "camel3",
+          "method": "hull",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/camel3/hull/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/camel3/hull/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "minlp": "baron",
+            "baron_lp_subsolver": "cplex",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 3",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1,
+          "actual_solver_counts": {
+            "baron": 1
+          },
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 1
+          },
+          "call_status_counts": {
+            "returned": 1
+          }
+        },
+        {
+          "grid_name": "camel3",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/camel3/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/camel3/loa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 17,
+          "actual_solver_counts": {
+            "highs": 17
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 17
+          },
+          "call_status_counts": {
+            "returned": 17
+          }
+        },
+        {
+          "grid_name": "camel3",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/camel3/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/camel3/ric/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 35,
+          "actual_solver_counts": {
+            "highs": 35
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 35
+          },
+          "call_status_counts": {
+            "returned": 35
+          }
+        },
+        {
+          "grid_name": "csendes",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/csendes/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/csendes/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 2,
+          "actual_solver_counts": {
+            "highs": 2
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2
+          },
+          "call_status_counts": {
+            "returned": 2
+          }
+        },
+        {
+          "grid_name": "csendes",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/csendes/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/csendes/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 2,
+          "actual_solver_counts": {
+            "highs": 2
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2
+          },
+          "call_status_counts": {
+            "returned": 2
+          }
+        },
+        {
+          "grid_name": "csendes",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/csendes/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/csendes/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 2,
+          "actual_solver_counts": {
+            "highs": 2
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2
+          },
+          "call_status_counts": {
+            "returned": 2
+          }
+        },
+        {
+          "grid_name": "deflected_corrugated_spring",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/deflected_corrugated_spring/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/deflected_corrugated_spring/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 586,
+          "actual_solver_counts": {
+            "highs": 586
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 586
+          },
+          "call_status_counts": {
+            "returned": 586
+          }
+        },
+        {
+          "grid_name": "deflected_corrugated_spring",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/deflected_corrugated_spring/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/deflected_corrugated_spring/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 466,
+          "actual_solver_counts": {
+            "highs": 466
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 466
+          },
+          "call_status_counts": {
+            "returned": 466
+          }
+        },
+        {
+          "grid_name": "deflected_corrugated_spring",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/deflected_corrugated_spring/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/deflected_corrugated_spring/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 586,
+          "actual_solver_counts": {
+            "highs": 586
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 586
+          },
+          "call_status_counts": {
+            "returned": 586
+          }
+        },
+        {
+          "grid_name": "dropwave",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/dropwave/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/dropwave/gloa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 25,
+          "actual_solver_counts": {
+            "highs": 25
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 25
+          },
+          "call_status_counts": {
+            "returned": 25
+          }
+        },
+        {
+          "grid_name": "dropwave",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/dropwave/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/dropwave/loa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 57,
+          "actual_solver_counts": {
+            "highs": 57
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 57
+          },
+          "call_status_counts": {
+            "returned": 57
+          }
+        },
+        {
+          "grid_name": "dropwave",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/dropwave/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/dropwave/ric/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 25,
+          "actual_solver_counts": {
+            "highs": 25
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 25
+          },
+          "call_status_counts": {
+            "returned": 25
+          }
+        },
+        {
+          "grid_name": "easom",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/easom/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/easom/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1333,
+          "actual_solver_counts": {
+            "highs": 1333
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1333
+          },
+          "call_status_counts": {
+            "returned": 1333
+          }
+        },
+        {
+          "grid_name": "easom",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/easom/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/easom/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1333,
+          "actual_solver_counts": {
+            "highs": 1333
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1333
+          },
+          "call_status_counts": {
+            "returned": 1333
+          }
+        },
+        {
+          "grid_name": "easom",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/easom/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/easom/ric/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 482,
+          "actual_solver_counts": {
+            "highs": 482
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 482
+          },
+          "call_status_counts": {
+            "error": 1,
+            "returned": 481
+          }
+        },
+        {
+          "grid_name": "griewank",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/griewank/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/griewank/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1528,
+          "actual_solver_counts": {
+            "highs": 1528
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1528
+          },
+          "call_status_counts": {
+            "returned": 1528
+          }
+        },
+        {
+          "grid_name": "griewank",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/griewank/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/griewank/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1017,
+          "actual_solver_counts": {
+            "highs": 1017
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1017
+          },
+          "call_status_counts": {
+            "returned": 1017
+          }
+        },
+        {
+          "grid_name": "griewank",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/griewank/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/griewank/ric/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 512,
+          "actual_solver_counts": {
+            "highs": 512
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 512
+          },
+          "call_status_counts": {
+            "error": 1,
+            "returned": 511
+          }
+        },
+        {
+          "grid_name": "holder_table",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/holder_table/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/holder_table/gloa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 160,
+          "actual_solver_counts": {
+            "highs": 160
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 160
+          },
+          "call_status_counts": {
+            "error": 1,
+            "returned": 159
+          }
+        },
+        {
+          "grid_name": "holder_table",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/holder_table/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/holder_table/loa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 535,
+          "actual_solver_counts": {
+            "highs": 535
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 535
+          },
+          "call_status_counts": {
+            "error": 1,
+            "returned": 534
+          }
+        },
+        {
+          "grid_name": "holder_table",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/holder_table/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/holder_table/ric/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 893,
+          "actual_solver_counts": {
+            "highs": 893
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 893
+          },
+          "call_status_counts": {
+            "error": 1,
+            "returned": 892
+          }
+        },
+        {
+          "grid_name": "hosaki",
+          "method": "bigm",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/hosaki/bigm/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/hosaki/bigm/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "minlp": "baron",
+            "baron_lp_subsolver": "cplex",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 3",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1,
+          "actual_solver_counts": {
+            "baron": 1
+          },
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 1
+          },
+          "call_status_counts": {
+            "returned": 1
+          }
+        },
+        {
+          "grid_name": "hosaki",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/hosaki/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/hosaki/gloa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 323,
+          "actual_solver_counts": {
+            "highs": 323
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 323
+          },
+          "call_status_counts": {
+            "error": 1,
+            "returned": 322
+          }
+        },
+        {
+          "grid_name": "hosaki",
+          "method": "hull",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/hosaki/hull/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/hosaki/hull/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "minlp": "baron",
+            "baron_lp_subsolver": "cplex",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 3",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1,
+          "actual_solver_counts": {
+            "baron": 1
+          },
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 1
+          },
+          "call_status_counts": {
+            "returned": 1
+          }
+        },
+        {
+          "grid_name": "hosaki",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/hosaki/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/hosaki/loa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 103,
+          "actual_solver_counts": {
+            "highs": 103
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 103
+          },
+          "call_status_counts": {
+            "error": 1,
+            "returned": 102
+          }
+        },
+        {
+          "grid_name": "hosaki",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/hosaki/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/hosaki/ric/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1012,
+          "actual_solver_counts": {
+            "highs": 1012
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1012
+          },
+          "call_status_counts": {
+            "error": 1,
+            "returned": 1011
+          }
+        },
+        {
+          "grid_name": "levy",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy/gloa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 419,
+          "actual_solver_counts": {
+            "highs": 419
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 419
+          },
+          "call_status_counts": {
+            "error": 1,
+            "returned": 418
+          }
+        },
+        {
+          "grid_name": "levy",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy/loa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 908,
+          "actual_solver_counts": {
+            "highs": 908
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 908
+          },
+          "call_status_counts": {
+            "error": 1,
+            "returned": 907
+          }
+        },
+        {
+          "grid_name": "levy",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy/ric/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 100,
+          "actual_solver_counts": {
+            "highs": 100
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 100
+          },
+          "call_status_counts": {
+            "error": 1,
+            "returned": 99
+          }
+        },
+        {
+          "grid_name": "levy13",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy13/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy13/gloa/result.json",
+          "status": "finished",
+          "termination": "maxTimeLimit",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1801,
+          "actual_solver_counts": {
+            "highs": 1801
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1801
+          },
+          "call_status_counts": {
+            "returned": 1801
+          }
+        },
+        {
+          "grid_name": "levy13",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy13/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy13/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1923,
+          "actual_solver_counts": {
+            "highs": 1923
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1923
+          },
+          "call_status_counts": {
+            "returned": 1923
+          }
+        },
+        {
+          "grid_name": "levy13",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy13/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/levy13/ric/result.json",
+          "status": "hard_time_limit",
+          "termination": "maxTimeLimit",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1587,
+          "actual_solver_counts": {
+            "highs": 1587
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1587
+          },
+          "call_status_counts": {
+            "returned": 1587
+          }
+        },
+        {
+          "grid_name": "michalewicz",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/michalewicz/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/michalewicz/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1420,
+          "actual_solver_counts": {
+            "highs": 1420
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1420
+          },
+          "call_status_counts": {
+            "returned": 1420
+          }
+        },
+        {
+          "grid_name": "michalewicz",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/michalewicz/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/michalewicz/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1420,
+          "actual_solver_counts": {
+            "highs": 1420
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1420
+          },
+          "call_status_counts": {
+            "returned": 1420
+          }
+        },
+        {
+          "grid_name": "michalewicz",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/michalewicz/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/michalewicz/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1420,
+          "actual_solver_counts": {
+            "highs": 1420
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1420
+          },
+          "call_status_counts": {
+            "returned": 1420
+          }
+        },
+        {
+          "grid_name": "rastrigin",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rastrigin/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rastrigin/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 182,
+          "actual_solver_counts": {
+            "highs": 182
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 182
+          },
+          "call_status_counts": {
+            "returned": 182
+          }
+        },
+        {
+          "grid_name": "rastrigin",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rastrigin/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rastrigin/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 328,
+          "actual_solver_counts": {
+            "highs": 328
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 328
+          },
+          "call_status_counts": {
+            "returned": 328
+          }
+        },
+        {
+          "grid_name": "rastrigin",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rastrigin/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rastrigin/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 182,
+          "actual_solver_counts": {
+            "highs": 182
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 182
+          },
+          "call_status_counts": {
+            "returned": 182
+          }
+        },
+        {
+          "grid_name": "rosenbrock",
+          "method": "bigm",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rosenbrock/bigm/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rosenbrock/bigm/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "minlp": "baron",
+            "baron_lp_subsolver": "cplex",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 3",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1,
+          "actual_solver_counts": {
+            "baron": 1
+          },
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 1
+          },
+          "call_status_counts": {
+            "returned": 1
+          }
+        },
+        {
+          "grid_name": "rosenbrock",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rosenbrock/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rosenbrock/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 554,
+          "actual_solver_counts": {
+            "highs": 554
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 554
+          },
+          "call_status_counts": {
+            "returned": 554
+          }
+        },
+        {
+          "grid_name": "rosenbrock",
+          "method": "hull",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rosenbrock/hull/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rosenbrock/hull/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "minlp": "baron",
+            "baron_lp_subsolver": "cplex",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 3",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1,
+          "actual_solver_counts": {
+            "baron": 1
+          },
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 1
+          },
+          "call_status_counts": {
+            "returned": 1
+          }
+        },
+        {
+          "grid_name": "rosenbrock",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rosenbrock/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rosenbrock/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 886,
+          "actual_solver_counts": {
+            "highs": 886
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 886
+          },
+          "call_status_counts": {
+            "returned": 886
+          }
+        },
+        {
+          "grid_name": "rosenbrock",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rosenbrock/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/rosenbrock/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 554,
+          "actual_solver_counts": {
+            "highs": 554
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 554
+          },
+          "call_status_counts": {
+            "returned": 554
+          }
+        },
+        {
+          "grid_name": "shubert",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/shubert/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/shubert/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1036,
+          "actual_solver_counts": {
+            "highs": 1036
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1036
+          },
+          "call_status_counts": {
+            "returned": 1036
+          }
+        },
+        {
+          "grid_name": "shubert",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/shubert/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/shubert/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1036,
+          "actual_solver_counts": {
+            "highs": 1036
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1036
+          },
+          "call_status_counts": {
+            "returned": 1036
+          }
+        },
+        {
+          "grid_name": "shubert",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/shubert/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/shubert/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1036,
+          "actual_solver_counts": {
+            "highs": 1036
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1036
+          },
+          "call_status_counts": {
+            "returned": 1036
+          }
+        },
+        {
+          "grid_name": "styblinski_tang",
+          "method": "bigm",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/styblinski_tang/bigm/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/styblinski_tang/bigm/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "minlp": "baron",
+            "baron_lp_subsolver": "cplex",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 3",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1,
+          "actual_solver_counts": {
+            "baron": 1
+          },
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 1
+          },
+          "call_status_counts": {
+            "returned": 1
+          }
+        },
+        {
+          "grid_name": "styblinski_tang",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/styblinski_tang/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/styblinski_tang/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1923,
+          "actual_solver_counts": {
+            "highs": 1923
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1923
+          },
+          "call_status_counts": {
+            "returned": 1923
+          }
+        },
+        {
+          "grid_name": "styblinski_tang",
+          "method": "hull",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/styblinski_tang/hull/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/styblinski_tang/hull/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "minlp": "baron",
+            "baron_lp_subsolver": "cplex",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 3",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1,
+          "actual_solver_counts": {
+            "baron": 1
+          },
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 1
+          },
+          "call_status_counts": {
+            "returned": 1
+          }
+        },
+        {
+          "grid_name": "styblinski_tang",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/styblinski_tang/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/styblinski_tang/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1923,
+          "actual_solver_counts": {
+            "highs": 1923
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1923
+          },
+          "call_status_counts": {
+            "returned": 1923
+          }
+        },
+        {
+          "grid_name": "styblinski_tang",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/styblinski_tang/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/styblinski_tang/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1923,
+          "actual_solver_counts": {
+            "highs": 1923
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1923
+          },
+          "call_status_counts": {
+            "returned": 1923
+          }
+        },
+        {
+          "grid_name": "sum_of_squares",
+          "method": "bigm",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/sum_of_squares/bigm/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/sum_of_squares/bigm/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "minlp": "baron",
+            "baron_lp_subsolver": "cplex",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 3",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1,
+          "actual_solver_counts": {
+            "baron": 1
+          },
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 1
+          },
+          "call_status_counts": {
+            "returned": 1
+          }
+        },
+        {
+          "grid_name": "sum_of_squares",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/sum_of_squares/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/sum_of_squares/gloa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 189,
+          "actual_solver_counts": {
+            "highs": 189
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 189
+          },
+          "call_status_counts": {
+            "returned": 189
+          }
+        },
+        {
+          "grid_name": "sum_of_squares",
+          "method": "hull",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/sum_of_squares/hull/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/sum_of_squares/hull/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "minlp": "baron",
+            "baron_lp_subsolver": "cplex",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 3",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1,
+          "actual_solver_counts": {
+            "baron": 1
+          },
+          "actual_solver_model_type_counts": {
+            "baron/minlp": 1
+          },
+          "call_status_counts": {
+            "returned": 1
+          }
+        },
+        {
+          "grid_name": "sum_of_squares",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/sum_of_squares/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/sum_of_squares/loa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 69,
+          "actual_solver_counts": {
+            "highs": 69
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 69
+          },
+          "call_status_counts": {
+            "returned": 69
+          }
+        },
+        {
+          "grid_name": "sum_of_squares",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/sum_of_squares/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/sum_of_squares/ric/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 189,
+          "actual_solver_counts": {
+            "highs": 189
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 189
+          },
+          "call_status_counts": {
+            "returned": 189
+          }
+        },
+        {
+          "grid_name": "xin_she_yang3",
+          "method": "gloa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/xin_she_yang3/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/xin_she_yang3/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 2,
+          "actual_solver_counts": {
+            "highs": 2
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2
+          },
+          "call_status_counts": {
+            "returned": 2
+          }
+        },
+        {
+          "grid_name": "xin_she_yang3",
+          "method": "loa",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/xin_she_yang3/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/xin_she_yang3/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 2,
+          "actual_solver_counts": {
+            "highs": 2
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2
+          },
+          "call_status_counts": {
+            "returned": 2
+          }
+        },
+        {
+          "grid_name": "xin_she_yang3",
+          "method": "ric",
+          "journal_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/xin_she_yang3/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_run_20261008_210901_dw5vq37s/benchmark/xin_she_yang3/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 2,
+          "actual_solver_counts": {
+            "highs": 2
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2
+          },
+          "call_status_counts": {
+            "returned": 2
+          }
+        }
+      ]
+    },
+    {
+      "archive": "grid_gdp_retry_all_20261009_153057_czhvd9w7.zip",
+      "sha256": "059453681d8c2b326dcd622d97f6ddb59e815ca8d78ff798e5775f90e42a84be",
+      "internal_checksums_verified": 210,
+      "summary": [
+        {
+          "method": "gloa",
+          "jobs_with_call_journals": 6,
+          "recorded_solver_calls": 5475,
+          "actual_solver_model_type_counts": {
+            "highs/mip": 5475
+          }
+        },
+        {
+          "method": "loa",
+          "jobs_with_call_journals": 7,
+          "recorded_solver_calls": 5303,
+          "actual_solver_model_type_counts": {
+            "highs/mip": 5303
+          }
+        },
+        {
+          "method": "ric",
+          "jobs_with_call_journals": 8,
+          "recorded_solver_calls": 8336,
+          "actual_solver_model_type_counts": {
+            "highs/mip": 8336
+          }
+        }
+      ],
+      "jobs": [
+        {
+          "grid_name": "alpine1",
+          "method": "loa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/alpine1/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/alpine1/loa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 2,
+          "actual_solver_counts": {
+            "highs": 2
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2
+          },
+          "call_status_counts": {
+            "returned": 2
+          }
+        },
+        {
+          "grid_name": "camel3",
+          "method": "gloa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/camel3/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/camel3/gloa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 35,
+          "actual_solver_counts": {
+            "highs": 35
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 35
+          },
+          "call_status_counts": {
+            "returned": 35
+          }
+        },
+        {
+          "grid_name": "camel3",
+          "method": "loa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/camel3/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/camel3/loa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 17,
+          "actual_solver_counts": {
+            "highs": 17
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 17
+          },
+          "call_status_counts": {
+            "returned": 17
+          }
+        },
+        {
+          "grid_name": "camel3",
+          "method": "ric",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/camel3/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/camel3/ric/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 35,
+          "actual_solver_counts": {
+            "highs": 35
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 35
+          },
+          "call_status_counts": {
+            "returned": 35
+          }
+        },
+        {
+          "grid_name": "dropwave",
+          "method": "gloa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/dropwave/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/dropwave/gloa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 25,
+          "actual_solver_counts": {
+            "highs": 25
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 25
+          },
+          "call_status_counts": {
+            "returned": 25
+          }
+        },
+        {
+          "grid_name": "dropwave",
+          "method": "loa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/dropwave/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/dropwave/loa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 57,
+          "actual_solver_counts": {
+            "highs": 57
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 57
+          },
+          "call_status_counts": {
+            "returned": 57
+          }
+        },
+        {
+          "grid_name": "dropwave",
+          "method": "ric",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/dropwave/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/dropwave/ric/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 25,
+          "actual_solver_counts": {
+            "highs": 25
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 25
+          },
+          "call_status_counts": {
+            "returned": 25
+          }
+        },
+        {
+          "grid_name": "easom",
+          "method": "ric",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/easom/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/easom/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1333,
+          "actual_solver_counts": {
+            "highs": 1333
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1333
+          },
+          "call_status_counts": {
+            "returned": 1333
+          }
+        },
+        {
+          "grid_name": "griewank",
+          "method": "ric",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/griewank/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/griewank/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1528,
+          "actual_solver_counts": {
+            "highs": 1528
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1528
+          },
+          "call_status_counts": {
+            "returned": 1528
+          }
+        },
+        {
+          "grid_name": "holder_table",
+          "method": "gloa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/holder_table/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/holder_table/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1442,
+          "actual_solver_counts": {
+            "highs": 1442
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1442
+          },
+          "call_status_counts": {
+            "returned": 1442
+          }
+        },
+        {
+          "grid_name": "holder_table",
+          "method": "loa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/holder_table/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/holder_table/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1442,
+          "actual_solver_counts": {
+            "highs": 1442
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1442
+          },
+          "call_status_counts": {
+            "returned": 1442
+          }
+        },
+        {
+          "grid_name": "holder_table",
+          "method": "ric",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/holder_table/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/holder_table/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1442,
+          "actual_solver_counts": {
+            "highs": 1442
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1442
+          },
+          "call_status_counts": {
+            "returned": 1442
+          }
+        },
+        {
+          "grid_name": "hosaki",
+          "method": "gloa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/hosaki/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/hosaki/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1923,
+          "actual_solver_counts": {
+            "highs": 1923
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1923
+          },
+          "call_status_counts": {
+            "returned": 1923
+          }
+        },
+        {
+          "grid_name": "hosaki",
+          "method": "loa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/hosaki/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/hosaki/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1923,
+          "actual_solver_counts": {
+            "highs": 1923
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1923
+          },
+          "call_status_counts": {
+            "returned": 1923
+          }
+        },
+        {
+          "grid_name": "hosaki",
+          "method": "ric",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/hosaki/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/hosaki/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1923,
+          "actual_solver_counts": {
+            "highs": 1923
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1923
+          },
+          "call_status_counts": {
+            "returned": 1923
+          }
+        },
+        {
+          "grid_name": "levy",
+          "method": "gloa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/levy/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/levy/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1861,
+          "actual_solver_counts": {
+            "highs": 1861
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1861
+          },
+          "call_status_counts": {
+            "returned": 1861
+          }
+        },
+        {
+          "grid_name": "levy",
+          "method": "loa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/levy/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/levy/loa/result.json",
+          "status": "finished",
+          "termination": "maxTimeLimit",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1793,
+          "actual_solver_counts": {
+            "highs": 1793
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1793
+          },
+          "call_status_counts": {
+            "returned": 1793
+          }
+        },
+        {
+          "grid_name": "levy",
+          "method": "ric",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/levy/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/levy/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1861,
+          "actual_solver_counts": {
+            "highs": 1861
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1861
+          },
+          "call_status_counts": {
+            "returned": 1861
+          }
+        },
+        {
+          "grid_name": "sum_of_squares",
+          "method": "gloa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/sum_of_squares/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/sum_of_squares/gloa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 189,
+          "actual_solver_counts": {
+            "highs": 189
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 189
+          },
+          "call_status_counts": {
+            "returned": 189
+          }
+        },
+        {
+          "grid_name": "sum_of_squares",
+          "method": "loa",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/sum_of_squares/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/sum_of_squares/loa/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 69,
+          "actual_solver_counts": {
+            "highs": 69
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 69
+          },
+          "call_status_counts": {
+            "returned": 69
+          }
+        },
+        {
+          "grid_name": "sum_of_squares",
+          "method": "ric",
+          "journal_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/sum_of_squares/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_all_20261009_153057_czhvd9w7/benchmark/sum_of_squares/ric/result.json",
+          "status": "error",
+          "termination": "error",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 189,
+          "actual_solver_counts": {
+            "highs": 189
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 189
+          },
+          "call_status_counts": {
+            "returned": 189
+          }
+        }
+      ]
+    },
+    {
+      "archive": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip",
+      "sha256": "2215cca4babfa79cf71b874c47218502b4937380cb38956c61e163a6b5436e1e",
+      "internal_checksums_verified": 130,
+      "summary": [
+        {
+          "method": "gloa",
+          "jobs_with_call_journals": 3,
+          "recorded_solver_calls": 2857,
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2857
+          }
+        },
+        {
+          "method": "loa",
+          "jobs_with_call_journals": 4,
+          "recorded_solver_calls": 2877,
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2877
+          }
+        },
+        {
+          "method": "ric",
+          "jobs_with_call_journals": 3,
+          "recorded_solver_calls": 2684,
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2684
+          }
+        }
+      ],
+      "jobs": [
+        {
+          "grid_name": "alpine1",
+          "method": "loa",
+          "journal_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/alpine1/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/alpine1/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 2,
+          "actual_solver_counts": {
+            "highs": 2
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 2
+          },
+          "call_status_counts": {
+            "returned": 2
+          }
+        },
+        {
+          "grid_name": "camel3",
+          "method": "gloa",
+          "journal_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/camel3/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/camel3/gloa/result.json",
+          "status": "finished",
+          "termination": "maxTimeLimit",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1747,
+          "actual_solver_counts": {
+            "highs": 1747
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1747
+          },
+          "call_status_counts": {
+            "returned": 1747
+          }
+        },
+        {
+          "grid_name": "camel3",
+          "method": "loa",
+          "journal_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/camel3/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/camel3/loa/result.json",
+          "status": "finished",
+          "termination": "maxTimeLimit",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1897,
+          "actual_solver_counts": {
+            "highs": 1897
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1897
+          },
+          "call_status_counts": {
+            "returned": 1897
+          }
+        },
+        {
+          "grid_name": "camel3",
+          "method": "ric",
+          "journal_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/camel3/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/camel3/ric/result.json",
+          "status": "hard_time_limit",
+          "termination": "maxTimeLimit",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 1574,
+          "actual_solver_counts": {
+            "highs": 1574
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 1574
+          },
+          "call_status_counts": {
+            "returned": 1574
+          }
+        },
+        {
+          "grid_name": "dropwave",
+          "method": "gloa",
+          "journal_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/dropwave/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/dropwave/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 182,
+          "actual_solver_counts": {
+            "highs": 182
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 182
+          },
+          "call_status_counts": {
+            "returned": 182
+          }
+        },
+        {
+          "grid_name": "dropwave",
+          "method": "loa",
+          "journal_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/dropwave/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/dropwave/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 330,
+          "actual_solver_counts": {
+            "highs": 330
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 330
+          },
+          "call_status_counts": {
+            "returned": 330
+          }
+        },
+        {
+          "grid_name": "dropwave",
+          "method": "ric",
+          "journal_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/dropwave/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/dropwave/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 182,
+          "actual_solver_counts": {
+            "highs": 182
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 182
+          },
+          "call_status_counts": {
+            "returned": 182
+          }
+        },
+        {
+          "grid_name": "sum_of_squares",
+          "method": "gloa",
+          "journal_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/sum_of_squares/gloa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/sum_of_squares/gloa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 928,
+          "actual_solver_counts": {
+            "highs": 928
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 928
+          },
+          "call_status_counts": {
+            "returned": 928
+          }
+        },
+        {
+          "grid_name": "sum_of_squares",
+          "method": "loa",
+          "journal_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/sum_of_squares/loa/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/sum_of_squares/loa/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 648,
+          "actual_solver_counts": {
+            "highs": 648
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 648
+          },
+          "call_status_counts": {
+            "returned": 648
+          }
+        },
+        {
+          "grid_name": "sum_of_squares",
+          "method": "ric",
+          "journal_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/sum_of_squares/ric/solver_calls.jsonl",
+          "result_member": "grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt/benchmark/sum_of_squares/ric/result.json",
+          "status": "finished",
+          "termination": "optimal",
+          "configured_solver_policy": {
+            "nlp": "baron",
+            "mip": "highs",
+            "baron_lp_subsolver": "clp",
+            "baron_nlp_subsolver": "ipopt",
+            "warmstart": false,
+            "options": [
+              "LPSol 8",
+              "NLPSol 9"
+            ]
+          },
+          "recorded_solver_calls": 928,
+          "actual_solver_counts": {
+            "highs": 928
+          },
+          "actual_solver_model_type_counts": {
+            "highs/mip": 928
+          },
+          "call_status_counts": {
+            "returned": 928
+          }
+        }
+      ]
+    }
+  ]
+}
