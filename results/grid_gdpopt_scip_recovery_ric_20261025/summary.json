@@ -1,0 +1,63 @@
+{
+  "recovery": {
+    "jobs": 12,
+    "target_hits": 10,
+    "target_hits_without_error": 10,
+    "errors": 0,
+    "optimal": 9,
+    "time_limits": 3,
+    "worker_wall_s": 17281.172647049883
+  },
+  "original_selected_errors": {
+    "jobs": 12,
+    "target_hits": 1,
+    "target_hits_without_error": 0,
+    "errors": 12,
+    "optimal": 0,
+    "time_limits": 0,
+    "worker_wall_s": 6288.754579724278
+  },
+  "original_ric_21": {
+    "jobs": 21,
+    "target_hits": 7,
+    "target_hits_without_error": 6,
+    "errors": 12,
+    "optimal": 6,
+    "time_limits": 3,
+    "worker_wall_s": 15752.952163649257
+  },
+  "descriptive_ric_21_after_error_recovery": {
+    "jobs": 21,
+    "target_hits": 16,
+    "target_hits_without_error": 16,
+    "errors": 0,
+    "optimal": 15,
+    "time_limits": 6,
+    "worker_wall_s": 26745.370230974862
+  },
+  "both_hit": 1,
+  "new_only": 9,
+  "old_only": 0,
+  "neither": 2,
+  "maximum_original_violation": 0.0,
+  "maximum_objective_error": 1.4566988880917495e-19,
+  "benchmark_scip_mip_calls": 18349,
+  "benchmark_nlp_calls": 0,
+  "benchmark_interface_errors": 0,
+  "network_retry_events": 0,
+  "separate_preflight_mip_calls": 1,
+  "separate_preflight_nlp_calls": 2,
+  "target_tolerance": 1e-05,
+  "elapsed_first_worker_to_last_worker_s": 17283.168466329575,
+  "cumulative_ric_worker_s_all_original_and_recovery_attempts": 33034.12481069914,
+  "recorded_optimal_target_mismatches": [
+    "holder_table",
+    "shubert"
+  ],
+  "unprovided_recovery_methods": [
+    "gloa",
+    "loa"
+  ],
+  "optimization_calls_during_analysis": 0,
+  "overlay_note": "Descriptive mixture of nine retained first attempts and twelve recovery attempts; not a uniform new 21-job experiment."
+}
