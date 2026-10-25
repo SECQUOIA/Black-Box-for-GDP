@@ -1,0 +1,13 @@
+grid_name,method,old_status,new_status,old_failure_kind,new_termination,old_target,new_target,old_objective,new_objective,old_grid_point,new_grid_point,old_worker_wall_s,new_worker_wall_s,objective_change
+bohachevsky2,ric,error,finished,gams_network_session_close,optimal,False,True,0.3333333333333333,0.0,"[30, 15]","[15, 15]",238.7465520258993,1071.9191324079875,-0.3333333333333333
+camel3,ric,error,finished,gams_network_session_start,maxTimeLimit,False,True,0.00047744998304509933,0.0,"[9, 19]","[15, 15]",727.3517786478624,1789.0400306619704,-0.00047744998304509933
+deflected_corrugated_spring,ric,error,finished,gams_network_session_start,optimal,False,True,0.3745441090617594,0.0,"[30, 15]","[15, 15]",131.49163169204257,1060.9912196078803,-0.3745441090617594
+dropwave,ric,error,finished,gams_network_session_start,optimal,False,True,0.632717247663445,0.0,"[8, 12]","[15, 15]",802.30055103614,1377.7315604018513,-0.632717247663445
+griewank,ric,error,finished,gams_network_session_start,optimal,False,True,0.5021942892861294,0.0,"[30, 14]","[15, 15]",71.94882658403367,1036.0174105078913,-0.5021942892861294
+holder_table,ric,error,finished,gams_network_session_start,optimal,False,False,0.14516723995340786,0.14516723995340786,"[30, 1]","[30, 1]",399.53578237979673,1513.2142597180791,0.0
+hosaki,ric,error,finished,gams_network_session_start,optimal,False,True,0.7844690393518522,0.0,"[1, 10]","[24, 10]",284.52399225207046,1630.7744079208933,-0.7844690393518522
+levy,ric,error,finished,gams_network_session_start,maxTimeLimit,False,True,0.15867028687643356,-1.4566988880917495e-19,"[16, 0]","[16, 17]",199.4866127150599,1789.385603403207,-0.15867028687643356
+levy13,ric,error,finished,gams_network_session_start,optimal,False,True,0.19075144508670533,0.0,"[5, 16]","[17, 17]",681.7405344091821,1702.112364264205,-0.19075144508670533
+rastrigin,ric,error,finished,gams_network_session_close,optimal,False,True,0.07460193174383675,0.0,"[12, 21]","[15, 15]",1231.437560080085,1280.73540120502,-0.07460193174383675
+shubert,ric,error,finished,gams_network_session_start,optimal,False,False,0.4663796840391083,0.08242781075119937,"[2, 3]","[17, 21]",366.1734209700953,1238.5829515999649,-0.3839518732879089
+styblinski_tang,ric,error,finished,gams_network_session_start,maxTimeLimit,True,True,0.0,0.0,"[6, 6]","[6, 6]",1154.017336932011,1790.6683053509332,0.0
