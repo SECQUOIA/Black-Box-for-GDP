@@ -1,0 +1,340 @@
+[
+  {
+    "instance_id": "cstr_20",
+    "method": "ric",
+    "status": "error",
+    "termination": "error",
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "active_call_at_stop": null,
+    "last_logged_call": {
+      "index": 401,
+      "solver": "highs",
+      "mtype": "mip",
+      "limit_s": 1175.552447580034,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.44628623803146
+    },
+    "solution_returned": true,
+    "run_log_member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/cstr_20/ric/run.log"
+  },
+  {
+    "instance_id": "cstr_30",
+    "method": "loa",
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "message": null,
+    "active_call_at_stop": null,
+    "last_logged_call": {
+      "index": 841,
+      "solver": "highs",
+      "mtype": "mip",
+      "limit_s": 10.40175022969488,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [],
+      "gams_statistics": {
+        "MODELSTAT": 1.0,
+        "SOLVESTAT": 1.0,
+        "OBJEST": 0.0,
+        "OBJVAL": 0.0,
+        "NUMVAR": 399.0,
+        "NUMEQU": 1910.0,
+        "NUMDVAR": 150.0,
+        "NUMNZ": 67027.0,
+        "ETSOLVE": 0.177000020630658
+      },
+      "termination": "optimal",
+      "solver_status": "ok",
+      "lower_bound": 0.0,
+      "upper_bound": 0.0,
+      "global_subproblem_complete": true,
+      "wall_s": 0.7128695410210639
+    },
+    "solution_returned": true,
+    "run_log_member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/cstr_30/loa/run.log"
+  },
+  {
+    "instance_id": "cstr_30",
+    "method": "ric",
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "message": null,
+    "active_call_at_stop": null,
+    "last_logged_call": {
+      "index": 856,
+      "solver": "scip",
+      "mtype": "nlp",
+      "limit_s": 11.34891217786353,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 7.0,
+        "SOLVESTAT": 1.0,
+        "OBJEST": 3.59594280418891,
+        "OBJVAL": 3.595966838059267,
+        "NUMVAR": 219.0,
+        "NUMEQU": 218.0,
+        "NUMDVAR": 0.0,
+        "NUMNZ": 651.0,
+        "ETSOLVE": 4.114999808371067
+      },
+      "termination": "feasible",
+      "solver_status": "ok",
+      "lower_bound": 3.59594280418891,
+      "upper_bound": 3.595966838059267,
+      "global_subproblem_complete": true,
+      "wall_s": 4.471305846935138
+    },
+    "solution_returned": true,
+    "run_log_member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/cstr_30/ric/run.log"
+  },
+  {
+    "instance_id": "column",
+    "method": "gloa",
+    "status": "time_limit",
+    "termination": "maxTimeLimit",
+    "message": "GAMS/scip subproblem did not prove optimality within the configured gap or infeasibility: {'MODELSTAT': 7.0, 'SOLVESTAT': 3.0, 'OBJEST': 19767.122594720677, 'OBJVAL': 22271.549001229178, 'NUMVAR': 399.0, 'NUMEQU': 415.0, 'NUMDVAR': 0.0, 'NUMNZ': 1262.0, 'ETSOLVE': 1789.1100000590086}",
+    "active_call_at_stop": null,
+    "last_logged_call": {
+      "index": 2,
+      "solver": "scip",
+      "mtype": "nlp",
+      "limit_s": 1788.21084920899,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 7.0,
+        "SOLVESTAT": 3.0,
+        "OBJEST": 19767.122594720677,
+        "OBJVAL": 22271.549001229178,
+        "NUMVAR": 399.0,
+        "NUMEQU": 415.0,
+        "NUMDVAR": 0.0,
+        "NUMNZ": 1262.0,
+        "ETSOLVE": 1789.1100000590086
+      },
+      "termination": "maxTimeLimit",
+      "solver_status": "ok",
+      "lower_bound": 19767.122594720677,
+      "upper_bound": 22271.549001229178,
+      "global_subproblem_complete": false,
+      "wall_s": 1789.5022878150921
+    },
+    "solution_returned": true,
+    "run_log_member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/column/gloa/run.log"
+  },
+  {
+    "instance_id": "column",
+    "method": "loa",
+    "status": "time_limit",
+    "termination": "maxTimeLimit",
+    "message": "GAMS/scip subproblem did not prove optimality within the configured gap or infeasibility: {'MODELSTAT': 7.0, 'SOLVESTAT': 3.0, 'OBJEST': 19767.122594720677, 'OBJVAL': 22271.549001229178, 'NUMVAR': 399.0, 'NUMEQU': 415.0, 'NUMDVAR': 0.0, 'NUMNZ': 1262.0, 'ETSOLVE': 1789.0950000146404}",
+    "active_call_at_stop": null,
+    "last_logged_call": {
+      "index": 2,
+      "solver": "scip",
+      "mtype": "nlp",
+      "limit_s": 1788.2114052339457,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 7.0,
+        "SOLVESTAT": 3.0,
+        "OBJEST": 19767.122594720677,
+        "OBJVAL": 22271.549001229178,
+        "NUMVAR": 399.0,
+        "NUMEQU": 415.0,
+        "NUMDVAR": 0.0,
+        "NUMNZ": 1262.0,
+        "ETSOLVE": 1789.0950000146404
+      },
+      "termination": "maxTimeLimit",
+      "solver_status": "ok",
+      "lower_bound": 19767.122594720677,
+      "upper_bound": 22271.549001229178,
+      "global_subproblem_complete": false,
+      "wall_s": 1789.4752277380321
+    },
+    "solution_returned": true,
+    "run_log_member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/column/loa/run.log"
+  },
+  {
+    "instance_id": "column",
+    "method": "ric",
+    "status": "hard_time_limit",
+    "termination": "maxTimeLimit",
+    "message": null,
+    "active_call_at_stop": {
+      "index": 2,
+      "solver": "scip",
+      "mtype": "nlp",
+      "limit_s": 1788.213103624992,
+      "threads": 1,
+      "status": "running",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ]
+    },
+    "last_logged_call": {
+      "index": 1,
+      "solver": "highs",
+      "mtype": "mip",
+      "limit_s": 1789.1311173238792,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [],
+      "gams_statistics": {
+        "MODELSTAT": 1.0,
+        "SOLVESTAT": 1.0,
+        "OBJEST": 225.0,
+        "OBJVAL": 225.0,
+        "NUMVAR": 452.0,
+        "NUMEQU": 1034.0,
+        "NUMDVAR": 58.0,
+        "NUMNZ": 4249.0,
+        "ETSOLVE": 0.052000069990754
+      },
+      "termination": "optimal",
+      "solver_status": "ok",
+      "lower_bound": 225.0,
+      "upper_bound": 225.0,
+      "global_subproblem_complete": true,
+      "wall_s": 0.42589999781921506
+    },
+    "solution_returned": false,
+    "run_log_member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/column/ric/run.log"
+  },
+  {
+    "instance_id": "dynamic",
+    "method": "gloa",
+    "status": "time_limit",
+    "termination": "maxTimeLimit",
+    "message": "GAMS/scip subproblem did not prove optimality within the configured gap or infeasibility: {'MODELSTAT': 7.0, 'SOLVESTAT': 3.0, 'OBJEST': -146.30378849465305, 'OBJVAL': -119.38310275513969, 'NUMVAR': 1648.0, 'NUMEQU': 1639.0, 'NUMDVAR': 0.0, 'NUMNZ': 7340.0, 'ETSOLVE': 1787.6750004244968}",
+    "active_call_at_stop": null,
+    "last_logged_call": {
+      "index": 2,
+      "solver": "scip",
+      "mtype": "nlp",
+      "limit_s": 1787.233835765859,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 7.0,
+        "SOLVESTAT": 3.0,
+        "OBJEST": -146.30378849465305,
+        "OBJVAL": -119.38310275513969,
+        "NUMVAR": 1648.0,
+        "NUMEQU": 1639.0,
+        "NUMDVAR": 0.0,
+        "NUMNZ": 7340.0,
+        "ETSOLVE": 1787.6750004244968
+      },
+      "termination": "maxTimeLimit",
+      "solver_status": "ok",
+      "lower_bound": -146.30378849465305,
+      "upper_bound": -119.38310275513969,
+      "global_subproblem_complete": false,
+      "wall_s": 1788.120922144968
+    },
+    "solution_returned": true,
+    "run_log_member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/dynamic/gloa/run.log"
+  },
+  {
+    "instance_id": "dynamic",
+    "method": "loa",
+    "status": "time_limit",
+    "termination": "maxTimeLimit",
+    "message": "GAMS/scip subproblem did not prove optimality within the configured gap or infeasibility: {'MODELSTAT': 7.0, 'SOLVESTAT': 3.0, 'OBJEST': -146.30378849465305, 'OBJVAL': -119.38310275513969, 'NUMVAR': 1648.0, 'NUMEQU': 1639.0, 'NUMDVAR': 0.0, 'NUMNZ': 7340.0, 'ETSOLVE': 1787.6970004057512}",
+    "active_call_at_stop": null,
+    "last_logged_call": {
+      "index": 2,
+      "solver": "scip",
+      "mtype": "nlp",
+      "limit_s": 1787.2314711429644,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 7.0,
+        "SOLVESTAT": 3.0,
+        "OBJEST": -146.30378849465305,
+        "OBJVAL": -119.38310275513969,
+        "NUMVAR": 1648.0,
+        "NUMEQU": 1639.0,
+        "NUMDVAR": 0.0,
+        "NUMNZ": 7340.0,
+        "ETSOLVE": 1787.6970004057512
+      },
+      "termination": "maxTimeLimit",
+      "solver_status": "ok",
+      "lower_bound": -146.30378849465305,
+      "upper_bound": -119.38310275513969,
+      "global_subproblem_complete": false,
+      "wall_s": 1788.1443675050978
+    },
+    "solution_returned": true,
+    "run_log_member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/dynamic/loa/run.log"
+  },
+  {
+    "instance_id": "dynamic",
+    "method": "ric",
+    "status": "time_limit",
+    "termination": "maxTimeLimit",
+    "message": "GAMS/scip subproblem did not prove optimality within the configured gap or infeasibility: {'MODELSTAT': 7.0, 'SOLVESTAT': 3.0, 'OBJEST': -146.30378849465305, 'OBJVAL': -119.38310275513969, 'NUMVAR': 1648.0, 'NUMEQU': 1639.0, 'NUMDVAR': 0.0, 'NUMNZ': 7340.0, 'ETSOLVE': 1787.6620000926778}",
+    "active_call_at_stop": null,
+    "last_logged_call": {
+      "index": 2,
+      "solver": "scip",
+      "mtype": "nlp",
+      "limit_s": 1787.2370243531186,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 7.0,
+        "SOLVESTAT": 3.0,
+        "OBJEST": -146.30378849465305,
+        "OBJVAL": -119.38310275513969,
+        "NUMVAR": 1648.0,
+        "NUMEQU": 1639.0,
+        "NUMDVAR": 0.0,
+        "NUMNZ": 7340.0,
+        "ETSOLVE": 1787.6620000926778
+      },
+      "termination": "maxTimeLimit",
+      "solver_status": "ok",
+      "lower_bound": -146.30378849465305,
+      "upper_bound": -119.38310275513969,
+      "global_subproblem_complete": false,
+      "wall_s": 1788.1037903050892
+    },
+    "solution_returned": true,
+    "run_log_member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/dynamic/ric/run.log"
+  }
+]
