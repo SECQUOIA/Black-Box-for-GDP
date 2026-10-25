@@ -1,0 +1,29 @@
+[
+  {
+    "method": "ric",
+    "cpu": 12,
+    "jobs": 12,
+    "archive": "grid_gdpopt_scip_recovery_ric_dantzig_20261025.zip",
+    "sha256": "8728747f8d57e24f59cbf5a4c450556c1a4d94e298ca22249735fb95dee1fdbc",
+    "bytes": 340133,
+    "unchanged_files": 60
+  },
+  {
+    "method": "loa",
+    "cpu": 14,
+    "jobs": 19,
+    "archive": "grid_gdpopt_scip_recovery_loa_dantzig_20261025.zip",
+    "sha256": "a064a49267570849e2a89518683681dbd90774508285c23a1a0f38687084b3a7",
+    "bytes": 340567,
+    "unchanged_files": 60
+  },
+  {
+    "method": "gloa",
+    "cpu": 16,
+    "jobs": 15,
+    "archive": "grid_gdpopt_scip_recovery_gloa_dantzig_20261025.zip",
+    "sha256": "33447c20d0b694adf5550080862ed1391c377502f6aa1d0357ef3e1ad6863bd0",
+    "bytes": 340467,
+    "unchanged_files": 60
+  }
+]

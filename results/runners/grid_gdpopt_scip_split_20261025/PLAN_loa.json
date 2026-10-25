@@ -1,0 +1,179 @@
+{
+  "config": {
+    "kind": "gdpopt_actual_scip_20261024_v1",
+    "package": "grid",
+    "tag": "20261025",
+    "methods": [
+      "loa"
+    ],
+    "time_limit": 1800.0,
+    "relative_gap": 1e-05,
+    "threads": 1,
+    "planned_jobs": 21,
+    "cases": [
+      "cstr",
+      "column",
+      "small_batch",
+      "dynamic"
+    ],
+    "cstr_sizes": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "mip_solver": "scip",
+    "nlp_solver": "scip",
+    "cpu": 14,
+    "peer_cpu": 6,
+    "split_method": "loa",
+    "separate_cpu_ids": [
+      6,
+      8,
+      10,
+      12,
+      14,
+      16
+    ],
+    "grids": [
+      "ackley",
+      "alpine1",
+      "alpine2",
+      "bohachevsky2",
+      "camel3",
+      "csendes",
+      "deflected_corrugated_spring",
+      "dropwave",
+      "easom",
+      "griewank",
+      "holder_table",
+      "hosaki",
+      "levy",
+      "levy13",
+      "michalewicz",
+      "rastrigin",
+      "rosenbrock",
+      "shubert",
+      "styblinski_tang",
+      "sum_of_squares",
+      "xin_she_yang3"
+    ],
+    "phases": [
+      "benchmark"
+    ],
+    "expected_gams_version": "52.2",
+    "executable": "/package/gams/52.2/gams",
+    "record_grid_path": true,
+    "record_gdp_path": true
+  },
+  "instances": [
+    {
+      "case": "grid",
+      "instance_id": "ackley",
+      "grid_name": "ackley"
+    },
+    {
+      "case": "grid",
+      "instance_id": "alpine1",
+      "grid_name": "alpine1"
+    },
+    {
+      "case": "grid",
+      "instance_id": "alpine2",
+      "grid_name": "alpine2"
+    },
+    {
+      "case": "grid",
+      "instance_id": "bohachevsky2",
+      "grid_name": "bohachevsky2"
+    },
+    {
+      "case": "grid",
+      "instance_id": "camel3",
+      "grid_name": "camel3"
+    },
+    {
+      "case": "grid",
+      "instance_id": "csendes",
+      "grid_name": "csendes"
+    },
+    {
+      "case": "grid",
+      "instance_id": "deflected_corrugated_spring",
+      "grid_name": "deflected_corrugated_spring"
+    },
+    {
+      "case": "grid",
+      "instance_id": "dropwave",
+      "grid_name": "dropwave"
+    },
+    {
+      "case": "grid",
+      "instance_id": "easom",
+      "grid_name": "easom"
+    },
+    {
+      "case": "grid",
+      "instance_id": "griewank",
+      "grid_name": "griewank"
+    },
+    {
+      "case": "grid",
+      "instance_id": "holder_table",
+      "grid_name": "holder_table"
+    },
+    {
+      "case": "grid",
+      "instance_id": "hosaki",
+      "grid_name": "hosaki"
+    },
+    {
+      "case": "grid",
+      "instance_id": "levy",
+      "grid_name": "levy"
+    },
+    {
+      "case": "grid",
+      "instance_id": "levy13",
+      "grid_name": "levy13"
+    },
+    {
+      "case": "grid",
+      "instance_id": "michalewicz",
+      "grid_name": "michalewicz"
+    },
+    {
+      "case": "grid",
+      "instance_id": "rastrigin",
+      "grid_name": "rastrigin"
+    },
+    {
+      "case": "grid",
+      "instance_id": "rosenbrock",
+      "grid_name": "rosenbrock"
+    },
+    {
+      "case": "grid",
+      "instance_id": "shubert",
+      "grid_name": "shubert"
+    },
+    {
+      "case": "grid",
+      "instance_id": "styblinski_tang",
+      "grid_name": "styblinski_tang"
+    },
+    {
+      "case": "grid",
+      "instance_id": "sum_of_squares",
+      "grid_name": "sum_of_squares"
+    },
+    {
+      "case": "grid",
+      "instance_id": "xin_she_yang3",
+      "grid_name": "xin_she_yang3"
+    }
+  ],
+  "planned_jobs": 21
+}
