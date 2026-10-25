@@ -383,11 +383,11 @@ The objective, acceptance status, and point cost are taken from the same recorde
 Measured coverage includes all configurations in each DFO candidate box, including unsuccessful and structural-rejection evaluations.
 The evaluation budget \(B\) limits the total number of objective evaluations, including initialization, repeated calls, and unsuccessful evaluations.
 The full GDP box precedes the logical and algebraic feasibility restrictions.
-\texttt{Column} searches \(\{7,\ldots,15\}\times\{1,\ldots,9\}\) (81 coordinates) within its original box \(\{1,\ldots,15\}^{2}\) (225 coordinates).
+\texttt{Column} searches \(\{8,\ldots,15\}\times\{1,\ldots,8\}\) (64 coordinates), the logical domain of its original \(\{1,\ldots,15\}^{2}\) box.
 Other cases use their full boxes.
-We selected the \texttt{Column} search box to limit the scope of the experiment, without a specific engineering or optimization criterion.
+The \texttt{Column} bounds encode the reflux and boilup placement restrictions; algebraic constraints are still checked during configuration evaluation.
 All DFO methods use this box, and the \texttt{Column} conclusions apply only to it.
-Configurations outside it are not asserted to be infeasible.
+% Configurations outside it are not asserted to be infeasible.
 For \texttt{CSTR}, recycle/feed ordering admits \(N(N+1)/2\) logical candidates, but not all yield objective values satisfying the solver acceptance criteria defined in Section~\ref{sec:protocol}.
 % \david{What is meant by an accepted solution?}
 The \texttt{CSTR} comparisons do not isolate scalability: evaluation budgets change with size.
@@ -413,7 +413,7 @@ Model & Full GDP box & DFO candidate box &
 \makecell{DFO\\box size} \\
 \midrule
 \texttt{Column} & \(\{1,\ldots,15\}^{2}\) &
-\(\{7,\ldots,15\}\times\{1,\ldots,9\}\) & 225 & 81 \\
+\(\{8,\ldots,15\}\times\{1,\ldots,8\}\) & 225 & 64 \\
 \texttt{CSTR} \(N\) & \(\{1,\ldots,N\}^{2}\) &
 \(\{1,\ldots,N\}^{2}\) & \(N^2\) & \(N^2\) \\
 \texttt{Small Batch} & \(\{1,2,3\}^{3}\) &
@@ -433,7 +433,7 @@ Model &
 \makecell{Evaluation\\budget $(B)$} &
 \(f_{\mathrm{ref}}\) \\
 \midrule
-\texttt{Column} & 29 & 81 & 16 & 19346.1248 \\
+\texttt{Column} & 29 & 64 & 13 & 19346.1248 \\
 \texttt{CSTR5} & 15 & 25 & 8 & 3.0620146 \\
 \texttt{CSTR10} & 54 & 100 & 15 & 2.8895370 \\
 \texttt{CSTR15} & 120 & 225 & 22 & 2.8293941 \\
@@ -443,13 +443,13 @@ Model &
 \texttt{Small Batch} & 12 & 27 & 10 & 167427.6571 \\
 \texttt{Dynamic} & 37 & 72 & \makecell{12,15,20,\\30,37,50} & -212.0088 \\
 \midrule
-Total & 1,266 & 2,455 & -- & -- \\
+Total & 1,266 & 2,438 & -- & -- \\
 \bottomrule
 \end{tabular}
 \par\smallskip
 \begin{minipage}{0.96\linewidth}
-\footnotesize The 2,455 measured keys cover the complete DFO boxes.
-The 700 primary process runs (\texttt{D-SDA}, \texttt{RBFOpt}, \texttt{BAM}, \texttt{FMQA-SA}, and uniform sampling; 14 model--budget conditions and ten seeds per condition) visit 2,040 distinct model/size/coordinate keys.
+\footnotesize The 2,438 measured keys cover the complete DFO candidate domains.
+The 700 primary process runs (\texttt{D-SDA}, \texttt{RBFOpt}, \texttt{BAM}, \texttt{FMQA-SA}, and uniform sampling; 14 model--budget conditions and ten seeds per condition) visit 2,024 distinct model/size/coordinate keys.
 This union counts each key once across methods, budgets, and seeds.
 
 \end{minipage}
@@ -469,10 +469,10 @@ The process benchmarks comprise 14 model--budget conditions, each evaluated with
 For each problem-budget-seed combination, three distinct initial configurations are generated using seeded Latin hypercube sampling, mapped to integer coordinates, and shared in the same order across all methods and sampling controls.
 This common design controls the first three evaluations; subsequent sampling, response handling, and stopping rules follow the individual implementations.
 All process cases use seeds 0--9, with no replacement of failed starts.
-\texttt{Column} seed 0 has three unaccepted initial configurations; the resulting \texttt{D-SDA} execution failure remains in the ten-run denominator.
+% Historical B16: \texttt{Column} seed 0 has three unaccepted initial configurations; the resulting \texttt{D-SDA} execution failure remains in the ten-run denominator.
 
-Methods may terminate before exhausting the evaluation budget \(B\).
-Table~\ref{tab:configuration-summary} separates the algorithm stopping from the worker watchdog; detailed recorded options, seeds, versions, and cache behavior are provided in Supplementary Section~\ref{sec:supp-protocol} and its machine-readable companion files.
+Methods may terminate before exhausting \(B\); only Grid \texttt{D-SDA} receives the reference target as a stopping criterion.
+Detailed settings and worker time limits are provided in Supplementary Section~\ref{sec:supp-protocol}.
 All objective callbacks consume the evaluation budget, including initialization, repeated calls, and unaccepted evaluations.
 Internal cache accesses without objective callbacks are not counted as evaluations.
 Evaluation acceptance and target attainment are assessed using the recorded evaluation status and original objective values, rather than method-specific penalties.
@@ -481,6 +481,8 @@ Unaccepted evaluations return \(10^6\) to \texttt{D-SDA} and \texttt{RBFOpt} in 
 \texttt{BAM} receives \texttt{NaN} in all process cases.
 \texttt{FMQA-SA} retains infinite raw values and separately reports \(10^6\).
 These penalties do not replace the recorded solver status or establish mathematical infeasibility.
+\iffalse % Repeated configuration summary retained for reference.
+
 
 
 \begin{table}[htbp]
@@ -516,61 +518,62 @@ Exact recorded dictionaries and remaining environment limitations are documented
 \end{minipage}
 \end{table}
 \FloatBarrier
+\fi % End repeated configuration summary.
+
 
 \subsubsection{Budget-limited D-SDA} 
 % \david{This is my main complaint. D-SDA precedes LD-SDA and this is not our contribution.}}
 We use a budget-limited implementation of the previously developed \texttt{D-SDA}~\citep{linan2020optimal}, applying its neighborhood search and discrete line search over the GDP external integer lattice as in LD-SDA~\citep{ovalle2025logic}.
 It evaluates the unit \(L_\infty\) neighborhood in fixed enumeration order, selects the best improving neighbor, and continues along the resulting direction through a discrete line search.
-An improvement requires an objective decrease greater than \(10^{-12}\), with ties resolved by the first enumerated neighbor.
-The exploration of the neighborhood resumes from the last improvement point.
+% An improvement requires an objective decrease greater than \(10^{-12}\), with ties resolved by the first enumerated neighbor.
+% The exploration of the neighborhood resumes from the last improvement point.
 If the evaluation budget \(B\) is exhausted, the best solution found is retained.
 
-For the process benchmarks, \texttt{D-SDA} starts with the best feasible configuration among the three initial points evaluated.
+For the process benchmarks, \texttt{D-SDA} starts with the best accepted configuration among the three initial points evaluated.
 For Grid-GDP benchmarks, initial configurations are ranked by objective value and successive descents are attempted until the evaluation budget is exhausted or the stored target is reached within an absolute tolerance of \(10^{-12}\).
 This algorithmic stopping tolerance is different from the \(10^{-5}\) assessment tolerance in Equation~\eqref{eqn:target}, which is applied to all methods.
 For all process benchmarks, \texttt{D-SDA} searches within the declared integer bounds without precomputed feasibility filtering, using the callback accounting and unaccepted-response policy stated above.
 
 \subsubsection{RBFOpt}
 \texttt{RBFOpt} uses MSRSM, automatic RBF selection, and the default genetic candidate-search option of version 4.3.0~\citep{costa2018rbfopt,nannicini2021implementation}.
-The settings are \texttt{rbf=auto} and \nolinkurl{global_search_method=genetic}, with the recorded defaults \nolinkurl{ga_base_population_size=400} and \nolinkurl{ga_num_generations=20}.
-The implementation determines the effective population size from the search dimension (Supplementary Section~\ref{sec:supp-protocol}).
+% The settings are \texttt{rbf=auto} and \nolinkurl{global_search_method=genetic}, with the recorded defaults \nolinkurl{ga_base_population_size=400} and \nolinkurl{ga_num_generations=20}.
+% The implementation determines the effective population size from the search dimension (Supplementary Section~\ref{sec:supp-protocol}).
 All external variables are integers, and the three shared initial configurations are supplied with the additional package initialization disabled.
-These shared-start and budget settings define the experimental protocol; the implementation is not described as an entirely default package invocation.
+Search stops at the evaluation budget or the native iteration and stall limits.
 Other surrogate-minimization operations use standalone \texttt{Bonmin} 1.8.9~\citep{bonami2008algorithmic} and \texttt{IPOPT} 3.14.19~\citep{wachter2006implementation} executables.
 % \david{citation to Bonmin}.
 These calls contribute to search time, but not the objective-evaluation budget.
-Unaccepted evaluations follow the common policy stated above.
+% Unaccepted evaluations follow the common policy stated above.
 
 \subsubsection{BAM}
 \texttt{BAM} uses local algebraic surrogate models optimized by \texttt{BARON} to generate candidate configurations~\citep{ma2023bam,bamManual}.
-All external variables are specified as integers using \texttt{integrality=1}.
-The three shared initial configurations are evaluated and supplied by \texttt{x\_evaluated} and \texttt{f\_evaluated}, without an additional starting point (\texttt{x0 = None}).
-The remaining evaluation budget is set to \texttt{max\_evals}=\(B-3\), while other algorithmic settings retain their defaults.
-As specified in the shared evaluation protocol, unaccepted evaluations of process benchmarks return \texttt{NaN} to \texttt{BAM}. 
+All external variables are integers.
+The three shared configurations and their responses are supplied without an additional starting point.
+The remaining evaluation budget is \(B-3\), with other settings at their defaults.
+% As specified in the shared evaluation protocol, unaccepted evaluations of process benchmarks return \texttt{NaN} to \texttt{BAM}. 
 % \david{Didn't you say that it was 1e6?}.
-After the three shared evaluations, \texttt{BAM} uses ten predetermined Grid points from a Sobol sequence, a sampling sequence designed to distribute points evenly across the search domain.
+On Grid-GDP, the next ten planned evaluations use a Sobol sequence, which distributes points across the domain, subject to the remaining budget.
 % \david{nobody knows what this is this far, this applies in general, if there is a term you don't know, don't assume the reader knows it}
-The first two of these points account for all additional target hits in a total budget of ten evaluations.
-Objective evaluations, including repeated calls, are counted independently by the external ledger.
+% The first two of these points account for all additional target hits in a total budget of ten evaluations.
+% Objective evaluations, including repeated calls, are counted independently by the external ledger.
 For the process experiments, callback \(B\) returns its value normally, and \texttt{BAM} terminates through its native evaluation limit.
-All 140 \texttt{BAM} process runs use this stopping procedure with the paired seeds and frozen \texttt{IPOPT} tables.
+% All 140 \texttt{BAM} process runs use this stopping procedure with the paired seeds and frozen \texttt{IPOPT} tables.
 
 \subsubsection{FMQA-SA}
-\texttt{FMQA-SA} reuses the PyTorch-based FM training and binary quadratic model (BQM) construction code from the \texttt{QHD\_Data} branch of \nolinkurl{SECQUOIA/bbo_via_fmqa}~\citep{secquoiaBboFmqa}.
-% A separate runner in \nolinkurl{Black-Box-for-GDP} implements the common DFO comparison protocol and controls initial points, evaluation budget, response normalization, candidate selection, failure handling, and trajectory logging.
-At each adaptive iteration, a second-order rank-eight FM with identity activation is initialized with linear and latent weights drawn from a normal distribution with mean zero and standard deviation \(0.01\), and zero bias.
-The model is trained on all previously evaluated configurations for 1,000 full-batch epochs using Adam~\citep{kingma2015adam}, mean squared error, and a learning rate of \(0.01\). 
+\texttt{FMQA-SA} uses the FM training and QUBO construction code of \citet{secquoiaBboFmqa}.
+At each iteration, a new second-order rank-eight FM is fitted to all evaluated configurations.
+% The model is trained on all previously evaluated configurations for 1,000 full-batch epochs using Adam~\citep{kingma2015adam}, mean squared error, and a learning rate of \(0.01\). 
 % \david{Why is this relevant?}.
 Finite precomputed responses are min--max scaled to \([0,1]\) (or zero when all finite values are identical), while non-finite evaluations receive a training target of \(2.0\).
-For reporting and incumbent tracking, non-finite raw objective values are represented by \(10^6\).
+% For reporting and incumbent tracking, non-finite raw objective values are represented by \(10^6\).
 
-Each integer coordinate \(\xi_j\) is encoded in unsigned binary using \(\lfloor\log_2 u_j\rfloor+1\) bits, where \(u_j>0\) is its upper limit.
-The fitted FM is converted to a QUBO, with its coefficients scaled by the maximum absolute entry of the quadratic matrix.
+Integer coordinates are encoded in unsigned binary, and the fitted FM is converted to a QUBO.
+% The fitted FM is converted to a QUBO, with its coefficients scaled by the maximum absolute entry of the quadratic matrix.
 % The archived training code adds no explicit regularization term and does not override Adam's zero weight-decay default.
 % The archived converter has no explicit guard for a zero maximum coefficient, and non-finite BQM coefficients are rejected by the wrapper; no frequency of this edge case is inferred from the retained proposal logs.
-Binary candidates are generated locally on CPU using D-Wave's classical \texttt{SimulatedAnnealingSampler} from \texttt{dwave-samplers} 1.6.0, with 100 reads, 1,000 sweeps, and a geometric inverse-temperature schedule~\citep{dwaveSamplers}.
+Binary candidates are generated on CPU using D-Wave's classical simulated annealing sampler~\citep{dwaveSamplers}.
 The lowest-energy decoded candidate within the coordinate bounds that has not been previously evaluated is selected; if none is available, a candidate is drawn uniformly from the remaining unevaluated configurations.
-The logical constraints of GDP and the feasibility of NLP are not screened prior to objective evaluation, so infeasible configurations may still consume the evaluation budget.
+Candidates are not screened for logical or NLP feasibility before evaluation.
 The new observation is appended, and FM fitting and candidate generation repeat until the evaluation budget \(B\) or the 1,800~s method time limit is reached.
 % The recorded proposal logs identify uniform unseen-point fallback in 9,522 of 51,450 Grid proposals (18.51\%) and 1,573 of 3,010 process proposals (52.26\%).
 % The Per-run counts and the three-stream random-seed policy are provided in the Supplementary Section~\ref{sec:supp-proposals} (Table~\ref{tab:supp-fmqa-fallback} and \nolinkurl{fmqa_proposal_counts.csv}).
@@ -579,9 +582,9 @@ The new observation is appended, and FM fitting and candidate generation repeat 
 Uniform sampling evaluates the same three initial configurations and then draws uniformly without replacement from the remaining declared integer domain.
 It uses a separate deterministic random stream, no objective-dependent selection, and no logical or NLP-feasibility screening before evaluation.
 The Grid \texttt{BAM}-prefix control repeats \texttt{BAM}'s ten predetermined sampling points in the same order after the three shared starts, then samples uniformly without replacement, stopping at the budget.
-We checked the preserved prefix across all 1,050 \texttt{BAM} Grid runs; it includes the corner and center evaluations responsible for the early target hits.
+% We checked the preserved prefix across all 1,050 \texttt{BAM} Grid runs; it includes the corner and center evaluations responsible for the early target hits.
 This control tests the observed fixed sampling design and does not reconstruct proprietary \texttt{BAM} internals.
-Every callback consumes the same budget and saved point cost under the common acceptance and target rules.
+% Every callback consumes the same budget and saved point cost under the common acceptance and target rules.
 
 \subsection{Execution environment and algebraic comparisons}
 % \david{This section is missing a lot of references for the software and notation for the solvers (\textttt)}
@@ -589,35 +592,38 @@ Every callback consumes the same budget and saved point cost under the common ac
 The benchmark performance experiments were conducted on the Dantzig server, equipped with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
 All optimization methods and numerical libraries were configured for single-threaded execution.
 The software environment included \texttt{Pyomo} 6.10.0~\citep{bynum2021pyomo}, \texttt{RBFOpt} 4.3.0, \texttt{BAM} 5.0.0, \texttt{PyTorch} 2.8.0~\citep{paszke2019pytorch}, and \texttt{HiGHS} 1.12.0~\citep{huangfu2018highs}.
-The additional comparisons used the same recorded host, Python/package versions, and \texttt{Bonmin}/\texttt{IPOPT} binaries as their historical references.
+% The additional comparisons used the same recorded host, Python/package versions, and \texttt{Bonmin}/\texttt{IPOPT} binaries as their historical references.
 % They used CPU 2 rather than the historical Grid \texttt{RBFOpt} CPU 0, and the Linux kernel differed; timing differences appear in retained-run comparisons rather than in simultaneous, controlled microbenchmarks. 
 % \david{Who cares about the historical runs? If they are not comparable, rerun them to make them comparable}
-The Dantzig auxiliary-solver banners identify \texttt{Bonmin} 1.8.9 with \texttt{Cbc} 2.10.12 and \texttt{IPOPT} 3.14.19, and a standalone \texttt{IPOPT} 3.14.19 executable; both are Linux x86\_64 builds with ASL 20231111.
+% The Dantzig auxiliary-solver banners identify \texttt{Bonmin} 1.8.9 with \texttt{Cbc} 2.10.12 and \texttt{IPOPT} 3.14.19, and a standalone \texttt{IPOPT} 3.14.19 executable; both are Linux x86\_64 builds with ASL 20231111.
 We used the General Algebraic Modeling System (\texttt{GAMS}) 52.2.0~\citep{gams2025} to call \texttt{IPOPT} for configuration evaluations and \texttt{BARON} for algebraic comparisons.
-\texttt{BAM} uses engine 2026.9.10, build LNX-int-64 dated 2026-09-10 17:59:06.
-The algebraic comparisons use \texttt{BARON} 25.11.17; the individual \texttt{ALAMO} and \texttt{BARON} versions inside \texttt{BAM} are not reported by its runtime information and remain unidentified.
+% \texttt{BAM} uses engine 2026.9.10, build LNX-int-64 dated 2026-09-10 17:59:06.
+% The algebraic comparisons use \texttt{BARON} 25.11.17; the individual \texttt{ALAMO} and \texttt{BARON} versions inside \texttt{BAM} are not reported by its runtime information and remain unidentified.
 
-\paragraph{DFO benchmarking.}
+% \paragraph{DFO benchmarking.}
 % \texttt{D-SDA}, \texttt{RBFOpt}, \texttt{BAM}, \texttt{FMQA-SA}, and the sampling controls use lookup responses under the shared initialization and evaluation-budget protocols described above.
-Configuration-evaluation costs were measured separately from searches and combined with recorded method times as described in Section~\ref{sec:cost-accounting}.
+% Configuration-evaluation costs were measured separately from searches and combined with recorded method times as described in Section~\ref{sec:cost-accounting}.
 
 \paragraph{Fixed-disjunction NLP evaluations.}
 We fixed the original Boolean GDP decisions and evaluated the resulting subproblems using \texttt{IPOPT} 3.14.19 with \texttt{MUMPS} 5.8.1~\citep{amestoy2001mumps}.
 % \david{Versions}.
 For the Grid-GDP benchmarks, all 20,181 configurations were evaluated individually, while the process benchmarks used fixed-configuration evaluations of the corresponding process models.
 \texttt{IPOPT} used a tolerance of \(10^{-8}\) and a solver time limit of 60~s per configuration.
-Process acceptance requires a finite objective, maximum absolute constraint, and variable-bound violation of at most \(10^{-5}\), and termination as \texttt{optimal}, \texttt{locallyOptimal}, or \texttt{globallyOptimal}.
-The solver status must not be \texttt{error} or \texttt{aborted}; the interface must report \texttt{SOLVESTAT}=1 and \texttt{MODELSTAT}\(\in\{1,2\}\).
+% Process acceptance requires a finite objective, maximum absolute constraint, and variable-bound violation of at most \(10^{-5}\), and termination as \texttt{optimal}, \texttt{locallyOptimal}, or \texttt{globallyOptimal}.
+Process acceptance requires a finite objective, a maximum absolute violation of any constraint or variable bound no greater than $10^{-5}$, and the accepted solver and termination statuses specified in Supplementary Section~\ref{sec:supp-acceptance}.
+% The solver status must not be \texttt{error} or \texttt{aborted}; the interface must report \texttt{SOLVESTAT}=1 and \texttt{MODELSTAT}\(\in\{1,2\}\).
 Time-limited candidates remain unaccepted even when feasible.
-Supplementary Section~\ref{sec:supp-acceptance} specifies the residual checks and initialization artifacts.
-Unaccepted responses do not establish mathematical infeasibility.
+% Supplementary Section~\ref{sec:supp-acceptance} specifies the residual checks and initialization artifacts.
+% Unaccepted responses do not establish mathematical infeasibility.
 \texttt{CSTR} sizes 5--30 use the mass-balance/zero-recycle initialization.
 \texttt{Column} and \texttt{Small Batch} use their saved initialization files, and \texttt{Dynamic} uses fresh clones of the unsolved discretized template.
 
 \paragraph{Algebraic GDP comparisons.}
 Conventional comparisons include \texttt{GDPOpt} RIC, GLOA, and LOA, as well as Big-\(M\) and Hull reformulations.
-\texttt{GDPOpt} uses \texttt{HiGHS} for MILP master problems and \texttt{BARON} for nonlinear subproblems~\citep{chen2022pyomogdp,pyomoGDPopt}.
-The Big-\(M\) and Hull reformulations are solved using \texttt{BARON} as the MINLP solver.
+% \texttt{GDPOpt} uses \texttt{HiGHS} for MILP master problems and \texttt{BARON} for nonlinear subproblems~\citep{chen2022pyomogdp,pyomoGDPopt}.
+\texttt{GDPOpt} is configured with \texttt{HiGHS} for MILP master problems and \texttt{BARON} for nonlinear subproblems~\citep{chen2022pyomogdp,pyomoGDPopt}.
+% The Big-\(M\) and Hull reformulations are solved using \texttt{BARON} as the MINLP solver.
+The Big-$M$ and Hull reformulations are solved using \texttt{BARON} 25.11.17 as the MINLP solver.
 All algebraic methods use the original GDP domains, a time limit of 1,800~s per instance, and a relative optimality gap of \(10^{-5}\).
 
 \subsection{Target attainment and cumulative success profiles}
@@ -632,16 +638,17 @@ A run reaches the reference target when
 Target attainment measures agreement with the reference value rather than certifying global optimality.
 For the process experiments, \(f_{\mathrm{ref}}\) is the lowest accepted objective value obtained from the precomputed fixed-configuration NLP evaluations. 
 Runs that terminate with an execution failure are counted as unsuccessful, even if the target was observed earlier.
-For process runs, the reported solution is the accepted configuration with the lowest objective recorded by the wrapper within budget.
-Its coordinates and objective are preserved in the final \texttt{runs.csv} summary, including when first observed at callback \(B\).
-This solution need not equal the native optimizer's returned incumbent.
-Terminal accepted observations are retained under the same rule in the \texttt{RBFOpt} and uniform comparisons.
+% For process runs, the reported solution is the accepted configuration with the lowest objective recorded by the wrapper within budget.
+For process runs, the reported solution is the best accepted configuration recorded within budget, including the final evaluation (Supplementary Section~\ref{sec:supp-terminal-recovery}).
+% Its coordinates and objective are preserved in the final \texttt{runs.csv} summary, including when first observed at callback \(B\).
+% This solution need not equal the native optimizer's returned incumbent.
+% Terminal accepted observations are retained under the same rule in the \texttt{RBFOpt} and uniform comparisons.
 % Supplementary Section~\ref{sec:supp-terminal-recovery} preserves the historical terminal-callback audit with explicit variant labels, and Section~\ref{sec:supp-additional} links the additional terminal records.
 For the full-process-GDP comparison, a feasible objective at or below \(f_{\mathrm{ref}}+10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) counts as achievement, so solutions better than the reference are also included.
 
 For each evaluation budget \(B\), let \(\mathcal R_B\) denote the set of problem-seed instances compared across methods, and let \(s\) identify a solution method.
 For each instance \(r\in\mathcal R_B\), \(H_{sBr}\) equals one if the run reaches the target and zero otherwise.
-Process indicators use the wrapper-reported best-accepted configuration defined above, with execution failures assigned zero.
+% Process indicators use the wrapper-reported best-accepted configuration defined above, with execution failures assigned zero.
 Let \(E_{sBr}\) be the index of the first objective evaluation at which the target is reached, with \(E_{sBr}=+\infty\) if the target is not reached.
 At a threshold of \(N\) objective evaluations, where \(0\leq N\leq B\), the absolute evaluation-count profile is
 \begin{equation}\label{eqn:absolute-evaluations}
@@ -654,10 +661,11 @@ Thus, \(C^{\mathrm{eval}}_{sB}(N)\) gives the fraction of runs that reach the ta
 For the Grid-GDP benchmarks, \(|\mathcal R_B|=210\) at each budget; for each process benchmark and budget, \(|\mathcal R_B|=10\).
 All runs, including target misses, remain in the denominator.
 
-Let \(\widehat T_{sBr}\) denote the estimated full-run completion time, combining recorded search time with separately measured
-configuration-evaluation costs.
-Lookup-time adjustments and model-preparation costs are
-accounted for as described in Section~\ref{sec:cost-accounting}.
+% Let \(\widehat T_{sBr}\) denote the estimated full-run completion time, combining recorded search time with separately measured
+% configuration-evaluation costs.
+Let $\widehat T_{sBr}$ denote the estimated full-run completion time, combining recorded search time with separately measured configuration-evaluation costs as defined in Section~\ref{sec:cost-accounting}.
+% Lookup-time adjustments and model-preparation costs are
+% accounted for as described in Section~\ref{sec:cost-accounting}.
 For a time threshold \(t\geq0\), measured in seconds, the absolute completion-time profile is
 \begin{equation}\label{eqn:absolute-time}
  C^{\mathrm{time}}_{sB}(t)
@@ -682,14 +690,14 @@ For a recorded lookup-based run with \(n\) objective evaluations and measured lo
   +\sum_{q=1}^{n}c(\boldsymbol\xi^{(q)})+t_{\mathrm{prep}}.
 \end{equation}
 Here, \(T_{\mathrm{recorded}}\) is the measured runtime of the search based on lookup, \(t_q^{\mathrm{lookup}}\) is the measured lookup-processing interval of its \(q\)th objective call, and \(\boldsymbol\xi^{(q)}\) is the external integer configuration evaluated in that call.
-For the process experiments, this interval covers coordinate processing and in-memory lookup, but excludes callback-file writing; the CSV is loaded before the search clock starts.
+% For the process experiments, this interval covers coordinate processing and in-memory lookup, but excludes callback-file writing; the CSV is loaded before the search clock starts.
 The point cost \(c(\boldsymbol\xi^{(q)})\) is measured separately for the same benchmark model, problem size and configuration, including configuration-specific preparation, preprocessing, invocation of the solver when required and validation.
 The term \(t_{\mathrm{prep}}\) accounts for the preparation of a single model that is not already included in the point costs.
 Retained search time includes surrogate fitting, candidate generation, auxiliary optimization, and recording performed within the method clock.
-For historical process runners, \(T_{\mathrm{recorded}}\) is the \texttt{interval dfo \_wall \_s} ending after the optimization process termination and status checks, immediately before \texttt{result.json} is written.
-For the additional \texttt{RBFOpt} and sampling runs, it is the recorded search-stage interval, with later incumbent extraction and export recorded separately and excluded.
-Callback logging within that interval is included.
-The later \texttt{summarize()} pass reconstructs the best accepted configuration from the callback records and writes \texttt{runs.csv}; these final result-extraction and summary-writing operations are excluded from the completion estimates.
+% For historical process runners, \(T_{\mathrm{recorded}}\) is the \texttt{interval dfo \_wall \_s} ending after the optimization process termination and status checks, immediately before \texttt{result.json} is written.
+% For the additional \texttt{RBFOpt} and sampling runs, it is the recorded search-stage interval, with later incumbent extraction and export recorded separately and excluded.
+% Callback logging within that interval is included.
+% The later \texttt{summarize()} pass reconstructs the best accepted configuration from the callback records and writes \texttt{runs.csv}; these final result-extraction and summary-writing operations are excluded from the completion estimates.
 % Their cost was not measured separately in the historical runs, and no claim that it is negligible is made. \david{this sounds over defensive, very typical of AI}
 Throughout this manuscript, full-run completion denotes completion of this recorded search stage with reconstructed evaluation costs, excluding final result extraction and export.
 Every recorded objective call contributes its point cost, including initialization, repeated visits, and preprocessing rejections; the same stored measurement is used each time a configuration is revisited.
@@ -701,15 +709,16 @@ The Grid-GDP enumeration and objective normalization are excluded from the timin
 For \texttt{D-SDA} on the Grid-GDP benchmarks, lookup-call times were not recorded, so the method runtime is retained without subtracting lookup time.
 
 \paragraph{Process timers.}
-Each recorded point cost is preserved with its objective and status.
-Measured rejection costs cover the structural exclusions: 435 for \texttt{CSTR30}, 17 for \texttt{Column}, and 35 for \texttt{Dynamic}.
-These coordinates follow the same model preparation and logical-rejection paths, with no NLP solver invocation.
-Their positive total processing times are measured instead of set to zero.
-Costs are joined by the complete model/size/coordinate key, never by the coordinate tuple alone.
-No cross-size \texttt{CSTR} timing substitution or successful repetition selection is used.
+% Each recorded point cost is preserved with its objective and status.
+% Measured rejection costs cover the structural exclusions: 435 for \texttt{CSTR30}, 17 for \texttt{Column}, and 35 for \texttt{Dynamic}.
+% These coordinates follow the same model preparation and logical-rejection paths, with no NLP solver invocation.
+% Their positive total processing times are measured instead of set to zero.
+Structurally rejected configurations incur measured preparation and rejection costs without an NLP solve (Supplementary Section~\ref{sec:supp-acceptance}).
+% Costs are joined by the complete model/size/coordinate key, never by the coordinate tuple alone.
+% No cross-size \texttt{CSTR} timing substitution or successful repetition selection is used.
 For \texttt{Dynamic}, the original model-template construction and discretization cost is included once per run through \(t_{\mathrm{prep}}\); additional campaign-level preparation is not charged repeatedly.
 All in-budget evaluations have measured point costs, and estimated full-run completion times are available for all 700 primary process runs.
-The sole execution failure, a \texttt{Column} \texttt{D-SDA} initialization failure, retains its recorded cost and contributes zero target success.
+% Historical B16: The sole execution failure, a \texttt{Column} \texttt{D-SDA} initialization failure, retains its recorded cost and contributes zero target success.
 These estimates retain the recorded lookup trajectories rather than measuring online optimizer--NLP executions.
 
 Algebraic GDP completion times are measured separately and are not augmented with the DFO point costs.
@@ -796,7 +805,7 @@ The evaluation budget includes the three shared initial evaluations, and repeate
 Per-function integer hit counts at \(B=100\) are in Supplementary Table~\ref{tab:supp-grid-b100}.}
 \label{tab:grid-hits}
 \begin{tabular}{rcccccc}\toprule
-Budget $B$ & \texttt{D-SDA} & RBFOpt & BAM & \texttt{FMQA-SA} & Uniform & \shortstack{BAM-prefix\\control}\\\midrule
+Budget $B$ & \texttt{D-SDA} & \texttt{RBFOpt} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform & \shortstack{\texttt{BAM}-prefix\\control}\\\midrule
 10 & 6.2 & 20.0 & 52.9 & 7.6 & 6.7 & 52.9 \\
 30 & 35.7 & 61.9 & 54.8 & 22.4 & 11.9 & 54.8 \\
 50 & 42.4 & 73.3 & 57.6 & 36.2 & 13.8 & 56.7 \\
@@ -864,11 +873,11 @@ The times cover the full run rather than only the evaluations up to the first hi
 \begin{tabular}{lrrrr}\toprule
 Method & Target hits & \shortstack{Median full-run\\completion (s)} & \shortstack{Median summed\\point cost (s)} & \shortstack{Median retained\\search time (s)}\\\midrule
 \texttt{D-SDA} & 104/210 & 24.14 & 24.14 & 0.0032 \\
-RBFOpt & 171/210 & 70.81 & 60.84 & 7.5790 \\
-BAM & 147/210 & 64.42 & 63.97 & 0.4301 \\
+\texttt{RBFOpt} & 171/210 & 70.81 & 60.84 & 7.5790 \\
+\texttt{BAM} & 147/210 & 64.42 & 63.97 & 0.4301 \\
 \texttt{FMQA-SA} & 129/210 & 124.13 & 62.34 & 62.0359 \\
 Uniform & 45/210 & 60.51 & 60.51 & 0.0026 \\
-BAM-prefix control & 124/210 & 61.81 & 61.80 & 0.0026 \\
+\texttt{BAM}-prefix control & 124/210 & 61.81 & 61.80 & 0.0026 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1022,22 +1031,25 @@ For \texttt{Dynamic}, \texttt{RBFOpt} reaches all ten targets at every tested bu
 \texttt{D-SDA} reaches all ten from \(B=30\) onward.
 
 The advantage is problem-dependent.
-On \texttt{Column}, both methods reach five of ten targets within the restricted 81-configuration box.
+On \texttt{Column} at \(B=13\), \texttt{D-SDA} reaches five of ten targets and \texttt{RBFOpt} four within the 64-configuration logical domain.
 On \texttt{Small Batch} at \(B=10\), \texttt{D-SDA} reaches eight targets, compared with five for \texttt{RBFOpt}.
 
-\texttt{FMQA-SA} reaches 42 of 140 process targets, compared with 36 for uniform sampling.
+\texttt{FMQA-SA} reaches 42 of 140 process targets, compared with 37 for uniform sampling.
 Its aggregate gain over uniform is smaller here than on Grid.
 Supplementary Section~\ref{sec:supp-proposals} reports fallback counts, and Section~\ref{sec:supp-additional} reports the FMQA diagnostics.
 \begin{table}[htbp]
 \centering
 \caption{Reference-target attainment in the \texttt{IPOPT}-table process experiments.
-Entries are target hits of the wrapper-reported best-accepted configuration divided by all ten paired seeds at evaluation budget $B$. \david{The main criticism is, which tables HAVE to appear in the main body, and which are just supplementary}. In general, the paper is too long and says too little for how many pages it has}
+Entries are target hits of the wrapper-reported best-accepted configuration divided by all ten paired seeds at evaluation budget $B$.
+% \david{The main criticism is, which tables HAVE to appear in the main body, and which are just supplementary}.
+% In general, the paper is too long and says too little for how many pages it has
+}
 \label{tab:process-targets}
 \small
 \begin{tabular}{@{}lrccccc@{}}\toprule
 Case & $B$ & \texttt{D-SDA} & RBFOpt & BAM & \texttt{FMQA-SA} & Uniform \\
 \midrule
-\texttt{Column} & 16 & 5/10\textsuperscript{F1} & 5/10 & 0/10 & 4/10 & 0/10 \\
+\texttt{Column} & 13 & 5/10 & 4/10 & 1/10 & 4/10 & 1/10 \\
 \texttt{CSTR5} & 8 & 2/10 & 8/10 & 10/10 & 3/10 & 4/10 \\
 \texttt{CSTR10} & 15 & 2/10 & 6/10 & 1/10 & 2/10 & 1/10 \\
 \texttt{CSTR15} & 22 & 2/10 & 7/10 & 1/10 & 1/10 & 2/10 \\
@@ -1055,10 +1067,10 @@ Case & $B$ & \texttt{D-SDA} & RBFOpt & BAM & \texttt{FMQA-SA} & Uniform \\
 \end{tabular}
 \par\vspace{3pt}
 \begin{minipage}{0.96\linewidth}
-\footnotesize Superscript F$n$ denotes $n$ execution failures, which remain in the denominator and do not count as hits.
-The only failure is a \texttt{Column} \texttt{D-SDA} initialization failure.
+\footnotesize All 700 primary process runs completed without execution failure.
+% Historical B16: The only failure is a \texttt{Column} \texttt{D-SDA} initialization failure.
 All 70 primary groups use seeds 0--9.
-All methods use the stated initialization and stopping policies.
+The only \texttt{Column} hits for \texttt{BAM} and uniform sampling occur at the shared initial target in seed 6.
 An accepted target configuration at callback $B$ counts because its coordinates and objective are preserved in the final wrapper summary.
 % \texttt{BAM} also returns that value to its native optimizer; the other methods retain the wrapper stop (Supplementary Section~\ref{sec:supp-terminal-recovery}, Table~\ref{tab:supp-terminal-recovery}).
 \texttt{BAM} also returns that value to its native optimizer; the other methods retain the wrapper stop (Supplementary Section~\ref{sec:supp-terminal-recovery}).
@@ -1070,7 +1082,7 @@ Figure~\ref{fig:process-evaluations} shows the first target-attaining evaluation
 \begin{figure}[htbp]
 \centering\includegraphics[width=\linewidth]{figures/process_evaluation_profiles.pdf}
 \caption{Cumulative target attainment versus charged evaluations for nine illustrative process conditions, using the wrapper-reported success definition in Section~\ref{sec:metrics}.
-Every method--condition group retains all ten seeds, including execution failures.
+Every method--condition group retains all ten seeds, including target misses.
 Initialization, unsuccessful evaluations, and repeated callbacks consume the budget.
 Steps mark the first accepted target observation on successful runs.
 The gray vertical line at three evaluations marks the end of the shared initialization.
@@ -1107,7 +1119,7 @@ Its lower cost reflects shorter paths as well as low search overhead; unsuccessf
 % \end{figure}
 
 % \subsubsection{Absolute completion profiles and restart estimates}
-Figure~\ref{fig:process-completion} presents target attainment against estimated full-run completion time for the nine illustrative conditions in Figure~\ref{fig:process-evaluations}.
+On \texttt{Column}, median completion estimates are 35.43~s for \texttt{D-SDA} and 54.60~s for \texttt{RBFOpt} (Figure~\ref{fig:process-completion}).
 For \texttt{Dynamic} at \(B=30\), \texttt{D-SDA} and \texttt{RBFOpt} both reach ten targets, with median completion estimates of 26.61 and 34.19~s, respectively.
 \texttt{RBFOpt} already reaches all ten at \(B=12\) with a median of 12.29~s.
 Thus the comparison depends on whether the evaluation budget is fixed or selected separately for each method.
@@ -1310,7 +1322,7 @@ Thus full-run completion costs include work after the target is first observed.
 
 These findings concern the tested configuration domains and fixed local-solver responses.
 The simultaneous changes in \texttt{CSTR} size and budget do not isolate scalability.
-The restricted \texttt{Column} box and the acceptance policy further limit extrapolation.
+The fixed local-solver responses and acceptance policy further limit extrapolation.
 
 Algebraic formulations provide competitive reference results when supported, particularly for \texttt{Small Batch}.
 Their expression coverage and access to model structure differ from those of DFO, and the unresolved optimality reports discussed in Section~\ref{sec:process-results} cannot serve as independent certificates.
@@ -1331,7 +1343,8 @@ Algebraic approaches remain useful alternatives when model expressions and suita
 
 The findings are conditional on finite candidate domains and frozen local-solver responses.
 Completion costs are retrospective estimates, not measured online optimizer--NLP times.
-Ten-seed hit rates do not establish 99\% solution-time guarantees, and the conflicting algebraic optimality reports remain unresolved.
+% Ten-seed hit rates do not establish 99\% solution-time guarantees, and the conflicting algebraic optimality reports remain unresolved.
+The conflicting algebraic optimality reports remain unresolved.
 Transfer to broader configuration spaces and live NLP evaluation remains to be tested.
 
 \section{Acknowledgement}
@@ -1342,7 +1355,7 @@ The code, frozen evaluation data, archived execution records, and analysis scrip
 % The original additional-comparison analysis is pinned at commit \nolinkurl{6e083eb49b497ce4fea90131e18cc0459db682e8}.
 % The current figure and table generation files and the 2,050-key Process coverage audit are pinned separately at commit \nolinkurl{3c60f4707b454a9d3e4330466ec5f9372b418f54}~\citep{currentPublicationAnalysis}.
 % Supplementary Section~\ref{sec:supp-data} links these analyses, the selected datasets, source manifests, and regeneration instructions; the Dantzig \texttt{CSTR15} validation has its own archived snapshot~\citep{cstrDantzigValidation}.
-Supplementary Section~\ref{sec:supp-data} identifies the archived inputs, including the CSTR finite-penalty runs and updated CSTR30 evaluations.
+Supplementary Section~\ref{sec:supp-data} identifies the archived inputs, including the CSTR updates and Column logical-domain runs.
 % The original execution revisions and source hashes are retained separately from this repository snapshot.
 
 \bibliographystyle{elsarticle-harv}

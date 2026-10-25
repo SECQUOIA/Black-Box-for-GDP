@@ -298,6 +298,10 @@ Standalone \texttt{Bonmin} 1.8.9~\citep{bonami2008algorithmic} solves surrogate 
 
 % In the process runs, \texttt{BAM} returns callback \(B\) normally and stops at its native limit; the other wrappers record that callback before stopping (Section~\ref{sec:supp-terminal-recovery}).
 \texttt{FMQA-SA} stops at \(B\) or its 1,800 s method limit, checked between operations and through training/sampling callbacks, without reference-target stopping.
+Each FM uses identity activation, zero bias, and normal initial weights with mean zero and standard deviation \(0.01\).
+Training uses Adam~\citep{kingma2015adam}, 1,000 full-batch epochs, mean squared error, and learning rate \(0.01\).
+Coordinate \(\xi_j\) uses \(\lfloor\log_2 u_j\rfloor+1\) unsigned bits, where \(u_j>0\) is its upper bound; QUBO coefficients are divided by the largest absolute entry of the quadratic matrix.
+D-Wave's \texttt{SimulatedAnnealingSampler} in \texttt{dwave-samplers} 1.6.0 uses 100 reads, 1,000 sweeps, and a geometric inverse-temperature schedule~\citep{dwaveSamplers}.
 All process workers and the Grid \texttt{FMQA-SA} worker have a 2,100 s watchdog.
 The Grid \texttt{RBFOpt}/\texttt{BAM} trace watchdogs are disabled (\nolinkurl{max_run_seconds=0}); archived Grid \texttt{D-SDA} uses budget, target, or local-search termination without an additional method-clock limit.
 
@@ -305,9 +309,10 @@ The Grid \texttt{RBFOpt}/\texttt{BAM} trace watchdogs are disabled (\nolinkurl{m
 The recorded environments include Python 3.11.16, \texttt{RBFOpt} 4.3.0~\citep{costa2018rbfopt,nannicini2021implementation}, \texttt{BAM} 5.0.0~\citep{ma2023bam}, \texttt{Pyomo} 6.10.0~\citep{bynum2021pyomo}, \texttt{BARON} 25.11.17, and \texttt{HiGHS} 1.12.0~\citep{huangfu2018highs}.
 % The process D-SDA/\texttt{RBFOpt}/\texttt{BAM} environment records NumPy 2.4.6 and SciPy 1.17.1; the \texttt{FMQA-SA} environment records NumPy 2.2.6, SciPy 1.15.3, \texttt{PyTorch} 2.8.0+cpu~\citep{paszke2019pytorch}, dimod 0.12.21, and dwave-samplers 1.6.0.
 The annealer is the classical CPU implementation \nolinkurl{dwave.samplers.SimulatedAnnealingSampler}~\citep{dwaveSamplers}.
-% Executable banners identify \texttt{Bonmin} 1.8.9 with \texttt{Cbc} 2.10.12 and \texttt{IPOPT} 3.14.19, and standalone \texttt{IPOPT} 3.14.19, on Linux x86\_64 with ASL 20231111.
+Executable banners identify \texttt{Bonmin} 1.8.9 with \texttt{Cbc} 2.10.12 and \texttt{IPOPT} 3.14.19, and standalone \texttt{IPOPT} 3.14.19, on Linux x86\_64 with ASL 20231111.
+
 % These auxiliary-solver identifiers are in \nolinkurl{version_identification.json}; per-job binary hashes are in the protocol files.
-% The \nolinkurl{bam-solver} 5.0.0 engine identifies version 2026.9.10, build LNX-int-64, timestamp 2026-09-10 17:59:06.
+The \nolinkurl{bam-solver} 5.0.0 engine identifies version 2026.9.10, build LNX-int-64, timestamp 2026-09-10 17:59:06.
 \texttt{BAM}'s internal \texttt{ALAMO} and \texttt{BARON} versions are unspecified; \texttt{BARON} 25.11.17 is used for the algebraic comparisons.
 
 The fixed-configuration process evaluations use \texttt{IPOPT} 3.14.19~\citep{wachter2006implementation} with \texttt{MUMPS} 5.8.1~\citep{amestoy2001mumps}, solver tolerance \(10^{-8}\) and a 60 s solver limit.
@@ -331,8 +336,11 @@ These are cold starts, with no transfer of an NLP solution between configuration
 % The companion \nolinkurl{process_nlp_acceptance.json} identifies the acceptance code, initialization artifacts, hashes, and provenance.
 Objectives, acceptance status, and NLP point costs are linked to the same recorded attempt by model, \texttt{CSTR} size, and coordinate, without successful-retry selection or cross-size time substitution.
 The \texttt{CSTR30} point costs include initialization and artifact recording.
-% Separately measured structural-rejection costs cover 435 \texttt{CSTR30}, 17 \texttt{Column}, and 35 \texttt{Dynamic} coordinates without invoking an NLP.
+Separately measured structural-rejection costs cover 435 \texttt{CSTR30} and 35 \texttt{Dynamic} coordinates without invoking an NLP.
 Each stored cost is reused on revisits, so reconstructed costs do not capture repeat-measurement timing variability; \texttt{Dynamic} template preparation is added once per run.
+
+Process lookup-call times cover coordinate processing and in-memory lookup, excluding callback-file writing; the CSV is loaded before the search clock starts.
+Recorded search time includes callback logging and termination checks, but excludes final incumbent extraction, summary writing, and export.
 
 \subsection{Observed proposal and initialization behavior}\label{sec:supp-proposals}
 % The Grid \texttt{BAM} results at \(B=10\) contain 111 hits before surrogate-guided selection: 11 in the common three-point initialization and 100 at two predetermined Sobol points (10 at a corner and 90 at the center).
@@ -354,10 +362,10 @@ Family & Runs & Proposals & Fallbacks & Rate \\
 \midrule
 Grid & 1,050 & 51,450 & 9,522 & 18.51\% \\
 \texttt{CSTR} & 60 & 1,350 & 369 & 27.33\% \\
-\texttt{Column} & 10 & 130 & 82 & 63.08\% \\
+\texttt{Column} & 10 & 100 & 86 & 86.00\% \\
 \texttt{Dynamic} & 60 & 1,460 & 1,063 & 72.81\% \\
 \texttt{Small Batch} & 10 & 70 & 58 & 82.86\% \\
-Process total & 140 & 3,010 & 1,572 & 52.23\% \\
+Process total & 140 & 2,980 & 1,576 & 52.89\% \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -366,6 +374,7 @@ Process total & 140 & 3,010 & 1,572 & 52.23\% \\
 \subsection{Terminal-callback solutions and final summaries}
 \label{sec:supp-terminal-recovery}
 Process success is defined by the wrapper's best accepted configuration, including callback \(B\), rather than by the native optimizer's returned incumbent.
+The final \texttt{runs.csv} summary stores the coordinates and objective of that configuration.
 % The non-\texttt{BAM} runners record callback \(B\) before raising \texttt{BudgetStop}; \texttt{worker()} records normal budget completion, and \texttt{summarize()} selects the minimum \texttt{raw\_objective} among \texttt{accepted=True} records.
 % Its coordinates and objective are stored as \texttt{best\_point} and \texttt{best\_accepted\_objective} in \texttt{runs.csv}.
 
@@ -506,11 +515,11 @@ Its objective is \(-\int_0^9 x(t)^2\,dt\), so minimization favors a larger integ
 State and time are abstract benchmark quantities without a physical unit calibration in the implementation.
 The example adds mode sequencing and dynamic differential constraints to the static equipment/configuration cases; it is not a plant-specific economic metric.
 
-\texttt{Column} uses the predeclared historical lookup-study box \(\{7,\ldots,15\}\times\{1,\ldots,9\}\) (81 points).
-This is a restricted comparison domain within the full 225-point GDP box, not a proof that all outside configurations are infeasible.
-The box was chosen as an experimental scope restriction without a specific engineering or optimization-based selection criterion.
-Consequently, the DFO findings are conditional on this restricted domain.
-All four DFO methods use the same box; the algebraic references use the original GDP domain.
+\texttt{Column} uses the logical domain \(\{8,\ldots,15\}\times\{1,\ldots,8\}\) (64 points).
+These bounds encode reflux at or above the feed tray and boilup at or below it.
+% Historical B16: The box was chosen as an experimental scope restriction without a specific engineering or optimization-based selection criterion.
+The remaining algebraic constraints are checked during configuration evaluation.
+All search methods and uniform sampling use this domain; the algebraic references retain the original GDP formulation.
 
 \section{Grid inventory and target-set sizes}\label{sec:supp-inventory}
 All DFO methods receive the integer pair \((i,j)\in\{0,\ldots,30\}^2\).
@@ -622,14 +631,14 @@ Table~\ref{tab:process-tts99} reports completion costs for all 14 process condit
 \caption{Process full-run completion costs and empirical median-cost restart estimates, in seconds.
 Both panels use all ten paired seeds, including misses and timed execution failures.}
 \fi
-\caption{Median reconstructed full-run completion costs for all ten paired seeds per condition, including misses and timed execution failures, in seconds.}
+\caption{Median reconstructed full-run completion costs for all ten paired seeds per condition, including target misses, in seconds.}
 \label{tab:process-tts99}
 \small
 \setlength{\tabcolsep}{6pt}
 % \textbf{(a) Median reconstructed full-run completion cost}
 \par\smallskip\begin{tabular}{@{}lrccccc@{}}\toprule
 Case & $B$ & \texttt{D-SDA} & RBFOpt & BAM & \texttt{FMQA-SA} & Uniform \\\midrule
-\texttt{Column} & 16 & 37.91 & 33.54 & 37.97 & 29.72 & 26.29 \\
+\texttt{Column} & 13 & 35.43 & 54.60 & 27.50 & 41.82 & 21.69 \\
 \texttt{CSTR5} & 8 & 10.66 & 10.72 & 10.67 & 13.92 & 9.44 \\
 \texttt{CSTR10} & 15 & 20.98 & 21.79 & 18.54 & 27.07 & 17.75 \\
 \texttt{CSTR15} & 22 & 29.92 & 37.59 & 27.67 & 42.82 & 27.84 \\
@@ -887,8 +896,8 @@ Xin She Yang3 & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 
 The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/blob/3c60f4707b454a9d3e4330466ec5f9372b418f54/manuscript/README.md}{baseline publication analysis} provides the original source records and reproduction instructions~\citep{currentPublicationAnalysis}.
 The CSTR5--25 results use the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/8c7515d602802ab7b5b23eef4373988036a7f7ce/results/cstr_penalty_1e6_analysis_20261022}{finite-penalty records} for \texttt{D-SDA} and \texttt{RBFOpt}.
 The \texttt{CSTR30} results use the updated evaluation table and all 50 searches in the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/df060f6f6974f8deb8ac085ee908b9e99f666b36/results/cstr30_initialization_analysis_20261025}{initialization follow-up}.
-The resulting 700-run process comparison contains 2,040 distinct visited configurations and 16,206 callbacks.
-The updated figures and tables are generated by the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c43ba23dad98fbec9f614d842c80622e2af048c2/results/cstr30_publication_20261025}{publication analysis}.
+The resulting 700-run process comparison contains 2,024 distinct visited configurations and 16,067 callbacks.
+The \texttt{Column} results and current figures and tables are provided by the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/947c21bf5d81483adcee6b9810f70f3fdb7fa91a/results/column_publication_20261025}{publication analysis}.
 % These guides provide figure/table regeneration commands and the 2,050-key union ledger, retaining the original execution revisions and inputs.
 
 \section{Feasibility and bound consistency of the algebraic results}\label{sec:bound-audit}

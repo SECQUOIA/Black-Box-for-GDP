@@ -1,6 +1,21 @@
 # Professor review disposition — manuscript revision
 
-## Current publication update — 25 October 2026
+## Current publication update - Column logical domain, 25 October 2026
+
+The [Column publication analysis](../results/column_publication_20261025/README.md) adopts all 50 completed logical-domain/B13 runs and preserves the other 650 primary Process runs.
+Column now uses 64 logically admissible configurations and budget 13, with ten paired seeds for each method.
+Target counts are D-SDA 5/10, RBFOpt 4/10, BAM 1/10, FMQA-SA 4/10 and uniform sampling 1/10.
+Median reconstructed completion costs are 35.43 s for D-SDA and 54.60 s for RBFOpt.
+The current 700-run comparison has 315 target hits, 385 misses, no execution failures, 16,067 callbacks and 2,024 distinct visited configuration keys.
+The inventory contains 2,438 configurations and 1,266 accepted responses.
+The existing CSTR conclusion remains 45/60 for RBFOpt versus 14/60 for D-SDA.
+The [current manuscript](../manuscript/README.md), four Process figures and affected tables and prose are synchronized with Overleaf.
+David's 34 comment lines are preserved, and manuscript source files were not re-uploaded to Overleaf.
+The new analysis runs no optimizer or NLP solver and requests no CI run.
+PR #49 was already merged; this is a follow-up on its original review/cstr15-dantzig-results branch.
+The following sections describe earlier snapshots and retain their original numerical totals and review history.
+
+## Previous publication update - CSTR30 initialization, 25 October 2026
 
 The [CSTR30 publication analysis](../results/cstr30_publication_20261025/README.md) adopts the completed initialization follow-up for all five methods while preserving the finite-penalty baseline and all other primary cases.
 The current manuscript uses mass-balance/zero-recycle initialization for CSTR5–30, with 464 accepted CSTR30 configurations and an unchanged reference target.
