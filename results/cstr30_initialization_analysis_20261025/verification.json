@@ -1,0 +1,38 @@
+{
+  "analysis_date": "2026-10-25",
+  "full_model_audit_passed": true,
+  "coordinate_count": 900,
+  "allowed_initialized_models_checked": 465,
+  "accepted_returned_vectors_checked": 464,
+  "new_audit_tests": {
+    "passed": 8,
+    "log": "tests.log"
+  },
+  "archived_protocol_tests": {
+    "passed": 7,
+    "log": "protocol_tests.log"
+  },
+  "ruff": {
+    "passed": true,
+    "log": "lint.log"
+  },
+  "archive_matches_download": true,
+  "no_optimization_during_analysis": true,
+  "reference_target_unchanged": true,
+  "readme_local_links_checked": true,
+  "target_branch_before_commit": "review/cstr15-dantzig-results",
+  "target_branch_head_before_commit": "2e7e1e2be8736315e2d24d78ded32f8dee759a50",
+  "pull_request_49": {
+    "state": "closed",
+    "merged": true,
+    "note": "This analysis is a follow-up on the original branch, not an update to the already merged diff."
+  },
+  "commands": [
+    "python scripts/analyze_cstr30_initialization_return.py --output results/cstr30_initialization_analysis_20261025 --sources external",
+    "python -m pytest tests/test_cstr30_initialization_return.py -q",
+    "python -m ruff check scripts/analyze_cstr30_initialization_return.py tests/test_cstr30_initialization_return.py",
+    "RBFOPT_GDP_SOURCES=/private/tmp/cstr15-dantzig-results/external python /private/tmp/cstr30-return-audit-input/reproduction/test_protocol.py"
+  ],
+  "git_diff_cached_check_passed": true,
+  "returned_csv_line_endings": "Original CRLF bytes retained using scoped .gitattributes; not normalized."
+}

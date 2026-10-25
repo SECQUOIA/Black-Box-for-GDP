@@ -1,0 +1,93 @@
+{
+  "coordinates": 900,
+  "logical": 465,
+  "structural": 435,
+  "interface_attempts": 465,
+  "confirmed_cstr_ipopt_invocations": 464,
+  "separate_preflight_ipopt_invocations": 1,
+  "failed_before_cstr_ipopt": [
+    [
+      27,
+      10
+    ]
+  ],
+  "old_accepted": 458,
+  "new_accepted": 464,
+  "old_termination_counts": {
+    "locallyOptimal": 458,
+    "not_solved": 435,
+    "infeasible": 4,
+    "feasible": 3
+  },
+  "new_status_counts": {
+    "accepted": 464,
+    "preprocessing_infeasible": 435,
+    "solver_error": 1
+  },
+  "both_accepted": 457,
+  "newly_accepted": 7,
+  "newly_rejected": 1,
+  "maximum_absolute_objective_change_common": 6.19647169131099e-08,
+  "all_common_changes_below_1e_minus_5": true,
+  "old_evaluation_total_s": 922.8564671783929,
+  "new_evaluation_total_s": 1719.0001499562059,
+  "old_evaluation_median_s": 1.074214348103851,
+  "new_evaluation_median_s": 1.8132475735619664,
+  "old_solve_wall_s_sum": 656.3807926448062,
+  "new_solve_wall_s_sum": 803.2725741856266,
+  "timing_by_structure": {
+    "logical": {
+      "old_total_s": 827.3956662043929,
+      "new_total_s": 1317.6049501195084
+    },
+    "structural": {
+      "old_total_s": 95.460800974,
+      "new_total_s": 401.39519983669743
+    }
+  },
+  "total_search_attempts": 50,
+  "new_search_execution_failures": 0,
+  "common_initial_triples_verified": true,
+  "all_search_settings_verified": true,
+  "failed_point_search_visits": 0,
+  "cstr30_old_hits": 16,
+  "cstr30_new_hits": 15,
+  "all_cstr_old_hits": 98,
+  "all_cstr_new_hits": 97,
+  "all_cstr_runs": 300,
+  "fixed_target": 2.7695697198995095,
+  "new_minimum": 2.7695697198995095,
+  "reference_coordinate": {
+    "point": [
+      30,
+      30
+    ],
+    "logical_allowed": true,
+    "old_accepted": true,
+    "new_accepted": true,
+    "old_termination": "locallyOptimal",
+    "new_termination": "locallyOptimal",
+    "new_status": "accepted",
+    "old_objective": 2.7695697198995095,
+    "new_objective": 2.7695697198995095,
+    "objective_delta_if_both_accepted": 0.0,
+    "old_max_primal_violation": 2.7755575615628914e-15,
+    "new_max_primal_violation": 1.5543122344752192e-15,
+    "new_residual_state": "returned_candidate",
+    "old_total_s": 1.1007198519073427,
+    "new_total_s": 1.8592965418938547,
+    "old_solve_s": 0.7705854438245296,
+    "new_solve_s": 0.7593526539858431,
+    "interface_attempts": 1,
+    "confirmed_cstr_ipopt_invocations": 1,
+    "record_sha256": "1b80ad6abcc15be098f7f37126ae13daf2b11200153d14078a6a69b23ace00f0"
+  },
+  "measured_search_s": 328.05649587442167,
+  "new_search_completion_estimate_s": 4741.281308923848,
+  "old_search_completion_estimate_s": 2311.156708117116,
+  "new_optimization_calls_during_analysis": 0,
+  "model_audit_completed": true,
+  "returned_solution_vectors_verified": 464,
+  "maximum_returned_constraint_violation": 1.700837470863803e-09,
+  "maximum_returned_bound_violation": 0.0
+}
