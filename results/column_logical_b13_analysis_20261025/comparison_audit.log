@@ -1,0 +1,68 @@
+{
+  "complete": true,
+  "new_jobs": 50,
+  "new_failures": 0,
+  "new_pending": 0,
+  "new_attempts": 50,
+  "old_hits": 14,
+  "new_hits": 15,
+  "old_callbacks": 787,
+  "new_callbacks": 648,
+  "old_initial_target_runs": 0,
+  "new_initial_target_runs": 5,
+  "old_first_target_after_initial_runs": 14,
+  "new_first_target_after_initial_runs": 10,
+  "new_terminal_first_hits": [],
+  "reference_point": [
+    13,
+    4
+  ],
+  "reference_objective": 19346.124801006445,
+  "reference_absolute_tolerance": 0.19346124801006445,
+  "old_domain_size": 81,
+  "new_domain_size": 64,
+  "accepted_inventory_old": 29,
+  "accepted_inventory_new": 29,
+  "old_budget": 16,
+  "new_budget": 13,
+  "old_budget_fraction": 0.19753086419753085,
+  "new_budget_fraction": 0.203125,
+  "controller_elapsed_before_pack_s": 151.772576,
+  "sequential_job_phase_s": 132.128952,
+  "measured_search_wall_total_s": 71.65851766965352,
+  "original_process_nlp_calls": 0,
+  "analysis_optimizer_calls": 0,
+  "auxiliary_calls": {
+    "bonmin": 10
+  },
+  "auxiliary_call_wall_s": 0.8732515359297395,
+  "bam_internal_surrogate_accounting": "Included in search overhead; not individually journaled.",
+  "cpu": 2,
+  "smt_siblings": [
+    2,
+    50
+  ],
+  "cpu_busy_percent_over_window": {
+    "2": 0.3072196620583667,
+    "50": 0.768639508070712
+  },
+  "runtime_and_settings_checks": 50,
+  "source_revision": "2ce74ba48c51e0382d2701382619b084bfac14b7",
+  "package_manifest_sha256": "cca439c805a4846c260e60e5904385f304dd9dfb7669c4163bb6c624b7311b52",
+  "server_replay_byte_identical_outputs": [
+    "README.md",
+    "attempt_inventory.json",
+    "callback_ledger.csv",
+    "methods.csv",
+    "methods.json",
+    "profiles.csv",
+    "profiles.json",
+    "runs.csv",
+    "runs.json",
+    "verification.json"
+  ],
+  "all_five_methods_shared_ordered_initials": true,
+  "workers_sequential": true,
+  "no_new_original_nlp_reason": "Exact pinned lookup-only source, process-model import guard, same-attempt input rows and separate permitted surrogate journal were verified.",
+  "caveat": "Domain, budget and regenerated common initial designs change together; the paired ten-seed comparison is descriptive rather than a single-factor causal estimate."
+}

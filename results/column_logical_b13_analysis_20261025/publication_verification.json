@@ -1,0 +1,34 @@
+{
+  "publication_date_local": "2026-10-25",
+  "tests_passed": 95,
+  "tests_scope": [
+    "experiments/column_logical_b13/test_protocol.py",
+    "tests/test_review_comparison_audit.py",
+    "tests/test_process_dsda_domain.py",
+    "tests/ipopt_dfo/test_bam_budget_stop.py"
+  ],
+  "clean_extraction_replay_passed": true,
+  "byte_identical_comparison_outputs": [
+    "README.md",
+    "auxiliary_calls.csv",
+    "auxiliary_calls.json",
+    "coordinate_cost_attribution.csv",
+    "coordinate_cost_attribution.json",
+    "initial_designs.csv",
+    "initial_designs.json",
+    "manifest.json",
+    "methods.csv",
+    "methods.json",
+    "paired_runs.csv",
+    "paired_runs.json",
+    "run_details.csv",
+    "run_details.json",
+    "runtime_verification.json",
+    "summary.json"
+  ],
+  "optimization_calls": 0,
+  "process_nlp_calls": 0,
+  "original_analysis_manifest_sha256": "c2d803ea2043c2902f4510493c82244ea516f27f943cfb5a16f2d4e0c5803940",
+  "source_base_revision": "2ce74ba48c51e0382d2701382619b084bfac14b7",
+  "historical_analysis_and_manifests_unchanged": true
+}
