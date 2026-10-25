@@ -1,0 +1,164 @@
+{
+  "status": "complete",
+  "actual_coordinate_nlp_calls": 465,
+  "logged_ipopt_coordinate_invocations": 464,
+  "preflight_nlp_calls": 1,
+  "search_process_nlp_calls": 0,
+  "coordinates": 900,
+  "logical_coordinates": 465,
+  "structural_coordinates": 435,
+  "old_accepted": 458,
+  "new_accepted": 464,
+  "newly_accepted": 7,
+  "newly_rejected": 1,
+  "new_status_counts": {
+    "accepted": 464,
+    "preprocessing_infeasible": 435,
+    "solver_error": 1
+  },
+  "reference_point": [
+    30,
+    30
+  ],
+  "old_reference_objective": 2.7695697198995095,
+  "new_reference_objective": 2.7695697198995095,
+  "reference_accepted": true,
+  "reference_objective_change": 0.0,
+  "fixed_target": 2.7695697198995095,
+  "target_rule": "final_best_absolute",
+  "new_table_minimum": 2.7695697198995095,
+  "new_table_best_point": [
+    30,
+    30
+  ],
+  "new_minimum_minus_fixed_reference": 0.0,
+  "old_point_cost_sum_s": 922.856467178393,
+  "new_point_cost_sum_s": 1719.0001499562059,
+  "old_point_cost_median_s": 1.074214348103851,
+  "new_point_cost_median_s": 1.8132475735619664,
+  "measured_search_sum_s": 328.05649587442167,
+  "estimated_search_completion_sum_s": 4741.281308923848,
+  "actual_search_attempts": 50,
+  "groups": [
+    {
+      "method": "dsda",
+      "runs": 10,
+      "old_hits": 3,
+      "new_hits": 2,
+      "old_rate": 0.3,
+      "new_rate": 0.2,
+      "both_success": 2,
+      "new_only_success": 0,
+      "old_only_success": 1,
+      "neither_success": 7,
+      "new_execution_failures": 0,
+      "new_any_hit": 2,
+      "new_better_than_reference_final_misses": 0
+    },
+    {
+      "method": "rbfopt",
+      "runs": 10,
+      "old_hits": 9,
+      "new_hits": 9,
+      "old_rate": 0.9,
+      "new_rate": 0.9,
+      "both_success": 8,
+      "new_only_success": 1,
+      "old_only_success": 1,
+      "neither_success": 0,
+      "new_execution_failures": 0,
+      "new_any_hit": 9,
+      "new_better_than_reference_final_misses": 0
+    },
+    {
+      "method": "bam",
+      "runs": 10,
+      "old_hits": 2,
+      "new_hits": 2,
+      "old_rate": 0.2,
+      "new_rate": 0.2,
+      "both_success": 2,
+      "new_only_success": 0,
+      "old_only_success": 0,
+      "neither_success": 8,
+      "new_execution_failures": 0,
+      "new_any_hit": 2,
+      "new_better_than_reference_final_misses": 0
+    },
+    {
+      "method": "fmqa_sa",
+      "runs": 10,
+      "old_hits": 1,
+      "new_hits": 1,
+      "old_rate": 0.1,
+      "new_rate": 0.1,
+      "both_success": 1,
+      "new_only_success": 0,
+      "old_only_success": 0,
+      "neither_success": 9,
+      "new_execution_failures": 0,
+      "new_any_hit": 1,
+      "new_better_than_reference_final_misses": 0
+    },
+    {
+      "method": "uniform_without_replacement",
+      "runs": 10,
+      "old_hits": 1,
+      "new_hits": 1,
+      "old_rate": 0.1,
+      "new_rate": 0.1,
+      "both_success": 1,
+      "new_only_success": 0,
+      "old_only_success": 0,
+      "neither_success": 9,
+      "new_execution_failures": 0,
+      "new_any_hit": 1,
+      "new_better_than_reference_final_misses": 0
+    }
+  ],
+  "all_cstr": [
+    {
+      "method": "dsda",
+      "runs": 60,
+      "old_hits": 15,
+      "new_hits": 14,
+      "retained_other_size_runs": 50
+    },
+    {
+      "method": "rbfopt",
+      "runs": 60,
+      "old_hits": 45,
+      "new_hits": 45,
+      "retained_other_size_runs": 50
+    },
+    {
+      "method": "bam",
+      "runs": 60,
+      "old_hits": 18,
+      "new_hits": 18,
+      "retained_other_size_runs": 50
+    },
+    {
+      "method": "fmqa_sa",
+      "runs": 60,
+      "old_hits": 9,
+      "new_hits": 9,
+      "retained_other_size_runs": 50
+    },
+    {
+      "method": "uniform_without_replacement",
+      "runs": 60,
+      "old_hits": 11,
+      "new_hits": 11,
+      "retained_other_size_runs": 50
+    }
+  ],
+  "overall_cstr": {
+    "old_hits": 98,
+    "new_hits": 97,
+    "runs": 300
+  },
+  "manuscript_original_hits": 109,
+  "missing_old_separate_constraint_bound_residuals": true,
+  "retained_other_sizes_sha256": "18c727c39e1aa883841f06f1d58ee20c6fcf355ecf5aaaa365bac8f5353ea5ed"
+}

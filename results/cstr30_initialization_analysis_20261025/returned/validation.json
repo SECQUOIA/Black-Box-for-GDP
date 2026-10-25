@@ -1,0 +1,12 @@
+{
+  "unique_900_coordinates": true,
+  "full_50_search_slots": true,
+  "exact_shared_starts_in_plan": true,
+  "observed_shared_starts_complete": true,
+  "incomplete_or_invalid_search_jobs": [],
+  "failed_attempts_retained": true,
+  "fixed_reference_and_tolerance": true,
+  "baseline_other_sizes_retained": 250,
+  "retry_count": 0,
+  "note": "An early failed search can have fewer than three callbacks; it stays in the denominator and is reported here"
+}
