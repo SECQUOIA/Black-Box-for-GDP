@@ -1,0 +1,2702 @@
+[
+  {
+    "method": "dsda",
+    "seed": 0,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "execution_failed",
+    "new_status": "budget_completed",
+    "old_best": null,
+    "new_best": 19449.85156002104,
+    "old_starts": [
+      [
+        8,
+        3
+      ],
+      [
+        15,
+        9
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "new_starts": [
+      [
+        9,
+        3
+      ],
+      [
+        15,
+        8
+      ],
+      [
+        11,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 3,
+    "new_callbacks": 13,
+    "old_completion_s": 1.1199481280054897,
+    "new_completion_s": 52.750594867160544,
+    "paired_completion_delta_s": 51.630646739155054,
+    "old_point_cost_s": 1.1174141749506816,
+    "new_point_cost_s": 52.74349423497915,
+    "old_search_overhead_s": 0.00253395305480808,
+    "new_search_overhead_s": 0.00710063218139112
+  },
+  {
+    "method": "dsda",
+    "seed": 1,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "both_success",
+    "old_target": true,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        14,
+        4
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        9,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        14,
+        3
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 5,
+    "new_first_hit": 6,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 50.815828494611196,
+    "new_completion_s": 31.816601651487872,
+    "paired_completion_delta_s": -18.999226843123324,
+    "old_point_cost_s": 50.80831701355055,
+    "new_point_cost_s": 31.809650025330484,
+    "old_search_overhead_s": 0.007511481060646474,
+    "new_search_overhead_s": 0.006951626157388091
+  },
+  {
+    "method": "dsda",
+    "seed": 2,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "both_success",
+    "old_target": true,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        14,
+        8
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "new_starts": [
+      [
+        14,
+        7
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 12,
+    "new_first_hit": 12,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 43.1256099048187,
+    "new_completion_s": 39.99864315614104,
+    "paired_completion_delta_s": -3.12696674867766,
+    "old_point_cost_s": 43.11881510983221,
+    "new_point_cost_s": 39.99141493905336,
+    "old_search_overhead_s": 0.00679479498649016,
+    "new_search_overhead_s": 0.007228217087686062
+  },
+  {
+    "method": "dsda",
+    "seed": 3,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "old_only",
+    "old_target": true,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19449.85156002104,
+    "old_starts": [
+      [
+        12,
+        8
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        15,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        12,
+        7
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        15,
+        5
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 15,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 34.52329619467491,
+    "new_completion_s": 30.429560728836805,
+    "paired_completion_delta_s": -4.093735465838108,
+    "old_point_cost_s": 34.51638443861157,
+    "new_point_cost_s": 30.422942539677024,
+    "old_search_overhead_s": 0.00691175606334582,
+    "new_search_overhead_s": 0.006618189159780741
+  },
+  {
+    "method": "dsda",
+    "seed": 4,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19565.86054543445,
+    "new_best": 19565.86054543445,
+    "old_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        13,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        14,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 41.0782085165265,
+    "new_completion_s": 39.05120631423779,
+    "paired_completion_delta_s": -2.0270022022887133,
+    "old_point_cost_s": 41.070409218547866,
+    "new_point_cost_s": 39.04533183760941,
+    "old_search_overhead_s": 0.007799297978635877,
+    "new_search_overhead_s": 0.005874476628378034
+  },
+  {
+    "method": "dsda",
+    "seed": 5,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "new_only",
+    "old_target": false,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19565.86054543445,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        10,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": 4,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 18.982930939469952,
+    "new_completion_s": 16.90017053298652,
+    "paired_completion_delta_s": -2.0827604064834304,
+    "old_point_cost_s": 18.974244631361216,
+    "new_point_cost_s": 16.894303313922137,
+    "old_search_overhead_s": 0.00868630810873583,
+    "new_search_overhead_s": 0.005867219064384699
+  },
+  {
+    "method": "dsda",
+    "seed": 6,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "new_only",
+    "old_target": false,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "completed",
+    "old_best": 19449.85156002104,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        11,
+        3
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        12,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        3
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        13,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": true,
+    "old_first_hit": null,
+    "new_first_hit": 3,
+    "old_callbacks": 16,
+    "new_callbacks": 11,
+    "old_completion_s": 34.73893618572038,
+    "new_completion_s": 29.153814279474318,
+    "paired_completion_delta_s": -5.585121906246059,
+    "old_point_cost_s": 34.7300273408182,
+    "new_point_cost_s": 29.147689517121762,
+    "old_search_overhead_s": 0.008908844902180135,
+    "new_search_overhead_s": 0.00612476235255599
+  },
+  {
+    "method": "dsda",
+    "seed": 7,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "old_only",
+    "old_target": true,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19449.85156002104,
+    "old_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        9,
+        4
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 15,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 57.848836694669444,
+    "new_completion_s": 53.645555396564305,
+    "paired_completion_delta_s": -4.203281298105139,
+    "old_point_cost_s": 57.83986637275666,
+    "new_point_cost_s": 53.63879015063867,
+    "old_search_overhead_s": 0.00897032191278413,
+    "new_search_overhead_s": 0.006765245925635099
+  },
+  {
+    "method": "dsda",
+    "seed": 8,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "both_success",
+    "old_target": true,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        11,
+        6
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        13,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        12,
+        6
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        13,
+        5
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 7,
+    "new_first_hit": 7,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 50.202768315852154,
+    "new_completion_s": 54.25888810562901,
+    "paired_completion_delta_s": 4.056119789776858,
+    "old_point_cost_s": 50.19405817100778,
+    "new_point_cost_s": 54.251908583566546,
+    "old_search_overhead_s": 0.008710144844371825,
+    "new_search_overhead_s": 0.0069795220624655485
+  },
+  {
+    "method": "dsda",
+    "seed": 9,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19449.85156002104,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        10,
+        6
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        8,
+        7
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        5
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        9,
+        6
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 34.335940340242814,
+    "new_completion_s": 30.654035019455478,
+    "paired_completion_delta_s": -3.6819053207873367,
+    "old_point_cost_s": 34.32738315220922,
+    "new_point_cost_s": 30.64707211824134,
+    "old_search_overhead_s": 0.008557188033591956,
+    "new_search_overhead_s": 0.006962901214137673
+  },
+  {
+    "method": "rbfopt",
+    "seed": 0,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "new_only",
+    "old_target": false,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19449.85156002104,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        8,
+        3
+      ],
+      [
+        15,
+        9
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "new_starts": [
+      [
+        9,
+        3
+      ],
+      [
+        15,
+        8
+      ],
+      [
+        11,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": 12,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 14.21992592146853,
+    "new_completion_s": 70.88251055474393,
+    "paired_completion_delta_s": 56.6625846332754,
+    "old_point_cost_s": 13.851863171264995,
+    "new_point_cost_s": 70.64618262881413,
+    "old_search_overhead_s": 0.36806275020353496,
+    "new_search_overhead_s": 0.23632792592979968
+  },
+  {
+    "method": "rbfopt",
+    "seed": 1,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "both_success",
+    "old_target": true,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        14,
+        4
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        9,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        14,
+        3
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 16,
+    "new_first_hit": 12,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 18.250338223704603,
+    "new_completion_s": 55.93370978906751,
+    "paired_completion_delta_s": 37.683371565362904,
+    "old_point_cost_s": 17.914433475525584,
+    "new_point_cost_s": 55.729975601192564,
+    "old_search_overhead_s": 0.3359047481790185,
+    "new_search_overhead_s": 0.20373418787494302
+  },
+  {
+    "method": "rbfopt",
+    "seed": 2,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "old_only",
+    "old_target": true,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        14,
+        8
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "new_starts": [
+      [
+        14,
+        7
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 15,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 33.300734361226205,
+    "new_completion_s": 31.0594950360246,
+    "paired_completion_delta_s": -2.2412393252016045,
+    "old_point_cost_s": 32.961180467915256,
+    "new_point_cost_s": 30.80744405835867,
+    "old_search_overhead_s": 0.3395538933109492,
+    "new_search_overhead_s": 0.252050977665931
+  },
+  {
+    "method": "rbfopt",
+    "seed": 3,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 20081.396825266023,
+    "old_starts": [
+      [
+        12,
+        8
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        15,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        12,
+        7
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        15,
+        5
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 33.780763351824135,
+    "new_completion_s": 54.45396031066775,
+    "paired_completion_delta_s": 20.67319695884362,
+    "old_point_cost_s": 33.48120789590757,
+    "new_point_cost_s": 54.233587481081486,
+    "old_search_overhead_s": 0.2995554559165612,
+    "new_search_overhead_s": 0.22037282958626747
+  },
+  {
+    "method": "rbfopt",
+    "seed": 4,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "old_only",
+    "old_target": true,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19740.340832256203,
+    "old_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        13,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        14,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 16,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 18.341401001263876,
+    "new_completion_s": 16.952230457449332,
+    "paired_completion_delta_s": -1.3891705438145436,
+    "old_point_cost_s": 17.997864782169927,
+    "new_point_cost_s": 16.71241530124098,
+    "old_search_overhead_s": 0.3435362190939486,
+    "new_search_overhead_s": 0.23981515620835125
+  },
+  {
+    "method": "rbfopt",
+    "seed": 5,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19449.85156002104,
+    "old_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        10,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 56.04605278553208,
+    "new_completion_s": 55.33491052663885,
+    "paired_completion_delta_s": -0.7111422588932328,
+    "old_point_cost_s": 55.7286597340717,
+    "new_point_cost_s": 55.135923996102065,
+    "old_search_overhead_s": 0.3173930514603853,
+    "new_search_overhead_s": 0.19898653053678572
+  },
+  {
+    "method": "rbfopt",
+    "seed": 6,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "both_success",
+    "old_target": true,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        11,
+        3
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        12,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        3
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        13,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": true,
+    "old_first_hit": 7,
+    "new_first_hit": 3,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 34.11558462114772,
+    "new_completion_s": 70.76052382099442,
+    "paired_completion_delta_s": 36.644939199846704,
+    "old_point_cost_s": 33.819657179003116,
+    "new_point_cost_s": 70.5288298628293,
+    "old_search_overhead_s": 0.29592744214460254,
+    "new_search_overhead_s": 0.23169395816512406
+  },
+  {
+    "method": "rbfopt",
+    "seed": 7,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19449.85156002104,
+    "new_best": 20491.913797200134,
+    "old_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        9,
+        4
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 46.642768851772416,
+    "new_completion_s": 38.98666372010484,
+    "paired_completion_delta_s": -7.656105131667573,
+    "old_point_cost_s": 42.216254564060364,
+    "new_point_cost_s": 38.777086678892374,
+    "old_search_overhead_s": 4.4265142877120525,
+    "new_search_overhead_s": 0.20957704121246934
+  },
+  {
+    "method": "rbfopt",
+    "seed": 8,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "both_success",
+    "old_target": true,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        11,
+        6
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        13,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        12,
+        6
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        13,
+        5
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 9,
+    "new_first_hit": 9,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 35.29516978200991,
+    "new_completion_s": 39.92433681199327,
+    "paired_completion_delta_s": 4.629167029983364,
+    "old_point_cost_s": 34.95292643213179,
+    "new_point_cost_s": 39.72599390335381,
+    "old_search_overhead_s": 0.34224334987811744,
+    "new_search_overhead_s": 0.1983429086394608
+  },
+  {
+    "method": "rbfopt",
+    "seed": 9,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19449.85156002104,
+    "new_best": 20081.396825266023,
+    "old_starts": [
+      [
+        10,
+        6
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        8,
+        7
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        5
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        9,
+        6
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 18.127929978596512,
+    "new_completion_s": 54.75279365037568,
+    "paired_completion_delta_s": 36.62486367177917,
+    "old_point_cost_s": 17.80008674779674,
+    "new_point_cost_s": 54.504184898454696,
+    "old_search_overhead_s": 0.32784323079977185,
+    "new_search_overhead_s": 0.2486087519209832
+  },
+  {
+    "method": "bam",
+    "seed": 0,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        8,
+        3
+      ],
+      [
+        15,
+        9
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "new_starts": [
+      [
+        9,
+        3
+      ],
+      [
+        15,
+        8
+      ],
+      [
+        11,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 25.503265432897024,
+    "new_completion_s": 65.59804295795038,
+    "paired_completion_delta_s": 40.09477752505336,
+    "old_point_cost_s": 25.297258256876376,
+    "new_point_cost_s": 65.41215486591682,
+    "old_search_overhead_s": 0.20600717602064833,
+    "new_search_overhead_s": 0.18588809203356504
+  },
+  {
+    "method": "bam",
+    "seed": 1,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        14,
+        4
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        9,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        14,
+        3
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 49.53269556944724,
+    "new_completion_s": 27.55365805933252,
+    "paired_completion_delta_s": -21.979037510114722,
+    "old_point_cost_s": 49.34739284432726,
+    "new_point_cost_s": 27.53564981231466,
+    "old_search_overhead_s": 0.18530272511998191,
+    "new_search_overhead_s": 0.018008247017860413
+  },
+  {
+    "method": "bam",
+    "seed": 2,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        14,
+        8
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "new_starts": [
+      [
+        14,
+        7
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 49.614816907036584,
+    "new_completion_s": 27.582193708745763,
+    "paired_completion_delta_s": -22.03262319829082,
+    "old_point_cost_s": 49.42552837711992,
+    "new_point_cost_s": 27.42662740079686,
+    "old_search_overhead_s": 0.18928852991666645,
+    "new_search_overhead_s": 0.15556630794890225
+  },
+  {
+    "method": "bam",
+    "seed": 3,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19449.85156002104,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        12,
+        8
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        15,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        12,
+        7
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        15,
+        5
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 25.3215756585123,
+    "new_completion_s": 26.553460924886167,
+    "paired_completion_delta_s": 1.2318852663738653,
+    "old_point_cost_s": 25.1067024624208,
+    "new_point_cost_s": 26.53643532656133,
+    "old_search_overhead_s": 0.2148731960915029,
+    "new_search_overhead_s": 0.0170255983248353
+  },
+  {
+    "method": "bam",
+    "seed": 4,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        13,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        14,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 48.460190012759995,
+    "new_completion_s": 26.789039115887135,
+    "paired_completion_delta_s": -21.67115089687286,
+    "old_point_cost_s": 48.27162792364834,
+    "new_point_cost_s": 26.63520662719384,
+    "old_search_overhead_s": 0.18856208911165595,
+    "new_search_overhead_s": 0.1538324886932969
+  },
+  {
+    "method": "bam",
+    "seed": 5,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        10,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 26.584340301866177,
+    "new_completion_s": 27.446138450643048,
+    "paired_completion_delta_s": 0.8617981487768702,
+    "old_point_cost_s": 26.384230074996594,
+    "new_point_cost_s": 27.42956449603662,
+    "old_search_overhead_s": 0.20011022686958313,
+    "new_search_overhead_s": 0.016573954606428742
+  },
+  {
+    "method": "bam",
+    "seed": 6,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "new_only",
+    "old_target": false,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        11,
+        3
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        12,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        3
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        13,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": true,
+    "old_first_hit": null,
+    "new_first_hit": 3,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 49.58999664039584,
+    "new_completion_s": 27.69491699174978,
+    "paired_completion_delta_s": -21.89507964864606,
+    "old_point_cost_s": 49.40029371535638,
+    "new_point_cost_s": 27.678744074888527,
+    "old_search_overhead_s": 0.1897029250394553,
+    "new_search_overhead_s": 0.016172916861250997
+  },
+  {
+    "method": "bam",
+    "seed": 7,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        9,
+        4
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 49.2536982097663,
+    "new_completion_s": 26.67450568289496,
+    "paired_completion_delta_s": -22.57919252687134,
+    "old_point_cost_s": 49.06677327665966,
+    "new_point_cost_s": 26.5023035639897,
+    "old_search_overhead_s": 0.1869249331066385,
+    "new_search_overhead_s": 0.17220211890526116
+  },
+  {
+    "method": "bam",
+    "seed": 8,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        11,
+        6
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        13,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        12,
+        6
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        13,
+        5
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 27.35614763869671,
+    "new_completion_s": 50.61360619799234,
+    "paired_completion_delta_s": 23.257458559295628,
+    "old_point_cost_s": 27.134894369752146,
+    "new_point_cost_s": 50.59692519903183,
+    "old_search_overhead_s": 0.2212532689445652,
+    "new_search_overhead_s": 0.016680998960509896
+  },
+  {
+    "method": "bam",
+    "seed": 9,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        10,
+        6
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        8,
+        7
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        5
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        9,
+        6
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 27.4886940427823,
+    "new_completion_s": 26.569130822084844,
+    "paired_completion_delta_s": -0.9195632206974551,
+    "old_point_cost_s": 27.28127964172745,
+    "new_point_cost_s": 26.551754529122263,
+    "old_search_overhead_s": 0.20741440105484799,
+    "new_search_overhead_s": 0.01737629296258092
+  },
+  {
+    "method": "fmqa_sa",
+    "seed": 0,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19565.86054543445,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        8,
+        3
+      ],
+      [
+        15,
+        9
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "new_starts": [
+      [
+        9,
+        3
+      ],
+      [
+        15,
+        8
+      ],
+      [
+        11,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 61.446526540094055,
+    "new_completion_s": 71.27905641449615,
+    "paired_completion_delta_s": 9.832529874402098,
+    "old_point_cost_s": 52.833498160063755,
+    "new_point_cost_s": 64.36116637662053,
+    "old_search_overhead_s": 8.6130283800303,
+    "new_search_overhead_s": 6.9178900378756225
+  },
+  {
+    "method": "fmqa_sa",
+    "seed": 1,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "old_only",
+    "old_target": true,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19740.340832256203,
+    "old_starts": [
+      [
+        14,
+        4
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        9,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        14,
+        3
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 15,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 22.687984521035105,
+    "new_completion_s": 19.740473964018747,
+    "paired_completion_delta_s": -2.947510557016358,
+    "old_point_cost_s": 13.968281805107836,
+    "new_point_cost_s": 12.805002187378705,
+    "old_search_overhead_s": 8.71970271592727,
+    "new_search_overhead_s": 6.935471776640043
+  },
+  {
+    "method": "fmqa_sa",
+    "seed": 2,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "new_only",
+    "old_target": false,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 20100.29590315061,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        14,
+        8
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "new_starts": [
+      [
+        14,
+        7
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": 10,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 62.95761492475867,
+    "new_completion_s": 55.555359991500154,
+    "paired_completion_delta_s": -7.402254933258519,
+    "old_point_cost_s": 54.30989074159879,
+    "new_point_cost_s": 48.71457594167441,
+    "old_search_overhead_s": 8.64772418315988,
+    "new_search_overhead_s": 6.840784049825743
+  },
+  {
+    "method": "fmqa_sa",
+    "seed": 3,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "both_success",
+    "old_target": true,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        12,
+        8
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        15,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        12,
+        7
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        15,
+        5
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 14,
+    "new_first_hit": 8,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 22.921515865484253,
+    "new_completion_s": 18.5214517863933,
+    "paired_completion_delta_s": -4.400064079090953,
+    "old_point_cost_s": 14.331451190402731,
+    "new_point_cost_s": 11.717076536267996,
+    "old_search_overhead_s": 8.590064675081521,
+    "new_search_overhead_s": 6.804375250125304
+  },
+  {
+    "method": "fmqa_sa",
+    "seed": 4,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19565.86054543445,
+    "new_best": 19880.17762039304,
+    "old_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        13,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        14,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 21.74077719921479,
+    "new_completion_s": 17.192714751930907,
+    "paired_completion_delta_s": -4.548062447283883,
+    "old_point_cost_s": 12.955309148179367,
+    "new_point_cost_s": 10.43389303283766,
+    "old_search_overhead_s": 8.785468051035423,
+    "new_search_overhead_s": 6.758821719093248
+  },
+  {
+    "method": "fmqa_sa",
+    "seed": 5,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 20100.29590315061,
+    "new_best": 19740.340832256203,
+    "old_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        10,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 23.124758868536446,
+    "new_completion_s": 84.41720534185879,
+    "paired_completion_delta_s": 61.29244647332234,
+    "old_point_cost_s": 14.534292633645236,
+    "new_point_cost_s": 77.55839430354536,
+    "old_search_overhead_s": 8.59046623489121,
+    "new_search_overhead_s": 6.8588110383134335
+  },
+  {
+    "method": "fmqa_sa",
+    "seed": 6,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "new_only",
+    "old_target": false,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19740.340832256203,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        11,
+        3
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        12,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        3
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        13,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": true,
+    "old_first_hit": null,
+    "new_first_hit": 3,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 46.83250226499513,
+    "new_completion_s": 20.836277219699696,
+    "paired_completion_delta_s": -25.996225045295432,
+    "old_point_cost_s": 38.19226369203534,
+    "new_point_cost_s": 14.01942519750446,
+    "old_search_overhead_s": 8.640238572959788,
+    "new_search_overhead_s": 6.816852022195235
+  },
+  {
+    "method": "fmqa_sa",
+    "seed": 7,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19740.340832256203,
+    "old_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        9,
+        4
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 36.324979879311286,
+    "new_completion_s": 41.70434772176668,
+    "paired_completion_delta_s": 5.379367842455395,
+    "old_point_cost_s": 27.746677538147196,
+    "new_point_cost_s": 34.80936308717355,
+    "old_search_overhead_s": 8.57830234116409,
+    "new_search_overhead_s": 6.894984634593129
+  },
+  {
+    "method": "fmqa_sa",
+    "seed": 8,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "old_only",
+    "old_target": true,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19740.340832256203,
+    "old_starts": [
+      [
+        11,
+        6
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        13,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        12,
+        6
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        13,
+        5
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 16,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 22.949908514274284,
+    "new_completion_s": 43.63685350934975,
+    "paired_completion_delta_s": 20.686944995075464,
+    "old_point_cost_s": 14.308707566349767,
+    "new_point_cost_s": 36.83670715382323,
+    "old_search_overhead_s": 8.641200947924517,
+    "new_search_overhead_s": 6.800146355526522
+  },
+  {
+    "method": "fmqa_sa",
+    "seed": 9,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "both_success",
+    "old_target": true,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19346.124801006445,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        10,
+        6
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        8,
+        7
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        5
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        9,
+        6
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": 15,
+    "new_first_hit": 4,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 76.5323630576604,
+    "new_completion_s": 41.93259764369577,
+    "paired_completion_delta_s": -34.59976541396463,
+    "old_point_cost_s": 67.74620044673793,
+    "new_point_cost_s": 35.0644367900677,
+    "old_search_overhead_s": 8.786162610922474,
+    "new_search_overhead_s": 6.868160853628069
+  },
+  {
+    "method": "uniform_without_replacement",
+    "seed": 0,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        8,
+        3
+      ],
+      [
+        15,
+        9
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "new_starts": [
+      [
+        9,
+        3
+      ],
+      [
+        15,
+        8
+      ],
+      [
+        11,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 49.64378491672687,
+    "new_completion_s": 63.858882886357605,
+    "paired_completion_delta_s": 14.215097969630733,
+    "old_point_cost_s": 49.63544426963199,
+    "new_point_cost_s": 63.84852160606533,
+    "old_search_overhead_s": 0.008340647094883025,
+    "new_search_overhead_s": 0.010361280292272568
+  },
+  {
+    "method": "uniform_without_replacement",
+    "seed": 1,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19740.340832256203,
+    "new_best": 19548.71933122677,
+    "old_starts": [
+      [
+        14,
+        4
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        9,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        14,
+        3
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 52.78989098512102,
+    "new_completion_s": 29.48210950079374,
+    "paired_completion_delta_s": -23.30778148432728,
+    "old_point_cost_s": 52.78153446922079,
+    "new_point_cost_s": 29.474560206290334,
+    "old_search_overhead_s": 0.008356515900231898,
+    "new_search_overhead_s": 0.00754929450340569
+  },
+  {
+    "method": "uniform_without_replacement",
+    "seed": 2,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19740.340832256203,
+    "new_best": 19740.340832256203,
+    "old_starts": [
+      [
+        14,
+        8
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "new_starts": [
+      [
+        14,
+        7
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 36.36142334720353,
+    "new_completion_s": 11.019573129247874,
+    "paired_completion_delta_s": -25.341850217955653,
+    "old_point_cost_s": 36.354709906561766,
+    "new_point_cost_s": 11.011986447963864,
+    "old_search_overhead_s": 0.006713440641760826,
+    "new_search_overhead_s": 0.00758668128401041
+  },
+  {
+    "method": "uniform_without_replacement",
+    "seed": 3,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19548.71933122677,
+    "new_best": 20355.058476067417,
+    "old_starts": [
+      [
+        12,
+        8
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        15,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        12,
+        7
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        15,
+        5
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 24.781031781167258,
+    "new_completion_s": 50.20972263044678,
+    "paired_completion_delta_s": 25.42869084927952,
+    "old_point_cost_s": 24.772612674569245,
+    "new_point_cost_s": 50.20257699070498,
+    "old_search_overhead_s": 0.00841910659801215,
+    "new_search_overhead_s": 0.007145639741793275
+  },
+  {
+    "method": "uniform_without_replacement",
+    "seed": 4,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19956.97487211335,
+    "new_best": 19449.85156002104,
+    "old_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        7,
+        6
+      ],
+      [
+        13,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        14,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 13.16792838688707,
+    "new_completion_s": 13.895477988524362,
+    "paired_completion_delta_s": 0.7275496016372927,
+    "old_point_cost_s": 13.15920667006867,
+    "new_point_cost_s": 13.888398093637079,
+    "old_search_overhead_s": 0.008721716818399727,
+    "new_search_overhead_s": 0.007079894887283444
+  },
+  {
+    "method": "uniform_without_replacement",
+    "seed": 5,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19853.732161122593,
+    "new_best": 19956.97487211335,
+    "old_starts": [
+      [
+        10,
+        2
+      ],
+      [
+        14,
+        6
+      ],
+      [
+        10,
+        8
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        14,
+        5
+      ],
+      [
+        10,
+        7
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 16.626220033853315,
+    "new_completion_s": 11.833763204980642,
+    "paired_completion_delta_s": -4.792456828872673,
+    "old_point_cost_s": 16.619304300984368,
+    "new_point_cost_s": 11.82666150201112,
+    "old_search_overhead_s": 0.006915732868947089,
+    "new_search_overhead_s": 0.007101702969521284
+  },
+  {
+    "method": "uniform_without_replacement",
+    "seed": 6,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "new_only",
+    "old_target": false,
+    "new_target": true,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19449.85156002104,
+    "new_best": 19346.124801006445,
+    "old_starts": [
+      [
+        11,
+        3
+      ],
+      [
+        9,
+        8
+      ],
+      [
+        12,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        3
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        13,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": true,
+    "old_first_hit": null,
+    "new_first_hit": 3,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 14.179130656411871,
+    "new_completion_s": 12.333932833280414,
+    "paired_completion_delta_s": -1.845197823131457,
+    "old_point_cost_s": 14.172234495054,
+    "new_point_cost_s": 12.326885621529073,
+    "old_search_overhead_s": 0.006896161357872188,
+    "new_search_overhead_s": 0.00704721175134182
+  },
+  {
+    "method": "uniform_without_replacement",
+    "seed": 7,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19740.340832256203,
+    "new_best": 19565.86054543445,
+    "old_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        9,
+        4
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        1
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 51.02600988908671,
+    "new_completion_s": 10.670451246900484,
+    "paired_completion_delta_s": -40.355558642186224,
+    "old_point_cost_s": 51.01716004498303,
+    "new_point_cost_s": 10.663306088652462,
+    "old_search_overhead_s": 0.008849844103679061,
+    "new_search_overhead_s": 0.007145158248022199
+  },
+  {
+    "method": "uniform_without_replacement",
+    "seed": 8,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19880.17762039304,
+    "new_best": 19880.17762039304,
+    "old_starts": [
+      [
+        11,
+        6
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        13,
+        5
+      ]
+    ],
+    "new_starts": [
+      [
+        12,
+        6
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        13,
+        5
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 10.928772606770508,
+    "new_completion_s": 73.61269586673006,
+    "paired_completion_delta_s": 62.683923259959556,
+    "old_point_cost_s": 10.920245996676385,
+    "new_point_cost_s": 73.60543838096783,
+    "old_search_overhead_s": 0.008526610094122589,
+    "new_search_overhead_s": 0.0072574857622385025
+  },
+  {
+    "method": "uniform_without_replacement",
+    "seed": 9,
+    "old_budget": 16,
+    "new_budget": 13,
+    "outcome": "neither",
+    "old_target": false,
+    "new_target": false,
+    "old_status": "budget_completed",
+    "new_status": "budget_completed",
+    "old_best": 19449.85156002104,
+    "new_best": 19880.17762039304,
+    "old_starts": [
+      [
+        10,
+        6
+      ],
+      [
+        13,
+        2
+      ],
+      [
+        8,
+        7
+      ]
+    ],
+    "new_starts": [
+      [
+        11,
+        5
+      ],
+      [
+        14,
+        2
+      ],
+      [
+        9,
+        6
+      ]
+    ],
+    "old_initial_target": false,
+    "new_initial_target": false,
+    "old_first_hit": null,
+    "new_first_hit": null,
+    "old_callbacks": 16,
+    "new_callbacks": 13,
+    "old_completion_s": 27.79264435195364,
+    "new_completion_s": 34.68958107265644,
+    "paired_completion_delta_s": 6.896936720702797,
+    "old_point_cost_s": 27.78591784229502,
+    "new_point_cost_s": 34.68239688826725,
+    "old_search_overhead_s": 0.0067265096586197615,
+    "new_search_overhead_s": 0.007184184389188886
+  }
+]
