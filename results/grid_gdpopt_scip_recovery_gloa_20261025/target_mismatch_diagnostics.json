@@ -1,0 +1,73 @@
+[
+  {
+    "grid_name": "michalewicz",
+    "point": [
+      21,
+      15
+    ],
+    "original_gdp_witness": {
+      "grid_point": [
+        21,
+        15
+      ],
+      "physical_point": [
+        2.199114857512855,
+        1.5707963267948966
+      ],
+      "returned_original_variables": 64,
+      "original_gdp_feasible": true,
+      "max_original_violation": 0.0,
+      "objective_recomputed": 0.0,
+      "saved_objective_abs_error": 0.0,
+      "csv_objective": 0.0,
+      "reference_minimum": 0.0,
+      "normalized_gap": 0.0,
+      "target_hit_verified": true,
+      "reference_minimizers": [
+        [
+          21,
+          15
+        ]
+      ],
+      "analytic_grid_points_checked": 961,
+      "analytic_grid_max_csv_error": 0.0
+    },
+    "witness_origin": "Constructed locally at a fixed reference coordinate; not a returned solution or new solve.",
+    "returned_trace_events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 671,
+        "elapsed_s": 899.0933273758274,
+        "completed_solver_calls": 977,
+        "grid_point": [
+          21,
+          15
+        ],
+        "selected_coordinate_indices": [
+          [
+            21
+          ],
+          [
+            15
+          ]
+        ],
+        "physical_point": [
+          2.199114857512855,
+          1.570796326794897
+        ]
+      }
+    ],
+    "returned_log_iteration_rows": [
+      {
+        "line_number": 95552,
+        "text": "      671          discrete      -0.11045       0.09075    221.70%    899.08  "
+      }
+    ],
+    "discrete_selections": 1,
+    "before_subproblem_callbacks": 0,
+    "local_fbbt_error": "InfeasibleConstraintException: Lower bound (2.199114857512855) computed for variable x is larger than the computed upper bound (0.9424777960769378).",
+    "local_presolve_allows_solver": false,
+    "local_probe_scope": "Common GDPopt preprocessing under GLOA default tolerances; not a full Dantzig rerun.",
+    "optimization_solver_calls": 0
+  }
+]
