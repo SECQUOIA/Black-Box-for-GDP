@@ -1,0 +1,82 @@
+{
+  "baseline_revision": "d9bb8a9218c44c96dae544b504693d66a3daae5b",
+  "tests": {
+    "command": "python -m pytest tests/test_grid_gdpopt_scip_return.py tests/test_grid_scip_return.py tests/test_grid_scip_recovery.py -q",
+    "passed": 27,
+    "elapsed_s": 8.16
+  },
+  "package_build_command": "python experiments/grid_scip_recovery/build_packages.py",
+  "package_validation_command": "python experiments/grid_scip_recovery/validate_packages.py",
+  "delivery_command_generator": "python experiments/grid_scip_recovery/delivery_commands.py",
+  "package_validation": {
+    "packages": [
+      {
+        "method": "ric",
+        "cpu": 12,
+        "jobs": 12,
+        "archive": "grid_gdpopt_scip_recovery_ric_dantzig_20261025.zip",
+        "sha256": "8728747f8d57e24f59cbf5a4c450556c1a4d94e298ca22249735fb95dee1fdbc",
+        "bytes": 340133,
+        "unchanged_files": 60,
+        "checksum_entries_verified": 68,
+        "plan_verified": true,
+        "scope_override_rejected": true,
+        "scratch_preservation_verified": true,
+        "tamper_rejected": true,
+        "solver_calls": 0
+      },
+      {
+        "method": "loa",
+        "cpu": 14,
+        "jobs": 19,
+        "archive": "grid_gdpopt_scip_recovery_loa_dantzig_20261025.zip",
+        "sha256": "a064a49267570849e2a89518683681dbd90774508285c23a1a0f38687084b3a7",
+        "bytes": 340567,
+        "unchanged_files": 60,
+        "checksum_entries_verified": 68,
+        "plan_verified": true,
+        "scope_override_rejected": true,
+        "scratch_preservation_verified": true,
+        "tamper_rejected": true,
+        "solver_calls": 0
+      },
+      {
+        "method": "gloa",
+        "cpu": 16,
+        "jobs": 15,
+        "archive": "grid_gdpopt_scip_recovery_gloa_dantzig_20261025.zip",
+        "sha256": "33447c20d0b694adf5550080862ed1391c377502f6aa1d0357ef3e1ad6863bd0",
+        "bytes": 340467,
+        "unchanged_files": 60,
+        "checksum_entries_verified": 68,
+        "plan_verified": true,
+        "scope_override_rejected": true,
+        "scratch_preservation_verified": true,
+        "tamper_rejected": true,
+        "solver_calls": 0
+      }
+    ],
+    "unique_error_jobs": 46,
+    "timeouts_selected": 0,
+    "solver_calls": 0,
+    "remote_execution_performed": false
+  },
+  "lint": "Passed for all newly added Python source and tests.",
+  "launch_shell_syntax": "bash -n passed separately for each of the three launch blocks.",
+  "solver_executions_during_analysis_and_validation": 0,
+  "protected_baseline_files": 2060,
+  "preservation_sha256": "7047f9836bde8b47e8fb14003767268b76506f4bc796abe38e6808caebd598da",
+  "recovery_source_sha256": {
+    "experiments/grid_scip_recovery/README.md": "f5b226d3feb6edfcba9ef9cbaf530fcfaf5a9d9b0cf2dd7926bcf1f6830d8afb",
+    "experiments/grid_scip_recovery/build_packages.py": "93a7cc42c4aa325a17a902064468d3809e5fbffb94cfbb613dc131f622c12c6d",
+    "experiments/grid_scip_recovery/delivery_commands.py": "e28dab53d3d794b94f9f9f181d68a069114f23680bbc2365bf06a4e01c6468e6",
+    "experiments/grid_scip_recovery/grid_recovery.py": "1ff5e53a1e6b000eec18c688f9c2b1fc5701189dbe388ab8d988538c80720ba5",
+    "experiments/grid_scip_recovery/run_method.py": "e3600e88148f11244322b894781aa2fb624a0789790d4512c32406e6ffa2a32f",
+    "experiments/grid_scip_recovery/validate_packages.py": "0c3629b6a1ebde558c9b6f2c9f673c9f2e058ea5039c1dc2ba7298242cc72e65"
+  },
+  "original_archives_sha256": {
+    "grid_gdpopt_scip_20261025_072643_lhdbfn9e.zip": "4f9338643dc40f30d1c41daa0f125fae820c031c32462a44af851fed77ac90d1",
+    "grid_gdpopt_scip_20261025_072657_vzeme2eq.zip": "ee1f588b9a98ef3bdd805742dd3b44ddbb53492c053df5321dc2809ba06b983f",
+    "grid_gdpopt_scip_20261025_072708_qh55t7wf.zip": "14f458f773a4c9f0ede9861f84e1bcbcd7050a282632e69a860c628fe52291bc"
+  }
+}

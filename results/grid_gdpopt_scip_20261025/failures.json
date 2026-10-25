@@ -1,0 +1,1975 @@
+[
+  {
+    "method": "gloa",
+    "grid_name": "ackley",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/ackley/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 29481,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 29482,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 29488,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 309,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1497.3870024371427,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.09079614188522
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "alpine2",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/alpine2/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 88002,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 88003,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 88009,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 911,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 967.8620359979104,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.21277570002712
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "bohachevsky2",
+    "failure_kind": "pyomo_fbbt_interval",
+    "target_hit": false,
+    "message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/bohachevsky2/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 19692,
+        "text": "pyomo.common.errors.IntervalException: Cannot raise a negative variable to a fractional power."
+      }
+    ],
+    "final_journaled_call": {
+      "index": 205,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1689.5460142251104,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 1.0,
+        "SOLVESTAT": 1.0,
+        "OBJEST": 0.0,
+        "OBJVAL": 0.0,
+        "NUMVAR": 66.0,
+        "NUMEQU": 229.0,
+        "NUMDVAR": 62.0,
+        "NUMNZ": 6632.0,
+        "ETSOLVE": 0.082000158727169
+      },
+      "termination": "optimal",
+      "solver_status": "ok",
+      "lower_bound": 0.0,
+      "upper_bound": 0.0,
+      "global_subproblem_complete": true,
+      "wall_s": 0.4429760160855949
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "camel3",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/camel3/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 47757,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 47758,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 47764,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 503,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1323.611129947938,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.19610569719225
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "deflected_corrugated_spring",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/deflected_corrugated_spring/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 36651,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 36652,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 36658,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 384,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1537.9156361501664,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.163725283928216
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "dropwave",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/dropwave/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 55071,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 55072,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 55169,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 576,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1374.261557581136,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.33297003200278
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "gloa",
+    "grid_name": "easom",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/easom/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 106701,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 106702,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 106708,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 1078,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 410.4062513660174,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.18191040097736
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "griewank",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/griewank/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 104320,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 104321,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 104327,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 1079,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 867.6105599747971,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.20632332400419
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "holder_table",
+    "failure_kind": "worker_watchdog",
+    "target_hit": false,
+    "message": null,
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/holder_table/gloa/run.log",
+    "evidence_lines": [],
+    "final_journaled_call": {
+      "index": 1227,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 18.39086490115151,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 1.0,
+        "SOLVESTAT": 1.0,
+        "OBJEST": -0.828637340494052,
+        "OBJVAL": -0.828637340494052,
+        "NUMVAR": 66.0,
+        "NUMEQU": 948.0,
+        "NUMDVAR": 62.0,
+        "NUMNZ": 51210.0,
+        "ETSOLVE": 0.352999870665371
+      },
+      "termination": "optimal",
+      "solver_status": "ok",
+      "lower_bound": -0.828637340494052,
+      "upper_bound": -0.828637340494052,
+      "global_subproblem_complete": true,
+      "wall_s": 0.7744697579182684
+    },
+    "active_unjournaled_call": {
+      "index": 1228,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 17.646616522478872,
+      "threads": 1,
+      "status": "running",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ]
+    },
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "hosaki",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/hosaki/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 41014,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 41015,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 41021,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 432,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1281.4688076970633,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.0762233810965
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "levy",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/levy/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 78863,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 78864,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 78870,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 828,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 848.3838161991443,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.17503265896812
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "levy13",
+    "failure_kind": "time_limit",
+    "target_hit": false,
+    "message": null,
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/levy13/gloa/run.log",
+    "evidence_lines": [],
+    "final_journaled_call": {
+      "index": 1579,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 10.382283691409976,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 1.0,
+        "SOLVESTAT": 1.0,
+        "OBJEST": -0.000993497109827,
+        "OBJVAL": -0.000993497109827,
+        "NUMVAR": 66.0,
+        "NUMEQU": 916.0,
+        "NUMDVAR": 62.0,
+        "NUMNZ": 49226.0,
+        "ETSOLVE": 0.319999898783863
+      },
+      "termination": "optimal",
+      "solver_status": "ok",
+      "lower_bound": -0.000993497109827,
+      "upper_bound": -0.000993497109827,
+      "global_subproblem_complete": true,
+      "wall_s": 0.7249631960876286
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "michalewicz",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/michalewicz/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 35957,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 35958,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 36076,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 364,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1527.046641381923,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.45945815485902
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "gloa",
+    "grid_name": "rastrigin",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/rastrigin/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 112468,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 112469,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 112475,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 1177,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 418.4238913920708,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.11242441390641
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "rosenbrock",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/rosenbrock/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 4724,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 4725,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 4731,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 50,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1749.3392818619031,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.07089504995383
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "styblinski_tang",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/styblinski_tang/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 43767,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 43768,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 43774,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 461,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1101.9471981069073,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.195919514168054
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "gloa",
+    "grid_name": "sum_of_squares",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072708_qh55t7wf/benchmark/sum_of_squares/gloa/run.log",
+    "evidence_lines": [
+      {
+        "line": 115343,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 115344,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 115350,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 1207,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 757.6901487880386,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.208447163924575
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "loa",
+    "grid_name": "ackley",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/ackley/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 98943,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 98944,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 99063,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 1035,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 485.1929122598376,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.54997378308326
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "loa",
+    "grid_name": "alpine2",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/alpine2/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 66913,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 66914,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 67031,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 693,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1072.6995275970548,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.50372959091328
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "loa",
+    "grid_name": "bohachevsky2",
+    "failure_kind": "pyomo_fbbt_interval",
+    "target_hit": false,
+    "message": "IntervalException: Cannot raise a negative variable to a fractional power.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/bohachevsky2/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 19691,
+        "text": "pyomo.common.errors.IntervalException: Cannot raise a negative variable to a fractional power."
+      }
+    ],
+    "final_journaled_call": {
+      "index": 205,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1542.741138575133,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 1.0,
+        "SOLVESTAT": 1.0,
+        "OBJEST": 0.0,
+        "OBJVAL": 0.0,
+        "NUMVAR": 66.0,
+        "NUMEQU": 229.0,
+        "NUMDVAR": 62.0,
+        "NUMNZ": 6632.0,
+        "ETSOLVE": 0.091999978758395
+      },
+      "termination": "optimal",
+      "solver_status": "ok",
+      "lower_bound": 0.0,
+      "upper_bound": 0.0,
+      "global_subproblem_complete": true,
+      "wall_s": 0.45762672484852374
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "loa",
+    "grid_name": "camel3",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/camel3/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 19164,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 19165,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 19282,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 201,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1525.6570058241487,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.39068057900295
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "loa",
+    "grid_name": "csendes",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/csendes/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 6214,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 6215,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 6221,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 64,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1700.6675329720601,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.086782542057335
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "loa",
+    "grid_name": "deflected_corrugated_spring",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/deflected_corrugated_spring/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 1885,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 1886,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 2002,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 19,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1782.0959107719827,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.403375745983794
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "loa",
+    "grid_name": "dropwave",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/dropwave/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 26038,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 26039,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 26136,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 272,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1371.052946482785,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.35469546401873
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "loa",
+    "grid_name": "easom",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/easom/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 42206,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 42207,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 42324,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 428,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1038.1329477529507,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.4807124810759
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "loa",
+    "grid_name": "griewank",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/griewank/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 7074,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 7075,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 7081,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 73,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1680.7400098249782,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.17382158595137
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "loa",
+    "grid_name": "holder_table",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/holder_table/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 552,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 553,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 668,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 5,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1788.1909058599267,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 80.49068359308876
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "loa",
+    "grid_name": "hosaki",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/hosaki/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 55355,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 55356,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 55362,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 583,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1335.4788759939838,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.09182173782028
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "loa",
+    "grid_name": "levy",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/levy/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 52262,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 52263,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 52269,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 548,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1194.2530396529473,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.079899708973244
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "loa",
+    "grid_name": "levy13",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/levy13/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 25438,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 25439,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 25445,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 268,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1608.8926474980544,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.06799246114679
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "loa",
+    "grid_name": "michalewicz",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/michalewicz/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 26878,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 26879,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 26996,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 275,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1462.925897195004,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.41861686296761
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "loa",
+    "grid_name": "rastrigin",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/rastrigin/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 101627,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 101628,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 101634,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 1064,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 818.3208387899213,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.16779307904653
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "loa",
+    "grid_name": "rosenbrock",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/rosenbrock/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 9749,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 9750,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 9756,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 103,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1673.740081558004,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.07951816590503
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "loa",
+    "grid_name": "shubert",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/shubert/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 8870,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 8871,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 8877,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 88,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1747.7479816458654,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.08808832685463
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "loa",
+    "grid_name": "styblinski_tang",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/styblinski_tang/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 26578,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 26579,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 26585,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 280,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1540.187285484979,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.071414657868445
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "loa",
+    "grid_name": "sum_of_squares",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072657_vzeme2eq/benchmark/sum_of_squares/loa/run.log",
+    "evidence_lines": [
+      {
+        "line": 1215,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 1216,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 1222,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 13,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1784.225084172096,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.179790602996945
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "alpine2",
+    "failure_kind": "time_limit",
+    "target_hit": false,
+    "message": null,
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/alpine2/ric/run.log",
+    "evidence_lines": [],
+    "final_journaled_call": {
+      "index": 1507,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 11.099886145093478,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 1.0,
+        "SOLVESTAT": 1.0,
+        "OBJEST": -0.061669666969409,
+        "OBJVAL": -0.061669666969409,
+        "NUMVAR": 66.0,
+        "NUMEQU": 1067.0,
+        "NUMDVAR": 62.0,
+        "NUMNZ": 58588.0,
+        "ETSOLVE": 0.428000092506409
+      },
+      "termination": "optimal",
+      "solver_status": "ok",
+      "lower_bound": -0.061669666969409,
+      "upper_bound": -0.061669666969409,
+      "global_subproblem_complete": true,
+      "wall_s": 0.8375310369301587
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "bohachevsky2",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/bohachevsky2/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 8270,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 8271,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 8369,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 86,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1611.6133736181073,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.35084696300328
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "ric",
+    "grid_name": "camel3",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/camel3/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 76440,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 76441,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 76447,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 805,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1122.8553754619788,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.198732214048505
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "deflected_corrugated_spring",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/deflected_corrugated_spring/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 10565,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 10566,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 10572,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 111,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1718.7046360811219,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.18706505000591
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "dropwave",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/dropwave/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 81148,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 81149,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 81155,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 850,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1047.774609841872,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.06601083721034
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "easom",
+    "failure_kind": "time_limit",
+    "target_hit": false,
+    "message": null,
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/easom/ric/run.log",
+    "evidence_lines": [],
+    "final_journaled_call": {
+      "index": 1159,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 11.044202147703619,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 1.0,
+        "SOLVESTAT": 1.0,
+        "OBJEST": -0.115765738935451,
+        "OBJVAL": -0.115765738935451,
+        "NUMVAR": 66.0,
+        "NUMEQU": 968.0,
+        "NUMDVAR": 62.0,
+        "NUMNZ": 52450.0,
+        "ETSOLVE": 0.34400022123009
+      },
+      "termination": "optimal",
+      "solver_status": "ok",
+      "lower_bound": -0.115765738935451,
+      "upper_bound": -0.115765738935451,
+      "global_subproblem_complete": true,
+      "wall_s": 0.7578154010698199
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "griewank",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/griewank/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 2676,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 2677,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 2683,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 28,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1778.240265175933,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.18045807420276
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "holder_table",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/holder_table/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 39274,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 39275,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 39281,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 404,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1450.66832862515,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.195350717986
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "hosaki",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/hosaki/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 21145,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 21146,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 21152,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 223,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1565.6728913029656,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.188459153985605
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "levy",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/levy/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 12716,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 12717,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 12723,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 134,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1650.6002605760004,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.07783447415568
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "levy13",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/levy13/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 43380,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 43381,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 43387,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 457,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1168.3599852758925,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.09138605883345
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "michalewicz",
+    "failure_kind": "time_limit",
+    "target_hit": false,
+    "message": null,
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/michalewicz/ric/run.log",
+    "evidence_lines": [],
+    "final_journaled_call": {
+      "index": 1405,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 10.699487671919632,
+      "threads": 1,
+      "status": "returned",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "gams_statistics": {
+        "MODELSTAT": 1.0,
+        "SOLVESTAT": 1.0,
+        "OBJEST": 0.774279519420409,
+        "OBJVAL": 0.774279519420409,
+        "NUMVAR": 2.0,
+        "NUMEQU": 2.0,
+        "NUMDVAR": 0.0,
+        "NUMNZ": 3.0,
+        "ETSOLVE": 0.05800046492368
+      },
+      "termination": "optimal",
+      "solver_status": "ok",
+      "lower_bound": 0.774279519420409,
+      "upper_bound": 0.774279519420409,
+      "global_subproblem_complete": true,
+      "wall_s": 0.4096462018787861
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "rastrigin",
+    "failure_kind": "gams_network_session_close",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/rastrigin/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 80379,
+        "text": "*** Error: Error when trying to close network session:"
+      },
+      {
+        "line": 80380,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 80498,
+        "text": "*** Error: Error when trying to close network session:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 841,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 619.0710794611368,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.50016838288866
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": true
+  },
+  {
+    "method": "ric",
+    "grid_name": "shubert",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": false,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/shubert/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 25558,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 25559,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 25565,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 254,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 1483.936354012927,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.10012390697375
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  },
+  {
+    "method": "ric",
+    "grid_name": "styblinski_tang",
+    "failure_kind": "gams_network_session_start",
+    "target_hit": true,
+    "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+    "log_member": "grid_gdpopt_scip_20261025_072643_lhdbfn9e/benchmark/styblinski_tang/ric/run.log",
+    "evidence_lines": [
+      {
+        "line": 111886,
+        "text": "*** Error: Error when trying to start network session:"
+      },
+      {
+        "line": 111887,
+        "text": "Curl error: Server returned nothing (no headers, no data)."
+      },
+      {
+        "line": 111893,
+        "text": "ERROR: *** Error: Error when trying to start network session: Curl error:"
+      }
+    ],
+    "final_journaled_call": {
+      "index": 1177,
+      "solver": "scip",
+      "mtype": "mip",
+      "limit_s": 696.2116295201704,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 60.21888752607629
+    },
+    "active_unjournaled_call": null,
+    "error_listing_present": false
+  }
+]

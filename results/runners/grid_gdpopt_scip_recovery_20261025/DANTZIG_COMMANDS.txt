@@ -1,0 +1,139 @@
+RIC: 12 error jobs, CPU 12
+
+Mac upload (one SCP invocation, ZIP plus checksum):
+
+scp /Users/albertlee0125/Repos/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_20261025/grid_gdpopt_scip_recovery_ric_dantzig_20261025.zip /Users/albertlee0125/Repos/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_20261025/grid_gdpopt_scip_recovery_ric_dantzig_20261025.zip.sha256 lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/
+
+Dantzig launch (paste the complete parenthesized block once):
+
+(
+  set -e
+  cd /local/scratch/a/lee4382/repository/RBFopt_Test
+  sha256sum -c grid_gdpopt_scip_recovery_ric_dantzig_20261025.zip.sha256
+  test ! -e results/runners/grid_gdpopt_scip_recovery_ric_dantzig_20261025 || { echo "Runner directory already exists; inspect its log before launching again."; exit 1; }
+  unzip -q grid_gdpopt_scip_recovery_ric_dantzig_20261025.zip -d results/runners
+  cd results/runners/grid_gdpopt_scip_recovery_ric_dantzig_20261025
+  sha256sum -c SHA256SUMS > verify.log
+  bash run_method.sh plan > plan.json
+  nohup bash run_method.sh run > run.log 2>&1 < /dev/null &
+  echo $! > launcher.pid
+  echo "Launched RIC on CPU 12; launcher PID $(cat launcher.pid)"
+)
+
+Dantzig launcher log (Ctrl-C stops tail only):
+
+tail -n 50 -f /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_ric_dantzig_20261025/run.log
+
+Dantzig detailed current job / preflight log:
+
+RUN_DIR=$(sed -n 's/^RUN_DIR=//p' /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_ric_dantzig_20261025/run.log | tail -n 1)
+CURRENT_JOB=$(sed -n 's/^START //p' /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_ric_dantzig_20261025/run.log | tail -n 1)
+if [ -n "$RUN_DIR" ] && [ -n "$CURRENT_JOB" ]; then
+  tail -n 50 -f "$RUN_DIR/benchmark/$CURRENT_JOB/run.log"
+elif [ -n "$RUN_DIR" ]; then
+  tail -n 50 -f "$RUN_DIR/preflight/preflight.log"
+else
+  tail -n 50 -f /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_ric_dantzig_20261025/run.log
+fi
+
+Dantzig result ZIP path after completion:
+
+cat /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_gdpopt_scip_recovery_ric/result_zip.txt
+
+Mac download after RESULT_ZIP is printed (one SCP invocation; this directory belongs only to this recovery method):
+
+scp 'lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_gdpopt_scip_recovery_ric/*.zip*' ~/Downloads/
+
+
+LOA: 19 error jobs, CPU 14
+
+Mac upload (one SCP invocation, ZIP plus checksum):
+
+scp /Users/albertlee0125/Repos/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_20261025/grid_gdpopt_scip_recovery_loa_dantzig_20261025.zip /Users/albertlee0125/Repos/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_20261025/grid_gdpopt_scip_recovery_loa_dantzig_20261025.zip.sha256 lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/
+
+Dantzig launch (paste the complete parenthesized block once):
+
+(
+  set -e
+  cd /local/scratch/a/lee4382/repository/RBFopt_Test
+  sha256sum -c grid_gdpopt_scip_recovery_loa_dantzig_20261025.zip.sha256
+  test ! -e results/runners/grid_gdpopt_scip_recovery_loa_dantzig_20261025 || { echo "Runner directory already exists; inspect its log before launching again."; exit 1; }
+  unzip -q grid_gdpopt_scip_recovery_loa_dantzig_20261025.zip -d results/runners
+  cd results/runners/grid_gdpopt_scip_recovery_loa_dantzig_20261025
+  sha256sum -c SHA256SUMS > verify.log
+  bash run_method.sh plan > plan.json
+  nohup bash run_method.sh run > run.log 2>&1 < /dev/null &
+  echo $! > launcher.pid
+  echo "Launched LOA on CPU 14; launcher PID $(cat launcher.pid)"
+)
+
+Dantzig launcher log (Ctrl-C stops tail only):
+
+tail -n 50 -f /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_loa_dantzig_20261025/run.log
+
+Dantzig detailed current job / preflight log:
+
+RUN_DIR=$(sed -n 's/^RUN_DIR=//p' /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_loa_dantzig_20261025/run.log | tail -n 1)
+CURRENT_JOB=$(sed -n 's/^START //p' /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_loa_dantzig_20261025/run.log | tail -n 1)
+if [ -n "$RUN_DIR" ] && [ -n "$CURRENT_JOB" ]; then
+  tail -n 50 -f "$RUN_DIR/benchmark/$CURRENT_JOB/run.log"
+elif [ -n "$RUN_DIR" ]; then
+  tail -n 50 -f "$RUN_DIR/preflight/preflight.log"
+else
+  tail -n 50 -f /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_loa_dantzig_20261025/run.log
+fi
+
+Dantzig result ZIP path after completion:
+
+cat /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_gdpopt_scip_recovery_loa/result_zip.txt
+
+Mac download after RESULT_ZIP is printed (one SCP invocation; this directory belongs only to this recovery method):
+
+scp 'lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_gdpopt_scip_recovery_loa/*.zip*' ~/Downloads/
+
+
+GLOA: 15 error jobs, CPU 16
+
+Mac upload (one SCP invocation, ZIP plus checksum):
+
+scp /Users/albertlee0125/Repos/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_20261025/grid_gdpopt_scip_recovery_gloa_dantzig_20261025.zip /Users/albertlee0125/Repos/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_20261025/grid_gdpopt_scip_recovery_gloa_dantzig_20261025.zip.sha256 lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/
+
+Dantzig launch (paste the complete parenthesized block once):
+
+(
+  set -e
+  cd /local/scratch/a/lee4382/repository/RBFopt_Test
+  sha256sum -c grid_gdpopt_scip_recovery_gloa_dantzig_20261025.zip.sha256
+  test ! -e results/runners/grid_gdpopt_scip_recovery_gloa_dantzig_20261025 || { echo "Runner directory already exists; inspect its log before launching again."; exit 1; }
+  unzip -q grid_gdpopt_scip_recovery_gloa_dantzig_20261025.zip -d results/runners
+  cd results/runners/grid_gdpopt_scip_recovery_gloa_dantzig_20261025
+  sha256sum -c SHA256SUMS > verify.log
+  bash run_method.sh plan > plan.json
+  nohup bash run_method.sh run > run.log 2>&1 < /dev/null &
+  echo $! > launcher.pid
+  echo "Launched GLOA on CPU 16; launcher PID $(cat launcher.pid)"
+)
+
+Dantzig launcher log (Ctrl-C stops tail only):
+
+tail -n 50 -f /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_gloa_dantzig_20261025/run.log
+
+Dantzig detailed current job / preflight log:
+
+RUN_DIR=$(sed -n 's/^RUN_DIR=//p' /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_gloa_dantzig_20261025/run.log | tail -n 1)
+CURRENT_JOB=$(sed -n 's/^START //p' /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_gloa_dantzig_20261025/run.log | tail -n 1)
+if [ -n "$RUN_DIR" ] && [ -n "$CURRENT_JOB" ]; then
+  tail -n 50 -f "$RUN_DIR/benchmark/$CURRENT_JOB/run.log"
+elif [ -n "$RUN_DIR" ]; then
+  tail -n 50 -f "$RUN_DIR/preflight/preflight.log"
+else
+  tail -n 50 -f /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_gdpopt_scip_recovery_gloa_dantzig_20261025/run.log
+fi
+
+Dantzig result ZIP path after completion:
+
+cat /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_gdpopt_scip_recovery_gloa/result_zip.txt
+
+Mac download after RESULT_ZIP is printed (one SCP invocation; this directory belongs only to this recovery method):
+
+scp 'lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_gdpopt_scip_recovery_gloa/*.zip*' ~/Downloads/

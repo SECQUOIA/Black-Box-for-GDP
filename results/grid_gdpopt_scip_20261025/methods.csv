@@ -1,0 +1,4 @@
+method,jobs,solutions_verified,target_hits,target_hits_without_error,optimal,errors,time_limits,network_start_failures,network_close_failures,fbbt_failures,old_target_hits,both_hit,old_only,new_only,neither,old_worker_wall_s,worker_wall_s,journaled_call_attempts,returned_calls,error_calls,active_unjournaled_attempts,started_interface_attempts,confirmed_scip_invocations,benchmark_nlp_calls,failed_call_wall_s,grid_path_events
+gloa,21,21,3,3,4,15,2,12,2,1,18,3,15,0,3,19116.904861565214,15696.829251959454,13557,13543,14,1,13558,13545,0,842.6830069168936,19145
+loa,21,21,2,2,2,19,0,10,8,1,18,2,16,0,3,18472.27381912386,7987.820305248257,6275,6257,18,0,6275,6265,0,1104.679390968755,9085
+ric,21,21,7,6,6,12,3,10,2,0,18,7,11,0,3,19058.488305751118,15752.952163649257,13564,13552,12,0,13564,13554,0,722.3553233593702,19436
