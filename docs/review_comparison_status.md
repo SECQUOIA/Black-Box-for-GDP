@@ -1,5 +1,19 @@
 # Professor review disposition — manuscript revision
 
+## Current publication update — 25 October 2026
+
+The [CSTR30 publication analysis](../results/cstr30_publication_20261025/README.md) adopts the completed initialization follow-up for all five methods while preserving the finite-penalty baseline and all other primary cases.
+The current manuscript uses mass-balance/zero-recycle initialization for CSTR5–30, with 464 accepted CSTR30 configurations and an unchanged reference target.
+CSTR target counts are 45/60 for RBFOpt and 14/60 for D-SDA.
+The current 700-run Process comparison contains 314 target hits, 385 misses and one retained execution failure, with 16,206 callbacks visiting 2,040 distinct keys.
+Four affected Process figures and the related active manuscript tables and prose are updated.
+The [publication manifest](../results/cstr30_publication_20261025/manifest.json) identifies the retained execution sources separately from this analysis.
+CSTR30 completion estimates use the new same-attempt point costs, including initialization and artifact recording.
+The historical FMQA weight diagnostics remain limited to their reconstructed models.
+No new experiment or CI run was initiated during this publication update.
+PR #49 remains merged, and this work is a subsequent commit on review/cstr15-dantzig-results.
+The dated sections below preserve earlier review history; their numerical totals describe the earlier cohorts.
+
 The two major experimental comparisons have been incorporated in the [manuscript and supplementary material](../manuscript/README.md).
 The primary comparison uses RBFOpt and sampling controls, while the solver variant is retained in Supplementary Section S10.
 The 3,430 additional runs and the 4,760 historical runs are preserved unchanged.
