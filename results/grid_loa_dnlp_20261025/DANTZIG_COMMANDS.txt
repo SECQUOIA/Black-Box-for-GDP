@@ -1,0 +1,20 @@
+# Mac: upload.
+scp /private/tmp/cstr15-dantzig-results/results/grid_loa_dnlp_20261025/grid_loa_dnlp_dantzig_20261025.zip{,.sha256} lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/
+
+# Dantzig: verify, extract into a new directory, and start once.
+(
+  set -e
+  cd /local/scratch/a/lee4382/repository/RBFopt_Test
+  sha256sum -c grid_loa_dnlp_dantzig_20261025.zip.sha256
+  test ! -e results/runners/grid_loa_dnlp_dantzig_20261025
+  unzip -q grid_loa_dnlp_dantzig_20261025.zip -d results/runners
+  RUNNER=/local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_dnlp_dantzig_20261025
+  nohup bash "$RUNNER/execution/run_diagnostic.sh" run > "$RUNNER/launch.log" 2>&1 < /dev/null &
+  echo "STARTED_PID=$!"
+)
+
+# Dantzig: follow compiler checks, fixed solves and LOA runs.
+tail -n 80 -F /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_dnlp_dantzig_20261025/launch.log
+
+# Mac: download after RESULT_ZIP is printed.
+scp lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_dnlp_20261025/grid_loa_dnlp_20261025_result.zip ~/Downloads/

@@ -1,0 +1,19 @@
+{
+  "related_suite_command": "python -m pytest tests/test_grid_loa_dnlp.py tests/test_grid_loa_presolve_disabled.py tests/test_grid_loa_presolve_disabled_return.py tests/test_grid_scip_recovery_loa_return.py -q",
+  "related_suite_result": "23 passed in 8.93s",
+  "final_package_metadata_check": {
+    "command": [
+      "/Users/albertlee0125/Repos/RBFopt_Test/.venv-trace-bam5/bin/python",
+      "-m",
+      "pytest",
+      "tests/test_grid_loa_dnlp.py::test_explicit_dnlp_forwarding_and_original_default_route",
+      "-q"
+    ],
+    "output": ".                                                                        [100%]\n1 passed in 0.38s\n",
+    "exit_code": 0
+  },
+  "ruff": "All checks passed!\n",
+  "real_GAMS_compile_only_checks_passed": 6,
+  "real_optimizer_calls": 0,
+  "synthetic_return_tests": "All six actual fixed-worker paths exercised using explicit mocks; these are not SCIP results."
+}

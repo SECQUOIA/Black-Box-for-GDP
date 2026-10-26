@@ -1,0 +1,164 @@
+{
+  "results": [
+    {
+      "grid_name": "holder_table",
+      "point": [
+        3,
+        1
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/Library/Frameworks/GAMS.framework/Versions/53/Resources/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T03:55:44.421900+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+      "model_sha256": "7b8817eb5e83990148aac3a2acdedb10cc48d6b76c6c1bf36b046ea2600ce90f",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.42904137494042516,
+      "gams_banners": [
+        "10/25/26 23:55:44 53.3.0 68a37de8 DAX-DAC arm 64bit/macOS"
+      ],
+      "confirmed_optimizer_starts": 0
+    },
+    {
+      "grid_name": "holder_table",
+      "point": [
+        3,
+        29
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/Library/Frameworks/GAMS.framework/Versions/53/Resources/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T03:55:44.885358+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+      "model_sha256": "12c1f7490bb5fcb0e328c77e0675636b2cf01a708557e0fe30edf5bd763bab6f",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.2353430832736194,
+      "gams_banners": [
+        "10/25/26 23:55:45 53.3.0 68a37de8 DAX-DAC arm 64bit/macOS"
+      ],
+      "confirmed_optimizer_starts": 0
+    },
+    {
+      "grid_name": "holder_table",
+      "point": [
+        27,
+        1
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/Library/Frameworks/GAMS.framework/Versions/53/Resources/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T03:55:45.151389+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+      "model_sha256": "64290b978ccb5c713521948cf230fb4c98f0acf17036979e6cc00b6f81e5166a",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.26442541694268584,
+      "gams_banners": [
+        "10/25/26 23:55:45 53.3.0 68a37de8 DAX-DAC arm 64bit/macOS"
+      ],
+      "confirmed_optimizer_starts": 0
+    },
+    {
+      "grid_name": "holder_table",
+      "point": [
+        27,
+        29
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/Library/Frameworks/GAMS.framework/Versions/53/Resources/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T03:55:45.443338+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+      "model_sha256": "8cdc17c9dbb9189ac035f515b1cb504f0880210f9e892865a0b57a5366ea2f6c",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.24960237462073565,
+      "gams_banners": [
+        "10/25/26 23:55:45 53.3.0 68a37de8 DAX-DAC arm 64bit/macOS"
+      ],
+      "confirmed_optimizer_starts": 0
+    },
+    {
+      "grid_name": "michalewicz",
+      "point": [
+        21,
+        15
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/Library/Frameworks/GAMS.framework/Versions/53/Resources/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T03:55:45.723322+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "70b631a5d9a6ebaf3a77f39cc343dc5b89438df91f261a20f40c0abca4ef9dd4",
+      "model_sha256": "12e1b0a4f5af12a5e22d72a1bcf86819676217aba1027fcbb223d01fe921cfca",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.23979770904406905,
+      "gams_banners": [
+        "10/25/26 23:55:45 53.3.0 68a37de8 DAX-DAC arm 64bit/macOS"
+      ],
+      "confirmed_optimizer_starts": 0
+    },
+    {
+      "grid_name": "shubert",
+      "point": [
+        17,
+        22
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/Library/Frameworks/GAMS.framework/Versions/53/Resources/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T03:55:45.996060+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "b24f390775480d2ea5ace8ed78e3f9200de8b160ab3703e344f9b732b8ca3e3e",
+      "model_sha256": "b9acd35a389f28572e4ac15b3a571c367c23b0750224385a97f3a872c5900488",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.2380313747562468,
+      "gams_banners": [
+        "10/25/26 23:55:46 53.3.0 68a37de8 DAX-DAC arm 64bit/macOS"
+      ],
+      "confirmed_optimizer_starts": 0
+    }
+  ],
+  "optimizer_calls": 0,
+  "gams_executable_sha256": "4e85329019a70220f417497c11db209d3e5e2c2579a42c59f652d6113f47499a",
+  "platform": "darwin",
+  "compiler_environment_scope": "local_compile_only_not_Dantzig_solver_validation"
+}

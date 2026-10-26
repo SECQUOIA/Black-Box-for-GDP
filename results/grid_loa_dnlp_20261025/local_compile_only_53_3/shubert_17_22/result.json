@@ -1,0 +1,26 @@
+{
+  "grid_name": "shubert",
+  "point": [
+    17,
+    22
+  ],
+  "model_type": "dnlp",
+  "command": [
+    "/Library/Frameworks/GAMS.framework/Versions/53/Resources/gams",
+    "model.gms",
+    "action=c",
+    "lo=3",
+    "threads=1"
+  ],
+  "utc": "2026-10-26T03:55:45.996060+00:00",
+  "optimizer_calls": 0,
+  "structure_sha256": "b24f390775480d2ea5ace8ed78e3f9200de8b160ab3703e344f9b732b8ca3e3e",
+  "model_sha256": "b9acd35a389f28572e4ac15b3a571c367c23b0750224385a97f3a872c5900488",
+  "returncode": 0,
+  "passed": true,
+  "wall_s": 0.2380313747562468,
+  "gams_banners": [
+    "10/25/26 23:55:46 53.3.0 68a37de8 DAX-DAC arm 64bit/macOS"
+  ],
+  "confirmed_optimizer_starts": 0
+}
