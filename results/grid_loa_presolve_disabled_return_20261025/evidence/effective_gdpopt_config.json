@@ -1,0 +1,14 @@
+{
+  "subproblem_presolve": false,
+  "mip_presolve": true,
+  "time_limit": 60,
+  "force_subproblem_nlp": true,
+  "mip_solver_args": {
+    "mtype": "mip",
+    "solver": "scip"
+  },
+  "nlp_solver_args": {
+    "mtype": "nlp",
+    "solver": "scip"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "expected": {
+    "host": "dantzig.ecn.purdue.edu",
+    "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+    "gams_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+    "affinity": {
+      "cpu": 14,
+      "physical_package_id": "0",
+      "core_id": "18",
+      "thread_siblings_list": "14,62",
+      "effective_cpus": [
+        14
+      ],
+      "policy": "one logical CPU; not an exclusive reservation"
+    },
+    "mcpp_sha256": null,
+    "versions": {
+      "pyomo": "6.10.0",
+      "numpy": "2.4.6",
+      "sympy": "1.14.0",
+      "networkx": "3.6.1"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OMP_THREAD_LIMIT": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1",
+      "GOTO_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "NUMEXPR_MAX_THREADS": "1"
+    },
+    "solver_checks": {
+      "scip_mip": {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "mip",
+        "limit_s": 28.499447912198956,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 1.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": 1.0,
+          "OBJVAL": 1.0,
+          "NUMVAR": 3.0,
+          "NUMEQU": 2.0,
+          "NUMDVAR": 1.0,
+          "NUMNZ": 5.0,
+          "ETSOLVE": 0.053999782539904
+        },
+        "termination": "optimal",
+        "solver_status": "ok",
+        "lower_bound": 1.0,
+        "upper_bound": 1.0,
+        "wall_s": 0.39790673297829926
+      },
+      "scip_nlp": {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "nlp",
+        "limit_s": 28.49969065618934,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 7.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": -4.848101982208935,
+          "OBJVAL": -4.848076211353316,
+          "NUMVAR": 2.0,
+          "NUMEQU": 1.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 2.0,
+          "ETSOLVE": 0.126000121235847
+        },
+        "termination": "feasible",
+        "solver_status": "ok",
+        "lower_bound": -4.848101982208935,
+        "upper_bound": -4.848076211353316,
+        "wall_s": 0.48471342609263957
+      },
+      "scip_trig": {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "nlp",
+        "limit_s": 28.49972862506984,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 7.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": -1.414217826113529,
+          "OBJVAL": -1.414213562373095,
+          "NUMVAR": 2.0,
+          "NUMEQU": 1.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 2.0,
+          "ETSOLVE": 0.072000338695943
+        },
+        "termination": "feasible",
+        "solver_status": "ok",
+        "lower_bound": -1.414217826113529,
+        "upper_bound": -1.414213562373095,
+        "wall_s": 0.4251759110484272
+      }
+    }
+  },
+  "actual": {
+    "host": "dantzig.ecn.purdue.edu",
+    "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+    "gams_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+    "affinity": {
+      "cpu": 14,
+      "physical_package_id": "0",
+      "core_id": "18",
+      "thread_siblings_list": "14,62",
+      "effective_cpus": [
+        14
+      ],
+      "policy": "one logical CPU; not an exclusive reservation"
+    },
+    "mcpp_sha256": null,
+    "versions": {
+      "pyomo": "6.10.0",
+      "numpy": "2.4.6",
+      "sympy": "1.14.0",
+      "networkx": "3.6.1"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OMP_THREAD_LIMIT": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1",
+      "GOTO_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "NUMEXPR_MAX_THREADS": "1"
+    }
+  },
+  "pyomo_modules_sha256": {
+    "pyomo.contrib.fbbt.fbbt": "b0f724bd5e7fe1fb872fa6b6f9cef1d64711266215af16221815192080ac5c75",
+    "pyomo.contrib.fbbt.interval": "38b7bca9f9f80559e94c50bf12939393797241b2f3d89f3c83e720b4d061645c",
+    "pyomo.contrib.gdpopt.solve_subproblem": "bfe447752b632435b7adc40e76501408d6a2fc44b20fe3723b908b1fe702bf11"
+  },
+  "pyomo_module_hash_scope": "Local Pyomo 6.10.0 diagnostic source hashes; historical Dantzig module-byte hashes were not recorded.",
+  "scip_version_check": "First actual fixed call; no extra smoke solves."
+}
