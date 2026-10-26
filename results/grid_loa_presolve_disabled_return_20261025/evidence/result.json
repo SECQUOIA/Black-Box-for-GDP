@@ -1,0 +1,41 @@
+{
+  "grid_name": "holder_table",
+  "point": [
+    3,
+    1
+  ],
+  "status": "error",
+  "subproblem_presolve": false,
+  "actual_solver_calls": 1,
+  "returned_solution_count": 0,
+  "global_optimality_certified": false,
+  "time_limit_s": 60,
+  "original_network_policy": "grid-scip-network-and-bohachevsky2-v1",
+  "fixed_call_cap": 1,
+  "retry_note": "The preserved network policy has insufficient budget to retry within 60 seconds; a hard one-call guard also applies.",
+  "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+  "gate_passed": false,
+  "calls": [
+    {
+      "index": 1,
+      "solver": "scip",
+      "mtype": "nlp",
+      "limit_s": 56.771352176915386,
+      "threads": 1,
+      "status": "error",
+      "solver_option_file": [
+        "gams/mipstart = 0",
+        "timing/clocktype = 2"
+      ],
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "wall_s": 0.37393051106482744
+    }
+  ],
+  "case": "grid",
+  "cstr_size": null,
+  "instance_id": "holder_table",
+  "worker_pid": 571662,
+  "worker_returncode": 0,
+  "worker_wall_s": 0.6215993301011622,
+  "hard_time_limit_reached": false
+}

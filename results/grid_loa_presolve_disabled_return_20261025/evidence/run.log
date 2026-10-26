@@ -1,0 +1,150 @@
+DEBUG: NLP subproblem determined to be infeasible during preprocessing.
+Message: Lower bound (-3.233037281025837) computed for variable y is larger
+than the computed upper bound (-9.333333333333336).
+--- Job model.gms Start 10/25/26 23:37:33 52.2.0 d8e408be LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/52.2/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025_v2/run_20261026_033733/fixed/holder_table_3_1/gams-t7xsvng0/model.gms
+    Output /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025_v2/run_20261026_033733/fixed/holder_table_3_1/gams-t7xsvng0/output.lst
+    ScrDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025_v2/run_20261026_033733/fixed/holder_table_3_1/gams-t7xsvng0/225a/
+    SysDir /package/gams/52.2/
+    CurDir /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025_v2/run_20261026_033733/fixed/holder_table_3_1/gams-t7xsvng0/
+    LogOption 3
+    AppendLog 1
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:41389 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
+--- Starting compilation
+--- model.gms(46) 2 Mb 2 Errors
+*** Error  61 in /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025_v2/run_20261026_033733/fixed/holder_table_3_1/gams-t7xsvng0/model.gms
+    Functions with discontinuous derivatives are illegal
+    In nlp models. use "dnlp"
+*** Error 256 in /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025_v2/run_20261026_033733/fixed/holder_table_3_1/gams-t7xsvng0/model.gms
+    Error(s) in analyzing solve statement.
+*** The following NLP errors were detected in model GAMS_MODEL:
+     61 equation c3_hi.. the function ABS is not smooth, use DNLP
+     61 equation c3_hi.. the function ABS is not smooth, use DNLP
+--- model.gms(107) 2 Mb 2 Errors
+*** Status: Compilation error(s)
+--- Job model.gms Stop 10/25/26 23:37:33 elapsed 0:00:00.008
+
+GAMS WORKING DIRECTORY: /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025_v2/run_20261026_033733/fixed/holder_table_3_1/gams-t7xsvng0
+
+ERROR: GAMS encountered an error during solve. Check listing file for details.
+ERROR: --- Job model.gms Start 10/25/26 23:37:33 52.2.0 d8e408be LEX-LEG x86
+64bit/Linux
+    --- Applying:
+        /package/gams/52.2/gmsprmun.txt
+    --- GAMS Parameters defined
+        Input /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa
+        _presolve_disabled_20261025_v2/run_20261026_033733/fixed/holder_table_
+        3_1/gams-t7xsvng0/model.gms Output /local/scratch/a/lee4382/repository
+        /RBFopt_Test/results/grid_loa_presolve_disabled_20261025_v2/run_202610
+        26_033733/fixed/holder_table_3_1/gams-t7xsvng0/output.lst ScrDir /loca
+        l/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_d
+        isabled_20261025_v2/run_20261026_033733/fixed/holder_table_3_1/gams-
+        t7xsvng0/225a/ SysDir /package/gams/52.2/ CurDir /local/scratch/a/lee4
+        382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025
+        _v2/run_20261026_033733/fixed/holder_table_3_1/gams-t7xsvng0/
+        LogOption 3 AppendLog 1
+    Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-
+    GEN
+              Purdue University, Davidson School of Chemical
+              EngineeringDCE4838 225a/gamslice.dat 5a82958a-fbca-4a23
+              node:66820903 mem:995 cores:48 ipport:41389 v:2 Evaluation
+              license: Not for commercial or production use The time-limited
+              license stops working on : Jun 30, 2027
+    System information: 48 physical cores and 995 Gb physical memory detected
+    GAMS 52.2.0   Copyright (C) 1987-2025 GAMS Development. All rights
+    reserved
+    --- Starting compilation
+    --- model.gms(46) 2 Mb 2 Errors
+    *** Error  61 in /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025_v2/run_20261026_033733/fixed/holder_table_3_1/gams-t7xsvng0/model.gms
+        Functions with discontinuous derivatives are illegal In nlp models.
+        use "dnlp"
+    *** Error 256 in /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025_v2/run_20261026_033733/fixed/holder_table_3_1/gams-t7xsvng0/model.gms
+        Error(s) in analyzing solve statement.
+    *** The following NLP errors were detected in model GAMS_MODEL:
+         61 equation c3_hi.. the function ABS is not smooth, use DNLP 61
+         equation c3_hi.. the function ABS is not smooth, use DNLP
+    --- model.gms(107) 2 Mb 2 Errors
+    *** Status: Compilation error(s)
+    --- Job model.gms Stop 10/25/26 23:37:33 elapsed 0:00:00.008
+ERROR: GAMS Listing file:
+
+    GAMS 52.2.0  d8e408be Dec 8, 2025           LEX-LEG x86 64bit/Linux -
+    10/25/26 23:37:33 Page 1 G e n e r a l   A l g e b r a i c   M o d e l i n
+    g   S y s t e m C o m p i l a t i o n
+
+
+      46  SOLVE GAMS_MODEL USING nlp minimizing GAMS_OBJECTIVE;
+    ****                                                      $61,256
+    ****  61  Functions with discontinuous derivatives are illegal
+    ****      In nlp models. use "dnlp"
+    **** 256  Error(s) in analyzing solve statement.
+    **** The following NLP errors were detected in model GAMS_MODEL:
+    ****  61 equation c3_hi.. the function ABS is not smooth, use DNLP
+    ****  61 equation c3_hi.. the function ABS is not smooth, use DNLP
+
+    **** 2 ERROR(S)   0 WARNING(S)
+
+
+    COMPILATION TIME     =        0.003 SECONDS      2 MB  52.2.0 d8e408be
+    LEX-LEG
+
+
+    USER: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          License for teaching and research at degree granting institutions
+
+
+    **** FILE SUMMARY
+
+    Input      /local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_lo
+    a_presolve_disabled_20261025_v2/run_20261026_033733/fixed/holder_table_3_1
+    /gams-t7xsvng0/model.gms Output     /local/scratch/a/lee4382/repository/RB
+    Fopt_Test/results/grid_loa_presolve_disabled_20261025_v2/run_20261026_0337
+    33/fixed/holder_table_3_1/gams-t7xsvng0/output.lst
+
+    **** USER ERROR(S) ENCOUNTERED
+Traceback (most recent call last):
+  File "/local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_presolve_disabled_dantzig_20261025_v2/execution/diagnostic.py", line 319, in fixed_worker
+    termination = solve_subproblem(util, solver, c)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-gdp/lib/python3.11/site-packages/pyomo/contrib/gdpopt/solve_subproblem.py", line 405, in solve_subproblem
+    return call_appropriate_subproblem_solver(subprob_util_block, solver, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-gdp/lib/python3.11/site-packages/pyomo/contrib/gdpopt/solve_subproblem.py", line 375, in call_appropriate_subproblem_solver
+    subprob_termination = solve_NLP(subprob, config, timing)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-gdp/lib/python3.11/site-packages/pyomo/contrib/gdpopt/solve_subproblem.py", line 186, in solve_NLP
+    results = configure_and_call_solver(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-gdp/lib/python3.11/site-packages/pyomo/contrib/gdpopt/solve_subproblem.py", line 48, in configure_and_call_solver
+    results = opt.solve(model, **solver_args)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_presolve_disabled_dantzig_20261025_v2/execution/diagnostic.py", line 285, in once
+    result = guarded_fixed_solve(original_solve, self, model, kwargs, impl.CONTEXT, report, directory)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_presolve_disabled_dantzig_20261025_v2/execution/diagnostic.py", line 259, in guarded_fixed_solve
+    return retry_solve(attempt, solver, model, kwargs, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_presolve_disabled_dantzig_20261025_v2/execution/grid_recovery.py", line 49, in retry_solve
+    result = original(solver, model, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_presolve_disabled_dantzig_20261025_v2/execution/diagnostic.py", line 258, in attempt
+    return original(instance, candidate, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_presolve_disabled_dantzig_20261025_v2/execution/gdp_models/comparison.py", line 186, in solve
+    result = super().solve(
+             ^^^^^^^^^^^^^^
+  File "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-gdp/lib/python3.11/site-packages/pyomo/solvers/plugins/solvers/GAMS.py", line 944, in solve
+    raise RuntimeError(
+RuntimeError: GAMS encountered an error during solve. Check listing file for details.

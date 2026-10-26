@@ -1,0 +1,49 @@
+{
+  "review_revision": "24df0376881409a533b98d9a8490c902eef38b5b",
+  "execution_source_revision": "9bedaca03fd74e8c9962876982140cd943875570",
+  "input_archive": "grid_loa_presolve_disabled_20261025_v2_result.zip",
+  "input_archive_sha256": "303012e48a2480ddcabb5388fe2a7d1c6f83082795484bd13b7f0130671a1b1a",
+  "input_archive_bytes": 1438745,
+  "verified_outer_file_hashes": 169,
+  "verified_predecessor_file_hashes": 164,
+  "predecessor_archive_sha256": "fd7ed869c52a4d49603069a4a24063f0a412c511e7a46d4a7e70b507722ffc6b",
+  "delivered_package_sha256": "e5f40878ccd3b480ee18ef08e58c0f07ff9c42a3d574265003d7a224b6ed645e",
+  "execution_source_matches_delivery": true,
+  "actual_settings": {
+    "subproblem_presolve": false,
+    "mip_presolve": true,
+    "time_limit": 60,
+    "force_subproblem_nlp": true,
+    "mip_solver_args": {
+      "mtype": "mip",
+      "solver": "scip"
+    },
+    "nlp_solver_args": {
+      "mtype": "nlp",
+      "solver": "scip"
+    }
+  },
+  "analysis_source_sha256": "d1b436f046830898a874eeb90d4569018e94c447045135f32c8516ee731c2047",
+  "outputs_sha256": {
+    "README.md": "882abd2697c65d350c1f9dbdde268a59e706d1408d4c455a9884e37b9d013824",
+    "comparison.json": "87b827badae71e0b926a9b3c673e1b8a21f2330964ef4bf1425cc7d9c7811c81",
+    "environment.json": "6e02162891494034fa92e49f90ffe2ccbab283fc94df914336587af965f25bbd",
+    "evidence/baseline_probe.json": "b1ddf5803dfba0e5e5ae5268c0e95b8b8b6687070eefc3a46c83cdd7c2f29d0a",
+    "evidence/call_00001_error.lst": "b3e09e19c9c53f987c6d3997f4193324965a8b29820a6b0b102b003edcb3b0d6",
+    "evidence/effective_gdpopt_config.json": "17f0c4005a39bdc2dfc6bb1f583344072d0f06619de8d92f776b4fd5f95bfc40",
+    "evidence/effective_gdpopt_config.txt": "60105b036792d0c6d94116d55da911cbc3b4fd6d0dbcc994d3a6949f7a0d3145",
+    "evidence/fixed_path.jsonl": "4ee67a16e4a5fec15c4aeb34303589658f54055f04507ba98bc58e6646e7bd71",
+    "evidence/launch_ledger.jsonl": "983d0b9715fad471ca2d5d2f38be47d2064a43a7c05783f94bb5d5e42f705196",
+    "evidence/predecessor_run.json": "0cd25ab83df8ae5e8e5560becd78791d57499f45220038874905632ad3f22807",
+    "evidence/predecessor_verification.json": "662e8dd08bd0123b967bf049c5e0509b151fb993f35cc18d78410ca38a3cb72d",
+    "evidence/process.json": "ef4ef8ae3edcf2a1e89c6dc9903bf88e70b51dd46430c7e633bbd14ca1d4d584",
+    "evidence/result.json": "d6da994195a2fd74469b26fac0cc1e287358c9a5c0ce2244e3690146b9451173",
+    "evidence/run.json": "49f77064989c71b03dac13f11f345e060215cf7a218b1b46b1a544a6b101bd74",
+    "evidence/run.log": "8abc5d5f4e3d3df1c07ea454cf313d05e530e0281b30633d40a89af27bf7558c",
+    "evidence/solver_calls.jsonl": "288e4c999cc90d6c105e682643c7bdae1544779170ea3c092e2f45fadd13adcd",
+    "evidence/subproblem_structure.json": "567dbd28e4fac1a5411fa3e487dadfafa6c959cd93e6069b8981998b467794ca",
+    "fixed_configurations.json": "34d6e861d6e2241d0b4dfda34d42f423608d0c14175320a56ec8d289841a30ed",
+    "summary.json": "5e01fa1561b60c066ce68f84f24a572e03e16b7a7d8d975d00c85e20df897d33"
+  },
+  "optimization_calls_during_analysis": 0
+}
