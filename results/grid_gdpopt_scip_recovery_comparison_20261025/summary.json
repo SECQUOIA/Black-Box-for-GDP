@@ -1,0 +1,108 @@
+{
+  "methods": [
+    "ric",
+    "gloa",
+    "loa"
+  ],
+  "original_attempts": {
+    "jobs": 63,
+    "target_hits": 12,
+    "target_hits_without_error": 11,
+    "errors": 46,
+    "reported_optimal": 12,
+    "optimal_but_misses_target": 1,
+    "time_limits": 5,
+    "time_limits_with_target": 0,
+    "worker_wall_s": 39437.60172085697
+  },
+  "recovery_attempts": {
+    "jobs": 46,
+    "target_hits": 40,
+    "target_hits_without_error": 40,
+    "errors": 0,
+    "reported_optimal": 39,
+    "optimal_but_misses_target": 6,
+    "time_limits": 7,
+    "time_limits_with_target": 7,
+    "worker_wall_s": 63530.74965728843
+  },
+  "descriptive_inventory": {
+    "jobs": 63,
+    "target_hits": 51,
+    "target_hits_without_error": 51,
+    "errors": 0,
+    "reported_optimal": 51,
+    "optimal_but_misses_target": 7,
+    "time_limits": 12,
+    "time_limits_with_target": 7,
+    "worker_wall_s": 78376.88052777224
+  },
+  "common_recovery_grids": [
+    "bohachevsky2",
+    "camel3",
+    "deflected_corrugated_spring",
+    "dropwave",
+    "griewank",
+    "hosaki",
+    "levy",
+    "rastrigin",
+    "styblinski_tang"
+  ],
+  "pairwise_common_recovery": [
+    {
+      "method_a": "ric",
+      "method_b": "gloa",
+      "common_jobs": 9,
+      "both_hit": 9,
+      "a_only": 0,
+      "b_only": 0,
+      "neither": 0
+    },
+    {
+      "method_a": "ric",
+      "method_b": "loa",
+      "common_jobs": 12,
+      "both_hit": 10,
+      "a_only": 0,
+      "b_only": 0,
+      "neither": 2
+    },
+    {
+      "method_a": "gloa",
+      "method_b": "loa",
+      "common_jobs": 15,
+      "both_hit": 14,
+      "a_only": 0,
+      "b_only": 0,
+      "neither": 1
+    }
+  ],
+  "every_method_misses": [
+    "holder_table",
+    "michalewicz",
+    "shubert"
+  ],
+  "any_method_misses": [
+    "alpine2",
+    "easom",
+    "holder_table",
+    "levy13",
+    "michalewicz",
+    "shubert"
+  ],
+  "grids_with_at_least_one_target_hit": 18,
+  "grids_with_all_three_target_hits": 15,
+  "cumulative_worker_s": 102968.3513781454,
+  "benchmark_recovery_scip_mip_calls": 67506,
+  "benchmark_recovery_nlp_calls": 0,
+  "network_retry_events": 0,
+  "separate_recovery_preflight_calls": {
+    "scip/mip": 3,
+    "scip/nlp": 6
+  },
+  "target_tolerance": 1e-05,
+  "optimization_calls_during_analysis": 0,
+  "scope": "Descriptive mixtures retain every original non-error attempt; common recovery pairs are separate.",
+  "timing_scope": "Worker wall-time sums across concurrent packages are resource totals, not elapsed makespan.",
+  "ranking_limit": "One run per method/grid, unequal recovery subsets and nonexclusive CPUs do not establish method superiority."
+}
