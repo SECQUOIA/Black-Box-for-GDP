@@ -1,0 +1,1016 @@
+{
+  "status": "completed",
+  "config": {
+    "kind": "gdpopt_actual_scip_20261024_v1",
+    "package": "grid",
+    "tag": "20261025",
+    "methods": [
+      "loa"
+    ],
+    "time_limit": 1800.0,
+    "relative_gap": 1e-05,
+    "threads": 1,
+    "planned_jobs": 3,
+    "cases": [
+      "cstr",
+      "column",
+      "small_batch",
+      "dynamic"
+    ],
+    "cstr_sizes": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "mip_solver": "scip",
+    "nlp_solver": "scip",
+    "cpu": 14,
+    "peer_cpu": 6,
+    "split_method": "loa",
+    "separate_cpu_ids": [
+      6,
+      8,
+      10,
+      12,
+      14,
+      16
+    ],
+    "recovery_grids": [
+      "holder_table",
+      "michalewicz",
+      "shubert"
+    ],
+    "recovery_policy": "grid-scip-network-and-bohachevsky2-v1",
+    "grids": [
+      "holder_table",
+      "michalewicz",
+      "shubert"
+    ],
+    "phases": [
+      "benchmark"
+    ],
+    "expected_gams_version": "52.2",
+    "executable": "/package/gams/52.2/gams",
+    "record_grid_path": true,
+    "record_gdp_path": true,
+    "gams_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "diagnostic_presolve_disabled": true,
+    "diagnostic_dnlp": true
+  },
+  "requested_option": {
+    "subproblem_presolve": false,
+    "nlp_solver_args": {
+      "solver": "scip",
+      "mtype": "dnlp"
+    }
+  },
+  "review_revision": "24df0376881409a533b98d9a8490c902eef38b5b",
+  "actual_fixed_solver_calls": 6,
+  "actual_full_loa_runs": 0,
+  "fixed": [
+    {
+      "grid_name": "holder_table",
+      "point": [
+        3,
+        1
+      ],
+      "status": "finished",
+      "subproblem_presolve": false,
+      "actual_solver_calls": 1,
+      "returned_solution_count": 1,
+      "global_optimality_certified": false,
+      "time_limit_s": 60,
+      "original_network_policy": "grid-scip-network-and-bohachevsky2-v1",
+      "fixed_call_cap": 1,
+      "retry_note": "The preserved network policy has insufficient budget to retry within 60 seconds; a hard one-call guard also applies.",
+      "termination": "optimal",
+      "original_validation": {
+        "has_feasible_solution": true,
+        "candidate_objective": -1.9587104186792927e-16,
+        "max_primal_violation": 1.7763568394002505e-15,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[3]",
+          "Ychoice[1]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          3,
+          1
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "normalized_gap": -1.9587104186792927e-16,
+        "target_hit": true
+      },
+      "objective": -1.9587104186792927e-16,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "scip_version_verified": true,
+      "unchanged_subproblem_structure": true,
+      "calls": [
+        {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 56.7892582253553,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.267999828793108
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "wall_s": 0.6268866059836
+        }
+      ],
+      "gate_passed": true,
+      "case": "grid",
+      "cstr_size": null,
+      "instance_id": "holder_table",
+      "worker_pid": 572991,
+      "worker_returncode": 0,
+      "worker_wall_s": 0.8981313318945467,
+      "hard_time_limit_reached": false
+    },
+    {
+      "grid_name": "holder_table",
+      "point": [
+        3,
+        29
+      ],
+      "status": "finished",
+      "subproblem_presolve": false,
+      "actual_solver_calls": 1,
+      "returned_solution_count": 1,
+      "global_optimality_certified": false,
+      "time_limit_s": 60,
+      "original_network_policy": "grid-scip-network-and-bohachevsky2-v1",
+      "fixed_call_cap": 1,
+      "retry_note": "The preserved network policy has insufficient budget to retry within 60 seconds; a hard one-call guard also applies.",
+      "termination": "optimal",
+      "original_validation": {
+        "has_feasible_solution": true,
+        "candidate_objective": 9.793552093396464e-16,
+        "max_primal_violation": 0.0,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[3]",
+          "Ychoice[29]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          3,
+          29
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "normalized_gap": 9.793552093396464e-16,
+        "target_hit": true
+      },
+      "objective": 9.793552093396464e-16,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "scip_version_verified": true,
+      "unchanged_subproblem_structure": true,
+      "calls": [
+        {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 56.79281020994531,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.045999675057828
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "wall_s": 0.3999574608169496
+        }
+      ],
+      "gate_passed": true,
+      "case": "grid",
+      "cstr_size": null,
+      "instance_id": "holder_table",
+      "worker_pid": 573004,
+      "worker_returncode": 0,
+      "worker_wall_s": 0.66691390494816,
+      "hard_time_limit_reached": false
+    },
+    {
+      "grid_name": "holder_table",
+      "point": [
+        27,
+        1
+      ],
+      "status": "finished",
+      "subproblem_presolve": false,
+      "actual_solver_calls": 1,
+      "returned_solution_count": 1,
+      "global_optimality_certified": false,
+      "time_limit_s": 60,
+      "original_network_policy": "grid-scip-network-and-bohachevsky2-v1",
+      "fixed_call_cap": 1,
+      "retry_note": "The preserved network policy has insufficient budget to retry within 60 seconds; a hard one-call guard also applies.",
+      "termination": "optimal",
+      "original_validation": {
+        "has_feasible_solution": true,
+        "candidate_objective": -1.9587104186792927e-16,
+        "max_primal_violation": 1.7763568394002505e-15,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[27]",
+          "Ychoice[1]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          27,
+          1
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "normalized_gap": -1.9587104186792927e-16,
+        "target_hit": true
+      },
+      "objective": -1.9587104186792927e-16,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "scip_version_verified": true,
+      "unchanged_subproblem_structure": true,
+      "calls": [
+        {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 56.79380895708455,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.043999962508678
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "wall_s": 0.38770622108131647
+        }
+      ],
+      "gate_passed": true,
+      "case": "grid",
+      "cstr_size": null,
+      "instance_id": "holder_table",
+      "worker_pid": 573017,
+      "worker_returncode": 0,
+      "worker_wall_s": 0.654693003045395,
+      "hard_time_limit_reached": false
+    },
+    {
+      "grid_name": "holder_table",
+      "point": [
+        27,
+        29
+      ],
+      "status": "finished",
+      "subproblem_presolve": false,
+      "actual_solver_calls": 1,
+      "returned_solution_count": 1,
+      "global_optimality_certified": false,
+      "time_limit_s": 60,
+      "original_network_policy": "grid-scip-network-and-bohachevsky2-v1",
+      "fixed_call_cap": 1,
+      "retry_note": "The preserved network policy has insufficient budget to retry within 60 seconds; a hard one-call guard also applies.",
+      "termination": "optimal",
+      "original_validation": {
+        "has_feasible_solution": true,
+        "candidate_objective": 9.793552093396464e-16,
+        "max_primal_violation": 0.0,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[27]",
+          "Ychoice[29]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          27,
+          29
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "normalized_gap": 9.793552093396464e-16,
+        "target_hit": true
+      },
+      "objective": 9.793552093396464e-16,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "scip_version_verified": true,
+      "unchanged_subproblem_structure": true,
+      "calls": [
+        {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 56.79508552327752,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.056000123731792
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "wall_s": 0.3994864879641682
+        }
+      ],
+      "gate_passed": true,
+      "case": "grid",
+      "cstr_size": null,
+      "instance_id": "holder_table",
+      "worker_pid": 573030,
+      "worker_returncode": 0,
+      "worker_wall_s": 0.6645410500932485,
+      "hard_time_limit_reached": false
+    },
+    {
+      "grid_name": "michalewicz",
+      "point": [
+        21,
+        15
+      ],
+      "status": "finished",
+      "subproblem_presolve": false,
+      "actual_solver_calls": 1,
+      "returned_solution_count": 1,
+      "global_optimality_certified": false,
+      "time_limit_s": 60,
+      "original_network_policy": "grid-scip-network-and-bohachevsky2-v1",
+      "fixed_call_cap": 1,
+      "retry_note": "The preserved network policy has insufficient budget to retry within 60 seconds; a hard one-call guard also applies.",
+      "termination": "optimal",
+      "original_validation": {
+        "has_feasible_solution": true,
+        "candidate_objective": 0.0,
+        "max_primal_violation": 4.440892098500626e-16,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[21]",
+          "Ychoice[15]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          21,
+          15
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "ccaecd464ee21d412feaac6b60aecc8e8d62fb03665f35871a9250d4b1c44616",
+        "normalized_gap": 0.0,
+        "target_hit": true
+      },
+      "objective": 0.0,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "scip_version_verified": true,
+      "unchanged_subproblem_structure": true,
+      "calls": [
+        {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 56.792673174222,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.055999495089054
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "wall_s": 0.4162582668941468
+        }
+      ],
+      "gate_passed": true,
+      "case": "grid",
+      "cstr_size": null,
+      "instance_id": "michalewicz",
+      "worker_pid": 573041,
+      "worker_returncode": 0,
+      "worker_wall_s": 0.6834326789248735,
+      "hard_time_limit_reached": false
+    },
+    {
+      "grid_name": "shubert",
+      "point": [
+        17,
+        22
+      ],
+      "status": "finished",
+      "subproblem_presolve": false,
+      "actual_solver_calls": 1,
+      "returned_solution_count": 1,
+      "global_optimality_certified": false,
+      "time_limit_s": 60,
+      "original_network_policy": "grid-scip-network-and-bohachevsky2-v1",
+      "fixed_call_cap": 1,
+      "retry_note": "The preserved network policy has insufficient budget to retry within 60 seconds; a hard one-call guard also applies.",
+      "termination": "optimal",
+      "original_validation": {
+        "has_feasible_solution": true,
+        "candidate_objective": 0.0,
+        "max_primal_violation": 0.0,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[17]",
+          "Ychoice[22]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          17,
+          22
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "10b5789737dd3620036c81ad6a67d3db9eb29c2d94ef5292e5e3d2fba9e2fdb9",
+        "normalized_gap": 0.0,
+        "target_hit": true
+      },
+      "objective": 0.0,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "scip_version_verified": true,
+      "unchanged_subproblem_structure": true,
+      "calls": [
+        {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 56.770082197070586,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.056000123731792
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "wall_s": 0.4085018429905176
+        }
+      ],
+      "gate_passed": true,
+      "case": "grid",
+      "cstr_size": null,
+      "instance_id": "shubert",
+      "worker_pid": 573052,
+      "worker_returncode": 0,
+      "worker_wall_s": 0.7046422730199993,
+      "hard_time_limit_reached": false
+    }
+  ],
+  "full": [
+    {
+      "case": "grid",
+      "instance_id": "holder_table",
+      "grid_name": "holder_table",
+      "cstr_size": null,
+      "template_wall_s": 0.030838594073429704,
+      "grid_preparation": {
+        "grid_name": "holder_table",
+        "preparation_wall_s": 0.030641236109659076,
+        "audit": {
+          "name": "holder_table",
+          "status": "passed",
+          "points_checked": 961,
+          "physical_bounds": [
+            -10.0,
+            10.0,
+            -10.0,
+            10.0
+          ],
+          "normalization_min": -18.138024104635146,
+          "normalization_range": 18.138024104635146,
+          "max_abs_error": 1.1102230246251565e-16,
+          "worst_error_point": [
+            2,
+            23
+          ],
+          "atol": 1e-12,
+          "csv_minimum": 0.0,
+          "model_minimum": 0.0,
+          "csv_minimizers": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              29
+            ],
+            [
+              27,
+              1
+            ],
+            [
+              27,
+              29
+            ]
+          ],
+          "model_minimizers": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              29
+            ],
+            [
+              27,
+              1
+            ],
+            [
+              27,
+              29
+            ]
+          ],
+          "exact_csv_minimizers": [
+            [
+              3,
+              1
+            ],
+            [
+              27,
+              1
+            ]
+          ],
+          "exact_model_minimizers": [
+            [
+              3,
+              1
+            ],
+            [
+              27,
+              1
+            ]
+          ],
+          "exact_float_minimizers_match": true,
+          "target_tolerance": 1e-05,
+          "target_points": 4,
+          "csv_sha256": "7546c9484d35eb13341d396c80f7a9d436fa5d071710eafd51f7691b2dc64f21",
+          "formula_note": ""
+        },
+        "unsupported_baron_functions": [
+          "cos",
+          "sin"
+        ],
+        "point_count": 961,
+        "normalization": "full analytic grid enumeration, outside search and point timers",
+        "initialization": "constructor midpoint; no reference optimum warm start"
+      },
+      "physical_bounds": [
+        -10.0,
+        10.0,
+        -10.0,
+        10.0
+      ],
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "hard_time_limit",
+      "objective": -1.9587104186792927e-16,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "scip",
+        "mip": "scip",
+        "warmstart": false,
+        "scip_options": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with global NLP subproblems.",
+      "reformulation_wall_s": 8.063390851020813e-05,
+      "model_variables": 64,
+      "model_constraints": 62,
+      "candidate_objective": -1.9587104186792927e-16,
+      "max_primal_violation": 1.7763568394002505e-15,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[3]",
+        "Ychoice[1]"
+      ],
+      "selected_booleans": [],
+      "incumbent_elapsed_s": 169.28856672905385,
+      "termination": "maxTimeLimit",
+      "worker_pid": 573066,
+      "worker_returncode": -15,
+      "worker_wall_s": 1800.0292075679172,
+      "hard_time_limit_reached": true,
+      "original_validation": {
+        "has_feasible_solution": true,
+        "candidate_objective": -1.9587104186792927e-16,
+        "max_primal_violation": 1.7763568394002505e-15,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[3]",
+          "Ychoice[1]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          3,
+          1
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "normalized_gap": -1.9587104186792927e-16,
+        "target_hit": true
+      },
+      "target_hit": true,
+      "lower_bound_exceeds_known_feasible_reference": false,
+      "actual_option_verified": false
+    },
+    {
+      "case": "grid",
+      "instance_id": "michalewicz",
+      "grid_name": "michalewicz",
+      "cstr_size": null,
+      "template_wall_s": 0.029281673952937126,
+      "grid_preparation": {
+        "grid_name": "michalewicz",
+        "preparation_wall_s": 0.029150272952392697,
+        "audit": {
+          "name": "michalewicz",
+          "status": "passed",
+          "points_checked": 961,
+          "physical_bounds": [
+            0.0,
+            3.141592653589793,
+            0.0,
+            3.141592653589793
+          ],
+          "normalization_min": -1.8010702893119994,
+          "normalization_range": 1.8010702893119994,
+          "max_abs_error": 2.220446049250313e-16,
+          "worst_error_point": [
+            16,
+            13
+          ],
+          "atol": 1e-12,
+          "csv_minimum": 0.0,
+          "model_minimum": 0.0,
+          "csv_minimizers": [
+            [
+              21,
+              15
+            ]
+          ],
+          "model_minimizers": [
+            [
+              21,
+              15
+            ]
+          ],
+          "exact_csv_minimizers": [
+            [
+              21,
+              15
+            ]
+          ],
+          "exact_model_minimizers": [
+            [
+              21,
+              15
+            ]
+          ],
+          "exact_float_minimizers_match": true,
+          "target_tolerance": 1e-05,
+          "target_points": 1,
+          "csv_sha256": "2a6adca0a6d7889043a086016e4fb0e5f022fccbcca03b12cf2567bfb95cc25a",
+          "formula_note": ""
+        },
+        "unsupported_baron_functions": [
+          "sin"
+        ],
+        "point_count": 961,
+        "normalization": "full analytic grid enumeration, outside search and point timers",
+        "initialization": "constructor midpoint; no reference optimum warm start"
+      },
+      "physical_bounds": [
+        0.0,
+        3.141592653589793,
+        0.0,
+        3.141592653589793
+      ],
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "finished",
+      "objective": 0.0,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "scip",
+        "mip": "scip",
+        "warmstart": false,
+        "scip_options": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with global NLP subproblems.",
+      "reformulation_wall_s": 7.832981646060944e-05,
+      "model_variables": 64,
+      "model_constraints": 62,
+      "candidate_objective": 0.0,
+      "max_primal_violation": 4.440892098500626e-16,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[21]",
+        "Ychoice[15]"
+      ],
+      "selected_booleans": [],
+      "incumbent_elapsed_s": 1478.579257364152,
+      "gdpopt_iterations": 821,
+      "solve_wall_s": 1790.372892270796,
+      "termination": "maxTimeLimit",
+      "solver_status": "ok",
+      "reported_lower_bound": -0.110450831302087,
+      "reported_upper_bound": 0.0,
+      "method_wall_s": 1790.3889520810917,
+      "solver_calls": 1641,
+      "sum_solver_call_wall_s": 1471.076453406131,
+      "recovery_policy": "grid-scip-network-and-bohachevsky2-v1",
+      "bohachevsky2_fixed_exponent_bound_resets": 0,
+      "worker_pid": 593315,
+      "worker_returncode": 0,
+      "worker_wall_s": 1790.398833095096,
+      "hard_time_limit_reached": false,
+      "original_validation": {
+        "has_feasible_solution": true,
+        "candidate_objective": 0.0,
+        "max_primal_violation": 4.440892098500626e-16,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[21]",
+          "Ychoice[15]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          21,
+          15
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "ccaecd464ee21d412feaac6b60aecc8e8d62fb03665f35871a9250d4b1c44616",
+        "normalized_gap": 0.0,
+        "target_hit": true
+      },
+      "target_hit": true,
+      "lower_bound_exceeds_known_feasible_reference": false,
+      "actual_option_verified": false
+    },
+    {
+      "case": "grid",
+      "instance_id": "shubert",
+      "grid_name": "shubert",
+      "cstr_size": null,
+      "template_wall_s": 0.03463386092334986,
+      "grid_preparation": {
+        "grid_name": "shubert",
+        "preparation_wall_s": 0.03449554601684213,
+        "audit": {
+          "name": "shubert",
+          "status": "passed",
+          "points_checked": 961,
+          "physical_bounds": [
+            0.0,
+            10.0,
+            0.0,
+            10.0
+          ],
+          "normalization_min": -11.037819188275034,
+          "normalization_range": 21.75809118738504,
+          "max_abs_error": 1.1102230246251565e-16,
+          "worst_error_point": [
+            2,
+            15
+          ],
+          "atol": 1e-12,
+          "csv_minimum": 0.0,
+          "model_minimum": 0.0,
+          "csv_minimizers": [
+            [
+              17,
+              22
+            ]
+          ],
+          "model_minimizers": [
+            [
+              17,
+              22
+            ]
+          ],
+          "exact_csv_minimizers": [
+            [
+              17,
+              22
+            ]
+          ],
+          "exact_model_minimizers": [
+            [
+              17,
+              22
+            ]
+          ],
+          "exact_float_minimizers_match": true,
+          "target_tolerance": 1e-05,
+          "target_points": 1,
+          "csv_sha256": "79bf42e84bd8ab312a7ba7a6b58d4f9d49922e328604c07073d02d101ec146b3",
+          "formula_note": "Historical three-term by two-term modified Shubert function."
+        },
+        "unsupported_baron_functions": [
+          "cos"
+        ],
+        "point_count": 961,
+        "normalization": "full analytic grid enumeration, outside search and point timers",
+        "initialization": "constructor midpoint; no reference optimum warm start"
+      },
+      "physical_bounds": [
+        0.0,
+        10.0,
+        0.0,
+        10.0
+      ],
+      "method": "loa",
+      "time_limit_s": 1800,
+      "threads": 1,
+      "status": "finished",
+      "objective": 0.0,
+      "has_feasible_solution": true,
+      "global_optimality_certified": false,
+      "global_bound_valid": false,
+      "solver_policy": {
+        "nlp": "scip",
+        "mip": "scip",
+        "warmstart": false,
+        "scip_options": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ]
+      },
+      "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with global NLP subproblems.",
+      "reformulation_wall_s": 7.4062030762434e-05,
+      "model_variables": 64,
+      "model_constraints": 62,
+      "candidate_objective": 0.0,
+      "max_primal_violation": 0.0,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[17]",
+        "Ychoice[22]"
+      ],
+      "selected_booleans": [],
+      "incumbent_elapsed_s": 986.8093304028735,
+      "gdpopt_iterations": 749,
+      "solve_wall_s": 1793.229034320917,
+      "termination": "maxTimeLimit",
+      "solver_status": "ok",
+      "reported_lower_bound": -0.044221747369219,
+      "reported_upper_bound": 0.0,
+      "method_wall_s": 1793.2451240168884,
+      "solver_calls": 1499,
+      "sum_solver_call_wall_s": 1517.8073176518083,
+      "recovery_policy": "grid-scip-network-and-bohachevsky2-v1",
+      "bohachevsky2_fixed_exponent_bound_resets": 0,
+      "worker_pid": 612373,
+      "worker_returncode": 0,
+      "worker_wall_s": 1793.2569180449937,
+      "hard_time_limit_reached": false,
+      "original_validation": {
+        "has_feasible_solution": true,
+        "candidate_objective": 0.0,
+        "max_primal_violation": 0.0,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[17]",
+          "Ychoice[22]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          17,
+          22
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "10b5789737dd3620036c81ad6a67d3db9eb29c2d94ef5292e5e3d2fba9e2fdb9",
+        "normalized_gap": 0.0,
+        "target_hit": true
+      },
+      "target_hit": true,
+      "lower_bound_exceeds_known_feasible_reference": false,
+      "actual_option_verified": false
+    }
+  ],
+  "full_loa_worker_launches": 3,
+  "pyomo_modules_unchanged": true
+}
