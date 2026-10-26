@@ -1,0 +1,33 @@
+{
+  "analysis_and_original_validation_tests_passed": 18,
+  "package_tests_passed": 12,
+  "optimizer_calls_during_analysis": 0,
+  "new_derived_files_reproduced_byte_for_byte": 10,
+  "baron_environment_comparison": [
+    {
+      "baron_methods": [
+        "gloa",
+        "ric"
+      ],
+      "differences": {}
+    },
+    {
+      "baron_methods": [
+        "loa"
+      ],
+      "differences": {}
+    },
+    {
+      "baron_methods": [
+        "bigm",
+        "hull"
+      ],
+      "differences": {}
+    }
+  ],
+  "ruff": "passed",
+  "bash_syntax": "passed",
+  "preserved_tracked_files": 2463,
+  "received_archive_sha256_verified": true,
+  "nested_sha256sums_note": "The result packer excludes nested SHA256SUMS files; the complete outer inventory, nested MANIFEST.json, and original PACKAGE_MANIFEST.json were verified."
+}
