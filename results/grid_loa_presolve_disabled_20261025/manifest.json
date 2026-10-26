@@ -1,0 +1,486 @@
+{
+  "review_revision": "24df0376881409a533b98d9a8490c902eef38b5b",
+  "preparation_base_revision": "24df0376881409a533b98d9a8490c902eef38b5b",
+  "original_execution_archive": "grid_gdpopt_scip_20261025_180441_051rkijg.zip",
+  "original_execution_archive_sha256": "69ec44f83c20817a33f51a94ec2e1a3e01ad37031cb3f8c37aae4993eafe1f50",
+  "original_source_sha256": {
+    "LICENSE": "1d34d50a6a4c138f091f62dc8428ad0177658a8a81758424683823673d48f813",
+    "README.md": "be2090e0e65c2039f34611db8a00ea7164d5bbd398a8bdab587f8c06d3c7cff5",
+    "RECOVERY_PROVENANCE.json": "593b3842ad658a39cf6d5201b7fa336d545667cc484124ab904292a9a5b01829",
+    "RECOVERY_SELECTION.json": "eded4a5ab05be1be83e869ec130de0571fc30927b80bed5ef0a57f6f3b560c77",
+    "SPLIT_PROVENANCE.json": "15aaa8fc3e9ebc51c538a440470ffe75c1424237eb0fc64605f496b9907c6bc0",
+    "benchmark_grids/ackley.csv": "6a607107c82492852bed244357cf56a96aa347754b3e14f67b73833e6a0ef67f",
+    "benchmark_grids/alpine1.csv": "ae33130fa2fc3325c4c7e1e9112fed6bc90bfa2971b32fae022b5fd90382e770",
+    "benchmark_grids/alpine2.csv": "ff8cfd7f8ca3a8e595b9ef406b51bad46068574d126e9deb665de985f577722e",
+    "benchmark_grids/bohachevsky2.csv": "999858033dfbc7d0084923abe5246d5c6273b22f7300b79a101d49448170a291",
+    "benchmark_grids/camel3.csv": "16fc6c3f64fe31e952a072b44d19ff6984c508bcfa2509f740bcc7e80211cc8f",
+    "benchmark_grids/csendes.csv": "2b197da228ae88301368acb01e34222a6a88a0d5c215991b248c0f32777ed15e",
+    "benchmark_grids/deflected_corrugated_spring.csv": "63ed8e5447773c569d87a272d9243e1bdcecbd2d6f34e2005a9ee8784fd1c048",
+    "benchmark_grids/dropwave.csv": "5af484dd952252f35138c00720bab3f19d5ac0b6402e4e8885f22b22a0e687e8",
+    "benchmark_grids/easom.csv": "04a20282270ea465edb3cb434f97bd6030b53a0aff199837298a1a20c917d2c1",
+    "benchmark_grids/griewank.csv": "67390481014ae59ee0cddd4078bdbacba4c29bf417a8eb709da6e4353364358b",
+    "benchmark_grids/holder_table.csv": "7546c9484d35eb13341d396c80f7a9d436fa5d071710eafd51f7691b2dc64f21",
+    "benchmark_grids/hosaki.csv": "d69f02c3f1b4f3371dfca3370b566ba39aaa6863737c230141b5ede81622b358",
+    "benchmark_grids/levy.csv": "fe5b30f3fcae2f33e271a97f316117ca7e03355e30f6d612bdc1db7dff8e22ce",
+    "benchmark_grids/levy13.csv": "d577e1fa4310b19d530bfeb348a7f88bbb4561285e8ffea87f85eecb90014800",
+    "benchmark_grids/michalewicz.csv": "2a6adca0a6d7889043a086016e4fb0e5f022fccbcca03b12cf2567bfb95cc25a",
+    "benchmark_grids/rastrigin.csv": "af132657e70812320c8171a1996dd120f33eb81147cd138c1d36e9e0ccaf39c8",
+    "benchmark_grids/rosenbrock.csv": "e2e5fdee4fa872c8cd54350b3a8065d3b7167d3f18e5d0fb269a3c3f7b6451f4",
+    "benchmark_grids/shubert.csv": "79bf42e84bd8ab312a7ba7a6b58d4f9d49922e328604c07073d02d101ec146b3",
+    "benchmark_grids/styblinski_tang.csv": "6000c3e54804f1e87bf1b9dd4f9082028e958c6f95d89d0a3e651218f4a5906f",
+    "benchmark_grids/sum_of_squares.csv": "f821c40aee52d021768e73cc4a383267cfac44a9657ae6bf1db12b59c766e0d3",
+    "benchmark_grids/xin_she_yang3.csv": "f96827c10578a16a8b7c5bbcbe7445e17762d1dc0705175b9fa6edaefe2d2d0d",
+    "cpu_affinity.py": "fc6470e8db52df68935abdaa5ebe76602a1c7917d08b4ca35760a042aba73b60",
+    "docs/dantzig_cpu_rerun.md": "74801018aa5047781edc24b1796e3925391c296bb42604ae9ca9f2e4511eeb36",
+    "docs/gdp_comparison.md": "0d36a2aaae143da59b637e7b1684dcaff88067d14a88a9b197de20fd48a2651a",
+    "docs/gdp_scip_experiments.md": "90d51243b8ca5eaed1e967e038ed2888738f719c8424d5e9b65a801c25ce61fe",
+    "docs/gdpopt_baron_highs.md": "8d710ee91d612e4938c1be0d84780e2afdad2471e88016f683f2128fcc57772e",
+    "docs/gdpopt_loa_baron_highs.md": "4668e19b0d04f161a0365252efbc9fbbdaf7980b59ea29e49a373dbe17885026",
+    "docs/grid_gdp.md": "1e4ad181b4534097fe7a1888199b21e2909a027ce54e0f5ccc3ef6ee4465724f",
+    "docs/grid_gdp_benchmark.md": "ba62ea17ae02ddaba516a914fe5a95f586943949bcde877df5b8461d6056d095",
+    "docs/grid_gdp_scip.md": "afd98df55fa1d8af942ba545a8241885a2d90f5286ab01aa0ac01867f713c88e",
+    "gdp_compare.py": "3e21611d2e9a3590e02c330552225f6dcbe9f0646635e35412d861299d27826b",
+    "gdp_models/__init__.py": "5ebb20b8f7249a66ace212cebabf47949e8f40d3a9ddea464b11a7eb55a47705",
+    "gdp_models/__main__.py": "3637c973071961beeb01876a23eb3bbf172d2fe3a493cbbc9e0fd29d623e6dc4",
+    "gdp_models/_sources.py": "88fc01e27c0ce4b926de669adbe9f1ceb855420fec61d9a27bf2605dd2e40afa",
+    "gdp_models/batch.py": "1fdadf7f9cfe7a2d509c143b7a5db8562abee22aba536767021b530f0c4370c8",
+    "gdp_models/comparison.py": "3db1262a29a4afe7084241830936f206d60f364798f5f475a42597da89254c0a",
+    "gdp_models/dantzig.py": "47533ff3b9436e4bc089ca7aecd43ca0c38924e379c2b3b4195a8cd60d48b3d4",
+    "gdp_models/domains.py": "bb2a9f2783fdf32f25d327c417521ecae73b2dc60fc6e579d8c0afe187493394",
+    "gdp_models/evaluation.py": "cb9d5cb77e8bf48b72665ffeafcfb0e0c00d3ac0656def725a294a21a1a4c18e",
+    "gdp_models/grid.py": "e0e65ec27d20be9f5cfe6419cb7cd176663a909614a6bb9be67db879d574c7c8",
+    "gdp_models/grid_benchmark.py": "f866797a52ac27562831e1f8081b58bbce90a8a6e0cd2cbb9afb0234c03519e9",
+    "gdp_models/grid_retry_fixes.py": "466d9b92b3247a6832ca88ebd00f8de719dccc0e4205b53ff0e6c67937243f0f",
+    "gdp_models/models.py": "1dddc02ee1463c03c1b041dfaf83444171765514e570ab8da7bf26d3ec2e9c23",
+    "gdp_models/preflight.py": "fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56",
+    "gdp_models/solvers.py": "cd1c88cb8ec66dceac2bb4f17dcd38e40fb5b3cf0891ad93298002f879040f06",
+    "gdp_scip_experiments.py": "f6b7667b99d3ce59cc0b90254ab46c54fa253857c6948127de5202a164b51d1c",
+    "gdp_scip_package.json": "d37c84e70ec6632237041d9c1f2188f829fe263db76bd36f8ad35b453ee8d881",
+    "grid_gdp_benchmark.py": "a2a1f34dc3943eb3f6f5e3507ca6ca2cd4e3b629c6e9a2ac0f7e1e36ba0cf362",
+    "grid_gdp_process_profile.json": "4671b6f69cf4e42f715165bfda3541acbe3bad3d570fd8cf8a3305c452a6e46b",
+    "grid_gdp_scip_profile.json": "670570086bdaaecb4f5632c59be1a2bf632e9bc0875fee76ed543112369ad45d",
+    "grid_recovery.py": "1ff5e53a1e6b000eec18c688f9c2b1fc5701189dbe388ab8d988538c80720ba5",
+    "grid_scip_package.py": "34dacc65dd527bba79944c40af561c364f4350384ed8d9794adaa936427ecebc",
+    "requirements-gdp-comparison.txt": "8b8411586e0460a5c6a9eb7b9901fd9240ea17198254bf747a1da23a895ef685",
+    "requirements-gdp.txt": "c59b628e0e07c2b9e86d4ee065a29ed0c211b419b4f99d1cea8d958100731bc8",
+    "run_gdp_scip_experiment.sh": "e6600272921bbee5be571a67daa3714105ddeaa66c1f12449c5dd101daefb585",
+    "run_gdpopt_baron_highs_dantzig.sh": "63a9b5ffdda15cbf72d60a9a42e5b11f4464eac68c41196109492586b1cec3ce",
+    "run_gdpopt_loa_baron_highs_dantzig.sh": "e187fe63ccfec89b684eacd0bf9a5e80796e6c521219b6fa94fab12a68e6a32c",
+    "run_grid_gdp_dantzig.sh": "6cbd62632a20d0bba2db3d55e9e5b31b423acb009c914403d8d8230a4306804b",
+    "run_grid_scip_dantzig.sh": "425a344b87de8707d10a5f540f0c1eb8348b8a026f5f11b7f28cd654773c1f51",
+    "run_method.py": "e3600e88148f11244322b894781aa2fb624a0789790d4512c32406e6ffa2a32f",
+    "run_method.sh": "a9faf88f886653911b2e2988813ca5092d90b56a27e37ae16566cfa5e535ca03",
+    "tests/test_gdp_scip_experiments.py": "e081958561f98b3016d97fa0213f15735bb941460f3b44edc15bfb7b34c1c4f7",
+    "PACKAGE_MANIFEST.json": "ff13cc0aff661edc62933aecf68400181047ec0137ec0b7466b5f6f6bc80d19f"
+  },
+  "changed_execution_source_sha256": {
+    "gdp_models/comparison.py": "c0e3259f5fa3baf935bdff1562d82faaa5ddeec59ae1f8d77f489584169e78cf"
+  },
+  "diagnostic_sources_sha256": {
+    "experiments/grid_loa_presolve_disabled/README.md": "a2a7f5ada6ccec6b2af0215ff616c43f66769a9b14d76704cf713fc6c7373299",
+    "experiments/grid_loa_presolve_disabled/analyze_diagnostic.py": "b008cd4805f573bc3307f2ed2c572b73414df0e048eb7cc9dc72a5f452d719d1",
+    "experiments/grid_loa_presolve_disabled/build_package.py": "d6a5295f2137e93cdd1b801f943fee34b7abdb0f06de36bf98e466bc0846f30e",
+    "experiments/grid_loa_presolve_disabled/diagnostic.py": "fd47028a48ef7a2f5e36cd5b52cc1d0ce08a769c1a18f3f816f8486d44a0a149",
+    "experiments/grid_loa_presolve_disabled/run_diagnostic.sh": "c73ce38d44440959316a7cac41089ffb9b9876a1d02e35dd67a8a280cb431bfb",
+    "tests/test_grid_loa_presolve_disabled.py": "0478a487bac5d4f38a87f7286e018e42787e3120dddb6b7149e0ecbbde89f151"
+  },
+  "requested_gdpopt_option_delta": {
+    "subproblem_presolve": false
+  },
+  "mip_presolve": "unchanged default True",
+  "actual_remote_gdpopt_settings": null,
+  "expected_server_environment": {
+    "host": "dantzig.ecn.purdue.edu",
+    "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+    "gams_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+    "affinity": {
+      "cpu": 14,
+      "physical_package_id": "0",
+      "core_id": "18",
+      "thread_siblings_list": "14,62",
+      "effective_cpus": [
+        14
+      ],
+      "policy": "one logical CPU; not an exclusive reservation"
+    },
+    "mcpp_sha256": null,
+    "versions": {
+      "pyomo": "6.10.0",
+      "numpy": "2.4.6",
+      "sympy": "1.14.0",
+      "networkx": "3.6.1"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OMP_THREAD_LIMIT": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1",
+      "GOTO_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "NUMEXPR_MAX_THREADS": "1"
+    },
+    "solver_checks": {
+      "scip_mip": {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "mip",
+        "limit_s": 28.499447912198956,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 1.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": 1.0,
+          "OBJVAL": 1.0,
+          "NUMVAR": 3.0,
+          "NUMEQU": 2.0,
+          "NUMDVAR": 1.0,
+          "NUMNZ": 5.0,
+          "ETSOLVE": 0.053999782539904
+        },
+        "termination": "optimal",
+        "solver_status": "ok",
+        "lower_bound": 1.0,
+        "upper_bound": 1.0,
+        "wall_s": 0.39790673297829926
+      },
+      "scip_nlp": {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "nlp",
+        "limit_s": 28.49969065618934,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 7.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": -4.848101982208935,
+          "OBJVAL": -4.848076211353316,
+          "NUMVAR": 2.0,
+          "NUMEQU": 1.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 2.0,
+          "ETSOLVE": 0.126000121235847
+        },
+        "termination": "feasible",
+        "solver_status": "ok",
+        "lower_bound": -4.848101982208935,
+        "upper_bound": -4.848076211353316,
+        "wall_s": 0.48471342609263957
+      },
+      "scip_trig": {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "nlp",
+        "limit_s": 28.49972862506984,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 7.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": -1.414217826113529,
+          "OBJVAL": -1.414213562373095,
+          "NUMVAR": 2.0,
+          "NUMEQU": 1.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 2.0,
+          "ETSOLVE": 0.072000338695943
+        },
+        "termination": "feasible",
+        "solver_status": "ok",
+        "lower_bound": -1.414217826113529,
+        "upper_bound": -1.414213562373095,
+        "wall_s": 0.4251759110484272
+      }
+    }
+  },
+  "pyomo_module_reference_scope": "Local Pyomo 6.10.0 diagnostic source hashes; historical Dantzig module-byte hashes were not recorded.",
+  "actual_local_environment": {
+    "status": "local_solver_free_only",
+    "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:07:20) [Clang 20.1.8 ]",
+    "platform": "darwin",
+    "pyomo": "6.10.0",
+    "pyomo_module_sha256": {
+      "pyomo.contrib.fbbt.fbbt": "b0f724bd5e7fe1fb872fa6b6f9cef1d64711266215af16221815192080ac5c75",
+      "pyomo.contrib.fbbt.interval": "38b7bca9f9f80559e94c50bf12939393797241b2f3d89f3c83e720b4d061645c",
+      "pyomo.contrib.gdpopt.solve_subproblem": "bfe447752b632435b7adc40e76501408d6a2fc44b20fe3723b908b1fe702bf11"
+    },
+    "results": [
+      {
+        "grid_name": "holder_table",
+        "point": [
+          3,
+          1
+        ],
+        "original_witness": {
+          "has_feasible_solution": true,
+          "candidate_objective": 0.0,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[3]",
+            "Ychoice[1]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            3,
+            1
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+          "normalized_gap": 0.0,
+          "target_hit": true
+        },
+        "default_presolve_allows_solver": false,
+        "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Lower bound (-3.233037281025837) computed for variable y is larger than the computed upper bound (-9.333333333333336).\n",
+        "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+        "subproblem_before_option_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+        "subproblem_after_option_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+        "original_model_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "optimization_calls": 0,
+        "witness_not_a_returned_solution": true
+      },
+      {
+        "grid_name": "holder_table",
+        "point": [
+          3,
+          29
+        ],
+        "original_witness": {
+          "has_feasible_solution": true,
+          "candidate_objective": 9.793552093396464e-16,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[3]",
+            "Ychoice[29]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            3,
+            29
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+          "normalized_gap": 9.793552093396464e-16,
+          "target_hit": true
+        },
+        "default_presolve_allows_solver": false,
+        "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Lower bound (9.333333333333332) computed for variable y is larger than the computed upper bound (3.23303728102584).\n",
+        "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+        "subproblem_before_option_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+        "subproblem_after_option_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+        "original_model_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "optimization_calls": 0,
+        "witness_not_a_returned_solution": true
+      },
+      {
+        "grid_name": "holder_table",
+        "point": [
+          27,
+          1
+        ],
+        "original_witness": {
+          "has_feasible_solution": true,
+          "candidate_objective": 0.0,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[27]",
+            "Ychoice[1]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            27,
+            1
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+          "normalized_gap": 0.0,
+          "target_hit": true
+        },
+        "default_presolve_allows_solver": false,
+        "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Lower bound (-3.233037281025837) computed for variable y is larger than the computed upper bound (-9.333333333333336).\n",
+        "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+        "subproblem_before_option_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+        "subproblem_after_option_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+        "original_model_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "optimization_calls": 0,
+        "witness_not_a_returned_solution": true
+      },
+      {
+        "grid_name": "holder_table",
+        "point": [
+          27,
+          29
+        ],
+        "original_witness": {
+          "has_feasible_solution": true,
+          "candidate_objective": 9.793552093396464e-16,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[27]",
+            "Ychoice[29]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            27,
+            29
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+          "normalized_gap": 9.793552093396464e-16,
+          "target_hit": true
+        },
+        "default_presolve_allows_solver": false,
+        "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Lower bound (9.333333333333332) computed for variable y is larger than the computed upper bound (3.23303728102584).\n",
+        "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+        "subproblem_before_option_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+        "subproblem_after_option_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+        "original_model_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "optimization_calls": 0,
+        "witness_not_a_returned_solution": true
+      },
+      {
+        "grid_name": "michalewicz",
+        "point": [
+          21,
+          15
+        ],
+        "original_witness": {
+          "has_feasible_solution": true,
+          "candidate_objective": 0.0,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[21]",
+            "Ychoice[15]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            21,
+            15
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "ccaecd464ee21d412feaac6b60aecc8e8d62fb03665f35871a9250d4b1c44616",
+          "normalized_gap": 0.0,
+          "target_hit": true
+        },
+        "default_presolve_allows_solver": false,
+        "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Lower bound (2.199114857512855) computed for variable x is larger than the computed upper bound (0.9424777960769378).\n",
+        "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+        "subproblem_before_option_sha256": "70b631a5d9a6ebaf3a77f39cc343dc5b89438df91f261a20f40c0abca4ef9dd4",
+        "subproblem_after_option_sha256": "70b631a5d9a6ebaf3a77f39cc343dc5b89438df91f261a20f40c0abca4ef9dd4",
+        "original_model_structure_sha256": "ccaecd464ee21d412feaac6b60aecc8e8d62fb03665f35871a9250d4b1c44616",
+        "optimization_calls": 0,
+        "witness_not_a_returned_solution": true
+      },
+      {
+        "grid_name": "shubert",
+        "point": [
+          17,
+          22
+        ],
+        "original_witness": {
+          "has_feasible_solution": true,
+          "candidate_objective": 0.0,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[17]",
+            "Ychoice[22]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            17,
+            22
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "10b5789737dd3620036c81ad6a67d3db9eb29c2d94ef5292e5e3d2fba9e2fdb9",
+          "normalized_gap": 0.0,
+          "target_hit": true
+        },
+        "default_presolve_allows_solver": false,
+        "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Detected an infeasible constraint.\n",
+        "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+        "subproblem_before_option_sha256": "b24f390775480d2ea5ace8ed78e3f9200de8b160ab3703e344f9b732b8ca3e3e",
+        "subproblem_after_option_sha256": "b24f390775480d2ea5ace8ed78e3f9200de8b160ab3703e344f9b732b8ca3e3e",
+        "original_model_structure_sha256": "10b5789737dd3620036c81ad6a67d3db9eb29c2d94ef5292e5e3d2fba9e2fdb9",
+        "optimization_calls": 0,
+        "witness_not_a_returned_solution": true
+      }
+    ],
+    "actual_fixed_solver_calls": 0,
+    "actual_full_loa_runs": 0,
+    "remote_validation": "not_run",
+    "note": "No SCIP or GAMS execution; not a Dantzig result."
+  },
+  "status": "package_validated_remote_execution_not_run",
+  "actual_new_fixed_solver_calls": 0,
+  "actual_new_full_loa_runs": 0,
+  "max_fixed_calls": 6,
+  "fixed_time_limit_s": 60,
+  "max_full_loa_runs": 3,
+  "full_time_limit_s": 1800,
+  "acceptance_and_target_tolerance": 1e-05,
+  "input_sha256": {
+    "results/archives/grid_gdpopt_scip_20261025_180441_051rkijg.zip": "69ec44f83c20817a33f51a94ec2e1a3e01ad37031cb3f8c37aae4993eafe1f50",
+    "results/grid_gdpopt_scip_recovery_loa_20261025/README.md": "50b91c7fa464b90d9d9ee8e617a2b45ed2968742094331fc0f4965d98001e40a",
+    "results/grid_gdpopt_scip_recovery_loa_20261025/manifest.json": "7682b68072072f5ef4c52cb3799a89ec580f1ff1ec609bae46b588d2e38bae75",
+    "results/grid_gdpopt_scip_recovery_loa_20261025/jobs.json": "0836ae23251cde283ddfc0ee1c5fbcff9352fd1d32c6dec8cf714e841d65e157",
+    "results/grid_gdpopt_scip_recovery_loa_20261025/target_mismatch_diagnostics.json": "81ad302a69b4acfd596a632e4ea9d723a2dd5095ff0f8c46832e30ad793733aa",
+    "results/grid_gdpopt_scip_recovery_loa_20261025/target_path_events.json": "f59e946c98fd20445c977cec481589fd50b935e6d9fb50a8273622823a0f7d41",
+    "results/grid_gdpopt_scip_recovery_comparison_20261025/README.md": "cf2585ea3774bffef66d7d367a153ab10c16dd460719f18d6591c973873b02b8"
+  },
+  "output_sha256": {
+    ".gitattributes": "126b0ac2d801d91cb586f48db35f8206c407a4b8f47b654e9a9cdf9e11995abf",
+    "BUILD_MANIFEST.json": "6e43e2a382190b2bc35864688a6407053834af0a067276e0e25a4bee8801acda",
+    "DANTZIG_COMMANDS.txt": "11eecc236b745ef92b4486ee6793d0dd440723abbdbf83903a708abdd167592c",
+    "README.md": "0091a5fd6e71f282053595b6cee1c86639624589c6bde1c60e1a688215f7d613",
+    "comparison_pending.csv": "c4c21b7422e2c2b077a06d62c68574dfc02402caa6d94643e0a2b4ff33ab8e92",
+    "comparison_pending.json": "1ced8ceb8b5b0a23058c61bdbaa61e67597c281d09412b657504eec2490db333",
+    "grid_loa_presolve_disabled_dantzig_20261025.zip": "7cb355016b33ba711baad2dd8f6d3fc166b986759a4c5dccde7c1ba311b878fd",
+    "grid_loa_presolve_disabled_dantzig_20261025.zip.sha256": "318feb8be9b0b0dc71b5fcbf60e28fc4de26d454b97bd1db553da09bce2eada4",
+    "local_inspection.json": "28c699a9ebe04aecd2ff3c66b5eca876ad0c07f8570de880073ac3a4626fe524",
+    "preservation.json": "aa2e0931c0bc11c4b77fb2c0e88476a52989280fdb340c3cc8008b692ca4097c",
+    "remote_execution_status.json": "08400110bc78449fa84acd519fa197c9231a7b212bfce8fb07c8ab988560e5f2",
+    "replay_verification.json": "81162f4efdf81fd641e05b81f916d76fe777fcd58ecffdf4d2d7324345e27fb5",
+    "tests.log": "65f7d794190096238b5458af60b7d5de9b9afabc1b2500ae3f6928a27eeef387"
+  },
+  "reproduce_commands": {
+    "build": "python experiments/grid_loa_presolve_disabled/build_package.py --output <fresh directory>",
+    "local_inspection": "python <package>/execution/diagnostic.py inspect --output <fresh inspection.json>",
+    "dantzig": "bash <package>/execution/run_diagnostic.sh run",
+    "solver_free_analysis": "python <returned run>/package/execution/analyze_diagnostic.py --run-dir <returned run> --output <fresh analysis directory>",
+    "delivery": "DANTZIG_COMMANDS.txt"
+  },
+  "provider_manifests_modified": false,
+  "manuscript_or_representative_results_modified": false
+}
