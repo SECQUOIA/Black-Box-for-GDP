@@ -1,0 +1,32 @@
+[
+  {
+    "method": "ric",
+    "common_jobs": 9,
+    "target_hits": 9,
+    "worker_wall_s": 12827.263071467634,
+    "median_worker_wall_s": 1377.7315604018513,
+    "sum_first_target_s": 9795.435616295319,
+    "median_first_target_s": 1071.901472274214,
+    "benchmark_scip_mip_calls": 13948
+  },
+  {
+    "method": "gloa",
+    "common_jobs": 9,
+    "target_hits": 9,
+    "worker_wall_s": 12485.821673602797,
+    "median_worker_wall_s": 1263.6095780842006,
+    "sum_first_target_s": 9496.837340399157,
+    "median_first_target_s": 1075.0543045361992,
+    "benchmark_scip_mip_calls": 14015
+  },
+  {
+    "method": "loa",
+    "common_jobs": 9,
+    "target_hits": 9,
+    "worker_wall_s": 13122.622300001094,
+    "median_worker_wall_s": 1415.6421844179276,
+    "sum_first_target_s": 9959.138711375184,
+    "median_first_target_s": 1102.2516223329585,
+    "benchmark_scip_mip_calls": 14118
+  }
+]

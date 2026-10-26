@@ -1,0 +1,194 @@
+[
+  {
+    "grid_name": "alpine2",
+    "method": "ric",
+    "attempt_cohort": "retained_first_attempt",
+    "target_hit": false,
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "objective": 0.06723263291103136,
+    "grid_point": [
+      30,
+      27
+    ],
+    "worker_wall_s": 1789.173306009965,
+    "result_sha256": "cd22ae48f4010f60f3480d9079f9d6241f944811c3e144b002a1e10c67601a54",
+    "archive": "grid_gdpopt_scip_20261025_072643_lhdbfn9e.zip"
+  },
+  {
+    "grid_name": "camel3",
+    "method": "ric",
+    "attempt_cohort": "recovery",
+    "target_hit": true,
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "objective": 0.0,
+    "grid_point": [
+      15,
+      15
+    ],
+    "worker_wall_s": 1789.0400306619704,
+    "result_sha256": "02747e844b4d9465591532b04da587c1f9421200b4ed6d87c2a94b95a633a298",
+    "archive": "grid_gdpopt_scip_20261025_180435_dv1cn3et.zip"
+  },
+  {
+    "grid_name": "camel3",
+    "method": "loa",
+    "attempt_cohort": "recovery",
+    "target_hit": true,
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "objective": 0.0,
+    "grid_point": [
+      15,
+      15
+    ],
+    "worker_wall_s": 1793.8073484399356,
+    "result_sha256": "cc8761d947028dfb19fecdb0ab8822781e40ef31c5c70c63dccc094ada37ca26",
+    "archive": "grid_gdpopt_scip_20261025_180441_051rkijg.zip"
+  },
+  {
+    "grid_name": "easom",
+    "method": "ric",
+    "attempt_cohort": "retained_first_attempt",
+    "target_hit": false,
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "objective": 0.8722866131855062,
+    "grid_point": [
+      18,
+      20
+    ],
+    "worker_wall_s": 1789.1431077860761,
+    "result_sha256": "b0f11ed8120346e4ba625aeda0c53e1ef839e79676cef1f5071115e7bdf9bcd2",
+    "archive": "grid_gdpopt_scip_20261025_072643_lhdbfn9e.zip"
+  },
+  {
+    "grid_name": "holder_table",
+    "method": "gloa",
+    "attempt_cohort": "retained_first_attempt",
+    "target_hit": false,
+    "status": "hard_time_limit",
+    "termination": "maxTimeLimit",
+    "objective": 0.14516723995340786,
+    "grid_point": [
+      30,
+      1
+    ],
+    "worker_wall_s": 1800.085735712899,
+    "result_sha256": "4d8f538a28a4a1b3ffb23a8d53b3e9f39a389ad372daa7fb4649006395154f23",
+    "archive": "grid_gdpopt_scip_20261025_072708_qh55t7wf.zip"
+  },
+  {
+    "grid_name": "hosaki",
+    "method": "loa",
+    "attempt_cohort": "recovery",
+    "target_hit": true,
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "objective": 0.0,
+    "grid_point": [
+      24,
+      10
+    ],
+    "worker_wall_s": 1790.6303990001325,
+    "result_sha256": "80439f6f6960418d31350a37986754508e9125309f759a5c33358c25bacda442",
+    "archive": "grid_gdpopt_scip_20261025_180441_051rkijg.zip"
+  },
+  {
+    "grid_name": "levy",
+    "method": "ric",
+    "attempt_cohort": "recovery",
+    "target_hit": true,
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "objective": -1.4566988880917495e-19,
+    "grid_point": [
+      16,
+      17
+    ],
+    "worker_wall_s": 1789.385603403207,
+    "result_sha256": "efcbb027bcd9042a03103295244ebdf491285126ba47f92d736bb2815c2b2397",
+    "archive": "grid_gdpopt_scip_20261025_180435_dv1cn3et.zip"
+  },
+  {
+    "grid_name": "levy13",
+    "method": "gloa",
+    "attempt_cohort": "retained_first_attempt",
+    "target_hit": false,
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "objective": 0.0026192196531791938,
+    "grid_point": [
+      17,
+      15
+    ],
+    "worker_wall_s": 1789.807696940843,
+    "result_sha256": "294826f4ec552d7f24cdd6d6670bfd8942e78e2617483ee89e83ec46184e5fa2",
+    "archive": "grid_gdpopt_scip_20261025_072708_qh55t7wf.zip"
+  },
+  {
+    "grid_name": "michalewicz",
+    "method": "ric",
+    "attempt_cohort": "retained_first_attempt",
+    "target_hit": false,
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "objective": 0.08649170482029742,
+    "grid_point": [
+      22,
+      15
+    ],
+    "worker_wall_s": 1789.1603688630275,
+    "result_sha256": "58de92d31c87cb0991241fa0b3a11dca379cc866830b75af13006d7289a395ce",
+    "archive": "grid_gdpopt_scip_20261025_072643_lhdbfn9e.zip"
+  },
+  {
+    "grid_name": "styblinski_tang",
+    "method": "ric",
+    "attempt_cohort": "recovery",
+    "target_hit": true,
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "objective": 0.0,
+    "grid_point": [
+      6,
+      6
+    ],
+    "worker_wall_s": 1790.6683053509332,
+    "result_sha256": "018801db0fcc41d691963c1168ca031942100f1f9dd45bd533f89f94bdc1b310",
+    "archive": "grid_gdpopt_scip_20261025_180435_dv1cn3et.zip"
+  },
+  {
+    "grid_name": "styblinski_tang",
+    "method": "gloa",
+    "attempt_cohort": "recovery",
+    "target_hit": true,
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "objective": 0.0,
+    "grid_point": [
+      6,
+      6
+    ],
+    "worker_wall_s": 1789.3135589479934,
+    "result_sha256": "3cf4b46cdd0c30367abb72cc9256f3cdc28cd5ed0b0a2648f7b6c6c6740476a3",
+    "archive": "grid_gdpopt_scip_20261025_180450_9ac86u_v.zip"
+  },
+  {
+    "grid_name": "styblinski_tang",
+    "method": "loa",
+    "attempt_cohort": "recovery",
+    "target_hit": true,
+    "status": "finished",
+    "termination": "maxTimeLimit",
+    "objective": 0.0,
+    "grid_point": [
+      6,
+      6
+    ],
+    "worker_wall_s": 1789.1278064460494,
+    "result_sha256": "5c6a7b8079461d71739bc4bad3e57ed6ab995dd6327b1de85f7fbf52541ac9e4",
+    "archive": "grid_gdpopt_scip_20261025_180441_051rkijg.zip"
+  }
+]
