@@ -5,6 +5,18 @@ The review revision is 24df0376881409a533b98d9a8490c902eef38b5b.
 It covers only holder_table, michalewicz and shubert with LOA.
 It does not update the original 21-grid performance inventory or publication material.
 
+## Logging correction delivery
+
+The original delivery stopped before its first optimizer call because Pyomo ConfigDict solver arguments were passed directly to the JSON recorder.
+The v2 delivery converts those two logging values with ConfigDict.value(), without changing the live configuration or solve arguments.
+The reported original run has zero fixed solver calls and zero full LOA runs, so it supplies no evidence about the effect of disabling presolve.
+The v2 launcher first checks the preserved original result ZIP, its source identity, checksums, first-worker error, counters, launch ledger and absence of solver execution artifacts.
+It accepts only the exact serialization failure with zero optimizer calls and refuses any prior solver attempt or other failure.
+This is a pre-solver logging repair, not a retry of an evaluated or failed optimization configuration.
+The original ZIP and exclusive execution claim remain untouched.
+The new output directory is results/grid_loa_presolve_disabled_20261025_v2, and the returned ZIP includes the original stopped ZIP and its verification record.
+The new runner has its own exclusive claim and retains the six-call and three-run limits, without any automatic resume path.
+
 The only full-LOA algorithm-option change is an explicit subproblem_presolve=False keyword in the archived GDPopt call.
 The keyword is conditional on the separate diagnostic configuration, and the existing default call passes no additional option.
 The package preserves all 68 original source files under original_source and places execution copies under execution.
@@ -76,4 +88,5 @@ python -m pytest tests/test_grid_loa_presolve_disabled.py tests/test_grid_scip_r
 ```
 
 The inspect mode is solver-free and cannot establish actual SCIP success.
-See results/grid_loa_presolve_disabled_20261025 for the delivered package, server commands, local verification and the current execution status.
+See results/grid_loa_presolve_disabled_20261025_v2 for the corrected package, server commands and local validation.
+The original delivery and its preparation evidence remain in results/grid_loa_presolve_disabled_20261025.

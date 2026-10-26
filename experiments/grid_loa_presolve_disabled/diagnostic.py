@@ -18,7 +18,7 @@ import zipfile
 
 HERE = Path(__file__).resolve().parent
 PACKAGE = HERE.parent
-TAG = 'grid_loa_presolve_disabled_20261025'
+TAG = 'grid_loa_presolve_disabled_20261025_v2'
 GRIDS = ('holder_table', 'michalewicz', 'shubert')
 POINTS = (('holder_table', (3, 1)), ('holder_table', (3, 29)),
           ('holder_table', (27, 1)), ('holder_table', (27, 29)),
@@ -303,7 +303,7 @@ def fixed_worker(template, method, directory, config, deadline):
             (directory / 'effective_gdpopt_config.txt').write_text(config_text.getvalue())
             save(directory / 'effective_gdpopt_config.json', {'subproblem_presolve': c.subproblem_presolve,
                  'mip_presolve': c.mip_presolve, 'time_limit': c.time_limit, 'force_subproblem_nlp': c.force_subproblem_nlp,
-                 'mip_solver_args': c.mip_solver_args, 'nlp_solver_args': c.nlp_solver_args})
+                 'mip_solver_args': c.mip_solver_args.value(), 'nlp_solver_args': c.nlp_solver_args.value()})
             def event(label):
                 def callback(solver, subproblem, block):
                     impl.append_event(directory / 'fixed_path.jsonl', {'event': label, 'point': point,
@@ -382,6 +382,58 @@ def claim(output_root):
     return claim_path
 
 
+def zero_call_predecessor(repository):
+    """Allow this logging correction only after the exact pre-solver failure."""
+    policy = read(PACKAGE / 'DIAGNOSTIC_MANIFEST.json')['logging_fix_predecessor']
+    archive = Path(repository) / policy['result_relative_path']
+    with zipfile.ZipFile(archive) as z:
+        names = z.namelist()
+        require(len(names) == len(set(names)) and z.testzip() is None, 'Invalid predecessor ZIP')
+        require(all(not Path(n).is_absolute() and '..' not in Path(n).parts for n in names), 'Unsafe predecessor paths')
+        roots = [n[:-len('run.json')] for n in names if n.endswith('/run.json') and n.count('/') == 1]
+        require(len(roots) == 1, 'Expected one predecessor run')
+        root = roots[0]
+        require(all(n.startswith(root) for n in names), 'Multiple predecessor roots')
+        for line in z.read(root + 'SHA256SUMS').decode().splitlines():
+            digest, name = line.split('  ', 1)
+            require(sha(z.read(root + name)) == digest, 'Predecessor checksum mismatch: ' + name)
+        require(sha(z.read(root + 'package/DIAGNOSTIC_MANIFEST.json')) == policy['diagnostic_manifest_sha256'],
+                'Predecessor was not the original diagnostic package')
+        record = json.loads(z.read(root + 'run.json'))
+        require(record.get('status') == 'stopped_fixed_gate'
+                and record.get('actual_fixed_solver_calls') == 0
+                and record.get('actual_full_loa_runs') == 0
+                and record.get('full_loa_worker_launches') == 0,
+                'Predecessor is not a zero-call stopped diagnostic; no restart permitted')
+        require(len(record.get('fixed', [])) == 1 and record.get('full') == [], 'Unexpected predecessor job scope')
+        jobs = [n for n in names if n.startswith(root + 'fixed/') and n.endswith('/result.json')]
+        require(jobs == [root + 'fixed/holder_table_3_1/result.json'], 'Unexpected predecessor fixed jobs')
+        for row in (record['fixed'][0], json.loads(z.read(jobs[0]))):
+            require(row.get('grid_name') == 'holder_table' and row.get('point') == [3, 1]
+                    and row.get('actual_solver_calls') == 0 and row.get('returned_solution_count') == 0
+                    and row.get('gate_passed') is False and row.get('message') == policy['allowed_error'],
+                    'Predecessor differs from the reported serialization failure')
+        ledger = [json.loads(line) for line in z.read(root + 'launch_ledger.jsonl').decode().splitlines()]
+        require(len(ledger) == 1 and ledger[0]['kind'] == 'fixed'
+                and ledger[0]['grid_name'] == 'holder_table' and ledger[0]['point'] == [3, 1],
+                'Predecessor launch ledger exceeds the zero-call scope')
+        for name in names:
+            if not name.startswith((root + 'fixed/', root + 'full/')):
+                continue
+            leaf = Path(name).name
+            require(not name.startswith(root + 'full/'), 'Predecessor has full-LOA artifacts')
+            require(leaf not in ('solver_return.json', 'solution.json', 'active_solver_call.json'),
+                    'Predecessor has solver execution evidence')
+            if leaf == 'solver_calls.jsonl':
+                require(not z.read(name).strip(), 'Predecessor has solver call records')
+            if leaf == 'run.log':
+                require(not re.search(rb'^(?:--- Executing |SCIP version )', z.read(name), re.M),
+                        'Predecessor log contains an optimizer invocation')
+    return {'archive': str(archive), 'sha256': sha(archive.read_bytes()),
+            'status': 'verified_serialization_failure_before_any_solver_call',
+            'actual_fixed_solver_calls': 0, 'actual_full_loa_runs': 0}
+
+
 def environment(c, output):
     from grid_gdp_benchmark import runtime
     expected = baseline()['run']['runtime']
@@ -419,6 +471,7 @@ def run():
     require(sys.platform == 'linux', 'Actual solves are Dantzig-only; use inspect locally')
     verify_package()
     repository = Path(os.environ.get('GDP_SCIP_REPOSITORY', '/local/scratch/a/lee4382/repository/RBFopt_Test'))
+    predecessor = zero_call_predecessor(repository)
     output_root = repository / 'results' / TAG
     claim(output_root)
     stamp = datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')
@@ -429,6 +482,8 @@ def run():
     record = dict(status='starting', config=c, requested_option={'subproblem_presolve': False},
                   review_revision=baseline()['review_revision'], actual_fixed_solver_calls=0, actual_full_loa_runs=0)
     save(run_dir / 'run.json', record)
+    save(run_dir / 'predecessor_verification.json', predecessor)
+    shutil.copyfile(predecessor['archive'], run_dir / 'predecessor_result.zip')
     shutil.copytree(PACKAGE, run_dir / 'package', ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
     before = module_hashes()
     try:

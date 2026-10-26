@@ -1,0 +1,14 @@
+{
+  "evidence": "User-pasted status output; original server return ZIP has not been ingested locally.",
+  "original_result_zip": "/local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025/grid_loa_presolve_disabled_20261025_result.zip",
+  "reported_original_fixed_solver_calls": 0,
+  "reported_original_full_loa_runs": 0,
+  "original_status": "stopped_fixed_gate",
+  "cause": "ConfigDict serialization in the fixed worker before optimizer entry",
+  "corrected_delivery_status": "prepared_not_executed_on_Dantzig",
+  "new_actual_fixed_solver_calls": 0,
+  "new_actual_full_loa_runs": 0,
+  "presolve_effect": "not evaluated",
+  "all_three_new_loa_results": "not_run",
+  "zero_call_predecessor_zip_check": "mandatory at server launch; not claimed completed locally"
+}

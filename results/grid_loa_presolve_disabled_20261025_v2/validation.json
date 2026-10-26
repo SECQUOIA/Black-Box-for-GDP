@@ -1,0 +1,14 @@
+{
+  "pytest": {
+    "command": "python -m pytest tests/test_grid_loa_presolve_disabled.py tests/test_grid_scip_recovery.py tests/test_grid_scip_recovery_loa_return.py tests/test_grid_scip_return.py tests/test_grid_gdpopt_scip_return.py -q",
+    "passed": 42,
+    "failed": 0,
+    "seconds": 15.33
+  },
+  "ruff": "All checks passed!",
+  "bash_n": "passed",
+  "git_diff_check": "passed",
+  "new_regression": "The old two ConfigDict expressions reproduce the exact error with zero mock calls; corrected actual workers for all six points reach a mocked optimizer boundary.",
+  "predecessor_guard": "Accepts exact zero-call serialization failure; rejects solver calls, returned solutions, full LOA entries, changed error and source.",
+  "actual_external_solver_calls_in_local_tests": 0
+}

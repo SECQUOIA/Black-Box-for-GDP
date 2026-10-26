@@ -230,3 +230,86 @@ def test_stopped_result_analysis_is_solver_free_and_reproducible(package):
         for path in (run/'analysis').iterdir():
             assert path.read_bytes()==(root/'replayed'/path.name).read_bytes(),path.name
     ''')
+
+
+def test_actual_fixed_worker_serializes_config_before_mock_solver_boundary(package):
+    execute(package,'''
+        import inspect
+        from pathlib import Path
+        from tempfile import mkdtemp
+        from unittest.mock import patch
+        import diagnostic as d
+        from gdp_compare import run_job
+        from gdp_models import comparison as impl
+        root=Path(mkdtemp())
+        c=d.config();c['time_limit']=60;c['executable']='/usr/bin/true'
+        def boundary(self,model,**kwargs):
+            directory=impl.CONTEXT.directory
+            recorded=d.read(directory/'effective_gdpopt_config.json')
+            assert recorded==dict(subproblem_presolve=False,mip_presolve=True,time_limit=60,
+                force_subproblem_nlp=True,mip_solver_args={'solver':'scip','mtype':'mip'},
+                nlp_solver_args={'solver':'scip','mtype':'nlp'})
+            assert kwargs['solver']=='scip' and kwargs['mtype']=='nlp'
+            d.save(directory/'mock_solver_boundary.json',{'actual_external_calls':0})
+            raise RuntimeError('test-only mock solver boundary reached')
+        # Restore the faulty two expressions to prove this exercises the reported failure.
+        scope=d.__dict__.copy()
+        old=inspect.getsource(d.fixed_worker).replace('c.mip_solver_args.value()', 'c.mip_solver_args').replace('c.nlp_solver_args.value()', 'c.nlp_solver_args')
+        exec(compile(old,'<pre-fix logging worker>','exec'),scope)
+        def template(g,p):
+            return impl.Template(None,{'case':'grid','grid_name':g,'instance_id':g,'diagnostic_point':list(p)})
+        with patch.object(impl.TimedGAMS,'solve',boundary):
+            legacy=run_job(template(*d.POINTS[0]),'loa',root/'legacy',c,target=scope['fixed_worker'])
+            assert legacy['actual_solver_calls']==0 and legacy['message']=='TypeError: Object of type ConfigDict is not JSON serializable'
+            assert not (root/'legacy/mock_solver_boundary.json').exists()
+            for i,(g,p) in enumerate(d.POINTS):
+                directory=root/str(i)
+                row=run_job(template(g,p),'loa',directory,c,target=d.fixed_worker)
+                assert row['actual_solver_calls']==1 and row['message']=='RuntimeError: test-only mock solver boundary reached',row
+                assert d.read(directory/'mock_solver_boundary.json')['actual_external_calls']==0
+                assert not row['gate_passed']
+                assert not (directory/'solver_return.json').exists()
+    ''')
+
+
+def test_logging_fix_only_allows_exact_zero_call_predecessor(package):
+    previous=ROOT/'results/grid_loa_presolve_disabled_20261025/grid_loa_presolve_disabled_dantzig_20261025.zip'
+    with zipfile.ZipFile(previous) as z:
+        original_manifest=z.read(previous.stem+'/DIAGNOSTIC_MANIFEST.json')
+    execute(package, rf'''
+        import copy,json,zipfile
+        from pathlib import Path
+        from tempfile import mkdtemp
+        from unittest.mock import patch
+        import diagnostic as d
+        policy=d.read(d.PACKAGE/'DIAGNOSTIC_MANIFEST.json')['logging_fix_predecessor']
+        row=dict(grid_name='holder_table',point=[3,1],actual_solver_calls=0,returned_solution_count=0,
+                 gate_passed=False,message=policy['allowed_error'])
+        base=dict(status='stopped_fixed_gate',actual_fixed_solver_calls=0,actual_full_loa_runs=0,
+                  full_loa_worker_launches=0,fixed=[row],full=[])
+        ledger=[dict(kind='fixed',grid_name='holder_table',point=[3,1],time_limit_s=60)]
+        def fixture(case):
+            r=copy.deepcopy(base);extra={{}};manifest={original_manifest!r}
+            if case=='call':r['actual_fixed_solver_calls']=1
+            if case=='row_call':r['fixed'][0]['actual_solver_calls']=1
+            if case=='full':r['actual_full_loa_runs']=1
+            if case=='error':r['fixed'][0]['message']='different failure'
+            if case=='journal':extra['fixed/holder_table_3_1/solver_calls.jsonl']=b'{{"index":1}}\n'
+            if case=='log':extra['fixed/holder_table_3_1/run.log']=b'--- Executing SCIP (Solvelink=2)\n'
+            if case=='return':extra['fixed/holder_table_3_1/solver_return.json']=b'{{}}'
+            if case=='source':manifest=b'{{}}'
+            payload={{'run.json':json.dumps(r).encode(),'fixed/holder_table_3_1/result.json':json.dumps(r['fixed'][0]).encode(),
+                'launch_ledger.jsonl':('\n'.join(json.dumps(e) for e in ledger)+'\n').encode(),
+                'package/DIAGNOSTIC_MANIFEST.json':manifest,**extra}}
+            payload['SHA256SUMS']=''.join(d.sha(b)+'  '+n+'\n' for n,b in payload.items()).encode()
+            repo=Path(mkdtemp());archive=repo/policy['result_relative_path'];archive.parent.mkdir(parents=True)
+            with zipfile.ZipFile(archive,'x') as z:
+                for n,b in payload.items():z.writestr('run_fixture/'+n,b)
+            return repo
+        for case in ['valid','call','row_call','full','error','journal','log','return','source']:
+            repo=fixture(case)
+            with patch('subprocess.Popen',side_effect=AssertionError('No external commands permitted')):
+                try:r=d.zero_call_predecessor(repo)
+                except ValueError:assert case!='valid',case
+                else:assert case=='valid' and r['actual_fixed_solver_calls']==r['actual_full_loa_runs']==0,case
+    ''')

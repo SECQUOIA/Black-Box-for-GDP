@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[2]
 REVIEW='24df0376881409a533b98d9a8490c902eef38b5b'
 ARCHIVE='grid_gdpopt_scip_20261025_180441_051rkijg.zip'
 EXPECTED='69ec44f83c20817a33f51a94ec2e1a3e01ad37031cb3f8c37aae4993eafe1f50'
-NAME='grid_loa_presolve_disabled_dantzig_20261025'
+NAME='grid_loa_presolve_disabled_dantzig_20261025_v2'
 
 
 def sha(data):
@@ -61,7 +61,18 @@ def build(output):
         'diagnostics':json.loads((audit/'target_mismatch_diagnostics.json').read_text())}
     payload['BASELINE.json']=encode(baseline)
     payload['comparison_option.diff']=''.join(difflib.unified_diff(source['gdp_models/comparison.py'].decode().splitlines(keepends=True),changed.decode().splitlines(keepends=True),fromfile='original_source/gdp_models/comparison.py',tofile='execution/gdp_models/comparison.py')).encode()
+    previous=ROOT/'results/grid_loa_presolve_disabled_20261025/grid_loa_presolve_disabled_dantzig_20261025.zip'
+    if sha(previous.read_bytes())!='7cb355016b33ba711baad2dd8f6d3fc166b986759a4c5dccde7c1ba311b878fd':
+        raise ValueError('Original diagnostic package changed')
+    with zipfile.ZipFile(previous) as z:
+        previous_manifest=sha(z.read(previous.stem+'/DIAGNOSTIC_MANIFEST.json'))
     manifest={'review_revision':REVIEW,'original_archive_sha256':EXPECTED,'original_source_sha256':run['source_sha256'],
+        'logging_fix_base_revision':'12d2d1cb0db604c998036975af547b13dddfdbf8',
+        'logging_fix':'Serialize Pyomo ConfigDict solver arguments with value(); solver configuration is unchanged.',
+        'logging_fix_predecessor':{'package_sha256':sha(previous.read_bytes()),
+            'diagnostic_manifest_sha256':previous_manifest,
+            'result_relative_path':'results/grid_loa_presolve_disabled_20261025/grid_loa_presolve_disabled_20261025_result.zip',
+            'allowed_error':'TypeError: Object of type ConfigDict is not JSON serializable'},
         'changed_existing_source':['execution/gdp_models/comparison.py'],
         'algorithm_option_delta':{'subproblem_presolve':{'old':'default True','new':False}},
         'targets':{'holder_table':[[3,1],[3,29],[27,1],[27,29]],'michalewicz':[[21,15]],'shubert':[[17,22]]},
