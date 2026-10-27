@@ -290,3 +290,14 @@ def test_interruption_does_not_leave_worker_group_running(tmp_path, monkeypatch)
     with pytest.raises(KeyboardInterrupt):
         g.bounded_worker(['mock'], tmp_path)
     assert killed == [(12346, signal.SIGKILL)]
+
+
+def test_replay_compatibility_cannot_authorize_a_solver_execution(tmp_path, monkeypatch):
+    save(tmp_path / 'preflight.json', {'passed': True, 'files_sha256': {}})
+    selection = {'source_sha256': {'verifier.py': 'recorded'}}
+    save(tmp_path / 'selection.json', selection)
+    monkeypatch.setattr(g, 'source_hashes', lambda: {'verifier.py': 'reviewed-replay-fix'})
+    monkeypatch.setattr(g, 'sources_match', lambda *args: True)
+    assert g.verify_preflight(tmp_path) == selection
+    with pytest.raises(ValueError, match='Diagnostic source differs'):
+        g.verify_preflight(tmp_path, check_runtime=True)

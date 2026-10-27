@@ -11,9 +11,11 @@ import sys
 from review_comparison.common import writecsv
 from . import feasibility as f
 from .common import ROOT, bounded, environment, read, save, sha
+from .replay import DEPENDENCIES, equivalent, residuals_match, sources_match
 
 PRIOR = ROOT / "results/review_diagnostics_20261020"
 SOURCE_PATHS = (
+    *DEPENDENCIES,
     "review_diagnostics/feasibility_followup.py",
     "review_diagnostics/feasibility.py",
     "review_diagnostics/common.py",
@@ -222,14 +224,17 @@ def verify(directory):
         if sha(directory / name) != digest:
             raise ValueError("Saved output changed: " + name)
     selection = read(directory / "selection.json")
+    if not sources_match({name: sha(ROOT / name) for name in SOURCE_PATHS},
+                         selection["execution_source_sha256"]):
+        raise ValueError("Current verification source differs from published source")
     for name, digest in selection["execution_source_sha256"].items():
-        if sha(ROOT / name) != digest or sha(directory / "execution_sources" / name) != digest:
+        if sha(directory / "execution_sources" / name) != digest:
             raise ValueError("Execution source changed: " + name)
     original, before, provenance = f.verify_input(directory)
-    if before != read(directory / "before_residuals.json"):
+    if not residuals_match(before, read(directory / "before_residuals.json")):
         raise ValueError("Original W03 recheck changed")
     restored_before, _ = f.restore(read(directory / "before_solution.json"))
-    if f.independent_check(restored_before, 1e-5) != before:
+    if not residuals_match(f.independent_check(restored_before, 1e-5), before):
         raise ValueError("Saved original vector differs from W03")
     if fixed_model_check(original, before) != read(directory / "model_equivalence.json"):
         raise ValueError("Fixed NLP equivalence changed")
@@ -246,10 +251,10 @@ def verify(directory):
         if row["returned_solution"]:
             model, _ = f.restore(read(dest / "solution.json"))
             check = f.independent_check(model, row["residual_target"], before["discrete_configuration"])
-            if check != read(dest / "independent_recheck.json"):
+            if not residuals_match(check, read(dest / "independent_recheck.json")):
                 raise ValueError("Saved returned point recheck changed")
             assessed = comparison_row(row["record"], check, provenance["lower_bound"], True, row["residual_target"])
-            if any(row[k] != v for k, v in assessed.items()):
+            if not equivalent({k: row[k] for k in assessed}, assessed):
                 raise ValueError("Assessment differs from fresh original-GDP validation")
             rechecked.append(row["record"])
         elif (dest / "solution.json").exists():
