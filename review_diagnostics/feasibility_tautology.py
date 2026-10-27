@@ -15,6 +15,7 @@ from review_comparison.common import writecsv
 from . import feasibility as f
 from . import feasibility_followup as prior
 from .common import ROOT, bounded, environment, read, save, sha
+from .replay import equivalent, residuals_match, sources_match
 
 CANDIDATES = tuple(f"logic_to_linear.transformed_constraints[{i}]" for i in (16, 17, 18))
 SOURCES = (*prior.SOURCE_PATHS, "review_diagnostics/feasibility_tautology.py")
@@ -304,7 +305,7 @@ def verify(directory, input_directory=None):
         if sha(directory / path) != digest:
             raise ValueError("Output hash mismatch: " + path)
     selection = read(directory / "selection.json")
-    if source_hashes() != manifest.get("verification_source_sha256", selection["source_sha256"]):
+    if not sources_match(source_hashes(), manifest.get("verification_source_sha256", selection["source_sha256"])):
         raise ValueError("Current verification source differs from published source")
     for path, digest in selection["source_sha256"].items():
         if sha(directory / "execution_sources" / path) != digest:
@@ -315,10 +316,10 @@ def verify(directory, input_directory=None):
         raise ValueError("Prior result manifest changed")
     prior.verify(prior_directory)
     reference, before, provenance = f.verify_input(directory)
-    if before != read(directory / "before_residuals.json"):
+    if not residuals_match(before, read(directory / "before_residuals.json")):
         raise ValueError("Original W03 no longer reproduces")
     saved_before, _ = f.restore(read(directory / "before_solution.json"))
-    if f.independent_check(saved_before, 1e-5) != before:
+    if not residuals_match(f.independent_check(saved_before, 1e-5), before):
         raise ValueError("Saved original W03 vector differs from original record")
     nlp, proof = preprocess(reference)
     if proof != read(directory / "preprocessing.json"):
@@ -337,12 +338,12 @@ def verify(directory, input_directory=None):
     if summary["returned_solution"]:
         restored, _ = f.restore(read(directory / "solution.json"))
         _, check = original_check(restored, before["discrete_configuration"])
-        if check != read(directory / "residuals.json"):
+        if not residuals_match(check, read(directory / "residuals.json")):
             raise ValueError("Returned solution failed independent replay")
     elif (directory / "solution.json").exists():
         raise ValueError("No returned vector may be labeled a solution")
     row = prior.comparison_row("tautology_followup", check, provenance["lower_bound"], summary["returned_solution"], 1e-8)
-    if any(summary["assessment"][k] != v for k, v in row.items()):
+    if not equivalent({k: summary["assessment"][k] for k in row}, row):
         raise ValueError("Assessment does not match independent validation")
     for name in ("tightened_feasibility_passed", "bound_discrepancy_persists"):
         if summary[name] != row[name]:

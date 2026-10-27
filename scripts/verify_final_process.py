@@ -25,6 +25,18 @@ RESULT = ROOT / "results/process_ipopt_bam_v2_20261015"
 MANIFEST = RESULT / "integration/manifest.json"
 
 
+# Documentation-only corrections reviewed in 44ed7215. Preserve the original
+# integration manifest and require both exact endpoints of each later edit.
+DOCUMENTATION_UPDATES = {
+    'results/grid_gdp_20261009/README.md': (
+        'ad4d5c5b06ff8811cbbf186400b3b7c65c5d38ef7424038c31185a38f5c12f12',
+        '21c40baa6605e86708622a06b77808a65f67c738daaf05abab1debd8eb96e596'),
+    'results/grid_gdp_corrected_20261009/README.md': (
+        'e7fdbc7c70a82ef2d850e50ca8a41e927b3e50a51b65ad322b6b5de51c802df0',
+        'b1ec44f19ef2794e898c0b8afcdffdfc02ba30adacf4eeedf8b74c2834271bf8'),
+}
+
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -69,7 +81,11 @@ def verify_preservation(manifest):
             missing[name] = old
         elif sha(path) != old["sha256"]:
             if name not in updates:
-                require(name in manifest["documented_nondata_changes"], f"Original artifact changed: {name}")
+                if name in DOCUMENTATION_UPDATES:
+                    require((old["sha256"], sha(path)) == DOCUMENTATION_UPDATES[name],
+                            f"Reviewed documentation changed: {name}")
+                else:
+                    require(name in manifest["documented_nondata_changes"], f"Original artifact changed: {name}")
                 changed.append(name)
         else:
             retained += 1

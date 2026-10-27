@@ -22,6 +22,7 @@ from . import feasibility as f
 from . import feasibility_followup as prior
 from . import feasibility_tautology as identities
 from .common import ROOT, environment, read, save, sha
+from .replay import sources_match
 
 INPUT = ROOT / "results/review_feasibility_followup_20261020"
 LOCAL = ROOT / "results/review_feasibility_tautology_20261020"
@@ -264,8 +265,12 @@ def verify_preflight(directory, check_runtime=False):
         if sha(directory / name) != digest:
             raise ValueError('Prepared input changed: ' + name)
     selection = read(directory / 'selection.json')
-    if selection['source_sha256'] != source_hashes():
-        raise ValueError('Diagnostic source differs from prepared source')
+    current_sources = source_hashes()
+    if selection['source_sha256'] != current_sources:
+        # Replay may use pinned verifier fixes; execution still requires the
+        # exact sources recorded when this solver input was prepared.
+        if check_runtime or not sources_match(current_sources, selection['source_sha256']):
+            raise ValueError('Diagnostic source differs from prepared source')
     if check_runtime:
         expected = read(directory / 'environment.json')
         actual = inspect_environment(expected['gams_executable'], read(directory / 'historical_environment.json'))
