@@ -1,0 +1,22 @@
+{
+  "publication_analysis_revision": "947c21bf5d81483adcee6b9810f70f3fdb7fa91a",
+  "manifest": "results/column_publication_20261025/manifest.json",
+  "manifest_sha256": "9ad42965fd5320499ebaa88a88bd1aef80e516432ceff8ec080507bcbbd33961",
+  "reproduce": "python -m review_comparison.column_publication --output /tmp/column-publication-new",
+  "column_execution_revision": "2ce74ba48c51e0382d2701382619b084bfac14b7",
+  "historical_execution_provider_revision": "38d917ef75ef6767c2a9f238d88be19bf0b89160",
+  "no_new_optimizer_or_nlp_calls": true,
+  "historical_manifest": "manuscript/review_history/pre_column_adoption/analysis_manifest_current.json",
+  "companion_tables": {
+    "exact_copies": [
+      "run_records.csv",
+      "process_hits.tex",
+      "process_cost.tex"
+    ],
+    "paired_comparisons.csv": {
+      "grid": "Preserved 25 Grid rows from review_history/pre_column_adoption/tables/paired_comparisons.csv.",
+      "process": "All 28 current rows from results/column_publication_20261025/tables/paired_process.csv.",
+      "serialization": "Union of source fields in original order, LF line endings, historical-only fields empty on Process rows."
+    }
+  }
+}
