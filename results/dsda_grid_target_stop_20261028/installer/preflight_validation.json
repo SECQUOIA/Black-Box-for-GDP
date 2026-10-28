@@ -1,0 +1,59 @@
+{
+  "status": "READY_FOR_DANTZIG_SCP",
+  "tests_passed": 13,
+  "installation": "fresh install and identical reinstall pass",
+  "package_input_validation": "1050 Grid-only exact baseline pairs; complete lookup domains",
+  "missing_denominator_check": "1050 retained with 1 verified and 1049 missing synthetic fixture",
+  "data_only_table_reproduction": "PASS",
+  "wrong_environment_full_execution_rejected": true,
+  "local_smoke": {
+    "local_grid_smoke": "PASS against the exact baseline source replayed in the same local environment",
+    "grid_new_runs": 3,
+    "grid_baseline_check_runs": 3,
+    "process_runs": 0,
+    "solver_calls": 0,
+    "records": [
+      {
+        "job": "grid_ackley_B10_seed0_dsda",
+        "baseline_callbacks": 10,
+        "new_callbacks": 10,
+        "baseline_hit": false,
+        "new_hit": false,
+        "local_callback_and_descent_prefix": "PASS",
+        "archived_callback_coordinates": "identical",
+        "local_vs_dantzig_value_differences": 0,
+        "max_absolute_rounding_difference": 0,
+        "solver_calls": 0
+      },
+      {
+        "job": "grid_csendes_B100_seed3_dsda",
+        "baseline_callbacks": 100,
+        "new_callbacks": 30,
+        "baseline_hit": true,
+        "new_hit": true,
+        "local_callback_and_descent_prefix": "PASS",
+        "archived_callback_coordinates": "identical",
+        "local_vs_dantzig_value_differences": 4,
+        "max_absolute_rounding_difference": 5.293955920339377e-23,
+        "solver_calls": 0
+      },
+      {
+        "job": "grid_easom_B100_seed5_dsda",
+        "baseline_callbacks": 27,
+        "new_callbacks": 27,
+        "baseline_hit": false,
+        "new_hit": false,
+        "local_callback_and_descent_prefix": "PASS",
+        "archived_callback_coordinates": "identical",
+        "local_vs_dantzig_value_differences": 0,
+        "max_absolute_rounding_difference": 0,
+        "solver_calls": 0
+      }
+    ],
+    "note": "Dantzig full-run gate retains exact comparison against the original server responses; no tolerance relaxation is applied."
+  },
+  "dantzig_execution_started": false,
+  "commit_created": false,
+  "push_performed": false,
+  "installer_sha256": "4d6ba06b83d2e0b10c789fea465ebe8052da8740dd694fe1b174c64fa909bd86"
+}

@@ -1,0 +1,66 @@
+--- baseline_return/reproduction/grid_dsda.py
++++ experiments/dsda_grid_target_stop/grid_dsda.py
+@@ -563,6 +563,7 @@
+     verbose=True,
+     max_points_explored=100,
+     improvement_abs_tol=None,
++    target_stop=None,
+ ):
+     """
+     Rank starting points by initial value, then run DSDA from best to worst.
+@@ -600,6 +601,10 @@
+     if max_points_explored is not None and max_points_explored < 1:
+         raise ValueError("max_points_explored must be at least 1.")
+ 
++    if target_stop is not None and not callable(target_stop):
++        raise TypeError("target_stop must be callable or None")
++    target_stop_checks = []
++
+     start_time = time.perf_counter()
+ 
+     _, grid = load_grid_csv(csv_path)
+@@ -646,6 +651,8 @@
+     best_point, best_value = starting_point_values[0]
+ 
+     def target_reached(val):
++        if target_stop is not None:
++            return bool(target_stop(tracked_objective.incumbent, target_value))
+         return isclose(val, target_value, abs_tol=tol, rel_tol=0.0)
+ 
+     if (
+@@ -699,6 +706,8 @@
+             adaptive_evals=total_point_evaluations_across_runs,
+             unique_evals=len(all_unique_points_explored),
+         )
++        if target_stop is not None:
++            result["target_stop_checks"] = target_stop_checks
+         return result
+ 
+     for i, pt in enumerate(ordered_starting_points, start=1):
+@@ -776,7 +785,16 @@
+                 )
+             break
+ 
+-        if target_reached(run_result["best_value"]):
++        reached = target_reached(run_result["best_value"])
++        if target_stop is not None:
++            target_stop_checks.append(dict(
++                descent_index=i, callback=tracked_objective.call_count,
++                observed_incumbent=tracked_objective.incumbent,
++                target=target_value, reached=reached,
++            ))
++        if reached:
++            if target_stop is not None:
++                stop_reason = "target_common_success"
+             if verbose:
+                 print(f"\nTarget value {target_value} reached. Stopping the loop.")
+             break
+@@ -823,6 +841,8 @@
+         adaptive_evals=total_point_evaluations_across_runs,
+         unique_evals=len(all_unique_points_explored),
+     )
++    if target_stop is not None:
++        result["target_stop_checks"] = target_stop_checks
+     return result
+ 
+ 
