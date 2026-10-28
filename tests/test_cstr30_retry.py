@@ -3,7 +3,11 @@
 import hashlib
 import json
 import os
+import signal
+import subprocess
 import sys
+import time
+from types import SimpleNamespace
 import zipfile
 
 import pytest
@@ -45,6 +49,86 @@ def test_timeout_stops_child_and_does_not_block_next_point(tmp_path):
     assert timed["worker_process_wall_s"] < 10
     next_one = retry.run_child([sys.executable, "-c", "print('next')"], tmp_path / "next.log", 10)
     assert next_one["worker_returncode"] == 0
+
+
+@pytest.mark.parametrize("signum", [0, signal.SIGTERM, signal.SIGKILL])
+def test_darwin_group_retry_reaps_worker_and_checks_same_group(monkeypatch, signum):
+    monkeypatch.setattr(retry.sys, "platform", "darwin")
+    events = []
+    process = SimpleNamespace(pid=12345, poll=lambda: events.append("reap"))
+
+    def killpg(pid, sig):
+        assert (pid, sig) == (process.pid, signum)
+        events.append("signal")
+        if events.count("signal") == 1:
+            raise PermissionError("exiting group")
+        raise ProcessLookupError("group disappeared after reap")
+
+    monkeypatch.setattr(retry.os, "killpg", killpg)
+    monkeypatch.setattr(retry.time, "sleep", lambda _: None)
+    with pytest.raises(ProcessLookupError):
+        retry._signal_process_group(process, signum)
+    assert events == ["signal", "reap", "signal"]
+
+
+@pytest.mark.parametrize("platform,attempts", [("darwin", 3), ("linux", 1)])
+def test_persistent_group_permission_error_is_not_suppressed(monkeypatch, platform, attempts):
+    monkeypatch.setattr(retry.sys, "platform", platform)
+    calls = []
+    denied = PermissionError("actual permission denial")
+    process = SimpleNamespace(pid=12345, poll=lambda: None)
+
+    def killpg(pid, sig):
+        calls.append((pid, sig))
+        raise denied
+
+    monkeypatch.setattr(retry.os, "killpg", killpg)
+    monkeypatch.setattr(retry.time, "sleep", lambda _: None)
+    with pytest.raises(PermissionError) as error:
+        retry._signal_process_group(process, signal.SIGKILL)
+    assert error.value is denied
+    assert calls == [(process.pid, signal.SIGKILL)] * attempts
+
+
+def test_reaped_leader_does_not_skip_surviving_group_cleanup(monkeypatch):
+    monkeypatch.setattr(retry.sys, "platform", "darwin")
+    calls = []
+    denied_once = False
+    process = SimpleNamespace(pid=12345, poll=lambda: -signal.SIGTERM,
+                              wait=lambda: calls.append("wait"))
+
+    def killpg(pid, sig):
+        nonlocal denied_once
+        assert pid == process.pid
+        calls.append(sig)
+        if sig == 0 and not denied_once:
+            denied_once = True
+            raise PermissionError("leader exiting, descendants still present")
+
+    monkeypatch.setattr(retry.os, "killpg", killpg)
+    monkeypatch.setattr(retry.time, "sleep", lambda _: None)
+    retry.stop_process(process, grace=0)
+    assert calls == [signal.SIGTERM, 0, 0, signal.SIGKILL, "wait"]
+
+
+@pytest.mark.skipif(sys.platform != "darwin", reason="Darwin zombie-only process-group behavior")
+def test_darwin_cleanup_of_exited_but_unreaped_worker():
+    process = subprocess.Popen([sys.executable, "-c", "pass"],
+                               start_new_session=True, stdout=subprocess.PIPE)
+    try:
+        # EOF leaves the worker unreaped, unlike Popen.poll()/wait().
+        # Allow exit to settle without requiring a particular Darwin errno.
+        process.stdout.read()
+        time.sleep(0.05)
+        retry.stop_process(process, grace=0.05)
+        assert process.returncode == 0
+        with pytest.raises(ChildProcessError):
+            os.waitpid(process.pid, os.WNOHANG)
+    finally:
+        process.stdout.close()
+        if process.poll() is None:
+            process.kill()
+        process.wait(timeout=5)
 
 
 def manifest():

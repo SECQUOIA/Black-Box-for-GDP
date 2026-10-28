@@ -124,8 +124,8 @@ python results/dsda_abs1e5_rerun_20261028/verify.py --output /tmp/dsda_protocol_
 The initial implementation validation included 188 passing tests and two subtests, the full 1,190-job replay, the unchanged 3,430-job historical audit, both source-archive data-only verifiers, and 12 byte-identical regenerated publication tables.
 The original [verification receipt](dsda_protocol_53_verification.json) records that revision's input and maintained-source hashes and preservation checks.
 The [review follow-up receipt](dsda_protocol_review_verification.json) records the integration fixes, expanded tests, repeated replay and audits, and the remaining platform limitation.
-The review follow-up passes 169 targeted tests with one optional-dependency skip, and the broader suite reports 1,432 passes, 33 skips, nine passing subtests, and one pre-existing platform failure.
-The remaining failure is `tests/test_cstr30_retry.py::test_timeout_stops_child_and_does_not_block_next_point`, where macOS denies the process-group `os.killpg` call with `PermissionError: [Errno 1] Operation not permitted`.
-The same failure was reproduced on the unchanged PR base, and its test and production code have not been modified or bypassed.
+At review follow-up revision `e40e7d36`, 169 targeted tests passed with one optional-dependency skip, and the broader suite reported 1,432 passes, 33 skips, nine passing subtests, and one pre-existing platform failure.
+That failure was `tests/test_cstr30_retry.py::test_timeout_stops_child_and_does_not_block_next_point`, also reproduced on the unchanged PR base.
+Subsequent investigation identified a Darwin zombie-group cleanup race rather than a general inability to signal the child, and the [watchdog fix and verification](cstr30_retry.md#macos-watchdog-cleanup) preserve genuine permission errors and descendant cleanup.
 All pre-existing result files, manifests, verification files, source evidence, manuscript files, publication figures, CI configuration, and unrelated checkout contents are preserved.
 No Dantzig job, new solver run, other-method experiment, manual CI request, manuscript update, or automatic merge is performed.
