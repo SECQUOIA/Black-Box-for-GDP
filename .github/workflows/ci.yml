@@ -4,7 +4,8 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    # Include stacked follow-ups to PR #52 before that branch merges into main.
+    branches: [main, review/cstr15-dantzig-results]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
