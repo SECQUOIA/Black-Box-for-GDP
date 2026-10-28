@@ -195,16 +195,23 @@ def save_results_csv(results_list, output_path):
     """
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    results_list = list(results_list)
+    # Preserve the original schema for callers that do not report D-SDA target
+    # proximity; mixed-method files leave these optional columns empty elsewhere.
+    optional = ("observed_best_value", "target_reached")
+    fields = RESULT_FIELDS + tuple(
+        field for field in optional if any(field in row for row in results_list)
+    )
 
     with output_path.open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=RESULT_FIELDS)
+        writer = csv.DictWriter(handle, fieldnames=fields)
         writer.writeheader()
         for result in results_list:
             _validate_result_record(result)
             writer.writerow(
                 {
-                    field: _serialize_for_csv(result[field])
-                    for field in RESULT_FIELDS
+                    field: _serialize_for_csv(result.get(field))
+                    for field in fields
                 }
             )
 

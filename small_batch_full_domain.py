@@ -146,6 +146,7 @@ def run_dfo(spec, config):
                 raise ValueError("No feasible initial point; the run must not be silently reseeded")
             point, best = min(feasible, key=lambda item: item[1])
             result = dsda_from_csv(
+                improvement_abs_tol=None,  # Historical full-domain campaign.
                 csv_path="small_batch_full_domain", grid=domain, tracked_objective=tracked,
                 start_point=point, start_value=best, max_points_explored=budget - n_initial,
                 diagonal=spec["settings"]["diagonal"], tie_break=spec["settings"]["tie_break"], verbose=True)

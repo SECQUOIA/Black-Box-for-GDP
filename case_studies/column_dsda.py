@@ -5,8 +5,11 @@ import math
 import time
 from pathlib import Path
 
+from dsda_protocol import (
+    IMPROVEMENT_ABS_TOL, ObservedObjective, add_target_report, validate_tolerances,
+)
 from grid_dsda import dsda_from_csv
-from instrumentation import TrackedObjective, make_result_record, save_results_csv
+from instrumentation import make_result_record, save_results_csv
 from .dsda_domain import box_membership, rank_observed_starts, validate_design
 
 from .column_case import (
@@ -46,8 +49,10 @@ def run_column_dsda(
     tie_break="first",
     verbose=False,
     starting_points=None,
+    improvement_abs_tol=IMPROVEMENT_ABS_TOL,
 ):
     """Run DSDA on the column case from the best feasible LHC start."""
+    validate_tolerances(1e-12, improvement_abs_tol)
     if starting_points is None:
         starting_points = generate_lhc_starting_points(
             n_dims=2,
@@ -60,7 +65,7 @@ def run_column_dsda(
         starting_points, LOWER_BOUNDS, UPPER_BOUNDS, n_starts, max_evaluations,
     )
     domain = box_membership(LOWER_BOUNDS, UPPER_BOUNDS)
-    tracked_objective = TrackedObjective(column_objective)
+    tracked_objective = ObservedObjective(column_objective, penalty=PENALTY, legacy=improvement_abs_tol is None)
     start_time = time.perf_counter()
     (
         selected_start,
@@ -91,6 +96,7 @@ def run_column_dsda(
             grid=domain,
             tracked_objective=tracked_objective,
             start_value=selected_start_value,
+            improvement_abs_tol=improvement_abs_tol,
         )
 
     if run_result is None:
@@ -127,7 +133,7 @@ def run_column_dsda(
             0 if run_result is None else run_result["major_iterations"]
         ),
     )
-    return {
+    result = {
         "case_name": "column",
         "starting_points": starting_points,
         "starting_point_values": starting_point_values,
@@ -144,6 +150,8 @@ def run_column_dsda(
         "stop_reason": stop_reason,
         "result_record": result_record,
     }
+    add_target_report(result, tracked_objective.observed_incumbent, KNOWN_BEST_VALUE)
+    return result
 
 
 def main(output_path=None, **kwargs):

@@ -432,7 +432,8 @@ def optimize(spec, oracle, config, directory):
         raise RuntimeError('No accepted initial point; no reseeding')
     best = min(accepted, key=lambda e: e['raw_objective'])
     domain = dict.fromkeys(itertools.product(*(range(lo, hi + 1) for lo, hi in zip(spec['lower'], spec['upper']))))
-    return dsda_from_csv(csv_path='IPOPT_lookup', start_point=best['point'], start_value=best['raw_objective'],
+    # Reproduce this historical campaign with explicit legacy movement.
+    return dsda_from_csv(improvement_abs_tol=None, csv_path='IPOPT_lookup', start_point=best['point'], start_value=best['raw_objective'],
                          grid=domain, tracked_objective=oracle, max_points_explored=spec['budget'] - 3,
                          verbose=True, **spec['settings'])
 
