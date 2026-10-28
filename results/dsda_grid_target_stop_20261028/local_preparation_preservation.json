@@ -1,0 +1,35 @@
+{
+  "backup_filename": "dsda_grid_target_stop_local_preparation_20261028.zip",
+  "backup_sha256": "6b8bc70d7571495802a9cb4a7c301a26986fb69adeff95cda0325f26ca7c0591",
+  "backup_bytes": 19416027,
+  "preserved_file_count": 6474,
+  "source_directories": [
+    {
+      "worktree": "main",
+      "path": "results/dsda_grid_target_stop_preparation_20261028"
+    },
+    {
+      "worktree": "pr52_worktree",
+      "path": "results/dsda_grid_target_stop_installer_validation"
+    },
+    {
+      "worktree": "pr52_worktree",
+      "path": "results/dsda_grid_target_stop_local_smoke_comparison"
+    },
+    {
+      "worktree": "pr52_worktree",
+      "path": "results/dsda_grid_target_stop_local_validation_1"
+    },
+    {
+      "worktree": "pr52_worktree",
+      "path": "results/dsda_grid_target_stop_local_validation_final"
+    },
+    {
+      "worktree": "pr52_worktree",
+      "path": "results/dsda_grid_target_stop_smoke_1"
+    }
+  ],
+  "verification": "Every archived file matches its source SHA256 and byte count.",
+  "published_evidence": "Exact return archive, executed workflow sources, installer and independent publication audit are retained in the PR.",
+  "working_copies_removed_after_verification": true
+}
