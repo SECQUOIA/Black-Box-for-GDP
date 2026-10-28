@@ -167,3 +167,11 @@ The [submission verification](../manuscript/submission_revision_verification.jso
 No optimizer, NLP, fitting, annealing or server experiment was rerun during this manuscript revision, and no CI workflow was requested.
 The follow-up branch is `review/cstr15-dantzig-results`; PR #48 remains merged and unchanged.
 Repository visibility and unauthenticated external access to the cited commits remain administrator-controlled release items.
+
+## D-SDA tolerance adoption, 28 October 2026
+
+The [publication analysis](../results/dsda_publication_20261028/README.md) adopts the completed Grid common-target stopping run and the Process absolute-improvement rerun.
+Grid D-SDA uses the common target predicate at its existing post-descent checkpoint, and both scopes require strict absolute objective improvement greater than 1e-5.
+Only D-SDA records change; all other method records, original archives, and provider revisions are preserved.
+The primary Process cohort retains 315/700 target hits and 2,024 distinct visited configurations, with 16,041 charged callbacks.
+These changes address the numerical criteria in David comments 4 and 5 without equating objective improvement, reference-target proximity, and primal feasibility.
