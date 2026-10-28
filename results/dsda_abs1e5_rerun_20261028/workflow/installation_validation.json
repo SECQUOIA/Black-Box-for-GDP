@@ -1,0 +1,12 @@
+{
+  "unit_tests_passed": 32,
+  "input_pairings": 1190,
+  "installation_and_reinstall": "passed",
+  "input_preservation": "passed",
+  "ruff": "passed",
+  "new_full_dantzig_execution_started": false,
+  "source": "/Users/albertlee0125/Repos/RBFopt_Test/results/dsda_abs1e5_server_repository_setup_20261027/dsda_repository_run.py",
+  "source_sha256": "4f437cd82e533056eaca8e089cc230071b1984dedd2287c64e73dd97c2534572",
+  "default_server_installation": "/local/scratch/a/lee4382/repository/RBFopt_Test/experiments/dsda_abs1e5",
+  "launch_behavior": "Fresh preparation, fresh fully idle physical-core check, single-CPU detached execution with a lock against duplicate runs."
+}
