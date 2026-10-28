@@ -244,6 +244,8 @@ def invoke(spec):
         "max_evaluations": spec["max_evaluations"],
         "starting_points": spec["starting_points"],
         "verbose": True,
+        # This driver reproduces the sealed pre-issue-53 campaign.
+        "improvement_abs_tol": None,
         **spec["settings"],
     }
     if spec["case_name"] == "cstr":

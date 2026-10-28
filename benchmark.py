@@ -13,6 +13,7 @@ import numpy as np
 
 from case_studies.bam_common import run_bam_with_initial_design, suppress_solver_output
 from case_studies.common import generate_lhc_starting_points
+from dsda_protocol import IMPROVEMENT_ABS_TOL, common_target_reached
 from grid_dsda import load_grid_csv, run_dsda_from_best_starting_points
 from instrumentation import TrackedObjective, make_result_record, save_results_csv
 
@@ -251,6 +252,8 @@ def run_dsda_benchmark_case(
     diagonal=True,
     tie_break="first",
     verbose=False,
+    improvement_abs_tol=IMPROVEMENT_ABS_TOL,
+    target_stop=common_target_reached,
 ):
     """Run one DSDA benchmark case and return its unified result record."""
     result = run_dsda_from_best_starting_points(
@@ -262,6 +265,8 @@ def run_dsda_benchmark_case(
         target_value=target_value,
         verbose=verbose,
         max_points_explored=max_evals,
+        improvement_abs_tol=improvement_abs_tol,
+        target_stop=target_stop,
     )
     record = dict(result["result_record"])
     record.update(
@@ -269,9 +274,6 @@ def run_dsda_benchmark_case(
             "seed": seed,
             "n_starts": n_starts,
             "max_evals": max_evals,
-            "found_optimum": math.isclose(
-                record["best_value"], target_value, abs_tol=1e-12, rel_tol=0.0
-            ),
             "initial_evals": result["initial_points_evaluated"],
             "adaptive_evals": result["total_point_evaluations_across_runs"],
             "unique_evals": result["total_unique_points_explored_across_runs"],

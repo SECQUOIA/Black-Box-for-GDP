@@ -21,14 +21,18 @@ import pandas as pd
 import random
 import time
 from itertools import product
-from math import isclose, sqrt
+from math import isclose, isfinite, sqrt
 from pathlib import Path
 
 from instrumentation import (
-    TrackedObjective,
     make_result_record,
     make_timestamped_results_dir,
     save_results_csv,
+)
+
+from dsda_protocol import (
+    IMPROVEMENT_ABS_TOL, ObservedObjective, common_target_reached,
+    improves, validate_tolerances, add_target_report,
 )
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -120,6 +124,7 @@ def dsda_from_csv(
     grid=None,
     tracked_objective=None,
     start_value=None,
+    improvement_abs_tol=IMPROVEMENT_ABS_TOL,
 ):
     """
     DSDA-style search on a discrete grid loaded from CSV.
@@ -149,7 +154,10 @@ def dsda_from_csv(
     maximize : bool, optional
         If True, maximize z_norm. Otherwise minimize.
     tol : float, optional
-        Improvement tolerance.
+        Internal tie tolerance (default 1e-12), also used in legacy movement.
+    improvement_abs_tol : float or None, optional
+        Strict absolute movement threshold (default 1e-5); None selects the
+        historical arithmetic using tol.
     tie_break : str, optional
         How to break ties between equally good improving neighbors.
         Options:
@@ -193,6 +201,7 @@ def dsda_from_csv(
             "objective_wall_times": [...],
         }
     """
+    validate_tolerances(tol, improvement_abs_tol)
     if max_points_explored is not None and max_points_explored < 1:
         raise ValueError("max_points_explored must be at least 1.")
 
@@ -206,8 +215,8 @@ def dsda_from_csv(
         raise ValueError(f"Start point {start_point} is not in the grid.")
 
     if tracked_objective is None:
-        tracked_objective = TrackedObjective(
-            make_grid_objective(grid), maximize=maximize
+        tracked_objective = ObservedObjective(
+            make_grid_objective(grid), maximize=maximize, legacy=improvement_abs_tol is None
         )
 
     initial_call_count = tracked_objective.call_count
@@ -241,9 +250,7 @@ def dsda_from_csv(
         return tracked_objective.wall_times[initial_call_count:]
 
     def better(new_val, current_val):
-        if maximize:
-            return new_val > current_val + tol
-        return new_val < current_val - tol
+        return improves(new_val, current_val, maximize, tol, improvement_abs_tol)
 
     def equal_obj(a, b):
         return isclose(a, b, abs_tol=tol, rel_tol=0.0)
@@ -552,9 +559,22 @@ def run_dsda_from_best_starting_points(
     target_value=0.0,
     verbose=True,
     max_points_explored=100,
+    improvement_abs_tol=IMPROVEMENT_ABS_TOL,
+    target_stop=common_target_reached,
+    grid=None,
+    tracked_objective=None,
 ):
     """
     Rank starting points by initial value, then run DSDA from best to worst.
+
+    The default target_stop uses the finite observed incumbent and the adopted
+    common target tolerance after each completed descent, after checking budget.
+    Pass improvement_abs_tol=None and target_stop=None for legacy movement and
+    absolute tol target checks; ties always use tol independently.
+    Optional grid/tracked_objective inputs support stored-response replay; the
+    tracker must be fresh and its incumbent must exclude invalid responses.
+    Path-selected best_value is retained; observed_best_value and target_reached
+    describe all accepted observations, including rejected moves.
 
     Parameters
     ----------
@@ -586,15 +606,28 @@ def run_dsda_from_best_starting_points(
             "objective_wall_times": [...],
         }
     """
+    validate_tolerances(tol, improvement_abs_tol)
     if max_points_explored is not None and max_points_explored < 1:
         raise ValueError("max_points_explored must be at least 1.")
 
+    if target_stop is not None and not callable(target_stop):
+        raise TypeError("target_stop must be callable or None")
+    target_stop_checks = []
+
     start_time = time.perf_counter()
 
-    _, grid = load_grid_csv(csv_path)
-    tracked_objective = TrackedObjective(make_grid_objective(grid), maximize=maximize)
+    if grid is None:
+        _, grid = load_grid_csv(csv_path)
+    if tracked_objective is None:
+        tracked_objective = ObservedObjective(
+            make_grid_objective(grid), maximize=maximize, legacy=improvement_abs_tol is None
+        )
+    if tracked_objective.call_count:
+        raise ValueError("Multi-start requires a fresh objective tracker")
 
     cleaned_points = [tuple(pt) for pt in starting_points]
+    if not cleaned_points:
+        raise ValueError("At least one starting point is required")
 
     for pt in cleaned_points:
         if pt not in grid:
@@ -612,7 +645,14 @@ def run_dsda_from_best_starting_points(
         starting_point_values.append((pt, tracked_objective(pt)))
 
     # Sort starting points by initial value
-    starting_point_values.sort(key=lambda item: item[1], reverse=maximize)
+    if improvement_abs_tol is None:
+        starting_point_values.sort(key=lambda item: item[1], reverse=maximize)
+    else:
+        starting_point_values.sort(
+            key=lambda item: item[1] if isfinite(item[1]) else (
+                -float("inf") if maximize else float("inf")
+            ), reverse=maximize,
+        )
     ordered_starting_points = [pt for pt, _ in starting_point_values]
     starting_value_by_point = {pt: val for pt, val in starting_point_values}
 
@@ -635,6 +675,8 @@ def run_dsda_from_best_starting_points(
     best_point, best_value = starting_point_values[0]
 
     def target_reached(val):
+        if target_stop is not None:
+            return bool(target_stop(tracked_objective.incumbent, target_value))
         return isclose(val, target_value, abs_tol=tol, rel_tol=0.0)
 
     if (
@@ -688,6 +730,9 @@ def run_dsda_from_best_starting_points(
             adaptive_evals=total_point_evaluations_across_runs,
             unique_evals=len(all_unique_points_explored),
         )
+        add_target_report(result, tracked_objective.incumbent, target_value)
+        if target_stop is not None:
+            result["target_stop_checks"] = target_stop_checks
         return result
 
     for i, pt in enumerate(ordered_starting_points, start=1):
@@ -722,6 +767,7 @@ def run_dsda_from_best_starting_points(
             grid=grid,
             tracked_objective=tracked_objective,
             start_value=starting_value_by_point[pt],
+            improvement_abs_tol=improvement_abs_tol,
         )
 
         runs.append(run_result)
@@ -736,12 +782,12 @@ def run_dsda_from_best_starting_points(
             best_value = run_result["best_value"]
         else:
             if maximize:
-                if run_result["best_value"] > best_value + tol:
+                if improves(run_result["best_value"], best_value, True, tol, improvement_abs_tol):
                     best_run = run_result
                     best_point = run_result["best_point"]
                     best_value = run_result["best_value"]
             else:
-                if run_result["best_value"] < best_value - tol:
+                if improves(run_result["best_value"], best_value, False, tol, improvement_abs_tol):
                     best_run = run_result
                     best_point = run_result["best_point"]
                     best_value = run_result["best_value"]
@@ -764,7 +810,16 @@ def run_dsda_from_best_starting_points(
                 )
             break
 
-        if target_reached(run_result["best_value"]):
+        reached = target_reached(run_result["best_value"])
+        if target_stop is not None:
+            target_stop_checks.append(dict(
+                descent_index=i, callback=tracked_objective.call_count,
+                observed_incumbent=tracked_objective.incumbent,
+                target=target_value, reached=reached,
+            ))
+        if reached:
+            if target_stop is not None:
+                stop_reason = "target_common_success"
             if verbose:
                 print(f"\nTarget value {target_value} reached. Stopping the loop.")
             break
@@ -811,6 +866,9 @@ def run_dsda_from_best_starting_points(
         adaptive_evals=total_point_evaluations_across_runs,
         unique_evals=len(all_unique_points_explored),
     )
+    add_target_report(result, tracked_objective.incumbent, target_value)
+    if target_stop is not None:
+        result["target_stop_checks"] = target_stop_checks
     return result
 
 
