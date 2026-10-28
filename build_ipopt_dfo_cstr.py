@@ -24,7 +24,7 @@ EXPECTED_ARCHIVE_HASHES = {
     (20, 25): '38f1f99098113f67a0cec623eff88dfdf3e10bda2c7c07a5a356cbabce527677',
 }
 FILES = ['ipopt_dfo_cstr.py', 'run_ipopt_dfo_cstr_dantzig.sh', 'docs/ipopt_dfo_cstr_dantzig.txt',
-         'grid_dsda.py', 'instrumentation.py', 'evaluation_trace.py', 'cpu_affinity.py', 'LICENSE',
+         'grid_dsda.py', 'dsda_protocol.py', 'instrumentation.py', 'evaluation_trace.py', 'cpu_affinity.py', 'LICENSE',
          'case_studies/__init__.py', 'case_studies/common.py', 'fmqa_benchmark/__init__.py',
          'fmqa_benchmark/protocol.py', 'fmqa_benchmark/optimizer.py', 'fmqa_benchmark/qhd_surrogate.py']
 

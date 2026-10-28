@@ -36,6 +36,43 @@ RESULT_FIELDS = (
     "solver_status",
     "solver_message",
 )
+OPTIONAL_RESULT_FIELDS = ("observed_best_value", "target_reached")
+
+
+def result_fields(records):
+    """Canonical CSV columns, retaining the legacy header when applicable."""
+    return RESULT_FIELDS + tuple(
+        field for field in OPTIONAL_RESULT_FIELDS if any(field in row for row in records)
+    )
+
+
+def result_schema(fields=RESULT_FIELDS):
+    """Describe a supported header without accepting unknown or reordered fields."""
+    fields = tuple(fields)
+    expected = RESULT_FIELDS + tuple(f for f in OPTIONAL_RESULT_FIELDS if f in fields)
+    if fields != expected:
+        raise ValueError("Result CSV schema does not match RESULT_FIELDS and optional fields")
+    return {
+        "name": "unified_benchmark_result",
+        "fields": list(fields),
+        "structured_value_encoding": "JSON strings in CSV cells",
+    }
+
+
+def parse_optional_result_fields(record):
+    """Restore typed reporting fields; blank mixed-method cells mean absent keys."""
+    observed = record.get("observed_best_value", "")
+    target = record.get("target_reached", "")
+    if observed == "" and target == "":
+        return {}
+    parsed = {}
+    if "observed_best_value" in record:
+        parsed["observed_best_value"] = float(observed) if observed != "" else None
+    if "target_reached" in record and target != "":
+        if target not in {"True", "False"}:
+            raise ValueError(f"Invalid target_reached value in result: {target!r}")
+        parsed["target_reached"] = target == "True"
+    return parsed
 
 
 class TrackedObjective:
@@ -198,10 +235,7 @@ def save_results_csv(results_list, output_path):
     results_list = list(results_list)
     # Preserve the original schema for callers that do not report D-SDA target
     # proximity; mixed-method files leave these optional columns empty elsewhere.
-    optional = ("observed_best_value", "target_reached")
-    fields = RESULT_FIELDS + tuple(
-        field for field in optional if any(field in row for row in results_list)
-    )
+    fields = result_fields(results_list)
 
     with output_path.open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields)

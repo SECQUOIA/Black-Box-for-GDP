@@ -7,6 +7,7 @@ looks for metadata in ``benchmark_grids``.
 """
 
 import argparse
+import csv
 import hashlib
 import json
 import math
@@ -33,7 +34,9 @@ from case_studies.small_batch_case import (
     KNOWN_BEST_VALUE as SMALL_BATCH_OPTIMUM,
     SMALL_BATCH_CSV_NAME,
 )
-from instrumentation import RESULT_FIELDS
+from instrumentation import (
+    RESULT_FIELDS, OPTIONAL_RESULT_FIELDS, parse_optional_result_fields, result_schema,
+)
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -155,7 +158,9 @@ def validate_case_study_manifest(results_csv, row_count):
         ) from error
     if not isinstance(manifest, dict):
         raise ValueError("Case-study manifest must contain a JSON object")
-    if manifest.get("schema") != EXPECTED_RESULT_SCHEMA:
+    with results_csv.open(newline="", encoding="utf-8") as handle:
+        schema = result_schema(next(csv.reader(handle), ()))
+    if manifest.get("schema") != schema:
         raise ValueError("Case-study manifest schema does not match RESULT_FIELDS")
 
     run_state = manifest.get("run")
@@ -411,7 +416,15 @@ def load_case_study_results(results_csv):
     if frame.empty:
         raise ValueError("Case-study results CSV contains no runs")
 
-    frame = frame.loc[:, RESULT_FIELDS].copy()
+    optional = tuple(field for field in OPTIONAL_RESULT_FIELDS if field in frame)
+    frame = frame.loc[:, RESULT_FIELDS + optional].copy()
+    # Read optional cells as written so mixed-method blanks stay missing and
+    # booleans never become truthy strings (in particular the string "False").
+    with results_csv.open(newline="", encoding="utf-8") as handle:
+        reports = [parse_optional_result_fields(row) for row in csv.DictReader(handle)]
+    for field in optional:
+        dtype = "boolean" if field == "target_reached" else "Float64"
+        frame[field] = pd.array([row.get(field) for row in reports], dtype=dtype)
     frame["csv_name"] = frame["csv_name"].astype(str)
     frame["method"] = frame["method"].astype(str).str.strip()
     if (frame["method"] == "").any():

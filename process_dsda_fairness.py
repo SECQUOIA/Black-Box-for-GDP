@@ -70,7 +70,7 @@ def sources():
         "process_dsda_fairness_recovery.py",
         "run_process_dsda_fairness_dantzig.sh",
         "docs/process_dsda_fairness_dantzig.txt",
-        "grid_dsda.py",
+        "grid_dsda.py", "dsda_protocol.py",
         "instrumentation.py",
         "evaluation_trace.py",
         "cpu_affinity.py",

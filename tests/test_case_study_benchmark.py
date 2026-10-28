@@ -752,7 +752,7 @@ def test_resume_names_reproducibility_critical_provenance_mismatch(tmp_path):
         )
 
 
-@pytest.mark.parametrize("change_helper", (False, True))
+@pytest.mark.parametrize("change_helper", (None, "case_studies/dsda_domain.py", "dsda_protocol.py"))
 def test_resume_checks_dsda_helper_source_before_runner_callbacks(
     tmp_path, monkeypatch, change_helper
 ):
@@ -761,6 +761,7 @@ def test_resume_checks_dsda_helper_source_before_runner_callbacks(
         "benchmark.py",
         "instrumentation.py",
         "grid_dsda.py",
+        "dsda_protocol.py",
         "case_studies/common.py",
         "case_studies/cstr_case.py",
         "case_studies/cstr_dsda.py",
@@ -784,12 +785,14 @@ def test_resume_checks_dsda_helper_source_before_runner_callbacks(
         assert [int(row["seed"]) for row in csv.DictReader(handle)] == [0]
 
     if change_helper:
-        helper_path = source_root / "case_studies" / "dsda_domain.py"
+        helper_path = source_root / change_helper
         original_helper = helper_path.read_text(encoding="utf-8")
         changed_helper = original_helper.replace(
             "valid.sort(key=lambda item: item[1])",
             "valid.sort(key=lambda item: item[1], reverse=True)",
         )
+        if change_helper == "dsda_protocol.py":
+            changed_helper = original_helper.replace("IMPROVEMENT_ABS_TOL = 1e-5", "IMPROVEMENT_ABS_TOL = 2e-5")
         assert changed_helper != original_helper
         helper_path.write_text(changed_helper, encoding="utf-8")
 
