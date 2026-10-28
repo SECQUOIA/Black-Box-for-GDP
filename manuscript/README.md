@@ -1,51 +1,56 @@
-# Current manuscript snapshot - Column logical-domain adoption
+# Current manuscript snapshot - D-SDA tolerance and target-stopping update
 
 Overleaf remains the source of truth for the manuscript and its review comments.
-The 25 October 2026 sources were edited directly in the existing Overleaf documents and then exported to this repository.
-No manuscript source was uploaded to replace an Overleaf document, and David's comments and existing tracked changes were retained.
-The current main PDF includes the supplementary material for review.
-The combined PDF has 34 pages, with references starting on page 19.
-The supplementary PDF contains pages 23-34 of that combined PDF, retaining its original pagination.
+The 28 October 2026 sources were edited directly in the existing Overleaf documents and exported after compilation.
+The snapshot includes the intervening author and reviewer edits since the preceding repository export.
+No manuscript source was uploaded to replace an Overleaf document, and existing comments and tracked changes were retained.
+The current combined review PDF has 35 pages, with references starting on page 19 and supplementary material on pages 23-35.
+The supplementary PDF extracts those 13 pages and retains their original pagination.
 Links to excluded main-text pages may not survive this extraction.
+Overleaf reports zero errors and zero warnings.
 
-The [current publication analysis](../results/column_publication_20261025/README.md) replaces all 50 Column runs with the completed logical-domain/B13 comparison.
-The 64 candidate configurations satisfy the original model's logical restrictions and reuse the retained IPOPT responses and point costs.
-All five methods share three ordered initial configurations and ten seeds.
-The domain, budget and regenerated initial designs change together, so their separate effects are not identified.
-The other 650 primary Process runs and all Grid runs remain unchanged relative to the preceding CSTR30 publication analysis.
+The [current publication analysis](../results/dsda_publication_20261028/README.md) adopts 1,050 Grid and 140 Process D-SDA runs from the completed return archives.
+Neighborhood and line-search moves require strict absolute objective improvement greater than 1e-5.
+Grid D-SDA applies the common reference-target predicate after a completed descent, while budget exhaustion is checked first.
+This is not immediate stopping at the first successful callback.
+Process D-SDA retains its single best accepted initial start and its existing stopping policy.
+Primal feasibility remains a separate constraint-violation test.
+Brief Albert replies address David comments 4 and 5, while all David comment text is preserved for review.
 
-Column target counts are D-SDA 5/10, RBFOpt 4/10, BAM 1/10, FMQA-SA 4/10 and uniform sampling 1/10.
-RBFOpt therefore shows no target-hit advantage over D-SDA in this condition.
-Median reconstructed completion costs are 35.43 s for D-SDA and 54.60 s for RBFOpt.
-These are full-run estimates from recorded search overhead and charged point costs, not online optimizer-NLP timings.
-Seed 6 contains the target as its third shared initial point and accounts for the only BAM and uniform successes.
-The unchanged CSTR totals remain 45/60 for RBFOpt and 14/60 for D-SDA.
-The Process inventory contains 2,438 configurations, including 1,266 accepted responses and 464 accepted CSTR30 configurations.
+Grid D-SDA target counts are 13, 74, 88, 98 and 101 of 210 at budgets 10, 30, 50, 70 and 100, respectively.
+At B=100, D-SDA reaches 48.1% and RBFOpt reaches 81.4% of targets.
+All Process D-SDA successes remain unchanged at 74/140, including CSTR 14/60 and Column 5/10.
+RBFOpt remains at CSTR 45/60 and Column 4/10.
+All other methods retain their adopted records.
 The 700 primary Process runs contain 315 target hits, 385 misses and no execution failures.
-They use 16,067 charged callbacks and visit 2,024 distinct model/size/coordinate keys.
+They use 16,041 charged callbacks and visit 2,024 distinct model/size/coordinate keys.
+The Process inventory remains 2,438 configurations with 1,266 accepted responses, including 464 accepted CSTR30 configurations.
 These totals are descriptive aggregates across the stated conditions.
+Completion costs combine the new recorded D-SDA search overhead with the unchanged point costs along each new callback path.
+They are reconstructed full-run estimates, not online optimizer-NLP timings or cross-run hardware speedup measurements.
 
-The four affected Process figure PDFs and PNGs are regenerated from completed records and retain the existing presentation style.
-The main text currently displays the Process evaluation and completion profiles; the other two updated Process figures remain available without restoring their commented figure blocks.
-The affected domain, budget, target-count, cost, coverage and fallback statements agree with this adopted comparison.
+Seven figure PDFs and PNGs were regenerated using the existing presentation style.
+The active main-text plots remain the Grid evaluation profile and the Process evaluation and completion profiles.
+Regenerated inactive figures are available as companions and are not restored to the paper.
+The current tables and analysis manifests are linked below; unused older companions remain explicitly historical.
 The reconstructed historical FMQA weight diagnostics retain their original scope.
-All 34 David comment lines are unchanged from the source downloaded before this task.
-Overleaf produces the combined PDF with one pre-existing undefined-command error for a retained David comment and no warnings.
 
 ## Files and reproduction
 
 - [Main source](main.tex), [combined review PDF](main.pdf), [supplementary source](supplementary.tex) and [supplementary PDF](supplementary.pdf).
 - [Bibliography](reference.bib), [figure files](figures/) and [source distribution](manuscript_sources.zip).
-- [Current numerical tables and coverage](../results/column_publication_20261025/tables/) and [input/source/output manifest](../results/column_publication_20261025/manifest.json).
-- [Analysis verification](../results/column_publication_20261025/verification.json) and [manuscript synchronization verification](column_revision_verification.json).
+- [Current numerical tables](../results/dsda_publication_20261028/tables/) and [input/source/output manifest](../results/dsda_publication_20261028/manifest.json).
+- [Analysis validation](../docs/dsda_publication_update_20261028.md) and [snapshot verification](dsda_revision_verification.json).
 
 ```bash
-python -m review_comparison.column_publication --output /tmp/column-publication-new
-python -m pytest tests/test_column_publication.py tests/test_cstr30_publication.py tests/test_review_comparison_manuscript.py -q
+python -m review_comparison.dsda_publication --output /tmp/dsda-publication-new
+python -m pytest tests/test_dsda_publication.py tests/test_column_publication.py tests/test_cstr30_publication.py tests/test_review_comparison_audit.py -q
 ```
 
+The related test set passes all 35 tests, and two fresh analysis replays produce 30 byte-identical files, including all seven PDFs.
+The original comparison audit also reproduces its original outputs unchanged.
 This publication update executes no optimizer, NLP solver, model fitting or annealing, and requests no CI run.
-The original experimental archives, provider revisions and audit files remain unchanged.
-The [preceding README](review_history/pre_column_adoption/README.md) and earlier verification records describe their historical snapshots rather than this current manuscript.
-The original analysis_manifest.json remains a historical record; analysis_manifest_current.json points to the current analysis.
-PR #49 was already merged; these changes are a follow-up on its original review/cstr15-dantzig-results branch.
+Original experimental archives, execution revisions and historical audit files remain unchanged.
+The [preceding README and manifests](review_history/pre_dsda_adoption/) and earlier verification records describe their historical snapshots.
+The original analysis_manifest.json is historical; analysis_manifest_current.json points to the current analysis.
+These changes update PR #52 on review/cstr15-dantzig-results without merging it.
