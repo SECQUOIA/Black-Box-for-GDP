@@ -1,0 +1,16 @@
+{
+  "backup_filename": "dsda_abs1e5_local_preparation_20261028.zip",
+  "backup_sha256": "f5897acccad041b01b5f2e9f2787267134400cb8e72dfbe52af0a384d9f1cedb",
+  "backup_bytes": 31262745,
+  "preserved_file_count": 1808,
+  "preserved_uncompressed_bytes": 193912358,
+  "source_directories": [
+    "results/dsda_abs1e5_preparation_20261027",
+    "results/dsda_abs1e5_server_repository_setup_20261027"
+  ],
+  "verification": "Every archived file was checked against the original SHA256 and byte count.",
+  "storage": "Local Downloads backup; redundant preparation files are not added to the PR.",
+  "user_changes_outside_these_directories": "No modifications; main has no tracked changes.",
+  "published_workflow": "workflow/ retains the exact installer and source files used for the completed rerun.",
+  "working_copies_removed_after_full_backup_verification": true
+}

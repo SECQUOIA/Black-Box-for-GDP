@@ -1,0 +1,59 @@
+{
+  "expected": 1190,
+  "completed": 1190,
+  "failed": 0,
+  "missing": 0,
+  "missing_jobs": [],
+  "totals": [
+    {
+      "scope": "grid",
+      "runs": 1050,
+      "old_hits": 382,
+      "new_hits": 374,
+      "hit_delta": -8,
+      "old_only": 10,
+      "new_only": 2,
+      "old_callbacks": 38033,
+      "new_callbacks": 38516,
+      "changed_callback_counts": 67,
+      "changed_callback_paths": 91,
+      "changed_last_callbacks": 74,
+      "changed_endpoints": 69,
+      "failures": 0
+    },
+    {
+      "scope": "process",
+      "runs": 140,
+      "old_hits": 74,
+      "new_hits": 74,
+      "hit_delta": 0,
+      "old_only": 0,
+      "new_only": 0,
+      "old_callbacks": 2467,
+      "new_callbacks": 2441,
+      "changed_callback_counts": 6,
+      "changed_callback_paths": 6,
+      "changed_last_callbacks": 6,
+      "changed_endpoints": 6,
+      "failures": 0
+    },
+    {
+      "scope": "cstr",
+      "runs": 60,
+      "old_hits": 14,
+      "new_hits": 14,
+      "hit_delta": 0,
+      "old_only": 0,
+      "new_only": 0,
+      "old_callbacks": 1128,
+      "new_callbacks": 1102,
+      "changed_callback_counts": 6,
+      "changed_callback_paths": 6,
+      "changed_last_callbacks": 6,
+      "changed_endpoints": 6,
+      "failures": 0
+    }
+  ],
+  "method_hit_order_changes": [],
+  "process_nlp_calls": 0
+}

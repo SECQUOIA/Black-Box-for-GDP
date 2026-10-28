@@ -1,0 +1,15 @@
+case,budget,runs,old_hits,new_hits,hit_delta,old_only,new_only,old_callbacks,new_callbacks,changed_callback_counts,changed_callback_paths,changed_last_callbacks,changed_endpoints,failures
+column,13,10,5,5,0,0,0,128,128,0,0,0,0,0
+cstr_10,15,10,2,2,0,0,0,133,125,2,2,2,2,0
+cstr_15,22,10,2,2,0,0,0,175,173,1,1,1,1,0
+cstr_20,29,10,3,3,0,0,0,208,203,1,1,1,1,0
+cstr_25,36,10,3,3,0,0,0,264,259,1,1,1,1,0
+cstr_30,43,10,2,2,0,0,0,272,266,1,1,1,1,0
+cstr_5,8,10,2,2,0,0,0,76,76,0,0,0,0,0
+dynamic,12,10,4,4,0,0,0,120,120,0,0,0,0,0
+dynamic,15,10,5,5,0,0,0,150,150,0,0,0,0,0
+dynamic,20,10,8,8,0,0,0,182,182,0,0,0,0,0
+dynamic,30,10,10,10,0,0,0,217,217,0,0,0,0,0
+dynamic,37,10,10,10,0,0,0,221,221,0,0,0,0,0
+dynamic,50,10,10,10,0,0,0,221,221,0,0,0,0,0
+small_batch,10,10,8,8,0,0,0,100,100,0,0,0,0,0
