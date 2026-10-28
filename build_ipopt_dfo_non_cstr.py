@@ -15,7 +15,7 @@ from result_archives import archived_directory, datasets
 ROOT = Path(__file__).resolve().parent
 ORIGINAL = datasets()['original-ipopt-evaluations']
 FILES = ['ipopt_dfo_non_cstr.py', 'run_ipopt_dfo_non_cstr_dantzig.sh', 'docs/ipopt_dfo_non_cstr_dantzig.txt',
-         'grid_dsda.py', 'instrumentation.py', 'evaluation_trace.py', 'cpu_affinity.py', 'LICENSE',
+         'grid_dsda.py', 'dsda_protocol.py', 'instrumentation.py', 'evaluation_trace.py', 'cpu_affinity.py', 'LICENSE',
          'case_studies/__init__.py', 'case_studies/common.py', 'fmqa_benchmark/__init__.py',
          'fmqa_benchmark/protocol.py', 'fmqa_benchmark/optimizer.py', 'fmqa_benchmark/qhd_surrogate.py']
 

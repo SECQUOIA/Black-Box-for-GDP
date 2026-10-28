@@ -29,6 +29,9 @@ def lookup(spec, config, directory):
         raise RuntimeError("Generated LHC design differs from frozen Dantzig coordinates")
     kwargs = dict(seed=spec["seed"], n_starts=spec["n_starts"],
                   max_evaluations=spec["max_evaluations"], verbose=True)
+    if spec["method"] == "dsda":
+        # Reproduce the frozen historical campaign through maintained wrappers.
+        kwargs["improvement_abs_tol"] = None
     if spec["case_name"] == "cstr":
         kwargs["grid_size"] = spec["grid_size"]
     if spec["method"] == "rbfopt":

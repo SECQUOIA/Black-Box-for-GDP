@@ -69,6 +69,30 @@ def test_nonfinite_response_is_neither_move_nor_target(invalid):
     assert tracker.call_count == 3
 
 
+@pytest.mark.parametrize('invalid', [math.nan, math.inf, -math.inf])
+@pytest.mark.parametrize('maximize', [False, True])
+@pytest.mark.parametrize('cached', [False, True])
+def test_descent_records_finite_recovery_from_invalid_start(invalid, maximize, cached):
+    grid = {(0,): invalid, (1,): 1.}
+    kwargs = {'start_value': invalid} if cached else {}
+    result = descent(grid, maximize=maximize, **kwargs)
+    assert result['path'] == [(0,), (1,)]
+    trajectory = result['result_record']['incumbent_trajectory']
+    assert trajectory == [None, 1., 1.]
+    assert result['result_record']['best_value'] == 1.
+    assert result['result_record']['total_evals'] == (2 if cached else 3)
+    legacy = descent(grid, maximize=maximize, improvement_abs_tol=None, **kwargs)
+    first = legacy['result_record']['incumbent_trajectory'][0]
+    assert math.isnan(first) if math.isnan(invalid) else first == invalid
+
+
+def test_descent_local_trajectory_excludes_declared_failure_penalty():
+    grid = {(0,): 1e6, (1,): 1.}
+    tracker = ObservedObjective(lambda p: grid[p], penalty=1e6)
+    result = descent(grid, tracked_objective=tracker)
+    assert result['result_record']['incumbent_trajectory'] == [None, 1., 1.]
+
+
 @pytest.mark.parametrize('target', [0., 0.5, 32., -32.])
 def test_target_boundary_and_nonzero_scaling_match_adopted_analysis(target):
     from review_comparison.dsda_publication import hit

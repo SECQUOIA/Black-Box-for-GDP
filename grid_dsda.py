@@ -230,6 +230,11 @@ def dsda_from_csv(
     def record_run_value(value):
         nonlocal local_incumbent
 
+        if improvement_abs_tol is not None and (
+            not isfinite(value) or value == getattr(tracked_objective, "penalty", None)
+        ):
+            local_incumbent_trajectory.append(local_incumbent)
+            return value
         if local_incumbent is None:
             local_incumbent = value
         elif maximize:

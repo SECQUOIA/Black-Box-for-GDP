@@ -13,15 +13,6 @@ from pathlib import Path
 import sys
 from zipfile import ZipFile
 
-# Applied before numerical imports; this is code equivalence, not a timing run.
-for _name in ('OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS',
-              'VECLIB_MAXIMUM_THREADS', 'NUMEXPR_NUM_THREADS', 'BLIS_NUM_THREADS'):
-    os.environ[_name] = '1'
-
-from dsda_protocol import ObservedObjective, common_target_reached  # noqa: E402
-from grid_dsda import dsda_from_csv, run_dsda_from_best_starting_points  # noqa: E402
-from case_studies.dsda_domain import box_membership, rank_observed_starts  # noqa: E402
-
 ROOT = Path(__file__).resolve().parents[1]
 ARCHIVES = {
     'grid': ('dsda_grid_target_stop_20261028_032943_2346732',
@@ -162,6 +153,9 @@ class ProcessResponses:
 
 
 def replay_grid(job, responses, domain):
+    from dsda_protocol import ObservedObjective
+    from grid_dsda import run_dsda_from_best_starting_points
+
     s = job['spec']
     events = []
 
@@ -182,6 +176,9 @@ def replay_grid(job, responses, domain):
 
 
 def replay_process(job, responses):
+    from grid_dsda import dsda_from_csv
+    from case_studies.dsda_domain import box_membership, rank_observed_starts
+
     s = job['spec']
     oracle = ProcessResponses(responses, s)
     start, value, _, _ = rank_observed_starts(s['starts'], oracle, penalty=1e6)
@@ -216,6 +213,8 @@ def replay_process(job, responses):
 
 
 def compare(job, expected, old_events, new_events, path, reason, state):
+    from dsda_protocol import common_target_reached
+
     require(expected['spec'] == job['spec'], 'Pairing conditions differ')
     require(expected['error'] is None, 'Failed reference run')
     old, new = event_projection(old_events), event_projection(new_events)
@@ -279,9 +278,20 @@ def install_guard():
     return attempts
 
 
+def prepare_replay_runtime():
+    """Explicit replay startup; importing validation helpers changes no settings."""
+    for name in ('OMP_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS',
+                 'VECLIB_MAXIMUM_THREADS', 'NUMEXPR_NUM_THREADS', 'BLIS_NUM_THREADS'):
+        os.environ[name] = '1'
+    # Warm numerical dependencies before installing the no-child-process guard.
+    for module in ('dsda_protocol', 'grid_dsda', 'case_studies.dsda_domain'):
+        importlib.import_module(module)
+
+
 def run(output):
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
+    prepare_replay_runtime()
     attempts = install_guard()
     paired, inputs = [], {}
     for scope, (stem, digest) in ARCHIVES.items():

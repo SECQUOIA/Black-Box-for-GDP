@@ -16,6 +16,7 @@ The same predicate controls neighbor acceptance, direction search, and the exist
 Numerical ties retain the independent `tol=1e-12` with zero relative tolerance.
 Tolerances must be finite and nonnegative, and invalid settings fail before objective callbacks.
 In the adopted mode, nonfinite responses never become moves or observed incumbents, and a finite response can recover a nonfinite start.
+Per-descent incumbent trajectories also exclude nonfinite responses and declared failure penalties, including a cached invalid start, while legacy trajectories retain their original arithmetic.
 
 Grid defaults to `target_stop=dsda_protocol.common_target_reached`.
 The predicate is `abs(observed_best - target) <= 1e-5 * max(1.0, abs(target))` on finite, unrounded values.
@@ -34,6 +35,10 @@ The shared instrumentation used by other methods retains its original behavior.
 Grid's default `found_optimum` is a compatibility alias for its common target flag, and `benchmark.py` no longer overwrites it using an absolute `1e-12` check.
 The Process wrappers retain `found_optimum` as the historical conjunction of known-coordinate equality and value equality within absolute `1e-12`, alongside the independent common `target_reached` field.
 CSV output includes the two new reporting columns when supplied, while other-method-only CSV schemas remain unchanged.
+The CSV header and paired manifest describe the same ordered fields, and resume and trace validation restore the optional numeric value and boolean flag without discarding them.
+In mixed-method files, empty reporting cells for methods without a report remain missing rather than becoming a false success flag.
+A D-SDA report with no accepted observation retains `observed_best_value=None` and `target_reached=False`.
+The Process analysis loader preserves both optional columns with nullable numeric and boolean types; historical summaries based on `found_optimum` retain their existing meaning.
 
 Grid checks the target only after a descent returns, after the existing interrupted-descent budget branch, and before another ranked initial start.
 An improving terminal callback that interrupts a descent therefore retains the budget reason even if it also reaches the target.
@@ -69,8 +74,10 @@ legacy_process = run_cstr_dsda(improvement_abs_tol=None)
 ```
 
 The Grid benchmark helper likewise accepts `improvement_abs_tol=None, target_stop=None` for legacy calls.
-`process_dsda_fairness.py`, `small_batch_full_domain.py`, `ipopt_dfo_cstr.py`, and `ipopt_dfo_non_cstr.py` are historical campaign drivers and explicitly select legacy movement at their maintained call sites.
+`process_dsda_fairness.py`, `small_batch_full_domain.py`, `ipopt_dfo_cstr.py`, `ipopt_dfo_non_cstr.py`, `process_followup_runner.py`, and `overnight_benchmark/worker.py` are historical campaign drivers and explicitly select legacy movement at their maintained call sites.
 Their historical inputs and archived execution sources are not rewritten to use new defaults.
+In particular, the Column seed-10 supplement retains its initial `1e6` penalty in the historical incumbent trace and continues to pass the unchanged trace audit.
+Maintained standalone bundle builders include `dsda_protocol.py` in their source inventories, and D-SDA benchmark provenance hashes this dependency before accepting a resume.
 The sealed copies under `experiments/dsda_grid_target_stop/`, the archived `workflow/` directories, ZIPs, execution-provider revisions, and all existing result trees remain byte-identical.
 No maintained production path relies on runtime string replacement, module interception, or an experimental source copy.
 
@@ -93,12 +100,16 @@ Process successes are 74/140 with 2,441 callbacks.
 These counts are derived from observations and checked against archived per-run records, rather than used to construct outcomes.
 Import guards reject solver/model/other-method imports and Python audit hooks prohibit child processes during replay.
 The final replay records zero solver calls, zero NLP calls, and zero blocked attempts.
+Importing replay validation helpers does not change thread environment variables or import numerical libraries.
+The replay command explicitly sets the six numerical-library thread limits to one before loading its numerical dependencies and installing the execution guard.
 
 Run the local equivalence replay with an unused output directory.
 
 ```bash
 python -m review_comparison.dsda_protocol_replay --output /tmp/dsda_protocol_53_replay
 python -m pytest tests/test_dsda_protocol.py tests/test_grid_modules.py tests/test_process_dsda_domain.py tests/test_cstr_dsda_case.py tests/test_column_dsda_case.py tests/test_small_batch_dsda_case.py tests/test_dynamic_dsda_case.py tests/test_instrumentation.py tests/test_process_dsda_fairness.py tests/test_process_dsda_fairness_analysis.py tests/test_benchmark.py tests/test_case_study_benchmark.py tests/test_dsda_publication.py -q
+python -m pytest tests/test_dsda_protocol_integration.py tests/test_evaluation_trace.py tests/test_trace_analysis.py tests/test_process_followup_runner.py tests/test_case_study_analysis.py -q
+python -m pytest tests/ -q
 ```
 
 Run the unchanged historical and publication data-only audits separately, using new output paths where shown.
@@ -110,7 +121,11 @@ python results/dsda_grid_target_stop_20261028/verify_publication.py
 python results/dsda_abs1e5_rerun_20261028/verify.py --output /tmp/dsda_protocol_53_rerun_audit.json --paired-output /tmp/dsda_protocol_53_rerun_pairs.csv
 ```
 
-The recorded validation includes 188 passing tests and two subtests, the full 1,190-job replay, the unchanged 3,430-job historical audit, both source-archive data-only verifiers, and 12 byte-identical regenerated publication tables.
-The [verification receipt](dsda_protocol_53_verification.json) records input and maintained-source hashes and preservation checks.
+The initial implementation validation included 188 passing tests and two subtests, the full 1,190-job replay, the unchanged 3,430-job historical audit, both source-archive data-only verifiers, and 12 byte-identical regenerated publication tables.
+The original [verification receipt](dsda_protocol_53_verification.json) records that revision's input and maintained-source hashes and preservation checks.
+The [review follow-up receipt](dsda_protocol_review_verification.json) records the integration fixes, expanded tests, repeated replay and audits, and the remaining platform limitation.
+The review follow-up passes 169 targeted tests with one optional-dependency skip, and the broader suite reports 1,432 passes, 33 skips, nine passing subtests, and one pre-existing platform failure.
+The remaining failure is `tests/test_cstr30_retry.py::test_timeout_stops_child_and_does_not_block_next_point`, where macOS denies the process-group `os.killpg` call with `PermissionError: [Errno 1] Operation not permitted`.
+The same failure was reproduced on the unchanged PR base, and its test and production code have not been modified or bypassed.
 All pre-existing result files, manifests, verification files, source evidence, manuscript files, publication figures, CI configuration, and unrelated checkout contents are preserved.
 No Dantzig job, new solver run, other-method experiment, manual CI request, manuscript update, or automatic merge is performed.
