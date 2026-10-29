@@ -66,7 +66,7 @@ def source_files():
     names = ["process_followup_runner.py", "run_process_followup_dantzig.sh",
              "docs/process_followup_dantzig.md", "tests/test_process_followup_runner.py",
              "requirements-grid-trace.txt", "requirements-fmqa.txt", "LICENSE",
-             "evaluation_trace.py", "instrumentation.py", "grid_dsda.py", "cpu_affinity.py",
+             "evaluation_trace.py", "instrumentation.py", "grid_dsda.py", "dsda_protocol.py", "cpu_affinity.py",
              "overnight_benchmark/__init__.py", "overnight_benchmark/common.py",
              "overnight_benchmark/runner.py", "fmqa_benchmark/__init__.py",
              "fmqa_benchmark/protocol.py", "fmqa_benchmark/optimizer.py", "fmqa_benchmark/surrogate.py",
@@ -216,6 +216,10 @@ def dfo_lookup(spec, config, directory):
         runner = getattr(module, f"run_{spec['case_name']}_{spec['method']}")
         kwargs = dict(seed=spec["seed"], n_starts=spec["n_starts"], max_evaluations=spec["max_evaluations"],
                       verbose=True, **spec["settings"])
+        if spec["method"] == "dsda":
+            # This driver reproduces the historical supplement, including its
+            # penalty-inclusive incumbent history and movement arithmetic.
+            kwargs["improvement_abs_tol"] = None
         if spec["method"] == "rbfopt":
             kwargs.update(minlp_solver_path=config["bonmin"], nlp_solver_path=config["ipopt"])
         if spec["method"] == "bam":

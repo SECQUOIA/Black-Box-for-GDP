@@ -101,7 +101,7 @@ def source_files():
                                  for x in p.relative_to(ROOT).parts)
                      and p.suffix != ".pyc" and p.name != "comparison.py")
     files.extend(ROOT / name for name in (
-        "benchmark.py", "grid_dsda.py", "grid_rbfopt.py",
+        "benchmark.py", "grid_dsda.py", "dsda_protocol.py", "grid_rbfopt.py",
         "instrumentation.py", "evaluation_trace.py", "case_study_benchmark.py",
         "cpu_affinity.py", "run_dfo_trace_nlp_dantzig.sh", "requirements-dfo-trace-nlp.txt",
         "fmqa_benchmark/__init__.py", "fmqa_benchmark/protocol.py",

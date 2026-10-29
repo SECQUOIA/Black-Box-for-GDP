@@ -103,3 +103,25 @@ Keep both the original failed attempt and the new attempt when accounting for
 retry cost. The returned results can be joined by case, CSTR size, integer
 coordinates and solver. The returned Dantzig results have now been merged with explicit retry provenance;
 local validation measurements are excluded.
+
+## macOS watchdog cleanup
+
+The timeout watchdog sends SIGTERM to the worker's owned process group, waits for group exit, and finishes with SIGKILL and worker reaping when necessary.
+A worker's exit alone does not establish that all its solver descendants have exited.
+On Darwin, a group containing only exiting or zombie processes can temporarily return `EPERM` while its leader has not yet been reaped, even after SIGTERM was delivered successfully.
+Apple's [process-group signal implementation](https://github.com/apple-oss-distributions/xnu/blob/main/bsd/kern/kern_sig.c) filters zombie members and can return `EPERM` when no eligible member is found.
+The maintained runner retries that error only on Darwin, reaps its owned worker, and repeats the same group operation up to three attempts with 10 ms between attempts.
+Only the existing `ProcessLookupError` path establishes that the group has disappeared; repeated permission denial still raises an error.
+The Linux signal path, original process-group ownership, grace period, and descendant cleanup policy are unchanged.
+This fixes a cleanup race in the controller and does not change any objective, solver setting, archived run, or D-SDA search behavior.
+
+The local regression commands require no optimization solver.
+
+```bash
+python -m pytest tests/test_cstr30_retry.py tests/test_cstr_watchdog.py -q
+python -m pytest tests/ -q
+```
+
+The [watchdog verification receipt](cstr30_watchdog_verification.json) records the actual test results and preservation checks.
+The macOS validation passes 21 targeted tests and 50 consecutive timeout cleanups; seven Linux subreaper tests remain skipped on this platform.
+The full suite passes 1,440 tests and nine subtests, with 33 dependency or platform skips and no failures.
