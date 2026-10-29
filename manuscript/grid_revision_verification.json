@@ -1,0 +1,44 @@
+{
+  "export_date": "2026-10-29",
+  "overleaf_source_archive_sha256": "19769134a8e0c7ce37b2a97fe647db6f948b5e54f8f9328c311e859d49c6db86",
+  "downloaded_pdf_sha256": "1845a6dbf0933b22dff516581ae3794cfb65f1231e6da1749b321d766e808b0a",
+  "source_files_byte_identical_to_overleaf_export": [
+    "figures/figure_B_grid_evaluation_profiles.pdf",
+    "figures/figure_C_grid_completion_profiles.pdf",
+    "figures/figure_D_grid_tts99.pdf",
+    "figures/figure_E_grid_algebraic_comparison.pdf",
+    "figures/grid_gdp_illustration.pdf",
+    "figures/grid_profiles.pdf",
+    "figures/grid_rosenbrock_landscape.pdf",
+    "figures/grid_tts99.pdf",
+    "figures/grid_tts99_original.pdf",
+    "figures/nlp_cost_breakdown.pdf",
+    "figures/process_completion_profiles.pdf",
+    "figures/process_completion_scatter.pdf",
+    "figures/process_cost_breakdown.pdf",
+    "figures/process_evaluation_profiles.pdf",
+    "figures/process_targets.pdf",
+    "figures/process_tts99_all_conditions.pdf",
+    "main.tex",
+    "reference.bib",
+    "supplementary.tex"
+  ],
+  "figure_byte_identical_to_generated_pdf": true,
+  "table_rows_byte_identical_to_generated_rows": true,
+  "only_intended_in_place_edits_verified_before_export": true,
+  "david_comments_preserved": true,
+  "albert_replies_added": [
+    "Grid evaluation figure",
+    "Grid cost quartiles"
+  ],
+  "compilation": {
+    "errors": 0,
+    "warnings": 0,
+    "combined_pdf_pages": 31,
+    "references_start_page": 19,
+    "supplement_start_page": 23,
+    "supplement_pages": 9
+  },
+  "no_new_experiments": true,
+  "historical_analysis_and_execution_files_unchanged": true
+}
