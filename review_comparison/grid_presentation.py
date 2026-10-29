@@ -127,8 +127,7 @@ def render(curves, out):
         handles = [Line2D([], [], color=m.COLOR[k], ls=m.STYLE[k], marker=m.MARK[k],
                           ms=4, lw=1.5, label=m.LABEL[k]) for k in m.GRID]
         axs.flat[-1].legend(handles=handles, loc="upper left", frameon=False, fontsize=10)
-        fig.suptitle(r"Grid-GDP: target $|F-0|\leq 10^{-5}$", fontsize=12)
-        fig.tight_layout(rect=(0, 0, 1, .95), h_pad=1.8, w_pad=.8)
+        fig.tight_layout(h_pad=1.8, w_pad=.8)
         name = out / "figure_B_grid_evaluation_profiles"
         fig.savefig(name.with_suffix(".pdf"), bbox_inches="tight", pad_inches=.04,
                     metadata={"CreationDate": None, "ModDate": None})
@@ -156,7 +155,8 @@ def build(directory, out):
 This is a presentation update using completed experiments; no searches or solvers are run.
 The input is the archived D-SDA publication analysis from 28 October 2026.
 Its input hashes, all 6,300 primary Grid run slots, and all 30 evaluation curves are verified before rendering.
-The figure retains every archived curve coordinate and method style, labels configuration evaluations and the target explicitly, and removes the prefix shading and legend notes.
+The figure retains every archived curve coordinate and method style, clarifies the axis labels, and removes the prefix shading and legend notes.
+The target is specified in the manuscript caption, without a title inside the figure.
 The target is agreement with the normalized reference zero within an absolute tolerance of 1e-5.
 
 The cost table uses all 210 runs per method at B=100, including target misses.
