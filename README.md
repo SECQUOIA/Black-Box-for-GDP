@@ -154,6 +154,8 @@ with every visited coordinate linked to a separate NLP measurement. The
 [September 17 local coordinate audit](results/process_evaluation_traces_20260917/README.md)
 is historical and is not used for Dantzig runtime claims.
 
+The maintained D-SDA defaults, explicit legacy calls, observed-target reporting, and solver-free regression commands are documented in [the D-SDA protocol guide](docs/dsda_protocol.md).
+
 For a lightweight DSDA run on one of the benchmark grids:
 
 ```python

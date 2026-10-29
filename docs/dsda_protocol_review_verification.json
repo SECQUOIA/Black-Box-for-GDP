@@ -1,0 +1,178 @@
+{
+  "starting_revision": "59dcfb98f7cbab91e2a81f01273e75786ed64512",
+  "stacked_base_revision": "ef2365e420244de858c3b97f67a3cc53ea1769e1",
+  "pull_request": 54,
+  "merge_dependency": "Draft; PR #52 must merge first, then retarget to main",
+  "addressed_review_comments": [
+    4402685935,
+    4402685963,
+    4402685980,
+    4402686003,
+    4402686024
+  ],
+  "replay": {
+    "purpose": "Code equivalence only; no performance experiment or publication replacement",
+    "completed": 1190,
+    "failed": 0,
+    "missing": 0,
+    "grid_hits": {
+      "10": 13,
+      "30": 74,
+      "50": 88,
+      "70": 98,
+      "100": 101
+    },
+    "process_hits": 74,
+    "grid_callbacks": 37253,
+    "process_callbacks": 2441,
+    "all_callback_orders_paths_checkpoints_and_terminations_equal": true,
+    "solver_calls": 0,
+    "process_nlp_calls": 0,
+    "blocked_attempts": [],
+    "input_sha256": {
+      "results/archives/dsda_grid_target_stop_20261028_032943_2346732.zip": "3611ba036df02ef8b155e32be7557c4bf7b88dfa1a5aff6e91c6d82fe7fb135a",
+      "results/archives/dsda_abs1e5_rerun_20261028_020753_2004611.zip": "e58982f7179b73c65d83134dcbe0b25854002685812b2511b24523e861c9929e"
+    },
+    "source_sha256": {
+      "grid_dsda.py": "e78010e4628fb0da8243e8908ef0141a67ac6cfebd8b780087575e19591d7850",
+      "dsda_protocol.py": "1b969ac953f0c88443b2575927787f0c3a60a8f08f3d706dda06d8fec0091823",
+      "review_comparison/dsda_protocol_replay.py": "324bb1d154657460bbc32f2a70c493344d791124794158e1fd1b1b76bc4761b8",
+      "case_studies/dsda_domain.py": "3e3d8e4d37bd023b393546928065898fe400d80a6d50a9e9c6e93e08a1277246",
+      "benchmark.py": "ee69efa4609195b65b4c3fe2f9411d319b179003f692ca9fa0c9f352cebdb918",
+      "instrumentation.py": "67259a4820d15a3309116f7f89f8a108081b4ec764b94efaf68b53506e93583d",
+      "case_studies/cstr_dsda.py": "da62e9fd873399e73477a0b51b9c9a02b9bf7df9b28e01f67d036c75801682d7",
+      "case_studies/column_dsda.py": "c8b49314903fdd788dde6e61a57d7e87809a69eb78160fd8b3786b8581b997be",
+      "case_studies/small_batch_dsda.py": "3c3eeb3e7ca44086fb2fcf34d9bba43b1e79774fd4643f47eca963978d4a473d",
+      "case_studies/dynamic_dsda.py": "296657343521b584f68e8df7a3a5a605b771f2a09b6372ccd50839415023fd3e"
+    },
+    "environment": {
+      "python": "3.10.20 (main, Jun 23 2026, 15:45:03) [Clang 22.1.3 ]",
+      "platform": "darwin",
+      "machine": "arm64"
+    }
+  },
+  "validation": {
+    "targeted": {
+      "passed": 169,
+      "skipped": 1,
+      "exit_code": 0,
+      "command": "python -m pytest tests/test_dsda_protocol.py tests/test_dsda_protocol_integration.py tests/test_evaluation_trace.py tests/test_trace_analysis.py tests/test_process_followup_runner.py tests/test_case_study_benchmark.py tests/test_case_study_analysis.py -q"
+    },
+    "full_suite": {
+      "passed": 1432,
+      "skipped": 33,
+      "failed": 1,
+      "subtests_passed": 9,
+      "exit_code": 1,
+      "command": "python -m pytest tests/ -q",
+      "failure": "tests/test_cstr30_retry.py::test_timeout_stops_child_and_does_not_block_next_point",
+      "reason": "macOS process-group os.killpg raises PermissionError: [Errno 1] Operation not permitted",
+      "base_comparison": {
+        "revision": "ef2365e420244de858c3b97f67a3cc53ea1769e1",
+        "passed": 1368,
+        "failed": 1,
+        "skipped": 33,
+        "subtests_passed": 9,
+        "same_failure": true
+      },
+      "pre_fix_comparison": {
+        "revision": "59dcfb98f7cbab91e2a81f01273e75786ed64512",
+        "passed": 1394,
+        "failed": 10,
+        "skipped": 33,
+        "subtests_passed": 9
+      },
+      "head_only_failures_remaining": 0,
+      "skips": "Optional dependencies (including torch, dimod, BAM), native solver/runtime requirements, and Linux-only cases are unavailable on this macOS environment"
+    },
+    "ruff": "PASS: CI lint targets plus dsda_protocol.py and affected runner modules",
+    "diff_check": "PASS",
+    "historical_audit": {
+      "verified_jobs": 3430,
+      "verified_sealed_files": 22497,
+      "verified_callbacks": 170660
+    },
+    "grid_archive_data_only": "PASS",
+    "process_rerun_archive_data_only": "PASS",
+    "publication_tables_byte_identical": 12,
+    "publication_table_sha256": {
+      "grid_intervals_B100.tex": "1d791550f64838439c2bec6dacb21e60843674586cb8512eeb86a01481491804",
+      "summary.json": "ad67770b5276e2a932d7da4293d7ebaeadc08b2369e086f9283b643413123e29",
+      "dsda_callbacks.csv": "cbdd8f5ebfc991e820db94b10fb7bc1c59885c30e7543f88fc40ba11fc3561a7",
+      "paired_process.csv": "2dd607c40a00dcf07805427a839baa8bce895f05ddd4bd1bd4437a3eac02f691",
+      "process_hits.tex": "7c15f7ddd8f7e3a8b75ce5dafeea1196b89a9d02743f8f5c9c3a62c2898ed86b",
+      "grid_hits.tex": "ce2b68d7b3f7f1d2a45aef622decebf097f586de838febb5f2666d10c9f2d6f6",
+      "paired_adoption.csv": "c538bafabcb2a065e2f4ff9fb79d966a9f8b1043911c4c46f716225a73a8e583",
+      "configuration_coverage.csv": "c30e24015ae6ccfb3be27c5ef9ccc2f02e62678bb4b8c78a14e7fb09da58252f",
+      "process_cost.tex": "8f06ca341957aa4bd487ed67c1a7c3270503fca8278a69b4d60660d0759be0d1",
+      "grid_cost.tex": "f6ca4f50d0f3b7d309dc2a477586f6d017210e8d410aa8f7b618111c79e9de60",
+      "run_records.csv": "5948a78341f20faa9507ef3c9f72f8d0a599b8df7e1b96d8e3153d3c1414e386",
+      "paired_grid.csv": "bb063208fdeb479d5380ce4842dc4e0ac9974879f0eba8d332c41334e74f36df"
+    },
+    "local_validation_log_sha256": {
+      "targeted": "0f70c716e64d3c6175e9fbddee6c13f0a21e1293fe18774687e384ff34ef6b59",
+      "full": "9d444457f2bb905af0895e0a9b657c227540a3f95ab9003b857b0331c5893376",
+      "replay": "10d90d4264149646b4353f0511bbb176b3a3a102379983f26e6c00d0dc84fa99",
+      "audit": "361e3b89b9fee8bab2d3082b7c56af89680f7d38d39e4ae1c7b421d26c1c9f6f",
+      "publication": "f0905cd0a8e882ec472a805d13e9c7373207cc4f8f84d1db1c9df8297f657cb9",
+      "grid-audit": "b704e215003db0129439913cf40e982930dd836d96b0620a5261590436d8f937",
+      "rerun-audit": "8791914eb65de7eba74b6d2b6e4bfa58121cd5264f556ac22d64efd9611bb888"
+    }
+  },
+  "preservation": {
+    "baseline_tracked_files": 2643,
+    "authorized_changed_tracked_files": [
+      "build_ipopt_dfo_cstr.py",
+      "build_ipopt_dfo_non_cstr.py",
+      "case_study_analysis.py",
+      "case_study_benchmark.py",
+      "docs/dsda_protocol.md",
+      "fmqa_benchmark_runner.py",
+      "grid_dsda.py",
+      "grid_trace_runner.py",
+      "instrumentation.py",
+      "overnight_benchmark/common.py",
+      "overnight_benchmark/worker.py",
+      "process_dsda_fairness.py",
+      "process_followup_runner.py",
+      "review_comparison/dsda_protocol_replay.py",
+      "tests/test_case_study_benchmark.py",
+      "tests/test_dsda_protocol.py",
+      "tests/test_evaluation_trace.py",
+      "tests/test_process_followup_runner.py"
+    ],
+    "unchanged_tracked_files": 2625,
+    "all_other_baseline_sha256_match": true,
+    "results_experiments_manuscript_figures_ci_unchanged": true,
+    "historical_validation_receipt_unchanged": true,
+    "original_main_checkout_clean": true
+  },
+  "modified_source_and_test_sha256": {
+    "build_ipopt_dfo_cstr.py": "4c29dd9de0f2480bebecfd60a4d1ff359d6edfcfdf9e921100a7e1f181702e38",
+    "build_ipopt_dfo_non_cstr.py": "c66e1184be1201669afc18bde65a518f7ea0b43c7df425dd890a329035233ca6",
+    "case_study_analysis.py": "f62f35db1d92ea2f237297aaf4cfbc597faa40a57aee616e4751441dd8d14629",
+    "case_study_benchmark.py": "5e9612c09ed55a6a21b144b90fbf3e42ef142807ffda5d25787c118c8ca7b301",
+    "fmqa_benchmark_runner.py": "345276785f1cb6403ea2a2717ecf4a7969d8cf1d26cd8b152fb8ed2a92658990",
+    "grid_dsda.py": "e78010e4628fb0da8243e8908ef0141a67ac6cfebd8b780087575e19591d7850",
+    "grid_trace_runner.py": "3c9d4869f86026f2d55edb3d79a015a252958810c71fbec4a48df253e0f271b6",
+    "instrumentation.py": "67259a4820d15a3309116f7f89f8a108081b4ec764b94efaf68b53506e93583d",
+    "overnight_benchmark/common.py": "b6825501b5ec23b414493dfc43ecf9189ba7f3bacfb1809bf721945a49af9c14",
+    "overnight_benchmark/worker.py": "9dd817730da69ac98606a60bfa575376c5799164c9299b087a05976cdb706a16",
+    "process_dsda_fairness.py": "3a04ac9329153b6bed06215c6faf4c8990335e87b2cc55a995a7e4e67ee481b6",
+    "process_followup_runner.py": "891601ddc936516db352159d622c9ee36814b63d4ca540a6d3c80e9c2f84b068",
+    "review_comparison/dsda_protocol_replay.py": "324bb1d154657460bbc32f2a70c493344d791124794158e1fd1b1b76bc4761b8",
+    "tests/test_case_study_benchmark.py": "49e86dc7424fb49eedd5163d1b1ca09e8fc223f43648a441756c9f1998407b15",
+    "tests/test_dsda_protocol.py": "f52edcc2a09dd3514ef9024b333c0cf9865b359cf1052a02422200f3002046c0",
+    "tests/test_evaluation_trace.py": "4ed5d1a8b07925086db4970787f95a2dd14d3666a42c7ce52ac7a131941200cc",
+    "tests/test_process_followup_runner.py": "445073d49111a0b36367e0a2d5510b4b848684e1eac8a481451fa5e8357c78a7",
+    "tests/test_dsda_protocol_integration.py": "dd1298bd6cfdaf63f1833044749540a83b190c545dedaed1599c738041510212"
+  },
+  "not_performed": [
+    "Dantzig jobs",
+    "new performance experiments",
+    "new NLP or solver calls",
+    "manual CI requests",
+    "changes to PR #52",
+    "merges"
+  ]
+}

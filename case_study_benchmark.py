@@ -45,7 +45,10 @@ from case_studies.small_batch_case import LOWER_BOUNDS as SMALL_BATCH_LOWER_BOUN
 from case_studies.small_batch_case import UPPER_BOUNDS as SMALL_BATCH_UPPER_BOUNDS
 from case_studies.small_batch_dsda import run_small_batch_dsda
 from case_studies.small_batch_rbfopt import run_small_batch_rbfopt
-from instrumentation import RESULT_FIELDS, save_results_csv
+from instrumentation import (
+    RESULT_FIELDS, OPTIONAL_RESULT_FIELDS, parse_optional_result_fields,
+    result_fields, result_schema, save_results_csv,
+)
 from evaluation_trace import EvaluationTrace, validate_trace_artifacts
 
 
@@ -582,6 +585,7 @@ def _provenance(matrix, cases, methods, n_starts):
             source_paths.add(BASE_DIR / "case_studies" / f"{case_name}_{method}.py")
     if "dsda" in methods:
         source_paths.add(BASE_DIR / "grid_dsda.py")
+        source_paths.add(BASE_DIR / "dsda_protocol.py")
         source_paths.add(BASE_DIR / "case_studies" / "dsda_domain.py")
     if {"rbfopt", "bam"}.intersection(methods):
         source_paths.add(BASE_DIR / "case_studies" / "bam_common.py")
@@ -665,12 +669,8 @@ def _software_versions():
     }
 
 
-def _result_schema():
-    return {
-        "name": "unified_benchmark_result",
-        "fields": list(RESULT_FIELDS),
-        "structured_value_encoding": "JSON strings in CSV cells",
-    }
+def _result_schema(fields=RESULT_FIELDS):
+    return result_schema(fields)
 
 
 def _executable_identity(path):
@@ -843,7 +843,7 @@ def _build_manifest(
         **({"evaluation_traces": evaluation_traces[:len(records)]}
            if protocol.get("trace_evaluations") else {}),
         "manifest_version": MANIFEST_VERSION,
-        "schema": _result_schema(),
+        "schema": _result_schema(result_fields(records)),
         "protocol": protocol,
         "run": {
             "status": status,
@@ -928,7 +928,8 @@ def _validate_record_matches_run_key(record, run_key, row_number):
 
 
 def _deserialize_result_record(record):
-    deserialized = dict(record)
+    deserialized = {k: v for k, v in record.items() if k not in OPTIONAL_RESULT_FIELDS}
+    deserialized.update(parse_optional_result_fields(record))
     for field in ("best_point", "incumbent_trajectory"):
         deserialized[field] = json.loads(record[field])
     for field in (
@@ -956,11 +957,12 @@ def _deserialize_result_record(record):
     return deserialized
 
 
-def _read_checkpoint_csv(partial_path, planned_run_keys):
+def _read_checkpoint_csv(partial_path, planned_run_keys, expected_schema=None):
     with Path(partial_path).open(newline="", encoding="utf-8") as handle:
         reader = csv.DictReader(handle)
-        if tuple(reader.fieldnames or ()) != RESULT_FIELDS:
-            raise ValueError("Checkpoint CSV schema does not match RESULT_FIELDS")
+        schema = _result_schema(reader.fieldnames or ())
+        if expected_schema is not None and schema != expected_schema:
+            raise ValueError("Checkpoint CSV schema does not match its manifest")
         raw_records = list(reader)
     if len(raw_records) > len(planned_run_keys):
         raise ValueError("Checkpoint CSV has more rows than the planned run count")
@@ -996,7 +998,8 @@ def _validate_resume_checkpoint(
     manifest = _load_json(partial_manifest_path, "checkpoint manifest")
     if manifest.get("manifest_version") != MANIFEST_VERSION:
         raise ValueError("Checkpoint manifest version does not match")
-    if manifest.get("schema") != _result_schema():
+    schema = manifest.get("schema")
+    if not isinstance(schema, dict) or schema != _result_schema(schema.get("fields", ())):
         raise ValueError("Checkpoint manifest schema does not match")
     if manifest.get("protocol") != expected_protocol:
         raise ValueError("Checkpoint manifest protocol does not match this run")
@@ -1041,7 +1044,7 @@ def _validate_resume_checkpoint(
     if output_state.get("csv_sha256") != _sha256_file(partial_path):
         raise ValueError("Checkpoint CSV checksum does not match its manifest")
 
-    records = _read_checkpoint_csv(partial_path, planned_run_keys)
+    records = _read_checkpoint_csv(partial_path, planned_run_keys, expected_schema=schema)
     completed_rows = run_state.get("completed_rows")
     if completed_rows != len(records):
         raise ValueError("Checkpoint completed row count does not match its CSV")

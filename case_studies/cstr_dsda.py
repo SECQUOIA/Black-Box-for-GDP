@@ -5,8 +5,11 @@ import math
 import time
 from pathlib import Path
 
+from dsda_protocol import (
+    IMPROVEMENT_ABS_TOL, ObservedObjective, add_target_report, validate_tolerances,
+)
 from grid_dsda import dsda_from_csv
-from instrumentation import TrackedObjective, make_result_record, save_results_csv
+from instrumentation import make_result_record, save_results_csv
 from .dsda_domain import box_membership, rank_observed_starts, validate_design
 
 from .common import generate_lhc_starting_points
@@ -48,8 +51,10 @@ def run_cstr_dsda(
     tie_break="first",
     verbose=False,
     starting_points=None,
+    improvement_abs_tol=IMPROVEMENT_ABS_TOL,
 ):
     """Run DSDA on the CSTR case from the best feasible LHC start."""
+    validate_tolerances(1e-12, improvement_abs_tol)
     case_data = load_cstr_case_data(grid_size)
     upper_bounds = case_data["upper_bounds"]
     feasible_objectives = case_data["feasible_objectives"]
@@ -68,12 +73,13 @@ def run_cstr_dsda(
         starting_points, LOWER_BOUNDS, upper_bounds, n_starts, max_evaluations,
     )
     domain = box_membership(LOWER_BOUNDS, upper_bounds)
-    tracked_objective = TrackedObjective(
+    tracked_objective = ObservedObjective(
         lambda point: cstr_objective(
             point,
             grid_size=grid_size,
             feasible_objectives=feasible_objectives,
-        )
+        ),
+        legacy=improvement_abs_tol is None,
     )
     start_time = time.perf_counter()
     (
@@ -106,6 +112,7 @@ def run_cstr_dsda(
             grid=domain,
             tracked_objective=tracked_objective,
             start_value=selected_start_value,
+            improvement_abs_tol=improvement_abs_tol,
         )
 
     if run_result is None:
@@ -142,7 +149,7 @@ def run_cstr_dsda(
             0 if run_result is None else run_result["major_iterations"]
         ),
     )
-    return {
+    result = {
         "case_name": "cstr",
         "grid_size": int(grid_size),
         "starting_points": starting_points,
@@ -160,6 +167,8 @@ def run_cstr_dsda(
         "stop_reason": stop_reason,
         "result_record": result_record,
     }
+    add_target_report(result, tracked_objective.observed_incumbent, known_best_value)
+    return result
 
 
 def main(output_path=None, **kwargs):

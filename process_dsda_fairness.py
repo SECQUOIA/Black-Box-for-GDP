@@ -70,7 +70,7 @@ def sources():
         "process_dsda_fairness_recovery.py",
         "run_process_dsda_fairness_dantzig.sh",
         "docs/process_dsda_fairness_dantzig.txt",
-        "grid_dsda.py",
+        "grid_dsda.py", "dsda_protocol.py",
         "instrumentation.py",
         "evaluation_trace.py",
         "cpu_affinity.py",
@@ -244,6 +244,8 @@ def invoke(spec):
         "max_evaluations": spec["max_evaluations"],
         "starting_points": spec["starting_points"],
         "verbose": True,
+        # This driver reproduces the sealed pre-issue-53 campaign.
+        "improvement_abs_tol": None,
         **spec["settings"],
     }
     if spec["case_name"] == "cstr":

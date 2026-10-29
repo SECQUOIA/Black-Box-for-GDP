@@ -58,7 +58,7 @@ def save(path, value):
 def source_files():
     names = (
         "grid_trace_runner.py", "run_grid_trace_dantzig.sh", "requirements-grid-trace.txt",
-        "benchmark.py", "grid_dsda.py", "instrumentation.py", "evaluation_trace.py",
+        "benchmark.py", "grid_dsda.py", "dsda_protocol.py", "instrumentation.py", "evaluation_trace.py",
         "cpu_affinity.py", "case_studies/__init__.py", "case_studies/common.py",
         "case_studies/bam_common.py", "fmqa_benchmark/__init__.py",
         "fmqa_benchmark/protocol.py", "fmqa_benchmark/grid_protocol.py",
