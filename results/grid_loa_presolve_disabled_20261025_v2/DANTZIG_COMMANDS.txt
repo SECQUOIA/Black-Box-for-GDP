@@ -1,0 +1,23 @@
+# Mac: upload the correction and checksum.
+scp /private/tmp/cstr15-dantzig-results/results/grid_loa_presolve_disabled_20261025_v2/grid_loa_presolve_disabled_dantzig_20261025_v2.zip{,.sha256} lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/
+
+# Dantzig: verify and extract into a fresh runner directory.
+cd /local/scratch/a/lee4382/repository/RBFopt_Test &&
+sha256sum -c grid_loa_presolve_disabled_dantzig_20261025_v2.zip.sha256 &&
+test ! -e results/runners/grid_loa_presolve_disabled_dantzig_20261025_v2 &&
+unzip -q grid_loa_presolve_disabled_dantzig_20261025_v2.zip -d results/runners
+
+# Dantzig: launch once after successful extraction.
+# Keep the original stopped result ZIP in place for the mandatory zero-call check.
+RUNNER=/local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_presolve_disabled_dantzig_20261025_v2
+( set -o noclobber; : > "$RUNNER/launch.log" ) &&
+nohup bash "$RUNNER/execution/run_diagnostic.sh" run >> "$RUNNER/launch.log" 2>&1 < /dev/null &
+
+# Dantzig: monitor progress and the final status.
+tail -n 80 -F /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_presolve_disabled_dantzig_20261025_v2/launch.log
+
+# Mac: download the new result after RESULT_ZIP appears.
+scp lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025_v2/grid_loa_presolve_disabled_20261025_v2_result.zip ~/Downloads/
+
+# Offline result analysis in an existing Pyomo 6.10.0 environment.
+# python <returned run>/package/execution/analyze_diagnostic.py --run-dir <returned run> --output <fresh analysis directory>

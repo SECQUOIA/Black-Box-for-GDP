@@ -1,0 +1,14 @@
+{
+  "status": "remote_not_run_authentication_unavailable",
+  "ssh_host": "lee4382@dantzig.ecn.purdue.edu",
+  "ssh_options": [
+    "BatchMode=yes",
+    "ConnectTimeout=12",
+    "ControlMaster=no"
+  ],
+  "exit_code": 255,
+  "stderr_summary": "Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password,keyboard-interactive).",
+  "fallback": "User-requested validation package and exact commands prepared; no substitute optimizer used.",
+  "actual_fixed_solver_calls": 0,
+  "actual_full_loa_runs": 0
+}

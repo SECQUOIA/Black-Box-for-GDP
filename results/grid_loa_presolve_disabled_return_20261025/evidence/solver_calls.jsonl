@@ -1,0 +1,1 @@
+{"index": 1, "solver": "scip", "mtype": "nlp", "limit_s": 56.771352176915386, "threads": 1, "status": "error", "solver_option_file": ["gams/mipstart = 0", "timing/clocktype = 2"], "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.", "wall_s": 0.37393051106482744}

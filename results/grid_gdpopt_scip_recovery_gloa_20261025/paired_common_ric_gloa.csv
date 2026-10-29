@@ -1,0 +1,10 @@
+grid_name,ric_target,gloa_target,ric_termination,gloa_termination,ric_objective,gloa_objective,ric_worker_wall_s,gloa_worker_wall_s
+bohachevsky2,True,True,optimal,optimal,0.0,0.0,1071.9191324079875,1059.438407529844
+camel3,True,True,maxTimeLimit,optimal,0.0,0.0,1789.0400306619704,1709.8285694108345
+deflected_corrugated_spring,True,True,optimal,optimal,0.0,0.0,1060.9912196078803,1032.6091162629891
+dropwave,True,True,optimal,optimal,0.0,0.0,1377.7315604018513,1085.9623554940335
+griewank,True,True,optimal,optimal,0.0,0.0,1036.0174105078913,1075.0695915408432
+hosaki,True,True,optimal,optimal,0.0,0.0,1630.7744079208933,1691.0121485949494
+levy,True,True,maxTimeLimit,optimal,-1.4566988880917495e-19,-1.4566988880917495e-19,1789.385603403207,1778.9783477371093
+rastrigin,True,True,optimal,optimal,0.0,0.0,1280.73540120502,1263.6095780842006
+styblinski_tang,True,True,maxTimeLimit,maxTimeLimit,0.0,0.0,1790.6683053509332,1789.3135589479934

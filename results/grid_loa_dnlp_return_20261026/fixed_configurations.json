@@ -1,0 +1,578 @@
+[
+  {
+    "grid_name": "holder_table",
+    "point": [
+      3,
+      1
+    ],
+    "original_validation": {
+      "has_feasible_solution": true,
+      "candidate_objective": -1.9587104186792927e-16,
+      "max_primal_violation": 1.7763568394002505e-15,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[3]",
+        "Ychoice[1]"
+      ],
+      "selected_booleans": [],
+      "grid_point": [
+        3,
+        1
+      ],
+      "missing_variables": [],
+      "reference_minimum": 0.0,
+      "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+      "normalized_gap": -1.9587104186792927e-16,
+      "target_hit": true
+    },
+    "actual_options": {
+      "subproblem_presolve": false,
+      "mip_presolve": true,
+      "time_limit": 60,
+      "force_subproblem_nlp": true,
+      "mip_solver_args": {
+        "mtype": "mip",
+        "solver": "scip"
+      },
+      "nlp_solver_args": {
+        "mtype": "dnlp",
+        "solver": "scip"
+      }
+    },
+    "default_probe": {
+      "grid_name": "holder_table",
+      "point": [
+        3,
+        1
+      ],
+      "original_witness": {
+        "has_feasible_solution": true,
+        "candidate_objective": 0.0,
+        "max_primal_violation": 0.0,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[3]",
+          "Ychoice[1]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          3,
+          1
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "normalized_gap": 0.0,
+        "target_hit": true
+      },
+      "default_presolve_allows_solver": false,
+      "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Lower bound (-3.233037281025837) computed for variable y is larger than the computed upper bound (-9.333333333333336).\n",
+      "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+      "subproblem_before_option_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "subproblem_after_option_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "original_model_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+      "optimization_calls": 0,
+      "witness_not_a_returned_solution": true
+    },
+    "call_accounting": {
+      "journaled_interface_attempts": 1,
+      "started_interface_attempts": 1,
+      "completed_mip_calls": 0,
+      "completed_dnlp_calls": 1,
+      "error_interface_attempts": 0,
+      "active_unjournaled_attempts": 0,
+      "active_attempt": null,
+      "confirmed_scip_invocations": 1,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "journaled_interface_wall_s": 0.6268866059836,
+      "failed_interface_wall_s": 0,
+      "gams_solve_time_s": 0.267999828793108,
+      "no_marginals_messages": 1
+    },
+    "worker_wall_s": 0.8981313318945467,
+    "termination": "optimal",
+    "gate_passed": true
+  },
+  {
+    "grid_name": "holder_table",
+    "point": [
+      3,
+      29
+    ],
+    "original_validation": {
+      "has_feasible_solution": true,
+      "candidate_objective": 9.793552093396464e-16,
+      "max_primal_violation": 0.0,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[3]",
+        "Ychoice[29]"
+      ],
+      "selected_booleans": [],
+      "grid_point": [
+        3,
+        29
+      ],
+      "missing_variables": [],
+      "reference_minimum": 0.0,
+      "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+      "normalized_gap": 9.793552093396464e-16,
+      "target_hit": true
+    },
+    "actual_options": {
+      "subproblem_presolve": false,
+      "mip_presolve": true,
+      "time_limit": 60,
+      "force_subproblem_nlp": true,
+      "mip_solver_args": {
+        "mtype": "mip",
+        "solver": "scip"
+      },
+      "nlp_solver_args": {
+        "mtype": "dnlp",
+        "solver": "scip"
+      }
+    },
+    "default_probe": {
+      "grid_name": "holder_table",
+      "point": [
+        3,
+        29
+      ],
+      "original_witness": {
+        "has_feasible_solution": true,
+        "candidate_objective": 9.793552093396464e-16,
+        "max_primal_violation": 0.0,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[3]",
+          "Ychoice[29]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          3,
+          29
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "normalized_gap": 9.793552093396464e-16,
+        "target_hit": true
+      },
+      "default_presolve_allows_solver": false,
+      "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Lower bound (9.333333333333332) computed for variable y is larger than the computed upper bound (3.23303728102584).\n",
+      "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+      "subproblem_before_option_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "subproblem_after_option_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "original_model_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+      "optimization_calls": 0,
+      "witness_not_a_returned_solution": true
+    },
+    "call_accounting": {
+      "journaled_interface_attempts": 1,
+      "started_interface_attempts": 1,
+      "completed_mip_calls": 0,
+      "completed_dnlp_calls": 1,
+      "error_interface_attempts": 0,
+      "active_unjournaled_attempts": 0,
+      "active_attempt": null,
+      "confirmed_scip_invocations": 1,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "journaled_interface_wall_s": 0.3999574608169496,
+      "failed_interface_wall_s": 0,
+      "gams_solve_time_s": 0.045999675057828,
+      "no_marginals_messages": 1
+    },
+    "worker_wall_s": 0.66691390494816,
+    "termination": "optimal",
+    "gate_passed": true
+  },
+  {
+    "grid_name": "holder_table",
+    "point": [
+      27,
+      1
+    ],
+    "original_validation": {
+      "has_feasible_solution": true,
+      "candidate_objective": -1.9587104186792927e-16,
+      "max_primal_violation": 1.7763568394002505e-15,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[27]",
+        "Ychoice[1]"
+      ],
+      "selected_booleans": [],
+      "grid_point": [
+        27,
+        1
+      ],
+      "missing_variables": [],
+      "reference_minimum": 0.0,
+      "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+      "normalized_gap": -1.9587104186792927e-16,
+      "target_hit": true
+    },
+    "actual_options": {
+      "subproblem_presolve": false,
+      "mip_presolve": true,
+      "time_limit": 60,
+      "force_subproblem_nlp": true,
+      "mip_solver_args": {
+        "mtype": "mip",
+        "solver": "scip"
+      },
+      "nlp_solver_args": {
+        "mtype": "dnlp",
+        "solver": "scip"
+      }
+    },
+    "default_probe": {
+      "grid_name": "holder_table",
+      "point": [
+        27,
+        1
+      ],
+      "original_witness": {
+        "has_feasible_solution": true,
+        "candidate_objective": 0.0,
+        "max_primal_violation": 0.0,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[27]",
+          "Ychoice[1]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          27,
+          1
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "normalized_gap": 0.0,
+        "target_hit": true
+      },
+      "default_presolve_allows_solver": false,
+      "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Lower bound (-3.233037281025837) computed for variable y is larger than the computed upper bound (-9.333333333333336).\n",
+      "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+      "subproblem_before_option_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "subproblem_after_option_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "original_model_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+      "optimization_calls": 0,
+      "witness_not_a_returned_solution": true
+    },
+    "call_accounting": {
+      "journaled_interface_attempts": 1,
+      "started_interface_attempts": 1,
+      "completed_mip_calls": 0,
+      "completed_dnlp_calls": 1,
+      "error_interface_attempts": 0,
+      "active_unjournaled_attempts": 0,
+      "active_attempt": null,
+      "confirmed_scip_invocations": 1,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "journaled_interface_wall_s": 0.38770622108131647,
+      "failed_interface_wall_s": 0,
+      "gams_solve_time_s": 0.043999962508678,
+      "no_marginals_messages": 1
+    },
+    "worker_wall_s": 0.654693003045395,
+    "termination": "optimal",
+    "gate_passed": true
+  },
+  {
+    "grid_name": "holder_table",
+    "point": [
+      27,
+      29
+    ],
+    "original_validation": {
+      "has_feasible_solution": true,
+      "candidate_objective": 9.793552093396464e-16,
+      "max_primal_violation": 0.0,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[27]",
+        "Ychoice[29]"
+      ],
+      "selected_booleans": [],
+      "grid_point": [
+        27,
+        29
+      ],
+      "missing_variables": [],
+      "reference_minimum": 0.0,
+      "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+      "normalized_gap": 9.793552093396464e-16,
+      "target_hit": true
+    },
+    "actual_options": {
+      "subproblem_presolve": false,
+      "mip_presolve": true,
+      "time_limit": 60,
+      "force_subproblem_nlp": true,
+      "mip_solver_args": {
+        "mtype": "mip",
+        "solver": "scip"
+      },
+      "nlp_solver_args": {
+        "mtype": "dnlp",
+        "solver": "scip"
+      }
+    },
+    "default_probe": {
+      "grid_name": "holder_table",
+      "point": [
+        27,
+        29
+      ],
+      "original_witness": {
+        "has_feasible_solution": true,
+        "candidate_objective": 9.793552093396464e-16,
+        "max_primal_violation": 0.0,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[27]",
+          "Ychoice[29]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          27,
+          29
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+        "normalized_gap": 9.793552093396464e-16,
+        "target_hit": true
+      },
+      "default_presolve_allows_solver": false,
+      "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Lower bound (9.333333333333332) computed for variable y is larger than the computed upper bound (3.23303728102584).\n",
+      "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+      "subproblem_before_option_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "subproblem_after_option_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "original_model_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+      "optimization_calls": 0,
+      "witness_not_a_returned_solution": true
+    },
+    "call_accounting": {
+      "journaled_interface_attempts": 1,
+      "started_interface_attempts": 1,
+      "completed_mip_calls": 0,
+      "completed_dnlp_calls": 1,
+      "error_interface_attempts": 0,
+      "active_unjournaled_attempts": 0,
+      "active_attempt": null,
+      "confirmed_scip_invocations": 1,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "journaled_interface_wall_s": 0.3994864879641682,
+      "failed_interface_wall_s": 0,
+      "gams_solve_time_s": 0.056000123731792,
+      "no_marginals_messages": 1
+    },
+    "worker_wall_s": 0.6645410500932485,
+    "termination": "optimal",
+    "gate_passed": true
+  },
+  {
+    "grid_name": "michalewicz",
+    "point": [
+      21,
+      15
+    ],
+    "original_validation": {
+      "has_feasible_solution": true,
+      "candidate_objective": 0.0,
+      "max_primal_violation": 4.440892098500626e-16,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[21]",
+        "Ychoice[15]"
+      ],
+      "selected_booleans": [],
+      "grid_point": [
+        21,
+        15
+      ],
+      "missing_variables": [],
+      "reference_minimum": 0.0,
+      "original_structure_sha256": "ccaecd464ee21d412feaac6b60aecc8e8d62fb03665f35871a9250d4b1c44616",
+      "normalized_gap": 0.0,
+      "target_hit": true
+    },
+    "actual_options": {
+      "subproblem_presolve": false,
+      "mip_presolve": true,
+      "time_limit": 60,
+      "force_subproblem_nlp": true,
+      "mip_solver_args": {
+        "mtype": "mip",
+        "solver": "scip"
+      },
+      "nlp_solver_args": {
+        "mtype": "dnlp",
+        "solver": "scip"
+      }
+    },
+    "default_probe": {
+      "grid_name": "michalewicz",
+      "point": [
+        21,
+        15
+      ],
+      "original_witness": {
+        "has_feasible_solution": true,
+        "candidate_objective": 0.0,
+        "max_primal_violation": 0.0,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[21]",
+          "Ychoice[15]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          21,
+          15
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "ccaecd464ee21d412feaac6b60aecc8e8d62fb03665f35871a9250d4b1c44616",
+        "normalized_gap": 0.0,
+        "target_hit": true
+      },
+      "default_presolve_allows_solver": false,
+      "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Lower bound (2.199114857512855) computed for variable x is larger than the computed upper bound (0.9424777960769378).\n",
+      "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+      "subproblem_before_option_sha256": "a758aa738b6b1ac0cc54ca62422961e566c0af3655d355f878bea3d8062d3805",
+      "subproblem_after_option_sha256": "a758aa738b6b1ac0cc54ca62422961e566c0af3655d355f878bea3d8062d3805",
+      "original_model_structure_sha256": "ccaecd464ee21d412feaac6b60aecc8e8d62fb03665f35871a9250d4b1c44616",
+      "optimization_calls": 0,
+      "witness_not_a_returned_solution": true
+    },
+    "call_accounting": {
+      "journaled_interface_attempts": 1,
+      "started_interface_attempts": 1,
+      "completed_mip_calls": 0,
+      "completed_dnlp_calls": 1,
+      "error_interface_attempts": 0,
+      "active_unjournaled_attempts": 0,
+      "active_attempt": null,
+      "confirmed_scip_invocations": 1,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "journaled_interface_wall_s": 0.4162582668941468,
+      "failed_interface_wall_s": 0,
+      "gams_solve_time_s": 0.055999495089054,
+      "no_marginals_messages": 1
+    },
+    "worker_wall_s": 0.6834326789248735,
+    "termination": "optimal",
+    "gate_passed": true
+  },
+  {
+    "grid_name": "shubert",
+    "point": [
+      17,
+      22
+    ],
+    "original_validation": {
+      "has_feasible_solution": true,
+      "candidate_objective": 0.0,
+      "max_primal_violation": 0.0,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[17]",
+        "Ychoice[22]"
+      ],
+      "selected_booleans": [],
+      "grid_point": [
+        17,
+        22
+      ],
+      "missing_variables": [],
+      "reference_minimum": 0.0,
+      "original_structure_sha256": "10b5789737dd3620036c81ad6a67d3db9eb29c2d94ef5292e5e3d2fba9e2fdb9",
+      "normalized_gap": 0.0,
+      "target_hit": true
+    },
+    "actual_options": {
+      "subproblem_presolve": false,
+      "mip_presolve": true,
+      "time_limit": 60,
+      "force_subproblem_nlp": true,
+      "mip_solver_args": {
+        "mtype": "mip",
+        "solver": "scip"
+      },
+      "nlp_solver_args": {
+        "mtype": "dnlp",
+        "solver": "scip"
+      }
+    },
+    "default_probe": {
+      "grid_name": "shubert",
+      "point": [
+        17,
+        22
+      ],
+      "original_witness": {
+        "has_feasible_solution": true,
+        "candidate_objective": 0.0,
+        "max_primal_violation": 0.0,
+        "invalid_or_undefined": [],
+        "selected_disjuncts": [
+          "Xchoice[17]",
+          "Ychoice[22]"
+        ],
+        "selected_booleans": [],
+        "grid_point": [
+          17,
+          22
+        ],
+        "missing_variables": [],
+        "reference_minimum": 0.0,
+        "original_structure_sha256": "10b5789737dd3620036c81ad6a67d3db9eb29c2d94ef5292e5e3d2fba9e2fdb9",
+        "normalized_gap": 0.0,
+        "target_hit": true
+      },
+      "default_presolve_allows_solver": false,
+      "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Detected an infeasible constraint.\n",
+      "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+      "subproblem_before_option_sha256": "5788d3642064b598b66a03f8d8250dec5e7475f8646d61504ef90f41c1d4a367",
+      "subproblem_after_option_sha256": "5788d3642064b598b66a03f8d8250dec5e7475f8646d61504ef90f41c1d4a367",
+      "original_model_structure_sha256": "10b5789737dd3620036c81ad6a67d3db9eb29c2d94ef5292e5e3d2fba9e2fdb9",
+      "optimization_calls": 0,
+      "witness_not_a_returned_solution": true
+    },
+    "call_accounting": {
+      "journaled_interface_attempts": 1,
+      "started_interface_attempts": 1,
+      "completed_mip_calls": 0,
+      "completed_dnlp_calls": 1,
+      "error_interface_attempts": 0,
+      "active_unjournaled_attempts": 0,
+      "active_attempt": null,
+      "confirmed_scip_invocations": 1,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "journaled_interface_wall_s": 0.4085018429905176,
+      "failed_interface_wall_s": 0,
+      "gams_solve_time_s": 0.056000123731792,
+      "no_marginals_messages": 1
+    },
+    "worker_wall_s": 0.7046422730199993,
+    "termination": "optimal",
+    "gate_passed": true
+  }
+]

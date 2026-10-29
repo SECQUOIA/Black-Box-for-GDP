@@ -72,3 +72,15 @@ def test_coordinate_normalization_preserves_integer_identity():
     assert v.coordinate("[1.0, 2]") == v.coordinate([1, 2])
     with pytest.raises(ValueError, match="Noninteger"):
         v.coordinate([1.5, 2])
+
+
+def test_historical_publication_snapshot_is_hash_verified(tmp_path):
+    for name in [f'{v.BASE}/manifest.json', 'results/review_process_coverage_20261021/manifest.json',
+                 f'{v.PUBLICATION}/analysis_manifest_current.json']:
+        destination = tmp_path / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes((v.ROOT / name).read_bytes())
+    snapshot = tmp_path / v.PUBLICATION / 'analysis_manifest_current.json'
+    snapshot.write_bytes(snapshot.read_bytes() + b'\n')
+    with pytest.raises(ValueError, match='Input hash mismatch'):
+        v.audit(tmp_path)

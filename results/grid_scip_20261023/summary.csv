@@ -1,0 +1,6 @@
+method,jobs,returned_feasible_solutions,target_hits,optimal_terminations,time_limit_terminations,optimal_but_misses_target,runner_global_certificates,method_wall_s_sum,method_wall_s_median,actual_solver_counts
+bigm,21,21,21,21,0,0,21,24.469248763169162,0.6551378261065111,"{""scip"": 21}"
+hull,21,21,21,21,0,0,21,16.38585322513245,0.5329140480607748,"{""scip"": 21}"
+gloa,21,21,18,18,3,2,0,19116.2349167692,1137.485905291047,"{""highs"": 20778}"
+loa,21,21,18,17,4,2,0,18471.43425256887,846.7070863940753,"{""highs"": 19299}"
+ric,21,21,18,17,4,2,0,19057.873767759884,988.0804367649835,"{""highs"": 20986}"

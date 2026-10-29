@@ -1,0 +1,173 @@
+{
+  "archive": "results/archives/cstr30_init_20261025_060540_98uz54ol.zip",
+  "archive_sha256": "0cfec308ee68512f9e46bd2dc78f9839dad987fd5843cc3e829d5d71ee9ccdfb",
+  "archive_bytes": 22815713,
+  "outer_checksum": "locally computed; server sidecar not provided",
+  "internal_checksum_entries": 10663,
+  "package_inventory_files_verified": 3211,
+  "output_hashes_verified": 7450,
+  "historical_job_files_compared": 2631,
+  "historical_archive_sha256": {
+    "results/archives/cstr_penalty_1e6_20261022_045249_vn111_rf.zip": "b43b9b3687d24b76de35f6147a0c3b0b8c51a899952e6912f5fe8e2e1aa4024c",
+    "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip": "b91afb707229766adcdcfb1ee67406377d1d2ef44839b062ec9e0539893bfefa",
+    "results/archives/ipopt_dfo_cstr_20261015_223017_ncd_12gx.zip": "2b0c56bdc67297661ebb6ab81ed60ca1df10788541bd39e67fcd391f4a48f570",
+    "results/archives/review_comparison_20261020_124949_return_1792527395393579314.zip": "659ddd3d1c1f62def4f8875399b63bdd4899f44ff848afb4ea45c079b3c1dc36",
+    "results/archives/dantzig_gdp_gams_20260922_050038_p4q8hy54.zip": "e406b8fae2a90191835eb7332d483c719ebb1675d14d3b0e6d3bf5f7789a197b",
+    "results/archives/dantzig_cstr_box_ipopt_20261015_162507_3bnp0xm3.zip": "38f1f99098113f67a0cec623eff88dfdf3e10bda2c7c07a5a356cbabce527677"
+  },
+  "baseline_revision": "44ed72156a03017d7021f3fac6744bae4366dbfb",
+  "execution_source_revision": "750169cdaa42dc46577b7c267837da54e7b99c35",
+  "package_inventory_sha256": "36686f8d8778ddb4c934f9a8befeed70f2a7e4f46cb5c85c1adc893f3fdc7d89",
+  "actual_environment": {
+    "host": "dantzig.ecn.purdue.edu",
+    "python_version": "3.11.16",
+    "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34",
+    "dependency_versions": {
+      "pyomo": "6.10.0",
+      "sympy": "1.14.0",
+      "numpy": "2.4.6",
+      "networkx": "3.6.1",
+      "matplotlib": "3.11.2"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OMP_THREAD_LIMIT": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "OMP_DYNAMIC": "FALSE",
+      "MKL_DYNAMIC": "FALSE"
+    },
+    "solver_executable": "/package/gams/52.2/gams",
+    "solver_executable_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+    "effective_cpus": [
+      10
+    ],
+    "python_executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-gdp/bin/python",
+    "solver_options": {
+      "solver": "ipopt",
+      "mtype": "nlp",
+      "warmstart": true,
+      "io_options": {
+        "put_results_format": "dat"
+      },
+      "add_options": [
+        "option reslim=60;",
+        "option iterlim=3000;",
+        "option threads=1;",
+        "option optcr=0.00001;",
+        "GAMS_MODEL.optfile=1;"
+      ]
+    },
+    "solver_option_file": [
+      "tol 1e-8",
+      "bound_relax_factor 0",
+      "max_iter 3000",
+      "warm_start_init_point no",
+      "linear_solver mumps"
+    ],
+    "source": {
+      "repository": "https://github.com/SECQUOIA/dsda-gdp",
+      "commit": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+      "files_sha256": {
+        "gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+        "gdp/dsda/dsda_functions.py": "797ba7b8570b7e8b9ca8b2c6d775bf654ace77cd629b9ad54eea6027d914fc87",
+        "main_cstr.py": "b26b3895196716b0424d8aecb703a75e5c1d368fb2cbc9934bb299d836bb8183"
+      }
+    },
+    "solver_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "ipopt_version_line": "This is Ipopt version 3.14.19, running with linear solver MUMPS 5.8.1.",
+    "smoke_nlp_calls": 1,
+    "platform_equal": false,
+    "platform_note": "Kernel version is recorded separately from the solver/runtime identity checks"
+  },
+  "old_platform": "Linux-5.15.0-323.211.3.4.el9uek.x86_64-x86_64-with-glibc2.34",
+  "new_platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34",
+  "reproduced_report_files": {
+    "README.txt": {
+      "byte_identical": true,
+      "returned_sha256": "c3082004918786d02741faf271cba43cae21bd8d3dab4ed0b821a834a4421b85",
+      "replayed_sha256": "c3082004918786d02741faf271cba43cae21bd8d3dab4ed0b821a834a4421b85",
+      "numeric_differences": []
+    },
+    "evaluations.csv": {
+      "byte_identical": true,
+      "returned_sha256": "b47d7cd2e2d60ac62bfdb72aece04aa1bee9ff1b805d7303e1d6d21f87077b46",
+      "replayed_sha256": "b47d7cd2e2d60ac62bfdb72aece04aa1bee9ff1b805d7303e1d6d21f87077b46",
+      "numeric_differences": []
+    },
+    "coordinate_comparison.csv": {
+      "byte_identical": true,
+      "returned_sha256": "53839e5d1a29a62611f7870dbf87cf9927303291e1c7ea65241cd2de792c3330",
+      "replayed_sha256": "53839e5d1a29a62611f7870dbf87cf9927303291e1c7ea65241cd2de792c3330",
+      "numeric_differences": []
+    },
+    "paired_runs.csv": {
+      "byte_identical": true,
+      "returned_sha256": "35f49450f613761e89be6d6214d99837e58446e8d47b7dd7b1f8e499c0f3cfae",
+      "replayed_sha256": "35f49450f613761e89be6d6214d99837e58446e8d47b7dd7b1f8e499c0f3cfae",
+      "numeric_differences": []
+    },
+    "method_summary.csv": {
+      "byte_identical": true,
+      "returned_sha256": "9c6c45ee16876360c3ef2abce14e929ac1236f1491cd27b98f8e2dd224e247da",
+      "replayed_sha256": "9c6c45ee16876360c3ef2abce14e929ac1236f1491cd27b98f8e2dd224e247da",
+      "numeric_differences": []
+    },
+    "all_cstr_summary.csv": {
+      "byte_identical": true,
+      "returned_sha256": "03e8c29fd67cdf7e9a64bc0dbddd61ef1e4c09de5fca01478ba467859906cd81",
+      "replayed_sha256": "03e8c29fd67cdf7e9a64bc0dbddd61ef1e4c09de5fca01478ba467859906cd81",
+      "numeric_differences": []
+    },
+    "retained_other_cstr_runs.csv": {
+      "byte_identical": true,
+      "returned_sha256": "18c727c39e1aa883841f06f1d58ee20c6fcf355ecf5aaaa365bac8f5353ea5ed",
+      "replayed_sha256": "18c727c39e1aa883841f06f1d58ee20c6fcf355ecf5aaaa365bac8f5353ea5ed",
+      "numeric_differences": []
+    },
+    "rbfopt_coordinates.csv": {
+      "byte_identical": true,
+      "returned_sha256": "d7b82f01d3a7f4f398c6a118d50ff0b22ff092041da7f27a726b23a4311065c7",
+      "replayed_sha256": "d7b82f01d3a7f4f398c6a118d50ff0b22ff092041da7f27a726b23a4311065c7",
+      "numeric_differences": []
+    },
+    "summary.json": {
+      "byte_identical": false,
+      "returned_sha256": "c8dbecba04f18f687cac6ae00fb015a43afe44ad373b7101f49d9a6e6a98a79c",
+      "replayed_sha256": "002e067ace7cadd9148056ac76f00a5d6da09c28adf3dede3514aca54ac3d994",
+      "numeric_differences": [
+        {
+          "field": "/old_point_cost_sum_s",
+          "returned": 922.856467178393,
+          "replayed": 922.8564671783929,
+          "absolute_difference": 1.1368683772161603e-13
+        }
+      ]
+    },
+    "validation.json": {
+      "byte_identical": true,
+      "returned_sha256": "75f92689dcff812b8ecf8861974cd78953c350e13d0c3b4aac21c1fb97cd24a7",
+      "replayed_sha256": "75f92689dcff812b8ecf8861974cd78953c350e13d0c3b4aac21c1fb97cd24a7",
+      "numeric_differences": []
+    },
+    "callbacks.csv": {
+      "byte_identical": true,
+      "returned_sha256": "744933910d14d21de7fbb3004857562f043386e5baa62359f3f6818f719572dc",
+      "replayed_sha256": "744933910d14d21de7fbb3004857562f043386e5baa62359f3f6818f719572dc",
+      "numeric_differences": []
+    }
+  },
+  "analysis_python": "3.13.12",
+  "analysis_platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "analysis_source_sha256": "54f13ebcee6dfd6d6a0b63e01e62031b37935a16477527aafd7cdab6074804e8",
+  "model_audit_completed": true,
+  "call_count_note": "Returned nlp_calls counts solve_gams entry attempts; actual CSTR IPOPT invocations are independently counted from solver logs and GAMS model/stat artifacts."
+}

@@ -1,0 +1,13 @@
+grid_name,method,attempt_cohort,target_hit,status,termination,objective,grid_point,worker_wall_s,result_sha256,archive
+alpine2,ric,retained_first_attempt,False,finished,maxTimeLimit,0.06723263291103136,"[30, 27]",1789.173306009965,cd22ae48f4010f60f3480d9079f9d6241f944811c3e144b002a1e10c67601a54,grid_gdpopt_scip_20261025_072643_lhdbfn9e.zip
+camel3,ric,recovery,True,finished,maxTimeLimit,0.0,"[15, 15]",1789.0400306619704,02747e844b4d9465591532b04da587c1f9421200b4ed6d87c2a94b95a633a298,grid_gdpopt_scip_20261025_180435_dv1cn3et.zip
+camel3,loa,recovery,True,finished,maxTimeLimit,0.0,"[15, 15]",1793.8073484399356,cc8761d947028dfb19fecdb0ab8822781e40ef31c5c70c63dccc094ada37ca26,grid_gdpopt_scip_20261025_180441_051rkijg.zip
+easom,ric,retained_first_attempt,False,finished,maxTimeLimit,0.8722866131855062,"[18, 20]",1789.1431077860761,b0f11ed8120346e4ba625aeda0c53e1ef839e79676cef1f5071115e7bdf9bcd2,grid_gdpopt_scip_20261025_072643_lhdbfn9e.zip
+holder_table,gloa,retained_first_attempt,False,hard_time_limit,maxTimeLimit,0.14516723995340786,"[30, 1]",1800.085735712899,4d8f538a28a4a1b3ffb23a8d53b3e9f39a389ad372daa7fb4649006395154f23,grid_gdpopt_scip_20261025_072708_qh55t7wf.zip
+hosaki,loa,recovery,True,finished,maxTimeLimit,0.0,"[24, 10]",1790.6303990001325,80439f6f6960418d31350a37986754508e9125309f759a5c33358c25bacda442,grid_gdpopt_scip_20261025_180441_051rkijg.zip
+levy,ric,recovery,True,finished,maxTimeLimit,-1.4566988880917495e-19,"[16, 17]",1789.385603403207,efcbb027bcd9042a03103295244ebdf491285126ba47f92d736bb2815c2b2397,grid_gdpopt_scip_20261025_180435_dv1cn3et.zip
+levy13,gloa,retained_first_attempt,False,finished,maxTimeLimit,0.0026192196531791938,"[17, 15]",1789.807696940843,294826f4ec552d7f24cdd6d6670bfd8942e78e2617483ee89e83ec46184e5fa2,grid_gdpopt_scip_20261025_072708_qh55t7wf.zip
+michalewicz,ric,retained_first_attempt,False,finished,maxTimeLimit,0.08649170482029742,"[22, 15]",1789.1603688630275,58de92d31c87cb0991241fa0b3a11dca379cc866830b75af13006d7289a395ce,grid_gdpopt_scip_20261025_072643_lhdbfn9e.zip
+styblinski_tang,ric,recovery,True,finished,maxTimeLimit,0.0,"[6, 6]",1790.6683053509332,018801db0fcc41d691963c1168ca031942100f1f9dd45bd533f89f94bdc1b310,grid_gdpopt_scip_20261025_180435_dv1cn3et.zip
+styblinski_tang,gloa,recovery,True,finished,maxTimeLimit,0.0,"[6, 6]",1789.3135589479934,3cf4b46cdd0c30367abb72cc9256f3cdc28cd5ed0b0a2648f7b6c6c6740476a3,grid_gdpopt_scip_20261025_180450_9ac86u_v.zip
+styblinski_tang,loa,recovery,True,finished,maxTimeLimit,0.0,"[6, 6]",1789.1278064460494,5c6a7b8079461d71739bc4bad3e57ed6ab995dd6327b1de85f7fbf52541ac9e4,grid_gdpopt_scip_20261025_180441_051rkijg.zip

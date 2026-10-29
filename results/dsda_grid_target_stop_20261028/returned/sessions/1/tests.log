@@ -1,0 +1,18 @@
+test_budget_stop_precedes_target_checkpoint (__main__.GridTargetTests.test_budget_stop_precedes_target_checkpoint) ... ok
+test_default_mode_preserves_full_baseline_and_tie_options (__main__.GridTargetTests.test_default_mode_preserves_full_baseline_and_tie_options) ... ok
+test_exact_improvement_boundary_and_descent_code_unchanged (__main__.GridTargetTests.test_exact_improvement_boundary_and_descent_code_unchanged) ... ok
+test_incomplete_and_duplicate_pairings_are_rejected (__main__.GridTargetTests.test_incomplete_and_duplicate_pairings_are_rejected) ... ok
+test_missing_lookup_and_duplicate_response_are_rejected (__main__.GridTargetTests.test_missing_lookup_and_duplicate_response_are_rejected) ... ok
+test_no_improvement_continues_ranked_starts_without_target_hit (__main__.GridTargetTests.test_no_improvement_continues_ranked_starts_without_target_hit) ... ok
+test_nonzero_target_scale_and_actual_float_boundary (__main__.GridTargetTests.test_nonzero_target_scale_and_actual_float_boundary) ... ok
+test_resume_validates_completed_record_without_search (__main__.GridTargetTests.test_resume_validates_completed_record_without_search) ... ok
+test_scope_and_method_guards (__main__.GridTargetTests.test_scope_and_method_guards) ... ok
+test_solver_model_import_guard_is_retained (__main__.GridTargetTests.test_solver_model_import_guard_is_retained) ... ok
+test_success_boundary_uses_unrounded_values (__main__.GridTargetTests.test_success_boundary_uses_unrounded_values) ... ok
+test_unaccepted_movement_observation_and_checkpoint_position (__main__.GridTargetTests.test_unaccepted_movement_observation_and_checkpoint_position) ... ok
+test_unexpected_callback_path_change_is_rejected (__main__.GridTargetTests.test_unexpected_callback_path_change_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.081s
+
+OK

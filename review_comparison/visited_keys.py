@@ -13,6 +13,8 @@ from .manuscript import CONDITIONS, GEN, PRIMARY, SOL, UNI
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "results/review_comparison_20261020"
+# This audit describes the October 21 cohort, before the later adoptions.
+PUBLICATION = "manuscript/review_history/pre_column_adoption"
 OLD = "results/process_ipopt_bam_v2_20261015/tables"
 
 
@@ -81,14 +83,17 @@ def audit(root=ROOT):
         return data
 
     manifest = json.loads(verified(f"{BASE}/manifest.json"))
-    publication = json.loads(verified("manuscript/analysis_manifest_current.json"))
+    coverage = json.loads(verified("results/review_process_coverage_20261021/manifest.json"))
+    publication = json.loads(verified(
+        f"{PUBLICATION}/analysis_manifest_current.json",
+        coverage["input_sha256"]["manuscript/analysis_manifest_current.json"]))
     replay = json.loads(verified("reproduction/validation/checkout_replay.json"))
     for path, expected in publication["input_sha256"].items():
         verified(path, expected)
     completed = f"{BASE}/tables/completed_runs.csv"
     verified(completed, manifest["published_files_sha256"]["tables/completed_runs.csv"])
     selected = primary_runs(readcsv(root / completed))
-    published_path = "manuscript/tables/run_records.csv"
+    published_path = f"{PUBLICATION}/tables/run_records.csv"
     verified(published_path, publication["outputs_sha256"]["tables/run_records.csv"])
     published = primary_runs(readcsv(root / published_path))
     for key, row in selected.items():

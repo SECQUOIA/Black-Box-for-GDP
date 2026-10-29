@@ -1,0 +1,14 @@
+{
+  "status": "prepared_not_started_on_Dantzig",
+  "remote_access": "BatchMode SSH rejected authentication; no MFA session available",
+  "new_fixed_solver_calls": 0,
+  "new_full_loa_runs": 0,
+  "local_compile_only_passed": 6,
+  "local_gams_version": "53.3.0",
+  "local_optimization_calls": 0,
+  "required_server_gams": "52.2.0",
+  "required_server_scip": "9.2.4",
+  "server_compilation_and_solver_validation": "pending",
+  "prior_fixed_interface_calls": 1,
+  "prior_confirmed_scip_calls": 0
+}

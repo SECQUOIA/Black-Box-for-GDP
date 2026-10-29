@@ -1,0 +1,102 @@
+{
+  "primary_runs": 700,
+  "outcomes": {
+    "target_reached": 314,
+    "target_not_reached": 385,
+    "execution_failed": 1
+  },
+  "primary_callbacks": 16206,
+  "visited_configurations": 2040,
+  "accepted_inventory": 1266,
+  "cstr_hits": {
+    "dsda": 14,
+    "rbfopt_msrsm_genetic": 45,
+    "bam": 18,
+    "fmqa_sa": 9,
+    "uniform_without_replacement": 11
+  },
+  "process_hits": {
+    "dsda": 74,
+    "rbfopt_msrsm_genetic": 115,
+    "bam": 47,
+    "fmqa_sa": 42,
+    "uniform_without_replacement": 36
+  },
+  "cstr30": {
+    "dsda": {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "dsda",
+      "runs": 10,
+      "hits": 2,
+      "rate": 0.2,
+      "execution_failures": 0,
+      "callbacks": 272,
+      "mean_completion_s": 58.09257318987511,
+      "median_completion_s": 53.07520227506757,
+      "mean_search_s": 0.01672683081123978,
+      "mean_point_cost_s": 58.075846359063874,
+      "mean_preparation_s": 0.0
+    },
+    "rbfopt_msrsm_genetic": {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "rbfopt_msrsm_genetic",
+      "runs": 10,
+      "hits": 9,
+      "rate": 0.9,
+      "execution_failures": 0,
+      "callbacks": 430,
+      "mean_completion_s": 106.26022519820836,
+      "median_completion_s": 101.96265192423016,
+      "mean_search_s": 6.49906708560884,
+      "mean_point_cost_s": 99.76115811259952,
+      "mean_preparation_s": 0.0
+    },
+    "bam": {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "bam",
+      "runs": 10,
+      "hits": 2,
+      "rate": 0.2,
+      "execution_failures": 0,
+      "callbacks": 430,
+      "mean_completion_s": 117.99400073143188,
+      "median_completion_s": 115.40956657228526,
+      "mean_search_s": 0.4347862221300602,
+      "mean_point_cost_s": 117.55921450930182,
+      "mean_preparation_s": 0.0
+    },
+    "fmqa_sa": {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "fmqa_sa",
+      "runs": 10,
+      "hits": 1,
+      "rate": 0.1,
+      "execution_failures": 0,
+      "callbacks": 430,
+      "mean_completion_s": 115.15886834317352,
+      "median_completion_s": 101.18773202970624,
+      "mean_search_s": 25.826607628748754,
+      "mean_point_cost_s": 89.33226071442478,
+      "mean_preparation_s": 0.0
+    },
+    "uniform_without_replacement": {
+      "case": "cstr_30",
+      "budget": 43,
+      "method": "uniform_without_replacement",
+      "runs": 10,
+      "hits": 1,
+      "rate": 0.1,
+      "execution_failures": 0,
+      "callbacks": 430,
+      "mean_completion_s": 76.62246342969593,
+      "median_completion_s": 65.2047417270951,
+      "mean_search_s": 0.02429978617001325,
+      "mean_point_cost_s": 76.59816364352591,
+      "mean_preparation_s": 0.0
+    }
+  }
+}

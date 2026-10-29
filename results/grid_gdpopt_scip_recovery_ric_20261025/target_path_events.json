@@ -1,0 +1,1083 @@
+[
+  {
+    "grid_name": "bohachevsky2",
+    "event": "after_discrete_problem",
+    "iteration": 665,
+    "elapsed_s": 1071.5073904700112,
+    "completed_solver_calls": 1329,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "bohachevsky2",
+    "event": "before_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1071.513357423013,
+    "completed_solver_calls": 1329,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "bohachevsky2",
+    "event": "after_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1071.8976938039996,
+    "completed_solver_calls": 1330,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "camel3",
+    "event": "after_discrete_problem",
+    "iteration": 665,
+    "elapsed_s": 1171.7447208799422,
+    "completed_solver_calls": 1329,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "camel3",
+    "event": "before_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1171.750934974989,
+    "completed_solver_calls": 1329,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "camel3",
+    "event": "after_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1172.2433514299337,
+    "completed_solver_calls": 1330,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "deflected_corrugated_spring",
+    "event": "after_discrete_problem",
+    "iteration": 665,
+    "elapsed_s": 1060.5631867109332,
+    "completed_solver_calls": 1329,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      5.0,
+      5.0
+    ]
+  },
+  {
+    "grid_name": "deflected_corrugated_spring",
+    "event": "before_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1060.5694876059424,
+    "completed_solver_calls": 1329,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      5.0,
+      5.0
+    ]
+  },
+  {
+    "grid_name": "deflected_corrugated_spring",
+    "event": "after_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1060.9726094128564,
+    "completed_solver_calls": 1330,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      5.0,
+      5.0
+    ]
+  },
+  {
+    "grid_name": "dropwave",
+    "event": "after_discrete_problem",
+    "iteration": 665,
+    "elapsed_s": 1377.2970650759526,
+    "completed_solver_calls": 1329,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "dropwave",
+    "event": "before_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1377.3034933330491,
+    "completed_solver_calls": 1329,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "dropwave",
+    "event": "after_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1377.7099572520237,
+    "completed_solver_calls": 1330,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "griewank",
+    "event": "after_discrete_problem",
+    "iteration": 665,
+    "elapsed_s": 1035.6013881920371,
+    "completed_solver_calls": 1236,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "griewank",
+    "event": "before_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1035.6073355041444,
+    "completed_solver_calls": 1236,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "griewank",
+    "event": "after_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1035.9989114899654,
+    "completed_solver_calls": 1237,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "holder_table",
+    "event": "after_discrete_problem",
+    "iteration": 152,
+    "elapsed_s": 172.5750803980045,
+    "completed_solver_calls": 226,
+    "grid_point": [
+      3,
+      29
+    ],
+    "selected_coordinate_indices": [
+      [
+        3
+      ],
+      [
+        29
+      ]
+    ],
+    "physical_point": [
+      -8.0,
+      9.333333333333332
+    ]
+  },
+  {
+    "grid_name": "holder_table",
+    "event": "after_discrete_problem",
+    "iteration": 153,
+    "elapsed_s": 173.1585076909978,
+    "completed_solver_calls": 227,
+    "grid_point": [
+      3,
+      1
+    ],
+    "selected_coordinate_indices": [
+      [
+        3
+      ],
+      [
+        1
+      ]
+    ],
+    "physical_point": [
+      -8.0,
+      -9.333333333333334
+    ]
+  },
+  {
+    "grid_name": "holder_table",
+    "event": "after_discrete_problem",
+    "iteration": 542,
+    "elapsed_s": 721.8216412819456,
+    "completed_solver_calls": 804,
+    "grid_point": [
+      27,
+      29
+    ],
+    "selected_coordinate_indices": [
+      [
+        27
+      ],
+      [
+        29
+      ]
+    ],
+    "physical_point": [
+      8.0,
+      9.333333333333332
+    ]
+  },
+  {
+    "grid_name": "holder_table",
+    "event": "after_discrete_problem",
+    "iteration": 695,
+    "elapsed_s": 993.3063579869922,
+    "completed_solver_calls": 1030,
+    "grid_point": [
+      27,
+      1
+    ],
+    "selected_coordinate_indices": [
+      [
+        27
+      ],
+      [
+        1
+      ]
+    ],
+    "physical_point": [
+      8.0,
+      -9.333333333333334
+    ]
+  },
+  {
+    "grid_name": "hosaki",
+    "event": "after_discrete_problem",
+    "iteration": 604,
+    "elapsed_s": 882.5811326040421,
+    "completed_solver_calls": 1207,
+    "grid_point": [
+      24,
+      10
+    ],
+    "selected_coordinate_indices": [
+      [
+        24
+      ],
+      [
+        10
+      ]
+    ],
+    "physical_point": [
+      4.0,
+      2.0
+    ]
+  },
+  {
+    "grid_name": "hosaki",
+    "event": "before_subproblem",
+    "iteration": 604,
+    "elapsed_s": 882.5877319779247,
+    "completed_solver_calls": 1207,
+    "grid_point": [
+      24,
+      10
+    ],
+    "selected_coordinate_indices": [
+      [
+        24
+      ],
+      [
+        10
+      ]
+    ],
+    "physical_point": [
+      4.0,
+      2.0
+    ]
+  },
+  {
+    "grid_name": "hosaki",
+    "event": "after_subproblem",
+    "iteration": 604,
+    "elapsed_s": 882.9747962839901,
+    "completed_solver_calls": 1208,
+    "grid_point": [
+      24,
+      10
+    ],
+    "selected_coordinate_indices": [
+      [
+        24
+      ],
+      [
+        10
+      ]
+    ],
+    "physical_point": [
+      4.0,
+      2.0
+    ]
+  },
+  {
+    "grid_name": "levy",
+    "event": "after_discrete_problem",
+    "iteration": 846,
+    "elapsed_s": 1563.1354054370895,
+    "completed_solver_calls": 1641,
+    "grid_point": [
+      16,
+      16
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        16
+      ]
+    ],
+    "physical_point": [
+      0.666666666666666,
+      0.666666666666664
+    ]
+  },
+  {
+    "grid_name": "levy",
+    "event": "before_subproblem",
+    "iteration": 846,
+    "elapsed_s": 1563.1429391489364,
+    "completed_solver_calls": 1641,
+    "grid_point": [
+      16,
+      16
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        16
+      ]
+    ],
+    "physical_point": [
+      0.6666666666666661,
+      0.6666666666666661
+    ]
+  },
+  {
+    "grid_name": "levy",
+    "event": "after_subproblem",
+    "iteration": 846,
+    "elapsed_s": 1563.5435629959684,
+    "completed_solver_calls": 1642,
+    "grid_point": [
+      16,
+      16
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        16
+      ]
+    ],
+    "physical_point": [
+      0.6666666666666661,
+      0.6666666666666661
+    ]
+  },
+  {
+    "grid_name": "levy",
+    "event": "after_discrete_problem",
+    "iteration": 847,
+    "elapsed_s": 1565.1080408950802,
+    "completed_solver_calls": 1643,
+    "grid_point": [
+      16,
+      17
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        17
+      ]
+    ],
+    "physical_point": [
+      0.666666666666666,
+      1.333333333333332
+    ]
+  },
+  {
+    "grid_name": "levy",
+    "event": "before_subproblem",
+    "iteration": 847,
+    "elapsed_s": 1565.1150947769638,
+    "completed_solver_calls": 1643,
+    "grid_point": [
+      16,
+      17
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        17
+      ]
+    ],
+    "physical_point": [
+      0.6666666666666661,
+      1.3333333333333321
+    ]
+  },
+  {
+    "grid_name": "levy",
+    "event": "after_subproblem",
+    "iteration": 847,
+    "elapsed_s": 1565.51318071899,
+    "completed_solver_calls": 1644,
+    "grid_point": [
+      16,
+      17
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        17
+      ]
+    ],
+    "physical_point": [
+      0.6666666666666661,
+      1.3333333333333321
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "after_discrete_problem",
+    "iteration": 846,
+    "elapsed_s": 1417.1127370491158,
+    "completed_solver_calls": 1691,
+    "grid_point": [
+      16,
+      16
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        16
+      ]
+    ],
+    "physical_point": [
+      0.666666666666666,
+      0.666666666666664
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "before_subproblem",
+    "iteration": 846,
+    "elapsed_s": 1417.1192384629976,
+    "completed_solver_calls": 1691,
+    "grid_point": [
+      16,
+      16
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        16
+      ]
+    ],
+    "physical_point": [
+      0.6666666666666661,
+      0.6666666666666661
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "after_subproblem",
+    "iteration": 846,
+    "elapsed_s": 1417.5189318021294,
+    "completed_solver_calls": 1692,
+    "grid_point": [
+      16,
+      16
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        16
+      ]
+    ],
+    "physical_point": [
+      0.6666666666666661,
+      0.6666666666666661
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "after_discrete_problem",
+    "iteration": 847,
+    "elapsed_s": 1419.0369430091232,
+    "completed_solver_calls": 1693,
+    "grid_point": [
+      16,
+      17
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        17
+      ]
+    ],
+    "physical_point": [
+      0.666666666666666,
+      1.333333333333332
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "before_subproblem",
+    "iteration": 847,
+    "elapsed_s": 1419.0436314321123,
+    "completed_solver_calls": 1693,
+    "grid_point": [
+      16,
+      17
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        17
+      ]
+    ],
+    "physical_point": [
+      0.6666666666666661,
+      1.3333333333333321
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "after_subproblem",
+    "iteration": 847,
+    "elapsed_s": 1419.3978154081851,
+    "completed_solver_calls": 1694,
+    "grid_point": [
+      16,
+      17
+    ],
+    "selected_coordinate_indices": [
+      [
+        16
+      ],
+      [
+        17
+      ]
+    ],
+    "physical_point": [
+      0.6666666666666661,
+      1.3333333333333321
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "after_discrete_problem",
+    "iteration": 848,
+    "elapsed_s": 1420.8890223361086,
+    "completed_solver_calls": 1695,
+    "grid_point": [
+      17,
+      16
+    ],
+    "selected_coordinate_indices": [
+      [
+        17
+      ],
+      [
+        16
+      ]
+    ],
+    "physical_point": [
+      1.333333333333332,
+      0.666666666666666
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "before_subproblem",
+    "iteration": 848,
+    "elapsed_s": 1420.8954438371584,
+    "completed_solver_calls": 1695,
+    "grid_point": [
+      17,
+      16
+    ],
+    "selected_coordinate_indices": [
+      [
+        17
+      ],
+      [
+        16
+      ]
+    ],
+    "physical_point": [
+      1.3333333333333321,
+      0.6666666666666661
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "after_subproblem",
+    "iteration": 848,
+    "elapsed_s": 1421.2830965791363,
+    "completed_solver_calls": 1696,
+    "grid_point": [
+      17,
+      16
+    ],
+    "selected_coordinate_indices": [
+      [
+        17
+      ],
+      [
+        16
+      ]
+    ],
+    "physical_point": [
+      1.3333333333333321,
+      0.6666666666666661
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "after_discrete_problem",
+    "iteration": 859,
+    "elapsed_s": 1442.0138238570653,
+    "completed_solver_calls": 1717,
+    "grid_point": [
+      17,
+      17
+    ],
+    "selected_coordinate_indices": [
+      [
+        17
+      ],
+      [
+        17
+      ]
+    ],
+    "physical_point": [
+      1.333333333333332,
+      1.333333333333332
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "before_subproblem",
+    "iteration": 859,
+    "elapsed_s": 1442.0202945431229,
+    "completed_solver_calls": 1717,
+    "grid_point": [
+      17,
+      17
+    ],
+    "selected_coordinate_indices": [
+      [
+        17
+      ],
+      [
+        17
+      ]
+    ],
+    "physical_point": [
+      1.3333333333333321,
+      1.3333333333333321
+    ]
+  },
+  {
+    "grid_name": "levy13",
+    "event": "after_subproblem",
+    "iteration": 859,
+    "elapsed_s": 1442.3902004580013,
+    "completed_solver_calls": 1718,
+    "grid_point": [
+      17,
+      17
+    ],
+    "selected_coordinate_indices": [
+      [
+        17
+      ],
+      [
+        17
+      ]
+    ],
+    "physical_point": [
+      1.3333333333333321,
+      1.3333333333333321
+    ]
+  },
+  {
+    "grid_name": "rastrigin",
+    "event": "after_discrete_problem",
+    "iteration": 665,
+    "elapsed_s": 1280.3083446831442,
+    "completed_solver_calls": 1329,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "rastrigin",
+    "event": "before_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1280.314364218153,
+    "completed_solver_calls": 1329,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "rastrigin",
+    "event": "after_subproblem",
+    "iteration": 665,
+    "elapsed_s": 1280.7136935901362,
+    "completed_solver_calls": 1330,
+    "grid_point": [
+      15,
+      15
+    ],
+    "selected_coordinate_indices": [
+      [
+        15
+      ],
+      [
+        15
+      ]
+    ],
+    "physical_point": [
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "grid_name": "shubert",
+    "event": "after_discrete_problem",
+    "iteration": 478,
+    "elapsed_s": 451.0536381630227,
+    "completed_solver_calls": 508,
+    "grid_point": [
+      17,
+      22
+    ],
+    "selected_coordinate_indices": [
+      [
+        17
+      ],
+      [
+        22
+      ]
+    ],
+    "physical_point": [
+      5.666666666666666,
+      7.333333333333333
+    ]
+  },
+  {
+    "grid_name": "styblinski_tang",
+    "event": "after_discrete_problem",
+    "iteration": 248,
+    "elapsed_s": 348.9331918579992,
+    "completed_solver_calls": 495,
+    "grid_point": [
+      6,
+      6
+    ],
+    "selected_coordinate_indices": [
+      [
+        6
+      ],
+      [
+        6
+      ]
+    ],
+    "physical_point": [
+      -3.0,
+      -3.0
+    ]
+  },
+  {
+    "grid_name": "styblinski_tang",
+    "event": "before_subproblem",
+    "iteration": 248,
+    "elapsed_s": 348.93969955598004,
+    "completed_solver_calls": 495,
+    "grid_point": [
+      6,
+      6
+    ],
+    "selected_coordinate_indices": [
+      [
+        6
+      ],
+      [
+        6
+      ]
+    ],
+    "physical_point": [
+      -3.0,
+      -3.0
+    ]
+  },
+  {
+    "grid_name": "styblinski_tang",
+    "event": "after_subproblem",
+    "iteration": 248,
+    "elapsed_s": 349.3446186520159,
+    "completed_solver_calls": 496,
+    "grid_point": [
+      6,
+      6
+    ],
+    "selected_coordinate_indices": [
+      [
+        6
+      ],
+      [
+        6
+      ]
+    ],
+    "physical_point": [
+      -3.0,
+      -3.0
+    ]
+  }
+]

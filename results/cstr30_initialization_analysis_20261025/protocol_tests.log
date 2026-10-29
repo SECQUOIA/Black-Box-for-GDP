@@ -1,0 +1,854 @@
+test_better_minimum_does_not_silently_redefine_success (__main__.ProtocolTests.test_better_minimum_does_not_silently_redefine_success) ... ok
+test_exact_slots_and_initial_order (__main__.ProtocolTests.test_exact_slots_and_initial_order) ... ok
+test_fresh_models_and_initialization_does_not_change_algebra (__main__.ProtocolTests.test_fresh_models_and_initialization_does_not_change_algebra) ... Matplotlib is building the font cache; this may take a moment.
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[1].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[1].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[2].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[2].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[3].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[3].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[4].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[4].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[5].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[5].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[6].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[6].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[7].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[7].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[8].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[8].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[9].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[9].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[10].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[10].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[11].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[11].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[12].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[12].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[13].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[13].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[14].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[14].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[15].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[15].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[16].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[16].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[17].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[17].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[18].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[18].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[19].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[19].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[20].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[20].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[21].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[21].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[22].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[22].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[23].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[23].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[24].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[24].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[25].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[25].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[26].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[26].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[27].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[27].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[28].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[28].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[29].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[29].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[30].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[30].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:303)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[1].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:308)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[2].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[3].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[4].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[5].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[6].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[7].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[8].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[9].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[10].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[11].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[12].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[13].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[14].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[15].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[16].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[17].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[18].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[19].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[20].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[21].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[22].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[23].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[24].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[25].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[26].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[27].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[28].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[29].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YR_is_recycle[30].indicator_var' to a binary variable is deprecated and will
+be removed.  Either express constraints on indicator_var using
+LogicalConstraints or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/expr/expr_common.py:142)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[1].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:277)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[2].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[3].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[4].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[5].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[6].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[7].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[8].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[9].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[10].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[11].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[12].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[13].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[14].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[15].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[16].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[17].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[18].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[19].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[20].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[21].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[22].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[23].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[24].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[25].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[26].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[27].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[28].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[29].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+WARNING: DEPRECATED: Implicit conversion of the Boolean indicator_var
+'YP_is_cstr[30].indicator_var' to a binary variable is deprecated and will be
+removed.  Either express constraints on indicator_var using LogicalConstraints
+or work with the associated binary variable from
+indicator_var.get_associated_binary()  (deprecated in 6.0) (called from
+/Users/albertlee0125/miniconda3/lib/python3.13/site-
+packages/pyomo/core/plugins/transform/logical_to_linear.py:305)
+ok
+test_identity_analysis_retains_all_other_sizes (__main__.ProtocolTests.test_identity_analysis_retains_all_other_sizes)
+Replay baseline records as a synthetic identity fixture, without optimizers. ... ok
+test_repeat_costs_and_terminal_observation_are_counted (__main__.ProtocolTests.test_repeat_costs_and_terminal_observation_are_counted) ... ok
+test_structural_point_never_reaches_solver (__main__.ProtocolTests.test_structural_point_never_reaches_solver) ... ok
+test_uniform_stream_is_exact_archived_stream (__main__.ProtocolTests.test_uniform_stream_is_exact_archived_stream) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 8.609s
+
+OK

@@ -33,6 +33,12 @@ and reference CSVs are unchanged; HiGHS/BARON settings and 1,800 s budgets are
 inherited. The correction affects fixed-exponent FBBT propagation and the
 Alpine1/LOA check for convergence before another cut.
 
+Those are configured solver settings. The ten corrected-profile call journals
+record **8,418 HiGHS calls and zero BARON calls**. Fixed-coordinate presolve
+routes the linear subproblems to HiGHS. See the
+[historical solver-call audit](../grid_scip_20261023/README.md#2-configured-solvers-versus-actual-calls)
+for the per-method counts and comparison with the SCIP-configured returns.
+
 Reproduce the audit from the repository root with Python and Pyomo installed:
 
 ```bash

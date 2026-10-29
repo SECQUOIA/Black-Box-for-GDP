@@ -269,7 +269,7 @@ def test_current_cstr15_status_matches_retained_evidence():
     assert assessment["bound_minus_witness"] > assessment["audit_tolerance"]
     for name in (
         "docs/review_comparison_status.md",
-        "manuscript/README.md",
+        "manuscript/review_history/cstr_status_correction/manuscript/README.md",
         "results/review_comparison_20261020/README.md",
         "results/review_comparison_20261020/fmqa_uniform/README.md",
     ):
@@ -291,7 +291,10 @@ def test_current_cstr15_status_matches_retained_evidence():
 def test_status_correction_preserves_original_manifests_and_evidence():
     correction = json.loads((INPUT.parent.parent / "status_correction.json").read_text())
     for name, digest in correction["preserved_files_sha256"].items():
-        assert sha(ROOT / name) == digest, name
+        # The living publication manifest moved when Column results were adopted.
+        path = (ROOT / "manuscript/review_history/pre_column_adoption/publication_manifest.json"
+                if name == "manuscript/publication_manifest.json" else ROOT / name)
+        assert sha(path) == digest, name
     for name, record in correction["updated_files"].items():
         # These two living documents were subsequently updated with the authorized
         # Overleaf revision; retain the exact status-correction publication bytes.

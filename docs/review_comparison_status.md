@@ -1,5 +1,34 @@
 # Professor review disposition — manuscript revision
 
+## Current publication update - Column logical domain, 25 October 2026
+
+The [Column publication analysis](../results/column_publication_20261025/README.md) adopts all 50 completed logical-domain/B13 runs and preserves the other 650 primary Process runs.
+Column now uses 64 logically admissible configurations and budget 13, with ten paired seeds for each method.
+Target counts are D-SDA 5/10, RBFOpt 4/10, BAM 1/10, FMQA-SA 4/10 and uniform sampling 1/10.
+Median reconstructed completion costs are 35.43 s for D-SDA and 54.60 s for RBFOpt.
+The current 700-run comparison has 315 target hits, 385 misses, no execution failures, 16,067 callbacks and 2,024 distinct visited configuration keys.
+The inventory contains 2,438 configurations and 1,266 accepted responses.
+The existing CSTR conclusion remains 45/60 for RBFOpt versus 14/60 for D-SDA.
+The [current manuscript](../manuscript/README.md), four Process figures and affected tables and prose are synchronized with Overleaf.
+David's 34 comment lines are preserved, and manuscript source files were not re-uploaded to Overleaf.
+The new analysis runs no optimizer or NLP solver and requests no CI run.
+PR #49 was already merged; this is a follow-up on its original review/cstr15-dantzig-results branch.
+The following sections describe earlier snapshots and retain their original numerical totals and review history.
+
+## Previous publication update - CSTR30 initialization, 25 October 2026
+
+The [CSTR30 publication analysis](../results/cstr30_publication_20261025/README.md) adopts the completed initialization follow-up for all five methods while preserving the finite-penalty baseline and all other primary cases.
+The current manuscript uses mass-balance/zero-recycle initialization for CSTR5–30, with 464 accepted CSTR30 configurations and an unchanged reference target.
+CSTR target counts are 45/60 for RBFOpt and 14/60 for D-SDA.
+The current 700-run Process comparison contains 314 target hits, 385 misses and one retained execution failure, with 16,206 callbacks visiting 2,040 distinct keys.
+Four affected Process figures and the related active manuscript tables and prose are updated.
+The [publication manifest](../results/cstr30_publication_20261025/manifest.json) identifies the retained execution sources separately from this analysis.
+CSTR30 completion estimates use the new same-attempt point costs, including initialization and artifact recording.
+The historical FMQA weight diagnostics remain limited to their reconstructed models.
+No new experiment or CI run was initiated during this publication update.
+PR #49 remains merged, and this work is a subsequent commit on review/cstr15-dantzig-results.
+The dated sections below preserve earlier review history; their numerical totals describe the earlier cohorts.
+
 The two major experimental comparisons have been incorporated in the [manuscript and supplementary material](../manuscript/README.md).
 The primary comparison uses RBFOpt and sampling controls, while the solver variant is retained in Supplementary Section S10.
 The 3,430 additional runs and the 4,760 historical runs are preserved unchanged.
@@ -138,3 +167,11 @@ The [submission verification](../manuscript/submission_revision_verification.jso
 No optimizer, NLP, fitting, annealing or server experiment was rerun during this manuscript revision, and no CI workflow was requested.
 The follow-up branch is `review/cstr15-dantzig-results`; PR #48 remains merged and unchanged.
 Repository visibility and unauthenticated external access to the cited commits remain administrator-controlled release items.
+
+## D-SDA tolerance adoption, 28 October 2026
+
+The [publication analysis](../results/dsda_publication_20261028/README.md) adopts the completed Grid common-target stopping run and the Process absolute-improvement rerun.
+Grid D-SDA uses the common target predicate at its existing post-descent checkpoint, and both scopes require strict absolute objective improvement greater than 1e-5.
+Only D-SDA records change; all other method records, original archives, and provider revisions are preserved.
+The primary Process cohort retains 315/700 target hits and 2,024 distinct visited configurations, with 16,041 charged callbacks.
+These changes address the numerical criteria in David comments 4 and 5 without equating objective improvement, reference-target proximity, and primal feasibility.

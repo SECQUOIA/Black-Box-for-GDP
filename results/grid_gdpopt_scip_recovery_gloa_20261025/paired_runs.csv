@@ -1,0 +1,16 @@
+grid_name,method,old_status,new_status,old_failure_kind,new_termination,old_target,new_target,old_objective,new_objective,old_grid_point,new_grid_point,old_worker_wall_s,new_worker_wall_s,objective_change
+ackley,gloa,error,finished,gams_network_session_start,optimal,False,True,0.7116355149900625,-3.117085571445524e-17,"[30, 15]","[15, 15]",352.7117222980596,1035.1678773900494,-0.7116355149900625
+alpine2,gloa,error,finished,gams_network_session_start,optimal,False,True,0.06723263291103136,0.0,"[30, 27]","[27, 27]",882.3572106780484,1487.7502707501408,-0.06723263291103136
+bohachevsky2,gloa,error,finished,pyomo_fbbt_interval,optimal,False,True,0.3333333333333333,0.0,"[30, 15]","[15, 15]",100.91054764483124,1059.438407529844,-0.3333333333333333
+camel3,gloa,error,finished,gams_network_session_start,optimal,False,True,0.008236012207527977,0.0,"[21, 0]","[15, 15]",526.5932183989789,1709.8285694108345,-0.008236012207527977
+deflected_corrugated_spring,gloa,error,finished,gams_network_session_start,optimal,False,True,0.32723647617940305,0.0,"[3, 15]","[15, 15]",312.25724200787954,1032.6091162629891,-0.32723647617940305
+dropwave,gloa,error,finished,gams_network_session_close,optimal,False,True,0.7125927290236804,0.0,"[6, 13]","[15, 15]",476.0809801488649,1085.9623554940335,-0.7125927290236804
+easom,gloa,error,finished,gams_network_session_start,optimal,False,True,0.8722866131855062,0.0,"[18, 20]","[20, 20]",1439.7827553409152,1508.0914608768653,-0.8722866131855062
+griewank,gloa,error,finished,gams_network_session_start,optimal,False,True,0.008889390763623424,0.0,"[15, 17]","[15, 15]",982.6047588291112,1075.0695915408432,-0.008889390763623424
+hosaki,gloa,error,finished,gams_network_session_start,optimal,False,True,0.4629629629629639,0.0,"[4, 10]","[24, 10]",568.6166292049456,1691.0121485949494,-0.4629629629629639
+levy,gloa,error,finished,gams_network_session_start,optimal,False,True,0.02624155427840405,-1.4566988880917495e-19,"[16, 25]","[16, 17]",1001.8002394028008,1778.9783477371093,-0.02624155427840405
+michalewicz,gloa,error,finished,gams_network_session_close,optimal,False,False,0.4447745843489565,0.08649170482029742,"[30, 15]","[22, 15]",323.42344261705875,1558.1182341570966,-0.3582828795286591
+rastrigin,gloa,error,finished,gams_network_session_start,optimal,False,True,0.014927003374186948,0.0,"[12, 15]","[15, 15]",1431.6956224530004,1263.6095780842006,-0.014927003374186948
+rosenbrock,gloa,error,finished,gams_network_session_start,optimal,False,True,0.14937119049456057,0.0,"[30, 23]","[22, 14]",100.7399160831701,1060.7088117620442,-0.14937119049456057
+styblinski_tang,gloa,error,finished,gams_network_session_start,maxTimeLimit,False,True,0.010689551339957875,0.0,"[5, 6]","[6, 6]",748.2576305749826,1789.3135589479934,-0.010689551339957875
+sum_of_squares,gloa,error,finished,gams_network_session_start,optimal,False,True,0.004444444444444436,0.0,"[14, 16]","[15, 15]",1092.5253575399984,1242.9950861008838,-0.004444444444444436

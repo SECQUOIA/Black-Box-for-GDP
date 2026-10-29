@@ -1,0 +1,8 @@
+grid_name,method,attempt_cohort,target_hit,status,termination,objective,grid_point,worker_wall_s,result_sha256,archive
+holder_table,ric,recovery,False,finished,optimal,0.14516723995340786,"[30, 1]",1513.2142597180791,89f9f6139f3d9b6bb31f0a4685e8af641260bf1c861c5a91a3ad7b5c04bd3362,grid_gdpopt_scip_20261025_180435_dv1cn3et.zip
+holder_table,loa,recovery,False,finished,optimal,0.14516723995340786,"[30, 1]",1623.760965614114,c6af3484d38da0020b70a6b77b461922be9a7074ca2a30c195633ef29220463f,grid_gdpopt_scip_20261025_180441_051rkijg.zip
+michalewicz,gloa,recovery,False,finished,optimal,0.08649170482029742,"[22, 15]",1558.1182341570966,7109b798b7c3384bfa07992fbb70b90082422b8c03ab58d5d1b434f55bda1b08,grid_gdpopt_scip_20261025_180450_9ac86u_v.zip
+michalewicz,loa,recovery,False,finished,optimal,0.08649170482029742,"[22, 15]",1490.7609859369695,b473c0c63b8ba8c41de587530d1cd31bacd71568a610d708ed075a1df3127b95,grid_gdpopt_scip_20261025_180441_051rkijg.zip
+shubert,ric,recovery,False,finished,optimal,0.08242781075119937,"[17, 21]",1238.5829515999649,44fc892c5df0f0d5968e840ad6a5176bb4f759271b7cab6f8338f875dacf22f7,grid_gdpopt_scip_20261025_180435_dv1cn3et.zip
+shubert,gloa,retained_first_attempt,False,finished,optimal,0.08242781075119937,"[17, 21]",1651.0038737880532,a9380f16cc09537d098dd0f212eaa2c6ddfb586a569382ee5f1e032daf218c5c,grid_gdpopt_scip_20261025_072708_qh55t7wf.zip
+shubert,loa,recovery,False,finished,optimal,0.08242781075119937,"[17, 21]",1278.4461603821255,f2e6f43934dc9975c7a66265ba3fae02f36c3a1f68ca05a6c1c304b1b25af63b,grid_gdpopt_scip_20261025_180441_051rkijg.zip
