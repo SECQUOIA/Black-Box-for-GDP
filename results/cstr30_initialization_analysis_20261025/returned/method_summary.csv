@@ -1,0 +1,6 @@
+method,runs,old_hits,new_hits,old_rate,new_rate,both_success,new_only_success,old_only_success,neither_success,new_execution_failures,new_any_hit,new_better_than_reference_final_misses
+dsda,10,3,2,0.3,0.2,2,0,1,7,0,2,0
+rbfopt,10,9,9,0.9,0.9,8,1,1,0,0,9,0
+bam,10,2,2,0.2,0.2,2,0,0,8,0,2,0
+fmqa_sa,10,1,1,0.1,0.1,1,0,0,9,0,1,0
+uniform_without_replacement,10,1,1,0.1,0.1,1,0,0,9,0,1,0

@@ -1,0 +1,278 @@
+[
+  {
+    "grid_name": "bohachevsky2",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_close",
+    "new_termination": "optimal",
+    "old_target": false,
+    "new_target": true,
+    "old_objective": 0.3333333333333333,
+    "new_objective": 0.0,
+    "old_grid_point": [
+      30,
+      15
+    ],
+    "new_grid_point": [
+      15,
+      15
+    ],
+    "old_worker_wall_s": 238.7465520258993,
+    "new_worker_wall_s": 1071.9191324079875,
+    "objective_change": -0.3333333333333333
+  },
+  {
+    "grid_name": "camel3",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_start",
+    "new_termination": "maxTimeLimit",
+    "old_target": false,
+    "new_target": true,
+    "old_objective": 0.00047744998304509933,
+    "new_objective": 0.0,
+    "old_grid_point": [
+      9,
+      19
+    ],
+    "new_grid_point": [
+      15,
+      15
+    ],
+    "old_worker_wall_s": 727.3517786478624,
+    "new_worker_wall_s": 1789.0400306619704,
+    "objective_change": -0.00047744998304509933
+  },
+  {
+    "grid_name": "deflected_corrugated_spring",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_start",
+    "new_termination": "optimal",
+    "old_target": false,
+    "new_target": true,
+    "old_objective": 0.3745441090617594,
+    "new_objective": 0.0,
+    "old_grid_point": [
+      30,
+      15
+    ],
+    "new_grid_point": [
+      15,
+      15
+    ],
+    "old_worker_wall_s": 131.49163169204257,
+    "new_worker_wall_s": 1060.9912196078803,
+    "objective_change": -0.3745441090617594
+  },
+  {
+    "grid_name": "dropwave",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_start",
+    "new_termination": "optimal",
+    "old_target": false,
+    "new_target": true,
+    "old_objective": 0.632717247663445,
+    "new_objective": 0.0,
+    "old_grid_point": [
+      8,
+      12
+    ],
+    "new_grid_point": [
+      15,
+      15
+    ],
+    "old_worker_wall_s": 802.30055103614,
+    "new_worker_wall_s": 1377.7315604018513,
+    "objective_change": -0.632717247663445
+  },
+  {
+    "grid_name": "griewank",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_start",
+    "new_termination": "optimal",
+    "old_target": false,
+    "new_target": true,
+    "old_objective": 0.5021942892861294,
+    "new_objective": 0.0,
+    "old_grid_point": [
+      30,
+      14
+    ],
+    "new_grid_point": [
+      15,
+      15
+    ],
+    "old_worker_wall_s": 71.94882658403367,
+    "new_worker_wall_s": 1036.0174105078913,
+    "objective_change": -0.5021942892861294
+  },
+  {
+    "grid_name": "holder_table",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_start",
+    "new_termination": "optimal",
+    "old_target": false,
+    "new_target": false,
+    "old_objective": 0.14516723995340786,
+    "new_objective": 0.14516723995340786,
+    "old_grid_point": [
+      30,
+      1
+    ],
+    "new_grid_point": [
+      30,
+      1
+    ],
+    "old_worker_wall_s": 399.53578237979673,
+    "new_worker_wall_s": 1513.2142597180791,
+    "objective_change": 0.0
+  },
+  {
+    "grid_name": "hosaki",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_start",
+    "new_termination": "optimal",
+    "old_target": false,
+    "new_target": true,
+    "old_objective": 0.7844690393518522,
+    "new_objective": 0.0,
+    "old_grid_point": [
+      1,
+      10
+    ],
+    "new_grid_point": [
+      24,
+      10
+    ],
+    "old_worker_wall_s": 284.52399225207046,
+    "new_worker_wall_s": 1630.7744079208933,
+    "objective_change": -0.7844690393518522
+  },
+  {
+    "grid_name": "levy",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_start",
+    "new_termination": "maxTimeLimit",
+    "old_target": false,
+    "new_target": true,
+    "old_objective": 0.15867028687643356,
+    "new_objective": -1.4566988880917495e-19,
+    "old_grid_point": [
+      16,
+      0
+    ],
+    "new_grid_point": [
+      16,
+      17
+    ],
+    "old_worker_wall_s": 199.4866127150599,
+    "new_worker_wall_s": 1789.385603403207,
+    "objective_change": -0.15867028687643356
+  },
+  {
+    "grid_name": "levy13",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_start",
+    "new_termination": "optimal",
+    "old_target": false,
+    "new_target": true,
+    "old_objective": 0.19075144508670533,
+    "new_objective": 0.0,
+    "old_grid_point": [
+      5,
+      16
+    ],
+    "new_grid_point": [
+      17,
+      17
+    ],
+    "old_worker_wall_s": 681.7405344091821,
+    "new_worker_wall_s": 1702.112364264205,
+    "objective_change": -0.19075144508670533
+  },
+  {
+    "grid_name": "rastrigin",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_close",
+    "new_termination": "optimal",
+    "old_target": false,
+    "new_target": true,
+    "old_objective": 0.07460193174383675,
+    "new_objective": 0.0,
+    "old_grid_point": [
+      12,
+      21
+    ],
+    "new_grid_point": [
+      15,
+      15
+    ],
+    "old_worker_wall_s": 1231.437560080085,
+    "new_worker_wall_s": 1280.73540120502,
+    "objective_change": -0.07460193174383675
+  },
+  {
+    "grid_name": "shubert",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_start",
+    "new_termination": "optimal",
+    "old_target": false,
+    "new_target": false,
+    "old_objective": 0.4663796840391083,
+    "new_objective": 0.08242781075119937,
+    "old_grid_point": [
+      2,
+      3
+    ],
+    "new_grid_point": [
+      17,
+      21
+    ],
+    "old_worker_wall_s": 366.1734209700953,
+    "new_worker_wall_s": 1238.5829515999649,
+    "objective_change": -0.3839518732879089
+  },
+  {
+    "grid_name": "styblinski_tang",
+    "method": "ric",
+    "old_status": "error",
+    "new_status": "finished",
+    "old_failure_kind": "gams_network_session_start",
+    "new_termination": "maxTimeLimit",
+    "old_target": true,
+    "new_target": true,
+    "old_objective": 0.0,
+    "new_objective": 0.0,
+    "old_grid_point": [
+      6,
+      6
+    ],
+    "new_grid_point": [
+      6,
+      6
+    ],
+    "old_worker_wall_s": 1154.017336932011,
+    "new_worker_wall_s": 1790.6683053509332,
+    "objective_change": 0.0
+  }
+]

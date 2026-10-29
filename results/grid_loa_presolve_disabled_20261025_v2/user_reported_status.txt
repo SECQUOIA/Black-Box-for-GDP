@@ -1,0 +1,5 @@
+status: stopped_fixed_gate
+message: None
+actual_fixed_solver_calls: 0
+actual_full_loa_runs: 0
+holder_table [3, 1] gate: False message: TypeError: Object of type ConfigDict is not JSON serializable

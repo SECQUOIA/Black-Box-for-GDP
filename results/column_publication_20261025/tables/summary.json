@@ -1,0 +1,80 @@
+{
+  "primary_runs": 700,
+  "outcomes": {
+    "target_reached": 315,
+    "target_not_reached": 385
+  },
+  "primary_callbacks": 16067,
+  "inventory": 2438,
+  "visited_configurations": 2024,
+  "accepted_inventory": 1266,
+  "process_hits": {
+    "dsda": 74,
+    "rbfopt_msrsm_genetic": 114,
+    "bam": 48,
+    "fmqa_sa": 42,
+    "uniform_without_replacement": 37
+  },
+  "column": {
+    "dsda": {
+      "case": "column",
+      "budget": 13,
+      "method": "dsda",
+      "runs": 10,
+      "hits": 5,
+      "execution_failures": 0,
+      "callbacks": 128,
+      "median_completion_s": 35.43390398286283,
+      "median_search_s": 0.006858436041511595,
+      "median_point_cost_s": 35.42749093146995
+    },
+    "rbfopt_msrsm_genetic": {
+      "case": "column",
+      "budget": 13,
+      "method": "rbfopt_msrsm_genetic",
+      "runs": 10,
+      "hits": 4,
+      "execution_failures": 0,
+      "callbacks": 130,
+      "median_completion_s": 54.603376980521716,
+      "median_search_s": 0.22603339387569577,
+      "median_point_cost_s": 54.36888618976809
+    },
+    "bam": {
+      "case": "column",
+      "budget": 13,
+      "method": "bam",
+      "runs": 10,
+      "hits": 1,
+      "execution_failures": 0,
+      "callbacks": 130,
+      "median_completion_s": 27.499898254987784,
+      "median_search_s": 0.017692269990220666,
+      "median_point_cost_s": 27.42809594841674
+    },
+    "fmqa_sa": {
+      "case": "column",
+      "budget": 13,
+      "method": "fmqa_sa",
+      "runs": 10,
+      "hits": 4,
+      "execution_failures": 0,
+      "callbacks": 130,
+      "median_completion_s": 41.818472682731226,
+      "median_search_s": 6.849797544069588,
+      "median_point_cost_s": 34.93689993862063
+    },
+    "uniform_without_replacement": {
+      "case": "column",
+      "budget": 13,
+      "method": "uniform_without_replacement",
+      "runs": 10,
+      "hits": 1,
+      "execution_failures": 0,
+      "callbacks": 130,
+      "median_completion_s": 21.68879374465905,
+      "median_search_s": 0.00716491206549108,
+      "median_point_cost_s": 21.681479149963707
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "archive_sha256": "e58982f7179b73c65d83134dcbe0b25854002685812b2511b24523e861c9929e",
+  "previous_archive_sha256": "555445b52d2fb40c58cc6e4a4a5321592dd6f2bd5cb48ead6ca31fc8174a8964",
+  "archived_output_hashes_verified": 6378,
+  "execution_input_hashes_verified": 263,
+  "exact_pairs": 1190,
+  "missing": 0,
+  "duplicate_pairs": 0,
+  "failed": 0,
+  "totals": {
+    "grid": {
+      "runs": 1050,
+      "old_hits": 382,
+      "new_hits": 374,
+      "old_only": 10,
+      "new_only": 2,
+      "old_callbacks": 38033,
+      "new_callbacks": 38516,
+      "changed_callback_counts": 67,
+      "changed_callback_paths": 91
+    },
+    "process": {
+      "runs": 140,
+      "old_hits": 74,
+      "new_hits": 74,
+      "old_only": 0,
+      "new_only": 0,
+      "old_callbacks": 2467,
+      "new_callbacks": 2441,
+      "changed_callback_counts": 6,
+      "changed_callback_paths": 6
+    },
+    "cstr": {
+      "runs": 60,
+      "old_hits": 14,
+      "new_hits": 14,
+      "old_only": 0,
+      "new_only": 0,
+      "old_callbacks": 1128,
+      "new_callbacks": 1102,
+      "changed_callback_counts": 6,
+      "changed_callback_paths": 6
+    }
+  },
+  "objective_changes": {
+    "grid": {
+      "exactly_equal": 979,
+      "better": 2,
+      "worse": 69,
+      "max_absolute_change": 0.9906380961993084
+    },
+    "process": {
+      "exactly_equal": 138,
+      "better": 0,
+      "worse": 2,
+      "max_absolute_change": 8.001022067105623e-11
+    }
+  },
+  "method_hit_order_changes": 0,
+  "process_nlp_calls": 0,
+  "solver_or_child_process_attempts": 0,
+  "archived_protocol_tests": 11,
+  "archived_preparation_tests": 32,
+  "scientific_input_source_files_identical": 50,
+  "repeat_results_identical_excluding_times_and_cpu": 1190,
+  "repeat_callbacks_identical_excluding_times": 40957,
+  "repeat_changed_hits": 0,
+  "repeat_changed_objectives": 0,
+  "repeat_changed_counts": 0,
+  "repeat_changed_paths": 0,
+  "repeat_changed_terminations": 0,
+  "server_revision": "7f110f9122298a4f492d8ad464e782b2435b167b",
+  "source_base_revision": "5e94df72b472a5039c35518b685de6080cf8d67f",
+  "effective_cpus": [
+    10
+  ],
+  "execution_mode": "observed_idle_physical_core_then_pinned",
+  "exclusive_reservation": false,
+  "utc_started": "2026-10-28T02:07:54.260587+00:00",
+  "utc_finished": "2026-10-28T02:16:17.814103+00:00",
+  "verification_mode": "Read archived data only; no optimizer, solver, subprocess, or archived-code execution"
+}

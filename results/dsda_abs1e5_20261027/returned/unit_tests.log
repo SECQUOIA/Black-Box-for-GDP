@@ -1,0 +1,16 @@
+test_boundary_uses_actual_float_subtraction (__main__.ProtocolTests.test_boundary_uses_actual_float_subtraction) ... ok
+test_cached_start_not_recharged_and_repeats_are_charged (__main__.ProtocolTests.test_cached_start_not_recharged_and_repeats_are_charged) ... ok
+test_default_matches_original_function (__main__.ProtocolTests.test_default_matches_original_function) ... ok
+test_direction_uses_same_strict_boundary (__main__.ProtocolTests.test_direction_uses_same_strict_boundary) ... ok
+test_grid_target_tolerance_unchanged (__main__.ProtocolTests.test_grid_target_tolerance_unchanged) ... ok
+test_missing_lookup_aborts_without_fallback (__main__.ProtocolTests.test_missing_lookup_aborts_without_fallback) ... ok
+test_no_relative_improvement (__main__.ProtocolTests.test_no_relative_improvement) ... ok
+test_observed_incumbent_not_thresholded (__main__.ProtocolTests.test_observed_incumbent_not_thresholded) ... ok
+test_process_initial_order_budget_and_penalty (__main__.ProtocolTests.test_process_initial_order_budget_and_penalty) ... ok
+test_strict_boundary_and_neighbor (__main__.ProtocolTests.test_strict_boundary_and_neighbor) ... ok
+test_tie_tolerance_unchanged (__main__.ProtocolTests.test_tie_tolerance_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.665s
+
+OK

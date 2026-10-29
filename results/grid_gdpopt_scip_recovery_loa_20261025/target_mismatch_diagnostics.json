@@ -1,0 +1,444 @@
+[
+  {
+    "grid_name": "holder_table",
+    "point": [
+      3,
+      1
+    ],
+    "original_gdp_witness": {
+      "grid_point": [
+        3,
+        1
+      ],
+      "physical_point": [
+        -8.0,
+        -9.333333333333334
+      ],
+      "returned_original_variables": 64,
+      "original_gdp_feasible": true,
+      "max_original_violation": 0.0,
+      "objective_recomputed": 0.0,
+      "saved_objective_abs_error": 0.0,
+      "csv_objective": 0.0,
+      "reference_minimum": 0.0,
+      "normalized_gap": 0.0,
+      "target_hit_verified": true,
+      "reference_minimizers": [
+        [
+          3,
+          1
+        ],
+        [
+          27,
+          1
+        ]
+      ],
+      "analytic_grid_points_checked": 961,
+      "analytic_grid_max_csv_error": 0.0
+    },
+    "witness_origin": "Constructed locally at a fixed reference coordinate; not a returned solution or new solve.",
+    "returned_trace_events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 153,
+        "elapsed_s": 221.69517003395595,
+        "completed_solver_calls": 227,
+        "grid_point": [
+          3,
+          1
+        ],
+        "selected_coordinate_indices": [
+          [
+            3
+          ],
+          [
+            1
+          ]
+        ],
+        "physical_point": [
+          -8.0,
+          -9.333333333333334
+        ]
+      }
+    ],
+    "returned_log_iteration_rows": [
+      {
+        "line_number": 22181,
+        "text": "      153          discrete      -0.82864       0.14517    670.82%    221.68  "
+      }
+    ],
+    "discrete_selections": 1,
+    "before_subproblem_callbacks": 0,
+    "local_fbbt_error": "InfeasibleConstraintException: Lower bound (-3.233037281025837) computed for variable y is larger than the computed upper bound (-9.333333333333336).",
+    "local_presolve_allows_solver": false,
+    "local_probe_scope": "Common GDPopt preprocessing under LOA default tolerances; not a full Dantzig rerun.",
+    "optimization_solver_calls": 0
+  },
+  {
+    "grid_name": "holder_table",
+    "point": [
+      3,
+      29
+    ],
+    "original_gdp_witness": {
+      "grid_point": [
+        3,
+        29
+      ],
+      "physical_point": [
+        -8.0,
+        9.333333333333332
+      ],
+      "returned_original_variables": 64,
+      "original_gdp_feasible": true,
+      "max_original_violation": 0.0,
+      "objective_recomputed": 9.793552093396464e-16,
+      "saved_objective_abs_error": 0.0,
+      "csv_objective": 9.793552093396464e-16,
+      "reference_minimum": 0.0,
+      "normalized_gap": 9.793552093396464e-16,
+      "target_hit_verified": true,
+      "reference_minimizers": [
+        [
+          3,
+          1
+        ],
+        [
+          27,
+          1
+        ]
+      ],
+      "analytic_grid_points_checked": 961,
+      "analytic_grid_max_csv_error": 0.0
+    },
+    "witness_origin": "Constructed locally at a fixed reference coordinate; not a returned solution or new solve.",
+    "returned_trace_events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 152,
+        "elapsed_s": 221.06784694595262,
+        "completed_solver_calls": 226,
+        "grid_point": [
+          3,
+          29
+        ],
+        "selected_coordinate_indices": [
+          [
+            3
+          ],
+          [
+            29
+          ]
+        ],
+        "physical_point": [
+          -8.0,
+          9.333333333333332
+        ]
+      }
+    ],
+    "returned_log_iteration_rows": [
+      {
+        "line_number": 22079,
+        "text": "      152          discrete      -0.82864       0.14517    670.82%    221.06  "
+      }
+    ],
+    "discrete_selections": 1,
+    "before_subproblem_callbacks": 0,
+    "local_fbbt_error": "InfeasibleConstraintException: Lower bound (9.333333333333332) computed for variable y is larger than the computed upper bound (3.23303728102584).",
+    "local_presolve_allows_solver": false,
+    "local_probe_scope": "Common GDPopt preprocessing under LOA default tolerances; not a full Dantzig rerun.",
+    "optimization_solver_calls": 0
+  },
+  {
+    "grid_name": "holder_table",
+    "point": [
+      27,
+      1
+    ],
+    "original_gdp_witness": {
+      "grid_point": [
+        27,
+        1
+      ],
+      "physical_point": [
+        8.0,
+        -9.333333333333334
+      ],
+      "returned_original_variables": 64,
+      "original_gdp_feasible": true,
+      "max_original_violation": 0.0,
+      "objective_recomputed": 0.0,
+      "saved_objective_abs_error": 0.0,
+      "csv_objective": 0.0,
+      "reference_minimum": 0.0,
+      "normalized_gap": 0.0,
+      "target_hit_verified": true,
+      "reference_minimizers": [
+        [
+          3,
+          1
+        ],
+        [
+          27,
+          1
+        ]
+      ],
+      "analytic_grid_points_checked": 961,
+      "analytic_grid_max_csv_error": 0.0
+    },
+    "witness_origin": "Constructed locally at a fixed reference coordinate; not a returned solution or new solve.",
+    "returned_trace_events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 695,
+        "elapsed_s": 965.3442072530743,
+        "completed_solver_calls": 1030,
+        "grid_point": [
+          27,
+          1
+        ],
+        "selected_coordinate_indices": [
+          [
+            27
+          ],
+          [
+            1
+          ]
+        ],
+        "physical_point": [
+          8.0,
+          -9.333333333333334
+        ]
+      }
+    ],
+    "returned_log_iteration_rows": [
+      {
+        "line_number": 100736,
+        "text": "      695          discrete      -0.82864       0.14517    670.82%    965.33  "
+      }
+    ],
+    "discrete_selections": 1,
+    "before_subproblem_callbacks": 0,
+    "local_fbbt_error": "InfeasibleConstraintException: Lower bound (-3.233037281025837) computed for variable y is larger than the computed upper bound (-9.333333333333336).",
+    "local_presolve_allows_solver": false,
+    "local_probe_scope": "Common GDPopt preprocessing under LOA default tolerances; not a full Dantzig rerun.",
+    "optimization_solver_calls": 0
+  },
+  {
+    "grid_name": "holder_table",
+    "point": [
+      27,
+      29
+    ],
+    "original_gdp_witness": {
+      "grid_point": [
+        27,
+        29
+      ],
+      "physical_point": [
+        8.0,
+        9.333333333333332
+      ],
+      "returned_original_variables": 64,
+      "original_gdp_feasible": true,
+      "max_original_violation": 0.0,
+      "objective_recomputed": 9.793552093396464e-16,
+      "saved_objective_abs_error": 0.0,
+      "csv_objective": 9.793552093396464e-16,
+      "reference_minimum": 0.0,
+      "normalized_gap": 9.793552093396464e-16,
+      "target_hit_verified": true,
+      "reference_minimizers": [
+        [
+          3,
+          1
+        ],
+        [
+          27,
+          1
+        ]
+      ],
+      "analytic_grid_points_checked": 961,
+      "analytic_grid_max_csv_error": 0.0
+    },
+    "witness_origin": "Constructed locally at a fixed reference coordinate; not a returned solution or new solve.",
+    "returned_trace_events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 542,
+        "elapsed_s": 748.3157886310946,
+        "completed_solver_calls": 804,
+        "grid_point": [
+          27,
+          29
+        ],
+        "selected_coordinate_indices": [
+          [
+            27
+          ],
+          [
+            29
+          ]
+        ],
+        "physical_point": [
+          8.0,
+          9.333333333333332
+        ]
+      }
+    ],
+    "returned_log_iteration_rows": [
+      {
+        "line_number": 78426,
+        "text": "      542          discrete      -0.82864       0.14517    670.82%    748.30  "
+      }
+    ],
+    "discrete_selections": 1,
+    "before_subproblem_callbacks": 0,
+    "local_fbbt_error": "InfeasibleConstraintException: Lower bound (9.333333333333332) computed for variable y is larger than the computed upper bound (3.23303728102584).",
+    "local_presolve_allows_solver": false,
+    "local_probe_scope": "Common GDPopt preprocessing under LOA default tolerances; not a full Dantzig rerun.",
+    "optimization_solver_calls": 0
+  },
+  {
+    "grid_name": "michalewicz",
+    "point": [
+      21,
+      15
+    ],
+    "original_gdp_witness": {
+      "grid_point": [
+        21,
+        15
+      ],
+      "physical_point": [
+        2.199114857512855,
+        1.5707963267948966
+      ],
+      "returned_original_variables": 64,
+      "original_gdp_feasible": true,
+      "max_original_violation": 0.0,
+      "objective_recomputed": 0.0,
+      "saved_objective_abs_error": 0.0,
+      "csv_objective": 0.0,
+      "reference_minimum": 0.0,
+      "normalized_gap": 0.0,
+      "target_hit_verified": true,
+      "reference_minimizers": [
+        [
+          21,
+          15
+        ]
+      ],
+      "analytic_grid_points_checked": 961,
+      "analytic_grid_max_csv_error": 0.0
+    },
+    "witness_origin": "Constructed locally at a fixed reference coordinate; not a returned solution or new solve.",
+    "returned_trace_events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 671,
+        "elapsed_s": 907.9498402788304,
+        "completed_solver_calls": 977,
+        "grid_point": [
+          21,
+          15
+        ],
+        "selected_coordinate_indices": [
+          [
+            21
+          ],
+          [
+            15
+          ]
+        ],
+        "physical_point": [
+          2.199114857512855,
+          1.570796326794897
+        ]
+      }
+    ],
+    "returned_log_iteration_rows": [
+      {
+        "line_number": 95543,
+        "text": "      671          discrete      -0.11045       0.09075    221.70%    907.94  "
+      }
+    ],
+    "discrete_selections": 1,
+    "before_subproblem_callbacks": 0,
+    "local_fbbt_error": "InfeasibleConstraintException: Lower bound (2.199114857512855) computed for variable x is larger than the computed upper bound (0.9424777960769378).",
+    "local_presolve_allows_solver": false,
+    "local_probe_scope": "Common GDPopt preprocessing under LOA default tolerances; not a full Dantzig rerun.",
+    "optimization_solver_calls": 0
+  },
+  {
+    "grid_name": "shubert",
+    "point": [
+      17,
+      22
+    ],
+    "original_gdp_witness": {
+      "grid_point": [
+        17,
+        22
+      ],
+      "physical_point": [
+        5.666666666666666,
+        7.333333333333333
+      ],
+      "returned_original_variables": 64,
+      "original_gdp_feasible": true,
+      "max_original_violation": 0.0,
+      "objective_recomputed": 0.0,
+      "saved_objective_abs_error": 0.0,
+      "csv_objective": 0.0,
+      "reference_minimum": 0.0,
+      "normalized_gap": 0.0,
+      "target_hit_verified": true,
+      "reference_minimizers": [
+        [
+          17,
+          22
+        ]
+      ],
+      "analytic_grid_points_checked": 961,
+      "analytic_grid_max_csv_error": 1.1102230246251565e-16
+    },
+    "witness_origin": "Constructed locally at a fixed reference coordinate; not a returned solution or new solve.",
+    "returned_trace_events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 478,
+        "elapsed_s": 453.0243338958826,
+        "completed_solver_calls": 508,
+        "grid_point": [
+          17,
+          22
+        ],
+        "selected_coordinate_indices": [
+          [
+            17
+          ],
+          [
+            22
+          ]
+        ],
+        "physical_point": [
+          5.666666666666666,
+          7.333333333333333
+        ]
+      }
+    ],
+    "returned_log_iteration_rows": [
+      {
+        "line_number": 51466,
+        "text": "      478          discrete      -0.04422       0.17699    124.99%    453.01  "
+      }
+    ],
+    "discrete_selections": 1,
+    "before_subproblem_callbacks": 0,
+    "local_fbbt_error": "InfeasibleConstraintException: Detected an infeasible constraint.",
+    "local_presolve_allows_solver": false,
+    "local_probe_scope": "Common GDPopt preprocessing under LOA default tolerances; not a full Dantzig rerun.",
+    "optimization_solver_calls": 0
+  }
+]

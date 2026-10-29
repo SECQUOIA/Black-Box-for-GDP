@@ -1,0 +1,59 @@
+{
+  "baseline_revision": "647019991f16d931c3f9f1905b35de885bc0bcd0",
+  "no_new_optimizer_or_nlp_calls": true,
+  "column_execution_revision": "2ce74ba48c51e0382d2701382619b084bfac14b7",
+  "preceding_publication_manifest": "results/cstr30_publication_20261025/manifest.json",
+  "input_sha256": {
+    "results/cstr30_publication_20261025/manifest.json": "64ff512bf377c293c84dab2dbbc8ee1a36f52394c1e77214f65be93ccd6d3840",
+    "results/column_logical_b13_analysis_20261025/manifest.json": "c2d803ea2043c2902f4510493c82244ea516f27f943cfb5a16f2d4e0c5803940",
+    "results/column_logical_b13_analysis_20261025/source/column_logical_b13_20261025_193902_31iulfak_snapshot_1792957295361892009.zip": "50c0f9cc0c54018a3525b897d5a60f5bc62dbf8ad37aebd56bbc18ff177b9d77",
+    "results/cstr30_publication_20261025/tables/run_records.csv": "7c8f1e5b8ac21236928b92e99410f7d5a4605c3a0768147851ea2ca7b440377d",
+    "results/cstr30_publication_20261025/tables/configuration_coverage.csv": "10abd8aefd24eae5186e465e080f3952d9be2b271f09ac7a258003d72f872ee1",
+    "results/cstr30_publication_20261025/tables/fmqa_fallback_runs.csv": "2bda45cc5e3847eba2667ac42b8af4c7c084fffe4437ce5bce2b0607abf6f5b7",
+    "results/column_logical_b13_analysis_20261025/replayed/runs.csv": "638b24f00ef048e7665cdf72ac22f84be1376c91b7261e4f2188649e89550f92",
+    "results/column_logical_b13_analysis_20261025/replayed/callback_ledger.csv": "cb8f0d4892106fe6c6fb1f54dda1cc706f8939881957bcea6c8dec0e01eb5510"
+  },
+  "source_sha256": {
+    "review_comparison/column_publication.py": "c7a257a6a5467dc9eaca88f303f2725681802433d72fbc6178775a32534991b4",
+    "review_comparison/process_figures.py": "5c772e8faf883e683a03e726acc31f90641f7be71113f9c55484007d491e1568",
+    "review_comparison/manuscript.py": "722e882326da300719c59a305af1a874dcb3b3fef09584579e70ac49b00193b7",
+    "review_comparison/analysis.py": "cdde929239164930aec89d27453a7186f1d655cc347003085683a3eae53480ed",
+    "review_comparison/cstr30_publication.py": "c61877c9800a9841e95f8721ea6989ffa03ccb36063b8c91eba9123fe8e50c80"
+  },
+  "bootstrap": {
+    "seed": 20261020,
+    "replications": 2000,
+    "unit": "paired seeds within each condition",
+    "order": "seed 0 through 9"
+  },
+  "environment": {
+    "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:07:20) [Clang 20.1.8 ]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "matplotlib": "3.10.9"
+  },
+  "reproduce": "python -m review_comparison.column_publication --output /tmp/column-publication-new",
+  "outputs_sha256": {
+    "README.md": "f52856da4850c10741f4e2dafa08fc1bee6ce9584dc2f5adffe824789bc7c61c",
+    "figures/figure_values.json": "0e888a0e27c58ef921902d42dae65fcfa834d13bed9010c7092a49264495c709",
+    "figures/process_completion_profiles.pdf": "13c049db3dcc193059290b0fcaa0954cf3fb36830eca1d8d0bb54eade12f9e1c",
+    "figures/process_completion_profiles.png": "102e6b08a30470548ffe7edb8acca63a12180845dabce06c9f81d1f59cc1aaa7",
+    "figures/process_completion_scatter.pdf": "e7b234bf565acd66be905d344e7fa868e32c972c169a309351af48a9b2528125",
+    "figures/process_completion_scatter.png": "192b5e32d575b1422b6832b258068df7dfad64b5598e04f31d79e69dfd099675",
+    "figures/process_cost_breakdown.pdf": "d109f0c092a5adf19809cdcbb2a1b6b657ea11dbd9048b6412474484886ecd51",
+    "figures/process_cost_breakdown.png": "0a1e68e3c137018b28f53cb0a7870cdb877dba81de7304912412167608c07742",
+    "figures/process_evaluation_profiles.pdf": "8bf433a0e2736b7593e8fdbff85490cc7436e362f31f99dce12170895c44bd07",
+    "figures/process_evaluation_profiles.png": "4e78f577dc2cdd76942da4859ceb0e9cc4d88d55b87d5174ac09104121547c37",
+    "tables/case_coverage.csv": "9ceafa765e9fd3acf86e726e83c24f2be09db38707b2dad9b5465d35f4fe1121",
+    "tables/column_callbacks.csv": "cb8f0d4892106fe6c6fb1f54dda1cc706f8939881957bcea6c8dec0e01eb5510",
+    "tables/condition_summary.csv": "8143a5fbadd0df37e55d013bf0bcfc9051e1fa8d451de34cda5a3185f2c404dd",
+    "tables/configuration_coverage.csv": "9a26c3b7ad4a000340711a241bdc328498139e88a3e8be23f16a3a1b1a54dda2",
+    "tables/fmqa_fallback_runs.csv": "be1f726d580621ce056395075fcc5760549f1ff95725513fa7b1b415b935aba3",
+    "tables/fmqa_fallback_summary.csv": "096e7fe51ca3acfe6d489c56f2996f8d1c566f39a0204723493c95b3e6d08ab6",
+    "tables/paired_process.csv": "a318348bf2960508b644b0809bd743ca6fa4be3ade5063cbeba4b681ef2bfbe3",
+    "tables/primary_process_runs.csv": "52d99d0e7c00d8ebcc03ff3e812669b5bfd763e61d1b17d59a4330e8680c49fa",
+    "tables/process_cost.tex": "e85c6aaa042bf8cd3f5a6b62956b3930be1ee2c31413da748ff2bda6ea3d37cb",
+    "tables/process_hits.tex": "7c15f7ddd8f7e3a8b75ce5dafeea1196b89a9d02743f8f5c9c3a62c2898ed86b",
+    "tables/run_records.csv": "c4d3cd0c2e46cee976a2684a0b83bf0bb543a75790398aaed293a2b6b7267611",
+    "tables/summary.json": "d035db7b87c6ab544d842f0ba8c4e09ad8d9199a9bf2e88541761e33e5865e6e"
+  }
+}

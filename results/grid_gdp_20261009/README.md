@@ -128,10 +128,24 @@ The recorded error messages comprise nine interval/fractional-power errors,
 one differentiation error for `abs(0)`, and eleven GAMS solve errors. This
 publication preserves these outcomes; it does not repair or rerun them.
 
-## Recorded solver settings
+## Configured solvers and actual benchmark calls
 
 The run used GAMS 52.2 and Pyomo 6.10.0 on Dantzig, pinned to logical CPU 6,
 one solver/BLAS thread, without an exclusive CPU reservation. Point solves
 used IPOPT with a 60 s solver limit. Full methods used a 1,800 s limit.
-GDPopt RIC/GLOA/LOA used HiGHS masters and BARON NLP subproblems, with
-CLP/IPOPT inside BARON. Big-M/Hull used BARON with CPLEX/IPOPT internally.
+GDPopt RIC/GLOA/LOA were configured with HiGHS for MIP and BARON for NLP,
+with CLP/IPOPT configured inside BARON. The benchmark call journals show that
+all **41,584 calls across the 63 GDPopt jobs were to HiGHS; BARON was never
+called by these Grid GDPopt jobs**. After fixed-coordinate presolve, the
+linear subproblems also used the MIP solver. The previous wording described
+the NLP configuration as if it had actually been exercised.
+
+Big-M/Hull did call BARON, with CPLEX/IPOPT configured internally: five
+supported grids per method, ten MINLP calls in total. Unsupported cases made
+no BARON call. The separate grid-point evaluation phase used IPOPT.
+
+The [October 24 solver-call audit](../grid_scip_20261023/README.md#2-configured-solvers-versus-actual-calls)
+also verifies both retry archives and the new SCIP-configured returns.
+Both old and new Grid GDPopt benchmarks actually used HiGHS, so they do not
+measure a BARON-versus-SCIP NLP performance comparison. Original archives,
+raw records and the performance tables above are unchanged.

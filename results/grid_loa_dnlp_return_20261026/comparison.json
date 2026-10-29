@@ -1,0 +1,351 @@
+[
+  {
+    "grid_name": "holder_table",
+    "method": "loa",
+    "old_objective": 0.14516723995340786,
+    "new_objective": -1.9587104186792927e-16,
+    "old_target_hit": false,
+    "new_target_hit": true,
+    "old_termination": "optimal",
+    "new_wrapper_status": "hard_time_limit",
+    "new_termination": "maxTimeLimit",
+    "new_termination_provenance": "parent_watchdog",
+    "old_max_violation": 0.0,
+    "new_max_violation": 1.7763568394002505e-15,
+    "old_worker_wall_s": 1623.760965614114,
+    "new_worker_wall_s": 1800.0292075679172,
+    "worker_wall_delta_s": 176.26824195380323,
+    "first_target_elapsed_s": 168.2696099912282,
+    "first_target_iteration": 152,
+    "first_target_grid_point": [
+      3,
+      29
+    ],
+    "time_after_first_target_s": 1631.759597576689,
+    "final_grid_point": [
+      3,
+      1
+    ],
+    "original_validation": {
+      "has_feasible_solution": true,
+      "candidate_objective": -1.9587104186792927e-16,
+      "max_primal_violation": 1.7763568394002505e-15,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[3]",
+        "Ychoice[1]"
+      ],
+      "selected_booleans": [],
+      "grid_point": [
+        3,
+        1
+      ],
+      "missing_variables": [],
+      "reference_minimum": 0.0,
+      "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+      "normalized_gap": -1.9587104186792927e-16,
+      "target_hit": true
+    },
+    "reference_minimum": 0.0,
+    "tolerance": 1e-05,
+    "old_reported_lower_bound": 0.145167239953408,
+    "old_reported_upper_bound": 0.145167239953408,
+    "old_lower_bound_exceeds_known_reference": true,
+    "new_reported_lower_bound": null,
+    "new_reported_upper_bound": null,
+    "new_lower_bound_exceeds_known_reference": null,
+    "last_discrete_lower_bound": -0.828637340494052,
+    "distinct_discrete_lower_bounds": [
+      -0.828637340494052
+    ],
+    "mip_rows_grow_one_per_iteration": true,
+    "completed_evaluation_entries": 867,
+    "discrete_selections": 868,
+    "old_confirmed_scip_invocations": 1442,
+    "old_benchmark_nlp_calls": 0,
+    "call_accounting": {
+      "journaled_interface_attempts": 1735,
+      "started_interface_attempts": 1736,
+      "completed_mip_calls": 868,
+      "completed_dnlp_calls": 867,
+      "error_interface_attempts": 0,
+      "active_unjournaled_attempts": 1,
+      "active_attempt": {
+        "index": 1736,
+        "solver": "scip",
+        "mtype": "dnlp",
+        "limit_s": 17.68699444171507,
+        "threads": 1,
+        "status": "running",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ]
+      },
+      "confirmed_scip_invocations": 1735,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "journaled_interface_wall_s": 1435.3546958419029,
+      "failed_interface_wall_s": 0,
+      "gams_solve_time_s": 200.7809995673596,
+      "no_marginals_messages": 1735
+    },
+    "network_recovery": [],
+    "actual_options_verified_from_run_log": true,
+    "sidecar_actual_config_present": false,
+    "actual_option_delta_from_baseline": {
+      "subproblem_presolve": {
+        "old": "true",
+        "new": "false"
+      },
+      "nlp_solver_args": {
+        "old": {
+          "mtype": "nlp",
+          "solver": "scip"
+        },
+        "new": {
+          "mtype": "dnlp",
+          "solver": "scip"
+        }
+      }
+    },
+    "original_reported_option_verified": false,
+    "global_optimality_certified": false,
+    "started_utc": "2026-10-26T04:04:15.347429+00:00",
+    "ended_utc_from_worker_duration": "2026-10-26T04:34:15.376637+00:00"
+  },
+  {
+    "grid_name": "michalewicz",
+    "method": "loa",
+    "old_objective": 0.08649170482029742,
+    "new_objective": 0.0,
+    "old_target_hit": false,
+    "new_target_hit": true,
+    "old_termination": "optimal",
+    "new_wrapper_status": "finished",
+    "new_termination": "maxTimeLimit",
+    "new_termination_provenance": "GDPopt_solver_results",
+    "old_max_violation": 0.0,
+    "new_max_violation": 4.440892098500626e-16,
+    "old_worker_wall_s": 1490.7609859369695,
+    "new_worker_wall_s": 1790.398833095096,
+    "worker_wall_delta_s": 299.63784715812653,
+    "first_target_elapsed_s": 1478.579257364152,
+    "first_target_iteration": 671,
+    "first_target_grid_point": [
+      21,
+      15
+    ],
+    "time_after_first_target_s": 311.81957573094405,
+    "final_grid_point": [
+      21,
+      15
+    ],
+    "original_validation": {
+      "has_feasible_solution": true,
+      "candidate_objective": 0.0,
+      "max_primal_violation": 4.440892098500626e-16,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[21]",
+        "Ychoice[15]"
+      ],
+      "selected_booleans": [],
+      "grid_point": [
+        21,
+        15
+      ],
+      "missing_variables": [],
+      "reference_minimum": 0.0,
+      "original_structure_sha256": "ccaecd464ee21d412feaac6b60aecc8e8d62fb03665f35871a9250d4b1c44616",
+      "normalized_gap": 0.0,
+      "target_hit": true
+    },
+    "reference_minimum": 0.0,
+    "tolerance": 1e-05,
+    "old_reported_lower_bound": 0.086491704820297,
+    "old_reported_upper_bound": 0.086491704820297,
+    "old_lower_bound_exceeds_known_reference": true,
+    "new_reported_lower_bound": -0.110450831302087,
+    "new_reported_upper_bound": 0.0,
+    "new_lower_bound_exceeds_known_reference": false,
+    "last_discrete_lower_bound": -0.110450831302087,
+    "distinct_discrete_lower_bounds": [
+      -0.110450831302087
+    ],
+    "mip_rows_grow_one_per_iteration": true,
+    "completed_evaluation_entries": 820,
+    "discrete_selections": 821,
+    "old_confirmed_scip_invocations": 1420,
+    "old_benchmark_nlp_calls": 0,
+    "call_accounting": {
+      "journaled_interface_attempts": 1641,
+      "started_interface_attempts": 1641,
+      "completed_mip_calls": 821,
+      "completed_dnlp_calls": 820,
+      "error_interface_attempts": 0,
+      "active_unjournaled_attempts": 0,
+      "active_attempt": null,
+      "confirmed_scip_invocations": 1641,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "journaled_interface_wall_s": 1471.076453406131,
+      "failed_interface_wall_s": 0,
+      "gams_solve_time_s": 180.91200781054786,
+      "no_marginals_messages": 1641
+    },
+    "network_recovery": [],
+    "actual_options_verified_from_run_log": true,
+    "sidecar_actual_config_present": false,
+    "actual_option_delta_from_baseline": {
+      "subproblem_presolve": {
+        "old": "true",
+        "new": "false"
+      },
+      "nlp_solver_args": {
+        "old": {
+          "mtype": "nlp",
+          "solver": "scip"
+        },
+        "new": {
+          "mtype": "dnlp",
+          "solver": "scip"
+        }
+      }
+    },
+    "original_reported_option_verified": false,
+    "global_optimality_certified": false,
+    "started_utc": "2026-10-26T04:34:15.450271+00:00",
+    "ended_utc_from_worker_duration": "2026-10-26T05:04:05.849104+00:00"
+  },
+  {
+    "grid_name": "shubert",
+    "method": "loa",
+    "old_objective": 0.08242781075119937,
+    "new_objective": 0.0,
+    "old_target_hit": false,
+    "new_target_hit": true,
+    "old_termination": "optimal",
+    "new_wrapper_status": "finished",
+    "new_termination": "maxTimeLimit",
+    "new_termination_provenance": "GDPopt_solver_results",
+    "old_max_violation": 0.0,
+    "new_max_violation": 0.0,
+    "old_worker_wall_s": 1278.4461603821255,
+    "new_worker_wall_s": 1793.2569180449937,
+    "worker_wall_delta_s": 514.8107576628681,
+    "first_target_elapsed_s": 986.8093304028735,
+    "first_target_iteration": 478,
+    "first_target_grid_point": [
+      17,
+      22
+    ],
+    "time_after_first_target_s": 806.4475876421202,
+    "final_grid_point": [
+      17,
+      22
+    ],
+    "original_validation": {
+      "has_feasible_solution": true,
+      "candidate_objective": 0.0,
+      "max_primal_violation": 0.0,
+      "invalid_or_undefined": [],
+      "selected_disjuncts": [
+        "Xchoice[17]",
+        "Ychoice[22]"
+      ],
+      "selected_booleans": [],
+      "grid_point": [
+        17,
+        22
+      ],
+      "missing_variables": [],
+      "reference_minimum": 0.0,
+      "original_structure_sha256": "10b5789737dd3620036c81ad6a67d3db9eb29c2d94ef5292e5e3d2fba9e2fdb9",
+      "normalized_gap": 0.0,
+      "target_hit": true
+    },
+    "reference_minimum": 0.0,
+    "tolerance": 1e-05,
+    "old_reported_lower_bound": 0.082427810751199,
+    "old_reported_upper_bound": 0.082427810751199,
+    "old_lower_bound_exceeds_known_reference": true,
+    "new_reported_lower_bound": -0.044221747369219,
+    "new_reported_upper_bound": 0.0,
+    "new_lower_bound_exceeds_known_reference": false,
+    "last_discrete_lower_bound": -0.044221747369219,
+    "distinct_discrete_lower_bounds": [
+      -0.044221747369219
+    ],
+    "mip_rows_grow_one_per_iteration": true,
+    "completed_evaluation_entries": 749,
+    "discrete_selections": 749,
+    "old_confirmed_scip_invocations": 1036,
+    "old_benchmark_nlp_calls": 0,
+    "call_accounting": {
+      "journaled_interface_attempts": 1499,
+      "started_interface_attempts": 1499,
+      "completed_mip_calls": 749,
+      "completed_dnlp_calls": 749,
+      "error_interface_attempts": 1,
+      "active_unjournaled_attempts": 0,
+      "active_attempt": null,
+      "confirmed_scip_invocations": 1498,
+      "scip_versions": [
+        "9.2.4 (a94f778ac8)"
+      ],
+      "journaled_interface_wall_s": 1517.8073176518083,
+      "failed_interface_wall_s": 60.17813378991559,
+      "gams_solve_time_s": 154.01599409524349,
+      "no_marginals_messages": 1498
+    },
+    "network_recovery": [
+      {
+        "policy": "grid-scip-network-and-bohachevsky2-v1",
+        "group_first_call": 1168,
+        "attempt": 1,
+        "failed_call_index": 1168,
+        "network_phase": "start",
+        "log_start_byte": 6390110,
+        "log_end_byte": 6390720,
+        "log_delta_sha256": "bd6b57b325df95ec5ccc1628bbadd1a948c1a2e2e8adfbce7c0cd3effa3daeb5",
+        "original_deadline": 1186511.599649908,
+        "decision": "retry_same_interface_call",
+        "backoff_s": 5.0,
+        "remaining_s": 420.134286521934
+      },
+      {
+        "policy": "grid-scip-network-and-bohachevsky2-v1",
+        "group_first_call": 1168,
+        "attempt": 2,
+        "decision": "interface_returned",
+        "returned_call_index": 1169,
+        "original_deadline": 1186511.599649908
+      }
+    ],
+    "actual_options_verified_from_run_log": true,
+    "sidecar_actual_config_present": false,
+    "actual_option_delta_from_baseline": {
+      "subproblem_presolve": {
+        "old": "true",
+        "new": "false"
+      },
+      "nlp_solver_args": {
+        "old": {
+          "mtype": "nlp",
+          "solver": "scip"
+        },
+        "new": {
+          "mtype": "dnlp",
+          "solver": "scip"
+        }
+      }
+    },
+    "original_reported_option_verified": false,
+    "global_optimality_certified": false,
+    "started_utc": "2026-10-26T05:04:05.929367+00:00",
+    "ended_utc_from_worker_duration": "2026-10-26T05:33:59.186285+00:00"
+  }
+]

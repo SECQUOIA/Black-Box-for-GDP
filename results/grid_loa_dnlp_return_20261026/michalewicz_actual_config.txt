@@ -1,0 +1,45 @@
+Starting GDPopt version 22.5.13 using LOA algorithm
+iterlim: None
+time_limit: 1789
+tee: true
+logger: <Logger pyomo.contrib.gdpopt (INFO)>
+integer_tolerance: 1e-05
+constraint_tolerance: 1e-06
+variable_tolerance: 1e-08
+subproblem_initialization_method: <function restore_vars_to_original_values at 0x7f6d0da5e8e0>
+call_before_subproblem_solve: <function solve_method.<locals>.trace.<locals>.callback at 0x7f6d0d21b060>
+call_after_subproblem_solve: <function solve_method.<locals>.trace.<locals>.callback at 0x7f6d0d21afc0>
+call_after_subproblem_feasible: <function solve_method.<locals>.feasible at 0x7f6d0d21a480>
+force_subproblem_nlp: true
+subproblem_presolve: false
+tighten_nlp_var_bounds: false
+round_discrete_vars: true
+max_fbbt_iterations: 3
+init_strategy: None
+init_algorithm: set_covering
+custom_init_disjuncts: []
+max_slack: 1000.0
+OA_penalty_factor: 1000.0
+set_cover_iterlim: 8
+discrete_problem_transformation: gdp.bigm
+call_before_discrete_problem_solve: <class 'type'>
+call_after_discrete_problem_solve: <function solve_method.<locals>.trace.<locals>.callback at 0x7f6d0d2a79c0>
+call_before_master_solve: <class 'type'>
+call_after_master_solve: <class 'type'>
+mip_presolve: true
+calc_disjunctive_bounds: false
+obbt_disjunctive_bounds: false
+mip_solver: _rbfopt_comparison_gams
+mip_solver_args:
+  mtype: mip
+  solver: scip
+nlp_solver: _rbfopt_comparison_gams
+nlp_solver_args:
+  mtype: dnlp
+  solver: scip
+minlp_solver: baron
+minlp_solver_args:
+local_minlp_solver: bonmin
+local_minlp_solver_args:
+small_dual_tolerance: 1e-08
+bound_tolerance: 1e-05

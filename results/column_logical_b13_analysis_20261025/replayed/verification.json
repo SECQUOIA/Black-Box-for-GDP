@@ -1,0 +1,423 @@
+{
+  "planned_jobs": 50,
+  "sealed_jobs": 50,
+  "pending_jobs": 0,
+  "failed_jobs": 0,
+  "status_counts": {
+    "budget_completed": 49,
+    "completed": 1
+  },
+  "actual_callbacks": 648,
+  "sealed_run_callbacks": 648,
+  "interrupted_attempt_callbacks": 0,
+  "rejected_over_budget_requests": 0,
+  "maximum_callbacks": 650,
+  "original_process_nlp_calls": 0,
+  "jobs": [
+    {
+      "job_id": "column_logical_B13_seed0_dsda",
+      "callbacks": 13,
+      "terminal_sha256": "639a17eea0d9f98e07ed0ab28971a8e4a373aad47d2e212b16392b50e01e505d",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed0_rbfopt",
+      "callbacks": 13,
+      "terminal_sha256": "cb8678e15aa70a14645d905bb78b9e493a6bc52f6a50dfdffcf7deebca2d6af0",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed0_bam",
+      "callbacks": 13,
+      "terminal_sha256": "e5c369f3f10b828396b5d19de57169cf6e8ab3c27ffb6c806a0a24987ddd4435",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed0_fmqa_sa",
+      "callbacks": 13,
+      "terminal_sha256": "7ddc2b169829b397acc780448966e86e8091fb6258fe6651d78584035c33cf58",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed0_uniform_without_replacement",
+      "callbacks": 13,
+      "terminal_sha256": "84a9d3e4b7526c0b7646d95dd2e6c767ebb8992f40ed219ab9eb0bf6dff111ed",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed1_dsda",
+      "callbacks": 13,
+      "terminal_sha256": "92f88c68f53647f40ce96bd207e0806b930453d394be68a01a79794a6f080618",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed1_rbfopt",
+      "callbacks": 13,
+      "terminal_sha256": "a5e227fff249269d4b8939dba4174767272b89b62255bd4b21bc7855d63dd822",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed1_bam",
+      "callbacks": 13,
+      "terminal_sha256": "6d1b6966e0aad1eece43369e9dce2fed1791e4b0292abb5eb93de8bd53f933d6",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed1_fmqa_sa",
+      "callbacks": 13,
+      "terminal_sha256": "8756ad030c466b2a6b054ac21c1fd3972af8ecf3f88790cbd0e4241da02f43b7",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed1_uniform_without_replacement",
+      "callbacks": 13,
+      "terminal_sha256": "4162014fa8fd8cd2c87a1359672b67de28580806bd935bc16e5449535a90e3c7",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed2_dsda",
+      "callbacks": 13,
+      "terminal_sha256": "57553b2b3c1188245e9ff421657f5e7af77d24395dbdb0cb93dc68210cd9631f",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed2_rbfopt",
+      "callbacks": 13,
+      "terminal_sha256": "416dce9960ec58af303b2d1ee00d2aa6b3d61a809200f3435cffcac9ba94e337",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed2_bam",
+      "callbacks": 13,
+      "terminal_sha256": "dcc02bc7d57d7d5acc81968fdb5ca8c0d69e6d1889b7f40e704a53fb09714f4d",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed2_fmqa_sa",
+      "callbacks": 13,
+      "terminal_sha256": "c98cda62941e21601c616eeff8fee5f20c9fcf2e4906fa9fcde538190440e758",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed2_uniform_without_replacement",
+      "callbacks": 13,
+      "terminal_sha256": "9057bf0fb17e4a52c7bc517b4c4f2586bdba96d2e3b2cc01bd16fcd24ce6f5c9",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed3_dsda",
+      "callbacks": 13,
+      "terminal_sha256": "9da49d37775643e2b507e28b130195bf997804a2121e65633fd7466945823d07",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed3_rbfopt",
+      "callbacks": 13,
+      "terminal_sha256": "e925627641f2e86d67b950a76b82fe32e53b23b887007327ed13b663975f3076",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed3_bam",
+      "callbacks": 13,
+      "terminal_sha256": "0e7826ceec9afba40594ba926d9f97bde8a55bde5d2a50a3befb9bd04310b61d",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed3_fmqa_sa",
+      "callbacks": 13,
+      "terminal_sha256": "3bbe984b16155c25b2ffa22ade0e0e491b618ef81c15e8d8ae6b5a7e7fac70e3",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed3_uniform_without_replacement",
+      "callbacks": 13,
+      "terminal_sha256": "1547722fa20f04292130c4e6bcf5913da472e654fbbc72fba3299bbb487c1908",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed4_dsda",
+      "callbacks": 13,
+      "terminal_sha256": "9a80b59f6f55989a265f648337025ac14e61b4dc0ce86cd4b7f029d60c51edaf",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed4_rbfopt",
+      "callbacks": 13,
+      "terminal_sha256": "d6e3603ad1e6c00da6f270dce3db73718b26404a53230b30891b2cee7a8e5986",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed4_bam",
+      "callbacks": 13,
+      "terminal_sha256": "bf9174326a82b4be5ae2acd1fe92a90c60ae51f0cbcc4dd15527f538636fa546",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed4_fmqa_sa",
+      "callbacks": 13,
+      "terminal_sha256": "c941227ec327de51852330403270f0ab7f0848096b46a8f4e375acbcb046c5ce",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed4_uniform_without_replacement",
+      "callbacks": 13,
+      "terminal_sha256": "dafb486b79a25a4b3d5528d0c1a3360242f5e1d672f540a29342cbea93f4ba92",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed5_dsda",
+      "callbacks": 13,
+      "terminal_sha256": "818157afcf99c878f435418c6c7004d08a63e8b49c5ceeccb7b005b3c1880c27",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed5_rbfopt",
+      "callbacks": 13,
+      "terminal_sha256": "b79de633c83bab020cef631fb15c9310901d53b9dd9a1aaee3b655f1ce964d09",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed5_bam",
+      "callbacks": 13,
+      "terminal_sha256": "4be93512385692703cb712c4cf33f19f4039d6541d01f676667d1a48b7ab11c2",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed5_fmqa_sa",
+      "callbacks": 13,
+      "terminal_sha256": "dfc65e1ea5159efa4081d37b84b3b7eb934355297f35d24508b670819dbfb9ca",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed5_uniform_without_replacement",
+      "callbacks": 13,
+      "terminal_sha256": "44447e5bdad52c68a1b96539c5c9d08f74298caa2cace1c37a5df026d550fb44",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed6_dsda",
+      "callbacks": 11,
+      "terminal_sha256": "5f5c168a7ec1332483917d89844186b0ce3e89c5e7d8749bb623332bd09d3e5e",
+      "status": "completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed6_rbfopt",
+      "callbacks": 13,
+      "terminal_sha256": "ea5053bf30aba10978d438d87495d9216856d6d15d426fd2648cfb6a2ca58dd7",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed6_bam",
+      "callbacks": 13,
+      "terminal_sha256": "ededf7f992cfa682fdd0f365e27b0eb127d28ec1c774d0c81166f4dc0d3dd32d",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed6_fmqa_sa",
+      "callbacks": 13,
+      "terminal_sha256": "f3a1184757c5974be6193ea5feed00d2223b50a0924221b42602b06368ea4531",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed6_uniform_without_replacement",
+      "callbacks": 13,
+      "terminal_sha256": "fb489a3d20487b6363c3dfb6975707d15f0d2739bb23cb774c15334bb0c515c9",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed7_dsda",
+      "callbacks": 13,
+      "terminal_sha256": "fa8b44927313e7af85176a0150b55e6d96b6284159dbee538d24faddf29152f7",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed7_rbfopt",
+      "callbacks": 13,
+      "terminal_sha256": "5966913678484914bc7e60acfb27ce38f04bac45ec60f1018f2db47582837ab3",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed7_bam",
+      "callbacks": 13,
+      "terminal_sha256": "1d76bbad075617deee802f89f69432a923728b656f09665a169be18a072e7d6e",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed7_fmqa_sa",
+      "callbacks": 13,
+      "terminal_sha256": "35c504eeffe59c17e5fa569b7f797aa2f823e3459b4e3b966ab1b51bf7476ef4",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed7_uniform_without_replacement",
+      "callbacks": 13,
+      "terminal_sha256": "0e1070b32753bc47645d5a62f29531317484d419d316570a4f7708fb6e5077a8",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed8_dsda",
+      "callbacks": 13,
+      "terminal_sha256": "22812d52894b6252704216b1aea28724667064a4686e751212f4919f683f1e5c",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed8_rbfopt",
+      "callbacks": 13,
+      "terminal_sha256": "c80a0de010b3809ccccf6ccc2a66169751d8a25a8f507a83f96683bfb6637f00",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed8_bam",
+      "callbacks": 13,
+      "terminal_sha256": "d2eebf6facb75385641eece58185b4f8eebc2f4ac00f67b2b20d8037b459be1e",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed8_fmqa_sa",
+      "callbacks": 13,
+      "terminal_sha256": "9b9cebc85ee7c386d7a9c9453eb3abc741d1a7377dbc299a7c995159399c82ed",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed8_uniform_without_replacement",
+      "callbacks": 13,
+      "terminal_sha256": "982911920644e6e77a0f45baef14c8fa72916871edaea9079a5f9dadc8e4cf0a",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed9_dsda",
+      "callbacks": 13,
+      "terminal_sha256": "d46f496331b0b5378cd0517ddfddfd844eba405bf90d1e874d95b59e4180a71e",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed9_rbfopt",
+      "callbacks": 13,
+      "terminal_sha256": "3e10d3acc05edf713d98481597155e51ca51915bd9dc02016e04189ae7c07291",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed9_bam",
+      "callbacks": 13,
+      "terminal_sha256": "8f13795d2a2764a505804d7e1f0d84b8fd3c1eceb74c673c31d291e7d0bc404a",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed9_fmqa_sa",
+      "callbacks": 13,
+      "terminal_sha256": "61de0b3daad8dbe16b711f3d74533283f5c2a4deab47b12008c8d655fcec2438",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    },
+    {
+      "job_id": "column_logical_B13_seed9_uniform_without_replacement",
+      "callbacks": 13,
+      "terminal_sha256": "e1e68617e37e087f844ed2aa782e4d13acaa97eb497ce858c9aa640e06bc820f",
+      "status": "budget_completed",
+      "protocol_valid": true,
+      "terminal_callback_target": false
+    }
+  ],
+  "frozen_package_sha256": "cca439c805a4846c260e60e5904385f304dd9dfb7669c4163bb6c624b7311b52",
+  "target_rule": "abs(final_best_accepted-reference)<=1e-5*max(1,abs(reference)); failures remain in denominator 10",
+  "profile_semantics": "Evaluation axis uses first observed target for successful runs; time axis uses reconstructed full-run completion, matching the publication.",
+  "timing": "Search wall minus measured lookup time plus recorded point costs charged on every callback; not online optimizer-NLP time.",
+  "comparison": "Domain and budget change together; no single-factor causal attribution."
+}

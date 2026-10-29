@@ -1,0 +1,141 @@
+{
+  "jobs": 27,
+  "returned_feasible_solutions": 26,
+  "new_optimization_calls_during_analysis": 0,
+  "logged_benchmark_solver_calls": {
+    "highs/mip": 2368,
+    "scip/nlp": 2341
+  },
+  "additional_calls_without_terminal_record": {
+    "scip/nlp": 1
+  },
+  "actual_started_benchmark_calls": {
+    "highs/mip": 2368,
+    "scip/nlp": 2342
+  },
+  "preflight_calls_excluded": {
+    "highs/mip": 1,
+    "scip/nlp": 1
+  },
+  "raw_status_counts": {
+    "finished": 20,
+    "error": 1,
+    "time_limit": 5,
+    "hard_time_limit": 1
+  },
+  "termination_counts": {
+    "optimal": 18,
+    "error": 1,
+    "maxTimeLimit": 8
+  },
+  "max_verified_primal_violation": 9.428052587384661e-07,
+  "verified_variables_total": 10974,
+  "method_or_watchdog_wall_s_total": 19397.79529758985,
+  "worker_wall_s_total": 19398.231571493438,
+  "preparation_once_per_instance_s": 1.8957645152695477,
+  "logged_solver_call_wall_s_total": 15637.467055061366,
+  "path_events": 7045,
+  "scip_and_component_version_lines": [
+    "  Ipopt 3.14.19        Interior Point Optimizer developed by A. Waechter et.al. (github.com/coin-or/Ipopt)",
+    "Running HiGHS 1.12.0 (git hash: 9fa8db6f9): Copyright (c) 2025 HiGHS under",
+    "Running HiGHS 1.12.0 (git hash: 9fa8db6f9): Copyright (c) 2025 HiGHS under MIT licence terms",
+    "SCIP version 9.2.4 (a94f778ac8)"
+  ],
+  "bound_conflicts": [
+    {
+      "instance_id": "cstr_5",
+      "method": "gloa",
+      "reported_lower_bound": 3.130193363756675,
+      "best_verified_objective_same_archive": 3.06200967750001,
+      "bound_witness_method": "loa"
+    },
+    {
+      "instance_id": "cstr_10",
+      "method": "gloa",
+      "reported_lower_bound": 3.4479539479798307,
+      "best_verified_objective_same_archive": 2.88953696848347,
+      "bound_witness_method": "loa"
+    },
+    {
+      "instance_id": "cstr_15",
+      "method": "gloa",
+      "reported_lower_bound": 3.5225786023933208,
+      "best_verified_objective_same_archive": 2.82939406035249,
+      "bound_witness_method": "loa"
+    },
+    {
+      "instance_id": "cstr_20",
+      "method": "gloa",
+      "reported_lower_bound": 3.6161130102292582,
+      "best_verified_objective_same_archive": 2.7994064179885196,
+      "bound_witness_method": "loa"
+    },
+    {
+      "instance_id": "cstr_25",
+      "method": "gloa",
+      "reported_lower_bound": 3.647817961995777,
+      "best_verified_objective_same_archive": 2.78148259257455,
+      "bound_witness_method": "loa"
+    },
+    {
+      "instance_id": "cstr_30",
+      "method": "gloa",
+      "reported_lower_bound": 3.154339315495288,
+      "best_verified_objective_same_archive": 2.76956971984611,
+      "bound_witness_method": "ric"
+    }
+  ],
+  "by_method": [
+    {
+      "method": "gloa",
+      "jobs": 9,
+      "verified_solutions": 9,
+      "baron_target_hits": 1,
+      "scip_target_hits": 1,
+      "baron_target_attained": 1,
+      "scip_target_attained": 1,
+      "both_hit": 1,
+      "scip_only_hit": 0,
+      "baron_only_hit": 0,
+      "neither_hit": 8,
+      "time_limits": 2,
+      "errors": 0,
+      "baron_completion_s_sum": 4455.492104781326,
+      "scip_completion_s_sum": 3632.3153962504584
+    },
+    {
+      "method": "loa",
+      "jobs": 9,
+      "verified_solutions": 9,
+      "baron_target_hits": 3,
+      "scip_target_hits": 6,
+      "baron_target_attained": 4,
+      "scip_target_attained": 6,
+      "both_hit": 3,
+      "scip_only_hit": 3,
+      "baron_only_hit": 0,
+      "neither_hit": 3,
+      "time_limits": 3,
+      "errors": 0,
+      "baron_completion_s_sum": 11060.151072234381,
+      "scip_completion_s_sum": 7843.6070297849365
+    },
+    {
+      "method": "ric",
+      "jobs": 9,
+      "verified_solutions": 8,
+      "baron_target_hits": 3,
+      "scip_target_hits": 6,
+      "baron_target_attained": 3,
+      "scip_target_attained": 6,
+      "both_hit": 3,
+      "scip_only_hit": 3,
+      "baron_only_hit": 0,
+      "neither_hit": 3,
+      "time_limits": 3,
+      "errors": 1,
+      "baron_completion_s_sum": 11040.892143754289,
+      "scip_completion_s_sum": 7927.560165100265
+    }
+  ]
+}

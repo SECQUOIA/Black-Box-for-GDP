@@ -1,0 +1,36 @@
+{
+  "review_revision": "24df0376881409a533b98d9a8490c902eef38b5b",
+  "source_base_revision": "12d2d1cb0db604c998036975af547b13dddfdbf8",
+  "source_state": "Base revision plus the exact source-file hashes below; changes are committed with this delivery.",
+  "source_files_sha256": {
+    "experiments/grid_loa_presolve_disabled/README.md": "19f1c4fbf80f6e4c9ded10ad3aae22e0ef42c82bf2ff98d48cb2b3a1c3c88f28",
+    "experiments/grid_loa_presolve_disabled/build_package.py": "0cb266c2ce3103e1d8093657291994ae60aef2c88e8ae5832415a56948d54288",
+    "experiments/grid_loa_presolve_disabled/diagnostic.py": "adb0ef4834fc1c252cac7acbb3534ae271dd312d31c1eea7b8826a58b40cfcd5",
+    "tests/test_grid_loa_presolve_disabled.py": "071fd6baf8659dd0fb94282c2ef1bbd2bc17a2fbffa657f67e8f996436e9f05e"
+  },
+  "original_archive_sha256": "69ec44f83c20817a33f51a94ec2e1a3e01ad37031cb3f8c37aae4993eafe1f50",
+  "original_delivery_sha256": "7cb355016b33ba711baad2dd8f6d3fc166b986759a4c5dccde7c1ba311b878fd",
+  "package_sha256": "e5f40878ccd3b480ee18ef08e58c0f07ff9c42a3d574265003d7a224b6ed645e",
+  "algorithm_option_delta_vs_prior_diagnostic": {},
+  "recorder_delta": "ConfigDict.value() for the two solver-argument snapshots",
+  "actual_new_fixed_solver_calls": 0,
+  "actual_new_full_loa_runs": 0,
+  "remote_execution": "not_run",
+  "max_fixed_calls_across_both_deliveries": 6,
+  "max_full_loa_runs_across_both_deliveries": 3,
+  "protected_input_files": "preservation.json",
+  "reproduction_commands": "DANTZIG_COMMANDS.txt",
+  "outputs_sha256": {
+    "BUILD_MANIFEST.json": "dd22c2388973f517c214ebc952682c26cfd11c743151f05fc5b074c7621466b1",
+    "DANTZIG_COMMANDS.txt": "701fae99c74566c9da103fe04fcbf7cc7d9e0b6fe304e64925ed222f29af9118",
+    "README.md": "fbf7fcca4b9b62eaaf49757af263b7e832b8a8d60928543ff06819b6e2d9b900",
+    "execution_status.json": "304ee48ffc02d567487a6a964a8b4b2149ce2018193dcd7e554a4b27e7d8244e",
+    "grid_loa_presolve_disabled_dantzig_20261025_v2.zip": "e5f40878ccd3b480ee18ef08e58c0f07ff9c42a3d574265003d7a224b6ed645e",
+    "grid_loa_presolve_disabled_dantzig_20261025_v2.zip.sha256": "11cf44627703d88c9e5814a2dbeb660265320dd626b03f3fdc22abd9d96976e7",
+    "local_inspection.json": "28c699a9ebe04aecd2ff3c66b5eca876ad0c07f8570de880073ac3a4626fe524",
+    "preservation.json": "ad72d009f8867574ee85d32b156536e9d97edcd6d1228c8d96b67a279d3aaf62",
+    "replay_verification.json": "dba1db94dbb79cc11f90f3c63d2fe6226ed8a9313ddb0ccd4bad862ae8478d99",
+    "user_reported_status.txt": "689e32b329c10ff24de655149babd42e38506ff9f574892f32903ae6ca392310",
+    "validation.json": "4e473e4d391528708f12b008f636318462a7eab7279a655ceafd1d4339568ce0"
+  }
+}

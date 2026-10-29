@@ -1,0 +1,114 @@
+[
+  {
+    "grid_name": "holder_table",
+    "method": "ric",
+    "attempt_cohort": "recovery",
+    "target_hit": false,
+    "status": "finished",
+    "termination": "optimal",
+    "objective": 0.14516723995340786,
+    "grid_point": [
+      30,
+      1
+    ],
+    "worker_wall_s": 1513.2142597180791,
+    "result_sha256": "89f9f6139f3d9b6bb31f0a4685e8af641260bf1c861c5a91a3ad7b5c04bd3362",
+    "archive": "grid_gdpopt_scip_20261025_180435_dv1cn3et.zip"
+  },
+  {
+    "grid_name": "holder_table",
+    "method": "loa",
+    "attempt_cohort": "recovery",
+    "target_hit": false,
+    "status": "finished",
+    "termination": "optimal",
+    "objective": 0.14516723995340786,
+    "grid_point": [
+      30,
+      1
+    ],
+    "worker_wall_s": 1623.760965614114,
+    "result_sha256": "c6af3484d38da0020b70a6b77b461922be9a7074ca2a30c195633ef29220463f",
+    "archive": "grid_gdpopt_scip_20261025_180441_051rkijg.zip"
+  },
+  {
+    "grid_name": "michalewicz",
+    "method": "gloa",
+    "attempt_cohort": "recovery",
+    "target_hit": false,
+    "status": "finished",
+    "termination": "optimal",
+    "objective": 0.08649170482029742,
+    "grid_point": [
+      22,
+      15
+    ],
+    "worker_wall_s": 1558.1182341570966,
+    "result_sha256": "7109b798b7c3384bfa07992fbb70b90082422b8c03ab58d5d1b434f55bda1b08",
+    "archive": "grid_gdpopt_scip_20261025_180450_9ac86u_v.zip"
+  },
+  {
+    "grid_name": "michalewicz",
+    "method": "loa",
+    "attempt_cohort": "recovery",
+    "target_hit": false,
+    "status": "finished",
+    "termination": "optimal",
+    "objective": 0.08649170482029742,
+    "grid_point": [
+      22,
+      15
+    ],
+    "worker_wall_s": 1490.7609859369695,
+    "result_sha256": "b473c0c63b8ba8c41de587530d1cd31bacd71568a610d708ed075a1df3127b95",
+    "archive": "grid_gdpopt_scip_20261025_180441_051rkijg.zip"
+  },
+  {
+    "grid_name": "shubert",
+    "method": "ric",
+    "attempt_cohort": "recovery",
+    "target_hit": false,
+    "status": "finished",
+    "termination": "optimal",
+    "objective": 0.08242781075119937,
+    "grid_point": [
+      17,
+      21
+    ],
+    "worker_wall_s": 1238.5829515999649,
+    "result_sha256": "44fc892c5df0f0d5968e840ad6a5176bb4f759271b7cab6f8338f875dacf22f7",
+    "archive": "grid_gdpopt_scip_20261025_180435_dv1cn3et.zip"
+  },
+  {
+    "grid_name": "shubert",
+    "method": "gloa",
+    "attempt_cohort": "retained_first_attempt",
+    "target_hit": false,
+    "status": "finished",
+    "termination": "optimal",
+    "objective": 0.08242781075119937,
+    "grid_point": [
+      17,
+      21
+    ],
+    "worker_wall_s": 1651.0038737880532,
+    "result_sha256": "a9380f16cc09537d098dd0f212eaa2c6ddfb586a569382ee5f1e032daf218c5c",
+    "archive": "grid_gdpopt_scip_20261025_072708_qh55t7wf.zip"
+  },
+  {
+    "grid_name": "shubert",
+    "method": "loa",
+    "attempt_cohort": "recovery",
+    "target_hit": false,
+    "status": "finished",
+    "termination": "optimal",
+    "objective": 0.08242781075119937,
+    "grid_point": [
+      17,
+      21
+    ],
+    "worker_wall_s": 1278.4461603821255,
+    "result_sha256": "f2e6f43934dc9975c7a66265ba3fae02f36c3a1f68ca05a6c1c304b1b25af63b",
+    "archive": "grid_gdpopt_scip_20261025_180441_051rkijg.zip"
+  }
+]

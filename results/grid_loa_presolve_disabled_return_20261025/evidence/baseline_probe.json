@@ -1,0 +1,35 @@
+{
+  "grid_name": "holder_table",
+  "point": [
+    3,
+    1
+  ],
+  "original_witness": {
+    "has_feasible_solution": true,
+    "candidate_objective": 0.0,
+    "max_primal_violation": 0.0,
+    "invalid_or_undefined": [],
+    "selected_disjuncts": [
+      "Xchoice[3]",
+      "Ychoice[1]"
+    ],
+    "selected_booleans": [],
+    "grid_point": [
+      3,
+      1
+    ],
+    "missing_variables": [],
+    "reference_minimum": 0.0,
+    "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+    "normalized_gap": 0.0,
+    "target_hit": true
+  },
+  "default_presolve_allows_solver": false,
+  "default_presolve_log": "NLP subproblem determined to be infeasible during preprocessing. Message: Lower bound (-3.233037281025837) computed for variable y is larger than the computed upper bound (-9.333333333333336).\n",
+  "presolve_disabled_path": "solve_subproblem -> call_appropriate_subproblem_solver",
+  "subproblem_before_option_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+  "subproblem_after_option_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+  "original_model_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+  "optimization_calls": 0,
+  "witness_not_a_returned_solution": true
+}

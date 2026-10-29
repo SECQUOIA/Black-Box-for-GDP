@@ -1,0 +1,77 @@
+[
+  {
+    "method": "bigm",
+    "jobs": 21,
+    "returned_feasible_solutions": 21,
+    "target_hits": 21,
+    "optimal_terminations": 21,
+    "time_limit_terminations": 0,
+    "optimal_but_misses_target": 0,
+    "runner_global_certificates": 21,
+    "method_wall_s_sum": 24.469248763169162,
+    "method_wall_s_median": 0.6551378261065111,
+    "actual_solver_counts": {
+      "scip": 21
+    }
+  },
+  {
+    "method": "hull",
+    "jobs": 21,
+    "returned_feasible_solutions": 21,
+    "target_hits": 21,
+    "optimal_terminations": 21,
+    "time_limit_terminations": 0,
+    "optimal_but_misses_target": 0,
+    "runner_global_certificates": 21,
+    "method_wall_s_sum": 16.38585322513245,
+    "method_wall_s_median": 0.5329140480607748,
+    "actual_solver_counts": {
+      "scip": 21
+    }
+  },
+  {
+    "method": "gloa",
+    "jobs": 21,
+    "returned_feasible_solutions": 21,
+    "target_hits": 18,
+    "optimal_terminations": 18,
+    "time_limit_terminations": 3,
+    "optimal_but_misses_target": 2,
+    "runner_global_certificates": 0,
+    "method_wall_s_sum": 19116.2349167692,
+    "method_wall_s_median": 1137.485905291047,
+    "actual_solver_counts": {
+      "highs": 20778
+    }
+  },
+  {
+    "method": "loa",
+    "jobs": 21,
+    "returned_feasible_solutions": 21,
+    "target_hits": 18,
+    "optimal_terminations": 17,
+    "time_limit_terminations": 4,
+    "optimal_but_misses_target": 2,
+    "runner_global_certificates": 0,
+    "method_wall_s_sum": 18471.43425256887,
+    "method_wall_s_median": 846.7070863940753,
+    "actual_solver_counts": {
+      "highs": 19299
+    }
+  },
+  {
+    "method": "ric",
+    "jobs": 21,
+    "returned_feasible_solutions": 21,
+    "target_hits": 18,
+    "optimal_terminations": 17,
+    "time_limit_terminations": 4,
+    "optimal_but_misses_target": 2,
+    "runner_global_certificates": 0,
+    "method_wall_s_sum": 19057.873767759884,
+    "method_wall_s_median": 988.0804367649835,
+    "actual_solver_counts": {
+      "highs": 20986
+    }
+  }
+]

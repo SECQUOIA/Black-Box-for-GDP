@@ -1,0 +1,26 @@
+{
+  "grid_name": "holder_table",
+  "point": [
+    27,
+    1
+  ],
+  "model_type": "dnlp",
+  "command": [
+    "/Library/Frameworks/GAMS.framework/Versions/53/Resources/gams",
+    "model.gms",
+    "action=c",
+    "lo=3",
+    "threads=1"
+  ],
+  "utc": "2026-10-26T03:55:45.151389+00:00",
+  "optimizer_calls": 0,
+  "structure_sha256": "639928fc5b3f65b76a1c074e6857c73bf75e39c5c81f7558d02f6a89798ee48f",
+  "model_sha256": "64290b978ccb5c713521948cf230fb4c98f0acf17036979e6cc00b6f81e5166a",
+  "returncode": 0,
+  "passed": true,
+  "wall_s": 0.26442541694268584,
+  "gams_banners": [
+    "10/25/26 23:55:45 53.3.0 68a37de8 DAX-DAC arm 64bit/macOS"
+  ],
+  "confirmed_optimizer_starts": 0
+}

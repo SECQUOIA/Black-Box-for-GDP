@@ -1,0 +1,25 @@
+{
+  "completed": true,
+  "scope": "User clarified cleanup of Column temporary v1/v2 files, not Git history.",
+  "removed": [
+    {
+      "removed_directory": "/Users/albertlee0125/Repos/RBFopt_Test/results/runners/column_logical_b13_20261025",
+      "removed_source_directory": "/private/tmp/column-logical-b13-20261025/experiments/column_logical_b13",
+      "removed_files_bytes": 5332973,
+      "retained_archive": "provenance/retired_launch_packages/column_logical_b13_dantzig_20261025.zip",
+      "archive_sha256": "28e0e6a3c6a8f5fd134dbdad8e88e9699def654ef2d2a36d0e413bd1d08af2cc"
+    },
+    {
+      "removed_directory": "/Users/albertlee0125/Repos/RBFopt_Test/results/runners/column_logical_b13_20261025_v2",
+      "removed_source_directory": "/private/tmp/column-logical-b13-20261025/experiments/column_logical_b13_v2",
+      "removed_files_bytes": 5590258,
+      "retained_archive": "provenance/retired_launch_packages/column_logical_b13_dantzig_20261025_v2.zip",
+      "archive_sha256": "50204549c6572e6a03d9ba30785bb120ac31d9fb83b901c282c0abfec2148870"
+    }
+  ],
+  "v3_package_preserved": true,
+  "v3_package_manifest_sha256": "cca439c805a4846c260e60e5904385f304dd9dfb7669c4163bb6c624b7311b52",
+  "git_commits_deleted": 0,
+  "git_history_rewritten": false,
+  "rationale": "Remove superseded uncommitted v1/v2 execution directories and temporary sources; keep only compact original ZIPs and checksums as provenance."
+}

@@ -1,0 +1,217 @@
+{
+  "date": "2026-10-25",
+  "baseline_revision": "647019991f16d931c3f9f1905b35de885bc0bcd0",
+  "publication_analysis_revision": "947c21bf5d81483adcee6b9810f70f3fdb7fa91a",
+  "source_of_truth": "https://www.overleaf.com/project/6939f99b80a7684cfe622805",
+  "sources_match_final_overleaf_export": true,
+  "sources_sha256": {
+    "main.tex": "439c78221ad0c376d95aff847c7c173220f0a71d3eb85bfa7cec349abd714c6f",
+    "supplementary.tex": "2cc9f8160bd101989e8e71023a30daf69aab0a2d2306ce723ab81dc23f16f8e2",
+    "reference.bib": "67b72643281dc13170c21aac7501f951ae06b8f96ca845e0bb858b4538e94d2b"
+  },
+  "source_distribution": "Curated ZIP of byte-identical exported sources and 16 figure PDFs; obsolete nested archives/PDFs omitted.",
+  "zip_members_verified": 19,
+  "manuscript_source_reuploaded": false,
+  "david_comments": {
+    "main.tex": {
+      "before": 34,
+      "after": 34,
+      "all_comment_lines_unchanged": true
+    },
+    "supplementary.tex": {
+      "before": 0,
+      "after": 0,
+      "all_comment_lines_unchanged": true
+    }
+  },
+  "comments_resolved_or_deleted": false,
+  "overleaf_edits": "Targeted in-place edits to existing main and supplementary documents and replacement of four figure PDFs only.",
+  "sync_note": "Pre-existing author edits between the preceding Git snapshot and the task-start Overleaf snapshot are preserved in the current export.",
+  "overleaf_compilation": {
+    "combined_pdf_pages": 34,
+    "references_start_page": 19,
+    "supplement_start_page": 23,
+    "pdf_generated": true,
+    "errors": 1,
+    "error_kind": "Pre-existing undefined control sequence for retained David comment at main.tex line 896.",
+    "warnings": 0,
+    "typesetting_information": 1,
+    "typesetting_kind": "Underfull hbox at supplementary.tex 1076-1079."
+  },
+  "supplement_extract": {
+    "pages": 12,
+    "combined_pages": [
+      23,
+      34
+    ],
+    "extracted_text_identical": true,
+    "pagination_retained": true,
+    "links_to_excluded_main_pages_may_not_survive": true
+  },
+  "visual_review": {
+    "combined_pages": [
+      7,
+      14,
+      15,
+      16,
+      28,
+      31
+    ],
+    "new_clipping_or_overlap_found": false,
+    "updated_figures_match_overleaf_export": true,
+    "extracted_supplement_first_page_checked": true
+  },
+  "protected_experiment_and_other_non_manuscript_files": 2134,
+  "protected_files_unchanged": true,
+  "historical_replaced_table_bytes_archived": true,
+  "summary": {
+    "primary_runs": 700,
+    "outcomes": {
+      "target_reached": 315,
+      "target_not_reached": 385
+    },
+    "primary_callbacks": 16067,
+    "inventory": 2438,
+    "visited_configurations": 2024,
+    "accepted_inventory": 1266,
+    "process_hits": {
+      "dsda": 74,
+      "rbfopt_msrsm_genetic": 114,
+      "bam": 48,
+      "fmqa_sa": 42,
+      "uniform_without_replacement": 37
+    },
+    "column": {
+      "dsda": {
+        "case": "column",
+        "budget": 13,
+        "method": "dsda",
+        "runs": 10,
+        "hits": 5,
+        "execution_failures": 0,
+        "callbacks": 128,
+        "median_completion_s": 35.43390398286283,
+        "median_search_s": 0.006858436041511595,
+        "median_point_cost_s": 35.42749093146995
+      },
+      "rbfopt_msrsm_genetic": {
+        "case": "column",
+        "budget": 13,
+        "method": "rbfopt_msrsm_genetic",
+        "runs": 10,
+        "hits": 4,
+        "execution_failures": 0,
+        "callbacks": 130,
+        "median_completion_s": 54.603376980521716,
+        "median_search_s": 0.22603339387569577,
+        "median_point_cost_s": 54.36888618976809
+      },
+      "bam": {
+        "case": "column",
+        "budget": 13,
+        "method": "bam",
+        "runs": 10,
+        "hits": 1,
+        "execution_failures": 0,
+        "callbacks": 130,
+        "median_completion_s": 27.499898254987784,
+        "median_search_s": 0.017692269990220666,
+        "median_point_cost_s": 27.42809594841674
+      },
+      "fmqa_sa": {
+        "case": "column",
+        "budget": 13,
+        "method": "fmqa_sa",
+        "runs": 10,
+        "hits": 4,
+        "execution_failures": 0,
+        "callbacks": 130,
+        "median_completion_s": 41.818472682731226,
+        "median_search_s": 6.849797544069588,
+        "median_point_cost_s": 34.93689993862063
+      },
+      "uniform_without_replacement": {
+        "case": "column",
+        "budget": 13,
+        "method": "uniform_without_replacement",
+        "runs": 10,
+        "hits": 1,
+        "execution_failures": 0,
+        "callbacks": 130,
+        "median_completion_s": 21.68879374465905,
+        "median_search_s": 0.00716491206549108,
+        "median_point_cost_s": 21.681479149963707
+      }
+    }
+  },
+  "analysis_validation": {
+    "tests": {
+      "passed": 20,
+      "command": "python -m pytest tests/test_column_publication.py tests/test_cstr30_publication.py tests/test_review_comparison_manuscript.py -q"
+    },
+    "ruff_passed": true,
+    "repeat_analysis": {
+      "byte_identical_outputs": 22,
+      "all_equal": true
+    },
+    "historical_audit": {
+      "passed": true,
+      "verified_jobs": 3430,
+      "analysis_replay": [
+        {
+          "file": "completed_runs.csv",
+          "sha256": "f0764696a4846d391e8d040781e8e32bde72829654e13ca6c1342cf768d1843f",
+          "byte_identical": true
+        },
+        {
+          "file": "condition_summary.csv",
+          "sha256": "6c90c58cf2c364d69910fa397ede4a8cbd24c996765ae61e50269de9797f27ef",
+          "byte_identical": true
+        },
+        {
+          "file": "fixed_path_sensitivity.csv",
+          "sha256": "f52c2b7ae2882dc89a370bccda63f31546086e6380a145d23eade185e4f139f9",
+          "byte_identical": true
+        },
+        {
+          "file": "grid_exclusions.csv",
+          "sha256": "273f6c54d7e4f2b40b0e10cc0c7d2a40c278fc1fc6ba263e992c57aa343ab552",
+          "byte_identical": true
+        },
+        {
+          "file": "interpretation.json",
+          "sha256": "cf660d569192dfce60712a3c160dc0491d7104467d69585828663d6bb549b271",
+          "byte_identical": true
+        },
+        {
+          "file": "new_slots.csv",
+          "sha256": "a1b786a406c95f5d3cec34683e57f688fdba566e68e182a80c89d3585abbf92f",
+          "byte_identical": true
+        },
+        {
+          "file": "paired_success.csv",
+          "sha256": "9420c3dd6d4dff462bc6e3fd16d24c01fd68845cde5e1b10adc8d6507873b0e6",
+          "byte_identical": true
+        },
+        {
+          "file": "progress.json",
+          "sha256": "fdceb3a8a548a1239288179a0665c24e4601b75ed6805a5f9db406487681aeea",
+          "byte_identical": true
+        }
+      ]
+    },
+    "protected_preexisting_files": 2202,
+    "protected_files_unchanged": true,
+    "unchanged_non_column_figure_value_records": 95,
+    "new_optimizer_or_nlp_calls": 0,
+    "ci_requested": false
+  },
+  "new_experiments_run": false,
+  "ci_requested": false,
+  "branch": "review/cstr15-dantzig-results",
+  "pr_49_status": "Already merged; these commits are a follow-up on its original branch.",
+  "whitespace_check": {
+    "new_analysis_and_docs": "passed",
+    "exported_source": "Two trailing-space lines reported by git diff --check already exist verbatim in the task-start Overleaf export and were preserved."
+  }
+}

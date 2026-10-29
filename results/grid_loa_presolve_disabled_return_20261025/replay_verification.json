@@ -1,0 +1,15 @@
+{
+  "returned_analyzer_outputs_reproduced_byte_for_byte": [
+    "README.md",
+    "comparison.csv",
+    "comparison.json",
+    "fixed_configurations.csv",
+    "fixed_configurations.json",
+    "manifest.json",
+    "reference_paths.json",
+    "summary.json"
+  ],
+  "solver_factory_and_external_commands_blocked": true,
+  "solver_calls_during_replay": 0,
+  "audit_reproduced_byte_for_byte": true
+}

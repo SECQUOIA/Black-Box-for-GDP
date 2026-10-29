@@ -1,0 +1,164 @@
+{
+  "results": [
+    {
+      "grid_name": "holder_table",
+      "point": [
+        3,
+        1
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/package/gams/52.2/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T04:04:08.707221+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "model_sha256": "e6312ea0af4b85cd40d429fe75186ae656d29dbfee3890005221f7326b7b679b",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.39928746898658574,
+      "gams_banners": [
+        "10/26/26 00:04:08 52.2.0 d8e408be LEX-LEG x86 64bit/Linux"
+      ],
+      "confirmed_optimizer_starts": 0
+    },
+    {
+      "grid_name": "holder_table",
+      "point": [
+        3,
+        29
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/package/gams/52.2/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T04:04:09.164954+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "model_sha256": "613348251d2fad38c8da366510f11ab1b16e43004786c1a110379ad571d749fc",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.3363538938574493,
+      "gams_banners": [
+        "10/26/26 00:04:09 52.2.0 d8e408be LEX-LEG x86 64bit/Linux"
+      ],
+      "confirmed_optimizer_starts": 0
+    },
+    {
+      "grid_name": "holder_table",
+      "point": [
+        27,
+        1
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/package/gams/52.2/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T04:04:09.548805+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "model_sha256": "ce889e982d3292ba90b1f74e8daaec6e6d85fa76dfdcaa43ec64cfb672e35495",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.3099196250550449,
+      "gams_banners": [
+        "10/26/26 00:04:09 52.2.0 d8e408be LEX-LEG x86 64bit/Linux"
+      ],
+      "confirmed_optimizer_starts": 0
+    },
+    {
+      "grid_name": "holder_table",
+      "point": [
+        27,
+        29
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/package/gams/52.2/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T04:04:09.906403+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "ede468fe34ecc0dc8cf2a028362af842de14d3fbf6eaa8a8e7e196bd938215fa",
+      "model_sha256": "3546f920b3d46973e5f6192e3a6e4bece0958e2d488207469b13f91252ae2b0b",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.3420103369280696,
+      "gams_banners": [
+        "10/26/26 00:04:10 52.2.0 d8e408be LEX-LEG x86 64bit/Linux"
+      ],
+      "confirmed_optimizer_starts": 0
+    },
+    {
+      "grid_name": "michalewicz",
+      "point": [
+        21,
+        15
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/package/gams/52.2/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T04:04:10.297411+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "a758aa738b6b1ac0cc54ca62422961e566c0af3655d355f878bea3d8062d3805",
+      "model_sha256": "c0f5728e3253e2c2085258a037d0113672ed890a4d5fa3016e7e546b0dfab46d",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.33053860906511545,
+      "gams_banners": [
+        "10/26/26 00:04:10 52.2.0 d8e408be LEX-LEG x86 64bit/Linux"
+      ],
+      "confirmed_optimizer_starts": 0
+    },
+    {
+      "grid_name": "shubert",
+      "point": [
+        17,
+        22
+      ],
+      "model_type": "dnlp",
+      "command": [
+        "/package/gams/52.2/gams",
+        "model.gms",
+        "action=c",
+        "lo=3",
+        "threads=1"
+      ],
+      "utc": "2026-10-26T04:04:10.682369+00:00",
+      "optimizer_calls": 0,
+      "structure_sha256": "5788d3642064b598b66a03f8d8250dec5e7475f8646d61504ef90f41c1d4a367",
+      "model_sha256": "31b4a1c3a9be3420e05afcf0b6d79935a914241e3a09b397be6ff1309399f9b1",
+      "returncode": 0,
+      "passed": true,
+      "wall_s": 0.32639840012416244,
+      "gams_banners": [
+        "10/26/26 00:04:10 52.2.0 d8e408be LEX-LEG x86 64bit/Linux"
+      ],
+      "confirmed_optimizer_starts": 0
+    }
+  ],
+  "optimizer_calls": 0,
+  "gams_executable_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+  "platform": "linux",
+  "compiler_environment_scope": "verified_Dantzig_52.2"
+}

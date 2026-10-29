@@ -1,0 +1,410 @@
+{
+  "archives": [
+    {
+      "archive": "grid_scip_minlp_20261023_143526_ce02ov4c.zip",
+      "sha256": "c7ace16f230094051c0df4681294832c559b79a63fe40ef67875f5a2bf762180",
+      "bytes": 693535,
+      "internal_checksums_verified": 379,
+      "source_files_verified": 51,
+      "sealed_jobs": 42,
+      "config": {
+        "grids": [
+          "ackley",
+          "alpine1",
+          "alpine2",
+          "bohachevsky2",
+          "camel3",
+          "csendes",
+          "deflected_corrugated_spring",
+          "dropwave",
+          "easom",
+          "griewank",
+          "holder_table",
+          "hosaki",
+          "levy",
+          "levy13",
+          "michalewicz",
+          "rastrigin",
+          "rosenbrock",
+          "shubert",
+          "styblinski_tang",
+          "sum_of_squares",
+          "xin_she_yang3"
+        ],
+        "methods": [
+          "bigm",
+          "hull"
+        ],
+        "phases": [
+          "benchmark"
+        ],
+        "point_indices": [],
+        "point_seconds": 60,
+        "time_limit": 1800.0,
+        "relative_gap": 1e-05,
+        "cpu": 6,
+        "executable": "/package/gams/52.2/gams",
+        "expected_gams_version": "52.2",
+        "objective": "original normalized analytic formula",
+        "solver_profile": "scip-v1",
+        "gams_version": [
+          52,
+          2,
+          0,
+          0
+        ]
+      },
+      "runtime": {
+        "host": "dantzig.ecn.purdue.edu",
+        "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+        "gams_version": [
+          52,
+          2,
+          0,
+          0
+        ],
+        "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+        "affinity": {
+          "cpu": 6,
+          "physical_package_id": "0",
+          "core_id": "8",
+          "thread_siblings_list": "6,54",
+          "effective_cpus": [
+            6
+          ],
+          "policy": "one logical CPU; not an exclusive reservation"
+        },
+        "mcpp_sha256": null,
+        "versions": {
+          "pyomo": "6.10.0",
+          "numpy": "2.4.6",
+          "sympy": "1.14.0",
+          "networkx": "3.6.1"
+        },
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OMP_THREAD_LIMIT": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "BLIS_NUM_THREADS": "1",
+          "GOTO_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "NUMEXPR_MAX_THREADS": "1"
+        }
+      },
+      "preflight_solver_calls": {
+        "scip": 3
+      }
+    },
+    {
+      "archive": "grid_scip_gloa_20261023_143538_k3722s6a.zip",
+      "sha256": "579280dfe0ff8344471203901db3cf3197714d8a737ee05c94542ade8042cb86",
+      "bytes": 5240005,
+      "internal_checksums_verified": 253,
+      "source_files_verified": 51,
+      "sealed_jobs": 21,
+      "config": {
+        "grids": [
+          "ackley",
+          "alpine1",
+          "alpine2",
+          "bohachevsky2",
+          "camel3",
+          "csendes",
+          "deflected_corrugated_spring",
+          "dropwave",
+          "easom",
+          "griewank",
+          "holder_table",
+          "hosaki",
+          "levy",
+          "levy13",
+          "michalewicz",
+          "rastrigin",
+          "rosenbrock",
+          "shubert",
+          "styblinski_tang",
+          "sum_of_squares",
+          "xin_she_yang3"
+        ],
+        "methods": [
+          "gloa"
+        ],
+        "phases": [
+          "benchmark"
+        ],
+        "point_indices": [],
+        "point_seconds": 60,
+        "time_limit": 1800.0,
+        "relative_gap": 1e-05,
+        "cpu": 8,
+        "executable": "/package/gams/52.2/gams",
+        "expected_gams_version": "52.2",
+        "objective": "original normalized analytic formula",
+        "solver_profile": "scip-v1",
+        "gams_version": [
+          52,
+          2,
+          0,
+          0
+        ]
+      },
+      "runtime": {
+        "host": "dantzig.ecn.purdue.edu",
+        "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+        "gams_version": [
+          52,
+          2,
+          0,
+          0
+        ],
+        "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+        "affinity": {
+          "cpu": 8,
+          "physical_package_id": "0",
+          "core_id": "10",
+          "thread_siblings_list": "8,56",
+          "effective_cpus": [
+            8
+          ],
+          "policy": "one logical CPU; not an exclusive reservation"
+        },
+        "mcpp_sha256": "05082e93380fd595c65d1b5ecd5cd36a381ff6d28abb8023c556e52cf944c2c6",
+        "versions": {
+          "pyomo": "6.10.0",
+          "numpy": "2.4.6",
+          "sympy": "1.14.0",
+          "networkx": "3.6.1"
+        },
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OMP_THREAD_LIMIT": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "BLIS_NUM_THREADS": "1",
+          "GOTO_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "NUMEXPR_MAX_THREADS": "1"
+        }
+      },
+      "preflight_solver_calls": {
+        "highs": 1,
+        "scip": 2
+      }
+    },
+    {
+      "archive": "grid_scip_loa_20261023_143545_30_v346o.zip",
+      "sha256": "2914cb6e0c94b8dc90bdd573d7589862e760586ee1e094c4252bda7514b452fd",
+      "bytes": 5263715,
+      "internal_checksums_verified": 253,
+      "source_files_verified": 51,
+      "sealed_jobs": 21,
+      "config": {
+        "grids": [
+          "ackley",
+          "alpine1",
+          "alpine2",
+          "bohachevsky2",
+          "camel3",
+          "csendes",
+          "deflected_corrugated_spring",
+          "dropwave",
+          "easom",
+          "griewank",
+          "holder_table",
+          "hosaki",
+          "levy",
+          "levy13",
+          "michalewicz",
+          "rastrigin",
+          "rosenbrock",
+          "shubert",
+          "styblinski_tang",
+          "sum_of_squares",
+          "xin_she_yang3"
+        ],
+        "methods": [
+          "loa"
+        ],
+        "phases": [
+          "benchmark"
+        ],
+        "point_indices": [],
+        "point_seconds": 60,
+        "time_limit": 1800.0,
+        "relative_gap": 1e-05,
+        "cpu": 10,
+        "executable": "/package/gams/52.2/gams",
+        "expected_gams_version": "52.2",
+        "objective": "original normalized analytic formula",
+        "solver_profile": "scip-v1",
+        "gams_version": [
+          52,
+          2,
+          0,
+          0
+        ]
+      },
+      "runtime": {
+        "host": "dantzig.ecn.purdue.edu",
+        "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+        "gams_version": [
+          52,
+          2,
+          0,
+          0
+        ],
+        "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+        "affinity": {
+          "cpu": 10,
+          "physical_package_id": "0",
+          "core_id": "12",
+          "thread_siblings_list": "10,58",
+          "effective_cpus": [
+            10
+          ],
+          "policy": "one logical CPU; not an exclusive reservation"
+        },
+        "mcpp_sha256": null,
+        "versions": {
+          "pyomo": "6.10.0",
+          "numpy": "2.4.6",
+          "sympy": "1.14.0",
+          "networkx": "3.6.1"
+        },
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OMP_THREAD_LIMIT": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "BLIS_NUM_THREADS": "1",
+          "GOTO_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "NUMEXPR_MAX_THREADS": "1"
+        }
+      },
+      "preflight_solver_calls": {
+        "highs": 1,
+        "scip": 2
+      }
+    },
+    {
+      "archive": "grid_scip_ric_20261023_143553_new9tgw4.zip",
+      "sha256": "6d0adbbd2be4226fe5b79c36c0a6e800088d7ceb586ce9a3f338069e6c4acdce",
+      "bytes": 5269762,
+      "internal_checksums_verified": 253,
+      "source_files_verified": 51,
+      "sealed_jobs": 21,
+      "config": {
+        "grids": [
+          "ackley",
+          "alpine1",
+          "alpine2",
+          "bohachevsky2",
+          "camel3",
+          "csendes",
+          "deflected_corrugated_spring",
+          "dropwave",
+          "easom",
+          "griewank",
+          "holder_table",
+          "hosaki",
+          "levy",
+          "levy13",
+          "michalewicz",
+          "rastrigin",
+          "rosenbrock",
+          "shubert",
+          "styblinski_tang",
+          "sum_of_squares",
+          "xin_she_yang3"
+        ],
+        "methods": [
+          "ric"
+        ],
+        "phases": [
+          "benchmark"
+        ],
+        "point_indices": [],
+        "point_seconds": 60,
+        "time_limit": 1800.0,
+        "relative_gap": 1e-05,
+        "cpu": 12,
+        "executable": "/package/gams/52.2/gams",
+        "expected_gams_version": "52.2",
+        "objective": "original normalized analytic formula",
+        "solver_profile": "scip-v1",
+        "gams_version": [
+          52,
+          2,
+          0,
+          0
+        ]
+      },
+      "runtime": {
+        "host": "dantzig.ecn.purdue.edu",
+        "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+        "gams_version": [
+          52,
+          2,
+          0,
+          0
+        ],
+        "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+        "affinity": {
+          "cpu": 12,
+          "physical_package_id": "0",
+          "core_id": "16",
+          "thread_siblings_list": "12,60",
+          "effective_cpus": [
+            12
+          ],
+          "policy": "one logical CPU; not an exclusive reservation"
+        },
+        "mcpp_sha256": null,
+        "versions": {
+          "pyomo": "6.10.0",
+          "numpy": "2.4.6",
+          "sympy": "1.14.0",
+          "networkx": "3.6.1"
+        },
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OMP_THREAD_LIMIT": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "BLIS_NUM_THREADS": "1",
+          "GOTO_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "NUMEXPR_MAX_THREADS": "1"
+        }
+      },
+      "preflight_solver_calls": {
+        "highs": 1,
+        "scip": 2
+      }
+    }
+  ],
+  "diagnostic": {
+    "sha256": "424b615ca564bac6a7a9c4e05b9f19e98e307d1982d9e15e2617519e8c2a28e6",
+    "package_checksums_verified": 231,
+    "external_checksums_verified": 235,
+    "full_gdpopt_runs": 0,
+    "optimization_solver_calls": 0,
+    "diagnostic_is_a_solver_free_analysis_and_unexecuted_runner": true,
+    "cstr_original_violating_cuts": 15,
+    "cstr_max_applicable_cut_violation": 36.01008109919173,
+    "cstr_corrected_transformed_violations": []
+  },
+  "jobs": 105,
+  "returned_solutions_independently_verified": 105,
+  "maximum_original_gdp_violation": 1.9808652753638967e-06,
+  "maximum_saved_objective_abs_error": 3.1170855730844047e-17,
+  "optimization_solver_calls_during_analysis": 0,
+  "analysis_pyomo_version": "6.10.0",
+  "analysis_source_sha256": "abcfd4aabb78a8378ff8b0961c13b6666b6696a0d2fa1ad0fe14c1bdb928d1b2"
+}
