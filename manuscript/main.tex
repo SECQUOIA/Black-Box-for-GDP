@@ -296,7 +296,8 @@ b_j=\ell_y+\frac{j(u_y-\ell_y)}{30}.
 Let \(f\) denote the original analytical objective function and let \(L\) and \(U\) be its minimum and maximum over the \(31\times31\) lattice.
 Both constants are obtained by exhaustive preprocessing of all 961 lattice points prior to any search.
 A normalized target tolerance of \(10^{-5}\) corresponds to \(10^{-5}(U-L)\) in raw objective units, so equal normalized tolerances do not need to define equally large target sets.
-Supplementary Table~\ref{tab:supp-grid-inventory} (Section~\ref{sec:supp-inventory}) gives \(L\), \(U\), and target-set sizes for all functions.
+Supplementary Table~\ref{tab:grid-domains} gives target-set sizes for all functions.
+Full-precision normalization constants are available in the repository (Supplementary Section~\ref{sec:supp-data}).
 Each benchmark function is represented by the following GDP:
 \begin{equation}\label{eqn:grid-gdp}
 \begin{aligned}
@@ -439,14 +440,8 @@ All objective callbacks consume the evaluation budget, including initialization,
 Internal cache accesses without objective callbacks are not counted as evaluations.
 Evaluation acceptance and target attainment are assessed using the recorded evaluation status and original objective values, rather than method-specific penalties.
 In all process cases, \texttt{D-SDA} and \texttt{RBFOpt} assign a penalty of \(10^6\) to unaccepted evaluations.
-\david{This is still unanswered, it was said that unaccepted evaluations were given another value}.
-\albert{CSTR was rerun with \(10^6\), and the reported results use this common penalty.}
-\texttt{BAM} represents these evaluations by \texttt{NaN} (not a number), indicating that no accepted objective value is available.
-\david{This sentence does not mean anything. Clarify}
-\albert{Clarified that NaN marks an evaluation without an accepted objective value.}
+\texttt{BAM} represents these evaluations by \texttt{NaN}, indicating that no accepted objective value is available.
 For surrogate training, \texttt{FMQA-SA} scales accepted objective values to \([0,1]\) and assigns unaccepted evaluations a value of \(2\).
-\david{This last sentence says AI}
-\albert{Removed the redundant sentence about penalties and infeasibility.}
 
 
 \subsubsection{Budget-limited D-SDA} 
@@ -459,8 +454,6 @@ If the evaluation budget \(B\) is exhausted, the best solution found is retained
 For the process benchmarks, \texttt{D-SDA} starts with the best accepted configuration among the three initial points evaluated.
 For Grid-GDP benchmarks, initial configurations are ranked by objective value and successive descents are attempted while evaluation budget remains.
 After each completed descent, the search stops if the best observed objective satisfies the common target criterion in Equation~\eqref{eqn:target}; otherwise, it tries the next ranked initial configuration.
-\david{Why do we have a different stopping tolerance here?}
-\albert{Reran Grid D-SDA with the common target criterion at the existing post-descent checkpoint and updated the results.}
 For all process benchmarks, \texttt{D-SDA} searches within the declared integer bounds without precomputed feasibility filtering, using the callback accounting and unaccepted-response policy stated above.
 
 \subsubsection{RBFOpt}
@@ -494,6 +487,7 @@ Candidates are not screened for the feasibility of logical or nonlinear constrai
 The new observation is appended, and FM fitting and candidate generation repeat until the evaluation budget \(B\) or the 1,800~s method time limit is reached.
 
 \subsubsection{Sampling controls}
+\label{sec:sampling-controls}
 Uniform sampling evaluates the same three initial configurations and then draws uniformly without replacement from the remaining declared integer domain.
 It uses a separate deterministic random stream, no objective-dependent selection, and no logical or NLP-feasibility screening before evaluation.
 The Grid \texttt{BAM}-prefix control repeats \texttt{BAM}'s ten predetermined sampling points in the same order after the three shared starts, then samples uniformly without replacement, stopping at the budget.
@@ -514,15 +508,11 @@ We fix the original Boolean GDP decisions and evaluate the resulting subproblems
 For the Grid-GDP benchmarks, all 20,181 configurations were evaluated individually, while the process benchmarks used fixed-configuration evaluations of the corresponding process models.
 \texttt{IPOPT} used a tolerance of \(10^{-8}\) and a solver time limit of 60~s per configuration.
 Process acceptance requires a finite objective, a maximum absolute violation of any constraint or variable bound not greater than \(10^{-5}\), and the accepted solver and termination statuses specified in the Supplementary Section~\ref{sec:supp-acceptance}.
-\david{Then why do we have a different number for DSDA?}
-\albert{D-SDA was rerun with absolute objective improvement greater than \(10^{-5}\); primal feasibility remains a separate constraint-violation test.}
 Time-limited candidates remain unaccepted even when feasible.
 \texttt{CSTR} sizes 5-30 use the mass-balance/zero-recycle initialization.
 \texttt{Column} and \texttt{Small Batch} use their saved initialization files, and \texttt{Dynamic} uses fresh clones of the unsolved discretized template.
 
 \paragraph{Conventional GDP comparisons.}
-\david{If we are including logic-based methods, then the title of this paragraph should not be algebraic}
-\albert{Renamed this paragraph to ``Conventional GDP comparisons''.}
 Conventional comparisons include \texttt{GDPOpt} RIC, GLOA, and LOA, as well as Big-\(M\) and Hull reformulations.
 \texttt{GDPOpt} uses \texttt{SCIP} for both MILP master problems and nonlinear subproblems~\citep{chen2022pyomogdp,pyomoGDPopt}.
 The Big-\(M\) and Hull reformulations are solved directly using \texttt{SCIP}.
@@ -540,7 +530,7 @@ A run reaches the reference target when
 The target attainment measures agreement with the reference value rather than certifying global optimality.
 For the process experiments, \(f_{\mathrm{ref}}\) is the lowest accepted objective value obtained from the precomputed fixed-configuration NLP evaluations. 
 Runs that terminate with an execution failure are counted as unsuccessful, even if the target was observed earlier.
-For process runs, the reported solution is the best accepted configuration recorded within budget, including the final evaluation (Supplementary Section~\ref{sec:supp-terminal-recovery}).
+For process runs, the reported solution is the best accepted configuration recorded within budget, including the final evaluation.
 Reported objectives and bounds use six significant figures; all target and bound checks use unrounded values.
 For the full-process-GDP comparison, a feasible objective at or below \(f_{\mathrm{ref}}+10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) counts as achievement, so solutions better than the reference are also included.
 
@@ -565,7 +555,7 @@ For a time threshold \(t\geq0\), measured in seconds, the absolute completion-ti
  =\frac{1}{|\mathcal R_B|}\sum_{r\in\mathcal R_B}
  \mathbf{1}\{H_{sBr}=1,\ \widehat T_{sBr}\leq t\}.
 \end{equation}
-This profile gives the fraction of runs that reach the target and have an estimated complete time of the entire run not greater than \(t\).
+This profile gives the fraction of runs that reach the target and have an estimated full-run completion time not greater than \(t\).
 A successful run is counted at its full completion estimate, not at the time of its first target attainment.
 
 Experiments at different evaluation budgets are analyzed separately; a larger-budget trajectory need not extend a smaller-budget trajectory.
@@ -616,7 +606,7 @@ Paired comparisons resample intact functions for Grid and paired seeds within ea
 
 \subsection{Search Performance on Grid-GDP Benchmarks}
 \label{sec:grid-search-results}
-\texttt{RBFOpt} achieves more Grid targets than budget-limited \texttt{D-SDA} at every tested budget tested (Table~\ref{tab:grid-hits}).
+\texttt{RBFOpt} achieves more Grid targets than budget-limited \texttt{D-SDA} at every tested budget (Table~\ref{tab:grid-hits}).
 At \(B=100\), it reaches 171 of 210 targets (81.4\%), compared with 101 (48.1\%) for \texttt{D-SDA} and 45 (21.4\%) for uniform sampling.
 From \(B=30\) onward, it has the highest aggregate attainment among the compared methods.
 
@@ -624,7 +614,7 @@ At \(B=10\), \texttt{BAM} and its prefix control each reach 111 targets, compare
 All 111 \texttt{BAM} hits occur before surrogate-guided selection: 11 during shared initialization and 100 at two predetermined Sobol points.
 At \(B=100\), \texttt{BAM} adds 23 hits over the prefix control, indicating a benefit from its subsequent search.
 
-The size of the Target-set varies between functions (Supplementary Table~\ref{tab:supp-grid-inventory}).
+Target-set sizes vary between functions (Supplementary Table~\ref{tab:grid-domains}).
 Excluding Xin-She Yang~3 and the nearly redundant sampled Bohachevsky~2 case preserves the \(B=100\) ordering (Supplementary Section~\ref{sec:supp-additional}).
 \begin{table}[htbp]
 \centering
@@ -632,7 +622,7 @@ Excluding Xin-She Yang~3 and the nearly redundant sampled Bohachevsky~2 case pre
 Each cell contains 210 runs (21 functions and ten seeds).
 The evaluation budget includes the three shared initial evaluations, and repeated objective callbacks are counted toward the evaluation budget.
 \texttt{BAM}'s 111 hits at \(B=10\) all precede surrogate-guided selection (11 shared-initialization hits and 100 at two predetermined Sobol points).
-Per-function integer hit counts at \(B=100\) are in Supplementary Table~\ref{tab:supp-grid-b100}.}
+Per-function integer hit counts at \(B=100\) are available in the repository (Supplementary Section~\ref{sec:supp-data}).}
 \label{tab:grid-hits}
 \begin{tabular}{rcccccc}\toprule
 Budget \(B\) & \texttt{D-SDA} & \texttt{RBFOpt} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform & \shortstack{\texttt{BAM}-prefix\\control}\\\midrule
@@ -651,12 +641,15 @@ Each panel is a separate budget experiment, so trajectories at a larger evaluati
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=\linewidth]{figures/figure_B_grid_evaluation_profiles.pdf}
-\caption{Absolute evaluation-count cumulative success profiles for four search implementations and two sampling controls.
-The horizontal axis is the number of objective callbacks to first target attainment; the vertical axis is the fraction of all 210 problem-seed instances reaching the target within that count.
-Initial and repeated callbacks count; unsuccessful runs remain in the denominator, and counts are not normalized by another solver.
-The panels use evaluation budgets \(B\in\{10,30,50,70,100\}\); colors, line styles, and markers distinguish methods.
-The gray dashed line at three evaluations marks the end of the shared initialization.
-Shading from callback 4 through the smaller of 13 and the budget marks the preserved \texttt{BAM} sampling prefix.}
+\caption{Cumulative success profiles for 21 Grid-GDP functions and ten seeds per function, following Equation~\eqref{eqn:absolute-evaluations}.
+The target is the normalized reference value zero within \(10^{-5}\), as defined by Equation~\eqref{eqn:target}.
+Each panel uses all 210 runs from a separate budget experiment; initial and repeated evaluations count, and target misses remain in the denominator.
+The dashed line marks the three shared initial evaluations.
+Uniform sampling and the \texttt{BAM}-prefix control are defined in Section~\ref{sec:sampling-controls}.
+\texttt{BAM} rises early, while \texttt{RBFOpt} reaches the largest final fraction for \(B\ge30\).
+\david{Why is the x-axis called "Charged evaluations"? What do you mean by sampled controls? Why is the target not specified in the figure? WHat is meant by target hit? Relate them to the equations in the manuscript. The description both has too many words but repeats itself and says nothing. It should follow the structure, describe succintly what is being plotted and then provide a short interpretation. Why is the gray shaded area not starting in zero? You do not define new concepts in the figures (BAM-prefix explained the others not). For which instances is this? Why do we have those extra notes under the legend?}
+\albert{Clarified the axes and target, linked the profile and controls to their definitions, and removed the shading and legend notes without changing the curves.}
+}
 \label{fig:grid-profiles}
 \end{figure}
 
@@ -664,11 +657,6 @@ Shading from callback 4 through the smaller of 13 and the budget marks the prese
 
 \subsection{Computational Comparison on Grid-GDP Problems}
 \label{sec:grid-gdp-results}
-% \david{what does BAM-prefix mean?}
- % \david{make sure that this is applied in the whole text}
- % \david{this sounds like a high-school report or a AI generated report of a repository, it does not belong in an academic paper, the repo structure you explain it there}
-\david{What is the point of having the previous things still in the document?}
-\albert{Removed obsolete text from previous revisions.}
 Higher target attainment comes with additional search cost (Table~\ref{tab:grid-cost}).
 At \(B=100\), \texttt{RBFOpt} has a median estimated full-run completion time of 70.81~s, compared with 24.08~s for \texttt{D-SDA} and 64.42~s for \texttt{BAM}.
 \texttt{D-SDA} has negligible search overhead and can stop before exhausting the budget, while \texttt{RBFOpt} spends a median of 7.58~s on search.
@@ -676,23 +664,25 @@ For \texttt{FMQA-SA}, the median search component is 62.04~s, and the median com
 Because Grid configurations fix both original coordinates, their measured evaluation costs primarily reflect model preparation, solver invocation, and verification.
 \begin{table}[htbp]
 \centering
-\caption{Grid-GDP DFO results at \(B=100\), with 210 runs per method.
-\david{If you are going to use $B=100$ here, use it throughout the paper}
-\albert{Standardized budget notation in the main text and supplement.}
-All time columns are medians over target hits and misses.
-Component medians need not sum to the completion median.
-The times cover the full run rather than only the evaluations up to the first hit.
+\caption{Grid-GDP results at \(B=100\), with 210 runs per method (21 functions and ten seeds).
+Target hits reach the normalized reference zero within \(10^{-5}\) (Equation~\eqref{eqn:target}).
+Times are Q50 (median) [Q25, Q75] in seconds across all runs, including target misses, using linearly interpolated quartiles.
+Summed configuration-evaluation cost includes the separately measured cost of every evaluation in the full run, including repeated configurations.
+Retained search time excludes lookup processing; their sum gives estimated full-run completion time (Equation~\eqref{eqn:reconstructed-cost}).
+Component quartiles need not sum to completion quartiles.
+\david{Why only the meadian? Provide the Q25, Q50=median, Q75 intervals. Where did we define what a "point cost" means? Where is the target defined? THe table should be self-defined.}
+\albert{Added Q25 and Q75 around each median and defined the target and configuration-evaluation cost in the caption, using the same 210 runs per method.}
 }
 \label{tab:grid-cost}
 \small
 \begin{tabular}{lrrrr}\toprule
-Method & Target hits & \shortstack{Median full-run\\completion (s)} & \shortstack{Median summed\\point cost (s)} & \shortstack{Median retained\\search time (s)}\\\midrule
-\texttt{D-SDA} & 101/210 & 24.08 & 24.08 & 0.0039 \\
-\texttt{RBFOpt} & 171/210 & 70.81 & 60.84 & 7.58 \\
-\texttt{BAM} & 147/210 & 64.42 & 63.97 & 0.43 \\
-\texttt{FMQA-SA} & 129/210 & 124.13 & 62.34 & 62.04 \\
-Uniform & 45/210 & 60.51 & 60.51 & 0.0026 \\
-\texttt{BAM}-prefix control & 124/210 & 61.81 & 61.80 & 0.0026 \\
+Method & Target hits & \shortstack{Full-run\\completion (s)} & \shortstack{Summed configuration-\\evaluation cost (s)} & \shortstack{Retained\\search time (s)}\\\midrule
+\texttt{D-SDA} & 101/210 & \shortstack{24.08\\{[15.58, 49.49]}} & \shortstack{24.08\\{[15.58, 49.48]}} & \shortstack{0.0039\\{[0.0037, 0.0043]}} \\
+\texttt{RBFOpt} & 171/210 & \shortstack{70.81\\{[54.83, 93.09]}} & \shortstack{60.84\\{[44.31, 82.15]}} & \shortstack{7.58\\{[4.12, 14.82]}} \\
+\texttt{BAM} & 147/210 & \shortstack{64.42\\{[48.74, 81.67]}} & \shortstack{63.97\\{[48.34, 81.22]}} & \shortstack{0.43\\{[0.37, 0.51]}} \\
+\texttt{FMQA-SA} & 129/210 & \shortstack{124.13\\{[105.57, 139.26]}} & \shortstack{62.34\\{[43.98, 77.52]}} & \shortstack{62.04\\{[61.58, 62.53]}} \\
+Uniform & 45/210 & \shortstack{60.51\\{[43.33, 78.60]}} & \shortstack{60.51\\{[43.33, 78.59]}} & \shortstack{0.0026\\{[0.0026, 0.0027]}} \\
+\texttt{BAM}-prefix control & 124/210 & \shortstack{61.81\\{[40.96, 78.33]}} & \shortstack{61.80\\{[40.95, 78.33]}} & \shortstack{0.0026\\{[0.0026, 0.0027]}} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -711,17 +701,6 @@ In the diagnosed runs, \texttt{GDPOpt} preprocessing rejects independently feasi
 % \david{I have never seen you use em-dashes in text, and I don't use them either. It stinks like AI text}
 Seven recovered \texttt{GDPOpt} runs reach the target before terminating at the time limit.
 Consequently, the measured completion time of a target-attaining run must be distinguished from a completed global-optimality certification.
-
-\david{This is only relevant considering the fact that BARON doesn't. Since the reader does not know that, this is irrelevant. Please put yourself in the readers' shoes when writing}
-\albert{Combined the solver results in one comparison paragraph and removed the standalone interpretation.}
-
-% The Grid-GDP results do not establish an advantage of black-box search over direct reformulation.
-
-%  % \david{nobody calls IPOPT GAMS/IPOPT, this is just AI speaking through you. Correct that} 
-
-\FloatBarrier
-\david{Just remove the commented removed lines}
-\albert{Deleted obsolete commented-out prose while preserving review comments.}
 
 \subsection{Process GDP Case Studies}
 \label{sec:process-results}
@@ -772,7 +751,7 @@ Case & \(B\) & \texttt{D-SDA} & RBFOpt & BAM & \texttt{FMQA-SA} & Uniform \\
 All 70 primary groups use seeds 0-9.
 The only \texttt{Column} hits for \texttt{BAM} and uniform sampling occur at the shared initial target in seed 6.
 An accepted target configuration at callback \(B\) counts because its coordinates and objective are preserved in the final wrapper summary.
-\texttt{BAM} also returns that value to its native optimizer; the other methods retain the wrapper stop (Supplementary Section~\ref{sec:supp-terminal-recovery}).
+\texttt{BAM} also returns that value to its native optimizer; the other methods retain the wrapper stop.
 The reference is the accepted \texttt{IPOPT}-table minimum, not a global-optimality certificate.
 \end{minipage}
 \end{table}
@@ -799,20 +778,19 @@ Its lower cost reflects shorter paths as well as low search overhead; unsuccessf
 % \david{this whole figure page, should have been a paragraph}
 
 On \texttt{Column}, median completion estimates are 35.44~s for \texttt{D-SDA} and 54.60~s for \texttt{RBFOpt} (Figure~\ref{fig:process-completion}).
-For \texttt{Dynamic} at \(B=30\), \texttt{D-SDA} and \texttt{RBFOpt} both reach ten targets, with median completion estimates of 26.62 and 34.19~s, respectively.
-\texttt{RBFOpt} already reaches all ten at \(B=12\) with a median of 12.29~s.
-Thus the comparison depends on whether the evaluation budget is fixed or selected separately for each method.
+For \texttt{Dynamic} at \(B=30\), \texttt{RBFOpt} reaches all ten targets in fewer evaluations than \texttt{D-SDA} (Figure~\ref{fig:process-evaluations}).
+Its median estimated full-run completion time is nevertheless higher: 34.19~s versus 26.62~s (Figure~\ref{fig:process-completion}).
+Earlier target discovery therefore need not reduce full-run cost, which includes subsequent evaluations and search overhead.
+At the smaller budget \(B=12\), \texttt{RBFOpt} reaches all ten targets with a median completion estimate of 12.29~s.
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=\linewidth]{figures/process_completion_profiles.pdf}
-\caption{Absolute cumulative target-attainment profiles for nine process conditions.
-Reconstructed search-completion costs exclude the final wrapper result-extraction and summary-writing pass; see Section~\ref{sec:cost-accounting}.
-The horizontal axis is reconstructed full-run completion time on a logarithmic scale; all ten seeds remain in each denominator.
-Only runs whose wrapper-reported best-accepted configuration attains the target contribute steps.
-Target misses and execution failures contribute no success.
-Every run has a complete cost estimate.
-These are fixed-path estimates, not first-hit-time curves or solver-relative ratios.
-All 14 conditions are summarized in Supplementary Table~\ref{tab:process-tts99}.}
+\caption{Cumulative success profiles versus estimated full-run completion time for nine process conditions, defined by Equation~\eqref{eqn:absolute-time}.
+Each curve includes all ten seeds in its denominator and counts successful runs at their full-run completion estimates.
+Target attainment follows Equation~\eqref{eqn:target}; completion times follow Equation~\eqref{eqn:reconstructed-cost} and are plotted on a logarithmic scale.
+\david{We cannot have the definition of a figure be defined in the supplementary material. Either include it in the main body or remove the figure}
+\albert{Addressed by linking the caption to the profile, target, and completion-time equations in the main text.}
+}
 \label{fig:process-completion}
 \end{figure}
 
@@ -839,10 +817,8 @@ That point also passes a check against the reconstructed Hull formulation (Suppl
 The uniform bound check flags 19 results, including these seven large discrepancies and 12 smaller exceedances of 1.09-4.30 times the comparison tolerance.
 The flags distinguish numerical consistency from target attainment and reported termination; they do not establish exact feasibility or a solver defect.
 
-A separate \texttt{CSTR15} check on Dantzig using \texttt{IPOPT} 3.14.19 retained the archived LOA witness W03's discrete configuration and starting values (Supplementary Section~\ref{sec:bound-audit})~\citep{cstrDantzigValidation}.
+A separate \texttt{CSTR15} check on Dantzig using \texttt{IPOPT} 3.14.19 retained the archived LOA witness W03's discrete configuration and starting values (Supplementary Section~\ref{sec:bound-audit})~\citep{rbfoptTestArchive}.
 The returned objective was \(2.82939\), with the maximum unscaled original-GDP violation \(1.11\times10^{-16}\), passing a residual target \(10^{-8}\).
-\david{significant figures! Here and across the whole document}
-\albert{Objectives and bounds now use six significant figures; checks use unrounded values.}
 The current \texttt{SCIP}-based GLOA lower bound exceeds this previously validated objective by \(0.732507\), approximately \(2.59\times10^4\) times the audit tolerance.
 The discrepancy therefore persists against the tighter feasibility check, although its cause remains unresolved.
 
@@ -850,7 +826,8 @@ The discrepancy therefore persists against the tighter feasibility check, althou
 \centering
 \caption{Full-process-GDP results: objective (measured completion seconds, including model-template preparation).
 \texttt{GDPOpt} uses \texttt{SCIP} for master problems and nonlinear subproblems; Big-\(M\) and Hull also use \texttt{SCIP}.
-Feasibility means numerical feasibility under the original-GDP residual test at \(10^{-5}\), not exact feasibility.}
+Feasibility means numerical feasibility under the original-GDP residual test at \(10^{-5}\), not exact feasibility. \david{Why are these results in a table and not merged inside figures 3 and 4? They also have completion times and NLP iterations (actually let's call the horizontal axis as NLP problems solved} \albert{Each algebraic method was run once per problem, whereas these figures summarize ten DFO seeds per condition. The evaluation counts are not directly comparable: DFO configuration evaluations include preprocessing rejections without an NLP solve. DFO completion times are reconstructed estimates, while algebraic runtimes are measured directly.
+I therefore kept the algebraic results in a separate table.}}
 \label{tab:full-gdp}
 \normalsize
 \setlength{\tabcolsep}{5pt}
@@ -892,6 +869,8 @@ Times are full-run completion times.
 The results support \texttt{RBFOpt} for configuration search under limited evaluation budgets, particularly on \texttt{CSTR} and at low budgets on \texttt{Dynamic}.
 Its stronger Grid attainment is consistent with this result, while \texttt{Column} and \texttt{Small Batch} show that the advantage is problem-dependent.
 
+\david{why are you so fixated on RBFOpt? BAM shows even better results! Get back to the main story of the paper and have the sections support it}
+
 Target attainment must be weighed against search overhead and stopping behavior.
 For \texttt{Dynamic} at \(B=30\), \texttt{D-SDA} uses a median of 23.5 callbacks, compared with 30 for \texttt{RBFOpt}.
 Their median post-target counts are 6.5 and 23, respectively.
@@ -909,6 +888,7 @@ It reached 45 of 60 \texttt{CSTR} targets under the tested budgets, compared wit
 On \texttt{Dynamic}, it reached all ten targets at \(B=12\), while \texttt{D-SDA} first did so at \(B=30\).
 Across the Grid-GDP and process GDP benchmarks, higher target coverage did not consistently yield lower estimated full-run completion times.
 Performance depends on the problem, failure responses, and search overhead.
+\david{Absolutely not, these are not the study conclusions}
 
 These results support \texttt{RBFOpt} as an alternative for GDP configuration search under limited evaluation budgets.
 \texttt{D-SDA} performed better on \texttt{Small Batch}.
@@ -921,13 +901,9 @@ Transfer to broader configuration spaces and live NLP evaluation remain to be te
 
 \section{Acknowledgement}
 The authors acknowledge and express sincere gratitude to the Davidson School of Chemical Engineering at Purdue University for providing a supportive research environment and funding.
-\david{Wasn't Woosik supported by some grant?}
-\albert{Woosik, please add your funding acknowledgment, including the grant number if applicable.}
 
 \section*{Data and code availability}
-The code and data are available at \url{https://github.com/SECQUOIA/Black-Box-for-GDP}.
-\david{This phrase just yells AI; just put that they are available and we release the repo before submission}
-\albert{Shortened the availability statement to a direct repository link.}
+The code and data are available in the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/49d4bcbeb10fe49b74fe2333d27829046e93bf03}{Black-Box-for-GDP repository}~\citep{rbfoptTestArchive}.
 Supplementary Section~\ref{sec:supp-data} identifies the archived inputs, including the CSTR updates, Column logical-domain runs, and \texttt{SCIP} algebraic comparisons.
 
 \bibliographystyle{elsarticle-harv}
