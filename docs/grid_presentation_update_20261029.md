@@ -1,6 +1,7 @@
 # Grid figure and cost-table review update
 
-David's Grid figure comment is addressed by explicit axis labels and the normalized target, removal of the prefix shading and legend notes, and a caption linked to the existing definitions.
+David's Grid figure comment is addressed by explicit axis labels, removal of the prefix shading and legend notes, and a caption linked to the existing definitions.
+The normalized target is stated in the caption, without a title inside the figure.
 His Grid cost-table comment is addressed by reporting Q50 [Q25, Q75] for each time component and defining the target and configuration-evaluation cost in the caption.
 The [new presentation outputs](../results/grid_presentation_20261029/README.md) use the [existing D-SDA publication records](../results/dsda_publication_20261028/README.md).
 The original analysis code, execution archives, results, and manifests are unchanged.

@@ -3,7 +3,8 @@
 This is a presentation update using completed experiments; no searches or solvers are run.
 The input is the archived D-SDA publication analysis from 28 October 2026.
 Its input hashes, all 6,300 primary Grid run slots, and all 30 evaluation curves are verified before rendering.
-The figure retains every archived curve coordinate and method style, labels configuration evaluations and the target explicitly, and removes the prefix shading and legend notes.
+The figure retains every archived curve coordinate and method style, clarifies the axis labels, and removes the prefix shading and legend notes.
+The target is specified in the manuscript caption, without a title inside the figure.
 The target is agreement with the normalized reference zero within an absolute tolerance of 1e-5.
 
 The cost table uses all 210 runs per method at B=100, including target misses.
