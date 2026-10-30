@@ -1,5 +1,9 @@
 # Current manuscript snapshot - joint process comparison
 
+The [updated S9 figures and workload table](../results/joint_process_scip_ipopt_20261030/README.md) now use the SCIP-master/IPOPT-subproblem GDPopt campaign.
+Those two figure PDFs and their captions were applied in place to live Overleaf on October 30, 2026.
+The source/PDF bundle below remains the earlier snapshot; the current S9 assets and reproduction instructions are in the linked analysis directory.
+
 Overleaf remains the source of truth for the manuscript and review history.
 This snapshot contains Supplementary Section S9, Table S8, and Figures S1 and S2 for an exploratory joint DFO and algebraic comparison.
 The new section occupies pages 32--34 of the 34-page combined PDF.
