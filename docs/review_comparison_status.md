@@ -1,5 +1,16 @@
 # Professor review disposition — manuscript revision
 
+## Display comments addressed, 30 October 2026
+
+The [display follow-up](../results/review_display_20261030/README.md) supplies the current single-panel B=100 Figure 1, highlighted Grid hit table, and process search-time table fragments.
+Figure 1 preserves every curve coordinate and distinguishes BAM from its prefix control using color, line style, and filled versus open markers.
+The process table retains all 700 primary runs and reports target hits, median search time, and descriptive [Q25, Q75] in seconds, excluding configuration-evaluation costs.
+Overleaf received localized edits for comments 1, 2, 3, and 8; David's comments and existing tracked changes were preserved, with Albert replies added.
+The repository pointer was moved out of the Grid caption, and the conventional-result footnote now uses reference target consistently.
+The combined Overleaf PDF compiled to 35 pages with zero reported errors or warnings; the updated table and figure were visually checked at page size.
+All 37 new and related tests and Ruff passed, and two fresh generations reproduced all eight output files byte-for-byte.
+No experiment was rerun, and the historical manuscript bundle and execution records below remain unchanged.
+
 ## Current publication update - Column logical domain, 25 October 2026
 
 The [Column publication analysis](../results/column_publication_20261025/README.md) adopts all 50 completed logical-domain/B13 runs and preserves the other 650 primary Process runs.
