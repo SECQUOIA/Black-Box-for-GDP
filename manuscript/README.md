@@ -1,35 +1,28 @@
-# Current manuscript snapshot - Grid figure and cost quartiles
+# Current manuscript snapshot - joint process comparison
 
-Overleaf remains the source of truth for the manuscript and its review comments.
-This 29 October 2026 snapshot was exported after in-place edits to the Grid figure caption and cost table.
-It also includes the author and reviewer changes made in Overleaf since the preceding repository export.
-No manuscript source was uploaded to replace an Overleaf document.
-David's comments and the current tracked edits remain in Overleaf, and Albert replies follow the addressed inline comments.
-Source exports contain inline comments but do not replace Overleaf's review history.
+Overleaf remains the source of truth for the manuscript and review history.
+This snapshot contains Supplementary Section S9, Table S8, and Figures S1 and S2 for an exploratory joint DFO and algebraic comparison.
+The new section occupies pages 32--34 of the 34-page combined PDF.
+References start on page 19 and the supplement starts on page 23.
+The supplementary PDF extracts pages 23--34; the joint-comparison PDF extracts pages 32--34.
+Links outside an extracted PDF may not resolve.
 
-The combined review PDF has 31 pages, with references starting on page 19 and the supplement on pages 23-31.
-The supplementary PDF extracts those nine pages with their original pagination.
-Links to main-text pages may not survive extraction.
-Overleaf reported zero errors and zero warnings.
+The live main source was not changed during this task.
+The export captures the previously completed Overleaf story revisions since the earlier repository snapshot.
+Existing supplement text, comments, and tracked edits were preserved through in-place editing.
+Only the two new figure PDFs were uploaded; no TeX document was uploaded to replace an Overleaf file.
+The final combined compile reports zero errors and zero warnings.
 
-The [Grid presentation update](../results/grid_presentation_20261029/README.md) clarifies the evaluation-count figure and adds Q25/Q50/Q75 to the B=100 cost table.
-The figure preserves all 30 curve coordinate arrays and the table preserves all target-hit counts and medians.
-The input is the [completed D-SDA publication analysis](../results/dsda_publication_20261028/README.md), which remains unchanged.
-No searches, NLP solves, or server experiments were run for this update.
-Sections 4.4 and the conclusions were not revised in this update.
+The [joint comparison](../results/joint_process_comparison_20261029/README.md) contains 700 primary DFO runs and 45 algebraic executions.
+It retains all fourteen DFO conditions, the different sample sizes, original target rules, reconstructed versus measured timing, and bound-conflict flags.
+The [validation note](../docs/joint_process_comparison_20261029.md) documents callback accounting and reproducibility.
+No searches, NLP evaluations, or server experiments were run.
 
-- [Main source](main.tex), [combined review PDF](main.pdf), [supplementary source](supplementary.tex), and [supplementary PDF](supplementary.pdf).
-- [Bibliography](reference.bib), [figure files](figures/), and [source distribution](manuscript_sources.zip).
-- [Presentation code](../review_comparison/grid_presentation.py), [quartile data](tables/grid_cost_quartiles.csv), and [validation](../docs/grid_presentation_update_20261029.md).
-- [Snapshot manifest](publication_manifest.json) and [verification](grid_revision_verification.json).
+The earlier [Grid presentation update](../results/grid_presentation_20261029/README.md) remains part of this branch.
+The underlying [DFO publication analysis](../results/dsda_publication_20261028/README.md) and [SCIP analysis](../results/process_scip_four_analysis_20261026/README.md) are unchanged.
+The old Grid and D-SDA verification files describe those earlier steps and are retained as historical records.
 
-```sh
-python -m review_comparison.grid_presentation --output /tmp/grid-presentation-new
-python -m pytest tests/test_grid_presentation.py tests/test_dsda_publication.py -q
-```
-
-The 14 relevant tests pass, and two fresh presentation runs produce seven byte-identical outputs.
-Original execution archives, provider revisions, numerical analysis outputs, and historical audit files remain unchanged.
-The preceding [snapshot README and manifest](review_history/pre_grid_presentation/) describe the earlier export.
-The unchanged analysis_manifest_current.json and dsda_revision_verification.json describe the underlying D-SDA adoption, while the new presentation manifest is linked above.
-Inactive legacy figures remain historical companions and were not restored to the paper.
+- [Combined review PDF](main.pdf), [supplementary PDF](supplementary.pdf), and [S9 review excerpt](joint_comparison.pdf).
+- [Main source](main.tex), [supplementary source](supplementary.tex), [bibliography](reference.bib), and [source distribution](manuscript_sources.zip).
+- [Snapshot manifest](publication_manifest.json) and [new verification](joint_revision_verification.json).
+- [Preceding snapshot metadata](review_history/pre_joint_comparison/).
