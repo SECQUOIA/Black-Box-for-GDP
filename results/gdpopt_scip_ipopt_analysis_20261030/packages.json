@@ -1,0 +1,2456 @@
+[
+  {
+    "package_id": "gdpopt_scip_ipopt_part01",
+    "started_utc": "2026-10-30T04:20:19.892775+00:00",
+    "ended_utc": "2026-10-30T09:29:07.641118+00:00",
+    "elapsed_seconds": 18527.748343,
+    "status": "completed",
+    "jobs": 15,
+    "runtime": {
+      "host": "dantzig.ecn.purdue.edu",
+      "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+      "gams_version": [
+        52,
+        2,
+        0,
+        0
+      ],
+      "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+      "affinity": {
+        "cpu": 20,
+        "physical_package_id": "0",
+        "core_id": "26",
+        "thread_siblings_list": "20,68",
+        "effective_cpus": [
+          20
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "mcpp_sha256": "05082e93380fd595c65d1b5ecd5cd36a381ff6d28abb8023c556e52cf944c2c6",
+      "versions": {
+        "pyomo": "6.10.0",
+        "numpy": "2.4.6",
+        "sympy": "1.14.0",
+        "networkx": "3.6.1"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1"
+      },
+      "numerical_threadpools": {
+        "availability": "unavailable",
+        "reason": "threadpoolctl not installed"
+      },
+      "linked_libraries": {
+        "gams": "\tlinux-vdso.so.1 (0x00007ffe417e1000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007fea2361d000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007fea23618000)\n\tlibgmszlib164.so => /package/gams/52.2/./libgmszlib164.so (0x00007fea23401000)\n\tlibcrypto.so.3 => /package/gams/52.2/./libcrypto.so.3 (0x00007fea22d58000)\n\tlibssl.so.3 => /package/gams/52.2/./libssl.so.3 (0x00007fea22aa4000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007fea225ce000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007fea224f1000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007fea222c3000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007fea220b9000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007fea23637000)\n",
+        "libipopt.so": "\tlinux-vdso.so.1 (0x00007ffed09d1000)\n\tlibmkl_gams.so => /package/gams/52.2/./libmkl_gams.so (0x00007f2a36b3b000)\n\tlibgfortran.so.5 => /package/gams/52.2/./libgfortran.so.5 (0x00007f2a365d5000)\n\tlibquadmath.so.0 => /package/gams/52.2/./libquadmath.so.0 (0x00007f2a3638e000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007f2a36376000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007f2a3636f000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007f2a35e99000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007f2a35dbc000)\n\tlibgomp.so.1 => /package/gams/52.2/./libgomp.so.1 (0x00007f2a35b63000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007f2a35935000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007f2a3572b000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f2a3c5e4000)\n\tlibiomp5.so => /package/gams/52.2/./libiomp5.so (0x00007f2a3528e000)\n\tlibrt.so.1 => /lib64/librt.so.1 (0x00007f2a35289000)\n"
+      },
+      "pyomo_version": "6.10.0",
+      "smoke": {
+        "status": "passed",
+        "checks": {
+          "scip_mip": {
+            "index": 1,
+            "solver": "scip",
+            "mtype": "mip",
+            "role": "master_or_initialization",
+            "limit_s": 28.49860166455619,
+            "deadline_monotonic": 1527718.859942993,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.186660+00:00",
+            "started_monotonic": 1527688.861791848,
+            "affinity": [
+              20
+            ],
+            "solver_option_file": [
+              "gams/mipstart = 0",
+              "timing/clocktype = 2",
+              "lp/threads = 1",
+              "presolving/milp/threads = 1"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.49860166455619;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "8a272211903abf0cd095c1089ff3f3693ffa4351ea9c9466a2e720d8371622ed",
+            "gams_statistics": {
+              "MODELSTAT": 1.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": 1.0,
+              "OBJVAL": 1.0,
+              "NUMVAR": 3.0,
+              "NUMEQU": 2.0,
+              "NUMDVAR": 1.0,
+              "NUMNZ": 5.0,
+              "ETSOLVE": 0.34200050868094
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [
+                "9.2.4"
+              ],
+              "ipopt": [],
+              "mumps": [],
+              "solver_starts": [
+                "SCIP"
+              ]
+            },
+            "termination": "optimal",
+            "solver_status": "ok",
+            "lower_bound": 1.0,
+            "upper_bound": 1.0,
+            "global_subproblem_complete": true,
+            "ended_utc": "2026-10-30T04:20:23.952495+00:00",
+            "ended_monotonic": 1527689.627640693,
+            "wall_s": 0.7658491460606456,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          },
+          "ipopt": {
+            "index": 1,
+            "solver": "ipopt",
+            "mtype": "nlp",
+            "role": "master_or_initialization",
+            "limit_s": 28.49973938083276,
+            "deadline_monotonic": 1527719.63129583,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.956628+00:00",
+            "started_monotonic": 1527689.63175994,
+            "affinity": [
+              20
+            ],
+            "solver_option_file": [
+              "tol 1e-8",
+              "bound_relax_factor 0",
+              "max_iter 3000",
+              "warm_start_init_point no",
+              "linear_solver mumps"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.49973938083276;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;",
+              "option iterlim=3000;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "29bf9b28ebfdca56900e34c48fc6325348b17b93c638b85eab709c677c0e8318",
+            "gams_statistics": {
+              "MODELSTAT": 2.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": null,
+              "OBJVAL": 0.0,
+              "NUMVAR": 2.0,
+              "NUMEQU": 1.0,
+              "NUMDVAR": 0.0,
+              "NUMNZ": 2.0,
+              "ETSOLVE": 0.023999693803489
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [],
+              "ipopt": [
+                "3.14.19"
+              ],
+              "mumps": [
+                "5.8.1"
+              ],
+              "solver_starts": [
+                "IPOPT"
+              ]
+            },
+            "termination": "locallyOptimal",
+            "solver_status": "ok",
+            "lower_bound": null,
+            "upper_bound": 0.0,
+            "global_subproblem_complete": false,
+            "certificate_note": "Local IPOPT result; no global subproblem proof.",
+            "ended_utc": "2026-10-30T04:20:24.316120+00:00",
+            "ended_monotonic": 1527689.991265549,
+            "wall_s": 0.3595058300998062,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          }
+        },
+        "observed": {
+          "gams": [
+            "52.2.0"
+          ],
+          "scip": [
+            "9.2.4"
+          ],
+          "ipopt": [
+            "3.14.19"
+          ],
+          "mumps": [
+            "5.8.1"
+          ],
+          "solver_starts": [
+            "SCIP",
+            "IPOPT"
+          ]
+        },
+        "pyomo": "6.10.0",
+        "affinity": [
+          20
+        ],
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OMP_THREAD_LIMIT": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1",
+          "NUMEXPR_MAX_THREADS": "1",
+          "BLIS_NUM_THREADS": "1",
+          "GOTO_NUM_THREADS": "1"
+        },
+        "benchmark_calls": 0
+      }
+    },
+    "original_archive_sha256": "8feca047414eeab6ab25ebfc89406663c75c820968e1ef8e5bfee631afbd8a2c",
+    "preflight": {
+      "status": "passed",
+      "checks": {
+        "scip_mip": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "mip",
+          "role": "master_or_initialization",
+          "limit_s": 28.49860166455619,
+          "deadline_monotonic": 1527718.859942993,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.186660+00:00",
+          "started_monotonic": 1527688.861791848,
+          "affinity": [
+            20
+          ],
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2",
+            "lp/threads = 1",
+            "presolving/milp/threads = 1"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.49860166455619;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "8a272211903abf0cd095c1089ff3f3693ffa4351ea9c9466a2e720d8371622ed",
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 1.0,
+            "OBJVAL": 1.0,
+            "NUMVAR": 3.0,
+            "NUMEQU": 2.0,
+            "NUMDVAR": 1.0,
+            "NUMNZ": 5.0,
+            "ETSOLVE": 0.34200050868094
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [
+              "9.2.4"
+            ],
+            "ipopt": [],
+            "mumps": [],
+            "solver_starts": [
+              "SCIP"
+            ]
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "global_subproblem_complete": true,
+          "ended_utc": "2026-10-30T04:20:23.952495+00:00",
+          "ended_monotonic": 1527689.627640693,
+          "wall_s": 0.7658491460606456,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        },
+        "ipopt": {
+          "index": 1,
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "role": "master_or_initialization",
+          "limit_s": 28.49973938083276,
+          "deadline_monotonic": 1527719.63129583,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.956628+00:00",
+          "started_monotonic": 1527689.63175994,
+          "affinity": [
+            20
+          ],
+          "solver_option_file": [
+            "tol 1e-8",
+            "bound_relax_factor 0",
+            "max_iter 3000",
+            "warm_start_init_point no",
+            "linear_solver mumps"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.49973938083276;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;",
+            "option iterlim=3000;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "29bf9b28ebfdca56900e34c48fc6325348b17b93c638b85eab709c677c0e8318",
+          "gams_statistics": {
+            "MODELSTAT": 2.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": null,
+            "OBJVAL": 0.0,
+            "NUMVAR": 2.0,
+            "NUMEQU": 1.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 2.0,
+            "ETSOLVE": 0.023999693803489
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [],
+            "ipopt": [
+              "3.14.19"
+            ],
+            "mumps": [
+              "5.8.1"
+            ],
+            "solver_starts": [
+              "IPOPT"
+            ]
+          },
+          "termination": "locallyOptimal",
+          "solver_status": "ok",
+          "lower_bound": null,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": false,
+          "certificate_note": "Local IPOPT result; no global subproblem proof.",
+          "ended_utc": "2026-10-30T04:20:24.316120+00:00",
+          "ended_monotonic": 1527689.991265549,
+          "wall_s": 0.3595058300998062,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        }
+      },
+      "observed": {
+        "gams": [
+          "52.2.0"
+        ],
+        "scip": [
+          "9.2.4"
+        ],
+        "ipopt": [
+          "3.14.19"
+        ],
+        "mumps": [
+          "5.8.1"
+        ],
+        "solver_starts": [
+          "SCIP",
+          "IPOPT"
+        ]
+      },
+      "pyomo": "6.10.0",
+      "affinity": [
+        20
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1"
+      },
+      "benchmark_calls": 0
+    },
+    "preflight_solver_starts": {
+      "IPOPT": 1,
+      "SCIP": 1
+    }
+  },
+  {
+    "package_id": "gdpopt_scip_ipopt_part02",
+    "started_utc": "2026-10-30T04:20:19.889616+00:00",
+    "ended_utc": "2026-10-30T09:23:11.520430+00:00",
+    "elapsed_seconds": 18171.630814,
+    "status": "completed",
+    "jobs": 15,
+    "runtime": {
+      "host": "dantzig.ecn.purdue.edu",
+      "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+      "gams_version": [
+        52,
+        2,
+        0,
+        0
+      ],
+      "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+      "affinity": {
+        "cpu": 30,
+        "physical_package_id": "0",
+        "core_id": "40",
+        "thread_siblings_list": "30,78",
+        "effective_cpus": [
+          30
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "mcpp_sha256": "05082e93380fd595c65d1b5ecd5cd36a381ff6d28abb8023c556e52cf944c2c6",
+      "versions": {
+        "pyomo": "6.10.0",
+        "numpy": "2.4.6",
+        "sympy": "1.14.0",
+        "networkx": "3.6.1"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1"
+      },
+      "numerical_threadpools": {
+        "availability": "unavailable",
+        "reason": "threadpoolctl not installed"
+      },
+      "linked_libraries": {
+        "gams": "\tlinux-vdso.so.1 (0x00007ffde97ac000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007f18246b0000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007f18246ab000)\n\tlibgmszlib164.so => /package/gams/52.2/./libgmszlib164.so (0x00007f1824494000)\n\tlibcrypto.so.3 => /package/gams/52.2/./libcrypto.so.3 (0x00007f1823deb000)\n\tlibssl.so.3 => /package/gams/52.2/./libssl.so.3 (0x00007f1823b37000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007f1823661000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007f1823584000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007f1823356000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007f182314c000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f18246ca000)\n",
+        "libipopt.so": "\tlinux-vdso.so.1 (0x00007ffdaf316000)\n\tlibmkl_gams.so => /package/gams/52.2/./libmkl_gams.so (0x00007f842c027000)\n\tlibgfortran.so.5 => /package/gams/52.2/./libgfortran.so.5 (0x00007f842bac1000)\n\tlibquadmath.so.0 => /package/gams/52.2/./libquadmath.so.0 (0x00007f842b87a000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007f842b862000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007f842b85b000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007f842b385000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007f842b2a8000)\n\tlibgomp.so.1 => /package/gams/52.2/./libgomp.so.1 (0x00007f842b04f000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007f842ae21000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007f842ac17000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f8431ad0000)\n\tlibiomp5.so => /package/gams/52.2/./libiomp5.so (0x00007f842a77a000)\n\tlibrt.so.1 => /lib64/librt.so.1 (0x00007f842a775000)\n"
+      },
+      "pyomo_version": "6.10.0",
+      "smoke": {
+        "status": "passed",
+        "checks": {
+          "scip_mip": {
+            "index": 1,
+            "solver": "scip",
+            "mtype": "mip",
+            "role": "master_or_initialization",
+            "limit_s": 28.498329632915556,
+            "deadline_monotonic": 1527718.859329878,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.186435+00:00",
+            "started_monotonic": 1527688.861566736,
+            "affinity": [
+              30
+            ],
+            "solver_option_file": [
+              "gams/mipstart = 0",
+              "timing/clocktype = 2",
+              "lp/threads = 1",
+              "presolving/milp/threads = 1"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.498329632915556;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "3ea98bd641c92a46868e522662fd3d3c51e5a466e9813bf4100d47b4407ba797",
+            "gams_statistics": {
+              "MODELSTAT": 1.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": 1.0,
+              "OBJVAL": 1.0,
+              "NUMVAR": 3.0,
+              "NUMEQU": 2.0,
+              "NUMDVAR": 1.0,
+              "NUMNZ": 5.0,
+              "ETSOLVE": 0.360000436194241
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [
+                "9.2.4"
+              ],
+              "ipopt": [],
+              "mumps": [],
+              "solver_starts": [
+                "SCIP"
+              ]
+            },
+            "termination": "optimal",
+            "solver_status": "ok",
+            "lower_bound": 1.0,
+            "upper_bound": 1.0,
+            "global_subproblem_complete": true,
+            "ended_utc": "2026-10-30T04:20:23.960383+00:00",
+            "ended_monotonic": 1527689.635528095,
+            "wall_s": 0.7739616991020739,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          },
+          "ipopt": {
+            "index": 1,
+            "solver": "ipopt",
+            "mtype": "nlp",
+            "role": "master_or_initialization",
+            "limit_s": 28.49972512231907,
+            "deadline_monotonic": 1527719.638615093,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.963968+00:00",
+            "started_monotonic": 1527689.639099752,
+            "affinity": [
+              30
+            ],
+            "solver_option_file": [
+              "tol 1e-8",
+              "bound_relax_factor 0",
+              "max_iter 3000",
+              "warm_start_init_point no",
+              "linear_solver mumps"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.49972512231907;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;",
+              "option iterlim=3000;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "366a642969a73cfb09d8754a36c6ea97d5c013b09552a11c51613410992c5708",
+            "gams_statistics": {
+              "MODELSTAT": 2.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": null,
+              "OBJVAL": 0.0,
+              "NUMVAR": 2.0,
+              "NUMEQU": 1.0,
+              "NUMDVAR": 0.0,
+              "NUMNZ": 2.0,
+              "ETSOLVE": 0.017000385560095
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [],
+              "ipopt": [
+                "3.14.19"
+              ],
+              "mumps": [
+                "5.8.1"
+              ],
+              "solver_starts": [
+                "IPOPT"
+              ]
+            },
+            "termination": "locallyOptimal",
+            "solver_status": "ok",
+            "lower_bound": null,
+            "upper_bound": 0.0,
+            "global_subproblem_complete": false,
+            "certificate_note": "Local IPOPT result; no global subproblem proof.",
+            "ended_utc": "2026-10-30T04:20:24.338382+00:00",
+            "ended_monotonic": 1527690.013524734,
+            "wall_s": 0.3744253129698336,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          }
+        },
+        "observed": {
+          "gams": [
+            "52.2.0"
+          ],
+          "scip": [
+            "9.2.4"
+          ],
+          "ipopt": [
+            "3.14.19"
+          ],
+          "mumps": [
+            "5.8.1"
+          ],
+          "solver_starts": [
+            "SCIP",
+            "IPOPT"
+          ]
+        },
+        "pyomo": "6.10.0",
+        "affinity": [
+          30
+        ],
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OMP_THREAD_LIMIT": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1",
+          "NUMEXPR_MAX_THREADS": "1",
+          "BLIS_NUM_THREADS": "1",
+          "GOTO_NUM_THREADS": "1"
+        },
+        "benchmark_calls": 0
+      }
+    },
+    "original_archive_sha256": "e26f96f6c145a93001fee8e00f443e3e12af349b5fce2d56664e32c8f63f0964",
+    "preflight": {
+      "status": "passed",
+      "checks": {
+        "scip_mip": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "mip",
+          "role": "master_or_initialization",
+          "limit_s": 28.498329632915556,
+          "deadline_monotonic": 1527718.859329878,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.186435+00:00",
+          "started_monotonic": 1527688.861566736,
+          "affinity": [
+            30
+          ],
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2",
+            "lp/threads = 1",
+            "presolving/milp/threads = 1"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.498329632915556;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "3ea98bd641c92a46868e522662fd3d3c51e5a466e9813bf4100d47b4407ba797",
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 1.0,
+            "OBJVAL": 1.0,
+            "NUMVAR": 3.0,
+            "NUMEQU": 2.0,
+            "NUMDVAR": 1.0,
+            "NUMNZ": 5.0,
+            "ETSOLVE": 0.360000436194241
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [
+              "9.2.4"
+            ],
+            "ipopt": [],
+            "mumps": [],
+            "solver_starts": [
+              "SCIP"
+            ]
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "global_subproblem_complete": true,
+          "ended_utc": "2026-10-30T04:20:23.960383+00:00",
+          "ended_monotonic": 1527689.635528095,
+          "wall_s": 0.7739616991020739,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        },
+        "ipopt": {
+          "index": 1,
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "role": "master_or_initialization",
+          "limit_s": 28.49972512231907,
+          "deadline_monotonic": 1527719.638615093,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.963968+00:00",
+          "started_monotonic": 1527689.639099752,
+          "affinity": [
+            30
+          ],
+          "solver_option_file": [
+            "tol 1e-8",
+            "bound_relax_factor 0",
+            "max_iter 3000",
+            "warm_start_init_point no",
+            "linear_solver mumps"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.49972512231907;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;",
+            "option iterlim=3000;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "366a642969a73cfb09d8754a36c6ea97d5c013b09552a11c51613410992c5708",
+          "gams_statistics": {
+            "MODELSTAT": 2.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": null,
+            "OBJVAL": 0.0,
+            "NUMVAR": 2.0,
+            "NUMEQU": 1.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 2.0,
+            "ETSOLVE": 0.017000385560095
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [],
+            "ipopt": [
+              "3.14.19"
+            ],
+            "mumps": [
+              "5.8.1"
+            ],
+            "solver_starts": [
+              "IPOPT"
+            ]
+          },
+          "termination": "locallyOptimal",
+          "solver_status": "ok",
+          "lower_bound": null,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": false,
+          "certificate_note": "Local IPOPT result; no global subproblem proof.",
+          "ended_utc": "2026-10-30T04:20:24.338382+00:00",
+          "ended_monotonic": 1527690.013524734,
+          "wall_s": 0.3744253129698336,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        }
+      },
+      "observed": {
+        "gams": [
+          "52.2.0"
+        ],
+        "scip": [
+          "9.2.4"
+        ],
+        "ipopt": [
+          "3.14.19"
+        ],
+        "mumps": [
+          "5.8.1"
+        ],
+        "solver_starts": [
+          "SCIP",
+          "IPOPT"
+        ]
+      },
+      "pyomo": "6.10.0",
+      "affinity": [
+        30
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1"
+      },
+      "benchmark_calls": 0
+    },
+    "preflight_solver_starts": {
+      "IPOPT": 1,
+      "SCIP": 1
+    }
+  },
+  {
+    "package_id": "gdpopt_scip_ipopt_part03",
+    "started_utc": "2026-10-30T04:20:19.891614+00:00",
+    "ended_utc": "2026-10-30T09:13:40.420388+00:00",
+    "elapsed_seconds": 17600.528774,
+    "status": "completed",
+    "jobs": 15,
+    "runtime": {
+      "host": "dantzig.ecn.purdue.edu",
+      "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+      "gams_version": [
+        52,
+        2,
+        0,
+        0
+      ],
+      "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+      "affinity": {
+        "cpu": 38,
+        "physical_package_id": "0",
+        "core_id": "50",
+        "thread_siblings_list": "38,86",
+        "effective_cpus": [
+          38
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "mcpp_sha256": "05082e93380fd595c65d1b5ecd5cd36a381ff6d28abb8023c556e52cf944c2c6",
+      "versions": {
+        "pyomo": "6.10.0",
+        "numpy": "2.4.6",
+        "sympy": "1.14.0",
+        "networkx": "3.6.1"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1"
+      },
+      "numerical_threadpools": {
+        "availability": "unavailable",
+        "reason": "threadpoolctl not installed"
+      },
+      "linked_libraries": {
+        "gams": "\tlinux-vdso.so.1 (0x00007ffcebd21000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007f90ba5a7000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007f90ba5a2000)\n\tlibgmszlib164.so => /package/gams/52.2/./libgmszlib164.so (0x00007f90ba38b000)\n\tlibcrypto.so.3 => /package/gams/52.2/./libcrypto.so.3 (0x00007f90b9ce2000)\n\tlibssl.so.3 => /package/gams/52.2/./libssl.so.3 (0x00007f90b9a2e000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007f90b9558000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007f90b947b000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007f90b924d000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007f90b9043000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f90ba5c1000)\n",
+        "libipopt.so": "\tlinux-vdso.so.1 (0x00007ffd12380000)\n\tlibmkl_gams.so => /package/gams/52.2/./libmkl_gams.so (0x00007efd22f58000)\n\tlibgfortran.so.5 => /package/gams/52.2/./libgfortran.so.5 (0x00007efd229f2000)\n\tlibquadmath.so.0 => /package/gams/52.2/./libquadmath.so.0 (0x00007efd227ab000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007efd22793000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007efd2278c000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007efd222b6000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007efd221d9000)\n\tlibgomp.so.1 => /package/gams/52.2/./libgomp.so.1 (0x00007efd21f80000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007efd21d52000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007efd21b48000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007efd28a01000)\n\tlibiomp5.so => /package/gams/52.2/./libiomp5.so (0x00007efd216ab000)\n\tlibrt.so.1 => /lib64/librt.so.1 (0x00007efd216a6000)\n"
+      },
+      "pyomo_version": "6.10.0",
+      "smoke": {
+        "status": "passed",
+        "checks": {
+          "scip_mip": {
+            "index": 1,
+            "solver": "scip",
+            "mtype": "mip",
+            "role": "master_or_initialization",
+            "limit_s": 28.4986305710976,
+            "deadline_monotonic": 1527718.858781396,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.185495+00:00",
+            "started_monotonic": 1527688.860625712,
+            "affinity": [
+              38
+            ],
+            "solver_option_file": [
+              "gams/mipstart = 0",
+              "timing/clocktype = 2",
+              "lp/threads = 1",
+              "presolving/milp/threads = 1"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.4986305710976;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "831479a16ff6a856712e21e127814b5e5257ab700378a8c43daef4919e9e359c",
+            "gams_statistics": {
+              "MODELSTAT": 1.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": 1.0,
+              "OBJVAL": 1.0,
+              "NUMVAR": 3.0,
+              "NUMEQU": 2.0,
+              "NUMDVAR": 1.0,
+              "NUMNZ": 5.0,
+              "ETSOLVE": 0.373000139370561
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [
+                "9.2.4"
+              ],
+              "ipopt": [],
+              "mumps": [],
+              "solver_starts": [
+                "SCIP"
+              ]
+            },
+            "termination": "optimal",
+            "solver_status": "ok",
+            "lower_bound": 1.0,
+            "upper_bound": 1.0,
+            "global_subproblem_complete": true,
+            "ended_utc": "2026-10-30T04:20:23.965145+00:00",
+            "ended_monotonic": 1527689.640291858,
+            "wall_s": 0.7796667669899762,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          },
+          "ipopt": {
+            "index": 1,
+            "solver": "ipopt",
+            "mtype": "nlp",
+            "role": "master_or_initialization",
+            "limit_s": 28.499744444293903,
+            "deadline_monotonic": 1527719.64343844,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.968745+00:00",
+            "started_monotonic": 1527689.643877041,
+            "affinity": [
+              38
+            ],
+            "solver_option_file": [
+              "tol 1e-8",
+              "bound_relax_factor 0",
+              "max_iter 3000",
+              "warm_start_init_point no",
+              "linear_solver mumps"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.499744444293903;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;",
+              "option iterlim=3000;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "887a7b9a518958938cb7436cf0aebda107ebbcc4ea150bb38d76d1930270f15f",
+            "gams_statistics": {
+              "MODELSTAT": 2.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": null,
+              "OBJVAL": 0.0,
+              "NUMVAR": 2.0,
+              "NUMEQU": 1.0,
+              "NUMDVAR": 0.0,
+              "NUMNZ": 2.0,
+              "ETSOLVE": 0.018000556156039
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [],
+              "ipopt": [
+                "3.14.19"
+              ],
+              "mumps": [
+                "5.8.1"
+              ],
+              "solver_starts": [
+                "IPOPT"
+              ]
+            },
+            "termination": "locallyOptimal",
+            "solver_status": "ok",
+            "lower_bound": null,
+            "upper_bound": 0.0,
+            "global_subproblem_complete": false,
+            "certificate_note": "Local IPOPT result; no global subproblem proof.",
+            "ended_utc": "2026-10-30T04:20:24.317199+00:00",
+            "ended_monotonic": 1527689.992343566,
+            "wall_s": 0.34846682590432465,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          }
+        },
+        "observed": {
+          "gams": [
+            "52.2.0"
+          ],
+          "scip": [
+            "9.2.4"
+          ],
+          "ipopt": [
+            "3.14.19"
+          ],
+          "mumps": [
+            "5.8.1"
+          ],
+          "solver_starts": [
+            "SCIP",
+            "IPOPT"
+          ]
+        },
+        "pyomo": "6.10.0",
+        "affinity": [
+          38
+        ],
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OMP_THREAD_LIMIT": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1",
+          "NUMEXPR_MAX_THREADS": "1",
+          "BLIS_NUM_THREADS": "1",
+          "GOTO_NUM_THREADS": "1"
+        },
+        "benchmark_calls": 0
+      }
+    },
+    "original_archive_sha256": "2ff14fb2f41c6f931b1bb7927784031995d942587f6c4da29fc156c5ba859344",
+    "preflight": {
+      "status": "passed",
+      "checks": {
+        "scip_mip": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "mip",
+          "role": "master_or_initialization",
+          "limit_s": 28.4986305710976,
+          "deadline_monotonic": 1527718.858781396,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.185495+00:00",
+          "started_monotonic": 1527688.860625712,
+          "affinity": [
+            38
+          ],
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2",
+            "lp/threads = 1",
+            "presolving/milp/threads = 1"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.4986305710976;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "831479a16ff6a856712e21e127814b5e5257ab700378a8c43daef4919e9e359c",
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 1.0,
+            "OBJVAL": 1.0,
+            "NUMVAR": 3.0,
+            "NUMEQU": 2.0,
+            "NUMDVAR": 1.0,
+            "NUMNZ": 5.0,
+            "ETSOLVE": 0.373000139370561
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [
+              "9.2.4"
+            ],
+            "ipopt": [],
+            "mumps": [],
+            "solver_starts": [
+              "SCIP"
+            ]
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "global_subproblem_complete": true,
+          "ended_utc": "2026-10-30T04:20:23.965145+00:00",
+          "ended_monotonic": 1527689.640291858,
+          "wall_s": 0.7796667669899762,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        },
+        "ipopt": {
+          "index": 1,
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "role": "master_or_initialization",
+          "limit_s": 28.499744444293903,
+          "deadline_monotonic": 1527719.64343844,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.968745+00:00",
+          "started_monotonic": 1527689.643877041,
+          "affinity": [
+            38
+          ],
+          "solver_option_file": [
+            "tol 1e-8",
+            "bound_relax_factor 0",
+            "max_iter 3000",
+            "warm_start_init_point no",
+            "linear_solver mumps"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.499744444293903;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;",
+            "option iterlim=3000;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "887a7b9a518958938cb7436cf0aebda107ebbcc4ea150bb38d76d1930270f15f",
+          "gams_statistics": {
+            "MODELSTAT": 2.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": null,
+            "OBJVAL": 0.0,
+            "NUMVAR": 2.0,
+            "NUMEQU": 1.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 2.0,
+            "ETSOLVE": 0.018000556156039
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [],
+            "ipopt": [
+              "3.14.19"
+            ],
+            "mumps": [
+              "5.8.1"
+            ],
+            "solver_starts": [
+              "IPOPT"
+            ]
+          },
+          "termination": "locallyOptimal",
+          "solver_status": "ok",
+          "lower_bound": null,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": false,
+          "certificate_note": "Local IPOPT result; no global subproblem proof.",
+          "ended_utc": "2026-10-30T04:20:24.317199+00:00",
+          "ended_monotonic": 1527689.992343566,
+          "wall_s": 0.34846682590432465,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        }
+      },
+      "observed": {
+        "gams": [
+          "52.2.0"
+        ],
+        "scip": [
+          "9.2.4"
+        ],
+        "ipopt": [
+          "3.14.19"
+        ],
+        "mumps": [
+          "5.8.1"
+        ],
+        "solver_starts": [
+          "SCIP",
+          "IPOPT"
+        ]
+      },
+      "pyomo": "6.10.0",
+      "affinity": [
+        38
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1"
+      },
+      "benchmark_calls": 0
+    },
+    "preflight_solver_starts": {
+      "IPOPT": 1,
+      "SCIP": 1
+    }
+  },
+  {
+    "package_id": "gdpopt_scip_ipopt_part04",
+    "started_utc": "2026-10-30T04:20:19.889939+00:00",
+    "ended_utc": "2026-10-30T08:49:51.758043+00:00",
+    "elapsed_seconds": 16171.868104,
+    "status": "completed",
+    "jobs": 15,
+    "runtime": {
+      "host": "dantzig.ecn.purdue.edu",
+      "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+      "gams_version": [
+        52,
+        2,
+        0,
+        0
+      ],
+      "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+      "affinity": {
+        "cpu": 31,
+        "physical_package_id": "0",
+        "core_id": "41",
+        "thread_siblings_list": "31,79",
+        "effective_cpus": [
+          31
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "mcpp_sha256": "05082e93380fd595c65d1b5ecd5cd36a381ff6d28abb8023c556e52cf944c2c6",
+      "versions": {
+        "pyomo": "6.10.0",
+        "numpy": "2.4.6",
+        "sympy": "1.14.0",
+        "networkx": "3.6.1"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1"
+      },
+      "numerical_threadpools": {
+        "availability": "unavailable",
+        "reason": "threadpoolctl not installed"
+      },
+      "linked_libraries": {
+        "gams": "\tlinux-vdso.so.1 (0x00007ffd265fe000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007f4c2653c000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007f4c26537000)\n\tlibgmszlib164.so => /package/gams/52.2/./libgmszlib164.so (0x00007f4c26320000)\n\tlibcrypto.so.3 => /package/gams/52.2/./libcrypto.so.3 (0x00007f4c25c77000)\n\tlibssl.so.3 => /package/gams/52.2/./libssl.so.3 (0x00007f4c259c3000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007f4c254ed000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007f4c25410000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007f4c251e2000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007f4c24fd8000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f4c26556000)\n",
+        "libipopt.so": "\tlinux-vdso.so.1 (0x00007ffd331c0000)\n\tlibmkl_gams.so => /package/gams/52.2/./libmkl_gams.so (0x00007f4f6b49c000)\n\tlibgfortran.so.5 => /package/gams/52.2/./libgfortran.so.5 (0x00007f4f6af36000)\n\tlibquadmath.so.0 => /package/gams/52.2/./libquadmath.so.0 (0x00007f4f6acef000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007f4f6acd7000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007f4f6acd0000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007f4f6a7fa000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007f4f6a71d000)\n\tlibgomp.so.1 => /package/gams/52.2/./libgomp.so.1 (0x00007f4f6a4c4000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007f4f6a296000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007f4f6a08c000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f4f70f45000)\n\tlibiomp5.so => /package/gams/52.2/./libiomp5.so (0x00007f4f69bef000)\n\tlibrt.so.1 => /lib64/librt.so.1 (0x00007f4f69bea000)\n"
+      },
+      "pyomo_version": "6.10.0",
+      "smoke": {
+        "status": "passed",
+        "checks": {
+          "scip_mip": {
+            "index": 1,
+            "solver": "scip",
+            "mtype": "mip",
+            "role": "master_or_initialization",
+            "limit_s": 28.49855723407818,
+            "deadline_monotonic": 1527718.859343324,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.186166+00:00",
+            "started_monotonic": 1527688.861296488,
+            "affinity": [
+              31
+            ],
+            "solver_option_file": [
+              "gams/mipstart = 0",
+              "timing/clocktype = 2",
+              "lp/threads = 1",
+              "presolving/milp/threads = 1"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.49855723407818;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "456bef7369d4006aa624427294e3848603de221d9f3786b9ff36ac9c2e9dd4b5",
+            "gams_statistics": {
+              "MODELSTAT": 1.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": 1.0,
+              "OBJVAL": 1.0,
+              "NUMVAR": 3.0,
+              "NUMEQU": 2.0,
+              "NUMDVAR": 1.0,
+              "NUMNZ": 5.0,
+              "ETSOLVE": 0.359000265598297
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [
+                "9.2.4"
+              ],
+              "ipopt": [],
+              "mumps": [],
+              "solver_starts": [
+                "SCIP"
+              ]
+            },
+            "termination": "optimal",
+            "solver_status": "ok",
+            "lower_bound": 1.0,
+            "upper_bound": 1.0,
+            "global_subproblem_complete": true,
+            "ended_utc": "2026-10-30T04:20:23.960366+00:00",
+            "ended_monotonic": 1527689.63550999,
+            "wall_s": 0.7742137720342726,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          },
+          "ipopt": {
+            "index": 1,
+            "solver": "ipopt",
+            "mtype": "nlp",
+            "role": "master_or_initialization",
+            "limit_s": 28.49972448463086,
+            "deadline_monotonic": 1527719.638591979,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.963936+00:00",
+            "started_monotonic": 1527689.639067781,
+            "affinity": [
+              31
+            ],
+            "solver_option_file": [
+              "tol 1e-8",
+              "bound_relax_factor 0",
+              "max_iter 3000",
+              "warm_start_init_point no",
+              "linear_solver mumps"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.49972448463086;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;",
+              "option iterlim=3000;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "fdcf3ce3f0996daf0a22872b1d7efeab9bbfc91e62ec1262c57b0f0cfe14ec0e",
+            "gams_statistics": {
+              "MODELSTAT": 2.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": null,
+              "OBJVAL": 0.0,
+              "NUMVAR": 2.0,
+              "NUMEQU": 1.0,
+              "NUMDVAR": 0.0,
+              "NUMNZ": 2.0,
+              "ETSOLVE": 0.019999640062451
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [],
+              "ipopt": [
+                "3.14.19"
+              ],
+              "mumps": [
+                "5.8.1"
+              ],
+              "solver_starts": [
+                "IPOPT"
+              ]
+            },
+            "termination": "locallyOptimal",
+            "solver_status": "ok",
+            "lower_bound": null,
+            "upper_bound": 0.0,
+            "global_subproblem_complete": false,
+            "certificate_note": "Local IPOPT result; no global subproblem proof.",
+            "ended_utc": "2026-10-30T04:20:24.317049+00:00",
+            "ended_monotonic": 1527689.992194921,
+            "wall_s": 0.3531273710541427,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          }
+        },
+        "observed": {
+          "gams": [
+            "52.2.0"
+          ],
+          "scip": [
+            "9.2.4"
+          ],
+          "ipopt": [
+            "3.14.19"
+          ],
+          "mumps": [
+            "5.8.1"
+          ],
+          "solver_starts": [
+            "SCIP",
+            "IPOPT"
+          ]
+        },
+        "pyomo": "6.10.0",
+        "affinity": [
+          31
+        ],
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OMP_THREAD_LIMIT": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1",
+          "NUMEXPR_MAX_THREADS": "1",
+          "BLIS_NUM_THREADS": "1",
+          "GOTO_NUM_THREADS": "1"
+        },
+        "benchmark_calls": 0
+      }
+    },
+    "original_archive_sha256": "412fdd9347b6be7c5cad568a627fb0dce88d3d7cf77f4eb5a8f66cb8337eb2f5",
+    "preflight": {
+      "status": "passed",
+      "checks": {
+        "scip_mip": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "mip",
+          "role": "master_or_initialization",
+          "limit_s": 28.49855723407818,
+          "deadline_monotonic": 1527718.859343324,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.186166+00:00",
+          "started_monotonic": 1527688.861296488,
+          "affinity": [
+            31
+          ],
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2",
+            "lp/threads = 1",
+            "presolving/milp/threads = 1"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.49855723407818;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "456bef7369d4006aa624427294e3848603de221d9f3786b9ff36ac9c2e9dd4b5",
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 1.0,
+            "OBJVAL": 1.0,
+            "NUMVAR": 3.0,
+            "NUMEQU": 2.0,
+            "NUMDVAR": 1.0,
+            "NUMNZ": 5.0,
+            "ETSOLVE": 0.359000265598297
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [
+              "9.2.4"
+            ],
+            "ipopt": [],
+            "mumps": [],
+            "solver_starts": [
+              "SCIP"
+            ]
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "global_subproblem_complete": true,
+          "ended_utc": "2026-10-30T04:20:23.960366+00:00",
+          "ended_monotonic": 1527689.63550999,
+          "wall_s": 0.7742137720342726,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        },
+        "ipopt": {
+          "index": 1,
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "role": "master_or_initialization",
+          "limit_s": 28.49972448463086,
+          "deadline_monotonic": 1527719.638591979,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.963936+00:00",
+          "started_monotonic": 1527689.639067781,
+          "affinity": [
+            31
+          ],
+          "solver_option_file": [
+            "tol 1e-8",
+            "bound_relax_factor 0",
+            "max_iter 3000",
+            "warm_start_init_point no",
+            "linear_solver mumps"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.49972448463086;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;",
+            "option iterlim=3000;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "fdcf3ce3f0996daf0a22872b1d7efeab9bbfc91e62ec1262c57b0f0cfe14ec0e",
+          "gams_statistics": {
+            "MODELSTAT": 2.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": null,
+            "OBJVAL": 0.0,
+            "NUMVAR": 2.0,
+            "NUMEQU": 1.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 2.0,
+            "ETSOLVE": 0.019999640062451
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [],
+            "ipopt": [
+              "3.14.19"
+            ],
+            "mumps": [
+              "5.8.1"
+            ],
+            "solver_starts": [
+              "IPOPT"
+            ]
+          },
+          "termination": "locallyOptimal",
+          "solver_status": "ok",
+          "lower_bound": null,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": false,
+          "certificate_note": "Local IPOPT result; no global subproblem proof.",
+          "ended_utc": "2026-10-30T04:20:24.317049+00:00",
+          "ended_monotonic": 1527689.992194921,
+          "wall_s": 0.3531273710541427,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        }
+      },
+      "observed": {
+        "gams": [
+          "52.2.0"
+        ],
+        "scip": [
+          "9.2.4"
+        ],
+        "ipopt": [
+          "3.14.19"
+        ],
+        "mumps": [
+          "5.8.1"
+        ],
+        "solver_starts": [
+          "SCIP",
+          "IPOPT"
+        ]
+      },
+      "pyomo": "6.10.0",
+      "affinity": [
+        31
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1"
+      },
+      "benchmark_calls": 0
+    },
+    "preflight_solver_starts": {
+      "IPOPT": 1,
+      "SCIP": 1
+    }
+  },
+  {
+    "package_id": "gdpopt_scip_ipopt_part05",
+    "started_utc": "2026-10-30T04:20:19.889673+00:00",
+    "ended_utc": "2026-10-30T08:24:12.814759+00:00",
+    "elapsed_seconds": 14632.925086,
+    "status": "completed",
+    "jobs": 15,
+    "runtime": {
+      "host": "dantzig.ecn.purdue.edu",
+      "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+      "gams_version": [
+        52,
+        2,
+        0,
+        0
+      ],
+      "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+      "affinity": {
+        "cpu": 39,
+        "physical_package_id": "0",
+        "core_id": "51",
+        "thread_siblings_list": "39,87",
+        "effective_cpus": [
+          39
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "mcpp_sha256": "05082e93380fd595c65d1b5ecd5cd36a381ff6d28abb8023c556e52cf944c2c6",
+      "versions": {
+        "pyomo": "6.10.0",
+        "numpy": "2.4.6",
+        "sympy": "1.14.0",
+        "networkx": "3.6.1"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1"
+      },
+      "numerical_threadpools": {
+        "availability": "unavailable",
+        "reason": "threadpoolctl not installed"
+      },
+      "linked_libraries": {
+        "gams": "\tlinux-vdso.so.1 (0x00007fff6b3c1000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007fb25a991000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007fb25a98c000)\n\tlibgmszlib164.so => /package/gams/52.2/./libgmszlib164.so (0x00007fb25a775000)\n\tlibcrypto.so.3 => /package/gams/52.2/./libcrypto.so.3 (0x00007fb25a0cc000)\n\tlibssl.so.3 => /package/gams/52.2/./libssl.so.3 (0x00007fb259e18000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007fb259942000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007fb259865000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007fb259637000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007fb25942d000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007fb25a9ab000)\n",
+        "libipopt.so": "\tlinux-vdso.so.1 (0x00007ffc00574000)\n\tlibmkl_gams.so => /package/gams/52.2/./libmkl_gams.so (0x00007f43adaa9000)\n\tlibgfortran.so.5 => /package/gams/52.2/./libgfortran.so.5 (0x00007f43ad543000)\n\tlibquadmath.so.0 => /package/gams/52.2/./libquadmath.so.0 (0x00007f43ad2fc000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007f43ad2e4000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007f43ad2dd000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007f43ace07000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007f43acd2a000)\n\tlibgomp.so.1 => /package/gams/52.2/./libgomp.so.1 (0x00007f43acad1000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007f43ac8a3000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007f43ac699000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f43b3552000)\n\tlibiomp5.so => /package/gams/52.2/./libiomp5.so (0x00007f43ac1fc000)\n\tlibrt.so.1 => /lib64/librt.so.1 (0x00007f43ac1f7000)\n"
+      },
+      "pyomo_version": "6.10.0",
+      "smoke": {
+        "status": "passed",
+        "checks": {
+          "scip_mip": {
+            "index": 1,
+            "solver": "scip",
+            "mtype": "mip",
+            "role": "master_or_initialization",
+            "limit_s": 28.498694430163596,
+            "deadline_monotonic": 1527718.858623925,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.185337+00:00",
+            "started_monotonic": 1527688.860469062,
+            "affinity": [
+              39
+            ],
+            "solver_option_file": [
+              "gams/mipstart = 0",
+              "timing/clocktype = 2",
+              "lp/threads = 1",
+              "presolving/milp/threads = 1"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.498694430163596;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "f2c2e3954f1c670f1fb641c56022e3f7fb91703b0182bb329222ea3b23da61a5",
+            "gams_statistics": {
+              "MODELSTAT": 1.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": 1.0,
+              "OBJVAL": 1.0,
+              "NUMVAR": 3.0,
+              "NUMEQU": 2.0,
+              "NUMDVAR": 1.0,
+              "NUMNZ": 5.0,
+              "ETSOLVE": 0.336000113748014
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [
+                "9.2.4"
+              ],
+              "ipopt": [],
+              "mumps": [],
+              "solver_starts": [
+                "SCIP"
+              ]
+            },
+            "termination": "optimal",
+            "solver_status": "ok",
+            "lower_bound": 1.0,
+            "upper_bound": 1.0,
+            "global_subproblem_complete": true,
+            "ended_utc": "2026-10-30T04:20:23.967499+00:00",
+            "ended_monotonic": 1527689.642643426,
+            "wall_s": 0.7821747048292309,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          },
+          "ipopt": {
+            "index": 1,
+            "solver": "ipopt",
+            "mtype": "nlp",
+            "role": "master_or_initialization",
+            "limit_s": 28.499751707038378,
+            "deadline_monotonic": 1527719.645590857,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.970913+00:00",
+            "started_monotonic": 1527689.646045047,
+            "affinity": [
+              39
+            ],
+            "solver_option_file": [
+              "tol 1e-8",
+              "bound_relax_factor 0",
+              "max_iter 3000",
+              "warm_start_init_point no",
+              "linear_solver mumps"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.499751707038378;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;",
+              "option iterlim=3000;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "4da4fb57546f4dc1fd7827079829c50cdc9d1a52012b2f7df7c76d103699f0c2",
+            "gams_statistics": {
+              "MODELSTAT": 2.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": null,
+              "OBJVAL": 0.0,
+              "NUMVAR": 2.0,
+              "NUMEQU": 1.0,
+              "NUMDVAR": 0.0,
+              "NUMNZ": 2.0,
+              "ETSOLVE": 0.015999586321414
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [],
+              "ipopt": [
+                "3.14.19"
+              ],
+              "mumps": [
+                "5.8.1"
+              ],
+              "solver_starts": [
+                "IPOPT"
+              ]
+            },
+            "termination": "locallyOptimal",
+            "solver_status": "ok",
+            "lower_bound": null,
+            "upper_bound": 0.0,
+            "global_subproblem_complete": false,
+            "certificate_note": "Local IPOPT result; no global subproblem proof.",
+            "ended_utc": "2026-10-30T04:20:24.337473+00:00",
+            "ended_monotonic": 1527690.012617465,
+            "wall_s": 0.36657265899702907,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          }
+        },
+        "observed": {
+          "gams": [
+            "52.2.0"
+          ],
+          "scip": [
+            "9.2.4"
+          ],
+          "ipopt": [
+            "3.14.19"
+          ],
+          "mumps": [
+            "5.8.1"
+          ],
+          "solver_starts": [
+            "SCIP",
+            "IPOPT"
+          ]
+        },
+        "pyomo": "6.10.0",
+        "affinity": [
+          39
+        ],
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OMP_THREAD_LIMIT": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1",
+          "NUMEXPR_MAX_THREADS": "1",
+          "BLIS_NUM_THREADS": "1",
+          "GOTO_NUM_THREADS": "1"
+        },
+        "benchmark_calls": 0
+      }
+    },
+    "original_archive_sha256": "11a06ebab78822bf09733f67ef3400c642128388caadd10cc5f2d8282490147d",
+    "preflight": {
+      "status": "passed",
+      "checks": {
+        "scip_mip": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "mip",
+          "role": "master_or_initialization",
+          "limit_s": 28.498694430163596,
+          "deadline_monotonic": 1527718.858623925,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.185337+00:00",
+          "started_monotonic": 1527688.860469062,
+          "affinity": [
+            39
+          ],
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2",
+            "lp/threads = 1",
+            "presolving/milp/threads = 1"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.498694430163596;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "f2c2e3954f1c670f1fb641c56022e3f7fb91703b0182bb329222ea3b23da61a5",
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 1.0,
+            "OBJVAL": 1.0,
+            "NUMVAR": 3.0,
+            "NUMEQU": 2.0,
+            "NUMDVAR": 1.0,
+            "NUMNZ": 5.0,
+            "ETSOLVE": 0.336000113748014
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [
+              "9.2.4"
+            ],
+            "ipopt": [],
+            "mumps": [],
+            "solver_starts": [
+              "SCIP"
+            ]
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "global_subproblem_complete": true,
+          "ended_utc": "2026-10-30T04:20:23.967499+00:00",
+          "ended_monotonic": 1527689.642643426,
+          "wall_s": 0.7821747048292309,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        },
+        "ipopt": {
+          "index": 1,
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "role": "master_or_initialization",
+          "limit_s": 28.499751707038378,
+          "deadline_monotonic": 1527719.645590857,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.970913+00:00",
+          "started_monotonic": 1527689.646045047,
+          "affinity": [
+            39
+          ],
+          "solver_option_file": [
+            "tol 1e-8",
+            "bound_relax_factor 0",
+            "max_iter 3000",
+            "warm_start_init_point no",
+            "linear_solver mumps"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.499751707038378;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;",
+            "option iterlim=3000;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "4da4fb57546f4dc1fd7827079829c50cdc9d1a52012b2f7df7c76d103699f0c2",
+          "gams_statistics": {
+            "MODELSTAT": 2.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": null,
+            "OBJVAL": 0.0,
+            "NUMVAR": 2.0,
+            "NUMEQU": 1.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 2.0,
+            "ETSOLVE": 0.015999586321414
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [],
+            "ipopt": [
+              "3.14.19"
+            ],
+            "mumps": [
+              "5.8.1"
+            ],
+            "solver_starts": [
+              "IPOPT"
+            ]
+          },
+          "termination": "locallyOptimal",
+          "solver_status": "ok",
+          "lower_bound": null,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": false,
+          "certificate_note": "Local IPOPT result; no global subproblem proof.",
+          "ended_utc": "2026-10-30T04:20:24.337473+00:00",
+          "ended_monotonic": 1527690.012617465,
+          "wall_s": 0.36657265899702907,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        }
+      },
+      "observed": {
+        "gams": [
+          "52.2.0"
+        ],
+        "scip": [
+          "9.2.4"
+        ],
+        "ipopt": [
+          "3.14.19"
+        ],
+        "mumps": [
+          "5.8.1"
+        ],
+        "solver_starts": [
+          "SCIP",
+          "IPOPT"
+        ]
+      },
+      "pyomo": "6.10.0",
+      "affinity": [
+        39
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1"
+      },
+      "benchmark_calls": 0
+    },
+    "preflight_solver_starts": {
+      "IPOPT": 1,
+      "SCIP": 1
+    }
+  },
+  {
+    "package_id": "gdpopt_scip_ipopt_part06",
+    "started_utc": "2026-10-30T04:20:19.892163+00:00",
+    "ended_utc": "2026-10-30T08:25:03.263793+00:00",
+    "elapsed_seconds": 14683.37163,
+    "status": "completed",
+    "jobs": 15,
+    "runtime": {
+      "host": "dantzig.ecn.purdue.edu",
+      "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+      "gams_version": [
+        52,
+        2,
+        0,
+        0
+      ],
+      "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+      "affinity": {
+        "cpu": 35,
+        "physical_package_id": "0",
+        "core_id": "45",
+        "thread_siblings_list": "35,83",
+        "effective_cpus": [
+          35
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "mcpp_sha256": "05082e93380fd595c65d1b5ecd5cd36a381ff6d28abb8023c556e52cf944c2c6",
+      "versions": {
+        "pyomo": "6.10.0",
+        "numpy": "2.4.6",
+        "sympy": "1.14.0",
+        "networkx": "3.6.1"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1"
+      },
+      "numerical_threadpools": {
+        "availability": "unavailable",
+        "reason": "threadpoolctl not installed"
+      },
+      "linked_libraries": {
+        "gams": "\tlinux-vdso.so.1 (0x00007ffeb6d97000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007fd008c74000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007fd008c6f000)\n\tlibgmszlib164.so => /package/gams/52.2/./libgmszlib164.so (0x00007fd008a58000)\n\tlibcrypto.so.3 => /package/gams/52.2/./libcrypto.so.3 (0x00007fd0083af000)\n\tlibssl.so.3 => /package/gams/52.2/./libssl.so.3 (0x00007fd0080fb000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007fd007c25000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007fd007b48000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007fd00791a000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007fd007710000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007fd008c8e000)\n",
+        "libipopt.so": "\tlinux-vdso.so.1 (0x00007fff39975000)\n\tlibmkl_gams.so => /package/gams/52.2/./libmkl_gams.so (0x00007f05147e5000)\n\tlibgfortran.so.5 => /package/gams/52.2/./libgfortran.so.5 (0x00007f051427f000)\n\tlibquadmath.so.0 => /package/gams/52.2/./libquadmath.so.0 (0x00007f0514038000)\n\tlibdl.so.2 => /lib64/libdl.so.2 (0x00007f0514020000)\n\tlibpthread.so.0 => /lib64/libpthread.so.0 (0x00007f0514019000)\n\tlibstdc++.so.6 => /package/gams/52.2/./libstdc++.so.6 (0x00007f0513b43000)\n\tlibm.so.6 => /lib64/libm.so.6 (0x00007f0513a66000)\n\tlibgomp.so.1 => /package/gams/52.2/./libgomp.so.1 (0x00007f051380d000)\n\tlibgcc_s.so.1 => /package/gams/52.2/./libgcc_s.so.1 (0x00007f05135df000)\n\tlibc.so.6 => /lib64/libc.so.6 (0x00007f05133d5000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007f051a28e000)\n\tlibiomp5.so => /package/gams/52.2/./libiomp5.so (0x00007f0512f38000)\n\tlibrt.so.1 => /lib64/librt.so.1 (0x00007f0512f33000)\n"
+      },
+      "pyomo_version": "6.10.0",
+      "smoke": {
+        "status": "passed",
+        "checks": {
+          "scip_mip": {
+            "index": 1,
+            "solver": "scip",
+            "mtype": "mip",
+            "role": "master_or_initialization",
+            "limit_s": 28.498554063995833,
+            "deadline_monotonic": 1527718.859389482,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.186194+00:00",
+            "started_monotonic": 1527688.861324953,
+            "affinity": [
+              35
+            ],
+            "solver_option_file": [
+              "gams/mipstart = 0",
+              "timing/clocktype = 2",
+              "lp/threads = 1",
+              "presolving/milp/threads = 1"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.498554063995833;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "adf2abf661f1f8b37273783ba5dc306beafa137b87f7c427cc1cc5d99de602cc",
+            "gams_statistics": {
+              "MODELSTAT": 1.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": 1.0,
+              "OBJVAL": 1.0,
+              "NUMVAR": 3.0,
+              "NUMEQU": 2.0,
+              "NUMDVAR": 1.0,
+              "NUMNZ": 5.0,
+              "ETSOLVE": 0.364000489935279
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [
+                "9.2.4"
+              ],
+              "ipopt": [],
+              "mumps": [],
+              "solver_starts": [
+                "SCIP"
+              ]
+            },
+            "termination": "optimal",
+            "solver_status": "ok",
+            "lower_bound": 1.0,
+            "upper_bound": 1.0,
+            "global_subproblem_complete": true,
+            "ended_utc": "2026-10-30T04:20:23.953705+00:00",
+            "ended_monotonic": 1527689.628852486,
+            "wall_s": 0.7675278740935028,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          },
+          "ipopt": {
+            "index": 1,
+            "solver": "ipopt",
+            "mtype": "nlp",
+            "role": "master_or_initialization",
+            "limit_s": 28.49967471420532,
+            "deadline_monotonic": 1527719.632535908,
+            "threads": 1,
+            "status": "returned",
+            "started_utc": "2026-10-30T04:20:23.958010+00:00",
+            "started_monotonic": 1527689.633142291,
+            "affinity": [
+              35
+            ],
+            "solver_option_file": [
+              "tol 1e-8",
+              "bound_relax_factor 0",
+              "max_iter 3000",
+              "warm_start_init_point no",
+              "linear_solver mumps"
+            ],
+            "warmstart": false,
+            "gams_add_options": [
+              "option reslim=28.49967471420532;",
+              "option threads=1;",
+              "option optcr=1e-05;",
+              "option optca=0;",
+              "GAMS_MODEL.optfile=1;",
+              "option iterlim=3000;"
+            ],
+            "artifact_directory": "calls/call_00001",
+            "generated_gams_sha256": "70cdb984b82b8959780e7d51788f1f908a9c29295ce526083ab530f4b8aecb8a",
+            "gams_statistics": {
+              "MODELSTAT": 2.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": null,
+              "OBJVAL": 0.0,
+              "NUMVAR": 2.0,
+              "NUMEQU": 1.0,
+              "NUMDVAR": 0.0,
+              "NUMNZ": 2.0,
+              "ETSOLVE": 0.016999756917357
+            },
+            "observed": {
+              "gams": [
+                "52.2.0"
+              ],
+              "scip": [],
+              "ipopt": [
+                "3.14.19"
+              ],
+              "mumps": [
+                "5.8.1"
+              ],
+              "solver_starts": [
+                "IPOPT"
+              ]
+            },
+            "termination": "locallyOptimal",
+            "solver_status": "ok",
+            "lower_bound": null,
+            "upper_bound": 0.0,
+            "global_subproblem_complete": false,
+            "certificate_note": "Local IPOPT result; no global subproblem proof.",
+            "ended_utc": "2026-10-30T04:20:24.339932+00:00",
+            "ended_monotonic": 1527690.015077662,
+            "wall_s": 0.3819357620086521,
+            "start_confirmation": "confirmed",
+            "failure_stage": null
+          }
+        },
+        "observed": {
+          "gams": [
+            "52.2.0"
+          ],
+          "scip": [
+            "9.2.4"
+          ],
+          "ipopt": [
+            "3.14.19"
+          ],
+          "mumps": [
+            "5.8.1"
+          ],
+          "solver_starts": [
+            "SCIP",
+            "IPOPT"
+          ]
+        },
+        "pyomo": "6.10.0",
+        "affinity": [
+          35
+        ],
+        "thread_environment": {
+          "OMP_NUM_THREADS": "1",
+          "OMP_THREAD_LIMIT": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1",
+          "NUMEXPR_MAX_THREADS": "1",
+          "BLIS_NUM_THREADS": "1",
+          "GOTO_NUM_THREADS": "1"
+        },
+        "benchmark_calls": 0
+      }
+    },
+    "original_archive_sha256": "c067a8127367e2cc9054d7634a0836e7812766fc0d5df20f19506dcef4f5bce8",
+    "preflight": {
+      "status": "passed",
+      "checks": {
+        "scip_mip": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "mip",
+          "role": "master_or_initialization",
+          "limit_s": 28.498554063995833,
+          "deadline_monotonic": 1527718.859389482,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.186194+00:00",
+          "started_monotonic": 1527688.861324953,
+          "affinity": [
+            35
+          ],
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2",
+            "lp/threads = 1",
+            "presolving/milp/threads = 1"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.498554063995833;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "adf2abf661f1f8b37273783ba5dc306beafa137b87f7c427cc1cc5d99de602cc",
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 1.0,
+            "OBJVAL": 1.0,
+            "NUMVAR": 3.0,
+            "NUMEQU": 2.0,
+            "NUMDVAR": 1.0,
+            "NUMNZ": 5.0,
+            "ETSOLVE": 0.364000489935279
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [
+              "9.2.4"
+            ],
+            "ipopt": [],
+            "mumps": [],
+            "solver_starts": [
+              "SCIP"
+            ]
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "global_subproblem_complete": true,
+          "ended_utc": "2026-10-30T04:20:23.953705+00:00",
+          "ended_monotonic": 1527689.628852486,
+          "wall_s": 0.7675278740935028,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        },
+        "ipopt": {
+          "index": 1,
+          "solver": "ipopt",
+          "mtype": "nlp",
+          "role": "master_or_initialization",
+          "limit_s": 28.49967471420532,
+          "deadline_monotonic": 1527719.632535908,
+          "threads": 1,
+          "status": "returned",
+          "started_utc": "2026-10-30T04:20:23.958010+00:00",
+          "started_monotonic": 1527689.633142291,
+          "affinity": [
+            35
+          ],
+          "solver_option_file": [
+            "tol 1e-8",
+            "bound_relax_factor 0",
+            "max_iter 3000",
+            "warm_start_init_point no",
+            "linear_solver mumps"
+          ],
+          "warmstart": false,
+          "gams_add_options": [
+            "option reslim=28.49967471420532;",
+            "option threads=1;",
+            "option optcr=1e-05;",
+            "option optca=0;",
+            "GAMS_MODEL.optfile=1;",
+            "option iterlim=3000;"
+          ],
+          "artifact_directory": "calls/call_00001",
+          "generated_gams_sha256": "70cdb984b82b8959780e7d51788f1f908a9c29295ce526083ab530f4b8aecb8a",
+          "gams_statistics": {
+            "MODELSTAT": 2.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": null,
+            "OBJVAL": 0.0,
+            "NUMVAR": 2.0,
+            "NUMEQU": 1.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 2.0,
+            "ETSOLVE": 0.016999756917357
+          },
+          "observed": {
+            "gams": [
+              "52.2.0"
+            ],
+            "scip": [],
+            "ipopt": [
+              "3.14.19"
+            ],
+            "mumps": [
+              "5.8.1"
+            ],
+            "solver_starts": [
+              "IPOPT"
+            ]
+          },
+          "termination": "locallyOptimal",
+          "solver_status": "ok",
+          "lower_bound": null,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": false,
+          "certificate_note": "Local IPOPT result; no global subproblem proof.",
+          "ended_utc": "2026-10-30T04:20:24.339932+00:00",
+          "ended_monotonic": 1527690.015077662,
+          "wall_s": 0.3819357620086521,
+          "start_confirmation": "confirmed",
+          "failure_stage": null
+        }
+      },
+      "observed": {
+        "gams": [
+          "52.2.0"
+        ],
+        "scip": [
+          "9.2.4"
+        ],
+        "ipopt": [
+          "3.14.19"
+        ],
+        "mumps": [
+          "5.8.1"
+        ],
+        "solver_starts": [
+          "SCIP",
+          "IPOPT"
+        ]
+      },
+      "pyomo": "6.10.0",
+      "affinity": [
+        35
+      ],
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1"
+      },
+      "benchmark_calls": 0
+    },
+    "preflight_solver_starts": {
+      "IPOPT": 1,
+      "SCIP": 1
+    }
+  }
+]
