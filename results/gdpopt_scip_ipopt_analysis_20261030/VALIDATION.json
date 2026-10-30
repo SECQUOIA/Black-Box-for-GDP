@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "tests_passed": 35,
+  "test_command": "python -m pytest -q tests/test_gdpopt_scip_ipopt_return.py tests/test_process_scip_return.py tests/test_process_scip_four_return.py tests/test_grid_scip_recovery_comparison.py",
+  "ruff": "passed",
+  "all_90_original_GDP_vectors_rechecked": true,
+  "max_original_violation": 9.890936958356633e-10,
+  "source_outer_and_internal_checksums": "passed at original import",
+  "compact_evidence_replay": "all eight generated analysis/report files reproduced byte-for-byte",
+  "optimization_calls_during_analysis": 0,
+  "original_artifacts_modified": false,
+  "analysis_python": "3.13.12",
+  "analysis_pyomo": "6.10.0",
+  "code_sha256": {
+    "scripts/analyze_gdpopt_scip_ipopt_return.py": "9c11aa95901bb2ae0558d17f688badf814f76e1eadda506a11c5b6793000819c",
+    "tests/test_gdpopt_scip_ipopt_return.py": "ce733aa36eb1ce251d3ff32101fa0d1eed7a0cf2cd5778279fbbbfd7113d1932"
+  }
+}
