@@ -1,5 +1,19 @@
 # Professor review disposition — manuscript revision
 
+## Supplementary duplication removed, 30 October 2026
+
+The [reduced supplementary view](../results/joint_process_supplement_20261030/README.md) shows only the eight conditions absent from main Figure 3.
+The main and supplementary panels partition all fourteen conditions and retain all 700 DFO runs exactly once.
+Overleaf now has one joint supplementary figure, Figure S1, instead of the two full-cohort figures and the redundant DFO-only Figure S3.
+The unused cumulative completion-time equation and its explanatory text were removed from Methods, while the evaluation-count profile and reconstructed completion-cost equation were retained.
+Cross-references and the Albert response were updated in place.
+All 41 David commands and the detailed conventional results and NLP-workload tables were preserved.
+The combined PDF decreased from 35 to 33 pages and compiled with zero errors or warnings.
+The eight-panel figure was visually checked in the compiled document.
+All 34 new and related tests and Ruff passed, and two fresh generations reproduced all five output files byte-for-byte.
+No experiments were rerun, and archived figures, data, source snapshots, and manuscript bundles remain unchanged.
+The dated entries below record the preceding layouts.
+
 ## Joint comparison promoted to the main text, 30 October 2026
 
 The [six-condition joint view](../results/joint_process_main_20261030/README.md) supplies the new main Figure 3 from the unchanged completed SCIP-IPOPT comparison.
