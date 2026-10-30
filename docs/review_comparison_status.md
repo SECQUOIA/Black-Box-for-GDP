@@ -1,5 +1,21 @@
 # Professor review disposition — manuscript revision
 
+## Joint comparison promoted to the main text, 30 October 2026
+
+The [six-condition joint view](../results/joint_process_main_20261030/README.md) supplies the new main Figure 3 from the unchanged completed SCIP-IPOPT comparison.
+The panels cover CSTR5 B=8, CSTR30 B=43, Column B=13, Small Batch B=10, and Dynamic B=12 and B=30.
+All ten DFO seeds are shown with medians and quartiles, while conventional GDP methods retain one observation per model.
+The repeated Dynamic conventional marks do not add independent runs.
+Time-limit labels preserve recorded termination and measured time rather than substituting the configured limit.
+The detailed conventional results moved to Supplementary Table S8, and the old DFO-only completion profiles moved to Figure S3.
+The full fourteen-condition joint figures and NLP-workload table remain in the supplement.
+Localized Overleaf edits connect the joint display to Methods and the CSTR30 and Small Batch cost discussion.
+The lower-bound and CSTR15 diagnostic paragraphs, Discussion, and Conclusions were not rewritten.
+All 41 David commands across both sources, including commented commands, were preserved, and an Albert response was added for comment 7.
+The 35-page combined PDF compiled with zero errors or warnings; references begin on page 19, and the new figure, moved table, and retained profile were visually inspected.
+All 35 new and related tests and Ruff passed; two fresh generations reproduced all five outputs byte-for-byte.
+No experiments were rerun, and existing execution records, manifests, figure generators, and manuscript bundles remain unchanged.
+
 ## Display comments addressed, 30 October 2026
 
 The [display follow-up](../results/review_display_20261030/README.md) supplies the current single-panel B=100 Figure 1, highlighted Grid hit table, and process search-time table fragments.
