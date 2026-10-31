@@ -445,6 +445,8 @@ In the process experiments, \texttt{BAM} stops at its own evaluation limit after
 We use a budget-limited implementation of the previously developed \texttt{D-SDA}~\citep{linan2020optimal}, applying its neighborhood search and discrete line search over the GDP external integer lattice as in LD-SDA~\citep{ovalle2025logic}.
 It evaluates the unit \(L_\infty\) neighborhood in fixed enumeration order, selects the best improving neighbor, and continues along the resulting direction through a discrete line search.
 Neighborhood and line-search moves require an absolute objective improvement greater than \(10^{-5}\).
+As in the original \texttt{D-SDA} and LD-SDA implementations, a configuration is never evaluated twice: when a neighbor or line-search point was already evaluated in the same run, including the shared initial configurations, \texttt{D-SDA} reuses its stored value, and no evaluation is charged.
+\claude{The \texttt{D-SDA} results in this version still come from runs that evaluated revisited configurations again and charged them to the budget (14\% of process and 20\% of Grid evaluations); they will be replaced by the rerun with this rule.}
 If the evaluation budget \(B\) is exhausted, the best solution found is retained.
 
 For the process benchmarks, \texttt{D-SDA} starts with the best accepted configuration among the three initial points evaluated and stops when this descent ends.

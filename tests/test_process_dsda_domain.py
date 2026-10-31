@@ -24,7 +24,7 @@ class MembershipOnly(dict):
     def items(self):
         raise AssertionError("Uncharged dictionary items access")
 
-def search(lower, upper, start, oracle, budget=100, initial_value=None):
+def search(lower, upper, start, oracle, budget=100, initial_value=None, **kwargs):
     tracked = TrackedObjective(oracle)
     result = dsda_from_csv(
         "",
@@ -35,6 +35,7 @@ def search(lower, upper, start, oracle, budget=100, initial_value=None):
         grid=MembershipOnly(box_membership(lower, upper)),
         tracked_objective=tracked,
         start_value=initial_value,
+        **kwargs,
     )
     return tracked, result
 
@@ -161,7 +162,10 @@ class FairnessTests(unittest.TestCase):
         )
         self.assertEqual(tr.evaluation_points, [(1,), (1,), (2,), (0,)])
         self.assertEqual(r["point_evaluations"], 1)
+        # Explored configurations reuse their stored values; the historical runs repeated them.
         tr, r = search([0], [3], (1,), lambda p: -float(p[0]), initial_value=-1.0)
+        self.assertEqual(tr.call_count, tr.unique_evaluation_count)
+        tr, r = search([0], [3], (1,), lambda p: -float(p[0]), initial_value=-1.0, reevaluate_explored=True)
         self.assertGreater(tr.call_count, tr.unique_evaluation_count)
 
     def test_initial_selection_uses_observations_only(self):
