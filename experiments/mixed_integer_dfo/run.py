@@ -8,7 +8,8 @@ configurations, budgets, seeds, target rule, and point-cost accounting.
   nomad    NOMAD 4 (MADS) through PyNomadBBO, integer variables, started from the
            best shared initial configuration
   miso     MISO (CPTV of Mueller, 2016) as implemented by soogo.cptv, with the RBF
-           model warm-started on the three shared initial configurations
+           model warm-started on the three shared initial configurations, plus
+           uniform draws where those do not span the space
   uniform  solver-free check of the lookup harness: uniform sampling without
            replacement after the shared starts
 
@@ -253,8 +254,26 @@ def run_miso(lookup, seed, log):
     values, _ = shared_starts(lookup)
     s = lookup.spec
     dimension = len(s["lower"])
+    points = [lookup.point(p) for p in s["starts"]]
+    # The cubic RBF has a linear tail, which needs d + 1 affinely independent points
+    # (Mueller, 2016). Three shared starts do not span a space of dimension three or
+    # more, so add uniformly drawn configurations that raise the affine rank.
+    design_rng = np.random.default_rng([UNIFORM_STREAM, seed, 1])
+    candidates = sorted(set(lookup.responses) - set(points))
+
+    def affine_rank(pts):
+        return np.linalg.matrix_rank(np.c_[np.ones(len(pts)), np.array(pts, dtype=float)])
+
+    while affine_rank(points) <= dimension and candidates and len(lookup.events) < lookup.budget:
+        p = candidates.pop(int(design_rng.integers(len(candidates))))
+        if affine_rank(points + [p]) > affine_rank(points):
+            points.append(p)
+            values.append(lookup.evaluate(p, "miso_design"))
+    if affine_rank(points) <= dimension:
+        return dict(stop_reason="initial_design_incomplete", coordinate_perturbation="integer_dds",
+                    design_points=len(points))
     model = RbfModel(iindex=tuple(range(dimension)), filter=MedianLpfFilter())
-    model.update(np.array(s["starts"], dtype=float), np.array(values, dtype=float))
+    model.update(np.array(points, dtype=float), np.array(values, dtype=float))
     # Same settings as the soogo.cptv default, without the continuous local search,
     # which has no coordinates to act on in a pure-integer problem.
     rng = np.random.default_rng([UNIFORM_STREAM, seed])
@@ -288,11 +307,11 @@ def run_miso(lookup, seed, log):
     stop = "budget"
     with capture_native_output(log):
         try:
-            cptv(objective, [(lo, hi) for lo, hi in zip(s["lower"], s["upper"])], s["budget"] - 3,
+            cptv(objective, [(lo, hi) for lo, hi in zip(s["lower"], s["upper"])], s["budget"] - len(lookup.events),
                  surrogateModel=model, acquisitionFunc=perturbation, seed=seed, callback=callback)
         except Stalled:
             stop = "no_new_candidates"
-    return dict(stop_reason=stop, coordinate_perturbation="integer_dds")
+    return dict(stop_reason=stop, coordinate_perturbation="integer_dds", design_points=len(points))
 
 
 ADAPTERS = {"nomad": run_nomad, "miso": run_miso, "uniform": run_uniform}
