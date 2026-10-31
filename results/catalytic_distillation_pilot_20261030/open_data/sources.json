@@ -1,0 +1,123 @@
+{
+ "vle_isobutene1_ethanol2_isothermal_323K_Ouni2004.csv": {
+  "system": "isobutene (2-methylpropene) (1) + ethanol (2)",
+  "component_order": [
+   "isobutene",
+   "ethanol"
+  ],
+  "conditions": "isothermal ~323.13 K, static total-pressure (PTz) method; x1 is the liquid mole fraction as stored in ThermoML (computed by the authors from the injected/overall composition); vapour composition NOT measured",
+  "citation": "Ouni, T.; Uusi-Kyyny, P.; Pokki, J.-P.; Aittamaa, J. Isothermal Vapor-Liquid Equilibrium for Binary 2-Methylpropene + C1-C4 Alcohol Systems. J. Chem. Eng. Data 2004, 49, 787-794.",
+  "doi": "10.1021/je034136z",
+  "url_fetched": "https://trc.nist.gov/ThermoML/10.1021/je034136z.xml",
+  "n_points": 24,
+  "notes": "24 rows include the two pure-component endpoints (x1=0, 29.27 kPa; x1=1, 611.04 kPa). 22 mixture points. P uncertainty column = TRC-assessed combined expanded uncertainty from ThermoML."
+ },
+ "pure_vapor_pressure_ETBE_isobutene_ethanol.csv": {
+  "system": "pure-component vapour pressures (ETBE; isobutene and ethanol near 323 K)",
+  "component_order": [
+   "single component per row"
+  ],
+  "citation": [
+   "Efimova, A.A.; Pashchenko, L.L.; Varushchenko, R.M.; Krasnyh, E.; Levanova, S.V. J. Chem. Thermodyn. 2007, 39, 142-147 (doi 10.1016/j.jct.2006.05.007)",
+   "Kim, Y.; Keskinen, K.I.; Aittamaa, J. J. Chem. Eng. Data 2004, 49, 1273-1278 (doi 10.1021/je0342421)",
+   "Laavi, H.; Pokki, J.-P.; Uusi-Kyyny, P.; Kim, Y.; Alopaeus, V. J. Chem. Eng. Data 2013, 58, 943-950 (doi 10.1021/je301238f)",
+   "Haimi, P.; Uusi-Kyyny, P.; Pokki, J.-P.; Alopaeus, V. Fluid Phase Equilib. 2010, 299, 148-160 (doi 10.1016/j.fluid.2010.09.023)",
+   "Ouni, T. et al. J. Chem. Eng. Data 2004, 49, 787-794 (doi 10.1021/je034136z)"
+  ],
+  "doi": [
+   "10.1016/j.jct.2006.05.007",
+   "10.1021/je0342421",
+   "10.1021/je301238f",
+   "10.1016/j.fluid.2010.09.023",
+   "10.1021/je034136z"
+  ],
+  "url_fetched": [
+   "https://trc.nist.gov/ThermoML/10.1016/j.jct.2006.05.007.xml",
+   "https://trc.nist.gov/ThermoML/10.1021/je0342421.xml",
+   "https://trc.nist.gov/ThermoML/10.1021/je301238f.xml",
+   "https://trc.nist.gov/ThermoML/10.1016/j.fluid.2010.09.023.xml",
+   "https://trc.nist.gov/ThermoML/10.1021/je034136z.xml"
+  ],
+  "n_points": 56
+ },
+ "ETBE_liquid_density.csv": {
+  "system": "pure ETBE (2-ethoxy-2-methylpropane), saturated/compressed liquid density",
+  "component_order": [
+   "ETBE"
+  ],
+  "citation": [
+   "Anton, V.; Munoz-Embid, J.; Artal, M.; Lafuente, C. Fluid Phase Equilib. 2016, 417, 7-18 (doi 10.1016/j.fluid.2016.02.009)",
+   "Gonzalez-Olmos, R.; Iglesias, M. Fluid Phase Equilib. 2008, 267, 133-139 (doi 10.1016/j.fluid.2008.03.004)",
+   "Gonzalez-Olmos, R.; Iglesias, M. J. Chem. Thermodyn. 2007, 39, 1557-1564 (doi 10.1016/j.jct.2007.05.005)",
+   "Kinart, C.M.; Nowak, K.; Kinart, W.J. J. Chem. Thermodyn. 2005, 37, 423-429 (doi 10.1016/j.jct.2004.09.014)",
+   "Mejia, A.; Segura, H.; Cartes, M.; Bustos, P. Fluid Phase Equilib. 2007, 255, 121-130 (doi 10.1016/j.fluid.2007.04.009)",
+   "Cardenas, H.; Cartes, M.; Mejia, A. Fluid Phase Equilib. 2015, 396, 88-97 (doi 10.1016/j.fluid.2015.03.040)",
+   "Hwang, I.-C.; Kwon, R.-H.; Park, S.-J. Fluid Phase Equilib. 2013, 344, 32-37 (doi 10.1016/j.fluid.2013.01.022)",
+   "Laavi, H. et al. J. Chem. Eng. Data 2013, 58, 943-950 (doi 10.1021/je301238f)"
+  ],
+  "doi": [
+   "10.1016/j.fluid.2016.02.009",
+   "10.1016/j.fluid.2008.03.004",
+   "10.1016/j.jct.2007.05.005",
+   "10.1016/j.jct.2004.09.014",
+   "10.1016/j.fluid.2007.04.009",
+   "10.1016/j.fluid.2015.03.040",
+   "10.1016/j.fluid.2013.01.022",
+   "10.1021/je301238f"
+  ],
+  "url_fetched": [
+   "https://trc.nist.gov/ThermoML/10.1016/j.fluid.2016.02.009.xml",
+   "https://trc.nist.gov/ThermoML/10.1016/j.fluid.2008.03.004.xml",
+   "https://trc.nist.gov/ThermoML/10.1016/j.jct.2007.05.005.xml",
+   "https://trc.nist.gov/ThermoML/10.1016/j.jct.2004.09.014.xml",
+   "https://trc.nist.gov/ThermoML/10.1016/j.fluid.2007.04.009.xml",
+   "https://trc.nist.gov/ThermoML/10.1016/j.fluid.2015.03.040.xml",
+   "https://trc.nist.gov/ThermoML/10.1016/j.fluid.2013.01.022.xml",
+   "https://trc.nist.gov/ThermoML/10.1021/je301238f.xml"
+  ],
+  "n_points": 187,
+  "notes": "Anton et al. 2016: 154 points, 283.15-333.15 K (5 K steps) x 0.1-65 MPa (P_kPa=100 is atmospheric). Gonzalez-Olmos & Iglesias 2008 (15 pts, 288.15-323.15 K) and 2007 (9 pts, 288.15-323.15 K, two series) share measurements. Kinart et al. 2005: 5 pts 293.15-313.15 K. Single 298.15 K values from Mejia 2007, Cardenas 2015, Hwang 2013, Laavi 2013. Blank P_kPa = atmospheric (stored as a dataset constraint ~101 kPa)."
+ },
+ "ETBE_surface_tension.csv": {
+  "system": "pure ETBE liquid-vapour (air) surface tension",
+  "component_order": [
+   "ETBE"
+  ],
+  "citation": [
+   "Mejia, A.; Segura, H.; Cartes, M.; Bustos, P. Vapor-liquid equilibrium, densities, and interfacial tensions for the system ethyl 1,1-dimethylethyl ether (ETBE) + propan-1-ol. Fluid Phase Equilib. 2007, 255, 121-130.",
+   "Cardenas, H.; Cartes, M.; Mejia, A. Atmospheric densities and interfacial tensions for 1-alkanol (1-butanol to 1-octanol) + water and ether (MTBE, ETBE, DIPE, TAME and THP) + water demixed mixtures. Fluid Phase Equilib. 2015, 396, 88-97."
+  ],
+  "doi": [
+   "10.1016/j.fluid.2007.04.009",
+   "10.1016/j.fluid.2015.03.040"
+  ],
+  "url_fetched": [
+   "https://trc.nist.gov/ThermoML/10.1016/j.fluid.2007.04.009.xml",
+   "https://trc.nist.gov/ThermoML/10.1016/j.fluid.2015.03.040.xml"
+  ],
+  "n_points": 2,
+  "notes": "Only 298.15 K values found in open sources; no temperature-dependent data located."
+ },
+ "azeotrope_ETBE1_ethanol2_isobaric_NihonUniv.csv": {
+  "system": "ETBE (1) + ethanol (2), minimum-boiling azeotrope (x1 = y1)",
+  "component_order": [
+   "ETBE",
+   "ethanol"
+  ],
+  "conditions": "isobaric, 50.0 / 60.0 / 101.3 kPa; azeotrope located graphically from measured isobaric T-x-y data (glass recirculating still, GC analysis). The underlying T-x-y points are shown only in figures, not tabulated.",
+  "citation": [
+   "Maeda, W.; Sato, T.; Hiaki, T.; Oba, S. Measurement of Isobaric Vapor-Liquid Equilibrium for Binary System 2-Methyl-2-ethoxypropane(1)+Ethanol(2) and Data Evaluation by Thermodynamic Models. Proc. 50th CIT Academic Lecture Meeting, Nihon University, 2017-12-02, P-56, pp. 925-926 (Japanese; non-peer-reviewed conference abstract).",
+   "Maeda, W.; Sato, T.; Oba, S.; Hiaki, T. Measurement of Isobaric VLE for ETBE(1)+Ethanol(2)+2-Methyl-2-propanol(3) and Design of ETBE Separation Process. Proc. 51st CIT Academic Lecture Meeting, Nihon University, 2018-12-01, 4-40, pp. 447-448 (Table 3 repeats the 60.0/101.3 kPa azeotropes).",
+   "Zhang, T.; Sato, T. Isobaric Vapor-Liquid Equilibrium Measurements and Pressure Dependence of Azeotropic Composition for the Development of an ETBE Refining Process. Proc. 58th CIT Academic Lecture Meeting, Nihon University, 2025-12-13, 4-47, pp. 459-460 (Table 3)."
+  ],
+  "doi": null,
+  "url_fetched": [
+   "https://www.cit.nihon-u.ac.jp/laboratorydata/kenkyu/kouennkai/reference/No.50/pdf/P-56.pdf",
+   "https://www.cit.nihon-u.ac.jp/laboratorydata/kenkyu/kouennkai/reference/No.51/pdf/4-40.pdf",
+   "https://www.cit.nihon-u.ac.jp/laboratorydata/kenkyu/kouennkai/reference/No.58/pdf/4-47.pdf"
+  ],
+  "n_points": 4,
+  "notes": "Values transcribed from text/Table 3 of the PDFs (2025 table read from rendered page image). Note the two 101.3 kPa Taz values differ (339.78 vs 339.95 K). ETBE purity in these works was only 95.0 % (TCI)."
+ },
+ "_general_notes": "All ThermoML-derived files were parsed with python3 (standard library) from the NIST TRC ThermoML Archive XML; uncertainty columns are the TRC-assessed combined expanded uncertainties stored in ThermoML (nCombExpandUncertValue), not necessarily the authors' stated values. Component 1 is the first component named in each filename."
+}

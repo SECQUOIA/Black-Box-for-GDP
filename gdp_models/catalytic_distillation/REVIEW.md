@@ -148,7 +148,28 @@ GAMS 54.2 with CONOPT 4, IPOPT 3.14, and POUNCE (an interior-point solver writte
 - Objective: findings 11, 12, 15, 16, and 17.
 - Bounds: findings 27 and 28.
 
-Finding 20 needs no change, since the heats of formation agree with the measured heat of reaction. Finding 25 (weir crest coefficient) is not changed, because the textbook coefficient differs by source. `Temp.up` (finding 9) stays, because the DIPPR expressions require T below each component's critical temperature.
+Finding 20 needs no change, since the heats of formation agree with the measured heat of reaction. Finding 25 (weir crest coefficient) is not changed, because the textbook coefficient differs by source.
+
+It also changes the following:
+
+- **Mixture liquid density.** The Rackett equation with the Spencer–Danner mixing rule and Li's pseudo-critical temperature replaces the per-component DIPPR 105 average (Poling, Prausnitz, and O'Connell, *The Properties of Gases and Liquids*, 5th ed., Sec. 4-12). The Poynting factor uses the mixture molar volume.
+- **Mixture surface tension.** Macleod–Sugden with parachors replaces the per-component DIPPR 106 average (same reference, Sec. 12-5).
+- **Temperature cap.** Both mixture methods stay valid when isobutene or 1-butene is above its own critical temperature, so `Temp.up` (finding 9) rises from 417.89 to 445 K. The best designs used to sit within 0.5 K of the old cap.
+- **Catalyst temperature.** Catalytic stages stay at or below 120 °C, the maximum operating temperature of Amberlyst 15 in non-aqueous media (Rohm and Haas, Amberlyst 15DRY product data sheet).
+- **Open pure-component data for isobutene, 1-butene, and ethanol.** The model's correlation forms (extended Antoine, ideal-gas Cp, DIPPR 106 heat of vaporization, liquid Cp), the critical constants, the acentric factors, the Rackett parameters, and the parachors are fitted to the reference equations of state of Lemmon and Ihmels (2005, Fluid Phase Equilib. 228–229, 173) and Schroeder et al. (2014, J. Phys. Chem. Ref. Data 43, 043102), and to the surface-tension correlations of Mulero et al. (2012, J. Phys. Chem. Ref. Data 41, 043105), all evaluated with CoolProp 8.0.0.
+  - Fit errors: vapor pressure ≤1%, ideal-gas Cp ≤0.4%, heat of vaporization ≤0.5% (ethanol 2.9% near its critical point), liquid Cp ≤1%.
+  - In the operating range, the Rackett density is within 1.8% and the parachor surface tension within 3% up to 370 K.
+  - Heats of formation are NIST values (Prosen et al. 1951 for the butenes; the NIST average for ethanol).
+  - `experiments/catalytic_distillation_pilot/fit_open_properties.py` performs the fits. Its output and the parameters used are in `results/catalytic_distillation_pilot_20261030/open_property_*.json`.
+- **ETBE.** ETBE has no open reference equation or measured critical point, so its critical constants, vapor pressure, heat capacities, and heat of vaporization stay as in the original model. They agree with open data:
+  - Vapor pressure within ±2% of 50 points at 298–358 K (Efimova et al. 2007; Kim et al. 2004; Laavi et al. 2013; Haimi et al. 2010).
+  - Heat of vaporization, liquid Cp, and normal boiling point as in the NIST table above.
+  - Its Rackett parameter (0.268) is fitted to 44 open density points at 283–333 K (Anton et al. 2016 and others; within 0.18%). Its parachor (292.9) comes from the measured 19.73 mN/m at 298 K (Mejía et al. 2007; Cárdenas et al. 2015).
+- **NRTL parameters.** These stay as in the original model (taken from Aspen Plus). Against the open data, they predict:
+  - the isobutene + ethanol bubble pressures at 323 K within 1.5% on average and 2.8% at most (Ouni et al. 2004, 22 points);
+  - the ETBE + ethanol azeotrope within 0.04–0.9 K and 0.7–4 mol% at 50–101 kPa (Maeda et al. 2017; Zhang and Sato 2025).
+  - No open data were found for the other four binaries.
+  - `experiments/catalytic_distillation_pilot/check_nrtl_etbe_open_data.py` reproduces these checks.
 
 The objective is the negative annual profit in $/yr:
 
@@ -157,9 +178,14 @@ The objective is the negative annual profit in $/yr:
 - **Capital, annualized once:** column shell, sieve trays on internal stages only, catalyst, condenser, and reboiler.
 - **Exchanger sizing:** the condenser and reboiler are sized from their duties with U = 0.568 kW/(m²·K), cooling water at 305–322 K, and 10-bar steam at 453 K. Their cost uses Guthrie's correlation, replacing the constant 10,000 $/yr.
 
-The Guthrie and Douglas correlations are used far below their size range (column diameter 0.13 m), so the absolute cost is indicative. The ranking of configurations is what the benchmark uses.
+The feed, product, and catalyst prices are those printed by Gómez et al. (2006, open), who attribute their costs to Al-Arfaj and Luyben (2002), so they are about 2002 US dollars. The steam and cooling-water costs and the M&S index of 1050 have no documented source. The Guthrie and Douglas correlations are used far below their size range (column diameter 0.13 m), so the absolute cost is indicative. The ranking of configurations is what the benchmark uses.
 
-At the published configuration the corrected model gives 18,488.68 $/yr, with Qr = 235, reflux ratio 2.35, and the purity specification active. On the 202 sampled configurations, CONOPT from `init.gdx` accepts 169, with a median solve of 3.1 s. Starting from the corrected model's own solution at the initial configuration accepts only 109. The published configuration is the best of the sample. Four configurations reach different local optima from the two initializations, so the evaluation protocol fixes the initialization to `init.gdx`.
+**Results.**
+- At the published configuration the corrected model gives 18,568.31 $/yr with Qr = 239 and the purity specification active.
+- On the 202 sampled configurations, CONOPT from `init.gdx` accepts 161, with a median solve of 3.2 s.
+- The three best sampled configurations, (7, 7, 11, 17, 17, 20), (6, 6, 10, 14, 14, 18), and the published one, lie within 2.2 $/yr of each other. (5, 5, 7, 8, 8, 12), found by MISO in the live pilot, gives 18,489.33 $/yr at 88.8 mol% ETBE.
+- With a 95 mol% specification, columns with b ≤ 10 become infeasible, while taller ones such as (5, 5, 7, 8, 8, 12) reach it with bottoms at about 432 K.
+- An earlier version of the corrected model, without these changes, gave 169 of 202 accepted. Starting from its own solution at the initial configuration gave only 109, so the evaluation protocol fixes the initialization to `init.gdx`.
 
 ## Consequences for the benchmark
 

@@ -25,3 +25,13 @@ GAMS 54.2. The machine was shared with other workloads, so times are indicative.
 
 Runs with IPOPT on the 72 failures and on the eight best configurations were discarded. Their solver processes were multithreaded and outlived the time limit, so their timeouts measure machine load rather than the solver.
 The runner now passes `threads=1` and kills the solver's process group on timeout.
+
+## Corrected model with open property data (current version)
+
+| Run or file | Content |
+|---|---|
+| `open_pilot_200_conopt` | `pilot202.csv`, CONOPT from `init.gdx`: 161 accepted, median 3.2 s |
+| `open_property_fits.json`, `open_property_parameters.json` | Output of `fit_open_properties.py` and the parameters used in the model |
+| `open_data/` | Open experimental data with `sources.json`: isobutene + ethanol VLE, ETBE + ethanol azeotropes, ETBE vapor pressure, density, and surface tension. Used by `check_nrtl_etbe_open_data.py` |
+
+The runs above under "Corrected model" used an earlier version, before the mixture density and surface tension, the catalyst limit, and the open pure-component data.
