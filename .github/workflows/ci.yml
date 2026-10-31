@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
   pull_request:
-    # Include stacked follow-ups to PR #52 before that branch merges into main.
-    branches: [main, review/cstr15-dantzig-results]
+    # Include stacked follow-ups to review branches before they merge into main.
+    branches: [main, review/cstr15-dantzig-results, review/grid-figure-quartiles-20261029]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
