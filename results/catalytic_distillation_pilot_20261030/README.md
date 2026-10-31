@@ -19,7 +19,7 @@ GAMS 54.2. The machine was shared with other workloads, so times are indicative.
 
 | Run | Configurations | Initialization | Notes |
 |---|---|---|---|
-| `corrected_pilot_200_init` | `pilot202.csv` | `init.gdx` | 169 accepted; median 3.1 s. This is the evaluation protocol for the live DFO runs |
+| `corrected_pilot_200_init` | `pilot202.csv` | `init.gdx` | 169 accepted; median 3.1 s |
 | `corrected_pilot_200_own_init` | `pilot202.csv` | the corrected model's solution at (3, 4, 5, 6, 8, 9), solved from `init.gdx` (not kept) | 109 accepted; median 8.7 s |
 | `corrected_failed_from_published_solution` | `corrected_failed.csv`, the 93 failures of the previous run | the corrected model's solution at the published configuration | 12 recovered |
 
@@ -32,6 +32,7 @@ The runner now passes `threads=1` and kills the solver's process group on timeou
 |---|---|
 | `open_pilot_200_conopt` | `pilot202.csv`, CONOPT from `init.gdx`: 161 accepted, median 3.2 s |
 | `open_property_fits.json`, `open_property_parameters.json` | Output of `fit_open_properties.py` and the parameters used in the model |
+| `open_pilot_20_pounce_0.14.0`, `open_pilot_20_pounce_gams54.2` | The first 20 configurations of `pilot202.csv` with POUNCE 0.14.0 (pip GAMS link, selected through `XDG_CONFIG_DIRS`) and the POUNCE bundled with GAMS 54.2.2, one thread, 600 s: neither accepts any configuration (CONOPT accepts 14). IPOPT also fails at the published configuration, with and without warm-start options |
 | `open_data/` | Open experimental data with `sources.json`: isobutene + ethanol VLE, ETBE + ethanol azeotropes, ETBE vapor pressure, density, and surface tension. Used by `check_nrtl_etbe_open_data.py` |
 
 The runs above under "Corrected model" used an earlier version, before the mixture density and surface tension, the catalyst limit, and the open pure-component data.
