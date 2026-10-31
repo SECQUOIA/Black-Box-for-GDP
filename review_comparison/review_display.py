@@ -97,7 +97,6 @@ def render(curves, out):
     from matplotlib.ticker import MultipleLocator
 
     colors = dict(m.COLOR)
-    colors[m.PRE] = "#000000"
     styles = dict(m.STYLE)
     styles["bam"] = "-"
     styles[m.PRE] = (0, (5, 2, 1, 2))
@@ -165,7 +164,7 @@ Input SHA256 is checked against its archived manifest before use.
 All 6,300 primary Grid runs and all 30 archived curves are checked before selecting the six B=100 curves for Figure 1.
 The separate five-budget Grid table retains its original percentages and highlights all row maxima, including ties.
 Figure 1 has no internal title and preserves every B=100 curve coordinate.
-BAM uses a thicker green solid line and filled triangles; its prefix control uses a thinner black dash-dot line and open downward triangles.
+BAM uses a thicker bluish-green solid line and filled triangles; its prefix control uses a thinner sky-blue dash-dot line and open downward triangles (Okabe-Ito colors).
 The overlap is not displaced, and staggered markers help reveal both methods where their curves coincide.
 
 The process table uses exactly 700 current DFO runs: 14 case-budget conditions, five methods, and seeds 0--9 in every group.

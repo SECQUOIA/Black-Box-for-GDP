@@ -53,7 +53,7 @@ def render(selected, out):
                     y = i + (row['seed'] - 4.5) * .055 if dfo else i
                     hit = row['target_reached']
                     marker = ('o' if dfo else 'D') if hit else 'x'
-                    color = '#00786e' if hit else '#a54124'
+                    color = '#0072B2' if hit else '#D55E00'
                     ax.scatter(row['completion_s'], y, marker=marker, c=color,
                                s=13 if dfo else 22, linewidths=.8, zorder=3)
                     if row['bound_conflict']:
@@ -73,9 +73,9 @@ def render(selected, out):
             ax.grid(axis='x', which='major', alpha=.18)
         for ax in axs[-1]:
             ax.set_xlabel('Full-run completion time (s)', fontsize=9)
-        handles = [Line2D([], [], marker='o', color='#00786e', ls='', label='DFO target reached'),
-                   Line2D([], [], marker='D', color='#00786e', ls='', label='Conventional GDP target reached'),
-                   Line2D([], [], marker='x', color='#a54124', ls='', label='Target not reached'),
+        handles = [Line2D([], [], marker='o', color='#0072B2', ls='', label='DFO target reached'),
+                   Line2D([], [], marker='D', color='#0072B2', ls='', label='Conventional GDP target reached'),
+                   Line2D([], [], marker='x', color='#D55E00', ls='', label='Target not reached'),
                    Line2D([], [], marker='|', color='#b0b0b0', markeredgecolor='#222222',
                           ms=9, lw=3, label='DFO median and Q25-Q75')]
         fig.legend(handles=handles, loc='lower center', ncol=2, frameon=False, fontsize=8,
