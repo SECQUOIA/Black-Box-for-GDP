@@ -8,7 +8,7 @@ Every evaluation solves the NLP of the requested configuration. Nothing is enume
 - Each admissible configuration is solved with CONOPT from `init.gdx`, one thread, with a 300 s limit.
 - A configuration is accepted when CONOPT reports normal completion with a locally optimal solution. Its value is `zobj`, the negative annual profit in $/yr.
 - Every response is a deterministic function of the configuration, so it is solved at most once per campaign and stored in `cache.sqlite`, which all runs share. The cache records the model, initialization, and solver hashes and refuses a mismatch.
-- A repeated request is still charged to the budget and to the point cost, as in the published accounting.
+- A repeated request is still charged to the budget and to the point cost, as in the published accounting; D-SDA never makes one.
 
 ## Search space
 
@@ -25,7 +25,7 @@ An inadmissible point is charged to the budget and returned as infeasible withou
 - Seeds 0–9, each with seven shared starts (d + 1 = 7), drawn uniformly from the admissible points and spanning the space. The starts are the first seven evaluations of every method.
 - Budgets B = 25, 50, and 100 evaluations, including the starts. The full plan is 7 methods × 10 seeds × 3 budgets = 210 runs.
 - Methods:
-  - D-SDA from the best accepted start, with the Separable neighborhood (one-coordinate moves, the neighborhood the original D-SDA used for this column) and improvement tolerance 1e-5.
+  - D-SDA from the best accepted start, with the Separable neighborhood (one-coordinate moves, the neighborhood the original D-SDA used for this column) and improvement tolerance 1e-5. As in the original D-SDA and LD-SDA, a configuration evaluated earlier in the run, including the shared starts, is never requested again.
   - RBFOpt 4.3 MSRSM with genetic global search.
   - BAM with the starts as its predetermined design.
   - FMQA-SA, with a time limit of 7,200 s because objective time counts toward it.
