@@ -103,9 +103,13 @@ Values from the NIST WebBook pages of isobutene (C115117), ethanol (C64175), 1-b
 | Liquid heat of reaction | −31.3 kJ/mol from the model's enthalpies, −34.3 with the corrected departures, against −32.0 (Sola et al. 1995) and −35.5 ± 1.9 (Sharonov et al. 1995); see finding 20 |
 | Acentric factor | Each value equals the one implied by the model's own Antoine and the absolute critical pressure; for ethanol the NIST Antoine gives 0.644, against 0.6436 |
 
+| Liquid density | Against the CoolProp 8.0.0 reference equations of state at 300–410 K (saturated liquid): the corrected DIPPR 105 (exponent `C3r`, component Tc) is within 1% for isobutene, 1-butene, and ethanol; the published form is 27–141% high (finding 4) |
+| Surface tension | Against CoolProp: isobutene and 1-butene within 2.5% up to 380 K and 5–7% near their critical points; the corrected ethanol polynomial within 1–6%, against 73–245% high in the published form (finding 5) |
+
+`experiments/catalytic_distillation_pilot/check_constants_nist.py` and `check_liquid_properties_coolprop.py` reproduce these comparisons.
+
 Not confirmed from public data:
-- Liquid density and surface tension: the NIST fluid-property tables do not cover these four compounds.
-- ETBE critical constants and acentric factor.
+- ETBE liquid density, surface tension, critical constants, and acentric factor (ETBE is in neither the NIST fluid tables nor CoolProp).
 - The NRTL parameters.
 
 ## Effect on the configuration ranking
