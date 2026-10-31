@@ -23,7 +23,9 @@ case $mode in
             "$MIDFO_PYTHON" -c "import PyNomad, soogo"
         [[ -s $BAM_LICENSE_FILE ]] || { echo "BAM license not found: $BAM_LICENSE_FILE" >&2; exit 1; }
         GAMS_EXE=$GAMS_EXE "$DFO_PYTHON" -m pytest -q "$REPOSITORY/tests/test_catalytic_distillation_live.py"
-        "$MIDFO_PYTHON" -m pytest -q "$REPOSITORY/tests/test_catalytic_distillation_live.py" -k adapters ;;
+        "$MIDFO_PYTHON" -m pytest -q "$REPOSITORY/tests/test_catalytic_distillation_live.py" -k adapters
+        BAM_LICENSE_FILE=$BAM_LICENSE_FILE "$DFO_PYTHON" -m pytest -q "$REPOSITORY/tests/test_catalytic_distillation_live.py" -k "surrogate and bam"
+        "$FMQA_PYTHON" -m pytest -q "$REPOSITORY/tests/test_catalytic_distillation_live.py" -k "surrogate and fmqa" ;;
     plan)
         "$DFO_PYTHON" run.py plan --output "$OUTPUT" ;;
     run)

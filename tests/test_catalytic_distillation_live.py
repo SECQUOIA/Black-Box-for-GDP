@@ -102,6 +102,22 @@ def test_mixed_integer_adapters_run_on_live_responses(tmp_path, method, module):
     assert [e["point"] for e in events[:7]] == spec_["starts"] and 7 < len(events) <= 25
 
 
+@pytest.mark.parametrize("method,module", [("bam", "bam"), ("fmqa_sa", "torch")])
+def test_surrogate_methods_run_on_live_oracle(tmp_path, method, module):
+    pytest.importorskip(module)
+    config = {"bam_license": os.environ.get("BAM_LICENSE_FILE")}
+    if method == "bam" and not (config["bam_license"] and Path(config["bam_license"]).is_file()):
+        pytest.skip("BAM license not available")
+    spec_ = job(method, 15)
+    oracle = live.LiveOracle(spec_, case.Evaluator(tmp_path / "cache.sqlite", None, solve=fake_solve), tmp_path)
+    try:
+        live.optimize(spec_, oracle, config)
+    except live.BudgetStop:
+        pass
+    assert [e["point"] for e in oracle.events[:7]] == spec_["starts"]
+    assert 7 < len(oracle.events) <= 15 and not oracle.budget_overrun
+
+
 @pytest.mark.skipif(not GAMS, reason="GAMS not available")
 def test_worker_solves_live_configurations(tmp_path):
     output = tmp_path / "campaign"
