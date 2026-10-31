@@ -1,0 +1,52 @@
+{
+  "baseline_revision": "a1bf5ea97ba2da528fedf330682c629b62e688e8",
+  "no_new_experiments": true,
+  "input_sha256": {
+    "results/dsda_publication_20261028/manifest.json": "98c41bd3fe0cec9c0a1a54949e156e8b96995a722306faec996b1cccc6e9e811",
+    "results/dsda_publication_20261028/tables/run_records.csv": "5948a78341f20faa9507ef3c9f72f8d0a599b8df7e1b96d8e3153d3c1414e386",
+    "results/dsda_publication_20261028/figures/grid_figure_values.json": "2d17f78f4b3b716efa262cf11999863995ebc8f357e17d87f8a83f562ad5aedb"
+  },
+  "source_sha256": {
+    "review_comparison/review_display.py": "e8b704c8fa03e83d3b880634409a8a7ea395100d756cef95fb452bbed256fa6f",
+    "review_comparison/grid_presentation.py": "eca17b109f5ee5f64d7891f32c21aaddad1939c78aebc6b2646282eb1cff1a92",
+    "review_comparison/manuscript.py": "5527f070accfa005ce2d25b26d898d8e22a4c8d44b2fcb02d831a18c21b5b530",
+    "review_comparison/joint_process.py": "06eff66bafe3bb3411021441204b45744ce6ed69111f6e926630d910fc89edfe"
+  },
+  "outputs_sha256": {
+    "README.md": "3839c553ac467e012322b78e542f8ea5833d21dd0c51337edb45fce70e66c94d",
+    "figure_B_grid_evaluation_profiles.pdf": "d937952503b2c6d797c17c7713ae4c2459e6d91c649d5324c3b017b30bb5d393",
+    "figure_B_grid_evaluation_profiles.png": "5cc2d1ace5b419b7904995a246549082746d0baaf0bbf547b8266d8126f8453a",
+    "grid_B100_curve_values.json": "67eb10374522698c203adacdf548722255af25d0b180fee6db787c795c61b004",
+    "grid_hits.tex": "dc9477d6bec6d95bc9716fe347d11c82981f71279f12ef3c901148679f07a717",
+    "process_hits_search.tex": "91a365eb05a539ba5447f4aec5c2fd51bc6832ea7816d62722d9d68bb59a4260",
+    "process_search_quartiles.csv": "137e1db55bc8b7cbeb790fa0cf063c91d0315e77fc73c9d117fc6c4d4a25543a"
+  },
+  "process_runs": 700,
+  "process_conditions": 14,
+  "process_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "process_methods": [
+    "dsda",
+    "rbfopt_msrsm_genetic",
+    "bam",
+    "fmqa_sa",
+    "uniform_without_replacement"
+  ],
+  "quartiles": "inclusive linear interpolation at rank (n-1)p, all ten seeds",
+  "execution_provider_revisions": "Unchanged; see the archived input manifest",
+  "environment": {
+    "python": "3.10.19",
+    "matplotlib": "3.10.8"
+  },
+  "reproduce": "python -m review_comparison.review_display --output /tmp/review-display-replay"
+}

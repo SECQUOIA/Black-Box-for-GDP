@@ -57,7 +57,8 @@ AXIS_LABEL[PRE] = "BAM-prefix\ncontrol"
 COLOR = dict(
     zip(
         ALL,
-        ["#1976b9", "#df710c", "#238b45", "#9063b8", "#555555", "#008b8b", "#b05d43"],
+        # Okabe-Ito colors; uniform is neutral gray.
+        ["#0072B2", "#D55E00", "#009E73", "#CC79A7", "#666666", "#56B4E9", "#E69F00"],
     )
 )
 STYLE = dict(zip(ALL, ["-", "--", "-.", ":", (0, (5, 2)), (0, (1, 1)), "--"]))
