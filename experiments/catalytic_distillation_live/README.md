@@ -38,7 +38,20 @@ An inadmissible point is charged to the budget and returned as infeasible withou
 
 ## Cost
 
-In a local pilot (seed 0, B = 25), D-SDA, RBFOpt, uniform sampling, NOMAD, and MISO each took 80–130 s, about 4–5 s per evaluation.
+A local pilot ran all seven methods at seed 0 and B = 25, each pinned to one CPU of a shared workstation.
+BAM and FMQA-SA used uv-built Python 3.12 environments with the pinned packages: `bam-solver` 5.0.0, and torch 2.13.0 (CPU) with `requirements-fmqa-qhd.txt`.
+Each run took 80–165 s, about 4–5 s per evaluation:
+
+| Method | Accepted | Logical rejections | Gap to best known ($/yr) |
+|---|---:|---:|---:|
+| MISO | 17 | 3 | 0 (found the best known, 18,480.38 at (5, 5, 7, 8, 8, 12)) |
+| FMQA-SA | 18 | 4 | 63 |
+| NOMAD | 17 | 4 | 183 |
+| Uniform | 12 | 10 | 281 |
+| BAM | 8 | 7 | 476 |
+| D-SDA | 21 | 1 | 634 |
+| RBFOpt | 20 | 3 | 752 |
+
 The full plan has 12,250 evaluations. At that rate it needs about 15 CPU-hours before cache reuse and FMQA training, so about 1 h on 32 cores.
 
 ## Running on Dantzig
