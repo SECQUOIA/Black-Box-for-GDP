@@ -6,7 +6,8 @@ Methods share the gap-coordinate box, the seven starts of each seed, the
 budget accounting, and the penalties of the published process comparison:
 
   dsda     D-SDA from the best accepted start, Separable neighborhood (one-coordinate
-           moves), improvement tolerance 1e-5, as in the adopted process D-SDA
+           moves), improvement tolerance 1e-5, as in the adopted process D-SDA; no
+           configuration is evaluated twice
   rbfopt   RBFOpt 4.3 MSRSM with genetic global search, warm-started on the starts
   bam      BAM with the starts as its predetermined design
   fmqa_sa  FMQA with simulated annealing
@@ -247,9 +248,11 @@ def optimize(spec, oracle, config):
             raise RuntimeError("No accepted initial point; no reseeding")
         best = min(accepted, key=lambda e: e["raw_objective"])
         grid = dict.fromkeys(case.box_points())
+        # The shared starts are known, so D-SDA never requests a configuration twice.
+        known = {tuple(e["point"]): e["method_value"] for e in oracle.events}
         result = dsda_from_csv(csv_path="live", start_point=tuple(best["point"]), start_value=best["raw_objective"],
                                grid=grid, tracked_objective=oracle, max_points_explored=spec["budget"] - n0,
-                               verbose=False, **spec["settings"])
+                               verbose=False, known_values=known, **spec["settings"])
         return {"returned": str(result)[:2000]}
     if method == "rbfopt":
         import rbfopt

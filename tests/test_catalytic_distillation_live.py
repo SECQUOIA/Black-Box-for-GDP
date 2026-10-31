@@ -70,6 +70,8 @@ def test_oracle_charges_every_callback_and_solves_each_point_once(tmp_path, meth
     assert len(events) <= 30 and not oracle.budget_overrun
     if method == "uniform":
         assert len(events) == 30
+    points = [tuple(e["point"]) for e in events]
+    assert len(points) == len(set(points))
     rejected = [e for e in events if e["status"] == "logical_infeasible"]
     assert all(e["point_cost_s"] == 0 and not e["solved_now"] for e in rejected)
     assert len(solves) == len({tuple(e["point"]) for e in events if case.admissible(tuple(e["point"]))})
