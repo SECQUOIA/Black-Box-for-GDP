@@ -21,8 +21,9 @@ def test_conditions_partition_all_fourteen():
 def test_all_original_dfo_rows_retained_once(data):
     combined = j.select(data) + j.main.select(data)
     dfo = [r for r in combined if r['family'] == 'DFO']
-    assert len(dfo) == 700
-    assert len({j.base.key(r) for r in dfo}) == 700
+    # Seven DFO methods over the fourteen conditions: 980 runs.
+    assert len(dfo) == 980
+    assert len({j.base.key(r) for r in dfo}) == 980
     for row in dfo:
         original = dict(row)
         original.pop('panel_budget')
@@ -31,7 +32,7 @@ def test_all_original_dfo_rows_retained_once(data):
 
 def test_conventional_repetitions_are_identical(data):
     selected = j.select(data)
-    assert len(selected) == 440
+    assert len(selected) == 600
     conventional = [r for r in selected if r['family'] == 'algebraic']
     assert len(conventional) == 40
     assert len({r['source'] for r in conventional}) == 25
