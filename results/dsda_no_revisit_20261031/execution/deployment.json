@@ -1,0 +1,25 @@
+{
+  "execution_revision": "c186408728c6f95ac33a5465edd53035d85c5620",
+  "included_wrapper_files": {
+    "COLLECT.sh": "b6a4c7c29980b56276dc8fc863163009a87e2f600f81a263d0992cc045cd1853",
+    "PACKAGE_CONFIG.json": "23a563082697fb4dadf9cac467bd2135988f5ecabfeba242b86124aea71bfd15",
+    "PACKAGE_SHA256.json": "682e81da174729f7a0e3340cb55cc78ed701d1197444947c344e6de7708f9e3e",
+    "PACKAGE_VALIDATION.json": "2d89fad98c79e5843aa3a3675842297866c0d9d911297a57138a618e96805391",
+    "README.md": "42d5e73788f7fa8f4f88ee9ecb780d48717cb2fc45f649291eee4bd4cc608b9d",
+    "REMOTE_VERIFICATION.json": "a063dc443a77e1a183b549f42404a82ced4b5965bc5f0e1bb6d111e8a3871481",
+    "RUN.sh": "e5d7d7390f2c32084ae6869427287c1c30b98df922fea23a094846a3ee376b03",
+    "RUN_A.sh": "e5d7d7390f2c32084ae6869427287c1c30b98df922fea23a094846a3ee376b03",
+    "SOURCE_MANIFEST.json": "0188c705045cd5c5dc3fa823ab7d133c2d85bca190ca9f0ab41ab8d6ac5da50a",
+    "STATUS.sh": "a5306a98706584202f58e2560f38da7b746d758ad0eebda04a541c67520c51ab",
+    "control.py": "7696451e7143a203a201ee766c1cbe4cadef7f235608dd5f0ac75956d0fbeb23",
+    "tests/test_package.py": "04f41777db9811dd20ab6892e84ba98f1f87e6210dfa57c65e37a8ec20904fa6",
+    "verify.py": "2bae2f29f2dc214fc1433eff5934508ae7d51043de481308c33814a64f0cd29c"
+  },
+  "package_bytes": 509572036,
+  "package_name": "pr56_dsda_offline_20261031",
+  "package_sha256": "4c6752670fd68046b7a5848c6dee07f0eff662e2fec173e5a2b79e23eba7ef7c",
+  "server_output": "/local/scratch/a/lee4382/repository/dsda_no_revisit_output_20261031_230829",
+  "server_package_directory": "/local/scratch/a/lee4382/repository/pr56_dsda_offline_20261031",
+  "server_worktree": "/local/scratch/a/lee4382/repository/dsda_no_revisit",
+  "source_snapshot_omitted_from_result_commit": "The exact source tree is already available at the pinned commit; the transfer ZIP is preserved locally."
+}

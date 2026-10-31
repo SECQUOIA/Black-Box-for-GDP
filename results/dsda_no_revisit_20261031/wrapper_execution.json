@@ -1,0 +1,34 @@
+{
+  "command": [
+    "bash",
+    "experiments/dsda_no_revisit/run_dantzig.sh"
+  ],
+  "cpus": [
+    {
+      "core": 61,
+      "cpu": 47,
+      "siblings": [
+        47,
+        95
+      ],
+      "socket": 0
+    }
+  ],
+  "cwd": "/local/scratch/a/lee4382/repository/dsda_no_revisit",
+  "environment": {
+    "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+    "packages": {
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scipy": "1.17.1"
+    },
+    "python": "3.11.16"
+  },
+  "exit_code": 0,
+  "finished_utc": "2026-10-31T23:08:48.542152+00:00",
+  "log": "/local/scratch/a/lee4382/repository/pr56_dsda_offline_20261031/state/A_launcher_20261031_230829.log",
+  "pid": 16307,
+  "revision": "c186408728c6f95ac33a5465edd53035d85c5620",
+  "start_ticks": "168177529",
+  "started_utc": "2026-10-31T23:08:29.622772+00:00"
+}
