@@ -173,19 +173,30 @@ It also changes the following:
 
 The objective is the negative annual profit in $/yr:
 
-- **Revenue:** only the ETBE in the bottoms, with the 83 mol% purity specification kept.
+- **Revenue:** only the ETBE in the bottoms, which must be at least 95 mol% ETBE (fuel-grade, as in Durruty et al. 2014; the published model used 83 mol%, after the 80 mol% pilot specification of Gómez et al. 2006).
 - **Operating cost:** feeds, plus steam and cooling water.
 - **Capital, annualized once:** column shell, sieve trays on internal stages only, catalyst, condenser, and reboiler.
 - **Exchanger sizing:** the condenser and reboiler are sized from their duties with U = 0.568 kW/(m²·K), cooling water at 305–322 K, and 10-bar steam at 453 K. Their cost uses Guthrie's correlation, replacing the constant 10,000 $/yr.
 
-The feed, product, and catalyst prices are those printed by Gómez et al. (2006, open), who attribute their costs to Al-Arfaj and Luyben (2002), so they are about 2002 US dollars. The steam and cooling-water costs and the M&S index of 1050 have no documented source. The Guthrie and Douglas correlations are used far below their size range (column diameter 0.13 m), so the absolute cost is indicative. The ranking of configurations is what the benchmark uses.
+**Prices.**
+- The published model's prices come from Gómez et al. (2006, open access), who attribute their costs to Al-Arfaj and Luyben (2002), so they are about 2002 US dollars and 3–5 times below 2010 market prices.
+- The corrected model uses ETBE 118.25, ethanol 39.67, and C4 feed 29.65 $/kmol, and Amberlyst 15 at 10.16 $/kg, from Sharifzadeh (2013, Chem. Eng. Sci. 92, 21; open accepted manuscript). That source gives a 2010 basis with ICIS prices.
+- Medium-pressure steam costs 8.22 $/GJ, about 237 $/(kW·yr): Luyben's value at 457 K, as tabulated in recent open supplementary material (Green Chem., doi 10.1039/d4gc00129j) and used by Hernández-Morales et al. (2025, Processes 13, 3539).
+- Cooling water (24.5 $/(kW·yr)) and the M&S index (1050) keep the published values, because no dated open source was found. They are small next to the ETBE revenue.
+- The objective does not credit the C4 raffinate in the distillate, so it is positive (a net cost) at these prices. The feeds are fixed, so the ranking is unaffected.
+
+The Guthrie and Douglas correlations are used far below their size range (column diameter about 0.13–0.2 m), so the absolute cost is indicative. The ranking of configurations is what the benchmark uses.
 
 **Results.**
-- At the published configuration the corrected model gives 18,568.31 $/yr with Qr = 239 and the purity specification active.
-- On the 202 sampled configurations, CONOPT from `init.gdx` accepts 161, with a median solve of 3.2 s.
-- The three best sampled configurations, (7, 7, 11, 17, 17, 20), (6, 6, 10, 14, 14, 18), and the published one, lie within 2.2 $/yr of each other. (5, 5, 7, 8, 8, 12), found by MISO in the live pilot, gives 18,489.33 $/yr at 88.8 mol% ETBE.
-- With a 95 mol% specification, columns with b ≤ 10 become infeasible, while taller ones such as (5, 5, 7, 8, 8, 12) reach it with bottoms at about 432 K.
-- An earlier version of the corrected model, without these changes, gave 169 of 202 accepted. Starting from its own solution at the initial configuration gave only 109, so the evaluation protocol fixes the initialization to `init.gdx`.
+- The 95 mol% specification makes short columns infeasible, including the published configuration (b = 10).
+- On the 202 sampled configurations, CONOPT from `init.gdx` accepts 132, with a median solve of 4.3 s and a maximum of 22 s. Every accepted configuration has b ≥ 13.
+- The best sampled configurations are (7, 8, 11, 16, 16, 20) at 25,271.33 $/yr, (7, 7, 11, 17, 17, 20) at 25,403.60, and (6, 6, 10, 14, 14, 18) at 25,800.22, with Qr around 320 and ETBE at 95.0–95.03 mol%.
+
+**Earlier versions of the corrected model.** These used the published prices and the 83 mol% specification. They are kept in `results/catalytic_distillation_pilot_20261030` (see its README).
+- Without the mixture properties, catalyst limit, and open data, the corrected model accepted 169 of 202 from `init.gdx`, but only 109 from its own solution at the initial configuration. That is why the evaluation protocol fixes the initialization to `init.gdx`.
+- With them, it accepted 161.
+
+**Interior-point solvers.** POUNCE 0.14.0, the POUNCE bundled with GAMS 54.2.2, and IPOPT (with and without warm-start options) fail on this formulation from `init.gdx`, while CONOPT succeeds. The benchmark therefore uses CONOPT only.
 
 ## Consequences for the benchmark
 

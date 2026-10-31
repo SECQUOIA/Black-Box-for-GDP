@@ -37,7 +37,7 @@ Every call starts from `init.gdx`, so the result does not depend on earlier solv
 
 The original source model and the translated `distillation_model.gms` generate the same model (1,569 equations and 1,579 variables) and reach the same solution at the published optimum, `zobj = 22631.782909`, with CONOPT in about 0.5 s from `init.gdx` under GAMS 54.2.
 This reproduces the published D-SDA optimum (22631.7829089) at `f1 = 4`, catalytic stages 4, 6, and 8, `f2 = 8`, and `b = 10`.
-The corrected model (1,690 equations and 1,656 variables) gives `zobj = 18488.678100` at the same configuration.
+With its 95 mol% ETBE specification, the corrected model makes this configuration infeasible. Its best sampled configuration is (7, 8, 11, 16, 16, 20), at `zobj = 25271.327689` (see REVIEW.md).
 
 ## Review
 

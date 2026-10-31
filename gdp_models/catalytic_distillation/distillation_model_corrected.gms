@@ -1,7 +1,8 @@
 * Corrected catalytic distillation model: distillation_model.gms with the fixes of REVIEW.md
 * (findings 1-5, 8, 11-19, 21-24, 27, and the Ketbe coefficient), mixture liquid density (Rackett)
 * and surface tension (Macleod-Sugden), the Amberlyst 15 temperature limit, and pure-component
-* data of isobutene, 1-butene, and ethanol fitted to open reference equations of state.
+* data of isobutene, 1-butene, and ethanol fitted to open reference equations of state,
+* prices on a 2010 basis, and a 95 mol% ETBE specification.
 * See REVIEW.md, section Corrected model. The published model is unchanged.
 * English translation of catalytic_distillation/dsda-gdp-cd-column/DISTILLATION.gms
 * from SECQUOIA/dsda-gdp at 3e469dbeea8931670b8cd6752014ab7a767d3af5.
@@ -116,7 +117,7 @@ parameter
 Pop     "Condenser operating pressure [bar]"        /9.5/
 TaliB   "Butenes feed temperature [K]"    /323/
 TaliE   "Ethanol feed temperature [K]"        /342.38/
-xBetbe  "Required ETBE mole percentage in the bottoms"   /83/
+xBetbe  "Required ETBE mole percentage in the bottoms (95 mol%, Durruty et al. 2014; 83 in the published model)"   /95/
 MCR     "Constant holdup in reboiler and condenser [mol]" /1/
 cR      "Gas constant [m3*bar/K*mol]" /0.00008314/
 ;
@@ -1100,7 +1101,7 @@ parameters alfa1 "Weight for ETBE purity" /1e4/
            CostEth"Cost of the ethanol feed [$/yr]"
            CostBut"Cost of the butenes feed [$/yr]"
            year   "Operational hours per year [hr/yr]" /8000/
-           CostCat"Catalyst cost [$/kg]" /7.7/
+           CostCat"Catalyst cost [$/kg] (Amberlyst 15, 2010 basis; Sharifzadeh 2013)" /10.16/
            AF     "Annualization factor (5 years, 5% interest rate) [1/yr]"
            MS     "Marshall & Swift coefficient" /1050/
            FM     "Material factor (carbon steel)" /1/
@@ -1114,11 +1115,14 @@ AF=(0.05/(1-1/(1+0.05)**5));
 parameter Ftray "Tray cost factor Fs+Ft+Fm (12-in spacing, sieve, carbon steel; Douglas 1988)" /2.2/;
 CT=(MS/280)*4.7*Ftray;
 Csh=(MS/280)*101.9*(2.18+Fcol);
-CostQr=146.8/(hora);
+*Prices: feeds, ETBE, and catalyst from Sharifzadeh (2013, Chem. Eng. Sci. 92, 21), 2010 basis (ICIS);
+*medium-pressure steam 8.22 $/GJ (Luyben, as tabulated in recent reactive-distillation studies);
+*cooling water and the M&S index as in the published model (no documented source).
+CostQr=8.22*year*3600/1e6/(hora);
 CostQc=24.5/(hora);
-CostB=25.3*3600*year/(1000*hora);
-CostEth=15*3600*year/(1000*hora);
-CostBut=8.25*3600*year/(1000*hora);
+CostB=118.25*3600*year/(1000*hora);
+CostEth=39.67*3600*year/(1000*hora);
+CostBut=29.65*3600*year/(1000*hora);
 
 parameters Uex   "Overall heat-transfer coefficient of condenser and reboiler [kW/(m^2.K)] (100 Btu/(h.ft^2.F))" /0.568/
            Tcw1  "Cooling water inlet temperature [K] (90 F)" /305.37/
