@@ -1,5 +1,8 @@
 * Corrected catalytic distillation model: distillation_model.gms with the fixes of REVIEW.md
-* (findings 1-5, 8, 11-19, 21-24, 27, and the Ketbe coefficient). The published model is unchanged.
+* (findings 1-5, 8, 11-19, 21-24, 27, and the Ketbe coefficient), mixture liquid density (Rackett)
+* and surface tension (Macleod-Sugden), the Amberlyst 15 temperature limit, and pure-component
+* data of isobutene, 1-butene, and ethanol fitted to open reference equations of state.
+* See REVIEW.md, section Corrected model. The published model is unchanged.
 * English translation of catalytic_distillation/dsda-gdp-cd-column/DISTILLATION.gms
 * from SECQUOIA/dsda-gdp at 3e469dbeea8931670b8cd6752014ab7a767d3af5.
 * Only comments and descriptions were translated; the GAMS code is unchanged.
@@ -215,51 +218,51 @@ pureza0(Net)$(ord(Net) eq card(Net)).. x('1','1','ETBE',Net)=g=xBetbe;
 parameters
 C1a(comp)
 /
-iButene 66.4970745
-Ethanol 61.7910745
-nButene 40.3230745
+iButene 59.16460502688914
+Ethanol 50.85080952705689
+nButene 60.5771714189364
 ETBE    52.67507454
 /
 C2a(comp)
 /
-iButene -4634.1
-Ethanol -7122.3
-nButene -4019.2
+iButene -4424.6453200806445
+Ethanol -6693.043650975509
+nButene -4476.646728098392
 ETBE    -5820.2
 /
 C3a(comp)
 /
-iButene 0
-Ethanol 0
-nButene 0
+iButene 0.0
+Ethanol 0.0
+nButene 0.0
 ETBE    0
 /
 C4a(comp)
 /
-iButene 0
-Ethanol 0
-nButene 0
+iButene 0.0
+Ethanol 0.0
+nButene 0.0
 ETBE    0
 /
 C5a(comp)
 /
-iButene -8.9575
-Ethanol -7.1424
-nButene -4.5229
+iButene -7.7542182956569885
+Ethanol -5.447986873956177
+nButene -7.981411654849683
 ETBE    -6.1343
 /
 C6a(comp)
 /
-iButene 1.3413E-5
-Ethanol 2.8853E-6
-nButene 4.8833E-17
+iButene 1.0924396634470518e-05
+Ethanol 1.1112442010800872e-06
+nButene 1.126781397898227e-05
 ETBE    2.1405E-17
 /
 C7a(comp)
 /
-iButene 2
-Ethanol 2
-nButene 6
+iButene 2.0
+Ethanol 2.0
+nButene 2.0
 ETBE    6
 /
 ;
@@ -277,23 +280,23 @@ EqPsat(N,j,comp,Net)$(par(Net) eq 1).. Psat(N,j,comp,Net)=e=exp( C1a(comp) + (C2
 parameters
 MW(comp) "Molecular weight [kg/kmol]"
 /
-iButene 56.10752
-Ethanol 46.06904
-nButene 56.10752
+iButene 56.10631999999999
+Ethanol 46.06844
+nButene 56.10631999999999
 ETBE    102.17656
 /
 Tcrit(comp) "Critical temperature [K]"
 /
-iButene 417.9
-Ethanol 514
-nButene 419.5
+iButene 418.08980215358235
+Ethanol 514.7092848812961
+nButene 419.29017967227105
 ETBE    509.4
 /
 Pcrit(comp) "Critical pressure [bar]"
 /
-iButene 40.0
-Ethanol 61.37
-nButene 40.2
+iButene 40.15706534784266
+Ethanol 62.679145827020946
+nButene 40.0572373132423
 ETBE    29.34
 /
 C1rh(comp)
@@ -396,9 +399,35 @@ ETBE    0
 /
 ;
 *Corrected: properties use the critical temperature of each component; the mixture Tcritm is removed.
-positive variables rho(N,j,comp,Net) "Liquid molar density of each component [mol/m^3]";
-equation Eqrho(N,j,comp,Net);
-Eqrho(N,j,comp,Net)$(par(Net) eq 1).. rho(N,j,comp,Net)=e=( C1r(comp)/(C2r(comp)**(1+((1-(Temp(N,j,Net)/Tcrit(comp)))**C3r(comp)))) )*1000;
+*Liquid molar density of the mixture: Rackett equation with the Spencer-Danner mixing rule and Li's
+*pseudo-critical temperature (Poling, Prausnitz, and O'Connell, The Properties of Gases and Liquids,
+*5th ed., Sec. 4-12). It stays valid when a light component is above its own critical temperature,
+*as long as the liquid is below its pseudo-critical temperature.
+parameters
+ZRA(comp) "Rackett parameter [-]"
+/
+iButene 0.2731034426894435
+Ethanol 0.24852992035023122
+nButene 0.27255541738812405
+ETBE 0.268
+/
+Vcrit(comp) "Critical volume [m^3/mol]"
+/
+iButene 0.00023981081316298527
+Ethanol 0.00016861454832662947
+nButene 0.00023584569810404301
+ETBE 0.00038685093006134966
+/;
+positive variables rhoL(N,j,Net) "Liquid molar density of the mixture [mol/m^3]"
+                   Tcm(N,j,Net)  "Pseudo-critical temperature of the liquid [K]"
+                   uR(N,j,Net)   "1 - T/Tcm [-]";
+equations EqTcm(N,j,Net), EquR(N,j,Net), EqrhoL(N,j,Net);
+EqTcm(N,j,Net)$(par(Net) eq 1).. Tcm(N,j,Net)*sum(comp,x(N,j,comp,Net)*Vcrit(comp)) =e= sum(comp,x(N,j,comp,Net)*Vcrit(comp)*Tcrit(comp));
+EquR(N,j,Net)$(par(Net) eq 1).. uR(N,j,Net)*Tcm(N,j,Net) =e= Tcm(N,j,Net)-Temp(N,j,Net);
+EqrhoL(N,j,Net)$(par(Net) eq 1).. rhoL(N,j,Net)*0.00008314*sum(comp,(x(N,j,comp,Net)/100)*Tcrit(comp)/Pcrit(comp))
+        *(sum(comp,(x(N,j,comp,Net)/100)*ZRA(comp)))**(1+uR(N,j,Net)**(2/7)) =e= 1;
+Tcm.lo(N,j,Net)=380; Tcm.up(N,j,Net)=600; Tcm.l(N,j,Net)=450;
+uR.lo(N,j,Net)=0.02; uR.up(N,j,Net)=1; uR.l(N,j,Net)=0.2;
 
 positive variable rhoV(N,j,Net) "Vapor molar density [mol/m^3]";
 equation EqurhoV(N,j,Net);
@@ -441,9 +470,17 @@ ETBE    0.76657
 ;
 positive variables sigma(N,j,Net) "Liquid-vapor surface tension [N/m]";
 equation Eqsigma(N,j,Net);
-Eqsigma(N,j,Net)$(par(Net) eq 1).. sigma(N,j,Net)=e=sum(comp$(not sameas(comp,'Ethanol')),(x(N,j,comp,Net)/100)*C1sig(comp)
-                        *(1-(Temp(N,j,Net)/Tcrit(comp)))**(C2sig(comp)+C3sig(comp)*(Temp(N,j,Net)/Tcrit(comp))+C4sig(comp)*sqr(Temp(N,j,Net)/Tcrit(comp))))
-                        +(x(N,j,'Ethanol',Net)/100)*(C1sig('Ethanol')+C2sig('Ethanol')*Temp(N,j,Net)-C3sig('Ethanol')*sqr(Temp(N,j,Net)));
+parameter
+Parachor(comp) "Parachor [(cm^3/mol)(mN/m)^(1/4)]"
+/
+iButene 179.3823781792202
+Ethanol 127.4771710751664
+nButene 180.10569361948083
+ETBE 292.9
+/;
+*Macleod-Sugden with parachors (Poling, Prausnitz, and O'Connell, 5th ed., Sec. 12-5)
+Eqsigma(N,j,Net)$(par(Net) eq 1).. sigma(N,j,Net) =e= 0.001*power(sum(comp,Parachor(comp)
+        *((x(N,j,comp,Net)/100)*rhoL(N,j,Net)-(y(N,j,comp,Net)/100)*rhoV(N,j,Net)))/1e6,4);
 *-------------------------------------------------------------------------------
 *                                   Section 8
 *                   Activity coefficients from the NRTL model
@@ -542,16 +579,16 @@ EqRx(N,j,Net)$((ord(Net) ne card(Net)) and (ord(Net) ne 1) and yc(net) eq 1)..  
 parameter
 Omega(comp) "Acentric factor [-]"
 /
-iButene 0.19484
-Ethanol 0.643558
-nButene 0.184495
+iButene 0.1925934521621
+Ethanol 0.644
+nButene 0.191860647355
 ETBE    0.316231
 /
 TcritSRK(comp) "Soave-Redlich-Kwong critical temperature [K]"
 /
-iButene 417.9
-Ethanol 514
-nButene 419.5
+iButene 418.08980215358235
+Ethanol 514.7092848812961
+nButene 419.29017967227105
 ETBE    509.4
 /
 mEOS(comp) "Parameter m in EOS"
@@ -624,44 +661,44 @@ phisat.l(N,j,comp,Net)=0.9;
 parameters
 C1c(comp)
 /
-iButene        0.016052191
-Ethanol        0.00901418
-nButene        -0.00299356
+iButene        0.019763054428368853
+Ethanol        0.02928589795842562
+nButene        0.03533364289523157
 ETBE        -0.014651654
 /
 C2c(comp)
 /
-iButene        0.000280432
-Ethanol        0.000214071
-nButene        0.000353198
+iButene        0.00022630265028137256
+Ethanol        6.373633072363529e-05
+nButene        8.476480294340606e-05
 ETBE        0.000698631
 /
 C3c(comp)
 /
-iButene        -0.00000010914988
-Ethanol        -0.000000083903472
-nButene        -0.00000019904047
+iButene        6.042353887797791e-08
+Ethanol        2.6916668195427865e-07
+nButene        3.79317682514367e-07
 ETBE           -0.00000044791741
 /
 C4c(comp)
 /
-iButene        0.0000000000090979164
-Ethanol        0.0000000000013732704
-nButene        0.000000000044631288
+iButene        -1.3794597466468366e-10
+Ethanol        -2.609384856913254e-10
+nButene        -3.479248505206613e-10
 ETBE           0.00000000011636811
 /
 C5c(comp)
 /
-iButene        0
-Ethanol        0
-nButene        0
+iButene        0.0
+Ethanol        0.0
+nButene        0.0
 ETBE           0
 /
 C6c(comp)
 /
-iButene        0
-Ethanol        0
-nButene        0
+iButene        0.0
+Ethanol        0.0
+nButene        0.0
 ETBE           0
 /
 ;
@@ -669,16 +706,16 @@ parameter
 Tref "Reference temperature [K]" /298.15/
 Hform(comp) "Enthalpy of formation (kJ/mol)"
 /
-iButene -16.9147
-Ethanol -234.963
-nButene -0.125604
+iButene -17.9
+Ethanol -234.0
+nButene -0.63
 ETBE        -313.9
 /
 Tb      "Boiling temperature of the components at P=9.5 bar [K]"
 /
-iButene 342.03
-Ethanol 421.99
-nButene 341.66
+iButene 341.5736312034356
+Ethanol 421.82820713364254
+nButene 342.6699845981307
 ETBE    439.27
 /
 ;
@@ -695,33 +732,33 @@ EqHV(N,j,Net)$(par(net) eq 1).. HV(N,j,Net)=e=sum(comp,HVi(N,j,comp,Net)*y(N,j,c
 *Constants of the enthalpy of vaporization (kJ/mol)
 parameter
 C1v(comp)
-/iButene        32.614
-Ethanol        55.789
-nButene        33.774
+/iButene        32.39312323057061
+Ethanol        47.20448270838414
+nButene        32.151061485258474
 ETBE        45.29
 /
 C2v(comp)
-/iButene        0.38073
-Ethanol        0.31245
-nButene        0.5107
+/iButene        0.5044586288304593
+Ethanol        -0.03596566934324576
+nButene        0.45754443973243913
 ETBE        0.27343
 /
 C3v(comp)
-/iButene        0
-Ethanol        0
-nButene        -0.17304
+/iButene        -0.3297758318147943
+Ethanol        0.15139531664986153
+nButene        -0.23497770722587588
 ETBE        0.21645
 /
 C4v(comp)
-/iButene        0
-Ethanol        0
-nButene        0.05181
+/iButene        0.2180879523937595
+Ethanol        0.20871278726817477
+nButene        0.16329244918040958
 ETBE        -0.11756
 /
 C5v(comp)
-/iButene        0
-Ethanol        0
-nButene        0
+/iButene        0.0
+Ethanol        0.0
+nButene        0.0
 ETBE        0
 /
 ;
@@ -757,33 +794,33 @@ EqdepHvib(N,j,comp,Net)$(par(net) eq 1).. depHvib(N,j,comp,Net) =e= (8.314/1000)
 parameter
 C1l(comp)
 /
-iButene         0.08768
-Ethanol         0.10264
-nButene         0.18205
+iButene         -0.23545814585884697
+Ethanol         0.15770015613928887
+nButene         -0.2199831363970375
 ETBE            0.11096
 /
 C2l(comp)
-/iButene        0.0002171
-Ethanol         -0.00013963
-nButene         -0.001611
+/iButene        0.0036806873033584835
+Ethanol         -0.0007831340982557612
+nButene         0.003504841236736028
 ETBE            0.00031422
 /
 C3l(comp)
-/iButene        -9.15300E-07
-Ethanol         -3.03410E-08
-nButene         1.19630E-05
+/iButene        -1.3230086367004835e-05
+Ethanol         2.494820156134541e-06
+nButene         -1.2654801586205181e-05
 ETBE            1.74800E-07
 /
 C4l(comp)
-/iButene        2.2660E-09
-Ethanol         2.0386E-09
-nButene         -3.7454E-08
+/iButene        1.6873519946185203e-08
+Ethanol         -1.2781722755341683e-09
+nButene         1.6194189997909033e-08
 ETBE            0
 /
 C5l(comp)
-/iButene        0
-Ethanol         0
-nButene         4.5027E-11
+/iButene        0.0
+Ethanol         0.0
+nButene         0.0
 ETBE            0
 /
 ;
@@ -858,7 +895,7 @@ equation BalMasaC0,BalMasaParcialC0(comp),SumaC0,EquilibrioC0(comp),BalEnergiaC0
 BalMasaC0.. 0=e=V('1','1','2')-V('1','1','1')*(1+RR('1','1'));
 BalMasaParcialC0(comp).. 0=e=V('1','1','2')*y('1','1',comp,'2')-V('1','1','1')*x('1','1',comp,'1')*(1+RR('1','1'));
 SumaC0.. sum(comp,y('1','1',comp,'1')-x('1','1',comp,'1'))=e=0;
-EquilibrioC0(comp).. y('1','1',comp,'1')*P('1','1','1')*phi('1','1',comp,'1')=e=Psat('1','1',comp,'1')*phisat('1','1',comp,'1')*exp((P('1','1','1')-Psat('1','1',comp,'1'))*100000/(rho('1','1',comp,'1')*8.314*Temp('1','1','1')))*gamma('1','1',comp,'1')*x('1','1',comp,'1');
+EquilibrioC0(comp).. y('1','1',comp,'1')*P('1','1','1')*phi('1','1',comp,'1')=e=Psat('1','1',comp,'1')*phisat('1','1',comp,'1')*exp((P('1','1','1')-Psat('1','1',comp,'1'))*100000/(rhoL('1','1','1')*8.314*Temp('1','1','1')))*gamma('1','1',comp,'1')*x('1','1',comp,'1');
 BalEnergiaC0.. 0=e=V('1','1','2')*HV('1','1','2')-V('1','1','1')*(1+RR('1','1'))*HL('1','1','1')-QC('1','1');
 
 *Fixed liquid flow
@@ -902,7 +939,7 @@ BalEnergia0(Net,Net1)$(ord(Net)>1 and ord(Net)<card(Net) and ord(Net1) eq card(N
 
 *Equilibrium relations
 equations Equilibrio10(comp,Net);
-Equilibrio10(comp,Net)$(ord(Net)>1 and ord(Net)<card(Net) and ye(net) eq 1)..0=e=((y('1','1',comp,Net)*P('1','1',Net)*phi('1','1',comp,Net))-(Psat('1','1',comp,Net)*phisat('1','1',comp,Net)*exp((P('1','1',Net)-Psat('1','1',comp,Net))*100000/(rho('1','1',comp,Net)*8.314*Temp('1','1',Net)))*gamma('1','1',comp,Net)*x('1','1',comp,Net)));
+Equilibrio10(comp,Net)$(ord(Net)>1 and ord(Net)<card(Net) and ye(net) eq 1)..0=e=((y('1','1',comp,Net)*P('1','1',Net)*phi('1','1',comp,Net))-(Psat('1','1',comp,Net)*phisat('1','1',comp,Net)*exp((P('1','1',Net)-Psat('1','1',comp,Net))*100000/(rhoL('1','1',Net)*8.314*Temp('1','1',Net)))*gamma('1','1',comp,Net)*x('1','1',comp,Net)));
 equations Equilibrio20(comp,Net);
 Equilibrio20(comp,Net)$(ord(Net)>1 and ord(Net)<card(Net) and ord(comp) ne 1 and ((sum(Net1$(ord(Net1) ge 2 and ord(Net1) le ord(Net)),yr(Net1)))) eq 1 and (1-ye(Net)) eq 1)..0=e=(y('1','1',comp,Net)-y('1','1',comp,Net+1));
 equation Equilibrio30(comp,Net);
@@ -920,7 +957,7 @@ equation BalMasaR0(Net),BalMasaParcialR0(comp,Net),SumaR0(Net),EquilibrioR0(comp
 BalMasaR0(Net)$(ord(Net) eq card(Net))..0=e=L('1','1',Net-1)-L('1','1',Net)*(1+BR('1','1'));
 BalMasaParcialR0(comp,Net)$(ord(Net) eq card(Net))..0=e=L('1','1',Net-1)*x('1','1',comp,Net-1)-L('1','1',Net)*(x('1','1',comp,Net)+BR('1','1')*y('1','1',comp,Net));
 SumaR0(Net)$(ord(Net) eq card(Net)).. sum(comp,y('1','1',comp,Net)-x('1','1',comp,Net))=e=0;
-EquilibrioR0(comp,Net)$(ord(Net) eq card(Net))..y('1','1',comp,Net)*P('1','1',Net)*phi('1','1',comp,Net)=e=Psat('1','1',comp,Net)*phisat('1','1',comp,Net)*exp((P('1','1',Net)-Psat('1','1',comp,Net))*100000/(rho('1','1',comp,Net)*8.314*Temp('1','1',Net)))*gamma('1','1',comp,Net)*x('1','1',comp,Net);
+EquilibrioR0(comp,Net)$(ord(Net) eq card(Net))..y('1','1',comp,Net)*P('1','1',Net)*phi('1','1',comp,Net)=e=Psat('1','1',comp,Net)*phisat('1','1',comp,Net)*exp((P('1','1',Net)-Psat('1','1',comp,Net))*100000/(rhoL('1','1',Net)*8.314*Temp('1','1',Net)))*gamma('1','1',comp,Net)*x('1','1',comp,Net);
 BalEnergiaR0(Net)$(ord(Net) eq card(Net))..0=e=QR('1','1')+L('1','1',Net-1)*HL('1','1',Net-1)-L('1','1',Net)*HL('1','1',Net)-BR('1','1')*L('1','1',Net)*HV('1','1',Net);
 
 *Fixed vapor flow in the last stage
@@ -935,6 +972,11 @@ fixedV(N,j,Net)$(ord(Net) eq card(Net))..V(N,j,Net)=e=0;
 *-------------------------------------------------------------------------------
 *Catalyst characteristics
 scalar fracvol /0.3/;
+*Maximum operating temperature of Amberlyst 15 in non-aqueous media, 120 C
+*(Rohm and Haas, Amberlyst 15DRY product data sheet)
+scalar Tcatmax "Maximum catalyst temperature [K]" /393.15/;
+equation EqTcat(Net);
+EqTcat(Net)$(yc(Net) eq 1).. Temp('1','1',Net) =l= Tcatmax;
 scalar fracEnvelop /0.5/;
 
 *Definition of the vapor velocity
@@ -944,7 +986,7 @@ Eqfa(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. (far(N,j,N
 
 positive variable hD(N,j,Net)   "Liquid height above the weir [m]";
 equations EqhD(N,j,Net);
-EqhD(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. (hD(N,j,Net))=e=(0.6*(((((L(N,j,Net)/sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100))/hora)/Lw))**(2/3)));
+EqhD(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. (hD(N,j,Net))=e=(0.6*(((((L(N,j,Net)/rhoL(N,j,Net))/hora)/Lw))**(2/3)));
 
 positive variable uhv(N,j,Net) "Vapor velocity through the holes [m/s]";
 equations Equhv(N,j,Net);
@@ -957,19 +999,19 @@ Equnv(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. unv(N,j,N
 *Definition of the liquid velocity
 positive variable ul(N,j,Net) "Liquid velocity in the downcomer [m/s]";
 equations Equl(N,j,Net);
-Equl(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. ul(N,j,Net)=e=((L(N,j,Net)/(sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100))/hora)/Ad);
+Equl(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. ul(N,j,Net)=e=((L(N,j,Net)/(rhoL(N,j,Net))/hora)/Ad);
 
 *Liquid load
 positive variable hcl(N,j,Net)  "Clear liquid height in the spray regime [m]"
 equation Eqhcl(N,j,Net);
 scalar consmach /1e-20/;
-Eqhcl(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. hcl(N,j,Net)=e=((0.157*(poro**(-0.791))/(1+1.04E-4*(((((L(N,j,Net)+consmach)/sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100))/hora)/Lw)**(-0.59))
+Eqhcl(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. hcl(N,j,Net)=e=((0.157*(poro**(-0.791))/(1+1.04E-4*(((((L(N,j,Net)+consmach)/rhoL(N,j,Net))/hora)/Lw)**(-0.59))
                                                         *(poro**(-1.791))))*(da**0.833)
-                                                        *(996/(sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))**(0.5*(1-0.91*da/poro)));
+                                                        *(996/(rhoL(N,j,Net)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))**(0.5*(1-0.91*da/poro)));
 positive variable Csbf(N,j,Net);
 equation EqCsbf(N,j,Net);
-EqCsbf(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. (Csbf(N,j,Net))=e=(0.37*(((sqr(da)*sigma(N,j,Net)/(sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000)))**0.125)
-                                                        *((((rhoV(N,j,Net))*sum(comp,MW(comp)*y(N,j,comp,Net)/100)/1000)/(sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))**0.1)
+EqCsbf(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. (Csbf(N,j,Net))=e=(0.37*(((sqr(da)*sigma(N,j,Net)/(rhoL(N,j,Net)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000)))**0.125)
+                                                        *((((rhoV(N,j,Net))*sum(comp,MW(comp)*y(N,j,comp,Net)/100)/1000)/(rhoL(N,j,Net)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))**0.1)
                                                         *((HS/hcl(N,j,Net))**0.5));
 *Liquid load on catalytic stages
 positive variable Lload(N,j,Net) "Liquid load on catalytic stages [m/s]";
@@ -984,7 +1026,7 @@ eqFfactor(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and yc(net) eq 1).. (1-fra
 *Pressure drop
 positive variables DPL(N,j,Net) "Pressure drop due to the liquid [bar]";
 equations EqDPL(N,j,Net);
-EqDPL(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. (DPL(N,j,Net))=e=((far(N,j,Net)*9.81*(sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000)*(hD(N,j,Net)+hw))/100000);
+EqDPL(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. (DPL(N,j,Net))=e=((far(N,j,Net)*9.81*(rhoL(N,j,Net)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000)*(hD(N,j,Net)+hw))/100000);
 
 positive variables DPS(N,j,Net) "Dry pressure drop through the holes [bar]";
 equations EqDPS(N,j,Net);
@@ -992,7 +1034,7 @@ EqDPS(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. (DPS(N,j,
 
 positive variable DPq(N,j,Net)      "Pressure drop in the downcomer [bar]";
 equations EqDPq(N,j,Net);
-EqDPq(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. DPq(N,j,Net)=e=(1/(100000))*1.62*((sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))/(sqr(Lw*hw))*(sqr((L(N,j,Net)/sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100))/hora));
+EqDPq(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. DPq(N,j,Net)=e=(1/(100000))*1.62*((rhoL(N,j,Net)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))/(sqr(Lw*hw))*(sqr((L(N,j,Net)/rhoL(N,j,Net))/hora));
 
 positive variables DP(N,j,Net)  "Total pressure drop [bar]";
 positive variable dPcat(N,j,net)    "Pressure drop due to the catalyst on catalytic stages [bar]";
@@ -1012,20 +1054,20 @@ EqPR(N,j,Net)$(ord(Net) eq card(Net)).. P(N,j,Net)=e=P(N,j,Net-1);
 *Downflow flooding (flooding in the downcomers)
 equation DownFlood(N,j,Net);
 DownFlood(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1)..0=g=((hw+HD(N,j,Net)+((DP(N,j,Net)+DPq(N,j,Net))*100000)
-                                                        /(9.81*(((sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))
+                                                        /(9.81*(((rhoL(N,j,Net)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))
                                                         -(rhoV(N,j,Net)*sum(comp,MW(comp)*y(N,j,comp,Net)/100)/1000))))-0.5*(HS+hw));
 *Entrainment flooding (liquid carried over by the vapor)
 equation EntrainFloodV(N,j,Net), EntrainFloodL(N,j,Net);
-EntrainFloodV(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1)..((((V(N,j,Net)/(rhoV(N,j,Net))/hora)/(At+Ad)))-(Csbf(N,j,Net)*(((((sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))
+EntrainFloodV(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1)..((((V(N,j,Net)/(rhoV(N,j,Net))/hora)/(At+Ad)))-(Csbf(N,j,Net)*(((((rhoL(N,j,Net)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))
                                                         -(rhoV(N,j,Net)*sum(comp,MW(comp)*y(N,j,comp,Net)/100)/1000)))
                                                         /(rhoV(N,j,Net)*sum(comp,MW(comp)*y(N,j,comp,Net)/100)/1000))**0.5))=l=0;
-EntrainFloodL(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1)..((ul(N,j,Net))-((sigma(N,j,Net)*9.81*(((sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))
+EntrainFloodL(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1)..((ul(N,j,Net))-((sigma(N,j,Net)*9.81*(((rhoL(N,j,Net)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000))
                                                         -(rhoV(N,j,Net)*sum(comp,MW(comp)*y(N,j,comp,Net)/100)/1000))
-                                                        /((sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000)**2))**(1/4)))=l=0
+                                                        /((rhoL(N,j,Net)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000)**2))**(1/4)))=l=0
 *Weeping
 equation Weep(N,j,Net);
 Weep(N,j,Net)$(ord(Net)>1 and ord(Net)<card(Net) and par(net) eq 1).. 0=g=(((0.68-0.12)/(((rhoV(N,j,Net)*sum(comp,MW(comp)*y(N,j,comp,Net)/100)/1000)
-                                                                /((sum(comp,rho(N,j,comp,Net)*x(N,j,comp,Net)/100)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000)
+                                                                /((rhoL(N,j,Net)*sum(comp,MW(comp)*x(N,j,comp,Net)/100)/1000)
                                                                 *9.81*far(N,j,Net)*(hw+hd(N,j,Net))))**0.5))-(uhv(N,j,Net)));
 *Catalyst flooding (flooding of the catalyst packing)
 equation catflood(N,j,net);
@@ -1236,7 +1278,7 @@ z.lo(N,j,Net)= 0.5 ;
 z.up(N,j,Net)=  1.3  ;
 
 Temp.lo(N,j,Net)= 200;
-Temp.up(N,j,Net)= 417.89;
+Temp.up(N,j,Net)= 445;
 Temp.lo('1','1','1')=Tcw2+3;
 
 
@@ -1250,8 +1292,9 @@ unv.up(N,j,Net)=0.89;
 ul.up(N,j,Net)=30;
 ul.lo(N,j,Net)=0.001;
 
-rho.up(N,j,comp,Net)=25000;
-rho.lo(N,j,comp,Net)=1000;
+rhoL.up(N,j,Net)=25000;
+rhoL.lo(N,j,Net)=1000;
+rhoL.l(N,j,Net)=10000;
 
 rhoV.up(N,j,Net)=500;
 rhoV.lo(N,j,Net)=Pop/(0.00008314*Temp.up(N,j,Net)*(Z.up(N,j,Net)));
@@ -1260,7 +1303,7 @@ Csbf.up(N,j,Net)=1;
 Csbf.lo(N,j,Net)=0.001;
 
 sigma.up(N,j,Net)=0.03;
-sigma.lo(N,j,Net)=0.005;
+sigma.lo(N,j,Net)=1e-4;
 *------INITIAL VALUE OF BINARY TERMS--------------------------------------------
 yb(Net)=0;
 yc(Net)=0;
