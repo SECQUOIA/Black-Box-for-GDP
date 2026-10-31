@@ -8,6 +8,7 @@ The files come from `catalytic_distillation/dsda-gdp-cd-column` of [SECQUOIA/dsd
 | File | Content | Change from the source |
 |---|---|---|
 | `distillation_model.gms` | Sets, parameters, variables, equations, bounds, and `model DSDA /all/` | Spanish comments and descriptions translated to English; code unchanged |
+| `distillation_model_corrected.gms` | The model with the fixes of `REVIEW.md`, including a profit objective with exchangers sized from their duties | New; solve it with `--model=distillation_model_corrected.gms` from `init.gdx` |
 | `DISTILLATION.gms` | Includes the model and generates the D-SDA external-variable files (embedded Python) | Model moved to `distillation_model.gms`; CONOPT replaces MSNLP, which current GAMS releases no longer distribute |
 | `D_SDA.gms`, `main.gms` | Original D-SDA implementation and its driver | One Spanish comment translated |
 | `solve_configuration.gms` | Solves the NLP for one configuration from a fixed initialization | New |
@@ -29,12 +30,14 @@ gams solve_configuration.gms --f1=4 --c1=4 --c2=6 --c3=8 --f2=8 --b=10
 ```
 
 Optional arguments: `--solver` (default `conopt`), `--init` (default `init`), `--out` (default `result.txt`), `--model`, and `--gdx` to unload the solution.
+The result line reports the model and solver status, `zobj`, the solve time, the model size, and the operating point: reboiler and condenser duties, reflux and boil-up ratios, diameter, height, bottoms ETBE mol%, and the largest liquid and vapor flows.
 Every call starts from `init.gdx`, so the result does not depend on earlier solves, unlike `D_SDA.gms`, which warm-starts neighbors from the incumbent.
 
 ## Verification
 
 The original source model and the translated `distillation_model.gms` generate the same model (1,569 equations and 1,579 variables) and reach the same solution at the published optimum, `zobj = 22631.782909`, with CONOPT in about 0.5 s from `init.gdx` under GAMS 54.2.
 This reproduces the published D-SDA optimum (22631.7829089) at `f1 = 4`, catalytic stages 4, 6, and 8, `f2 = 8`, and `b = 10`.
+The corrected model (1,690 equations and 1,656 variables) gives `zobj = 18488.678100` at the same configuration.
 
 ## Review
 
