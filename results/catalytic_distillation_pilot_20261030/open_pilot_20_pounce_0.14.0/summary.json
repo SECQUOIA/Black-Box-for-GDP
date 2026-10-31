@@ -1,0 +1,53 @@
+{
+  "admissible_configurations": 100947,
+  "sampled": 20,
+  "seed": null,
+  "configs": "/home/bernalde/repos/RBFopt_Test/.worktrees/catdist/results/catalytic_distillation_pilot_20261030/pilot20.csv",
+  "solver": "pounce14",
+  "init": "/home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/init",
+  "model": "/home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/distillation_model_corrected.gms",
+  "threads": 1,
+  "accepted": 0,
+  "statuses": {
+    "5/4": 2,
+    "6/4": 2,
+    "7/2": 6,
+    "None/None": 10
+  },
+  "timeouts": 10,
+  "solver_seconds": {
+    "median": 90.1504,
+    "max": 218.6636
+  },
+  "wall_seconds_median": 570.1788927790008,
+  "published": {
+    "f1": 4,
+    "c1": 4,
+    "c2": 6,
+    "c3": 8,
+    "f2": 8,
+    "b": 10,
+    "solver": "pounce14",
+    "returncode": 0,
+    "wall_s": 521.6200789450004,
+    "modelstat": 7,
+    "solvestat": 2,
+    "zobj": 38390.621436,
+    "resusd": 145.9653,
+    "Qr": 1158.507656,
+    "Qc": 495.600574,
+    "RR": 1.381244,
+    "BR": 49.991527,
+    "D": 0.279364,
+    "Htotal": 5.477726,
+    "xETBE": 84.493558,
+    "Lmax": 37.272721,
+    "Vmax": 79.80889
+  },
+  "best": null,
+  "better_than_published": null,
+  "campaign_seconds": 1200.018861804001,
+  "workers": 10,
+  "host": "X-FRNYG027CPC01",
+  "gams": "/home/bernalde/packages/gams54.2_linux_x64_64_sfx/gams"
+}
