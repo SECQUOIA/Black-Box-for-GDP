@@ -78,9 +78,14 @@ def test_descent_records_finite_recovery_from_invalid_start(invalid, maximize, c
     result = descent(grid, maximize=maximize, **kwargs)
     assert result['path'] == [(0,), (1,)]
     trajectory = result['result_record']['incumbent_trajectory']
-    assert trajectory == [None, 1., 1.]
+    # The start (0,) is a neighbor of (1,); its stored value is reused without a call.
+    assert trajectory == [None, 1.]
     assert result['result_record']['best_value'] == 1.
-    assert result['result_record']['total_evals'] == (2 if cached else 3)
+    assert result['result_record']['total_evals'] == (1 if cached else 2)
+    assert result['revisits'] == 1
+    historical = descent(grid, maximize=maximize, reevaluate_explored=True, **kwargs)
+    assert historical['result_record']['incumbent_trajectory'] == [None, 1., 1.]
+    assert historical['result_record']['total_evals'] == (2 if cached else 3)
     legacy = descent(grid, maximize=maximize, improvement_abs_tol=None, **kwargs)
     first = legacy['result_record']['incumbent_trajectory'][0]
     assert math.isnan(first) if math.isnan(invalid) else first == invalid
@@ -90,6 +95,9 @@ def test_descent_local_trajectory_excludes_declared_failure_penalty():
     grid = {(0,): 1e6, (1,): 1.}
     tracker = ObservedObjective(lambda p: grid[p], penalty=1e6)
     result = descent(grid, tracked_objective=tracker)
+    assert result['result_record']['incumbent_trajectory'] == [None, 1.]
+    tracker = ObservedObjective(lambda p: grid[p], penalty=1e6)
+    result = descent(grid, tracked_objective=tracker, reevaluate_explored=True)
     assert result['result_record']['incumbent_trajectory'] == [None, 1., 1.]
 
 
@@ -136,10 +144,13 @@ def test_observed_rejected_move_checkpoint_and_budget_precedence():
 def test_target_mid_descent_does_not_stop_callback_immediately():
     grid = {(0,): 1., (-1,): 0., (1,): 2., (5,): 3.}
     result = multi(grid, [(0,), (5,), (5,)], max_points_explored=20)
-    # Target is callback 4; remaining neighbor and subsequent descent checks still run.
-    assert result['target_stop_checks'][0]['callback'] == 6
-    assert result['total_point_evaluations_including_initial_ranking'] == 6
+    # Target is callback 4; the remaining neighbor (1,) is callback 5, and the
+    # descent from (-1,) revisits (0,) without a call before the checkpoint.
+    assert result['target_stop_checks'][0]['callback'] == 5
+    assert result['total_point_evaluations_including_initial_ranking'] == 5
     assert result['stop_reason'] == 'target_common_success'
+    historical = multi(grid, [(0,), (5,), (5,)], max_points_explored=20, reevaluate_explored=True)
+    assert historical['target_stop_checks'][0]['callback'] == 6
 
 
 def test_grid_ranked_restarts_initial_order_repeats_and_legacy():
@@ -232,3 +243,39 @@ def test_replay_rejects_missing_response_and_invalid_pairing():
     jobs[0]['spec']['scope'] = 'process'
     with pytest.raises(ValueError, match='Wrong scope or method'):
         validate_jobs(jobs, 'grid')
+
+
+def test_no_configuration_is_evaluated_twice():
+    """Like the original D-SDA and LD-SDA, revisits reuse stored values for free."""
+    grid = {(x,): float((x - 7) ** 2) for x in range(0, 12)}
+    calls = []
+    tracker = ObservedObjective(lambda p: calls.append(p) or grid[p])
+    result = descent(grid, start=(2,), tracked_objective=tracker, diagonal=True)
+    assert len(calls) == len(set(calls))
+    assert result['best_point'] == (7,)
+    assert result['revisits'] > 0
+    calls.clear()
+    tracker = ObservedObjective(lambda p: calls.append(p) or grid[p])
+    historical = descent(grid, start=(2,), tracked_objective=tracker, diagonal=True, reevaluate_explored=True)
+    assert len(calls) > len(set(calls))
+    assert historical['path'] == result['path']
+
+
+def test_known_values_are_shared_and_not_charged():
+    grid = {(x,): float(abs(x - 3)) for x in range(0, 7)}
+    calls = []
+    tracker = ObservedObjective(lambda p: calls.append(p) or grid[p])
+    known = {(2,): 1., (6,): 3.}
+    result = descent(grid, start=(6,), start_value=3., tracked_objective=tracker, known_values=known,
+                     max_points_explored=3)
+    # (5,), (4,), (3,) are new; the line search reaches the known (2,) and stops for free.
+    assert calls == [(5,), (4,), (3,)] and result['best_point'] == (3,)
+    assert known[(5,)] == 2. and known[(3,)] == 0.
+
+
+def test_multistart_never_repeats_across_descents():
+    grid = {(x,): float(min(abs(x - 2), abs(x - 9) - 0.5)) for x in range(0, 12)}
+    calls = []
+    tracker = ObservedObjective(lambda p: calls.append(p) or grid[p])
+    multi(grid, [(4,), (6,), (11,)], tracked_objective=tracker, target_value=-10., max_points_explored=40)
+    assert len(calls) == len(set(calls))
