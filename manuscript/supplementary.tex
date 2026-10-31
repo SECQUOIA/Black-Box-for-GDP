@@ -26,10 +26,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[letterpaper,margin=1in]{geometry}
 \usepackage{amsmath,amssymb,booktabs,placeins,xurl}
-\usepackage{longtable,pdflscape,graphicx}
+\usepackage{longtable,pdflscape,graphicx,makecell,multirow}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \usepackage[authoryear,round,sort]{natbib}
 \usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\providecommand{\david}[1]{\textcolor{red}{D: #1}}
+\providecommand{\albert}[1]{\textcolor{blue}{A: #1}}
+\providecommand{\claude}[1]{\textcolor{teal}{C: #1}}
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\theequation}{S\arabic{equation}}
 \renewcommand{\thesection}{S\arabic{section}}
@@ -77,10 +81,10 @@ L\'evy 13 & \([-10,10]\) & \([-10,10]\) & 4\\
 Michalewicz & \([0,\pi]\) & \([0,\pi]\) & 1\\
 Rastrigin & \([-5.12,5.12]\) & \([-5.12,5.12]\) & 1\\
 Rosenbrock & \([-2,2]\) & \([-1,3]\) & 2\\
-Shubert (historical variant) & \([0,10]\) & \([0,10]\) & 1\\
+Shubert (variant) & \([0,10]\) & \([0,10]\) & 1\\
 Styblinski--Tang & \([-5,5]\) & \([-5,5]\) & 1\\
 Sum of squares & \([-10,10]\) & \([-10,10]\) & 1\\
-Xin-She Yang 3 (historical variant) & \([-20,20]\) & \([-20,20]\) & 870\\\bottomrule
+Xin-She Yang 3 (variant) & \([-20,20]\) & \([-20,20]\) & 870\\\bottomrule
 \end{tabular}
 \end{table}
 
@@ -194,7 +198,7 @@ f(x,y)=x^2-10\cos(2\pi x)+y^2-10\cos(2\pi y)+20.
 f(x,y)=(1-x)^2+100(y-x^2)^2.
 \end{equation}
 
-\subsection*{18. Shubert (historical variant)}
+\subsection*{18. Shubert (variant)}
 \begin{equation}\label{eq:supp-shubert}
 \begin{aligned}
 f(x,y)={}&\bigl[\cos(2x+1)+2\cos(3x+2)+3\cos(4x+3)\bigr]\\
@@ -214,7 +218,7 @@ f(x,y)=\frac{1}{78}\,\frac12
 f(x,y)=x^2+2y^2.
 \end{equation}
 
-\subsection*{21. Xin-She Yang 3 (historical variant)}
+\subsection*{21. Xin-She Yang 3 (variant)}
 \begin{equation}\label{eq:supp-xin}
 f(x,y)=\exp\!\left(-\left[\left(\frac{x}{15}\right)^6+y^6\right]\right)
 +2\exp\!\left(-(x^2+y^2)\right)\cos^2x\cos^2y.
@@ -315,32 +319,56 @@ The \texttt{Dynamic} objective is \(-\int_0^9 x(t)^2\,dt\).
 
 
 
-\section{Process completion costs}\label{sec:supp-uncertainty}
+\section{Completion costs}\label{sec:supp-uncertainty}
 
-Table~\ref{tab:process-tts99} reports completion costs for all 14 process conditions.
+Table~\ref{tab:process-tts99} reports completion costs for all 14 process conditions, together with the cost of evaluating every configuration of each DFO domain once.
+Table~\ref{tab:grid-cost} reports the Grid-GDP costs at \(B=100\).
 \begin{table}[p]
 \centering
-\caption{Median reconstructed full-run completion costs for all ten paired seeds per condition, including target misses, in seconds.}
+\caption{Median reconstructed full-run completion costs for all ten paired seeds per condition, including target misses, and the cost of full enumeration, in seconds.}
 \label{tab:process-tts99}
 \small
 \setlength{\tabcolsep}{6pt}
-\par\smallskip\begin{tabular}{@{}lrccccc@{}}\toprule
-Case & \(B\) & \texttt{D-SDA} & RBFOpt & BAM & \texttt{FMQA-SA} & Uniform \\\midrule
-\texttt{Column} & 13 & 35.44 & 54.60 & 27.50 & 41.82 & 21.69 \\
-\texttt{CSTR5} & 8 & 10.67 & 10.72 & 10.67 & 13.92 & 9.44 \\
-\texttt{CSTR10} & 15 & 18.95 & 21.79 & 18.54 & 27.07 & 17.75 \\
-\texttt{CSTR15} & 22 & 29.93 & 37.59 & 27.67 & 42.82 & 27.84 \\
-\texttt{CSTR20} & 29 & 40.68 & 45.03 & 39.37 & 59.10 & 40.12 \\
-\texttt{CSTR25} & 36 & 51.69 & 62.29 & 50.47 & 74.70 & 51.17 \\
-\texttt{CSTR30} & 43 & 53.12 & 101.96 & 115.41 & 101.19 & 65.20 \\
-\texttt{Small Batch} & 10 & 3.84 & 5.12 & 4.23 & 9.09 & 3.49 \\
-\texttt{Dynamic} & 12 & 12.23 & 12.29 & 9.95 & 14.47 & 7.80 \\
-\texttt{Dynamic} & 15 & 15.85 & 16.10 & 11.53 & 18.39 & 8.71 \\
-\texttt{Dynamic} & 20 & 21.30 & 20.54 & 14.07 & 25.23 & 12.27 \\
-\texttt{Dynamic} & 30 & 26.62 & 34.19 & 21.91 & 36.24 & 19.38 \\
-\texttt{Dynamic} & 37 & 26.62 & 42.42 & 24.99 & 46.05 & 24.38 \\
-\texttt{Dynamic} & 50 & 26.62 & 65.14 & 33.98 & 61.31 & 33.12 \\
+\par\smallskip\begin{tabular}{@{}lrcccccc@{}}\toprule
+Case & \(B\) & \texttt{D-SDA} & \texttt{RBFOpt} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform & Enumeration \\\midrule
+\texttt{Column} & 13 & 35.44 & 54.60 & 27.50 & 41.82 & 21.69 & 137.24 \\
+\texttt{CSTR5} & 8 & 10.67 & 10.72 & 10.67 & 13.92 & 9.44 & 30.27 \\
+\texttt{CSTR10} & 15 & 18.95 & 21.79 & 18.54 & 27.07 & 17.75 & 122.06 \\
+\texttt{CSTR15} & 22 & 29.93 & 37.59 & 27.67 & 42.82 & 27.84 & 298.42 \\
+\texttt{CSTR20} & 29 & 40.68 & 45.03 & 39.37 & 59.10 & 40.12 & 553.38 \\
+\texttt{CSTR25} & 36 & 51.69 & 62.29 & 50.47 & 74.70 & 51.17 & 899.39 \\
+\texttt{CSTR30} & 43 & 53.12 & 101.96 & 115.41 & 101.19 & 65.20 & 1719.00 \\
+\texttt{Small Batch} & 10 & 3.84 & 5.12 & 4.23 & 9.09 & 3.49 & 10.18 \\
+\texttt{Dynamic} & 12 & 12.23 & 12.29 & 9.95 & 14.47 & 7.80 & 47.25 \\
+\texttt{Dynamic} & 15 & 15.85 & 16.10 & 11.53 & 18.39 & 8.71 & 47.25 \\
+\texttt{Dynamic} & 20 & 21.30 & 20.54 & 14.07 & 25.23 & 12.27 & 47.25 \\
+\texttt{Dynamic} & 30 & 26.62 & 34.19 & 21.91 & 36.24 & 19.38 & 47.25 \\
+\texttt{Dynamic} & 37 & 26.62 & 42.42 & 24.99 & 46.05 & 24.38 & 47.25 \\
+\texttt{Dynamic} & 50 & 26.62 & 65.14 & 33.98 & 61.31 & 33.12 & 47.25 \\
 \bottomrule\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Grid-GDP results at \(B=100\), with 210 runs per method (21 functions and ten seeds).
+Target hits reach the normalized reference zero within \(10^{-5}\)\ifdefined\manuscriptwithsupplement\space(Equation~\eqref{eqn:target})\fi.
+Times are Q50 (median) [Q25, Q75] in seconds across all runs, including target misses, using linearly interpolated quartiles.
+Summed configuration-evaluation cost includes the separately measured cost of every evaluation in the full run, including repeated configurations.
+Search time excludes lookup processing; adding it to the summed configuration-evaluation cost gives estimated full-run completion time\ifdefined\manuscriptwithsupplement\space(Equation~\eqref{eqn:reconstructed-cost})\fi.
+Component quartiles need not sum to completion quartiles.
+}
+\label{tab:grid-cost}
+\small
+\begin{tabular}{lrrrr}\toprule
+Method & Target hits & \shortstack{Full-run\\completion (s)} & \shortstack{Summed configuration-\\evaluation cost (s)} & \shortstack{Search\\time (s)}\\\midrule
+\texttt{D-SDA} & 101/210 & \shortstack{24.08\\{[15.58, 49.49]}} & \shortstack{24.08\\{[15.58, 49.48]}} & \shortstack{0.0039\\{[0.0037, 0.0043]}} \\
+\texttt{RBFOpt} & 171/210 & \shortstack{70.81\\{[54.83, 93.09]}} & \shortstack{60.84\\{[44.31, 82.15]}} & \shortstack{7.58\\{[4.12, 14.82]}} \\
+\texttt{BAM} & 147/210 & \shortstack{64.42\\{[48.74, 81.67]}} & \shortstack{63.97\\{[48.34, 81.22]}} & \shortstack{0.43\\{[0.37, 0.51]}} \\
+\texttt{FMQA-SA} & 129/210 & \shortstack{124.13\\{[105.57, 139.26]}} & \shortstack{62.34\\{[43.98, 77.52]}} & \shortstack{62.04\\{[61.58, 62.53]}} \\
+Uniform & 45/210 & \shortstack{60.51\\{[43.33, 78.60]}} & \shortstack{60.51\\{[43.33, 78.59]}} & \shortstack{0.0026\\{[0.0026, 0.0027]}} \\
+\texttt{BAM}-prefix control & 124/210 & \shortstack{61.81\\{[40.96, 78.33]}} & \shortstack{61.80\\{[40.95, 78.33]}} & \shortstack{0.0026\\{[0.0026, 0.0027]}} \\
+\bottomrule
+\end{tabular}
 \end{table}
 
 Per-function Grid results at \(B=100\) and complete seed-level outcomes are available in the analysis files linked in Section~\ref{sec:supp-data}.
@@ -352,6 +380,9 @@ Per-function Grid results at \(B=100\) and complete seed-level outcomes are avai
 The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/49d4bcbeb10fe49b74fe2333d27829046e93bf03}{publication snapshot} contains the source code, experimental data, analysis results, and reproduction instructions for the DFO and conventional GDP comparisons.
 The updated \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/329c6f93f4940436425582ae60323c0c9f95b581/results/gdpopt_scip_ipopt_analysis_20261030}{GDPopt analysis and execution records} contain the 63 Grid and 27 process runs configured with \texttt{SCIP} for MIP and \texttt{IPOPT} for NLP subproblems.
 The three presolve-disabled LOA diagnostic runs are excluded.
+The same records contain the paired comparison with the earlier configuration that used \texttt{SCIP} for both MIP and NLP subproblems, in which GLOA returned the same \texttt{CSTR} objectives within a relative difference of \(3\times10^{-5}\).
+Seed spread, tolerance sensitivity, search overhead, and \texttt{GDPopt} enumeration counts are generated by \nolinkurl{review_comparison/revision_diagnostics.py} from the retained run records and execution logs.
+The process \texttt{D-SDA} restart experiment is \nolinkurl{experiments/dsda_process_multistart/run.py}, which replays the sealed lookup package of the adopted \texttt{D-SDA} rerun.
 
 \section{Feasibility and bound consistency of conventional GDP results}\label{sec:bound-audit}
 Of the 45 conventional GDP runs in Table~\ref{tab:full-gdp}, 21 have flagged bounds (Table~\ref{tab:bound-audit}) relative to the checked solutions in Table~\ref{tab:witnesses}.
@@ -456,6 +487,20 @@ The cause of the discrepancy remains unresolved.
 \FloatBarrier % \clearpage
 \section{Additional candidate-search and sampling comparisons}\label{sec:supp-additional}
 
+Figure~\ref{fig:process-evaluations} shows when successful process runs first reach the target.
+
+\begin{figure}[htbp]
+\centering\includegraphics[width=\linewidth]{figures/process_evaluation_profiles.pdf}
+\caption{Cumulative target attainment versus charged evaluations for nine illustrative process conditions, using the success definition of the main paper.
+All ten seeds remain in every denominator, and initialization, unaccepted evaluations, and repeated configurations consume the budget.
+Steps mark the first accepted target observation on successful runs.
+The gray vertical line at three evaluations marks the end of the shared initialization.
+Line styles and markers distinguish methods.
+All 14 conditions appear in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-targets}\else2\fi{} of the main paper.}
+\label{fig:process-evaluations}
+\end{figure}
+\FloatBarrier
+
 \subsection{Paired differences and sampling controls}
 The paired comparisons quantify differences in target-hit rates under shared initial designs, matching case, budget, and seed.
 Positive differences favor the first method and are expressed in percentage points.
@@ -499,6 +544,39 @@ Outcomes list both successful / first only / second only / neither successful.
 \end{table}
 \FloatBarrier
 
+\subsection{Exact paired tests for process conditions}
+Table~\ref{tab:supp-paired} lists the seed-paired target outcomes of \texttt{RBFOpt} and \texttt{D-SDA} in every process condition and of \texttt{BAM} and \texttt{RBFOpt} on \texttt{CSTR5}.
+The \(p\)-values come from the two-sided exact McNemar test, which uses only the pairs in which exactly one method reaches the target.
+They are descriptive and not adjusted for multiple comparisons.
+In the 60 paired \texttt{CSTR} runs, \texttt{RBFOpt} reaches the target in all 31 discordant pairs.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Seed-paired target outcomes and exact McNemar \(p\)-values.
+First only and second only count seeds in which only the first or the second method reaches the target.}
+\label{tab:supp-paired}
+\begin{tabular}{llrrrrrr}\toprule
+Contrast & Case & \(B\) & Both & First only & Second only & Neither & \(p\)\\\midrule
+RBFOpt vs D-SDA & \texttt{CSTR5} & 8 & 2 & 6 & 0 & 2 & 0.0312 \\
+RBFOpt vs D-SDA & \texttt{CSTR10} & 15 & 2 & 4 & 0 & 4 & 0.125 \\
+RBFOpt vs D-SDA & \texttt{CSTR15} & 22 & 2 & 5 & 0 & 3 & 0.0625 \\
+RBFOpt vs D-SDA & \texttt{CSTR20} & 29 & 3 & 4 & 0 & 3 & 0.125 \\
+RBFOpt vs D-SDA & \texttt{CSTR25} & 36 & 3 & 5 & 0 & 2 & 0.0625 \\
+RBFOpt vs D-SDA & \texttt{CSTR30} & 43 & 2 & 7 & 0 & 1 & 0.0156 \\
+RBFOpt vs D-SDA & \texttt{CSTR}, all sizes & -- & 14 & 31 & 0 & 15 & \(9.31\times10^{-10}\) \\
+RBFOpt vs D-SDA & \texttt{Column} & 13 & 3 & 1 & 2 & 4 & 1 \\
+RBFOpt vs D-SDA & \texttt{Small Batch} & 10 & 4 & 1 & 4 & 1 & 0.375 \\
+RBFOpt vs D-SDA & \texttt{Dynamic} & 12 & 4 & 6 & 0 & 0 & 0.0312 \\
+RBFOpt vs D-SDA & \texttt{Dynamic} & 15 & 5 & 5 & 0 & 0 & 0.0625 \\
+RBFOpt vs D-SDA & \texttt{Dynamic} & 20 & 8 & 2 & 0 & 0 & 0.500 \\
+RBFOpt vs D-SDA & \texttt{Dynamic} & 30 & 10 & 0 & 0 & 0 & 1 \\
+RBFOpt vs D-SDA & \texttt{Dynamic} & 37 & 10 & 0 & 0 & 0 & 1 \\
+RBFOpt vs D-SDA & \texttt{Dynamic} & 50 & 10 & 0 & 0 & 0 & 1 \\
+BAM vs RBFOpt & \texttt{CSTR5} & 8 & 8 & 2 & 0 & 0 & 0.500 \\
+\bottomrule\end{tabular}
+\end{table}
+\FloatBarrier
+
 \subsection{Grid suite exclusions}
 Excluding Xin-She Yang~3 and Bohachevsky~2 preserves the main descriptive pattern.
 For the sampled Bohachevsky~2 lattice, \(\cos(3\pi a_i)=1\) at every coordinate, leaving an objective nearly redundant with sampled Sum of Squares after normalization.
@@ -509,6 +587,103 @@ At \(B=10\), \texttt{BAM} and its prefix control each retain 47.9\%, compared wi
 \david{This section is irrelevant, if the QUBOs were not saved, then just repeat the whole experiment and have it cleanly worked out}
 \albert{Removed the reconstructed FMQA diagnostics and their main-text reference; no experiment was rerun and no validation of unsaved historical weights or QUBOs is claimed.}
 
+
+\FloatBarrier
+\section{Seed spread, tolerance sensitivity, and search overhead}\label{sec:supp-spread-overhead}
+Table~\ref{tab:supp-spread} compares exact target attainment with relaxed relative tolerances for the 700 primary process runs.
+The relative gap is \((f_{\mathrm{best}}-f_{\mathrm{ref}})/\max\{1,|f_{\mathrm{ref}}|\}\), the normalization of the target rule\ifdefined\manuscriptwithsupplement\space in Equation~\eqref{eqn:target}\fi.
+The exact column applies the target tolerance of \(10^{-5}\).
+Distinct finals is the largest number of different final objectives among the ten seeds of any condition in the family, and the miss-gap range covers every run that misses the exact target.
+Table~\ref{tab:supp-overhead} compares the median configuration-evaluation cost with the median search time per evaluation.
+Both are medians over runs of per-run averages, namely the summed point cost or the stored search time divided by the number of evaluations, over all five methods for the evaluation cost.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Exact and relaxed target attainment and spread of final objectives across seeds.
+The relaxed columns count runs whose relative gap to \(f_{\mathrm{ref}}\) is at most the stated value.}
+\label{tab:supp-spread}
+\begin{tabular}{llrrrrrr}\toprule
+Family & Method & Exact & \(\leq0.1\%\) & \(\leq1\%\) & \(\leq5\%\) & \makecell{Distinct\\finals} & \makecell{Miss gap\\range (\%)}\\\midrule
+\multirow{5}{*}{\texttt{CSTR}} & D-SDA & 14/60 & 14 & 17 & 27 & 6 & 0.153--13.0 \\
+ & RBFOpt & 45/60 & 45 & 45 & 47 & 3 & 2.23--12.5 \\
+ & BAM & 18/60 & 18 & 60 & 60 & 3 & 0.224--0.692 \\
+ & FMQA-SA & 9/60 & 9 & 23 & 41 & 10 & 0.169--17.2 \\
+ & Uniform & 11/60 & 11 & 25 & 48 & 10 & 0.224--14.3 \\
+\midrule
+\multirow{5}{*}{\texttt{Column}} & D-SDA & 5/10 & 5 & 8 & 10 & 4 & 0.536--1.14 \\
+ & RBFOpt & 4/10 & 4 & 5 & 9 & 6 & 0.536--5.92 \\
+ & BAM & 1/10 & 1 & 1 & 10 & 2 & 1.05--1.05 \\
+ & FMQA-SA & 4/10 & 4 & 4 & 10 & 4 & 1.05--2.76 \\
+ & Uniform & 1/10 & 1 & 2 & 9 & 8 & 0.536--5.22 \\
+\midrule
+\multirow{5}{*}{\texttt{Small Batch}} & D-SDA & 8/10 & 8 & 8 & 8 & 2 & 22.2--22.2 \\
+ & RBFOpt & 5/10 & 5 & 5 & 5 & 3 & 6.64--22.2 \\
+ & BAM & 2/10 & 2 & 2 & 2 & 3 & 6.64--8.23 \\
+ & FMQA-SA & 6/10 & 6 & 6 & 6 & 5 & 6.64--22.2 \\
+ & Uniform & 4/10 & 4 & 4 & 4 & 4 & 6.64--22.2 \\
+\midrule
+\multirow{5}{*}{\texttt{Dynamic}} & D-SDA & 47/60 & 47 & 47 & 53 & 5 & 2.07--36.3 \\
+ & RBFOpt & 60/60 & 60 & 60 & 60 & 1 & -- \\
+ & BAM & 27/60 & 27 & 27 & 46 & 4 & 2.07--7.01 \\
+ & FMQA-SA & 23/60 & 23 & 23 & 42 & 7 & 2.07--36.3 \\
+ & Uniform & 21/60 & 21 & 21 & 38 & 6 & 2.07--30.7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering\small
+\caption{Median configuration-evaluation cost and median search time per evaluation.}
+\label{tab:supp-overhead}
+\begin{tabular}{lrrrrrr}\toprule
+ & & \multicolumn{5}{c}{Search time per evaluation (ms)}\\\cmidrule(l){3-7}
+Family & \makecell{Evaluation\\cost (s)} & D-SDA & RBFOpt & BAM & FMQA-SA & Uniform\\\midrule
+Grid-GDP & 0.392 & 0.120 & 31.1 & 3.77 & 604 & 0.0336 \\
+\texttt{CSTR} & 1.43 & 1.40 & 24.2 & 9.01 & 572 & 0.517 \\
+\texttt{Column} & 2.66 & 1.21 & 17.4 & 1.36 & 527 & 0.551 \\
+\texttt{Small Batch} & 0.420 & 1.36 & 17.0 & 1.69 & 487 & 0.536 \\
+\texttt{Dynamic} & 0.750 & 1.09 & 98.4 & 9.34 & 567 & 0.471 \\
+\bottomrule\end{tabular}
+\end{table}
+
+Every NLP subproblem solved by \texttt{GDPopt} in the process comparisons fixes a different configuration, as recorded in its execution logs before each subproblem.
+RIC and LOA solve one subproblem for each of the \(N(N+1)/2\) logically admissible configurations of \texttt{CSTR5} to \texttt{CSTR20} and for each of the 37 admissible \texttt{Dynamic} configurations, and RIC also covers all 325 admissible configurations of \texttt{CSTR25}.
+\FloatBarrier
+
+\section{Process D-SDA restarts}\label{sec:supp-dsda-restarts}
+The published process \texttt{D-SDA} descends once from the best of the three shared initial configurations (S).
+Variant R applies the Grid rule and descends from all three shared initial configurations, best first, while budget remains.
+Variant RR continues after R with descents from uniformly drawn unvisited configurations until the budget is exhausted, and it uses the full budget in all 140 runs.
+No variant receives the reference target.
+All variants read the stored responses, and S reproduces every archived run exactly, including its sequence of evaluated configurations.
+Table~\ref{tab:supp-dsda-restarts} shows that the restarts use the remaining budget without changing any target hit.
+On \texttt{CSTR10} to \texttt{CSTR30}, most completed restart descents end at the target or at the configuration \((5,1)\), where 30 of the 38 single-descent misses also end.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Process \texttt{D-SDA} with a single descent (S), restarts from the ranked shared initial configurations (R), and additional random restarts (RR).}
+\label{tab:supp-dsda-restarts}
+\begin{tabular}{lrcccccccc}\toprule
+ & & \multicolumn{3}{c}{Target hits} & \multicolumn{2}{c}{Full-budget runs} & \multicolumn{3}{c}{Median evaluations}\\\cmidrule(lr){3-5}\cmidrule(lr){6-7}\cmidrule(l){8-10}
+Case & \(B\) & S & R & RR & S & R & S & R & RR\\\midrule
+\texttt{Column} & 13 & 5 & 5 & 5 & 9 & 10 & 13 & 13 & 13 \\
+\texttt{CSTR5} & 8 & 2 & 2 & 2 & 8 & 10 & 8 & 8 & 8 \\
+\texttt{CSTR10} & 15 & 2 & 2 & 2 & 5 & 10 & 14.5 & 15 & 15 \\
+\texttt{CSTR15} & 22 & 2 & 2 & 2 & 3 & 10 & 18 & 22 & 22 \\
+\texttt{CSTR20} & 29 & 3 & 3 & 3 & 2 & 10 & 22.5 & 29 & 29 \\
+\texttt{CSTR25} & 36 & 3 & 3 & 3 & 2 & 10 & 27.5 & 36 & 36 \\
+\texttt{CSTR30} & 43 & 2 & 2 & 2 & 1 & 9 & 27.5 & 43 & 43 \\
+\texttt{Small Batch} & 10 & 8 & 8 & 8 & 10 & 10 & 10 & 10 & 10 \\
+\texttt{Dynamic} & 12 & 4 & 4 & 4 & 10 & 10 & 12 & 12 & 12 \\
+\texttt{Dynamic} & 15 & 5 & 5 & 5 & 10 & 10 & 15 & 15 & 15 \\
+\texttt{Dynamic} & 20 & 8 & 8 & 8 & 6 & 10 & 20 & 20 & 20 \\
+\texttt{Dynamic} & 30 & 10 & 10 & 10 & 2 & 10 & 23.5 & 30 & 30 \\
+\texttt{Dynamic} & 37 & 10 & 10 & 10 & 0 & 10 & 23.5 & 37 & 37 \\
+\texttt{Dynamic} & 50 & 10 & 10 & 10 & 0 & 7 & 23.5 & 50 & 50 \\
+\bottomrule\end{tabular}
+\end{table}
+\claude{Outcomes are deterministic and come from a local replay of the stored responses; Albert's Dantzig run will supply the archived return and completion times.}
+\FloatBarrier
 
 \clearpage
 \section{Joint comparison with conventional GDP methods}
@@ -521,8 +696,8 @@ Table~\ref{tab:full-gdp} reports all nine models, including final objectives and
 \begin{table}[htbp]
 \centering
 \caption{Full-process-GDP results from one run per method and model.
-Entries report the final objective and measured full-run completion time (s) in parentheses, including model-template preparation.
-\texttt{GDPOpt} uses \texttt{SCIP} for master problems and \texttt{IPOPT} for NLP subproblems; Big-\(M\) and Hull retain their \texttt{SCIP} results.
+Entries report the final objective and measured full-run completion time (s) in parentheses, including model-template preparation; runs stopped by the 1,800~s time limit are shown as 1800+.
+\texttt{GDPopt} uses \texttt{SCIP} for master problems and \texttt{IPOPT} for NLP subproblems; Big-\(M\) and Hull retain their \texttt{SCIP} results.
 Bold marks the lowest objective in each row and ties within \(10^{-5}\max\{1,|f_{\min}|\}\), where \(f_{\min}\) is the lowest objective in that row.
 Feasibility means numerical feasibility under the original-GDP residual test at \(10^{-5}\), not exact feasibility.}
 \label{tab:full-gdp}
@@ -535,19 +710,19 @@ Model & RIC & GLOA & LOA & Big-\(M\) & Hull \\
 \midrule
 \texttt{CSTR5} & \makecell{3.06201\({}^{\dagger}\)\\(15.38)} & \makecell{3.13020\({}^{\dagger\ddagger}\)\\(4.57)} & \makecell{3.06201\({}^{\dagger}\)\\(24.58)} & \makecell{\textbf{3.06198}\\(53.68)} & \makecell{3.06201\({}^{\dagger}\)\\(15.43)} \\
 \texttt{CSTR10} & \makecell{2.96605\({}^{\dagger\ddagger}\)\\(134.31)} & \makecell{3.44796\({}^{\dagger\ddagger}\)\\(3.10)} & \makecell{2.96605\({}^{\dagger\ddagger}\)\\(140.38)} & \makecell{\textbf{2.88941}\\(771.36)} & \makecell{2.88951\({}^{\dagger}\)\\(71.63)} \\
-\texttt{CSTR15} & \makecell{2.82939\({}^{\dagger}\)\\(283.77)} & \makecell{3.56196\({}^{\dagger\ddagger}\)\\(6.17)} & \makecell{2.82939\({}^{\dagger}\)\\(445.43)} & \makecell{-\({}^{\mathrm{TL}}\)\\(1790.95)} & \makecell{\textbf{2.82936}\\(284.63)} \\
-\texttt{CSTR20} & \makecell{2.79941\({}^{\dagger}\)\\(607.72)} & \makecell{3.61612\({}^{\dagger\ddagger}\)\\(7.46)} & \makecell{2.79941\({}^{\dagger}\)\\(733.53)} & \makecell{2.80413\({}^{\mathrm{TL}}\)\\(1792.44)} & \makecell{\textbf{2.79936}\\(1150.67)} \\
-\texttt{CSTR25} & \makecell{2.79125\({}^{\dagger\ddagger}\)\\(1042.79)} & \makecell{3.64786\({}^{\dagger\ddagger}\)\\(5.20)} & \makecell{2.79125\({}^{\mathrm{TL}}\)\\(1790.35)} & \makecell{2.78771\({}^{\mathrm{TL}}\)\\(1792.33)} & \makecell{\textbf{2.78143}\\(1701.75)} \\
-\texttt{CSTR30} & \makecell{2.77162\({}^{\mathrm{TL}}\)\\(1793.35)} & \makecell{3.66872\({}^{\dagger\ddagger}\)\\(5.52)} & \makecell{2.87314\({}^{\mathrm{TL}}\)\\(1798.05)} & \makecell{\textbf{2.76957}\({}^{\mathrm{TL}}\)\\(1791.82)} & \makecell{\textbf{2.76957}\({}^{\mathrm{TL}}\)\\(1792.56)} \\
-\texttt{Column} & \makecell{\textbf{19449.9}\\(124.03)} & \makecell{20355.1\({}^{\dagger\ddagger}\)\\(42.41)} & \makecell{\textbf{19449.9}\\(199.22)} & \makecell{-\({}^{\mathrm{TL}}\)\\(1792.83)} & \makecell{22271.5\({}^{\mathrm{TL}\dagger}\)\\(1792.76)} \\
-\texttt{Dynamic} & \makecell{\textbf{-212.009}\\(149.39)} & \makecell{-197.140\({}^{\dagger\ddagger}\)\\(238.96)} & \makecell{\textbf{-212.009}\\(550.49)} & \makecell{\textbf{-212.009}\({}^{\mathrm{TL}}\)\\(1791.75)} & \makecell{-196.931\({}^{\dagger\ddagger}\)\\(921.28)} \\
+\texttt{CSTR15} & \makecell{2.82939\({}^{\dagger}\)\\(283.77)} & \makecell{3.56196\({}^{\dagger\ddagger}\)\\(6.17)} & \makecell{2.82939\({}^{\dagger}\)\\(445.43)} & \makecell{-\({}^{\mathrm{TL}}\)\\(1800+)} & \makecell{\textbf{2.82936}\\(284.63)} \\
+\texttt{CSTR20} & \makecell{2.79941\({}^{\dagger}\)\\(607.72)} & \makecell{3.61612\({}^{\dagger\ddagger}\)\\(7.46)} & \makecell{2.79941\({}^{\dagger}\)\\(733.53)} & \makecell{2.80413\({}^{\mathrm{TL}}\)\\(1800+)} & \makecell{\textbf{2.79936}\\(1150.67)} \\
+\texttt{CSTR25} & \makecell{2.79125\({}^{\dagger\ddagger}\)\\(1042.79)} & \makecell{3.64786\({}^{\dagger\ddagger}\)\\(5.20)} & \makecell{2.79125\({}^{\mathrm{TL}}\)\\(1800+)} & \makecell{2.78771\({}^{\mathrm{TL}}\)\\(1800+)} & \makecell{\textbf{2.78143}\\(1701.75)} \\
+\texttt{CSTR30} & \makecell{2.77162\({}^{\mathrm{TL}}\)\\(1800+)} & \makecell{3.66872\({}^{\dagger\ddagger}\)\\(5.52)} & \makecell{2.87314\({}^{\mathrm{TL}}\)\\(1800+)} & \makecell{\textbf{2.76957}\({}^{\mathrm{TL}}\)\\(1800+)} & \makecell{\textbf{2.76957}\({}^{\mathrm{TL}}\)\\(1800+)} \\
+\texttt{Column} & \makecell{\textbf{19449.9}\\(124.03)} & \makecell{20355.1\({}^{\dagger\ddagger}\)\\(42.41)} & \makecell{\textbf{19449.9}\\(199.22)} & \makecell{-\({}^{\mathrm{TL}}\)\\(1800+)} & \makecell{22271.5\({}^{\mathrm{TL}\dagger}\)\\(1800+)} \\
+\texttt{Dynamic} & \makecell{\textbf{-212.009}\\(149.39)} & \makecell{-197.140\({}^{\dagger\ddagger}\)\\(238.96)} & \makecell{\textbf{-212.009}\\(550.49)} & \makecell{\textbf{-212.009}\({}^{\mathrm{TL}}\)\\(1800+)} & \makecell{-196.931\({}^{\dagger\ddagger}\)\\(921.28)} \\
 \texttt{Small Batch} & \makecell{\textbf{167428}\\(13.15)} & \makecell{\textbf{167428}\\(10.32)} & \makecell{\textbf{167428}\\(5.61)} & \makecell{\textbf{167428}\\(0.51)} & \makecell{\textbf{167428}\\(0.50)} \\
 \bottomrule
 \end{tabular}
 \par\vspace{3pt}
 \begin{minipage}{0.99\linewidth}
 \small
-TL: reported \texttt{maxTimeLimit} under the configured 1,800~s limit; measured times are retained, including values below 1,800~s.
+TL: reported \texttt{maxTimeLimit} under the configured 1,800~s limit.
 Runs without TL report \texttt{optimal}.
 \par
 Dash: no accepted feasible solution.
@@ -589,6 +764,7 @@ Dynamic & 50 & 22 & 31 & 26 & 24.5 & 26 & 20 & 37 & 37 \\
 \begin{minipage}{0.98\linewidth}\footnotesize
 The same single Dynamic GDPopt execution is repeated across budget rows for reference.
 Internal NLP counts for direct Big-\(M\) and Hull are unavailable and are not treated as zero.
+Every \texttt{GDPopt} NLP call fixes a different configuration; \texttt{CSTR}\(N\) has \(N(N+1)/2\) logically admissible configurations, and \texttt{Dynamic} has 37 (Section~\ref{sec:supp-spread-overhead}).
 \end{minipage}
 \end{table}
 \FloatBarrier
