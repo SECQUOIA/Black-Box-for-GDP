@@ -36,23 +36,23 @@ An inadmissible point is charged to the budget and returned as infeasible withou
 - NOMAD and MISO run in a forked child. A native crash is rerun once and kept only if the rerun repeats the search path.
 - No global optimum is known, so a hit is a value within 1e-5 relative of the best accepted value found by any run or by the 202-configuration pilot of the same protocol. That value is reported as best-known in `best_known.json`.
 
-## Cost
+## Cost and local pilot
 
-A local pilot ran all seven methods at seed 0 and B = 25, each pinned to one CPU of a shared workstation.
-BAM and FMQA-SA used uv-built Python 3.12 environments with the pinned packages: `bam-solver` 5.0.0, and torch 2.13.0 (CPU) with `requirements-fmqa-qhd.txt`.
-Each run took 80–165 s, about 4–5 s per evaluation:
+The local pilot ran all seven methods at seed 0 and B = 25 on the final corrected model, which has the 95 mol% ETBE specification and 2010 prices. Each method ran pinned to one CPU of a shared workstation. BAM and FMQA-SA used uv-built Python 3.12 environments with the pinned packages: `bam-solver` 5.0.0, and torch 2.13.0 (CPU) with `requirements-fmqa-qhd.txt`.
+
+Each run took 117–220 s, about 5–9 s per evaluation, because unaccepted configurations are slower to solve. None of the 25 runs found the best known design, (7, 8, 11, 16, 16, 20) at 25,271.33 $/yr, which comes from the 202-configuration pilot.
 
 | Method | Accepted | Logical rejections | Gap to best known ($/yr) |
 |---|---:|---:|---:|
-| MISO | 17 | 3 | 0 (found the best known, 18,480.38 at (5, 5, 7, 8, 8, 12)) |
-| FMQA-SA | 18 | 4 | 63 |
-| NOMAD | 17 | 4 | 183 |
-| Uniform | 12 | 10 | 281 |
-| BAM | 8 | 7 | 476 |
-| D-SDA | 21 | 1 | 634 |
-| RBFOpt | 20 | 3 | 752 |
+| MISO | 17 | 4 | 759 |
+| BAM | 6 | 7 | 797 |
+| Uniform | 9 | 10 | 1,086 |
+| FMQA-SA | 16 | 2 | 1,530 |
+| NOMAD | 11 | 7 | 3,175 |
+| D-SDA | 16 | 0 | 3,429 |
+| RBFOpt | 15 | 4 | 4,142 |
 
-The full plan has 12,250 evaluations. At that rate it needs about 15 CPU-hours before cache reuse and FMQA training, so about 1 h on 32 cores.
+The full plan has 12,250 evaluations. At this rate it needs about 20–30 CPU-hours before cache reuse, so about 1 h on 32 cores.
 
 ## Running on Dantzig
 
