@@ -13,6 +13,7 @@ GAMS 54.2. The machine was shared with other workloads, so times are indicative.
 | `failed72_pounce` | `failed72.csv` | POUNCE from `init.gdx`, 300 s | 3 recovered. Run on an oversubscribed machine with multithreaded solves, so its time limits are not conclusive |
 | `failed72_wide_bounds` | `failed72.csv` | CONOPT from `init.gdx`, `wide_bounds` variant | 58 solved; 52 of them need Qr > 400 |
 | `published_conopt`, `published_pounce`, `published_ipopt` | `published.csv` | each solver from `init.gdx`, one thread | 0.40 s, 6.7 s, 35.6 s; same optimum |
+| `published_pilot_20_ipopt` | `pilot20.csv` (first 20 of `pilot202.csv`) | IPOPT from `init.gdx`, one thread | 6 accepted against 14 for CONOPT; median 66 s against 1.8 s; identical objectives (within 6e-6) where both solve |
 | `objective_variants.csv` | three configurations | CONOPT from `init.gdx`, `variants.py` | `zobj` with findings 11 and 15 fixed separately and together |
 
 ## Corrected model (`distillation_model_corrected.gms`)
@@ -26,11 +27,19 @@ GAMS 54.2. The machine was shared with other workloads, so times are indicative.
 Runs with IPOPT on the 72 failures and on the eight best configurations were discarded. Their solver processes were multithreaded and outlived the time limit, so their timeouts measure machine load rather than the solver.
 The runner now passes `threads=1` and kills the solver's process group on timeout.
 
-## Corrected model with open property data (current version)
+## Final corrected model (current version)
+
+With the open property data below plus 2010-basis prices and a 95 mol% ETBE specification:
+
+| Run | Content |
+|---|---|
+| `final_pilot_200_conopt` | `pilot202.csv`, CONOPT from `init.gdx`: 132 accepted (all with b >= 13), median 4.3 s; best (7, 8, 11, 16, 16, 20) at 25,271.33 $/yr |
+
+## Corrected model with open property data (83 mol% specification, published prices)
 
 | Run or file | Content |
 |---|---|
-| `open_pilot_200_conopt` | `pilot202.csv`, CONOPT from `init.gdx`: 161 accepted, median 3.2 s |
+| `open_pilot_200_conopt` | `pilot202.csv`, CONOPT from `init.gdx`: 161 accepted, median 3.2 s (83 mol% specification, published prices) |
 | `open_property_fits.json`, `open_property_parameters.json` | Output of `fit_open_properties.py` and the parameters used in the model |
 | `open_pilot_20_pounce_0.14.0`, `open_pilot_20_pounce_gams54.2` | The first 20 configurations of `pilot202.csv` with POUNCE 0.14.0 (pip GAMS link, selected through `XDG_CONFIG_DIRS`) and the POUNCE bundled with GAMS 54.2.2, one thread, 600 s: neither accepts any configuration (CONOPT accepts 14). IPOPT also fails at the published configuration, with and without warm-start options |
 | `open_data/` | Open experimental data with `sources.json`: isobutene + ethanol VLE, ETBE + ethanol azeotropes, ETBE vapor pressure, density, and surface tension. Used by `check_nrtl_etbe_open_data.py` |
