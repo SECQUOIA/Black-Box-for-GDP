@@ -14,7 +14,7 @@ Independent recomputations in Python reproduce the model's vapor pressures, acti
   - `logic1`–`logic13` are equivalent to 2 <= f1 <= c1 < c2 < c3 <= f2 <= b <= 21.
   - Stages below the boil-up stage carry no vapor, properties, hydraulics, pressure drop, height, or reaction.
   - `par` and `ye` in `solve_configuration.gms` are identical to those in `DISTILLATION.gms`.
-- Property forms: extended Antoine (DIPPR 101), NRTL with correct index order, SRK constants and mixing rules, ideal-gas Cp integral, DIPPR 106 heat of vaporization, liquid Cp. Antoine gives normal boiling points within 0.3 K of literature. NRTL reproduces the ETBE–ethanol azeotrope at 1 atm (339.0 K, x_EtOH = 0.376).
+- Property forms: extended Antoine (DIPPR 101), NRTL with correct index order, SRK constants and mixing rules, ideal-gas Cp integral, DIPPR 106 heat of vaporization, liquid Cp. The Antoine curves pass through the NIST normal boiling points and critical pressures (see [Constants checked against NIST](#constants-checked-against-the-nist-chemistry-webbook)). NRTL reproduces the ETBE–ethanol azeotrope at 1 atm (339.0 K, x_EtOH = 0.376).
 - Kinetics: the activity-based rate law, its use in mol/min with mole percentages, the stoichiometry, and the Jensen–Datta form of the equilibrium constant.
 - Hydraulic and cost forms: Kister–Haas clear-liquid height and flooding factor, tray geometry, catalyst pressure drop, Guthrie/Douglas shell and tray correlations, capital-recovery factor (5 years, 5%).
 
@@ -40,9 +40,9 @@ Severity is the effect on the model's use as an optimization problem: High chang
 | 18 | `EquilibrioC0` (line 853), `Equilibrio10` (line 897), `EquilibrioR0` (line 915) | Phase equilibrium is y·P·φ = x·γ·Psat, without the saturation fugacity coefficient φ^sat or the Poynting factor. At 9.5 bar, φ^sat of the butenes is 0.78–0.85 on stages 1–10 and 0.69 in the reboiler. | With finding 1, ethanol and ETBE K-values are 17–26% too low on stages 1–10. Butene K-values are within 1% at the top, 14% high at stage 10, and 40% high in the reboiler. Fixing 1 alone would make the butene K-values 18–62% high, so 1 and 18 must be fixed together. | High |
 | 3 | `EqHVi` (line 662), `EqdepHvib` (line 726), `EqHFB` (line 807), `EqHFE` (line 839) | The enthalpy departure term `(1+m_i)·sqrt(a)/b·ln(Z/(Z+B))` has units of bar^0.5 and is not the SRK residual enthalpy RT(Z−1) + (T·da/dT − a)/b·ln(1 + B/Z). | −3.3 kJ/mol in the vapor where SRK gives −1.5 kJ/mol. Partly cancels in the stage balances. | Medium |
 | 19 | `EqHFE`/`VaporZeth`, `EqHFB`/`VaporZbut` | The departure term of the liquid feeds uses the vapor root of the cubic at 9.5 bar. Ethanol at 342.4 K has Psat = 0.70 bar, and `Zeth` = 0.690 is a vapor state that cannot exist. A liquid feed's enthalpy should be H_ig + H_R,V at Psat − ΔHvap, the path `EqHLi` already uses. | HFE is −277.7 instead of −271.8 kJ/mol and HFB is −25.2 instead of −22.5 kJ/mol. About 26 kJ/min of feed enthalpy, 9% of the reboiler duty, is missing; 19 kJ/min of it is independent of finding 3. | Medium |
-| 20 | Heats of formation (line 644) vs `EqKetbe` (line 518) | The heat of reaction implied by the enthalpies is −31.3 kJ/mol at the catalytic stages. The van 't Hoff slope of the model's own K(T) gives −43.8 kJ/mol. The two data sets disagree; it is not established which one is correct. | About 20 kJ/min, 7% of the reboiler duty. | Low/Medium |
+| 20 | Heats of formation (line 644) vs `EqKetbe` (line 518) | The heat of reaction implied by the enthalpies is −31.3 kJ/mol at the catalytic stages (−34.3 with the corrected departures), while the van 't Hoff slope of K(T) gives −43.8 kJ/mol. The enthalpies agree with the measured liquid-phase heat of reaction on the NIST WebBook: −32.0 kJ/mol (Sola et al. 1995) and 35.5 ± 1.9 kJ/mol for the reverse reaction (Sharonov et al. 1995). K(T) comes with the kinetic model and enters only the equilibrium constant. | No change needed in the energy balance. | Resolved |
 | 2 | `EqAlphaEOS` (line 563) | The SRK α of each component uses the liquid mixture pseudo-critical temperature `Tcritm` instead of the component critical temperature. | The vapor compressibility factor stays within 1.1% of SRK. | Low |
-| 21 | `Pcrit` (lines 290–296) | All four critical pressures are gauge values, i.e. the literature value minus 1.01325 bar (isobutene 38.99 instead of 40.00 bar). | a and b are 1.7–3.6% high; K-values change by at most 1.2%. | Low |
+| 21 | `Pcrit` (lines 290–296) | All four critical pressures are gauge values, i.e. the literature value minus 1.01325 bar. NIST gives 40.00 ± 0.10 bar for isobutene and 40.2 ± 0.5 bar for 1-butene (Tsonopoulos and Ambrose 1996), against 38.99 and 39.19 in the model. | a and b are 1.7–3.6% high; K-values change by at most 1.2%. | Low |
 | 8 | Parameters | Two critical-temperature sets: `Tcrit` for properties and `TcritSRK` for the EOS, e.g. ethanol 516.2 vs 514 K. | Small. | Low |
 | 31 | `EqKetbe` (line 521) | The temperature coefficient is −0.01915144; the source gives −0.0191544. | At most 0.1% in K. | Cosmetic |
 | 22 | `Tb` (line 651) | The reference boiling points at 9.5 bar differ from the model's own Antoine, e.g. n-butene 342.6 vs 341.7 K. | Less than 0.05 kJ/mol. | Cosmetic |
@@ -55,9 +55,9 @@ These relations enter only as constraints. At the published optimum, the active 
 |---|---|---|---|---|
 | 14 | `EqDPq` (line 987) | The downcomer apron loss adds the squared vapor volumetric flow to the squared liquid flow. Only liquid flows under the apron. | `DPq` is 3.0–3.6e-3 bar, about three times the liquid head. The downcomer backup in `DownFlood` is 0.18–0.22 of the tray spacing at the published optimum and 0.67–0.92 at the configuration (7, 7, 11, 17, 17, 20), mostly from this term. | Medium |
 | 23 | `DownFlood` (line 1006) | The backup is h_ow + (ΔP + ΔP_q)/(Δρ·g) <= HS. The textbook form is h_w + h_ow + h_t + h_da <= about 0.5(HS + h_w) for aerated liquid (Coulson & Richardson Vol. 6; Kister). It omits the weir height and any froth allowance. | Inactive at the published optimum. | Medium |
-| 4 | `Eqrho` (line 402) | DIPPR 105 uses the exponent `C4r`, which is zero for every component, instead of `C3r` (0.23–0.29), so densities do not depend on temperature. | Densities are 39–84% above DIPPR 105. | Medium |
+| 4 | `Eqrho` (line 402) | DIPPR 105 uses the exponent `C4r`, which is zero for every component, instead of `C3r` (0.23–0.29), so densities do not depend on temperature. | Densities are 39–84% above the same DIPPR 105 form evaluated with the exponent `C3r`. | Medium |
 | 13 | `EqDPS` (line 983) | The dry-tray pressure drop divides the squared volumetric vapor flow by `A0` instead of `A0²`, which is dimensionally inconsistent. | Underestimated by 1/A0 = 2,293 m⁻²: 1.6e-7 bar instead of about 3.7e-4 bar. The liquid head is 1.1e-3 bar. | Low |
-| 5 | `Eqsigma` (line 445) | The ethanol coefficients are DIPPR 100 polynomial coefficients with the sign of C3 flipped, used in a DIPPR 106 form. All components use the mixture `Tcritm` instead of their own critical temperature. | Ethanol 0.038–0.044 N/m at 343 K against about 0.018 measured; mixture σ up to 37% high. | Low |
+| 5 | `Eqsigma` (line 445) | The ethanol coefficients are DIPPR 100 polynomial coefficients with the sign of C3 flipped, used in a DIPPR 106 form. All components use the mixture `Tcritm` instead of their own critical temperature. | Ethanol 0.038–0.044 N/m at 343 K, against 0.018 N/m from the same coefficients in the DIPPR 100 polynomial with the sign restored; mixture σ up to 37% high. Not checked against measurements. | Low |
 | 24 | `EntrainFloodV` (line 1011) | Kister–Haas is defined on the net area AT − Ad, but the code uses At = AT − 2Ad, at 100% of flood. Designs normally use 80–85%. | Inactive. | Low |
 | 25 | `EqhD` (line 939) | The crest over the weir uses the coefficient 0.6 where the Francis formula gives about 0.66. | −10% on a 1.5 mm crest. | Low |
 | 26 | `EntrainFloodL` (line 1014) | Labeled entrainment, but it is a downcomer liquid-velocity limit. | Inactive. | Cosmetic |
@@ -68,7 +68,7 @@ These relations enter only as constraints. At the published optimum, the active 
 |---|---|---|---|---|
 | 27 | `Qr.up = 400` (line 1110) | Upper bound on the reboiler duty. | It is the main reason configurations fail. Of the 72 sampled configurations that CONOPT reports as locally infeasible, 58 solve once the operating bounds are widened. 52 of those solutions use Qr between 400 and 1,658, so the bound cuts off configurations that the column can operate. The bound is inactive at the published optimum (292) and almost active at (7, 7, 11, 17, 17, 20) (391). Other operating bounds are tight as well: `Qr.lo = 100`, `Qc.up = 900`, `RR` in [1, 10], `BR.up = 10`, `L.up = V.up = 200`. | High for the benchmark |
 | 9 | `Temp.up = 417.89` (line 1222) | The bound is 0.01 K below `Tcritm.lo = 417.9`, the critical temperature of isobutene. It keeps (1 − T/Tcritm) positive in the density, surface tension, and SRK α expressions (findings 2, 4, 5). It also caps every stage below the ETBE boiling point at 9.5 bar (438.8 K). | The model cannot represent bottoms much richer in ETBE than the 83% specification. | Structural |
-| 28 | `rho.lo = 8000` (line 1238) | Lower bound on the liquid molar density. | Inactive now, but real ETBE density (about 6,400 mol/m³ at 373 K) violates it once finding 4 is fixed. | Low |
+| 28 | `rho.lo = 8000` (line 1238) | Lower bound on the liquid molar density. | Inactive now, but the corrected ETBE density (6,200–6,700 mol/m³ at the stage temperatures, from the model's own DIPPR 105 coefficients) violates it once finding 4 is fixed. | Low |
 
 ### Cosmetic and usage
 
@@ -84,6 +84,29 @@ These relations enter only as constraints. At the published optimum, the active 
 
 - Kinetics: the rate, adsorption, and equilibrium constants are those of Sneesby et al. (1997, Ind. Eng. Chem. Res. 36, 1855–1869), as reported by García Serpas et al. (2024, Period. Polytech. Chem. Eng. 68, 116–123). The source gives k_r = 2.0606e12·exp(−60.4 kJ mol⁻¹/RT) mol kg⁻¹ s⁻¹. The model's 7.41816e15 is that value per hour, and `hora/3600` converts it to per minute, so the rate units are correct.
 - NRTL parameters: taken from Aspen Plus, according to the model author.
+- DIPPR numbers in this review (101, 105, 106, 100) name public equation forms. The DIPPR database itself was not used.
+
+### Constants checked against the NIST Chemistry WebBook
+
+Values from the NIST WebBook pages of isobutene (C115117), ethanol (C64175), 1-butene (C106989), and ETBE (C637923), compared with the model's own correlations.
+
+| Property | Result |
+|---|---|
+| Critical temperature | Isobutene 417.9 (NIST 417.9 ± 0.1 K) and 1-butene 419.5 (419.5 ± 0.5 K) agree. Ethanol 516.2 in the published property set and 514 in the SRK set; NIST gives 514 ± 7 K (513.9 K in Majer and Svoboda). ETBE is not on NIST |
+| Critical pressure | The absolute values (model + 1.01325 bar) agree: isobutene 40.00 and 1-butene 40.20 bar against NIST 40.00 ± 0.10 and 40.2 ± 0.5; ethanol 61.37 against 63 ± 4 bar. This confirms finding 21 |
+| Normal boiling point | From the model's Antoine: 266.07, 351.46, 266.90, and 345.57 K, against NIST 266.7 ± 0.7, 351.5 ± 0.2, 266.8 ± 0.5, and 345.6–346.3 K |
+| Vapor pressure | Ethanol within 0.7% of the NIST Antoine fit to Ambrose and Sprake (1970) at 300–366 K. Isobutene within 2% and 1-butene within 2.4% of the NIST fits near their normal boiling points; those fits end below 273 K. All four model curves reach the critical pressure at Tc within 0.8%, so they are anchored at both ends of the operating range. NIST's ethanol fit for 365–514 K is not a usable check: it differs by 6% from its lower-range fit where the two overlap and gives 57 bar at Tc |
+| Ideal-gas Cp | Isobutene +1.4 to +2.4%, ethanol +0.3 to +1.1%, 1-butene within 0.8% of the TRC tables at 298–400 K. ETBE +4 to +6% against NIST values that were computed from estimated vibrational frequencies |
+| Heat of vaporization | 1-butene within 0.3% and ethanol within 1.3% of the Majer–Svoboda correlations up to their normal boiling points; ethanol is 3–5% high at 400–420 K. Isobutene and ETBE within about 3–6% of individual measurements |
+| Liquid Cp | Isobutene 123.4 vs 121.3 J/(mol·K) at 266 K; 1-butene 128.3 vs 129.0 at 298 K; ethanol 112.3 vs about 112.3; ETBE 220.1 vs 218 |
+| Enthalpy of formation (gas) | All four within NIST's uncertainty; the gas-phase heat of reaction from them is −62.0 kJ/mol, against −62 ± 2 (Iborra et al. 1989) |
+| Liquid heat of reaction | −31.3 kJ/mol from the model's enthalpies, −34.3 with the corrected departures, against −32.0 (Sola et al. 1995) and −35.5 ± 1.9 (Sharonov et al. 1995); see finding 20 |
+| Acentric factor | Each value equals the one implied by the model's own Antoine and the absolute critical pressure; for ethanol the NIST Antoine gives 0.644, against 0.6436 |
+
+Not confirmed from public data:
+- Liquid density and surface tension: the NIST fluid-property tables do not cover these four compounds.
+- ETBE critical constants and acentric factor.
+- The NRTL parameters.
 
 ## Effect on the configuration ranking
 
@@ -121,7 +144,7 @@ GAMS 54.2 with CONOPT 4, IPOPT 3.14, and POUNCE (an interior-point solver writte
 - Objective: findings 11, 12, 15, 16, and 17.
 - Bounds: findings 27 and 28.
 
-Finding 20 (heats of formation vs K(T)) and finding 25 (weir crest coefficient) are not changed, because the correct values are not established. `Temp.up` (finding 9) stays, because the DIPPR expressions require T below each component's critical temperature.
+Finding 20 needs no change, since the heats of formation agree with the measured heat of reaction. Finding 25 (weir crest coefficient) is not changed, because the textbook coefficient differs by source. `Temp.up` (finding 9) stays, because the DIPPR expressions require T below each component's critical temperature.
 
 The objective is the negative annual profit in $/yr:
 
