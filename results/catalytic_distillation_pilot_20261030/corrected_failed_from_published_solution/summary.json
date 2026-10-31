@@ -1,0 +1,51 @@
+{
+  "admissible_configurations": 100947,
+  "sampled": 93,
+  "seed": null,
+  "configs": "/home/bernalde/repos/RBFopt_Test/.worktrees/catdist/results/catalytic_distillation_pilot_20261030/corrected_failed.csv",
+  "solver": "conopt",
+  "init": "/tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/catdist/corr/corrected_published_solution",
+  "model": "/home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/distillation_model_corrected.gms",
+  "threads": 1,
+  "accepted": 12,
+  "statuses": {
+    "2/1": 12,
+    "5/1": 81
+  },
+  "timeouts": 0,
+  "solver_seconds": {
+    "median": 13.965,
+    "max": 35.891
+  },
+  "wall_seconds_median": 14.275443179000376,
+  "published": null,
+  "best": {
+    "f1": 4,
+    "c1": 5,
+    "c2": 9,
+    "c3": 11,
+    "f2": 12,
+    "b": 16,
+    "solver": "conopt",
+    "returncode": 0,
+    "wall_s": 1.9243842920000134,
+    "modelstat": 2,
+    "solvestat": 1,
+    "zobj": 19050.016326,
+    "resusd": 1.61,
+    "Qr": 294.405653,
+    "Qc": 297.292261,
+    "RR": 3.142694,
+    "BR": 5.829675,
+    "D": 0.156093,
+    "Htotal": 3.121853,
+    "xETBE": 85.499313,
+    "Lmax": 16.765032,
+    "Vmax": 16.815586
+  },
+  "better_than_published": null,
+  "campaign_seconds": 175.85052152399976,
+  "workers": 8,
+  "host": "X-FRNYG027CPC01",
+  "gams": "/home/bernalde/packages/gams54.2_linux_x64_64_sfx/gams"
+}
