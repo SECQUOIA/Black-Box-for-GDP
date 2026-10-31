@@ -47,17 +47,8 @@
 The Grid-GDP functions are adapted from the Quantum Hamiltonian Descent collection; each instance is defined by its implemented expression and domain rather than its conventional name~\citep{qhdBenchmarks,rbfoptTestArchive}.
 
 \section{Coordinate domains and normalization}\label{sec:supp-domains}
-For each row of Table~\ref{tab:grid-domains}, both endpoints are included and the physical coordinates are
-\begin{equation}\label{eq:supp-coordinates}
- a_i=\ell_x+\frac{i}{30}(u_x-\ell_x),\qquad
- b_j=\ell_y+\frac{j}{30}(u_y-\ell_y),\qquad i,j\in\{0,\ldots,30\}.
-\end{equation}
-For the raw functions in Section~\ref{sec:supp-objectives}, the minimized objective is
-\begin{equation}\label{eq:supp-normalization}
- F(x,y)=\frac{f(x,y)-L}{U-L},\qquad
- L=\min_{i,j} f(a_i,b_j),\quad U=\max_{i,j} f(a_i,b_j).
-\end{equation}
-Thus \(L\) and \(U\) are obtained by exhaustive preprocessing of the 961 lattice points, not from the continuous optimum.
+The coordinate mapping and objective normalization follow Section~\ifdefined\manuscriptwithsupplement\ref{sec:grid-gdp-formulation}\else3.1\fi{} of the main paper.
+Both coordinate endpoints are included, and \(L\) and \(U\) are the minimum and maximum over the 961 lattice points.
 All trigonometric arguments are in radians.
 Full-precision normalization constants and target coordinates are archived in \nolinkurl{grid_inventory.json} (Section~\ref{sec:supp-data}).
 
@@ -240,7 +231,7 @@ Python and NumPy use the job seed, and \texttt{RBFOpt} also receives \nolinkurl{
 Grid \texttt{D-SDA} enumerates \(L_\infty\) neighbors lexicographically from \((-1,0,1)\), excluding the zero direction and out-of-bounds points; ties select the first point.
 
 The \texttt{RBFOpt} options are \nolinkurl{rbf=auto}, \nolinkurl{global_search_method=genetic}, \nolinkurl{do_init_strategy=False}, \nolinkurl{ga_base_population_size=400}, and \nolinkurl{ga_num_generations=20}.
-\texttt{RBFOpt} 4.3.0 uses an effective population of \(400+\lfloor 20n/5\rfloor\), where \(n\) is the dimension passed to the genetic-search routine, giving 408 and 412 for two and three search variables.
+
 \texttt{BAM} receives \nolinkurl{x0=None} and \nolinkurl{max_evals}=B-3; its local models use \texttt{ALAMO}/\texttt{BARON}, whose internal versions are not reported by the package.
 
 The \texttt{FMQA-SA} time limit is checked between operations and through training/sampling callbacks.
@@ -253,8 +244,8 @@ The Grid \texttt{RBFOpt}/\texttt{BAM} trace watchdogs are disabled (\nolinkurl{m
 
 \subsection{Versions and independently timed process evaluations}\label{sec:supp-acceptance}
 The recorded Python version is 3.11.16; other versions are given in the main paper\ifdefined\manuscriptwithsupplement\space(Section~\ref{sec:protocol})\fi.
-The recorded Grid \texttt{GDPOpt} runs make no NLP solver calls because preprocessing fixes all original variables.
-The algebraic process models retain their archived initializations, including constructor defaults for \texttt{CSTR30}; the updated DFO evaluation table is identified separately in Section~\ref{sec:supp-data}.
+
+The conventional GDP process models retain their archived initializations, including constructor defaults for \texttt{CSTR30}; the updated DFO evaluation table is identified separately in Section~\ref{sec:supp-data}.
 
 The acceptance rule in \nolinkurl{gdp_models/evaluation.py} requires all of the following: a finite objective; termination in \{\texttt{optimal}, \texttt{locallyOptimal}, \texttt{globallyOptimal}\}; solver status other than \texttt{error} or \texttt{aborted}; interface status \texttt{SOLVESTAT}=1 and \texttt{MODELSTAT}\(\in\{1,2\}\); and a finite maximum primal violation no greater than \(10^{-5}\).
 Time-limit, iteration-limit, evaluation-limit, and error outcomes are not accepted, even if a finite feasible candidate is available.
@@ -267,7 +258,7 @@ The \texttt{CSTR} initializer \nolinkurl{cstr_box_ipopt.py:initialize_feasible} 
 All process evaluations use cold starts; NLP solutions are not transferred between configurations.
 Objectives, acceptance status, and NLP point costs are linked to the same recorded attempt by model, \texttt{CSTR} size, and coordinate, without successful-retry selection or cross-size time substitution.
 
-The CSV is loaded before timing starts; callback logging remains in search time rather than the subtracted lookup time.
+
 
 \subsection{Observed proposal and initialization behavior}\label{sec:supp-proposals}
 Table~\ref{tab:supp-fmqa-fallback} pools \texttt{FMQA-SA} proposals across budgets and seeds, excluding the shared initialization and including terminal callbacks.
@@ -318,16 +309,14 @@ Model & \(n_c\) & \(n_b\) & \(m_a\) & \(m_l\) & \(n_d\)\\\midrule
 \bottomrule\end{tabular}\end{table}
 
 \FloatBarrier
-\texttt{CSTR} volume is measured in litres, and \texttt{Small Batch} investment uses the source model's dollars without currency-year conversion.
+
 The \texttt{Column} objective is \(10^3(Q_c+Q_b)+10^3 n_{\rm active}\), the source model's weighted cost proxy rather than a newly estimated annualized cost.
-The \texttt{Dynamic} objective is \(-\int_0^9 x(t)^2\,dt\), with no physical-unit calibration for state or time.
+The \texttt{Dynamic} objective is \(-\int_0^9 x(t)^2\,dt\).
 
 
 
-\section{Success-rate uncertainty and completion costs}\label{sec:supp-uncertainty}
-For each problem, method, and budget, we report target hits \(h\) out of ten seeds with pointwise two-sided 95\% Clopper--Pearson intervals \([p_L,p_U]\), counting execution failures as non-successes~\citep{clopperPearson}.
-Coverage assumes independent Bernoulli outcomes under the fixed protocol; it is not simultaneous across comparisons.
-Ten successes give \([0.692,1]\), and zero give \([0,0.308]\), so neither observed endpoint establishes a population probability of one or zero.
+\section{Process completion costs}\label{sec:supp-uncertainty}
+
 Table~\ref{tab:process-tts99} reports completion costs for all 14 process conditions.
 \begin{table}[p]
 \centering
@@ -360,12 +349,15 @@ Per-function Grid results at \(B=100\) and complete seed-level outcomes are avai
 \begingroup
 \section{Data sources and reproducibility}\label{sec:supp-data}
 
-The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/49d4bcbeb10fe49b74fe2333d27829046e93bf03}{publication snapshot} contains the source code, experimental data, analysis results, and reproduction instructions for the DFO and algebraic comparisons.
-The Grid \texttt{GDPOpt} summary combines original non-error runs with recovery runs for the 46 execution errors, so its counts do not establish a method ranking.
+The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/49d4bcbeb10fe49b74fe2333d27829046e93bf03}{publication snapshot} contains the source code, experimental data, analysis results, and reproduction instructions for the DFO and conventional GDP comparisons.
+The updated \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/329c6f93f4940436425582ae60323c0c9f95b581/results/gdpopt_scip_ipopt_analysis_20261030}{GDPopt analysis and execution records} contain the 63 Grid and 27 process runs configured with \texttt{SCIP} for MIP and \texttt{IPOPT} for NLP subproblems.
 The three presolve-disabled LOA diagnostic runs are excluded.
 
-\section{Feasibility and bound consistency of the algebraic results}\label{sec:bound-audit}
-Of the 45 algebraic runs reported in the main paper\ifdefined\manuscriptwithsupplement\space(Table~\ref{tab:full-gdp})\fi, 19 have flagged bounds (Table~\ref{tab:bound-audit}) relative to the checked solutions in Table~\ref{tab:witnesses}.
+\section{Feasibility and bound consistency of conventional GDP results}\label{sec:bound-audit}
+Of the 45 conventional GDP runs in Table~\ref{tab:full-gdp}, 21 have flagged bounds (Table~\ref{tab:bound-audit}) relative to the checked solutions in Table~\ref{tab:witnesses}.
+\david{we agreed that we are not calling algebraic the conventional methods for GDP}
+\albert{Replaced algebraic with conventional GDP for the compared methods throughout the supplement, including the section heading.}
+These results combine the 27 new \texttt{SCIP}--\texttt{IPOPT} GDPopt runs with the 18 retained direct \texttt{SCIP} runs.
 Unrounded values, residuals, and source records are linked in Section~\ref{sec:supp-data}.
 
 For each minimization model, let \(f_w\) be the recorded objective of its best independently checked saved feasible solution, and let \(L\) denote a reported lower bound.
@@ -379,45 +371,52 @@ Missing lower bounds remain missing, not zero.
 
 Saved vectors are loaded into the original GDP to reevaluate objectives and check active constraints, variable bounds, integrality, disjunctions, and logical validity without optimization.
 Violations are unscaled original-equation residuals, not reformulation residuals.
-All 43 saved feasible vectors satisfy the \(10^{-5}\) threshold; the largest violation is \(9.99\times10^{-7}\).
+All 43 saved feasible vectors satisfy the \(10^{-5}\) threshold; the largest violation is \(9.90\times10^{-7}\).
 The two Big-\(M\) runs without accepted feasible solutions remain in the 45-run denominator.
 This numerical check establishes neither exact feasibility nor global optimality.
 
-Twelve of the 19 discrepancies are only 1.09--4.30 times the tolerance and are sensitive to numerical feasibility conventions.
+Eight of the 21 discrepancies are only 1.09--3.54 times the tolerance and are sensitive to numerical feasibility conventions.
 These conflicting bounds and \nolinkurl{optimal} reports provide no independent global certificate or intrinsic method ranking; their cause in GDPopt or its subsolvers remains unresolved.
 
 \par\endgroup
 \begin{table}[htbp]
 \centering
-\caption{Flagged bound comparisons, using unrounded \(\rho>1\).
-C identifies the comparison solution in Table~\ref{tab:witnesses}; displayed values are rounded.
-Flags indicate numerical inconsistencies of different magnitudes.}\label{tab:bound-audit}
+\caption{Reported lower bounds exceeding checked feasible objectives (\(\rho>1\)).}\label{tab:bound-audit}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{lllrrlr}
 \toprule
 ID & Model & Method & Reported \(L\) & \(v_{\max}\) & C & \(\rho\)\\\midrule
-S01 & \texttt{CSTR5} & RIC & 3.06201 & 9.31e-7 & C01 & 1.13\(^{\dagger}\) \\
-S02 & \texttt{CSTR5} & GLOA & 3.13019 & 9.99e-7 & C01 & 2.23e+3\(^{\dagger}\) \\
-S03 & \texttt{CSTR5} & LOA & 3.06201 & 9.31e-7 & C01 & 1.13\(^{\dagger}\) \\
+S01 & \texttt{CSTR5} & RIC & 3.06201 & 2.60e-11 & C01 & 1.29\(^{\dagger}\) \\
+S02 & \texttt{CSTR5} & GLOA & 3.13020 & 9.85e-12 & C01 & 2.23e+3\(^{\dagger}\) \\
+S03 & \texttt{CSTR5} & LOA & 3.06201 & 2.60e-11 & C01 & 1.29\(^{\dagger}\) \\
 S05 & \texttt{CSTR5} & Hull & 3.06201 & 9.34e-7 & C01 & 1.09\(^{\dagger}\) \\
-S06 & \texttt{CSTR10} & RIC & 2.88954 & 7.87e-11 & C02 & 4.30\(^{\dagger}\) \\
-S07 & \texttt{CSTR10} & GLOA & 3.44794 & 9.16e-7 & C02 & 1.93e+4\(^{\dagger}\) \\
-S08 & \texttt{CSTR10} & LOA & 2.88954 & 7.87e-11 & C02 & 4.30\(^{\dagger}\) \\
+S06 & \texttt{CSTR10} & RIC & 2.96605 & 1.62e-10 & C02 & 2.65e+3\(^{\dagger}\) \\
+S07 & \texttt{CSTR10} & GLOA & 3.44796 & 3.11e-15 & C02 & 1.93e+4\(^{\dagger}\) \\
+S08 & \texttt{CSTR10} & LOA & 2.96605 & 1.62e-10 & C02 & 2.65e+3\(^{\dagger}\) \\
 S10 & \texttt{CSTR10} & Hull & 2.88951 & 9.37e-7 & C02 & 3.54\(^{\dagger}\) \\
-S11 & \texttt{CSTR15} & RIC & 2.82939 & 1.39e-9 & C03 & 1.30\(^{\dagger}\) \\
-S12 & \texttt{CSTR15} & GLOA & 3.56190 & 9.78e-7 & C03 & 2.59e+4\(^{\dagger}\) \\
-S13 & \texttt{CSTR15} & LOA & 2.82939 & 1.39e-9 & C03 & 1.30\(^{\dagger}\) \\
-S16 & \texttt{CSTR20} & RIC & 2.79941 & 4.47e-9 & C04 & 1.67\(^{\dagger}\) \\
-S17 & \texttt{CSTR20} & GLOA & 3.61603 & 8.93e-7 & C04 & 2.92e+4\(^{\dagger}\) \\
-S18 & \texttt{CSTR20} & LOA & 2.79941 & 4.47e-9 & C04 & 1.67\(^{\dagger}\) \\
-S21 & \texttt{CSTR25} & RIC & 2.78148 & 9.72e-11 & C05 & 1.72\(^{\dagger}\) \\
-S22 & \texttt{CSTR25} & GLOA & 3.64775 & 9.83e-7 & C05 & 3.11e+4\(^{\dagger}\) \\
-S23 & \texttt{CSTR25} & LOA & 2.78148 & 9.72e-11 & C05 & 1.72\(^{\dagger}\) \\
-S27 & \texttt{CSTR30} & GLOA & 3.66862 & 9.40e-7 & C06 & 3.25e+4\(^{\dagger}\) \\
+S11 & \texttt{CSTR15} & RIC & 2.82939 & 1.33e-15 & C03 & 1.30\(^{\dagger}\) \\
+S12 & \texttt{CSTR15} & GLOA & 3.56196 & 1.01e-15 & C03 & 2.59e+4\(^{\dagger}\) \\
+S13 & \texttt{CSTR15} & LOA & 2.82939 & 1.33e-15 & C03 & 1.30\(^{\dagger}\) \\
+S16 & \texttt{CSTR20} & RIC & 2.79941 & 1.58e-15 & C04 & 1.67\(^{\dagger}\) \\
+S17 & \texttt{CSTR20} & GLOA & 3.61612 & 4.60e-11 & C04 & 2.92e+4\(^{\dagger}\) \\
+S18 & \texttt{CSTR20} & LOA & 2.79941 & 1.58e-15 & C04 & 1.67\(^{\dagger}\) \\
+S21 & \texttt{CSTR25} & RIC & 2.79125 & 1.38e-10 & C05 & 3.53e+2\(^{\dagger}\) \\
+S22 & \texttt{CSTR25} & GLOA & 3.64786 & 2.22e-14 & C05 & 3.12e+4\(^{\dagger}\) \\
+S27 & \texttt{CSTR30} & GLOA & 3.66872 & 7.11e-15 & C06 & 3.25e+4\(^{\dagger}\) \\
+S32 & \texttt{Column} & GLOA & 20355.1 & 1.15e-13 & C07 & 4.65e+3\(^{\dagger}\) \\
+S35 & \texttt{Column} & Hull & 20044.2 & 1.00e-8 & C07 & 3.06e+3\(^{\dagger}\) \\
+S42 & \texttt{Dynamic} & GLOA & -197.140 & 9.85e-12 & C09 & 7.01e+3\(^{\dagger}\) \\
 S45 & \texttt{Dynamic} & Hull & -196.931 & 1.00e-7 & C09 & 7.11e+3\(^{\dagger}\) \\
 \bottomrule
 \end{tabular}
+\par\smallskip
+\begin{minipage}{0.95\textwidth}\footnotesize
+C identifies the comparison solution in Table~\ref{tab:witnesses}.
+Displayed values are rounded; flags use unrounded values.
+\end{minipage}
 \end{table}
+\david{something is wrong here, it appears as if there were two table captions}
+\albert{Shortened the caption and moved the explanation below the table, with this review comment outside the caption.}
 \FloatBarrier % \clearpage
 \begingroup
 \begin{table}[htbp]\centering\small
@@ -431,24 +430,25 @@ C03 & \texttt{CSTR15} & Hull & 2.82936 & 9.47e-7 \\
 C04 & \texttt{CSTR20} & Hull & 2.79936 & 9.90e-7 \\
 C05 & \texttt{CSTR25} & Hull & 2.78143 & 9.90e-7 \\
 C06 & \texttt{CSTR30} & Big-\(M\) & 2.76957 & 9.68e-9 \\
-C07 & \texttt{Column} & GLOA & 22271.5 & 1.00e-8 \\
-C08 & \texttt{Small Batch} & GLOA & 167428 & 9.00e-7 \\
+C07 & \texttt{Column} & RIC & 19449.9 & 1.01e-13 \\
+C08 & \texttt{Small Batch} & Big-\(M\) & 167428 & 9.00e-7 \\
 C09 & \texttt{Dynamic} & Big-\(M\) & -212.009 & 1.00e-7 \\
 \bottomrule\end{tabular}\end{table}
 
 \paragraph{Additional tightened-feasibility check for \texttt{CSTR15}.}
-A Dantzig \texttt{IPOPT} 3.14.19 solve retained the archived LOA witness W03's discrete configuration and starting values and targeted an original-GDP residual of \(10^{-8}\)~\citep{rbfoptTestArchive}.
+An \texttt{IPOPT} 3.14.19 solve retained the archived LOA witness W03's discrete configuration and starting values and targeted an original-GDP residual of \(10^{-8}\)~\citep{rbfoptTestArchive}.
 W03 is distinct from the current \texttt{SCIP} comparison solution C03.
 Only exactly satisfied constant rows were omitted from the computational clone; the independent check retained all original constraints.
 The returned objective was \(2.82939\), with maximum unscaled violation \(1.11\times10^{-16}\).
-The current \texttt{SCIP} GLOA lower bound exceeds this objective by \(0.732507\), or approximately \(2.59\times10^4\) times the audit tolerance.
+The new GLOA lower bound exceeds this objective by \(0.732565\), or approximately \(2.59\times10^4\) times the audit tolerance.
 The discrepancy persists under the tighter check, but its cause remains unresolved.
 
 \paragraph{Additional formulation check for \texttt{Dynamic} Hull.}
 The saved Big-\(M\) point has objective \(-212.009\), approximately \(15.0776\) below the Hull lower bound \(-196.931\).
-It satisfies both the original GDP and a reconstructed Hull formulation at \(10^{-5}\), with maximum violation approximately \(10^{-7}\) after assigning the auxiliary variables from their definitions.
-The reconstructed export matches the archived preflight export, but the compiled model from the actual solve was not retained.
-The check therefore confirms the numerical inconsistency without identifying its solver or interface cause; no optimization was rerun.
+It satisfies both the original GDP and a reconstructed Hull formulation at \(10^{-5}\), with maximum violation approximately \(10^{-7}\).
+The cause of the discrepancy remains unresolved.
+\david{This is more of an implementation detail, why including it?}
+\albert{Removed the export and implementation details, retaining only the feasibility check relevant to the reported bound.}
 
 \FloatBarrier
 \par\endgroup
@@ -457,11 +457,18 @@ The check therefore confirms the numerical inconsistency without identifying its
 \section{Additional candidate-search and sampling comparisons}\label{sec:supp-additional}
 
 \subsection{Paired differences and sampling controls}
-Paired success differences retain the common case, budget and seed.
+The paired comparisons quantify differences in target-hit rates under shared initial designs, matching case, budget, and seed.
+Positive differences favor the first method and are expressed in percentage points.
 For Grid, the descriptive percentile bootstrap resamples the 21 intact function vectors, each containing ten paired seed differences, rather than treating 210 observations as exchangeable Bernoulli draws.
 For Process, paired seeds are resampled within each of the 14 conditions; the six related \texttt{Dynamic} budgets are not pooled for inference.
 The seed is 20261020 with 2,000 bootstrap replications and deterministic case/seed ordering.
 Intervals are exploratory and unadjusted for multiple comparisons; ten-seed boundary cases may yield degenerate intervals, and zero inclusion does not establish equivalence.
+
+An interval entirely above zero favors the first method under this resampling; an interval spanning zero leaves the direction uncertain.
+There is no preset cutoff for practical importance.
+For example, \texttt{BAM} matches its prefix control at \(B=10\) but exceeds it by 10.95 percentage points at \(B=100\), so initial sampling alone does not account for its final target-hit rate.
+\david{SO what does this mean? WHy are you reporting this? If the difference is greater than a value does it mean something?}
+\albert{Explained the sign and interval interpretation and used the BAM-prefix comparison to show why the paired results are reported.}
 
 \begin{table}[htbp]\centering\small
 \caption{Selected paired success differences, in percentage points.
@@ -498,48 +505,89 @@ For the sampled Bohachevsky~2 lattice, \(\cos(3\pi a_i)=1\) at every coordinate,
 Without both functions, \(B=100\) rates are 79.5\% for \texttt{RBFOpt}, 66.8\% for \texttt{BAM}, 57.9\% for \texttt{FMQA-SA}, 54.7\% for the \texttt{BAM}-prefix control, 42.6\% for \texttt{D-SDA}, and 17.9\% for uniform.
 At \(B=10\), \texttt{BAM} and its prefix control each retain 47.9\%, compared with \texttt{RBFOpt} 15.8\%.
 
-\subsection{Limited reconstructed FMQA diagnostics}
-Seven FM models were reconstructed locally from archived observations in three selected runs because the original fitted weights and QUBOs were not saved~\citep{rbfoptTestArchive}.
-All 3,328 enumerated binary states passed the recorded energy-conversion checks.
-Five selected SA proposals minimized their reconstructed models over eligible candidates; two \texttt{Dynamic} fallback iterations had no eligible stored SA sample.
-These selected checks do not verify the historical weights or isolate the contributions of learning, annealing, and fallback.
+
+\david{This section is irrelevant, if the QUBOs were not saved, then just repeat the whole experiment and have it cleanly worked out}
+\albert{Removed the reconstructed FMQA diagnostics and their main-text reference; no experiment was rerun and no validation of unsaved historical weights or QUBOs is claimed.}
+
+
 \clearpage
-\section{Joint comparison with algebraic methods}
+\section{Joint comparison with conventional GDP methods}
 \label{sec:supp-joint-comparison}
-Figures~\ref{fig:joint-cstr-completion} and \ref{fig:joint-other-completion} place the recorded DFO and algebraic results on the same completion-time axis.
-DFO times are reconstructed from the stored search paths and separately measured configuration costs; algebraic times are measured and include preparation.
-Each DFO condition has ten seeds, whereas each algebraic method has one run per problem.
-The original target rules are retained: absolute agreement with the reference for DFO, and a feasible objective at or below the reference for algebraic methods, using the stated tolerance.
-This descriptive comparison does not estimate an algebraic success probability.
+Figure~\ref{fig:joint-remaining-completion} compares the eight process conditions not shown in the main joint completion-time figure.
+Each DFO condition has ten seeds, whereas each conventional GDP method has one run per problem.
+Timing and target criteria follow Figure~\ifdefined\manuscriptwithsupplement\ref{fig:process-completion}\else3\fi{} of the main paper.
+Table~\ref{tab:full-gdp} reports all nine models, including final objectives and termination flags.
+
+\begin{table}[htbp]
+\centering
+\caption{Full-process-GDP results from one run per method and model.
+Entries report the final objective and measured full-run completion time (s) in parentheses, including model-template preparation.
+\texttt{GDPOpt} uses \texttt{SCIP} for master problems and \texttt{IPOPT} for NLP subproblems; Big-\(M\) and Hull retain their \texttt{SCIP} results.
+Bold marks the lowest objective in each row and ties within \(10^{-5}\max\{1,|f_{\min}|\}\), where \(f_{\min}\) is the lowest objective in that row.
+Feasibility means numerical feasibility under the original-GDP residual test at \(10^{-5}\), not exact feasibility.}
+\label{tab:full-gdp}
+\normalsize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Model & RIC & GLOA & LOA & Big-\(M\) & Hull \\
+\midrule
+\texttt{CSTR5} & \makecell{3.06201\({}^{\dagger}\)\\(15.38)} & \makecell{3.13020\({}^{\dagger\ddagger}\)\\(4.57)} & \makecell{3.06201\({}^{\dagger}\)\\(24.58)} & \makecell{\textbf{3.06198}\\(53.68)} & \makecell{3.06201\({}^{\dagger}\)\\(15.43)} \\
+\texttt{CSTR10} & \makecell{2.96605\({}^{\dagger\ddagger}\)\\(134.31)} & \makecell{3.44796\({}^{\dagger\ddagger}\)\\(3.10)} & \makecell{2.96605\({}^{\dagger\ddagger}\)\\(140.38)} & \makecell{\textbf{2.88941}\\(771.36)} & \makecell{2.88951\({}^{\dagger}\)\\(71.63)} \\
+\texttt{CSTR15} & \makecell{2.82939\({}^{\dagger}\)\\(283.77)} & \makecell{3.56196\({}^{\dagger\ddagger}\)\\(6.17)} & \makecell{2.82939\({}^{\dagger}\)\\(445.43)} & \makecell{-\({}^{\mathrm{TL}}\)\\(1790.95)} & \makecell{\textbf{2.82936}\\(284.63)} \\
+\texttt{CSTR20} & \makecell{2.79941\({}^{\dagger}\)\\(607.72)} & \makecell{3.61612\({}^{\dagger\ddagger}\)\\(7.46)} & \makecell{2.79941\({}^{\dagger}\)\\(733.53)} & \makecell{2.80413\({}^{\mathrm{TL}}\)\\(1792.44)} & \makecell{\textbf{2.79936}\\(1150.67)} \\
+\texttt{CSTR25} & \makecell{2.79125\({}^{\dagger\ddagger}\)\\(1042.79)} & \makecell{3.64786\({}^{\dagger\ddagger}\)\\(5.20)} & \makecell{2.79125\({}^{\mathrm{TL}}\)\\(1790.35)} & \makecell{2.78771\({}^{\mathrm{TL}}\)\\(1792.33)} & \makecell{\textbf{2.78143}\\(1701.75)} \\
+\texttt{CSTR30} & \makecell{2.77162\({}^{\mathrm{TL}}\)\\(1793.35)} & \makecell{3.66872\({}^{\dagger\ddagger}\)\\(5.52)} & \makecell{2.87314\({}^{\mathrm{TL}}\)\\(1798.05)} & \makecell{\textbf{2.76957}\({}^{\mathrm{TL}}\)\\(1791.82)} & \makecell{\textbf{2.76957}\({}^{\mathrm{TL}}\)\\(1792.56)} \\
+\texttt{Column} & \makecell{\textbf{19449.9}\\(124.03)} & \makecell{20355.1\({}^{\dagger\ddagger}\)\\(42.41)} & \makecell{\textbf{19449.9}\\(199.22)} & \makecell{-\({}^{\mathrm{TL}}\)\\(1792.83)} & \makecell{22271.5\({}^{\mathrm{TL}\dagger}\)\\(1792.76)} \\
+\texttt{Dynamic} & \makecell{\textbf{-212.009}\\(149.39)} & \makecell{-197.140\({}^{\dagger\ddagger}\)\\(238.96)} & \makecell{\textbf{-212.009}\\(550.49)} & \makecell{\textbf{-212.009}\({}^{\mathrm{TL}}\)\\(1791.75)} & \makecell{-196.931\({}^{\dagger\ddagger}\)\\(921.28)} \\
+\texttt{Small Batch} & \makecell{\textbf{167428}\\(13.15)} & \makecell{\textbf{167428}\\(10.32)} & \makecell{\textbf{167428}\\(5.61)} & \makecell{\textbf{167428}\\(0.51)} & \makecell{\textbf{167428}\\(0.50)} \\
+\bottomrule
+\end{tabular}
+\par\vspace{3pt}
+\begin{minipage}{0.99\linewidth}
+\small
+TL: reported \texttt{maxTimeLimit} under the configured 1,800~s limit; measured times are retained, including values below 1,800~s.
+Runs without TL report \texttt{optimal}.
+\par
+Dash: no accepted feasible solution.
+\par
+\(\dagger\): reported lower bound exceeds the best checked saved numerically feasible objective \(f\) by more than \(10^{-5}\max\{1,|f|\}\).
+\par
+\(\ddagger\): reference target missed despite reported \texttt{optimal} and a better checked numerically feasible solution.
+\david{SOmetimes you call it target, sometimes lookup reference, unify this}
+\albert{Used reference target for the success criterion; lookup now refers only to access to stored configuration responses.}
+\end{minipage}
+\end{table}
+\FloatBarrier
 
 \begin{table}[htbp]\centering\small
-\caption{NLP workload in the recorded process comparisons.
-DFO entries are median counts of corresponding fixed-configuration NLP evaluations over ten seeds; GDPopt entries count confirmed SCIP NLP interface calls in one run.
+\caption{NLP workload in the process comparisons with \texttt{SCIP}--\texttt{IPOPT} GDPopt.
+DFO entries are median counts of corresponding fixed-configuration NLP evaluations over ten seeds; GDPopt entries count confirmed IPOPT NLP interface calls in one run.
 Logical and preprocessing rejections are excluded; rejected NLP returns are retained.
 These counts are not internal solver iterations or equally costly subproblems.}
 \label{tab:joint-nlp-workload}
 \setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{lrrrrrrrrr}\toprule
 Case & \(B\) & D-SDA & RBFOpt & BAM & FMQA-SA & Uniform & GLOA & LOA & RIC\\\midrule
-CSTR5 & 8 & 6 & 6 & 6 & 5.5 & 4.5 & 2 & 15 & 15 \\
+CSTR5 & 8 & 6 & 6 & 6 & 5.5 & 4.5 & 4 & 15 & 15 \\
 CSTR10 & 15 & 10 & 12 & 8.5 & 9 & 7.5 & 2 & 55 & 55 \\
-CSTR15 & 22 & 17 & 16.5 & 11 & 15 & 11 & 2 & 120 & 120 \\
-CSTR20 & 29 & 21 & 20.5 & 17 & 17.5 & 15.5 & 2 & 210 & 210 \\
-CSTR25 & 36 & 25 & 25.5 & 18.5 & 23 & 21 & 2 & 325\(^{\dagger}\) & 325 \\
-CSTR30 & 43 & 26.5 & 31.5 & 21.5 & 30.5 & 21.5 & 2 & 362 & 370\(^{\dagger}\) \\
-Column & 13 & 11 & 12 & 7.5 & 7 & 7 & 1 & 1 & 1 \\
-Small Batch & 10 & 4.5 & 6 & 5 & 5 & 4 & 12 & 12 & 12 \\
-Dynamic & 12 & 10 & 10 & 8 & 6.5 & 6 & 1 & 1 & 1 \\
-Dynamic & 15 & 13 & 13 & 9 & 8 & 6.5 & 1 & 1 & 1 \\
-Dynamic & 20 & 17.5 & 16 & 11 & 11 & 9.5 & 1 & 1 & 1 \\
-Dynamic & 30 & 22 & 21 & 17 & 14.5 & 15 & 1 & 1 & 1 \\
-Dynamic & 37 & 22 & 25 & 19 & 19 & 19 & 1 & 1 & 1 \\
-Dynamic & 50 & 22 & 31 & 26 & 24.5 & 26 & 1 & 1 & 1 \\
+CSTR15 & 22 & 17 & 16.5 & 11 & 15 & 11 & 4 & 120 & 120 \\
+CSTR20 & 29 & 21 & 20.5 & 17 & 17.5 & 15.5 & 4 & 210 & 210 \\
+CSTR25 & 36 & 25 & 25.5 & 18.5 & 23 & 21 & 2 & 315 & 325 \\
+CSTR30 & 43 & 26.5 & 31.5 & 21.5 & 30.5 & 21.5 & 2 & 243 & 455 \\
+Column & 13 & 11 & 12 & 7.5 & 7 & 7 & 18 & 38 & 38 \\
+Small Batch & 10 & 4.5 & 6 & 5 & 5 & 4 & 12 & 5 & 12 \\
+Dynamic & 12 & 10 & 10 & 8 & 6.5 & 6 & 20 & 37 & 37 \\
+Dynamic & 15 & 13 & 13 & 9 & 8 & 6.5 & 20 & 37 & 37 \\
+Dynamic & 20 & 17.5 & 16 & 11 & 11 & 9.5 & 20 & 37 & 37 \\
+Dynamic & 30 & 22 & 21 & 17 & 14.5 & 15 & 20 & 37 & 37 \\
+Dynamic & 37 & 22 & 25 & 19 & 19 & 19 & 20 & 37 & 37 \\
+Dynamic & 50 & 22 & 31 & 26 & 24.5 & 26 & 20 & 37 & 37 \\
 \bottomrule\end{tabular}
 \par\smallskip
 \begin{minipage}{0.98\linewidth}\footnotesize
 The same single Dynamic GDPopt execution is repeated across budget rows for reference.
-\(^{\dagger}\)CSTR25 LOA and CSTR30 RIC each have one additional NLP interface attempt without a confirmed solver start; these attempts are excluded.
 Internal NLP counts for direct Big-\(M\) and Hull are unavailable and are not treated as zero.
 \end{minipage}
 \end{table}
@@ -547,30 +595,14 @@ Internal NLP counts for direct Big-\(M\) and Hull are unavailable and are not tr
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=\linewidth]{figures/joint_cstr_completion.pdf}
-\caption{Joint completion-time comparison for the six CSTR cases.
-Each DFO dot represents one seed; gray segments show Q25--Q75 and vertical ticks show medians across all ten runs.
-Diamonds represent successful single algebraic runs; crosses indicate target misses in either group.
-Right-hand labels give DFO hits out of ten or the algebraic yes/no outcome.
-Asterisks retain the bound-inconsistency flags discussed in Section~\ref{sec:bound-audit}.
-The horizontal axis is logarithmic and shows full-run completion, not first-target time.
+\includegraphics[width=\linewidth]{figures/joint_remaining_completion.pdf}
+\caption{Joint full-run completion-time comparison for the eight additional process conditions.
+Dots show successful DFO seeds, diamonds successful single conventional runs, and crosses target misses.
+Gray segments and ticks show Q25--Q75 and medians across all ten DFO seeds.
+TL denotes time-limit termination; asterisks mark bound inconsistencies (Section~\ref{sec:bound-audit}).
+The Dynamic panels reuse the same conventional observations.
 }
-\label{fig:joint-cstr-completion}
-\end{figure}
-\FloatBarrier
-
-\begin{figure}[p]
-\centering
-\includegraphics[width=\linewidth]{figures/joint_other_completion.pdf}
-\caption{Joint completion-time comparison for Column, Small Batch, and the six Dynamic budgets.
-Each DFO dot represents one seed; gray segments show Q25--Q75 and vertical ticks show medians across all ten runs.
-Diamonds represent successful single algebraic runs; crosses indicate target misses in either group.
-Right-hand labels give DFO hits out of ten or the algebraic yes/no outcome.
-Asterisks retain the bound-inconsistency flags discussed in Section~\ref{sec:bound-audit}.
-The horizontal axis is logarithmic and shows full-run completion, not first-target time.
-The same single algebraic Dynamic run appears in each budget panel; these are not additional runs.
-}
-\label{fig:joint-other-completion}
+\label{fig:joint-remaining-completion}
 \end{figure}
 \FloatBarrier
 

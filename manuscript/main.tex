@@ -205,27 +205,15 @@ The present work uses this discrete-search structure as a reference and compares
 \subsection{Derivative-Free Optimization Solvers}
 
 Derivative-free optimization (DFO) uses function observations without requiring derivatives of the objective with respect to the search variables~\citep{larson2019derivative}.
-For GDP configuration search, the outer method can be derivative-free, even if its evaluation routine uses a derivative-based nonlinear solver. 
+Black-box configuration search selects configurations using their evaluation responses without accessing the subproblem equations.
+For GDP configuration search, the outer method can be derivative-free, even if its evaluation routine uses a derivative-based nonlinear solver.
+D-SDA also uses this derivative-free interface, although it does not construct a surrogate model.
 % \david{Missing sentence(s) explaining how this is a logic-based method: the upper model optimizes over the space of reformulated external variables and can provide extra constraints, some of which are encoded in the external-variable reformulation.}
 The upper-level search operates over external integer variables that represent the logical decisions in the GDP. 
 Some logical restrictions are embedded in the external-variable reformulation, while additional constraints can be imposed on the configuration space.
 % \david{There is a sudden jump to surrogate methods here. You need a connecting sentence before}
 One approach to DFO uses surrogate models to guide the search.
 Surrogate methods seek to reduce expensive evaluations by fitting models to observed data, with computational cost arising from both objective evaluations and model-based candidate selection.
-
-\subsubsection{RBFOpt}
-RBFOpt is an open-source surrogate optimizer for bounded black-box problems, with support for continuous, integer, and categorical variables~\citep{costa2018rbfopt,nannicini2021implementation}.
-Given \(N\) observed objective values in external integer configurations \(\boldsymbol\xi^{(1)},\ldots,\boldsymbol\xi^{(N)}\), RBFOpt constructs a radial basis function (RBF) surrogate model of the form
-\begin{equation}\label{eqn:rbf.surrogate}
-\widehat\Phi_N(\boldsymbol\xi)
-=\sum_{r=1}^{N}\lambda_r\varphi\!\left(\|\boldsymbol\xi-\boldsymbol\xi^{(r)}\|_2\right)
-+p(\boldsymbol\xi),
-\end{equation}
-where \(\widehat\Phi_N(\boldsymbol\xi)\) approximates the objective value for a candidate configuration \(\boldsymbol\xi\), \(\lambda_r\) are interpolation coefficients determined from the observed values, \(\varphi\) is the RBF kernel evaluated at the Euclidean distance between configurations, and \(p(\boldsymbol\xi)\) is a polynomial tail depending on the selected kernel.
-
-Candidate selection balances low predicted values against exploration away from evaluated points.
-The metric stochastic response surface method (MSRSM) combines scaled surrogate predictions and distances to existing samples, changing their relative weights during the search~\citep{regis2007stochastic}.
-New objective evaluations update the model.
 
 \subsubsection{Branch-and-Model (BAM)}
 Branch-and-Model (BAM) combines domain partitioning with local surrogate construction~\citep{ma2023bam}.
@@ -235,7 +223,7 @@ BARON optimizes these local models to propose candidates, while box-size explora
 Thus, BARON acts on learned surrogates within BAM; it is not solving the original GDP through this interface.
 Its support for integer restrictions allows for the configuration domains considered here~\citep{bamManual}.
 
-\subsection{Factorization-Machine-Based Optimization}
+\subsubsection{Factorization-Machine-Based Optimization}
 
 A second-order factorization machine (FM) models individual feature effects and pairwise interactions through shared latent parameters~\citep{rendle2010factorization}.
 For a binary encoding \(\mathbf b\in\{0,1\}^{m}\) of an external integer configuration \(\boldsymbol\xi\), the FM fit surrogate is
@@ -270,6 +258,20 @@ Based on observed evaluations, the method fits the FM, samples binary candidates
 The FMQA simulated annealing variant (FMQA-SA) uses classical simulated annealing to sample binary candidates from the learned QUBO.
 Temperature-dependent acceptance of uphill moves supports exploration, while gradual cooling favors lower-energy solutions~\citep{kirkpatrick1983optimization}.
 In this study, no quantum hardware was used.
+
+\subsubsection{RBFOpt}
+RBFOpt is an open-source surrogate optimizer for bounded black-box problems, with support for continuous, integer, and categorical variables~\citep{costa2018rbfopt,nannicini2021implementation}.
+Given \(N\) observed objective values in external integer configurations \(\boldsymbol\xi^{(1)},\ldots,\boldsymbol\xi^{(N)}\), RBFOpt constructs a radial basis function (RBF) surrogate model of the form
+\begin{equation}\label{eqn:rbf.surrogate}
+\widehat\Phi_N(\boldsymbol\xi)
+=\sum_{r=1}^{N}\lambda_r\varphi\!\left(\|\boldsymbol\xi-\boldsymbol\xi^{(r)}\|_2\right)
++p(\boldsymbol\xi),
+\end{equation}
+where \(\widehat\Phi_N(\boldsymbol\xi)\) approximates the objective value for a candidate configuration \(\boldsymbol\xi\), \(\lambda_r\) are interpolation coefficients determined from the observed values, \(\varphi\) is the RBF kernel evaluated at the Euclidean distance between configurations, and \(p(\boldsymbol\xi)\) is a polynomial tail depending on the selected kernel.
+
+Candidate selection balances low predicted values against exploration away from evaluated points.
+The metric stochastic response surface method (MSRSM) combines scaled surrogate predictions and distances to existing samples, changing their relative weights during the search~\citep{regis2007stochastic}.
+New objective evaluations update the model.
 
 \section{Experimental Methods}
 \label{sec:methodology}\label{sec:cases}
@@ -308,7 +310,7 @@ Each benchmark function is represented by the following GDP:
 \end{equation}
 The two exclusive disjunctions contain 62 coordinate-selection Boolean indicators.
 The objective retains the explicit mathematical expression.
-Consequently, the algebraic solvers receive the expression and its disjunctive structure, whereas the DFO methods observe only objective values returned at their selected coordinates.
+Consequently, the conventional GDP methods receive the expression and its disjunctive structure, whereas the DFO methods observe only objective values returned at their selected coordinates.
 
 Fixing both coordinate disjunctions fixes \(x\) and \(y\), leaving no remaining original continuous degrees of freedom.
 Thus, the measured fixed-point \texttt{IPOPT}~\citep{wachter2006implementation} evaluations characterize fresh model preparation, solver invocation, and verification, rather than a difficult continuous optimization subproblem.
@@ -358,59 +360,33 @@ Of these configurations, 15 are rejected during feasibility-based bound tighteni
 
 \begin{table}[htbp]
 \centering
-\caption{Process GDP domains, \texttt{IPOPT}-accepted lookup coverage, measured point-cost coverage, evaluation budgets, and reference objective values.
+\caption{Process GDP domains, \texttt{IPOPT}-accepted lookup coverage, measured coordinates, evaluation budgets, and reference objective values.
+The DFO domain equals the full GDP box except for \texttt{Column}, which uses \(\{8,\ldots,15\}\times\{1,\ldots,8\}\).
+Measured coordinates cover the complete DFO box in every case.
 Model sizes and unit conventions are given in Supplementary Table~\ref{tab:supp-model-sizes}.}
 \label{tab:process-cases}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
-
-\textbf{(a) External-variable domains}\par\smallskip
-\begin{tabular}{@{}lllrr@{}}
+\begin{tabular}{@{}llcrrrrr@{}}
 \toprule
-Model & Full GDP box & DFO candidate box &
-\makecell{Full GDP\\box size} &
-\makecell{DFO\\box size} \\
+Model & \(N\) & Full GDP box & \makecell{Full box\\size} & \makecell{Finite\\lookup} & \makecell{DFO size /\\measured} & \(B\) & \(f_{\mathrm{ref}}\) \\
 \midrule
-\texttt{Column} & \(\{1,\ldots,15\}^{2}\) &
-\(\{8,\ldots,15\}\times\{1,\ldots,8\}\) & 225 & 64 \\
-\texttt{CSTR} \(N\) & \(\{1,\ldots,N\}^{2}\) &
-\(\{1,\ldots,N\}^{2}\) & \(N^2\) & \(N^2\) \\
-\texttt{Small Batch} & \(\{1,2,3\}^{3}\) &
-\(\{1,2,3\}^{3}\) & 27 & 27 \\
-\texttt{Dynamic} & \(\{1,\ldots,9\}\times\{2,\ldots,9\}\) &
-\(\{1,\ldots,9\}\times\{2,\ldots,9\}\) & 72 & 72 \\
-\bottomrule
-\end{tabular}
-
-\par\medskip
-\textbf{(b) Lookup coverage and evaluation budgets}\par\smallskip
-\begin{tabular}{@{}lrrrr@{}}
-\toprule
-Model &
-\makecell{Finite\\lookup} &
-\makecell{Measured\\coordinates} &
-\makecell{Evaluation\\budget \(B\)} &
-\(f_{\mathrm{ref}}\) \\
+\texttt{Column} & -- & \(\{1,\ldots,15\}^{2}\) & 225 & 29 & 64 & 13 & 19346.1 \\
 \midrule
-\texttt{Column} & 29 & 64 & 13 & 19346.1 \\
-\texttt{CSTR5} & 15 & 25 & 8 & 3.06201 \\
-\texttt{CSTR10} & 54 & 100 & 15 & 2.88954 \\
-\texttt{CSTR15} & 120 & 225 & 22 & 2.82939 \\
-\texttt{CSTR20} & 210 & 400 & 29 & 2.79941 \\
-\texttt{CSTR25} & 325 & 625 & 36 & 2.78148 \\
-\texttt{CSTR30} & 464 & 900 & 43 & 2.76957 \\
-\texttt{Small Batch} & 12 & 27 & 10 & 167428 \\
-\texttt{Dynamic} & 37 & 72 & \makecell{12,15,20,\\30,37,50} & -212.009 \\
+\multirow{6}{*}{\texttt{CSTR}} & 5 & \multirow{6}{*}{\(\{1,\ldots,N\}^{2}\)} & 25 & 15 & 25 & 8 & 3.06201 \\
+& 10 & & 100 & 54 & 100 & 15 & 2.88954 \\
+& 15 & & 225 & 120 & 225 & 22 & 2.82939 \\
+& 20 & & 400 & 210 & 400 & 29 & 2.79941 \\
+& 25 & & 625 & 325 & 625 & 36 & 2.78148 \\
+& 30 & & 900 & 464 & 900 & 43 & 2.76957 \\
 \midrule
-Total & 1,266 & 2,438 & -- & -- \\
+\texttt{Small Batch} & -- & \(\{1,2,3\}^{3}\) & 27 & 12 & 27 & 10 & 167428 \\
+\texttt{Dynamic} & -- & \makecell{\(\{1,\ldots,9\}\)\\\(\times\{2,\ldots,9\}\)} & 72 & 37 & 72 & \makecell{12,15,20,\\30,37,50} & -212.009 \\
 \bottomrule
 \end{tabular}
 \par\smallskip
 \begin{minipage}{0.96\linewidth}
-\footnotesize The 2,438 measured keys cover the complete DFO candidate domains.
-The 700 primary process runs (\texttt{D-SDA}, \texttt{RBFOpt}, \texttt{BAM}, \texttt{FMQA-SA}, and uniform sampling; 14 model-budget conditions and ten seeds per condition) visit 2,024 distinct model/size/coordinate keys.
-This union counts each key once across methods, budgets, and seeds.
-
+\footnotesize The 700 primary process runs (\texttt{D-SDA}, \texttt{RBFOpt}, \texttt{BAM}, \texttt{FMQA-SA}, and uniform sampling; 14 model-budget conditions and ten seeds per condition) visit 2,024 distinct model/size/coordinate keys.
 \end{minipage}
 \end{table}
 \FloatBarrier
@@ -439,6 +415,16 @@ In all process cases, \texttt{D-SDA} and \texttt{RBFOpt} assign a penalty of \(1
 For surrogate training, \texttt{FMQA-SA} scales accepted objective values to \([0,1]\) and assigns unaccepted evaluations a value of \(2\).
 
 
+\subsubsection{BAM}
+\texttt{BAM} uses local algebraic surrogate models optimized by \texttt{BARON} to generate candidate configurations~\citep{ma2023bam,bamManual}.
+All external variables are integers.
+The three shared configurations and their responses are supplied without an additional starting point.
+The remaining evaluation budget is \(B-3\), with other settings at their defaults.
+% \david{Didn't you say that it was 1e6?}.
+On Grid-GDP, the next ten planned evaluations use a Sobol sequence, which distributes points across the domain, subject to the remaining budget.
+% \david{nobody knows what this is this far, this applies in general, if there is a term you don't know, don't assume the reader knows it}
+For the process experiments, callback \(B\) returns its value normally, and \texttt{BAM} terminates through its native evaluation limit.
+
 \subsubsection{Budget-limited D-SDA} 
 % \david{This is my main complaint. D-SDA precedes LD-SDA and this is not our contribution.}}
 We use a budget-limited implementation of the previously developed \texttt{D-SDA}~\citep{linan2020optimal}, applying its neighborhood search and discrete line search over the GDP external integer lattice as in LD-SDA~\citep{ovalle2025logic}.
@@ -450,24 +436,6 @@ For the process benchmarks, \texttt{D-SDA} starts with the best accepted configu
 For Grid-GDP benchmarks, initial configurations are ranked by objective value and successive descents are attempted while evaluation budget remains.
 After each completed descent, the search stops if the best observed objective satisfies the common target criterion in Equation~\eqref{eqn:target}; otherwise, it tries the next ranked initial configuration.
 For all process benchmarks, \texttt{D-SDA} searches within the declared integer bounds without precomputed feasibility filtering, using the callback accounting and unaccepted-response policy stated above.
-
-\subsubsection{RBFOpt}
-\texttt{RBFOpt} uses MSRSM, automatic RBF selection, and the default genetic candidate-search option of version 4.3.0~\citep{costa2018rbfopt,nannicini2021implementation}.
-All external variables are integers, and the three shared initial configurations are supplied with the additional package initialization disabled.
-Search stops at the evaluation budget or the native iteration and stall limits.
-Other surrogate-minimization operations use standalone \texttt{Bonmin} 1.8.9~\citep{bonami2008algorithmic} and \texttt{IPOPT} 3.14.19~\citep{wachter2006implementation} executables.
-% \david{citation to Bonmin}.
-These calls contribute to search time, but not the objective-evaluation budget.
-
-\subsubsection{BAM}
-\texttt{BAM} uses local algebraic surrogate models optimized by \texttt{BARON} to generate candidate configurations~\citep{ma2023bam,bamManual}.
-All external variables are integers.
-The three shared configurations and their responses are supplied without an additional starting point.
-The remaining evaluation budget is \(B-3\), with other settings at their defaults.
-% \david{Didn't you say that it was 1e6?}.
-On Grid-GDP, the next ten planned evaluations use a Sobol sequence, which distributes points across the domain, subject to the remaining budget.
-% \david{nobody knows what this is this far, this applies in general, if there is a term you don't know, don't assume the reader knows it}
-For the process experiments, callback \(B\) returns its value normally, and \texttt{BAM} terminates through its native evaluation limit.
 
 \subsubsection{FMQA-SA}
 \texttt{FMQA-SA} uses the FM training and QUBO construction code of \citet{secquoiaBboFmqa}.
@@ -481,6 +449,14 @@ The lowest-energy decoded candidate within the coordinate bounds that has not be
 Candidates are not screened for the feasibility of logical or nonlinear constraints before evaluation.
 The new observation is appended, and FM fitting and candidate generation repeat until the evaluation budget \(B\) or the 1,800~s method time limit is reached.
 
+\subsubsection{RBFOpt}
+\texttt{RBFOpt} uses MSRSM, automatic RBF selection, and the default genetic candidate-search option of version 4.3.0~\citep{costa2018rbfopt,nannicini2021implementation}.
+All external variables are integers, and the three shared initial configurations are supplied with the additional package initialization disabled.
+Search stops at the evaluation budget or the native iteration and stall limits.
+Other surrogate-minimization operations use standalone \texttt{Bonmin} 1.8.9~\citep{bonami2008algorithmic} and \texttt{IPOPT} 3.14.19~\citep{wachter2006implementation} executables.
+% \david{citation to Bonmin}.
+These calls contribute to search time, but not the objective-evaluation budget.
+
 \subsubsection{Sampling controls}
 \label{sec:sampling-controls}
 Uniform sampling evaluates the same three initial configurations and then draws uniformly without replacement from the remaining declared integer domain.
@@ -488,14 +464,16 @@ It uses a separate deterministic random stream, no objective-dependent selection
 The Grid \texttt{BAM}-prefix control repeats \texttt{BAM}'s ten predetermined sampling points in the same order after the three shared starts, then samples uniformly without replacement, stopping at the budget.
 This control tests the observed fixed sampling design and does not reconstruct proprietary \texttt{BAM} internals.
 
-\subsection{Execution environment and algebraic comparisons}
+\subsection{Execution environment and conventional GDP comparisons}
 % \david{This section is missing a lot of references for the software and notation for the solvers (\textttt)}
 \label{sec:protocol}
 The benchmark performance experiments were conducted on the Dantzig server, equipped with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
 All optimization methods and numerical libraries were configured for single-threaded execution.
 The software environment included \texttt{Pyomo} 6.10.0~\citep{bynum2021pyomo}, \texttt{RBFOpt} 4.3.0, \texttt{BAM} 5.0.0, \texttt{PyTorch} 2.8.0~\citep{paszke2019pytorch}, and \texttt{SCIP} 9.2.4~\citep{bolusani2024scip}.
 % \david{Who cares about the historical runs? If they are not comparable, rerun them to make them comparable}
-We used the General Algebraic Modeling System (\texttt{GAMS}) 52.2.0~\citep{gams2025} to call \texttt{IPOPT} for configuration evaluations and \texttt{SCIP} for algebraic comparisons.
+We used the General Algebraic Modeling System (\texttt{GAMS}) 52.2.0~\citep{gams2025} to call \texttt{IPOPT} and \texttt{SCIP}.
+ChatGPT and Codex (OpenAI), including GPT-6 Astra, assisted in developing analysis and plotting code.
+The authors reviewed the code and checked the generated tables and figures against the recorded experimental results.
 
 \paragraph{Fixed-disjunction NLP evaluations.}
 We fix the original Boolean GDP decisions and evaluate the resulting subproblems using \texttt{IPOPT} 3.14.19 with \texttt{MUMPS} 5.8.1~\citep{amestoy2001mumps}.
@@ -509,9 +487,11 @@ Time-limited candidates remain unaccepted even when feasible.
 
 \paragraph{Conventional GDP comparisons.}
 Conventional comparisons include \texttt{GDPOpt} RIC, GLOA, and LOA, as well as Big-\(M\) and Hull reformulations.
-\texttt{GDPOpt} uses \texttt{SCIP} for both MILP master problems and nonlinear subproblems~\citep{chen2022pyomogdp,pyomoGDPopt}.
+\texttt{GDPOpt} uses \texttt{SCIP} 9.2.4 for MILP master problems and \texttt{IPOPT} 3.14.19 for NLP subproblems~\citep{chen2022pyomogdp,pyomoGDPopt}.
+The fixed Grid subproblems take a linear \texttt{SCIP} path; no \texttt{IPOPT} calls occur in those runs.
+The local NLP solutions do not establish global optimality.
 The Big-\(M\) and Hull reformulations are solved directly using \texttt{SCIP}.
-All algebraic methods use the original GDP domains, a time limit of 1,800~s per instance, and a relative optimality gap of \(10^{-5}\).
+All conventional GDP methods use the original GDP domains, a time limit of 1,800~s per instance, and a relative optimality gap of \(10^{-5}\).
 
 \subsection{Target attainment and cumulative success profiles}
 \label{sec:metrics}
@@ -543,20 +523,11 @@ Thus, \(C^{\mathrm{eval}}_{sB}(N)\) gives the fraction of runs that reach the ta
 For the Grid-GDP benchmarks, \(|\mathcal R_B|=210\) at each budget; for each process benchmark and budget, \(|\mathcal R_B|=10\).
 All runs, including target misses, remain in the denominator.
 
-Let \(\widehat T_{sBr}\) denote the estimated completion time of the full-run, combining the recorded search time with separately measured configuration-evaluation costs as defined in Section~\ref{sec:cost-accounting}.
-For a time threshold \(t\geq0\), measured in seconds, the absolute completion-time profile is
-\begin{equation}\label{eqn:absolute-time}
- C^{\mathrm{time}}_{sB}(t)
- =\frac{1}{|\mathcal R_B|}\sum_{r\in\mathcal R_B}
- \mathbf{1}\{H_{sBr}=1,\ \widehat T_{sBr}\leq t\}.
-\end{equation}
-This profile gives the fraction of runs that reach the target and have an estimated full-run completion time not greater than \(t\).
-A successful run is counted at its full completion estimate, not at the time of its first target attainment.
-
 Experiments at different evaluation budgets are analyzed separately; a larger-budget trajectory need not extend a smaller-budget trajectory.
-Both profiles use absolute evaluation counts or times rather than solver-relative cost ratios~\citep{dolan2002benchmarking}.
+These profiles use absolute evaluation counts rather than solver-relative cost ratios~\citep{dolan2002benchmarking}.
 The evaluation count profile is related to the data profiles~\citep{more2009benchmarking}, but uses raw rather than dimension-normalized evaluation counts.
-Algebraic results are reported separately because their iterations and subsolver calls are not DFO objective evaluations, and only one run is reported for each problem-method pair.
+The joint completion-time comparison shows individual DFO runs and one conventional GDP observation per problem-method pair. 
+Subsolver calls in conventional GDP methods are different from the configuration evaluations counted in DFO.
 
 \subsection{Runtime accounting and uncertainty}
 \label{sec:cost-accounting}
@@ -585,15 +556,14 @@ For \texttt{Dynamic}, the original model-template construction and discretizatio
 All in-budget evaluations have measured point costs, and estimated full-run completion times are available for all 700 primary process runs.
 These estimates retain the recorded lookup trajectories rather than measuring online optimizer-NLP executions.
 
-Algebraic GDP completion times are measured separately and are not augmented with the DFO point costs.
-Grid-GDP algebraic timings include per-run preparation, reformulation, solution, and validation, but exclude shared-template preparation and lattice enumeration.
+Conventional GDP completion times are measured separately and are not augmented with the DFO point costs.
+For Grid-GDP, conventional GDP timings include per-run preparation, reformulation, solution, and validation, but exclude shared-template preparation and lattice enumeration.
 Full-process-GDP timings include model-template preparation.
 
 % \david{this structure of "this, not that" stinks like AI-written}
 % \david{Are these the ones that solve the GDP method directly?}
 \paragraph{Uncertainty.}
-Supplementary Section~\ref{sec:supp-uncertainty} defines pointwise 95\% exact binomial intervals for the ten-seed success fractions.
-These intervals assume independent seed-level trials under the fixed protocol and are not simultaneous intervals.
+
 Paired comparisons resample intact functions for Grid and paired seeds within each process condition (Supplementary Section~\ref{sec:supp-additional}).
 
 \section{Computational Results and Discussion}
@@ -618,33 +588,35 @@ Excluding Xin-She Yang~3 and the nearly redundant sampled Bohachevsky~2 case pre
 Each cell contains 210 runs (21 functions and ten seeds).
 The evaluation budget includes the three shared initial evaluations, and repeated objective callbacks are counted toward the evaluation budget.
 \texttt{BAM}'s 111 hits at \(B=10\) all precede surrogate-guided selection (11 shared-initialization hits and 100 at two predetermined Sobol points).
-Per-function integer hit counts at \(B=100\) are available in the repository (Supplementary Section~\ref{sec:supp-data}).}
+Bold entries mark the largest percentage in each row, including ties. \david{last sentence does not belong to the caption and highlight the best in each row}
+\albert{Moved the repository pointer to the text and bolded each row maximum, including ties.}}
 \label{tab:grid-hits}
 \begin{tabular}{rcccccc}\toprule
 Budget \(B\) & \texttt{D-SDA} & \texttt{RBFOpt} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform & \shortstack{\texttt{BAM}-prefix\\control}\\\midrule
-10 & 6.2 & 20.0 & 52.9 & 7.6 & 6.7 & 52.9 \\
-30 & 35.2 & 61.9 & 54.8 & 22.4 & 11.9 & 54.8 \\
-50 & 41.9 & 73.3 & 57.6 & 36.2 & 13.8 & 56.7 \\
-70 & 46.7 & 76.7 & 62.9 & 48.6 & 17.1 & 57.1 \\
-100 & 48.1 & 81.4 & 70.0 & 61.4 & 21.4 & 59.0 \\
+10 & 6.2 & 20.0 & \textbf{52.9} & 7.6 & 6.7 & \textbf{52.9} \\
+30 & 35.2 & \textbf{61.9} & 54.8 & 22.4 & 11.9 & 54.8 \\
+50 & 41.9 & \textbf{73.3} & 57.6 & 36.2 & 13.8 & 56.7 \\
+70 & 46.7 & \textbf{76.7} & 62.9 & 48.6 & 17.1 & 57.1 \\
+100 & 48.1 & \textbf{81.4} & 70.0 & 61.4 & 21.4 & 59.0 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Figure~\ref{fig:grid-profiles} shows the cumulative fraction of runs attaining the reference target as a function of the number of objective evaluations, revealing when successful searches first reach the target.
-Each panel is a separate budget experiment, so trajectories at a larger evaluation budget are not assumed to extend those at a smaller evaluation budget.
+Per-function integer hit counts at \(B=100\) are available in the repository (Supplementary Section~\ref{sec:supp-data}).
+Figure~\ref{fig:grid-profiles} shows when successful runs with an evaluation budget of \(B=100\) first reach the reference target.
+Table~\ref{tab:grid-hits} reports the separate experiments at all five evaluation budgets.
 \texttt{FMQA-SA} reaches 129 of 210 targets at \(B=100\), compared with 45 for uniform sampling.
 
 \begin{figure}[htbp]
 \centering\includegraphics[width=\linewidth]{figures/figure_B_grid_evaluation_profiles.pdf}
-\caption{Cumulative success profiles for 21 Grid-GDP functions and ten seeds per function, following Equation~\eqref{eqn:absolute-evaluations}.
+\caption{Cumulative success profiles for 21 Grid-GDP functions and ten seeds per function at \(B=100\), following Equation~\eqref{eqn:absolute-evaluations}.
 The target is the normalized reference value zero within \(10^{-5}\), as defined by Equation~\eqref{eqn:target}.
-Each panel uses all 210 runs from a separate budget experiment; initial and repeated evaluations count, and target misses remain in the denominator.
+Each curve includes all 210 runs; initial and repeated evaluations count, and target misses remain in the denominator.
 The dashed line marks the three shared initial evaluations.
 Uniform sampling and the \texttt{BAM}-prefix control are defined in Section~\ref{sec:sampling-controls}.
-\texttt{BAM} rises early, while \texttt{RBFOpt} reaches the largest final fraction for \(B\ge30\).
-\david{Why is the x-axis called "Charged evaluations"? What do you mean by sampled controls? Why is the target not specified in the figure? WHat is meant by target hit? Relate them to the equations in the manuscript. The description both has too many words but repeats itself and says nothing. It should follow the structure, describe succintly what is being plotted and then provide a short interpretation. Why is the gray shaded area not starting in zero? You do not define new concepts in the figures (BAM-prefix explained the others not). For which instances is this? Why do we have those extra notes under the legend?}
-\albert{Clarified the axes and target, linked the profile and controls to their definitions, and removed the shading and legend notes without changing the curves.}
+\texttt{BAM} rises early, while \texttt{RBFOpt} reaches the largest final fraction at 100 evaluations.
+\david{You cannot differetiate BAM and BAM prefix. I believe this color scheme is not colorblind friendly}
+\albert{Distinguished BAM and its prefix control by solid versus dash-dot lines, filled versus open markers, and green versus black; curve values are unchanged.}
 }
 \label{fig:grid-profiles}
 \end{figure}
@@ -664,15 +636,13 @@ Because Grid configurations fix both original coordinates, their measured evalua
 Target hits reach the normalized reference zero within \(10^{-5}\) (Equation~\eqref{eqn:target}).
 Times are Q50 (median) [Q25, Q75] in seconds across all runs, including target misses, using linearly interpolated quartiles.
 Summed configuration-evaluation cost includes the separately measured cost of every evaluation in the full run, including repeated configurations.
-Retained search time excludes lookup processing; their sum gives estimated full-run completion time (Equation~\eqref{eqn:reconstructed-cost}).
+Search time excludes lookup processing; adding it to the summed configuration-evaluation cost gives estimated full-run completion time (Equation~\eqref{eqn:reconstructed-cost}).
 Component quartiles need not sum to completion quartiles.
-\david{Why only the meadian? Provide the Q25, Q50=median, Q75 intervals. Where did we define what a "point cost" means? Where is the target defined? THe table should be self-defined.}
-\albert{Added Q25 and Q75 around each median and defined the target and configuration-evaluation cost in the caption, using the same 210 runs per method.}
 }
 \label{tab:grid-cost}
 \small
 \begin{tabular}{lrrrr}\toprule
-Method & Target hits & \shortstack{Full-run\\completion (s)} & \shortstack{Summed configuration-\\evaluation cost (s)} & \shortstack{Retained\\search time (s)}\\\midrule
+Method & Target hits & \shortstack{Full-run\\completion (s)} & \shortstack{Summed configuration-\\evaluation cost (s)} & \shortstack{Search\\time (s)}\\\midrule
 \texttt{D-SDA} & 101/210 & \shortstack{24.08\\{[15.58, 49.49]}} & \shortstack{24.08\\{[15.58, 49.48]}} & \shortstack{0.0039\\{[0.0037, 0.0043]}} \\
 \texttt{RBFOpt} & 171/210 & \shortstack{70.81\\{[54.83, 93.09]}} & \shortstack{60.84\\{[44.31, 82.15]}} & \shortstack{7.58\\{[4.12, 14.82]}} \\
 \texttt{BAM} & 147/210 & \shortstack{64.42\\{[48.74, 81.67]}} & \shortstack{63.97\\{[48.34, 81.22]}} & \shortstack{0.43\\{[0.37, 0.51]}} \\
@@ -686,14 +656,14 @@ Uniform & 45/210 & \shortstack{60.51\\{[43.33, 78.60]}} & \shortstack{60.51\\{[4
 \texttt{D-SDA} and \texttt{BAM} nevertheless have zero observed hits on four and two functions, respectively; \texttt{RBFOpt} and \texttt{FMQA-SA} have at least one hit on every function at that evaluation budget.
 Uniform has seven zero-hit functions, and the prefix control has two.
 
-The algebraic comparisons report one selected result per problem and method; their iterations and subsolver calls are not equivalent to DFO callbacks.
-The algebraic solver families and configurations are described in Section~\ref{sec:protocol}.
+The conventional GDP comparisons report one selected result per problem and method; their iterations and subsolver calls are not equivalent to DFO callbacks.
+The conventional GDP methods and their configurations are described in Section~\ref{sec:protocol}.
 The direct Big-\(M\) and Hull reformulations solved with \texttt{SCIP} reach all 21 reference targets.
-The \texttt{GDPOpt} runs with \texttt{SCIP} reach 16/21, 17/21, and 18/21 targets for RIC, GLOA, and LOA, respectively.
-These counts combine original non-error runs with reruns of execution errors, so their differences do not establish a method ranking (Supplementary Section~\ref{sec:supp-data}).
+RIC and GLOA each reach 15 of the 21 Grid targets, while LOA reaches 14.
+Numerically feasible solutions were saved for all 63 \texttt{GDPOpt} runs, with no execution errors reported (Supplementary Section~\ref{sec:supp-data}).
 All three miss H\"older table, Michalewicz, and Shubert (historical variant).
-In the diagnosed runs, \texttt{GDPOpt} preprocessing rejects independently feasible reference configurations before subproblem evaluation, explaining the target misses despite reported optimal termination.
-Seven recovered \texttt{GDPOpt} runs reach the target before terminating at the time limit.
+Earlier diagnostic runs identified \texttt{GDPOpt} preprocessing rejections of independently feasible reference configurations; the same three problems miss their targets in the current runs.
+Ten \texttt{GDPOpt} runs reach the target before terminating at the time limit.
 Consequently, the measured completion time of a target-attaining run must be distinguished from a completed global-optimality certification.
 
 \subsection{Process GDP Case Studies}
@@ -708,47 +678,45 @@ For \texttt{Dynamic}, \texttt{RBFOpt} reaches all ten targets at every tested bu
 The method with the most target hits differs across process problems.
 \texttt{BAM} reaches all ten targets on \texttt{CSTR5} at \(B=8\), compared with eight for \texttt{RBFOpt}.
 On \texttt{Column} at \(B=13\), \texttt{D-SDA} reaches five of ten targets and \texttt{RBFOpt} four within the 64-configuration logical domain.
+Across the ten seeds, final objectives range from 19346.1 to 19565.9 for \texttt{D-SDA} and from 19346.1 to 20491.9 for \texttt{RBFOpt}.
+The only \texttt{Column} hits for \texttt{BAM} and uniform sampling occur at the shared initial target in seed 6.
 On \texttt{Small Batch} at \(B=10\), \texttt{D-SDA} reaches eight targets, compared with five for \texttt{RBFOpt}.
 
 \texttt{FMQA-SA} reaches 42 of 140 process targets, compared with 37 for uniform sampling.
 Its aggregate gain over uniform is smaller here than on Grid.
-Supplementary Section~\ref{sec:supp-proposals} reports fallback counts, and Section~\ref{sec:supp-additional} reports the FMQA diagnostics.
+Supplementary Section~\ref{sec:supp-proposals} reports fallback counts.
 \begin{table}[htbp]
 \centering
 \caption{Reference-target attainment in the \texttt{IPOPT}-table process experiments.
-Entries are target hits of the wrapper-reported best-accepted configuration divided by all ten paired seeds at evaluation budget \(B\).
-% \david{The main criticism is, which tables HAVE to appear in the main body, and which are just supplementary}.
+Each cell lists target hits out of ten paired seeds, median search time, and [Q25, Q75] search time in seconds, from top to bottom.
+Search times exclude configuration-evaluation costs and summarize all ten seeds.
+The quartile ranges describe seed variability, not confidence intervals.
+Bold counts mark the largest number of target hits in each row, including ties.
+\david{include median and interval search times (not accounting for NLP solutions) for each method}
+\albert{Added median and [Q25, Q75] search times from the completed 700-run comparison, excluding NLP evaluation costs and retaining all ten seeds per condition.}
 }
 \label{tab:process-targets}
 \small
 \begin{tabular}{@{}lrccccc@{}}\toprule
-Case & \(B\) & \texttt{D-SDA} & RBFOpt & BAM & \texttt{FMQA-SA} & Uniform \\
+Case & Budget \(B\) & \texttt{D-SDA} & \texttt{RBFOpt} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform \\
 \midrule
-\texttt{Column} & 13 & 5/10 & 4/10 & 1/10 & 4/10 & 1/10 \\
-\texttt{CSTR5} & 8 & 2/10 & 8/10 & 10/10 & 3/10 & 4/10 \\
-\texttt{CSTR10} & 15 & 2/10 & 6/10 & 1/10 & 2/10 & 1/10 \\
-\texttt{CSTR15} & 22 & 2/10 & 7/10 & 1/10 & 1/10 & 2/10 \\
-\texttt{CSTR20} & 29 & 3/10 & 7/10 & 2/10 & 1/10 & 2/10 \\
-\texttt{CSTR25} & 36 & 3/10 & 8/10 & 2/10 & 1/10 & 1/10 \\
-\texttt{CSTR30} & 43 & 2/10 & 9/10 & 2/10 & 1/10 & 1/10 \\
-\texttt{Small Batch} & 10 & 8/10 & 5/10 & 2/10 & 6/10 & 4/10 \\
-\texttt{Dynamic} & 12 & 4/10 & 10/10 & 0/10 & 2/10 & 0/10 \\
-\texttt{Dynamic} & 15 & 5/10 & 10/10 & 3/10 & 3/10 & 3/10 \\
-\texttt{Dynamic} & 20 & 8/10 & 10/10 & 3/10 & 3/10 & 3/10 \\
-\texttt{Dynamic} & 30 & 10/10 & 10/10 & 4/10 & 4/10 & 4/10 \\
-\texttt{Dynamic} & 37 & 10/10 & 10/10 & 7/10 & 5/10 & 5/10 \\
-\texttt{Dynamic} & 50 & 10/10 & 10/10 & 10/10 & 6/10 & 6/10 \\
+\texttt{Column} & 13 & \makecell{\textbf{5}\\0.0153\\{[0.015, 0.0158]}} & \makecell{4\\0.226\\{[0.205, 0.239]}} & \makecell{1\\0.0177\\{[0.0168, 0.155]}} & \makecell{4\\6.85\\{[6.81, 6.89]}} & \makecell{1\\0.00716\\{[0.00711, 0.00748]}} \\
+\texttt{CSTR5} & 8 & \makecell{2\\0.0136\\{[0.0135, 0.014]}} & \makecell{8\\0.0596\\{[0.059, 0.0597]}} & \makecell{\textbf{10}\\0.036\\{[0.0151, 0.0816]}} & \makecell{3\\3.66\\{[3.64, 3.67]}} & \makecell{4\\0.0046\\{[0.00387, 0.00478]}} \\
+\texttt{CSTR10} & 15 & \makecell{2\\0.0179\\{[0.016, 0.0193]}} & \makecell{\textbf{6}\\0.302\\{[0.288, 0.315]}} & \makecell{1\\0.137\\{[0.126, 0.158]}} & \makecell{2\\8\\{[7.98, 8.08]}} & \makecell{1\\0.00807\\{[0.00772, 0.00812]}} \\
+\texttt{CSTR15} & 22 & \makecell{2\\0.0216\\{[0.0201, 0.0228]}} & \makecell{\textbf{7}\\1\\{[0.492, 3.26]}} & \makecell{1\\0.15\\{[0.14, 0.162]}} & \makecell{1\\12.4\\{[12.3, 12.4]}} & \makecell{2\\0.0113\\{[0.0108, 0.0116]}} \\
+\texttt{CSTR20} & 29 & \makecell{3\\0.026\\{[0.022, 0.0292]}} & \makecell{\textbf{7}\\2.82\\{[0.632, 4.01]}} & \makecell{2\\0.167\\{[0.165, 0.313]}} & \makecell{1\\16.9\\{[16.8, 16.9]}} & \makecell{2\\0.0139\\{[0.0121, 0.0148]}} \\
+\texttt{CSTR25} & 36 & \makecell{3\\0.0334\\{[0.0288, 0.0361]}} & \makecell{\textbf{8}\\2.47\\{[1.86, 4.43]}} & \makecell{2\\0.401\\{[0.392, 0.449]}} & \makecell{1\\21.3\\{[21.3, 21.4]}} & \makecell{1\\0.0161\\{[0.0147, 0.0186]}} \\
+\texttt{CSTR30} & 43 & \makecell{2\\0.0586\\{[0.0572, 0.0645]}} & \makecell{\textbf{9}\\4.99\\{[2.95, 10.3]}} & \makecell{2\\0.425\\{[0.404, 0.451]}} & \makecell{1\\25.8\\{[25.7, 26]}} & \makecell{1\\0.0241\\{[0.0224, 0.0257]}} \\
+\texttt{Small Batch} & 10 & \makecell{\textbf{8}\\0.0136\\{[0.0131, 0.0139]}} & \makecell{5\\0.17\\{[0.159, 0.18]}} & \makecell{2\\0.0169\\{[0.0161, 0.0191]}} & \makecell{6\\4.87\\{[4.86, 4.89]}} & \makecell{4\\0.00536\\{[0.00506, 0.00545]}} \\
+\texttt{Dynamic} & 12 & \makecell{4\\0.0152\\{[0.0149, 0.0153]}} & \makecell{\textbf{10}\\0.186\\{[0.182, 0.189]}} & \makecell{0\\0.0173\\{[0.0172, 0.0174]}} & \makecell{2\\6.16\\{[6.14, 6.2]}} & \makecell{0\\0.00589\\{[0.0054, 0.00658]}} \\
+\texttt{Dynamic} & 15 & \makecell{5\\0.0172\\{[0.0162, 0.0173]}} & \makecell{\textbf{10}\\0.296\\{[0.291, 0.321]}} & \makecell{3\\0.139\\{[0.128, 0.156]}} & \makecell{3\\8.04\\{[8.01, 8.09]}} & \makecell{3\\0.0074\\{[0.00622, 0.0076]}} \\
+\texttt{Dynamic} & 20 & \makecell{8\\0.0184\\{[0.0178, 0.0202]}} & \makecell{\textbf{10}\\0.367\\{[0.355, 0.381]}} & \makecell{3\\0.143\\{[0.13, 0.156]}} & \makecell{3\\11.2\\{[11.1, 11.2]}} & \makecell{3\\0.00987\\{[0.00927, 0.00991]}} \\
+\texttt{Dynamic} & 30 & \makecell{\textbf{10}\\0.0219\\{[0.018, 0.0233]}} & \makecell{\textbf{10}\\7.61\\{[4.88, 13.7]}} & \makecell{4\\0.355\\{[0.204, 0.364]}} & \makecell{4\\17.4\\{[17.2, 17.5]}} & \makecell{4\\0.0141\\{[0.0135, 0.0145]}} \\
+\texttt{Dynamic} & 37 & \makecell{\textbf{10}\\0.023\\{[0.0176, 0.0243]}} & \makecell{\textbf{10}\\10.1\\{[5.25, 14.2]}} & \makecell{7\\0.376\\{[0.364, 0.383]}} & \makecell{5\\21.7\\{[21.6, 21.8]}} & \makecell{5\\0.0173\\{[0.0171, 0.0174]}} \\
+\texttt{Dynamic} & 50 & \makecell{\textbf{10}\\0.0223\\{[0.0176, 0.0238]}} & \makecell{\textbf{10}\\26.3\\{[17, 37.2]}} & \makecell{\textbf{10}\\0.732\\{[0.685, 0.751]}} & \makecell{6\\29.8\\{[29.7, 30.1]}} & \makecell{6\\0.0233\\{[0.0229, 0.0235]}} \\
 \bottomrule
 \end{tabular}
 \par\vspace{3pt}
-\begin{minipage}{0.96\linewidth}
-\footnotesize All 700 primary process runs completed without execution failure.
-All 70 primary groups use seeds 0-9.
-The only \texttt{Column} hits for \texttt{BAM} and uniform sampling occur at the shared initial target in seed 6.
-An accepted target configuration at callback \(B\) counts because its coordinates and objective are preserved in the final wrapper summary.
-\texttt{BAM} also returns that value to its native optimizer; the other methods retain the wrapper stop.
-The reference is the accepted \texttt{IPOPT}-table minimum, not a global-optimality certificate.
-\end{minipage}
 \end{table}
 
 Figure~\ref{fig:process-evaluations} shows the first target-attaining evaluation on successful recorded runs, with misses and execution failures retained in the denominator.
@@ -770,8 +738,6 @@ For \texttt{Dynamic} at \(B=50\), search overhead contributes 42.7\% of the mean
 \texttt{Dynamic} \texttt{D-SDA} executes 221 callbacks across ten \(B=50\) runs, compared with 500 for each of \texttt{RBFOpt}, \texttt{BAM}, and \texttt{FMQA-SA}.
 Its lower cost reflects shorter paths as well as low search overhead; unsuccessful candidates are evaluated and charged within the common box.
 
-% \david{this whole figure page, should have been a paragraph}
-
 On \texttt{Column}, median completion estimates are 35.44~s for \texttt{D-SDA} and 54.60~s for \texttt{RBFOpt} (Figure~\ref{fig:process-completion}).
 For \texttt{Dynamic} at \(B=30\), \texttt{RBFOpt} reaches all ten targets in fewer evaluations than \texttt{D-SDA} (Figure~\ref{fig:process-evaluations}).
 Its median estimated full-run completion time is nevertheless higher: 34.19~s versus 26.62~s (Figure~\ref{fig:process-completion}).
@@ -779,126 +745,118 @@ Earlier target discovery therefore need not reduce full-run cost, which includes
 At the smaller budget \(B=12\), \texttt{RBFOpt} reaches all ten targets with a median completion estimate of 12.29~s.
 
 \begin{figure}[htbp]
-\centering\includegraphics[width=\linewidth]{figures/process_completion_profiles.pdf}
-\caption{Cumulative success profiles versus estimated full-run completion time for nine process conditions, defined by Equation~\eqref{eqn:absolute-time}.
-Each curve includes all ten seeds in its denominator and counts successful runs at their full-run completion estimates.
-Target attainment follows Equation~\eqref{eqn:target}; completion times follow Equation~\eqref{eqn:reconstructed-cost} and are plotted on a logarithmic scale.
-\david{We cannot have the definition of a figure be defined in the supplementary material. Either include it in the main body or remove the figure}
-\albert{Linked the caption to the profile, target, and completion-time equations in the main text and removed the duplicate timing note from the supplement, retaining the 14-condition table.}
+\centering\includegraphics[width=\linewidth]{figures/process_joint_completion.pdf}
+\caption{Joint full-run completion-time comparison for six process conditions.
+DFO times are reconstructed using Equation~\eqref{eqn:reconstructed-cost}; conventional GDP times are measured and include model preparation.
+Dots show individual successful DFO runs, diamonds successful single conventional runs, and crosses target misses under the rules in Section~\ref{sec:metrics}.
+Gray segments and ticks show Q25--Q75 and medians across all ten DFO seeds; right-hand labels give hits out of ten or the single-run outcome.
+TL denotes reported time-limit termination; asterisks mark the bound inconsistencies discussed in Section~\ref{sec:bound-audit} of the supplement.
+The logarithmic axis retains recorded completion times, not first-target times.
+The two Dynamic panels reuse the same conventional observations.
 }
 \label{fig:process-completion}
 \end{figure}
 
-Supplementary Table~\ref{tab:process-tts99} reports median estimated full-run completion times for all 14 conditions.
+\david{If the NLPs or times are comparable to the times in Figures 2 and 3, include them as a vertical bar to contextualize the result (vertical bar is equivalent to them having solved the problem). Units for time (s) are missing. Highlight the best result per row in bold. If the time limit is reached, then put the time as 1800+ (in some cases it is 1791 $\le$ 1800)}
+\albert{Added the joint completion-time comparison to Figure 3 and moved the detailed table to the supplement, retaining all DFO seeds and single conventional observations.
+Time units and bold row minima are shown; TL identifies limit terminations while preserving measured times rather than replacing them with 1800.
+Removed duplicate supplementary panels and the unused cumulative time-profile definition.}
+
+Supplementary Table~\ref{tab:process-tts99} reports median estimated full-run completion times for all 14 conditions; Supplementary Figure~\ref{fig:joint-remaining-completion} shows the eight conditions not included in Figure~\ref{fig:process-completion}.
 For \texttt{CSTR30}, \texttt{RBFOpt} reaches nine targets with a median completion estimate of 101.96~s.
 \texttt{D-SDA} reaches two targets at 53.12~s, and \texttt{BAM} reaches two at 115.41~s.
+The single Big-\(M\) and Hull runs reach the \texttt{CSTR30} target at completion times of 1,791.82 and 1,792.56~s, while the three GDPopt runs miss it (Figure~\ref{fig:process-completion}).
 
 \FloatBarrier
 
-Table~\ref{tab:full-gdp} compares five algebraic methods on nine process GDP models.
+Supplementary Table~\ref{tab:full-gdp} reports the detailed results of five conventional GDP methods on nine process models.
 Of the 45 runs, 43 return solutions that pass the original-GDP residual test at \(10^{-5}\).
 Big-\(M\) returns no accepted feasible solution for \texttt{CSTR15} or \texttt{Column} within the time limit.
-The target-attainment counts are 6/9 for RIC, 1/9 for GLOA, 6/9 for LOA, 5/9 for Big-\(M\), and 7/9 for Hull.
+Hull reaches the most reference targets, succeeding on seven of the nine models.
+RIC, LOA, and Big-\(M\) each reach five targets, while GLOA reaches only the \texttt{Small Batch} target.
+RIC and LOA reach the \texttt{Dynamic} target but miss those for \texttt{CSTR10} and \texttt{CSTR25}.
+\david{you usually do not use fractions in a sentence, and the sentence just reads like a laundry list. Have more prose}
+\albert{Replaced the fraction list with a prose summary of the updated results.}
 These single-run results do not establish success probabilities or global optimality.
 
 All five methods attain the \texttt{Small Batch} reference.
 Big-\(M\) and Hull complete in 0.51 and 0.50~s, respectively, compared with median DFO completion estimates ranging from 3.49 to 9.09~s.
-This demonstrates the competitiveness of algebraic methods when the formulation is available, although the different information access and timing protocols prevent direct speedup claims.
+Direct reformulation is faster on this benchmark and reaches the target in both runs (Figure~\ref{fig:process-completion}).
 
-All six \texttt{CSTR} GLOA runs report \texttt{optimal} but miss the lookup references.
+All six \texttt{CSTR} GLOA runs report \texttt{optimal}, but their objective differences from the reference exceed \(10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\).
+\david{help the reader, remind them what this means and the epsilon it represents}
+\albert{Stated the reference-target tolerance explicitly.}
 Their reported lower bounds exceed independently checked feasible objectives.
 The \texttt{Dynamic} Hull run has the same inconsistency: its lower bound is \(-196.931\), while the saved Big-\(M\) point has objective \(-212.009\).
 That point also passes a check against the reconstructed Hull formulation (Supplementary Section~\ref{sec:bound-audit}).
-The uniform bound check flags 19 results, including these seven large discrepancies and 12 smaller exceedances of 1.09-4.30 times the comparison tolerance.
+The uniform bound check flags 21 results, including eight smaller exceedances of 1.09-3.54 times the comparison tolerance.
 The flags distinguish numerical consistency from target attainment and reported termination; they do not establish exact feasibility or a solver defect.
 
-A separate \texttt{CSTR15} check on Dantzig using \texttt{IPOPT} 3.14.19 retained the archived LOA witness W03's discrete configuration and starting values (Supplementary Section~\ref{sec:bound-audit})~\citep{rbfoptTestArchive}.
+A separate \texttt{CSTR15} check using \texttt{IPOPT} 3.14.19 retained the archived LOA witness W03's discrete configuration and starting values (Supplementary Section~\ref{sec:bound-audit})~\citep{rbfoptTestArchive}.
+\david{Why would a reader know that Dantzig is a computer? SInce we refer to all computational results from that computer, you can just avoid mentioning its name}
+\albert{Removed the machine name.}
 The returned objective was \(2.82939\), with the maximum unscaled original-GDP violation \(1.11\times10^{-16}\), passing a residual target \(10^{-8}\).
-The current \texttt{SCIP}-based GLOA lower bound exceeds this previously validated objective by \(0.732507\), approximately \(2.59\times10^4\) times the audit tolerance.
+The new GLOA lower bound exceeds this previously validated objective by \(0.732565\), approximately \(2.59\times10^4\) times the audit tolerance.
 The discrepancy therefore persists against the tighter feasibility check, although its cause remains unresolved.
 
-\begin{table}[htbp]
-\centering
-\caption{Full-process-GDP results: objective (measured completion seconds, including model-template preparation).
-\texttt{GDPOpt} uses \texttt{SCIP} for master problems and nonlinear subproblems; Big-\(M\) and Hull also use \texttt{SCIP}.
-Feasibility means numerical feasibility under the original-GDP residual test at \(10^{-5}\), not exact feasibility. \david{Why are these results in a table and not merged inside figures 3 and 4? They also have completion times and NLP iterations (actually let's call the horizontal axis as NLP problems solved} \albert{Each algebraic method was run once per problem, whereas these figures summarize ten DFO seeds per condition. The evaluation counts are not directly comparable: DFO configuration evaluations include preprocessing rejections without an NLP solve. DFO completion times are reconstructed estimates, while algebraic runtimes are measured directly.
-I therefore kept the algebraic results in a separate table.}}
-\label{tab:full-gdp}
-\normalsize
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.08}
-\begin{tabular}{@{}lccccc@{}}
-\toprule
-Model & RIC & GLOA & LOA & Big-\(M\) & Hull \\
-\midrule
-\texttt{CSTR5} & \makecell{3.06201\({}^{\dagger}\)\\(25.75)} & \makecell{3.13019\({}^{\dagger\ddagger}\)\\(5.68)} & \makecell{3.06201\({}^{\dagger}\)\\(25.66)} & \makecell{3.06198\\(53.68)} & \makecell{3.06201\({}^{\dagger}\)\\(15.43)} \\
-\texttt{CSTR10} & \makecell{2.88954\({}^{\dagger}\)\\(215.05)} & \makecell{3.44794\({}^{\dagger\ddagger}\)\\(6.36)} & \makecell{2.88954\({}^{\dagger}\)\\(234.45)} & \makecell{2.88941\\(771.36)} & \makecell{2.88951\({}^{\dagger}\)\\(71.63)} \\
-\texttt{CSTR15} & \makecell{2.82939\({}^{\dagger}\)\\(326.02)} & \makecell{3.56190\({}^{\dagger\ddagger}\)\\(7.11)} & \makecell{2.82939\({}^{\dagger}\)\\(545.18)} & \makecell{-\({}^{\mathrm{TL}}\)\\(1790.95)} & \makecell{2.82936\\(284.63)} \\
-\texttt{CSTR20} & \makecell{2.79941\({}^{\dagger}\)\\(766.97)} & \makecell{3.61603\({}^{\dagger\ddagger}\)\\(9.17)} & \makecell{2.79941\({}^{\dagger}\)\\(1018.28)} & \makecell{2.80413\({}^{\mathrm{TL}}\)\\(1792.44)} & \makecell{2.79936\\(1150.67)} \\
-\texttt{CSTR25} & \makecell{2.78148\({}^{\dagger}\)\\(1391.67)} & \makecell{3.64775\({}^{\dagger\ddagger}\)\\(11.22)} & \makecell{2.78148\({}^{\dagger}\)\\(1460.66)} & \makecell{2.78771\({}^{\mathrm{TL}}\)\\(1792.33)} & \makecell{2.78143\\(1701.75)} \\
-\texttt{CSTR30} & \makecell{2.80939\({}^{\mathrm{TL}}\)\\(1800.09)} & \makecell{3.66862\({}^{\dagger\ddagger}\)\\(14.48)} & \makecell{2.81527\({}^{\mathrm{TL}}\)\\(1789.88)} & \makecell{2.76957\({}^{\mathrm{TL}}\)\\(1791.82)} & \makecell{2.76957\({}^{\mathrm{TL}}\)\\(1792.56)} \\
-\texttt{Column} & \makecell{22271.5\({}^{\mathrm{TL}}\)\\(1791.52)} & \makecell{22271.5\({}^{\mathrm{TL}}\)\\(1791.51)} & \makecell{22271.5\({}^{\mathrm{TL}}\)\\(1791.66)} & \makecell{-\({}^{\mathrm{TL}}\)\\(1792.83)} & \makecell{22271.5\({}^{\mathrm{TL}}\)\\(1792.76)} \\
-\texttt{Dynamic} & \makecell{-117.074\({}^{\mathrm{TL}}\)\\(1791.57)} & \makecell{-117.074\({}^{\mathrm{TL}}\)\\(1791.46)} & \makecell{-117.074\({}^{\mathrm{TL}}\)\\(1791.46)} & \makecell{-212.009\({}^{\mathrm{TL}}\)\\(1791.75)} & \makecell{-196.931\({}^{\dagger\ddagger}\)\\(921.28)} \\
-\texttt{Small Batch} & \makecell{167428\\(13.33)} & \makecell{167428\\(10.92)} & \makecell{167428\\(47.77)} & \makecell{167428\\(0.51)} & \makecell{167428\\(0.50)} \\
-\bottomrule
-\end{tabular}
-\par\vspace{3pt}
-\begin{minipage}{0.99\linewidth}
-\small Raw termination is \texttt{optimal} unless TL denotes \texttt{maxTimeLimit}.
-A dash denotes no accepted feasible solution.
-Reference-target classification uses the lookup-reference values in Table~\ref{tab:process-cases}.
-\(\ddagger\): reference target not attained despite the reported \texttt{optimal}; a better independently checked numerically feasible solution exists under the stated residual test, so the report is not treated as an independent optimality certificate.
-This is a target miss, not an execution failure.
-\(\dagger\): reported lower bound exceeds the best checked saved numerically feasible value \(f\) by more than \(10^{-5}\max\{1,|f|\}\); the bound-consistency results and comparison solutions are summarized in Supplementary Section~\ref{sec:bound-audit}, Tables~\ref{tab:bound-audit}-\ref{tab:witnesses}, and the \texttt{SCIP} analysis files linked there.
-Near-tolerance cases are discussed in the text.
-The same rule applies to all methods.
-The 43 saved feasible vectors pass the original-GDP recheck at \(10^{-5}\), which does not establish optimality.
-Each method/model has one run; no success probability is inferred.
-Times are full-run completion times.
-\end{minipage}
-\end{table}
 \FloatBarrier
 
-\subsection{Integrated Numerical Discussion}
+\subsection{Discussion}
 \label{sec:cross-benchmark}
 On the tested GDP external integer domains, alternative black-box methods improved target-reaching rates over budget-limited \texttt{D-SDA} in some cases.
 The gains depend on the search method, problem, and budget.
 
-\david{why are you so fixated on RBFOpt? BAM shows even better results! Get back to the main story of the paper and have the sections support it}
-\albert{Reframed the discussion around GDP black-box search, covering all compared methods while retaining the cost and scope discussion.}
-
-On Grid, \texttt{BAM} leads at \(B=10\), while \texttt{RBFOpt} leads from \(B=30\) onward.
+On the grid instances, \texttt{BAM} leads with ten evaluations, while \texttt{RBFOpt} leads at the tested budgets of thirty evaluations or more.
 \texttt{BAM}'s early hits come from initial sampling, while its later search adds hits beyond the prefix control.
+For nine Grid functions, the domain center satisfies the target criterion and is visited by \texttt{BAM} at its fifth evaluation.
 On the process cases, \texttt{RBFOpt} improves on \texttt{D-SDA} for \texttt{CSTR} and low-budget \texttt{Dynamic}, while \texttt{D-SDA} leads on \texttt{Column} and \texttt{Small Batch}.
+For \texttt{CSTR30}, the target lies at the upper corner of the domain, while seven of the ten \texttt{D-SDA} runs stop elsewhere with no improving neighbor.
+In \texttt{Column}, four of the five successful \texttt{D-SDA} runs reach the target in one or two improving moves, and the fifth starts at the target.
 \texttt{FMQA-SA} also improves over uniform sampling at larger Grid budgets, with smaller aggregate gains in the process comparisons.
+\david{Provide more details here: why do some instances benefit some solvers? What's the hidden structure?}
+\albert{Added evidence from the saved records on Grid target locations, CSTR30 local stopping, and Column improvement paths.}
 
-Target attainment must be weighed against search overhead and stopping behavior.
-For \texttt{Dynamic} at \(B=30\), \texttt{D-SDA} uses a median of 23.5 callbacks, compared with 30 for \texttt{RBFOpt}.
-Their median post-target counts are 6.5 and 23, respectively.
-Thus full-run completion costs include work after the target is first observed.
+Increasing the evaluation budget does not improve target-reaching rates equally across methods.
+On \texttt{Dynamic}, \texttt{RBFOpt} reaches the target in all ten runs at \(B=12\), but its median estimated completion time increases from 12.29~s at \(B=12\) to 65.14~s at \(B=50\).
+For \texttt{D-SDA}, the number of successful runs increases from four at \(B=12\) to ten at \(B=30\), with little further change in completion cost at larger budgets.
+Increasing the budget from \(B=30\) to \(B=50\) improves the target counts for \texttt{BAM} from four to ten and for \texttt{FMQA-SA} from four to six, at higher estimated completion costs.
+\david{This is to be expected; by preprocessing, you do not solve problems. But mention which solvers stall and which keep growing with more iterations; also mention if there is a tradeoff search time and solution quality.}
+\albert{Added the Dynamic budget comparison showing where target-reaching rates improve or plateau and how completion costs change.}
 
-Algebraic formulations provide competitive reference results on Grid-GDP and \texttt{Small Batch}.
-Their access to model structure differs from that of DFO.
-The DFO results concern the tested configuration domains and fixed local-solver responses.
-The simultaneous changes in \texttt{CSTR} size and budget do not isolate scalability.
+The comparison with conventional GDP methods also depends on the problem.
+On \texttt{Small Batch}, direct Big-\(M\) and Hull reach the target in 0.51 and 0.50~s, respectively, compared with median estimated DFO completion times ranging from 3.49 to 9.09~s.
+On \texttt{CSTR30}, \texttt{RBFOpt} reaches the target in nine of ten runs with a median estimated completion time of 101.96~s, while the single Big-\(M\) and Hull runs reach it with completion times of approximately 1,792~s.
+These results show a benefit of configuration search on \texttt{CSTR30}, while direct reformulation is more effective on \texttt{Small Batch}.
+\david{This is the usual AI warning about scalability; rather, say which cases benefited from the conventional GDP solution models than the integration with DFOs, and in the conclusion you mention this as recommendations for future instances}
+\albert{Replaced the generic scalability warning with the Small Batch and CSTR30 comparisons and added their implications to the conclusions.}
 
 \section{Conclusions}
 This study compared black-box methods for GDP configuration search using an existing external integer representation.
 Alternatives to budget-limited \texttt{D-SDA} improved target-reaching rates in some cases, with benefits depending on the problem and evaluation budget.
+On \texttt{Dynamic}, \texttt{RBFOpt} returned the same target value in all ten runs at every tested budget.
+On \texttt{Column}, \texttt{D-SDA} reached the target more often and returned final objective values within a narrower range than \texttt{RBFOpt} across the ten seeds.
 Higher target-reaching rates did not consistently correspond to shorter estimated full-run completion times, so method selection should consider both measures.
-\david{Absolutely not, these are not the study conclusions}
-\albert{Rewrote the conclusions to answer the GDP black-box search question and state the limits of the evidence.}
+\david{Sure, this is obvious; any deeper insights? How about the fact that they are stochastic? That you would get different solutions when running them separately; were they spread out?}
+\albert{Added the contrasting seed-level results for Dynamic and Column to describe consistency in target discovery and variation in final solution quality.}
 
-The findings apply to the tested finite domains and fixed local-solver responses.
-Completion costs were reconstructed from recorded searches and separately measured configuration-evaluation costs.
-Larger configuration spaces and direct coupling to online NLP evaluation remain to be tested.
+Direct reformulation was faster on \texttt{Small Batch}, while \texttt{RBFOpt} reached the \texttt{CSTR30} target in nine of ten runs at lower estimated completion costs than the successful direct reformulations.
+These results support considering DFO configuration search when good feasible solutions are needed and solving the full algebraic model is costly.
+The approach could also be useful when configuration evaluations come from simulations and explicit subproblem equations are unavailable.
+\david{how is this a conclusion? What did you learn from all these experiments?}
+\albert{Revised the paragraph to explain what the Small Batch and CSTR30 comparisons teach us and identify simulation-based subproblems as a future application.}
 
 \section{Acknowledgement}
 The authors acknowledge and express sincere gratitude to the Davidson School of Chemical Engineering at Purdue University for providing a supportive research environment and funding.
 
 \section*{Data and code availability}
 The code and data are available in the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/49d4bcbeb10fe49b74fe2333d27829046e93bf03}{Black-Box-for-GDP repository}~\citep{rbfoptTestArchive}.
-Supplementary Section~\ref{sec:supp-data} identifies the archived inputs, including the CSTR updates, Column logical-domain runs, and \texttt{SCIP} algebraic comparisons.
+Supplementary Section~\ref{sec:supp-data} identifies the archived inputs, including the CSTR updates, Column logical-domain runs, and conventional GDP comparisons.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+The authors used ChatGPT and Codex (OpenAI), including the GPT-6 Astra model, to assist with drafting, organizing, and revising the manuscript and developing analysis and plotting code.
+\david{which models?}
+\albert{Specified GPT-6 Astra and described AI-assisted code development and verification in the Methods.}
+The resulting text and code were checked and revised by the authors, who remain responsible for the article's content.
 
 \bibliographystyle{elsarticle-harv}
 \bibliography{reference}
