@@ -8,7 +8,7 @@ This experiment runs both on the same 1,050 Grid and 140 process jobs as the pub
 | Method | Implementation | Start |
 |---|---|---|
 | `nomad` | NOMAD 4 (MADS) through `PyNomadBBO` 4.6.0, all variables integer (`BB_INPUT_TYPE`) | Best of the three shared initial configurations; its stored value is replayed without charge |
-| `miso` | MISO's CPTV algorithm as implemented by `soogo.cptv` 2.1.0 (NREL), RBF model with integer indices and median low-pass filter | RBF model updated with the three shared initial configurations and their values |
+| `miso` | MISO's CPTV algorithm as implemented by `soogo.cptv` 2.1.0 (NREL), RBF model with integer indices and median low-pass filter | RBF model updated with the three shared initial configurations and their values, plus uniform design points where those do not span the space (Small Batch) |
 | `uniform` | Solver-free harness check: uniform sampling without replacement | Three shared initial configurations |
 
 Every run evaluates the three shared initial configurations in their shared order first, so they are charged exactly as for the published methods.
@@ -22,6 +22,7 @@ No method receives the reference target.
   The adapter supplies an integer DDS sampler written for this runner (same algorithm on the integer lattice, following soogo's convention for integer coordinates) and disables the continuous local-search phase, which has no coordinates to act on.
   The CPTV loop, target-value step, and RBF model are soogo's.
   On small domains the acquisition can run out of unevaluated candidates, and CPTV then alternates its steps without evaluating; the adapter stops such a run after ten consecutive iterations without a new evaluation (`stop_reason` `no_new_candidates`).
+  The cubic RBF has a linear polynomial tail, which needs d + 1 affinely independent points. Three shared starts do not span Small Batch's three-dimensional space, so the adapter adds uniformly drawn admissible configurations (origin `miso_design`, charged to the budget, from a separate seeded stream) until they do. Without them the RBF system is singular: 7 of the 10 Small Batch runs stopped with a solve error after the shared starts. All other cases are two-dimensional with spanning starts and draw nothing.
 - **NOMAD.** For integer variables NOMAD 4.6.0 caps total evaluations, including cache hits, at 900 and stops when its mesh reaches the integer resolution, so it can end before the budget, like D-SDA.
   In local tests NOMAD 4.6.0 sometimes crashed with a segmentation fault (for example `grid_ackley_B30_seed9`), always after its last blackbox evaluation, while cycling through cached points toward that cap.
   Every run therefore executes in a forked worker.

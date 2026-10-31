@@ -85,6 +85,17 @@ def test_solver_runs_are_valid_and_reproducible(tmp_path, method, module):
         assert 3 <= r["evaluations"] <= r["spec"]["budget"] and r["overruns"] == 0 and not r["invalid_points"]
 
 
+def test_miso_design_spans_three_dimensional_space(tmp_path):
+    pytest.importorskip("soogo")
+    job = "small_batch_B10_seed0"
+    out = run(tmp_path, ["miso"], [job])
+    r = results(out, "miso", [job])[job]
+    events = [json.loads(x) for x in (out / "runs" / f"{job}__miso" / "callbacks.jsonl").read_text().splitlines()]
+    assert r["status"] == "completed" and r["solver"]["design_points"] == 4
+    assert [e["origin"] for e in events[:4]] == ["shared_start"] * 3 + ["miso_design"]
+    assert r["evaluations"] == r["spec"]["budget"] and r["overruns"] == 0 and not r["invalid_points"]
+
+
 def test_native_crash_is_recorded_as_failure(tmp_path):
     """A worker killed by a signal keeps its evaluations and counts as an execution failure."""
     import os
