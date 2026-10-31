@@ -125,6 +125,8 @@ def dsda_from_csv(
     tracked_objective=None,
     start_value=None,
     improvement_abs_tol=IMPROVEMENT_ABS_TOL,
+    known_values=None,
+    reevaluate_explored=False,
 ):
     """
     DSDA-style search on a discrete grid loaded from CSV.
@@ -167,10 +169,9 @@ def dsda_from_csv(
     verbose : bool, optional
         Print iteration log.
     max_points_explored : int or None, optional
-        Maximum number of evaluated points allowed for this DSDA run. This
-        budget is enforced on total point evaluations, not on unique explored
-        points. If the budget is reached in the middle of the run, the search stops and returns
-        the best point found so far.
+        Maximum number of objective evaluations allowed for this DSDA run. If
+        the budget is reached in the middle of the run, the search stops and
+        returns the best point found so far.
     grid : dict or None, optional
         Pre-loaded grid dictionary mapping coordinate tuples to z_norm values.
         When provided, csv_path is not read again, avoiding redundant I/O
@@ -178,6 +179,18 @@ def dsda_from_csv(
     tracked_objective : TrackedObjective or None, optional
         Shared objective wrapper. When omitted, this function creates its own
         wrapper around the grid objective.
+    known_values : dict or None, optional
+        Values already observed in this search, keyed by coordinate tuple, such
+        as the other initial configurations or earlier descents. Updated in
+        place with every new evaluation.
+    reevaluate_explored : bool, optional
+        If False (default), a configuration evaluated earlier in the search is
+        never evaluated again: its stored value is reused without an objective
+        call, so it does not consume budget. The original D-SDA
+        (``global_evaluated``) and the Pyomo LD-SDA (``explored_point_set``)
+        also never evaluate a configuration twice. True reproduces the
+        historical runs of this repository, which evaluated revisited
+        neighbors again and charged them to the budget.
 
     Returns
     -------
@@ -245,8 +258,20 @@ def dsda_from_csv(
         local_incumbent_trajectory.append(local_incumbent)
         return value
 
+    known = {} if known_values is None else known_values
+    revisits = 0
+
     def evaluate_run_point(point):
-        return record_run_value(tracked_objective(point))
+        nonlocal revisits
+        if not reevaluate_explored and point in known:
+            revisits += 1
+            return known[point]
+        value = record_run_value(tracked_objective(point))
+        known[point] = value
+        return value
+
+    def phase(name, point):
+        return name + "_revisit" if not reevaluate_explored and point in known else name
 
     def run_incumbent_trajectory():
         return list(local_incumbent_trajectory)
@@ -270,6 +295,7 @@ def dsda_from_csv(
     else:
         current_val = record_run_value(start_value)
     start_value = current_val
+    known.setdefault(current, current_val)
     best_seen_point = current
     best_seen_value = current_val
 
@@ -282,7 +308,7 @@ def dsda_from_csv(
     stop_reason = None
 
     def budget_reached():
-        # Budget is enforced on total point evaluations, not unique points.
+        # Budget counts objective calls; reused values of known points are free.
         return (
             max_points_explored is not None
             and run_evaluations() >= max_points_explored
@@ -352,9 +378,10 @@ def dsda_from_csv(
                     )
                 break
 
+            nb_phase = phase("neighbor_search", nb)
             nb_val = evaluate_run_point(nb)
             neighbor_points.append((nb, nb_val))
-            explored_points.append((nb, nb_val, "neighbor_search", major_iter))
+            explored_points.append((nb, nb_val, nb_phase, major_iter))
             unique_explored_points.add(nb)
             update_best(nb, nb_val)
 
@@ -466,8 +493,9 @@ def dsda_from_csv(
                     )
                 break
 
+            trial_phase = phase("line_search", trial_point)
             trial_val = evaluate_run_point(trial_point)
-            explored_points.append((trial_point, trial_val, "line_search", major_iter))
+            explored_points.append((trial_point, trial_val, trial_phase, major_iter))
             unique_explored_points.add(trial_point)
             update_best(trial_point, trial_val)
 
@@ -520,6 +548,8 @@ def dsda_from_csv(
         "major_iterations": major_iter,
         "points_explored": len(unique_explored_points),
         "point_evaluations": run_evaluations(),
+        "revisits": revisits,
+        "reevaluate_explored": reevaluate_explored,
         "unique_explored_points": sorted(unique_explored_points),
         "path": path,
         "history": history,
@@ -568,6 +598,7 @@ def run_dsda_from_best_starting_points(
     target_stop=common_target_reached,
     grid=None,
     tracked_objective=None,
+    reevaluate_explored=False,
 ):
     """
     Rank starting points by initial value, then run DSDA from best to worst.
@@ -588,6 +619,10 @@ def run_dsda_from_best_starting_points(
         multi-start procedure, including the initial ranking of starting points.
         If the budget is reached in the middle of a DSDA run, that run stops and
         returns its best point found so far.
+    reevaluate_explored : bool, optional
+        Passed to every descent. With the default False, the values of the
+        starting points and of every earlier descent are shared, so no
+        configuration is evaluated twice in the whole procedure.
 
     Returns
     -------
@@ -660,6 +695,7 @@ def run_dsda_from_best_starting_points(
         )
     ordered_starting_points = [pt for pt, _ in starting_point_values]
     starting_value_by_point = {pt: val for pt, val in starting_point_values}
+    known_values = dict(starting_value_by_point)
 
     if verbose:
         print("Starting points ranked by initial value:")
@@ -773,6 +809,8 @@ def run_dsda_from_best_starting_points(
             tracked_objective=tracked_objective,
             start_value=starting_value_by_point[pt],
             improvement_abs_tol=improvement_abs_tol,
+            known_values=known_values,
+            reevaluate_explored=reevaluate_explored,
         )
 
         runs.append(run_result)
