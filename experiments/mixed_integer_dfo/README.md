@@ -27,7 +27,9 @@ No method receives the reference target.
   In local tests NOMAD 4.6.0 sometimes crashed with a segmentation fault (for example `grid_ackley_B30_seed9`), always after its last blackbox evaluation, while cycling through cached points toward that cap.
   Every run therefore executes in a forked worker.
   After a NOMAD crash, the job is rerun with `MAX_EVAL 5000` and then `MAX_EVAL 20000`; a rerun is accepted only if it completes and evaluates exactly the same configurations in the same order as the crashed run (`completed_after_verified_rerun`, with every attempt recorded in `result.json`).
-  Otherwise, and for any crash of another method or a run exceeding `--timeout` (default 2,100 s), the run is an execution failure under the published failure rule.
+  If every rerun also crashes after exactly the same evaluations, the crash ends the search deterministically, and the run is scored on the evaluations completed before it (`crashed_identical_reruns`).
+  In the local full run this applied to 21 Grid B = 100 runs, 16 of which had already reached the target before crashing; scored as failures, they made NOMAD's Grid hits drop from 126 at B = 70 to 110 at B = 100, and scored on their evaluations they give 126 at both budgets.
+  Any other NOMAD crash, any crash of another method, and any run exceeding `--timeout` (default 2,100 s) is an execution failure under the published failure rule.
   In the checks, a larger cap never changed the evaluated path of a run that completed with the default cap.
 
 ## Inputs

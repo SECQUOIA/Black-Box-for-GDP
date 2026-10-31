@@ -152,3 +152,32 @@ def test_nomad_crash_is_accepted_only_after_identical_rerun(tmp_path):
     assert result["evaluations"] == 4 and result["category"] != "execution_failed"
     reruns = result["solver"]["reruns"]
     assert reruns[0]["status"].startswith("crashed") and reruns[1]["same_path_as_crash"]
+
+
+def test_nomad_crash_on_every_identical_attempt_is_scored_on_its_evaluations(tmp_path):
+    """A crash reproduced on the same path by every rerun ends the search; its evaluations count."""
+    import os
+    import signal
+
+    runner = load_runner()
+    shared = runner.shared
+
+    def always_crashes(lookup, seed, log):
+        runner.shared_starts(lookup)
+        lookup.evaluate([5, 5], "nomad")
+        os.kill(os.getpid(), signal.SIGSEGV)
+
+    runner.ADAPTERS["nomad"] = always_crashes
+    grid_costs = {(r["grid_name"], tuple(json.loads(r["point"]))): float(r["point_wall_s"])
+                  for r in shared.read_csv(runner.GRID_COSTS)}
+    coverage = {(r["case"], tuple(json.loads(r["coordinates"]))): r["status"] for r in shared.read_csv(runner.COVERAGE)}
+    with tempfile.TemporaryDirectory() as scratch:
+        package, _ = shared.extract_package(shared.ARCHIVE, scratch)
+        job = next(j for j in shared.read_json(package / "inputs/jobs.json")
+                   if j["spec"]["job_id"] == "cstr_15_B22_seed1_dsda")
+        with shared.sealed_modules(package) as (_, hit):
+            result = runner.execute(job, "nomad", package, tmp_path, grid_costs, coverage, hit, 60)
+    assert result["status"] == "crashed_identical_reruns"
+    assert result["evaluations"] == 4 and result["category"] in ("target_reached", "target_not_reached")
+    assert all(h["status"].startswith("crashed") for h in result["solver"]["reruns"])
+    assert all(h["same_path_as_crash"] for h in result["solver"]["reruns"][1:])
