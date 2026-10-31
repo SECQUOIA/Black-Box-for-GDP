@@ -1,0 +1,79 @@
+{
+  "input_sha256": {
+    "results/joint_process_scip_ipopt_20261030/manifest.json": "09ba1c9455761a5898f578dc7705b352458448f27a171c08a125db7a1f1f1c2f",
+    "results/joint_process_scip_ipopt_20261030/joint_runs.csv": "5c59364721a0676e5a27822afc9c034ec61eee66ff707a999fc617ab0880a2b0",
+    "results/gdpopt_scip_ipopt_analysis_20261030/jobs.json": "92c4d60045957a814415f768443f268f3d9e49a6f475c8579746c3bbc8766846",
+    "results/process_scip_four_analysis_20261026/jobs.csv": "4f1a3846dee5f346e53563d848aa1a84421f5e96832a1cc1a1c4514d4aa6cc67",
+    "results/pr56_dantzig_return_20261031/analysis/individual_new_runs.csv": "1a85b6490c5a28f62f5b672e5cbfb5a2bea0517c07e4ebd230dea3e87bde491d",
+    "results/dsda_publication_20261028/tables/configuration_coverage.csv": "c30e24015ae6ccfb3be27c5ef9ccc2f02e62678bb4b8c78a14e7fb09da58252f"
+  },
+  "source_sha256": {
+    "review_comparison/joint_process_nlp.py": "b777ab9ac5c8865ad3edbe57d849b506922b71ad41b47b5c84f42cd652905b05",
+    "review_comparison/joint_process_main.py": "78145ae50f84891507e3ea03388accd3510060d435e980c8a47e72dbddb43695",
+    "review_comparison/joint_process.py": "06eff66bafe3bb3411021441204b45744ce6ed69111f6e926630d910fc89edfe",
+    "review_comparison/joint_process_ipopt.py": "302e3be5f2eced60dc5e197c7470d6759012f0f1c6d4e30aed2542196e63b0a2",
+    "review_comparison/mi_dfo_runs.py": "9c528ab079c0b605f96a42a45704590f80eda0235ea526d275186dc33c3b784a"
+  },
+  "conditions": [
+    [
+      "cstr_5",
+      8
+    ],
+    [
+      "cstr_10",
+      15
+    ],
+    [
+      "cstr_15",
+      22
+    ],
+    [
+      "cstr_20",
+      29
+    ],
+    [
+      "cstr_25",
+      36
+    ],
+    [
+      "cstr_30",
+      43
+    ],
+    [
+      "column",
+      13
+    ],
+    [
+      "small_batch",
+      10
+    ],
+    [
+      "dynamic",
+      12
+    ]
+  ],
+  "enumeration_nlp_solves": {
+    "column": 36,
+    "cstr_10": 55,
+    "cstr_15": 120,
+    "cstr_20": 210,
+    "cstr_25": 325,
+    "cstr_30": 465,
+    "cstr_5": 15,
+    "dynamic": 37,
+    "small_batch": 12
+  },
+  "new_solver_calls": 0,
+  "environment": {
+    "python": "3.10.19",
+    "matplotlib": "3.10.8"
+  },
+  "reproduce": "python -m review_comparison.joint_process_nlp --output /tmp/joint-process-nlp",
+  "output_sha256": {
+    "README.md": "378da46042ca5ad0e571aa791414167d1e495d218410b5ebba6d43dcecd6ca34",
+    "enumeration_nlp_solves.json": "a9e4abf91dddc7b83dbc25ff993c35ab47e653bfdbde0971af1533c6121c739d",
+    "process_nlp_solves.pdf": "a206e955fcef54fdecb61906d1c7f70eb3b6e0ed309159678b0fd7b256805d67",
+    "process_nlp_solves.png": "f4edab9105a2a99485b88b43617be715fef952ce560f378999cdc23f02722902",
+    "selected_runs.csv": "203070de563a79dedf1b0b0f29796d092940c0db7f19835a8a6a535186ac1c52"
+  }
+}

@@ -7,12 +7,16 @@ import platform
 
 from . import joint_process as base
 from . import joint_process_ipopt as current
+from . import mi_dfo_runs as mi
 
 INPUT = 'results/joint_process_scip_ipopt_20261030'
 REVISION = '341d9c6b6e790ba15318113083e43a4489c8b68e'
 CONDITIONS = [('cstr_5', 8), ('cstr_30', 43), ('column', 13),
               ('small_batch', 10), ('dynamic', 12), ('dynamic', 30)]
-METHODS = current.PRIMARY + base.ALG_METHODS
+# DFO methods in alphabetical order of their keys, then the conventional GDP methods.
+DFO = sorted(current.PRIMARY + mi.METHODS)
+METHODS = DFO + base.ALG_METHODS
+LABELS = {**base.LABELS, **mi.LABELS}
 
 
 def load(root):
@@ -42,6 +46,8 @@ def load(root):
         row['termination'] = (terminations[row['case'], row['method']]
                               if row['family'] == 'algebraic' else '')
         row['time_limit'] = row['termination'] == 'maxTimeLimit'
+    # NOMAD and MISO from the audited Dantzig return of PR #56.
+    rows += mi.process_joint_rows(root, inputs)
     return rows, inputs
 
 
@@ -52,7 +58,7 @@ def select(rows):
         for method in METHODS:
             group = [r for r in rows if r['case'] == case and r['method'] == method
                      and (r['family'] == 'algebraic' or r['budget'] == budget)]
-            n = 10 if method in current.PRIMARY else 1
+            n = 10 if method in DFO else 1
             base.require(len(group) == n, f'Missing or duplicate plotted run: {case}/{budget}/{method}')
             if n == 10:
                 base.require({r['seed'] for r in group} == set(range(10)), 'Incomplete seed set')
@@ -71,12 +77,12 @@ def render(selected, out):
     with plt.rc_context({'font.family': 'DejaVu Sans', 'font.size': 9,
                          'axes.titlesize': 10, 'axes.spines.top': False,
                          'axes.spines.right': False, 'pdf.fonttype': 42}):
-        fig, axs = plt.subplots(3, 2, figsize=(7.2, 7.35), sharex=True, sharey=True)
+        fig, axs = plt.subplots(3, 2, figsize=(7.2, 9.0), sharex=True, sharey=True)
         for ax, (case, budget) in zip(axs.flat, CONDITIONS):
             for i, method in enumerate(METHODS):
                 group = [r for r in selected if (r['case'], r['panel_budget'], r['method'])
                          == (case, budget, method)]
-                dfo = method in current.PRIMARY
+                dfo = method in DFO
                 if dfo:
                     q25, median, q75 = base.quartiles([r['completion_s'] for r in group])
                     ax.plot([q25, q75], [i, i], color='#b0b0b0', lw=3.3, zorder=1)
@@ -96,9 +102,9 @@ def render(selected, out):
                 if not dfo and group[0]['time_limit']:
                     label += ' TL'
                 ax.text(1.015, i, label, transform=ax.get_yaxis_transform(), va='center', fontsize=7.8)
-            ax.axhline(4.5, color='#999999', lw=.7)
-            ax.set(xscale='log', xlim=(.1, 3000), ylim=(9.7, -.7), yticks=range(10),
-                   yticklabels=[base.LABELS[m] for m in METHODS],
+            ax.axhline(len(DFO) - .5, color='#999999', lw=.7)
+            ax.set(xscale='log', xlim=(.1, 3000), ylim=(len(METHODS) - .3, -.7), yticks=range(len(METHODS)),
+                   yticklabels=[LABELS[m] for m in METHODS],
                    title=f'{base.pname(case)}, B={budget}')
             ax.tick_params(axis='y', length=0, labelleft=True, labelsize=8.2)
             ax.tick_params(axis='x', labelsize=8)
@@ -112,7 +118,7 @@ def render(selected, out):
                           ms=9, lw=3, label='DFO median and Q25-Q75')]
         fig.legend(handles=handles, loc='lower center', ncol=2, frameon=False, fontsize=8,
                    bbox_to_anchor=(.5, .001))
-        fig.subplots_adjust(left=.108, right=.90, top=.958, bottom=.12, hspace=.32, wspace=.70)
+        fig.subplots_adjust(left=.108, right=.90, top=.962, bottom=.10, hspace=.28, wspace=.70)
         fig.savefig(out / 'process_joint_completion.pdf', metadata={'CreationDate': None, 'ModDate': None})
         fig.savefig(out / 'process_joint_completion.png', dpi=180)
         plt.close(fig)
@@ -136,8 +142,9 @@ The full fourteen-condition figures remain in `results/joint_process_scip_ipopt_
 All ten DFO seeds per method and condition remain visible, including misses and failures.
 Gray intervals and median ticks summarize all ten completion estimates using inclusive, linearly interpolated quartiles.
 Conventional GDP methods each contribute one observation, not an estimated success probability.
-The two Dynamic panels repeat the same five conventional observations, so 330 plotted marks represent 325 distinct saved runs.
-These are 300 DFO runs and 25 distinct conventional runs.
+The two Dynamic panels repeat the same five conventional observations, so 450 plotted marks represent 445 distinct saved runs.
+These are 420 DFO runs and 25 distinct conventional runs.
+NOMAD and MISO come from the audited Dantzig return of PR #56 (`results/pr56_dantzig_return_20261031`).
 The right-hand labels show DFO hits out of ten or the single conventional yes/no outcome.
 Stars retain the existing bound-conflict flags.
 TL labels retain reported `maxTimeLimit` outcomes, including those whose measured time is below the configured 1800-second limit.
@@ -160,8 +167,8 @@ python -m review_comparison.joint_process_main --output /tmp/joint-process-main
     manifest = dict(baseline_revision=REVISION, input_sha256=inputs,
                     source_sha256={p: base.sha((root / p).read_bytes()) for p in (
                         'review_comparison/joint_process_main.py', 'review_comparison/joint_process.py',
-                        'review_comparison/joint_process_ipopt.py')},
-                    conditions=CONDITIONS, dfo_runs=300, conventional_distinct_runs=25,
+                        'review_comparison/joint_process_ipopt.py', 'review_comparison/mi_dfo_runs.py')},
+                    conditions=CONDITIONS, dfo_runs=420, conventional_distinct_runs=25,
                     conventional_plotted_marks=30, new_solver_calls=0,
                     execution_provenance='Unchanged; see original manifests and source references.',
                     environment=dict(python=platform.python_version(), matplotlib=matplotlib.__version__),
