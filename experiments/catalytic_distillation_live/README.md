@@ -56,16 +56,18 @@ The full plan has 12,250 evaluations. At this rate it needs about 20–30 CPU-ho
 
 ## Running on Dantzig
 
-    GAMS_EXE=/path/to/gams experiments/catalytic_distillation_live/run_dantzig.sh test
-    GAMS_EXE=/path/to/gams CPUS=0-31 experiments/catalytic_distillation_live/run_dantzig.sh run
-    GAMS_EXE=/path/to/gams experiments/catalytic_distillation_live/run_dantzig.sh summarize
+    export GAMS_EXE=/path/to/gams                                   # GAMS 54 or later with CONOPT
+    bash experiments/catalytic_distillation_live/run_dantzig.sh test     # preflight, about 2 min
+    bash experiments/catalytic_distillation_live/run_dantzig.sh run      # starts or resumes the 210 runs in the background
+    bash experiments/catalytic_distillation_live/run_dantzig.sh status   # progress
+    bash experiments/catalytic_distillation_live/run_dantzig.sh collect  # after all runs: summary and one zip
 
-- The launcher uses these interpreters, which can be overridden:
+- The launcher uses these interpreters, which can be overridden with `DFO_PYTHON`, `FMQA_PYTHON`, and `MIDFO_PYTHON`:
   - `.venv-dantzig-nlp-overnight` for D-SDA, RBFOpt, and BAM.
   - `.venv-dantzig-fmqa-qhd` for FMQA-SA.
   - `.venv-mi-dfo` for NOMAD and MISO.
-- It also uses the Bonmin and IPOPT executables of `.venv-dantzig` and the BAM license file.
-- Each job runs pinned to one CPU of `CPUS`, and GAMS inherits the pinning.
+- It also uses Bonmin and IPOPT from `.venv-dantzig` for RBFOpt's surrogate subproblems, and the BAM license file.
+- By default it picks one logical CPU on each of 16 idle physical cores (`CATDIST_WORKERS`, or `CPUS` to choose). Each job is pinned to one CPU, and GAMS inherits the pinning.
 - `run` skips jobs that already have a `result.json`, so it can resume.
 
 Outputs in `results/catalytic_distillation_live` (override with `CATDIST_OUTPUT`):
