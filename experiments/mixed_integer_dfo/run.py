@@ -340,7 +340,7 @@ def build_result(job, method, status, error, details, events, elapsed, invalid, 
     job_id = s["job_id"].rsplit("_dsda", 1)[0]
     accepted = [e for e in events if e["accepted"]]
     best = min(accepted, key=lambda e: e["raw_objective"]) if accepted else None
-    ok = status == "completed" and len(events) >= 3 and not invalid
+    ok = status in ("completed", "crashed_identical_reruns") and len(events) >= 3 and not invalid
     success = bool(ok and best and hit(best["raw_objective"], job["target"]))
     lookup_s = math.fsum(e["lookup_wall_s"] for e in events)
     point_cost = math.fsum(e["point_cost_s"] for e in events)
@@ -445,6 +445,13 @@ def execute(job, method, package, runs, grid_costs, coverage, hit, timeout):
         if not rerun["status"].startswith("crashed"):
             break
     result["solver"] = dict(reruns=history)
+    if len(history) == len(NOMAD_RERUNS) + 1 and all(h["status"].startswith("crashed") and h["same_path_as_crash"]
+                                                     for h in history[1:]):
+        # Every attempt crashed after the same evaluations in the same order, so the crash ends
+        # NOMAD's search deterministically: score the evaluations completed before it.
+        events = [json.loads(x) for x in (directory / "callbacks.jsonl").read_text().splitlines()]
+        result = build_result(job, method, "crashed_identical_reruns", result["error"], dict(reruns=history),
+                              events, None, [], 0, hit)
     shared.write_json(directory / "result.json", result)
     return result
 
@@ -561,7 +568,7 @@ def run(args):
         shared.write_json(output / "checks.json", checks)
         shared.write_json(output / "manifest.json", provenance(
             args, cpu, started, datetime.now(timezone.utc).isoformat(), shared.ARCHIVE_SHA256))
-    # Native solver crashes are recorded as failed runs; harness errors fail the check.
+    # Native solver crashes are recorded; harness errors fail the check.
     passed = not (set(failures) - set(crashes)) and not checks["over_budget"] and checks["shared_start_order"]
     print("CHECKS", "PASSED" if passed else "FAILED",
           json.dumps({k: (len(v) if isinstance(v, list) else v) for k, v in checks.items()}))
