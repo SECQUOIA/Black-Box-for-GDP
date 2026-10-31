@@ -1,7 +1,9 @@
 """Solver-free checks of imported evidence, denominator and historical pairing."""
 import importlib.util
 import json
+import math
 from pathlib import Path
+import re
 import subprocess
 import sys
 
@@ -98,5 +100,23 @@ def test_reproduce_all_saved_analysis_without_solver(tmp_path):
         '--output', str(tmp_path)], text=True, capture_output=True)
     assert result.returncode == 0, result.stdout[-1500:] + result.stderr[-1500:]
     for name in ('jobs.json', 'paired_comparisons.json', 'solution_checks.json', 'issues.json',
-                 'packages.json', 'summary.json', 'provenance.json', 'README.md'):
-        assert (tmp_path / name).read_bytes() == (REPORT / name).read_bytes(), name
+                 'packages.json', 'summary.json', 'provenance.json'):
+        assert same(json.loads((tmp_path / name).read_text()), read(name)), name
+    new, old = (tmp_path / 'README.md').read_text(), (REPORT / 'README.md').read_text()
+    assert NUMBER.split(new) == NUMBER.split(old)
+    assert same([float(x) for x in NUMBER.findall(new)], [float(x) for x in NUMBER.findall(old)])
+
+
+# Recomputed objectives differ in the last bits across platforms, e.g. -3.1e-17 and 0.0 at Ackley's optimum.
+NUMBER = re.compile(r'-?\d+\.\d+(?:e[-+]?\d+)?')
+
+
+def same(new, old):
+    if isinstance(new, float) or isinstance(old, float):
+        return (isinstance(new, (int, float)) and isinstance(old, (int, float))
+                and math.isclose(new, old, rel_tol=1e-12, abs_tol=1e-12))
+    if isinstance(new, dict):
+        return isinstance(old, dict) and new.keys() == old.keys() and all(same(new[k], old[k]) for k in new)
+    if isinstance(new, list):
+        return isinstance(old, list) and len(new) == len(old) and all(map(same, new, old))
+    return new == old
