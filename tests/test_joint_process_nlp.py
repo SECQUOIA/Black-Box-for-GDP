@@ -20,7 +20,7 @@ class JointProcessNlpTests(unittest.TestCase):
         self.assertEqual(self.counts, expected)
 
     def test_all_seeds_and_gdpopt_runs_plotted(self):
-        self.assertEqual(len(self.selected), len(nlp.CONDITIONS) * (10 * 5 + 3))
+        self.assertEqual(len(self.selected), len(nlp.CONDITIONS) * (10 * 7 + 3))
 
     def test_ric_and_loa_match_enumeration_on_smaller_cstr(self):
         for case in ["cstr_5", "cstr_10", "cstr_15", "cstr_20"]:

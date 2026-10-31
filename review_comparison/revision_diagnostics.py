@@ -1,6 +1,7 @@
 """Seed spread, tolerance sensitivity, search overhead, and GDPopt enumeration.
 
 Summarizes retained records only; no optimizer, NLP solver, or server run.
+NOMAD and MISO rows come from the audited Dantzig return of PR #56 (see mi_dfo_runs).
 """
 
 import argparse
@@ -15,7 +16,13 @@ import statistics
 import zipfile
 
 from . import manuscript as m
-from .joint_process import LABELS, METHODS
+from . import joint_process
+from . import mi_dfo_runs as mi
+from . import seven_methods
+from .seven_methods import METHODS
+
+LABELS = {**joint_process.LABELS, **mi.LABELS}
+METHODS_SOURCE = seven_methods.__file__
 
 RUNS = m.ROOT / "results/dsda_publication_20261028/tables/run_records.csv"
 DSDA_ARCHIVE = m.ROOT / "results/archives/dsda_abs1e5_rerun_20261028_020753_2004611.zip"
@@ -38,8 +45,10 @@ def family(case):
 
 
 def g3(x):
-    """Three significant figures, keeping trailing zeros."""
+    """Three significant figures, keeping trailing zeros; no exponent at 1,000 or above."""
     s = format(x, "#.3g")
+    if "e+" in s:
+        return f"{float(s):.0f}"
     return s[:-1] if s.endswith(".") else s
 
 
@@ -60,15 +69,17 @@ def load_runs():
     manifest = json.loads((RUNS.parents[1] / "manifest.json").read_text())
     require(m.sha(RUNS) == manifest["outputs_sha256"]["tables/run_records.csv"],
             "Run-record hash mismatch")
-    rows = [dict(r) for r in m.read(RUNS) if r["method"] in METHODS]
+    rows = [dict(r) for r in m.read(RUNS) if r["method"] in joint_process.METHODS]
     for r in rows:
         r["budget"], r["seed"], r["evaluations"] = int(r["budget"]), int(r["seed"]), int(r["evaluations"])
         for k in ("best_objective", "search_s", "point_cost_s", "prep_s"):
             r[k] = float(r[k])
         r["hit"] = r["hit"] == "True"
+    # NOMAD runs that crashed on every attempt have no search time; they are left out of the overhead medians.
+    rows += mi.runs(m.ROOT)
     process = [r for r in rows if r["scope"] == "process"]
-    require(len(process) == 700, "Expected 700 primary process runs")
-    require(len([r for r in rows if r["scope"] == "grid"]) == 5250, "Expected 5,250 primary Grid runs")
+    require(len(process) == 980, "Expected 980 primary process runs")
+    require(len([r for r in rows if r["scope"] == "grid"]) == 7350, "Expected 7,350 primary Grid runs")
     return rows
 
 
@@ -161,7 +172,8 @@ def overhead_rows(rows):
                    evaluation_cost_s=statistics.median(r["point_cost_s"] / r["evaluations"] for r in group))
         for method in METHODS:
             row[f"search_per_evaluation_s_{method}"] = statistics.median(
-                r["search_s"] / r["evaluations"] for r in group if r["method"] == method)
+                r["search_s"] / r["evaluations"] for r in group
+                if r["method"] == method and r["search_s"] is not None)
         out.append(row)
     return out
 
@@ -228,7 +240,7 @@ def spread_table(rows):
         for j, r in enumerate(group):
             gap = ("--" if r["min_miss_gap"] is None else
                    f"{g3(100 * r['min_miss_gap'])}--{g3(100 * r['max_miss_gap'])}")
-            first = rf"\multirow{{5}}{{*}}{{{label}}}" if j == 0 else ""
+            first = rf"\multirow{{{len(group)}}}{{*}}{{{label}}}" if j == 0 else ""
             lines.append(f"{first} & {LABELS[r['method']]} & {r['exact']}/{r['runs']} & "
                          f"{r['within_0.001']} & {r['within_0.01']} & {r['within_0.05']} & "
                          f"{r['max_distinct_final']} & {gap} \\\\")
@@ -239,8 +251,9 @@ def spread_table(rows):
 
 def overhead_table(rows):
     names = {"grid": "Grid-GDP", **dict(FAMILIES)}
-    lines = [r"\begin{tabular}{lrrrrrr}\toprule",
-             r" & & \multicolumn{5}{c}{Search time per evaluation (ms)}\\\cmidrule(l){3-7}",
+    lines = [r"\begin{tabular}{l" + "r" * (len(METHODS) + 1) + r"}\toprule",
+             rf" & & \multicolumn{{{len(METHODS)}}}{{c}}{{Search time per evaluation (ms)}}\\"
+             rf"\cmidrule(l){{3-{len(METHODS) + 2}}}",
              r"Family & \makecell{Evaluation\\cost (s)} & "
              + " & ".join(LABELS[mm] for mm in METHODS) + r"\\\midrule"]
     for r in rows:
@@ -261,6 +274,8 @@ def build(out):
     require(not out.exists() or not any(out.iterdir()), "Output directory must be empty")
     out.mkdir(parents=True, exist_ok=True)
     rows, refs = load_runs(), references()
+    mi_inputs = {}
+    mi.runs(m.ROOT, mi_inputs)
     spread, overhead, enumeration = spread_rows(rows, refs), overhead_rows(rows), enumeration_rows()
     paired = paired_rows(rows)
     write_csv(out / "enumeration_cost.csv", enumeration_cost_rows(rows))
@@ -275,15 +290,17 @@ def build(out):
     files = sorted(p for p in out.iterdir() if p.is_file())
     m.dump(out / "manifest.json", {
         "no_new_experiments": True,
-        "input_sha256": {str(RUNS.relative_to(m.ROOT)): m.sha(RUNS),
+        "input_sha256": {str(RUNS.relative_to(m.ROOT)): m.sha(RUNS), **mi_inputs,
                          str(DSDA_ARCHIVE.relative_to(m.ROOT)): DSDA_ARCHIVE_SHA256,
                          **{str(p.relative_to(m.ROOT)): m.sha(p)
                             for p in sorted((GDPOPT / "evidence").glob("*.zip"))}},
-        "source_sha256": {str(Path(__file__).relative_to(m.ROOT)): m.sha(__file__)},
+        "source_sha256": {str(Path(p).relative_to(m.ROOT)): m.sha(p)
+                          for p in (__file__, mi.__file__, joint_process.__file__, METHODS_SOURCE)},
         "outputs_sha256": {p.name: m.sha(p) for p in files},
         "gap_definition": "(best accepted objective - f_ref) / max(1, |f_ref|), as in the target rule",
-        "evaluation_cost": "median over runs of summed point cost divided by evaluations, all five methods",
-        "search_per_evaluation": "median over runs of stored search_s divided by evaluations",
+        "evaluation_cost": "median over runs of summed point cost divided by evaluations, all seven methods",
+        "search_per_evaluation": "median over runs of stored search_s divided by evaluations; "
+                                 "the 21 NOMAD Grid runs without a search time are excluded",
         "paired_test": "two-sided exact McNemar test on seed-paired target outcomes; descriptive, unadjusted",
         "environment": {"python": platform.python_version()},
         "reproduce": "python -m review_comparison.revision_diagnostics --output /tmp/revision-diagnostics",

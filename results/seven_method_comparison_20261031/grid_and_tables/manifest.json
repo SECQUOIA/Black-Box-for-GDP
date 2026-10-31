@@ -1,0 +1,40 @@
+{
+  "input_sha256": {
+    "results/pr56_dantzig_return_20261031/analysis/historical_primary_runs.csv": "60de2982d6446c7d99858e71c696adf0931792f9b527aa4dc62c2b36926b10f2",
+    "results/pr56_dantzig_return_20261031/analysis/historical_control_runs.csv": "7eb4f9e211efe1ad68ade97bec96cb350ccad99eb5ea70c0c717c740c42cd60f",
+    "results/pr56_dantzig_return_20261031/analysis/individual_new_runs.csv": "1a85b6490c5a28f62f5b672e5cbfb5a2bea0517c07e4ebd230dea3e87bde491d",
+    "results/revision_diagnostics_20261030/enumeration_cost.csv": "28b487d40550c2cbf34ad0b4fc9b2ba1772f7789c5671c669c37cba13b6621c4",
+    "results/pr56_dantzig_return_20261031/analysis/process_paired_tests.csv": "9c8de00677a0b993e8d77204665ff77a7e2541d11492fabb9bfd7396e6d9542b",
+    "results/pr56_dantzig_return_20261031/analysis/dsda_conditions.csv": "a360642e085216868e6b17d3951db9178e188478220c7b90fc553cf50a1061ff"
+  },
+  "source_sha256": {
+    "review_comparison/seven_methods.py": "187cac602647efffbf007a67e8096a86bb056631c2a78cce30927f71368c95f7",
+    "review_comparison/mi_dfo_runs.py": "9c528ab079c0b605f96a42a45704590f80eda0235ea526d275186dc33c3b784a",
+    "review_comparison/manuscript.py": "5527f070accfa005ce2d25b26d898d8e22a4c8d44b2fcb02d831a18c21b5b530"
+  },
+  "new_solver_calls": 0,
+  "environment": {
+    "python": "3.10.19",
+    "matplotlib": "3.10.8"
+  },
+  "reproduce": "python -m review_comparison.seven_methods --output /tmp/seven-methods",
+  "output_sha256": {
+    "dsda_restarts_table.tex": "34e6eed5c3929ec1bc8098801da2ce728369c901630748d56740e7ffaf339cf6",
+    "exploratory_paired_tests.csv": "b264691e5c90bd52b41ea99f304e824d33bd0d5bfa65c82c1fb17407862ba5cb",
+    "exploratory_paired_tests.tex": "a2eb61e3dca6888d869d2a6b8becf5363a60c569ca99b68f47862918b24ca4de",
+    "figure_B_grid_evaluation_profiles.pdf": "5dc74d8975d1275c32e838c76a4a300d15476d9c0ef99604de8ae4ea7e87e8a0",
+    "figure_B_grid_evaluation_profiles.png": "a877da7132426d678cbe7af31c0c2f291383f39193c100b34faf9777248c6887",
+    "grid_cost.csv": "f297b0fb69cb27e895670e316ae85ccb9968cf26b0d0e8f7815c6f21a04a59b4",
+    "grid_cost_rows.tex": "d8137376901edc83a1eb69251f64c43eccdefa5a8709ad773e545e3dbc962693",
+    "grid_exclusions.csv": "ecc0aa91cdf70ba81a460339dfe20b9aafb8399f44c20d2c5f5c11ddddd47382",
+    "grid_hits.csv": "88c92fca3821e29b8d26309fc2d01736a54decdf217c4982d57be7414e366072",
+    "grid_hits_table.tex": "e7753166c3c0d5c4003b0e646f77054fe0d8168642794893b404b3cf642ef3bc",
+    "grid_profile_checks.csv": "21488296410f7d67cbb39a0bf07ac42d530b9f085389c4221def75b47f3c558c",
+    "process_completion.csv": "df8465eae0f93965d143fb02509296751994e69528a08110839527f871eb6303",
+    "process_completion_table.tex": "703ad2d2e63f3530a05b7c458e3f161c9d02c4ad26002720dc6d8a16e328f25a",
+    "process_evaluation_profiles.pdf": "ec78176c5ffc2a6c89b28f808b1c7fdc7f4698f52b9d06ef07d29c548e1aca91",
+    "process_evaluation_profiles.png": "541ab2bbdb189cbf0de40d963e73a70f3746967a25367acc3929bd3e2caabf05",
+    "process_targets.csv": "c2fb835265d1de770561eca635f1d7d287862cfbb8ecbb4d882c19b00475798e",
+    "process_targets_table.tex": "1eab89e4c5e361c737c9f6bd7008b4b8bf2d8e6f4a25e7eadea40d3a8de4d236"
+  }
+}
