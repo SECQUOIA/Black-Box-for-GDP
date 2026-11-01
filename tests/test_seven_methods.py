@@ -16,6 +16,7 @@ class SevenMethodTests(unittest.TestCase):
         hits = {r["method"]: r["hits"] for r in data if r["budget"] == 100}
         self.assertEqual((hits["miso"], hits["rbfopt_msrsm_genetic"], hits["nomad"], hits["dsda"]),
                          (181, 171, 126, 101))
+        self.assertEqual([r["hits"] for r in data if r["method"] == "dsda"], [13, 78, 91, 101, 101])
 
     def test_completion_table_keeps_published_medians(self):
         _, data = sm.completion_table(self.rows, sm.enumeration(sm.ROOT, {}))
@@ -38,14 +39,15 @@ class SevenMethodTests(unittest.TestCase):
         pooled = {(r["first"], r["second"]): (r["first_only"], r["second_only"])
                   for r in data if r["family"] == "pooled_descriptive"}
         self.assertEqual(pooled["miso", "rbfopt_msrsm_genetic"], (7, 9))
-        self.assertEqual(pooled["nomad", "dsda"], (9, 2))
+        # D-SDA no longer re-evaluates configurations, so it gains two CSTR hits.
+        self.assertEqual(pooled["nomad", "dsda"], (7, 2))
+        self.assertEqual(pooled["miso", "dsda"], (28, 1))
 
-    def test_restarts_leave_target_hits_unchanged(self):
-        tex = sm.restart_table(sm.ROOT, {})
-        rows = [line.split(" & ") for line in tex.splitlines() if line.startswith("\\texttt{")]
+    def test_restarts_add_one_target_hit(self):
+        _, rows = sm.restart_table(sm.ROOT, {})
         self.assertEqual(len(rows), 14)
-        for i in (2, 3, 4):
-            self.assertEqual(sum(int(r[i]) for r in rows), 74)
+        self.assertEqual([sum(r[f"{v}_hits"] for r in rows) for v in ("single", "ranked", "ranked_random")],
+                         [79, 80, 80])
 
     def test_grid_rates_without_two_functions(self):
         rate = {(r["budget"], r["method"]): round(r["percent"], 1) for r in sm.grid_exclusions(self.rows)}

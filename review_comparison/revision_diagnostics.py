@@ -1,7 +1,8 @@
 """Seed spread, tolerance sensitivity, search overhead, and GDPopt enumeration.
 
 Summarizes retained records only; no optimizer, NLP solver, or server run.
-NOMAD and MISO rows come from the audited Dantzig return of PR #56 (see mi_dfo_runs).
+NOMAD and MISO rows come from the audited Dantzig return of PR #56 (see mi_dfo_runs), and D-SDA
+rows from the rerun without re-evaluated configurations (see dsda_no_revisit_runs).
 """
 
 import argparse
@@ -16,6 +17,7 @@ import statistics
 import zipfile
 
 from . import manuscript as m
+from . import dsda_no_revisit_runs as dsda
 from . import joint_process
 from . import mi_dfo_runs as mi
 from . import seven_methods
@@ -69,14 +71,15 @@ def load_runs():
     manifest = json.loads((RUNS.parents[1] / "manifest.json").read_text())
     require(m.sha(RUNS) == manifest["outputs_sha256"]["tables/run_records.csv"],
             "Run-record hash mismatch")
-    rows = [dict(r) for r in m.read(RUNS) if r["method"] in joint_process.METHODS]
+    # D-SDA comes from the rerun in which no configuration is evaluated twice.
+    rows = [dict(r) for r in m.read(RUNS) if r["method"] in joint_process.METHODS and r["method"] != "dsda"]
     for r in rows:
         r["budget"], r["seed"], r["evaluations"] = int(r["budget"]), int(r["seed"]), int(r["evaluations"])
         for k in ("best_objective", "search_s", "point_cost_s", "prep_s"):
             r[k] = float(r[k])
         r["hit"] = r["hit"] == "True"
     # NOMAD runs that crashed on every attempt have no search time; they are left out of the overhead medians.
-    rows += mi.runs(m.ROOT)
+    rows += dsda.runs(m.ROOT) + mi.runs(m.ROOT)
     process = [r for r in rows if r["scope"] == "process"]
     require(len(process) == 980, "Expected 980 primary process runs")
     require(len([r for r in rows if r["scope"] == "grid"]) == 7350, "Expected 7,350 primary Grid runs")
@@ -276,6 +279,7 @@ def build(out):
     rows, refs = load_runs(), references()
     mi_inputs = {}
     mi.runs(m.ROOT, mi_inputs)
+    dsda.runs(m.ROOT, mi_inputs)
     spread, overhead, enumeration = spread_rows(rows, refs), overhead_rows(rows), enumeration_rows()
     paired = paired_rows(rows)
     write_csv(out / "enumeration_cost.csv", enumeration_cost_rows(rows))
@@ -295,7 +299,7 @@ def build(out):
                          **{str(p.relative_to(m.ROOT)): m.sha(p)
                             for p in sorted((GDPOPT / "evidence").glob("*.zip"))}},
         "source_sha256": {str(Path(p).relative_to(m.ROOT)): m.sha(p)
-                          for p in (__file__, mi.__file__, joint_process.__file__, METHODS_SOURCE)},
+                          for p in (__file__, mi.__file__, dsda.__file__, joint_process.__file__, METHODS_SOURCE)},
         "outputs_sha256": {p.name: m.sha(p) for p in files},
         "gap_definition": "(best accepted objective - f_ref) / max(1, |f_ref|), as in the target rule",
         "evaluation_cost": "median over runs of summed point cost divided by evaluations, all seven methods",

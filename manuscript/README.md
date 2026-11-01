@@ -3,7 +3,7 @@
 NOMAD and MISO are now primary methods, from the audited [Dantzig return of PR #56](../results/pr56_dantzig_return_20261031/README.md).
 The abstract, contributions, methods, process and Grid results, Discussion, Conclusions, and supplement report all seven DFO methods; NOMAD's 21 crashed Grid runs stay explicit, and the 70 exploratory paired tests have their own supplementary table.
 Tables and figures are generated without solver calls by [seven_methods.py](../review_comparison/seven_methods.py), the [joint_process_*.py](../review_comparison/joint_process_main.py) scripts, and [revision_diagnostics.py](../review_comparison/revision_diagnostics.py) ([outputs](../results/seven_method_comparison_20261031/README.md)).
-The D-SDA restart section uses the Dantzig replay, and the pending-timing notes are removed.
+D-SDA never evaluates a configuration twice, as in the original D-SDA and LD-SDA; every D-SDA number, table, and figure comes from Albert's audited rerun (`results/dsda_no_revisit_20261031`), which matches the local rerun run for run.
 The combined PDF compiles with zero errors, warnings, or undefined references; the main text ends on page 21.
 
 # Previous snapshot - review revision of October 30, 2026
