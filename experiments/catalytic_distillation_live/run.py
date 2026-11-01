@@ -22,6 +22,10 @@ plus the measured solve time of every evaluated point, as in the published runs.
   python run.py plan --output DIR
   python run.py run --output DIR --gams GAMS --cpus 0-7 [--python-fmqa PY --python-midfo PY ...]
   python run.py summarize --output DIR
+
+Another case module with the same interface (box, admissibility, shared starts, and a
+cached Evaluator) can be selected with LIVE_DFO_CASE=/path/to/case.py; it may also set
+BUDGETS, per-method SETTINGS, and reference_values() of an enumerated space.
 """
 
 import argparse
@@ -40,12 +44,16 @@ import sys
 import time
 import traceback
 
-import case
-
 HERE = Path(__file__).resolve().parent
+CASE_FILE = Path(os.environ.get("LIVE_DFO_CASE", HERE / "case.py")).resolve()
+_case_spec = importlib.util.spec_from_file_location("case", CASE_FILE)
+case = importlib.util.module_from_spec(_case_spec)
+sys.modules["case"] = case
+_case_spec.loader.exec_module(case)
+
 REPO = case.REPO
 METHODS = ("dsda", "rbfopt", "bam", "fmqa_sa", "uniform", "nomad", "miso")
-BUDGETS = (25, 50, 100)
+BUDGETS = getattr(case, "BUDGETS", (25, 50, 100))
 SEEDS = tuple(range(10))
 PENALTY = 1e6
 UNIFORM_STREAM = 20261101
@@ -330,16 +338,18 @@ def worker(args):
 
 
 def plan(args):
+    settings = {m: {**s, **getattr(case, "SETTINGS", {}).get(m, {})} for m, s in SETTINGS.items()}
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=True)
     starts = {seed: case.shared_starts(seed) for seed in args.seeds}
     jobs = [dict(job_id=f"{m}_B{b}_seed{s}", method=m, seed=s, budget=b, starts=starts[s],
-                 lower=case.LOWER, upper=case.UPPER, settings=SETTINGS[m])
+                 lower=case.LOWER, upper=case.UPPER, settings=settings[m])
             for b in args.budgets for s in args.seeds for m in args.methods]
     write(output / "plan.json", dict(created_utc=datetime.now(timezone.utc).isoformat(), methods=args.methods,
                                      budgets=args.budgets, seeds=args.seeds, starts=starts, jobs=jobs,
-                                     space=dict(coordinates="gaps", lower=case.LOWER, upper=case.UPPER,
-                                                sum_limit=case.SUM_LIMIT)))
+                                     case=str(CASE_FILE), case_sha256=case.sha256(CASE_FILE),
+                                     space=dict(coordinates=getattr(case, "COORDINATES", "gaps"), lower=case.LOWER,
+                                                upper=case.UPPER, sum_limit=getattr(case, "SUM_LIMIT", None))))
     print(f"{len(jobs)} jobs in {output / 'plan.json'}")
     return 0
 
@@ -366,7 +376,7 @@ def run(args):
                   bam_license=args.bam_license)
     case.Evaluator(config["cache"], args.gams).db.close()
     free, running = list(cpus(args.cpus)), {}
-    env = {**os.environ, **THREAD_ENV, "PYTHONUNBUFFERED": "1"}
+    env = {**os.environ, **THREAD_ENV, "PYTHONUNBUFFERED": "1", "LIVE_DFO_CASE": str(CASE_FILE)}
     print(f"{len(pending)} pending of {len(jobs)} jobs on CPUs {free}", flush=True)
     while pending or running:
         while pending and free:
@@ -406,6 +416,8 @@ def summarize(args):
     evaluator = case.Evaluator(output / "cache.sqlite", None, solve=lambda c: None)
     records = evaluator.records()
     accepted = {p: r["objective"] for p, r in records.items() if r["accepted"]}
+    for p, value in getattr(case, "reference_values", dict)().items():
+        accepted[p] = min(accepted.get(p, math.inf), value)
     for path in args.reference or []:
         for row in csv.DictReader(open(path)):
             if row["solvestat"] == "1" and row["modelstat"] in ("1", "2"):
