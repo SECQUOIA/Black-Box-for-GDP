@@ -1,0 +1,74 @@
+{
+  "previous_return_sha256": "323e7c0bf27012c4838d6273630cf3d55b5ff64a6092802539bf7d63cc1f9c55",
+  "previous_mi_python": "/local/scratch/a/lee4382/repository/RBFopt_Test/pr56_dantzig_ready_20261031_c4d7db6b/.venv-mi-dfo/bin/python",
+  "previous_environment": {
+    "python": "3.11.16",
+    "packages": {
+      "PyNomadBBO": "4.6.0",
+      "soogo": "2.1.0",
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "scipy": "1.17.1",
+      "pytest": "9.1.1"
+    }
+  },
+  "wheels": [
+    {
+      "package": "pytest",
+      "version": "9.1.1",
+      "wheel": "pytest-9.1.1-py3-none-any.whl",
+      "sha256": "37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c",
+      "requires_python": ">=3.10",
+      "requires_dist": [
+        "colorama>=0.4; sys_platform == \"win32\"",
+        "exceptiongroup>=1; python_version < \"3.11\"",
+        "iniconfig>=1.0.1",
+        "packaging>=22",
+        "pluggy<2,>=1.5",
+        "pygments>=2.7.2",
+        "tomli>=1; python_version < \"3.11\"",
+        "argcomplete; extra == \"dev\"",
+        "attrs>=19.2; extra == \"dev\"",
+        "hypothesis>=3.56; extra == \"dev\"",
+        "mock; extra == \"dev\"",
+        "requests; extra == \"dev\"",
+        "setuptools; extra == \"dev\"",
+        "xmlschema; extra == \"dev\""
+      ]
+    },
+    {
+      "package": "pluggy",
+      "version": "1.7.0",
+      "wheel": "pluggy-1.7.0-py3-none-any.whl",
+      "sha256": "7dd7b0d8832ba3cb632c306926ded123429211b83641b35dc5c41ad2d34f9bec",
+      "requires_python": ">=3.10",
+      "requires_dist": []
+    },
+    {
+      "package": "iniconfig",
+      "version": "2.3.1",
+      "wheel": "iniconfig-2.3.1-py3-none-any.whl",
+      "sha256": "9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7",
+      "requires_python": ">=3.10",
+      "requires_dist": []
+    },
+    {
+      "package": "packaging",
+      "version": "26.3",
+      "wheel": "packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "requires_python": ">=3.9",
+      "requires_dist": []
+    },
+    {
+      "package": "Pygments",
+      "version": "2.21.0",
+      "wheel": "pygments-2.21.0-py3-none-any.whl",
+      "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9",
+      "requires_python": ">=3.9",
+      "requires_dist": [
+        "colorama>=0.4.6; extra == 'windows-terminal'"
+      ]
+    }
+  ]
+}
