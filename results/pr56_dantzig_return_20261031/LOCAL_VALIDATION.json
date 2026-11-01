@@ -1,0 +1,24 @@
+{
+  "all_integration_files_are_new_at_pinned_pr_head": true,
+  "analysis_tests": {
+    "command": "python -m pytest tests/test_pr56_dantzig_return.py -q -p no:cacheprovider",
+    "failed": 0,
+    "passed": 16,
+    "skipped": 0
+  },
+  "data_only": true,
+  "figures_visually_reviewed": 2,
+  "legacy_archive_comments_preserved": true,
+  "local_python": "3.13.12",
+  "main_workspace_tracked_changes": 0,
+  "miso_B100_full_budget_and_elapsed_verified": true,
+  "new_explanatory_material_language": "English",
+  "numeric_outputs_byte_reproduced": 21,
+  "optimizer_or_nlp_runs_during_analysis": 0,
+  "original_return_unchanged": true,
+  "publication_file_collisions": false,
+  "rendered_outputs_byte_reproduced": 6,
+  "ruff": "passed",
+  "validation_context": "isolated PR publication checkout",
+  "verification_source_head": "c4d7db6b671bbe92a314be524a650d75cd49529c"
+}

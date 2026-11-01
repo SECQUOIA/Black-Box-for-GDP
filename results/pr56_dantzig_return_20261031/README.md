@@ -1,0 +1,171 @@
+# PR #56: completed Dantzig experiments, 31 October 2026
+
+Completed Dantzig results for [PR #56](https://github.com/SECQUOIA/Black-Box-for-GDP/pull/56), executed at revision `c4d7db6b671bbe92a314be524a650d75cd49529c`. This report adds analysis of the returned data; it does not alter the manuscript, optimizer implementations, targets, budgets, or native result statuses. No new optimization or NLP solves were performed for this analysis. [Manuscript review notes](MANUSCRIPT_REVIEW.md) identify the claims and figures that need revision.
+
+## Findings
+
+All **2,800 planned result records** are present: D-SDA 420, NOMAD 1,190, and MISO 1,190. Independent reconstruction from the per-run results and callbacks passes. There are no missing or duplicate jobs. The return is not an entirely crash-free campaign: 21 NOMAD jobs retain the terminal status `crashed_identical_reruns`.
+
+MISO has the largest aggregate hit count in both suites, but its advantage over the primary RBFOpt configuration is modest in aggregate and varies by condition. It records 678 vs 658 Grid hits (+20; +1.9 percentage points) and 120 vs 114 Process hits (+6; +4.3 points). MISO is computationally more expensive in several conditions. These results require revising any general claim that RBFOpt has the largest hit count across the expanded comparison.
+
+The five historical primary methods are retained without rerunning them. **RBFOpt means `rbfopt_msrsm_genetic`**, as in the manuscript's primary comparison. The solver-search RBFOpt and BAM prefix controls remain separate in [historical_control_runs.csv](analysis/historical_control_runs.csv); in particular, the older solver control has a different Column budget and must not be silently substituted into this comparison.
+
+| Method | Grid hits / 1,050 | Process hits / 140 |
+| --- | --- | --- |
+| D-SDA | 374 (35.6%) | 74 (52.9%) |
+| RBFOpt (genetic) | 658 (62.7%) | 114 (81.4%) |
+| BAM | 626 (59.6%) | 48 (34.3%) |
+| FMQA-SA | 370 (35.2%) | 42 (30.0%) |
+| Uniform | 149 (14.2%) | 37 (26.4%) |
+| NOMAD | 526 (50.1%) | 92 (65.7%) |
+| MISO | 678 (64.6%) | 120 (85.7%) |
+
+NOMAD's adopted score includes target hits observed before a reproducible terminal crash. If every terminal crash is instead counted as a miss, NOMAD has **510/1,050 Grid hits and 92/140 Process hits, 602/1,190 overall**, versus 618 under the frozen policy. This is a sensitivity analysis, not a change to the archived outcomes.
+
+## Grid comparison
+
+Each cell below is a target-hit count out of 210 (21 functions × ten seeds). The five budget cohorts together contain 1,050 jobs per method; repeated functions and seeds across budgets are not independent benchmark replications.
+
+| Budget | D-SDA | RBFOpt (genetic) | BAM | FMQA-SA | Uniform | NOMAD | MISO |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 10 | 13 | 42 | 111 | 16 | 14 | 39 | 38 |
+| 30 | 74 | 130 | 115 | 47 | 25 | 111 | 141 |
+| 50 | 88 | 154 | 121 | 76 | 29 | 124 | 147 |
+| 70 | 98 | 161 | 132 | 102 | 36 | 126 | 171 |
+| 100 | 101 | 171 | 147 | 129 | 45 | 126 | 181 |
+
+![Grid target attainment](figures/grid_target_hits.png)
+
+MISO leads at B=30, 70, and 100; RBFOpt leads at B=50, and BAM leads at B=10. At B=100, MISO reaches 181/210 (86.2%), RBFOpt 171/210 (81.4%), and NOMAD 126/210 (60.0%). All 21 terminal NOMAD crashes occur at B=100; 16 have already reached the target, so the crash-as-miss sensitivity is 110/210 (52.4%). The NOMAD timing summaries at this budget have **189 observations, not 210**. Their missingness is algorithm-dependent and not random.
+
+## Process comparison
+
+Each cell is the target-hit count out of the same ten paired seeds. There are 14 model–budget conditions and 140 jobs per method.
+
+| Condition | D-SDA | RBFOpt (genetic) | BAM | FMQA-SA | Uniform | NOMAD | MISO |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| CSTR 5 (B=8) | 2 | 8 | 10 | 3 | 4 | 4 | 4 |
+| CSTR 10 (B=15) | 2 | 6 | 1 | 2 | 1 | 3 | 2 |
+| CSTR 15 (B=22) | 2 | 7 | 1 | 1 | 2 | 2 | 7 |
+| CSTR 20 (B=29) | 3 | 7 | 2 | 1 | 2 | 2 | 10 |
+| CSTR 25 (B=36) | 3 | 8 | 2 | 1 | 1 | 6 | 10 |
+| CSTR 30 (B=43) | 2 | 9 | 2 | 1 | 1 | 4 | 10 |
+| Column (B=13) | 5 | 4 | 1 | 4 | 1 | 7 | 10 |
+| Small Batch (B=10) | 8 | 5 | 2 | 6 | 4 | 6 | 7 |
+| Dynamic (B=12) | 4 | 10 | 0 | 2 | 0 | 8 | 10 |
+| Dynamic (B=15) | 5 | 10 | 3 | 3 | 3 | 10 | 10 |
+| Dynamic (B=20) | 8 | 10 | 3 | 3 | 3 | 10 | 10 |
+| Dynamic (B=30) | 10 | 10 | 4 | 4 | 4 | 10 | 10 |
+| Dynamic (B=37) | 10 | 10 | 7 | 5 | 5 | 10 | 10 |
+| Dynamic (B=50) | 10 | 10 | 10 | 6 | 6 | 10 | 10 |
+
+![Process target attainment](figures/process_target_hits.png)
+
+MISO reaches 43/60 CSTR targets versus RBFOpt's 45/60: it improves to 30/30 over CSTR20–30, versus 24/30 for RBFOpt, but obtains only 13/30 on CSTR5–15 versus 21/30. MISO improves Column from 4/10 to 10/10 and Small Batch from 5/10 to 7/10 relative to RBFOpt. Both reach all 60 targets across the six Dynamic budgets. NOMAD improves on D-SDA overall (92 vs 74 hits), while remaining below RBFOpt (114).
+
+If the manuscript's primary Process cohort is expanded to all seven methods, its counts become **980 runs, 21,777 callback visits, and 2,106 distinct model/size/coordinate keys**, compared with 700, 16,041, and 2,024 previously. The new methods add 5,736 callback visits and 82 previously unvisited keys. These totals count each selected job path once; native retries and the separate restart diagnostic are excluded. The full sealed inventory contains 2,438 configurations. See [combined_configuration_coverage.csv](analysis/combined_configuration_coverage.csv).
+
+### Exploratory paired analysis
+
+[process_pairs.csv](analysis/process_pairs.csv) contains the individual seed pairs. [process_paired_tests.csv](analysis/process_paired_tests.csv) reports exact two-sided McNemar tests for five contrasts across 14 conditions (70 tests): NOMAD–D-SDA, NOMAD–RBFOpt, MISO–D-SDA, MISO–RBFOpt, and MISO–NOMAD. Holm correction is applied across this stated exploratory family. **No contrast survives correction at 0.05.** For example, MISO–RBFOpt on Column has six MISO-only hits, no RBFOpt-only hits, raw p=0.03125, and adjusted p=1.0. Ten paired seeds provide limited power; lack of significance does not establish equivalence. This is an added exploratory analysis, not a preregistered experiment or a change to existing manuscript test families. Dynamic budget rows reuse seeds and cannot be treated as independent replications for a pooled significance claim.
+
+## D-SDA restart diagnostic
+
+All **140 single-descent paths exactly reproduce the archived baseline**: callback coordinates, evaluations, best objective, hit, first-hit index, and outcome category. All 280 restarted paths preserve the original descent prefix. No baseline was edited to force this agreement.
+
+| Variant | Hits / 140 | Callbacks | Full-budget runs | Completion s, median [Q25, Q75] |
+| --- | --- | --- | --- | --- |
+| dsda_single | 74 | 2441 | 68 | 20.37 [13.32, 34.15] |
+| dsda_ranked | 74 | 3371 | 136 | 29.45 [15.85, 46.97] |
+| dsda_ranked_random | 74 | 3400 | 140 | 30.55 [15.86, 47.01] |
+
+The server's `changed_outcomes=22` means **11 distinct condition–seed jobs improve their best objective under each of the two restart variants**. It does not mean 22 new target hits. All three variants remain at **74/140 hits**, and all 22 changed comparisons remain misses. The affected jobs are CSTR10/B15 seeds 5,6,7; CSTR15/B22 seed 8; CSTR20/B29 seeds 4,8; CSTR25/B36 seed 8; and CSTR30/B43 seeds 4,5,6,8. These are material incumbent improvements, not rounding noise. [dsda_changes.csv](analysis/dsda_changes.csv) preserves each before/after objective and target.
+
+The ranked and ranked-plus-random variants spend 930 and 959 additional callback evaluations, respectively, without adding target hits. Thus the defensible wording is “restarts do not change target-hit outcomes,” not “restarts do not change the results.” The Dantzig timing records now replace the need for a pending timing experiment. The historical primary D-SDA timing table remains unchanged; the new replay timing is reported separately here.
+
+## Native status and retry accounting
+
+| Method | Normal first-attempt completion | Completion after verified rerun | Repeated identical terminal crash | Other terminal failure |
+| --- | --- | --- | --- | --- |
+| NOMAD | 1,046 | 123 | 21 | 0 |
+| MISO | 1,190 | 0 | 0 | 0 |
+
+NOMAD has 144 initially crashing jobs. Of these, 110 recover on the first extra attempt and 13 on the second; 21 crash on all three identical paths. There are **1,368 NOMAD native attempts and 199 crashing attempts**, which must not be confused with 1,190 distinct benchmark jobs or 21 terminal crashes. Every accepted rerun follows the initial crash's coordinate sequence exactly. The policy at the frozen revision uses the observed path for target scoring even when all reruns crash identically; that status is never relabeled as normal completion. The runner's `execution_failures=0` reflects its scoring categories, not absence of native crashes. `finished_with_issues` is consistent with these 21 preserved terminal crashes.
+
+The 21 missing search/completion times remain null. For the 123 accepted reruns, timing uses the **selected rerun's callbacks**, not the initial crash's lookup times. Reported per-job search times exclude preceding failed attempts; total retry-inclusive per-job time cannot be recovered from the preserved records because original crash durations are not available. [native_attempts.csv](analysis/native_attempts.csv), [nomad_terminal_crashes.csv](analysis/nomad_terminal_crashes.csv), and the unmodified return preserve the evidence.
+
+## Time and NLP-work interpretation
+
+These are searches over **stored configuration responses**. No original GDP or NLP was solved in this campaign. The field named `nlp_solves` is a historical NLP-work equivalent inferred from the stored response status; it is not a count of new solves. The budget counts callbacks, including shared starts, repeated queries, rejected responses, and MISO's additional design points.
+
+Reconstructed completion time is the retained measured search overhead, plus historical point costs charged on every callback, plus the stored preparation cost once. It estimates a fixed observed search path; it is neither fresh online NLP runtime nor time to first target. Quartiles use all available individual runs with inclusive linear interpolation. No mean or quartile is obtained by averaging bundle summaries. Unsuccessful runs are retained, and absent timing is not zero-filled.
+
+| Condition | Method | Hits / 10 | NLP-work equivalent, median | Search s, median | Reconstructed completion s, median [Q25, Q75] |
+| --- | --- | --- | --- | --- | --- |
+| CSTR 30 (B=43) | D-SDA | 2 | 26.5 | 0.059 | 53.12 [46.62, 74.22] |
+| CSTR 30 (B=43) | RBFOpt (genetic) | 9 | 31.5 | 4.991 | 101.96 [94.16, 109.29] |
+| CSTR 30 (B=43) | NOMAD | 4 | 25 | 1.897 | 71.23 [62.80, 88.85] |
+| CSTR 30 (B=43) | MISO | 10 | 29.5 | 18.122 | 107.33 [101.10, 115.86] |
+| Column (B=13) | D-SDA | 5 | 11 | 0.015 | 35.44 [30.49, 49.57] |
+| Column (B=13) | RBFOpt (genetic) | 4 | 12 | 0.226 | 54.60 [39.22, 55.78] |
+| Column (B=13) | NOMAD | 7 | 10.5 | 0.042 | 31.93 [19.74, 48.44] |
+| Column (B=13) | MISO | 10 | 11 | 0.672 | 31.98 [30.95, 55.16] |
+| Dynamic (B=50) | D-SDA | 10 | 22 | 0.022 | 26.62 [17.32, 26.69] |
+| Dynamic (B=50) | RBFOpt (genetic) | 10 | 31 | 26.346 | 65.14 [56.83, 75.94] |
+| Dynamic (B=50) | NOMAD | 10 | 14.5 | 1.767 | 21.99 [19.04, 24.84] |
+| Dynamic (B=50) | MISO | 10 | 29 | 158.384 | 195.36 [194.69, 196.39] |
+
+MISO's higher hit counts have a cost: at Dynamic/B50 it and RBFOpt both reach 10/10 targets, but their median reconstructed completion times are 195.36 s and 65.14 s. At CSTR30/B43, MISO improves 9/10 to 10/10 hits and reduces the median NLP-work equivalent from 31.5 to 29.5, while increasing median completion from 101.96 s to 107.33 s. At Grid/B100, MISO's median reconstructed completion is 94.82 s versus RBFOpt's 70.81 s. Avoid describing MISO as uniformly faster or RBFOpt as uniformly more successful.
+
+Across the returned selected runs, MISO's retained measured search time sums to 19,006.88 s (all 1,190 jobs); NOMAD's sums to 2,698.53 s (1,169 timed jobs only). Summed bundle elapsed times, which include retry and runner overhead, are 19,080.59 s and 4,171.88 s. These are sums of worker durations and overlap in wall-clock time; neither is the campaign elapsed time. Historical and new timings should be interpreted under their recorded environments and nonexclusive server scheduling, rather than as perfectly controlled CPU benchmarks.
+
+For **MISO Grid/B100 specifically, all 210 jobs use all 100 evaluations: 21,000 callbacks**. Its ten seed bundles run on up to five distinct physical cores within the six-worker queue. Each bundle takes 631.51–724.06 s (10.5–12.1 min); their elapsed times sum to 6,870.79 s (1 h 54 min 31 s). From the first bundle start at 17:40:23 UTC to the last finish at 18:12:19 UTC, the observed span is **31 min 56 s**. Retained selected-run search time sums to 6,858.14 s. Parallel execution explains the difference between the sum of bundle durations and the observed span. It does not by itself explain a prior estimate of “10+ hours”: even the observed sum is smaller than that estimate, and the estimate's configuration and measurement basis are not established by this return. No evaluations were omitted or budgets reduced to achieve the shorter runtime.
+
+## Preserved protocol and validation
+
+- Source revision, the input ZIP and 263 sealed package members, Grid point-cost table, initial points and order, seeds, domains, budgets, callback responses, failure penalties, target tolerances, and original result statuses all verify. The target rule is `abs(value-target) <= 1e-5 * max(1, abs(target))`.
+- MISO retains integer DDS candidate generation, disabled continuous local search, and the Small Batch extra initial design. All extra design evaluations are charged within the original budget. No algorithm source or configuration was changed for this analysis.
+- The frozen NOMAD retry/path-scoring policy is preserved. The crash-as-miss score is a separately labeled sensitivity calculation only.
+- Historical Grid D-SDA has a target-based stop after its descent checkpoint. NOMAD and MISO do not receive the target as a stopping criterion. These method-specific stopping rules are preserved; a shared budget does not imply identical stopping behavior. Process D-SDA has no target stop.
+- The outer ZIP SHA256 and CRC, all **11,229 internal inventory hashes**, source snapshots and context provenance pass. All 2,380 MI primary rows and 38 server condition summaries are recomputed and reconciled. D-SDA's 420 records are checked separately.
+- All 66 MI bundles exit zero and cover the planned job set exactly once. Required native solver preflight tests were present: **12 passed, zero skipped**. Preflight records are excluded from all benchmark statistics.
+- Six workers each have one CPU, with no shared physical cores, and all recorded OpenMP/BLAS limits are one. CPU affinity was observed; this was not an exclusive scheduler reservation.
+
+## Execution and evidence
+
+The server source was pinned to `c4d7db6b671bbe92a314be524a650d75cd49529c` under `/local/scratch/a/lee4382/repository/RBFopt_Test/pr56_dantzig_ready_20261031_c4d7db6b`. The returned output root is `revision_20261031_173911_c4d7db6b`. NOMAD used six bundles (five Grid budgets and one Process bundle); MISO used 60 (50 Grid budget/seed bundles and ten Process seed bundles). MISO groups contain 21 Grid jobs or 14 Process jobs. All use existing sealed job IDs.
+
+| Logical CPU | Socket | Physical core | SMT sibling pair |
+| --- | --- | --- | --- |
+| 28 | 0 | 36 | 28, 76 |
+| 17 | 0 | 21 | 17, 65 |
+| 34 | 0 | 44 | 34, 82 |
+| 44 | 0 | 58 | 44, 92 |
+| 45 | 0 | 59 | 45, 93 |
+| 24 | 0 | 32 | 24, 72 |
+
+The launcher began at 17:39:11 UTC, experiments ended at 18:48:11 UTC, and collection finished at 18:48:23 UTC on 2026-10-31: **69 min 11.6 s from launch to collection**. Server versions were Python 3.11.16, PyNomadBBO 4.6.0, soogo 2.1.0, NumPy 2.4.6, pandas 2.3.3, SciPy 1.17.1, and pytest 9.1.1. Full runtime, command, PID, job-list, stdout/stderr, and preflight evidence remains inside the original ZIP.
+
+Original return SHA256:
+
+```text
+323e7c0bf27012c4838d6273630cf3d55b5ff64a6092802539bf7d63cc1f9c55  RETURN.zip
+```
+
+The original [RETURN.zip](evidence/RETURN.zip) is retained byte-for-byte with [its sidecar](evidence/RETURN.zip.sha256). All new explanatory material is in English; the immutable ZIP retains legacy Korean comments in its historical input package. The historical context files in `evidence/` are copied from the frozen revision and verified by the analyzer. `executed_source_manifest.json` records source-file hashes; original publication and joint-comparison manifests record baseline provenance. Raw callback logs are kept in the ZIP without flattening retry directories or overwriting native statuses.
+
+## Reproduction
+
+From the repository root:
+
+```bash
+python scripts/analyze_pr56_dantzig_return.py \
+  --output results/pr56_dantzig_return_20261031/analysis
+python scripts/render_pr56_dantzig_report.py \
+  --results results/pr56_dantzig_return_20261031
+python -m pytest tests/test_pr56_dantzig_return.py -q -p no:cacheprovider
+```
+
+The analyzer uses only Python's standard library; rendering uses Matplotlib and NumPy, and the audit tests use pytest. These commands do not import optimizers, start experiments, or require a Dantzig connection. `analysis/REPRODUCTION.json` hashes the data inputs, analyzer, and numeric outputs. `REPORT_RENDER.json` records rendering versions, script hash, and report/figure hashes. The tests cover corrupted-input rejection, replay and retry accounting, null timing, primary/control separation, and multiple-comparison calculations.
+
+The main reviewable tables are [overall_comparison.csv](analysis/overall_comparison.csv), [grid_budgets.csv](analysis/grid_budgets.csv), [process_conditions.csv](analysis/process_conditions.csv), [dsda_conditions.csv](analysis/dsda_conditions.csv), and [validation.json](analysis/validation.json). All are derived from individual records; the immutable evidence remains the authority. This result addition leaves the manuscript and optimizer implementations unchanged.

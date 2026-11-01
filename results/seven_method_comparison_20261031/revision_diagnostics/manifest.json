@@ -1,0 +1,41 @@
+{
+  "no_new_experiments": true,
+  "input_sha256": {
+    "results/dsda_publication_20261028/tables/run_records.csv": "5948a78341f20faa9507ef3c9f72f8d0a599b8df7e1b96d8e3153d3c1414e386",
+    "results/pr56_dantzig_return_20261031/analysis/individual_new_runs.csv": "1a85b6490c5a28f62f5b672e5cbfb5a2bea0517c07e4ebd230dea3e87bde491d",
+    "results/dsda_no_revisit_20261031/runs.csv": "61d483639d5acf2112e8dc40638c20e4f335b95b8df835ff8c44e6cf46ffe533",
+    "results/archives/dsda_abs1e5_rerun_20261028_020753_2004611.zip": "e58982f7179b73c65d83134dcbe0b25854002685812b2511b24523e861c9929e",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part01.zip": "f123d9e7a7ec2576a7f3230e5797d0f538cd23e8fc48625874c430534949c4db",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part02.zip": "3d3d305c9ee17defd2ee0a2ebcd6a492b9cfc455d211c4ba56c46ff8b1daab6d",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part03.zip": "3207478b35b5514e913a739b5907ccb716c7c5c652ddbfc0c667f7baaf9250d1",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part04.zip": "d547a08316e972e191d2bdf719ade32fcedd4e6fb59b9922ee127ce609227895",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part05.zip": "dd99dd7a6ded1b09ebaf583d9f78625d958471b484437b93f9db492eb6ca3c60",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part06.zip": "583ec7f38d0ccac431707836b9f60986d868f49db930c14363432bd93efe8d66"
+  },
+  "source_sha256": {
+    "review_comparison/revision_diagnostics.py": "dce18a5f8f1712dfbec8f0afb05ecad26611e9bc1d992fac7554718716231f3b",
+    "review_comparison/mi_dfo_runs.py": "9c528ab079c0b605f96a42a45704590f80eda0235ea526d275186dc33c3b784a",
+    "review_comparison/dsda_no_revisit_runs.py": "11051338746525fa9d7e1d78fe9757ef22d8ca23ea9c19ec7b8ac2f5b8371b71",
+    "review_comparison/joint_process.py": "06eff66bafe3bb3411021441204b45744ce6ed69111f6e926630d910fc89edfe",
+    "review_comparison/seven_methods.py": "ab5579ae091e23634490431c67a0205f7dd6dc4f653d23ce3768b23e0eaff699"
+  },
+  "outputs_sha256": {
+    "enumeration_cost.csv": "28b487d40550c2cbf34ad0b4fc9b2ba1772f7789c5671c669c37cba13b6621c4",
+    "evaluation_cost_overhead.csv": "9672830a68441b7b0965b8812a393f33b87313cedc1940a2e582a7b58c459fb5",
+    "evaluation_cost_overhead.tex": "8c06ab3b808f556e3bd81cbfd47d11f2d6bcba866b44b55ef4204e256af3e221",
+    "gdpopt_enumeration.csv": "0f9a194b43e6abc5a9b1137aa7d8e3c18aeeee2dd83dd4c3802e4c68510a8f66",
+    "paired_exact_tests.csv": "1b6a639ac76afbd890c85baef5e37e59c5b30c0c4bc92fa8d6633628217d0064",
+    "paired_exact_tests.tex": "6d0402eab92c1050c26bb602b1918aa345de81b0e523b3d0a545ff1a942256eb",
+    "process_spread_tolerance.csv": "75ab3785b69472d815e5243d0210da2c5f2a9189b16fbe1fabef453ebc746aa6",
+    "process_spread_tolerance.tex": "fb7a6d0bc35733269cfd12860110207d9a92d08825ac6b04fb84d1a8660ece0b",
+    "references.json": "deb3b2a75d6e64b1498c8694cfde45334094499ac1981f62fbbcfb50a2b3195b"
+  },
+  "gap_definition": "(best accepted objective - f_ref) / max(1, |f_ref|), as in the target rule",
+  "evaluation_cost": "median over runs of summed point cost divided by evaluations, all seven methods",
+  "search_per_evaluation": "median over runs of stored search_s divided by evaluations; the 21 NOMAD Grid runs without a search time are excluded",
+  "paired_test": "two-sided exact McNemar test on seed-paired target outcomes; descriptive, unadjusted",
+  "environment": {
+    "python": "3.10.19"
+  },
+  "reproduce": "python -m review_comparison.revision_diagnostics --output /tmp/revision-diagnostics"
+}

@@ -15,8 +15,8 @@ def data():
 
 def test_selected_observations_preserve_original_values(data):
     selected = j.select(data)
-    assert len(selected) == 330
-    assert sum(r['family'] == 'DFO' for r in selected) == 300
+    assert len(selected) == 450
+    assert sum(r['family'] == 'DFO' for r in selected) == 420
     assert len({r['source'] for r in selected if r['family'] == 'algebraic'}) == 25
     for row in selected:
         original = dict(row)

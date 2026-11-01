@@ -1,0 +1,58 @@
+{
+  "command": [
+    "experiments/dsda_no_revisit/run.py",
+    "--output",
+    "/local/scratch/a/lee4382/repository/dsda_no_revisit_output_20261031_230829",
+    "--cpu",
+    "47"
+  ],
+  "started_utc": "2026-10-31T23:08:29.688498+00:00",
+  "finished_utc": "2026-10-31T23:08:47.809257+00:00",
+  "archive_sha256": "e58982f7179b73c65d83134dcbe0b25854002685812b2511b24523e861c9929e",
+  "grid_archive_sha256": "3611ba036df02ef8b155e32be7557c4bf7b88dfa1a5aff6e91c6d82fe7fb135a",
+  "grid_costs_sha256": "2490d8f8de368d9b54d6cd3d9082ace5c74dfa2ebb84fd266b0488a43a7fcd0f",
+  "script_sha256": "12da1895b50f59e949a76f2a3e7a6189eea4a9dbea45154409561bafd4b571c5",
+  "grid_dsda_sha256": "1ce215a6ce32a9bd519b4e44810791cd2cc2cad7f0cde70eac9fd797e91321f2",
+  "git_head": "c186408728c6f95ac33a5465edd53035d85c5620",
+  "git_status": "",
+  "host": "dantzig.ecn.purdue.edu",
+  "platform": "Linux-5.15.0-325.220.5.el9uek.x86_64-x86_64-with-glibc2.34",
+  "python": "3.11.16",
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1"
+  },
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "GOTO_NUM_THREADS": "1",
+    "NUMEXPR_MAX_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "MKL_DYNAMIC": "FALSE",
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "cpu": {
+    "mode": "pinned",
+    "cpu": 47,
+    "effective_cpus": [
+      47
+    ],
+    "selection": null,
+    "exclusive_reservation": false
+  },
+  "improvement_abs_tol": 1e-05,
+  "restart_stream": 20261030,
+  "variants": [
+    "grid",
+    "single",
+    "ranked",
+    "ranked_random"
+  ],
+  "process_nlp_calls": 0
+}
