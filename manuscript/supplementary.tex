@@ -323,7 +323,7 @@ The \texttt{Dynamic} objective is \(-\int_0^9 x(t)^2\,dt\).
 
 Table~\ref{tab:process-tts99} reports completion costs for all 14 process conditions, together with the cost of evaluating every configuration of each DFO domain once.
 Table~\ref{tab:grid-cost} reports the Grid-GDP costs at \(B=100\).
-\texttt{MISO} reaches the most Grid targets, but its median search time of 32.70~s is about four times that of \texttt{RBFOpt}, whereas \texttt{NOMAD} stops after a median of 31.5 evaluations, and its 189 timed runs have the lowest median completion time.
+\texttt{MISO} reaches the most Grid targets, but its median search time of 32.70~s is about four times that of \texttt{RBFOpt}, whereas \texttt{D-SDA} and \texttt{NOMAD} stop after medians of 37 and 31.5 evaluations and have the lowest median completion times, 18.38 and 18.50~s (\texttt{NOMAD} over its 189 timed runs).
 \begin{table}[p]
 \centering
 \caption{Median reconstructed full-run completion costs for all ten paired seeds per condition, including target misses, and the cost of full enumeration, in seconds.}
@@ -334,18 +334,18 @@ Table~\ref{tab:grid-cost} reports the Grid-GDP costs at \(B=100\).
 Case & \(B\) & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFOpt} & \texttt{MISO} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform & Enumeration \\\midrule
 \texttt{Column} & 13 & 35.44 & 31.93 & 54.60 & 31.98 & 27.50 & 41.82 & 21.69 & 137.24 \\
 \texttt{CSTR5} & 8 & 10.67 & 10.71 & 10.72 & 11.33 & 10.67 & 13.92 & 9.44 & 30.27 \\
-\texttt{CSTR10} & 15 & 18.95 & 21.25 & 21.79 & 21.87 & 18.54 & 27.07 & 17.75 & 122.06 \\
-\texttt{CSTR15} & 22 & 29.93 & 33.92 & 37.59 & 39.79 & 27.67 & 42.82 & 27.84 & 298.42 \\
-\texttt{CSTR20} & 29 & 40.68 & 38.17 & 45.03 & 56.03 & 39.37 & 59.10 & 40.12 & 553.38 \\
-\texttt{CSTR25} & 36 & 51.69 & 56.56 & 62.29 & 78.56 & 50.47 & 74.70 & 51.17 & 899.39 \\
-\texttt{CSTR30} & 43 & 53.12 & 71.23 & 101.96 & 107.33 & 115.41 & 101.19 & 65.20 & 1719.00 \\
-\texttt{Small Batch} & 10 & 3.84 & 4.97 & 5.12 & 5.62 & 4.23 & 9.09 & 3.49 & 10.18 \\
-\texttt{Dynamic} & 12 & 12.23 & 12.36 & 12.29 & 11.80 & 9.95 & 14.47 & 7.80 & 47.25 \\
-\texttt{Dynamic} & 15 & 15.85 & 15.48 & 16.10 & 15.44 & 11.53 & 18.39 & 8.71 & 47.25 \\
-\texttt{Dynamic} & 20 & 21.30 & 20.85 & 20.54 & 42.42 & 14.07 & 25.23 & 12.27 & 47.25 \\
-\texttt{Dynamic} & 30 & 26.62 & 22.00 & 34.19 & 106.24 & 21.91 & 36.24 & 19.38 & 47.25 \\
-\texttt{Dynamic} & 37 & 26.62 & 22.00 & 42.42 & 111.61 & 24.99 & 46.05 & 24.38 & 47.25 \\
-\texttt{Dynamic} & 50 & 26.62 & 21.99 & 65.14 & 195.36 & 33.98 & 61.31 & 33.12 & 47.25 \\
+\texttt{CSTR10} & 15 & 17.61 & 21.25 & 21.79 & 21.87 & 18.54 & 27.07 & 17.75 & 122.06 \\
+\texttt{CSTR15} & 22 & 25.68 & 33.92 & 37.59 & 39.79 & 27.67 & 42.82 & 27.84 & 298.42 \\
+\texttt{CSTR20} & 29 & 32.31 & 38.17 & 45.03 & 56.03 & 39.37 & 59.10 & 40.12 & 553.38 \\
+\texttt{CSTR25} & 36 & 45.49 & 56.56 & 62.29 & 78.56 & 50.47 & 74.70 & 51.17 & 899.39 \\
+\texttt{CSTR30} & 43 & 47.17 & 71.23 & 101.96 & 107.33 & 115.41 & 101.19 & 65.20 & 1719.00 \\
+\texttt{Small Batch} & 10 & 4.23 & 4.97 & 5.12 & 5.62 & 4.23 & 9.09 & 3.49 & 10.18 \\
+\texttt{Dynamic} & 12 & 12.22 & 12.36 & 12.29 & 11.80 & 9.95 & 14.47 & 7.80 & 47.25 \\
+\texttt{Dynamic} & 15 & 15.32 & 15.48 & 16.10 & 15.44 & 11.53 & 18.39 & 8.71 & 47.25 \\
+\texttt{Dynamic} & 20 & 20.02 & 20.85 & 20.54 & 42.42 & 14.07 & 25.23 & 12.27 & 47.25 \\
+\texttt{Dynamic} & 30 & 20.02 & 22.00 & 34.19 & 106.24 & 21.91 & 36.24 & 19.38 & 47.25 \\
+\texttt{Dynamic} & 37 & 20.02 & 22.00 & 42.42 & 111.61 & 24.99 & 46.05 & 24.38 & 47.25 \\
+\texttt{Dynamic} & 50 & 20.02 & 21.99 & 65.14 & 195.36 & 33.98 & 61.31 & 33.12 & 47.25 \\
 \bottomrule\end{tabular}
 \end{table}
 
@@ -363,7 +363,7 @@ Component quartiles need not sum to completion quartiles.
 \small
 \begin{tabular}{lrrrr}\toprule
 Method & Target hits & \shortstack{Full-run\\completion (s)} & \shortstack{Summed configuration-\\evaluation cost (s)} & \shortstack{Search\\time (s)}\\\midrule
-\texttt{D-SDA} & 101/210 & \shortstack{24.08\\{[15.58, 49.49]}} & \shortstack{24.08\\{[15.58, 49.48]}} & \shortstack{0.0039\\{[0.0037, 0.0043]}} \\
+\texttt{D-SDA} & 101/210 & \shortstack{18.38\\{[12.42, 37.06]}} & \shortstack{18.38\\{[12.41, 37.05]}} & \shortstack{0.0024\\{[0.0023, 0.0026]}} \\
 \texttt{NOMAD}\({}^{a}\) & 126/210 & \shortstack{18.50\\{[13.46, 35.00]}} & \shortstack{15.20\\{[11.09, 30.82]}} & \shortstack{2.04\\{[1.79, 2.28]}} \\
 \texttt{RBFOpt} & 171/210 & \shortstack{70.81\\{[54.83, 93.09]}} & \shortstack{60.84\\{[44.31, 82.15]}} & \shortstack{7.58\\{[4.12, 14.82]}} \\
 \texttt{MISO} & 181/210 & \shortstack{94.82\\{[79.22, 116.05]}} & \shortstack{63.21\\{[44.03, 82.37]}} & \shortstack{32.70\\{[25.19, 39.38]}} \\
@@ -386,8 +386,9 @@ The updated \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/329c6f93f49
 The three presolve-disabled LOA diagnostic runs are excluded.
 The same records contain the paired comparison with the earlier configuration that used \texttt{SCIP} for both MIP and NLP subproblems, in which GLOA returned the same \texttt{CSTR} objectives within a relative difference of \(3\times10^{-5}\).
 Seed spread, tolerance sensitivity, search overhead, and \texttt{GDPopt} enumeration counts are generated by \nolinkurl{review_comparison/revision_diagnostics.py} from the retained run records and execution logs.
-The process \texttt{D-SDA} restart experiment is \nolinkurl{experiments/dsda_process_multistart/run.py}, which replays the sealed lookup package of the adopted \texttt{D-SDA} rerun.
-The \texttt{NOMAD}, \texttt{MISO}, and restart runs were executed at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c4d7db6b671bbe92a314be524a650d75cd49529c}{source revision c4d7db6}; the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/841ca986f175dda4d91c784b195e60279cf94b99/results/pr56_dantzig_return_20261031}{returned records} contain the original archive, its SHA-256 checksum, and hash-checked analysis tables of every run.
+The \texttt{D-SDA} rerun, including the process restart variants, is \nolinkurl{experiments/dsda_no_revisit/run.py}, which replays the sealed lookup package of the adopted \texttt{D-SDA} rerun.
+The \texttt{NOMAD} and \texttt{MISO} runs were executed at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c4d7db6b671bbe92a314be524a650d75cd49529c}{source revision c4d7db6}; the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/841ca986f175dda4d91c784b195e60279cf94b99/results/pr56_dantzig_return_20261031}{returned records} contain the original archive, its SHA-256 checksum, and hash-checked analysis tables of every run.
+All \texttt{D-SDA} runs, including the restart variants, were rerun at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c186408728c6f95ac33a5465edd53035d85c5620}{source revision c186408}, where no configuration is evaluated twice; with re-evaluation switched back on, the same code reproduces all 1,190 published \texttt{D-SDA} runs exactly, and the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/f3b57ac44cccb27552b3a8618ce6abd463e540a4/results/dsda_no_revisit_20261031}{returned records} hold every run.
 The seven-method tables and figures are generated from these tables and the published records by \nolinkurl{review_comparison/seven_methods.py} and the \nolinkurl{review_comparison/joint_process_*.py} scripts, without new solver calls.
 
 \section{Feasibility and bound consistency of conventional GDP results}\label{sec:bound-audit}
@@ -554,7 +555,7 @@ Outcomes list both successful / first only / second only / neither successful.
 Table~\ref{tab:supp-paired} lists the seed-paired target outcomes of \texttt{RBFOpt} and \texttt{D-SDA} in every process condition and of \texttt{BAM} and \texttt{RBFOpt} on \texttt{CSTR5}.
 The \(p\)-values come from the two-sided exact McNemar test, which uses only the pairs in which exactly one method reaches the target.
 They are descriptive and not adjusted for multiple comparisons.
-In the 60 paired \texttt{CSTR} runs, \texttt{RBFOpt} reaches the target in all 31 discordant pairs.
+In the 60 paired \texttt{CSTR} runs, \texttt{RBFOpt} reaches the target in 30 of the 31 discordant pairs.
 
 \begin{table}[htbp]
 \centering\small
@@ -564,17 +565,17 @@ First only and second only count seeds in which only the first or the second met
 \begin{tabular}{llrrrrrr}\toprule
 Contrast & Case & \(B\) & Both & First only & Second only & Neither & \(p\)\\\midrule
 RBFOpt vs D-SDA & \texttt{CSTR5} & 8 & 2 & 6 & 0 & 2 & 0.0312 \\
-RBFOpt vs D-SDA & \texttt{CSTR10} & 15 & 2 & 4 & 0 & 4 & 0.125 \\
+RBFOpt vs D-SDA & \texttt{CSTR10} & 15 & 2 & 4 & 1 & 3 & 0.375 \\
 RBFOpt vs D-SDA & \texttt{CSTR15} & 22 & 2 & 5 & 0 & 3 & 0.0625 \\
 RBFOpt vs D-SDA & \texttt{CSTR20} & 29 & 3 & 4 & 0 & 3 & 0.125 \\
 RBFOpt vs D-SDA & \texttt{CSTR25} & 36 & 3 & 5 & 0 & 2 & 0.0625 \\
-RBFOpt vs D-SDA & \texttt{CSTR30} & 43 & 2 & 7 & 0 & 1 & 0.0156 \\
-RBFOpt vs D-SDA & \texttt{CSTR}, all sizes & -- & 14 & 31 & 0 & 15 & \(9.31\times10^{-10}\) \\
+RBFOpt vs D-SDA & \texttt{CSTR30} & 43 & 3 & 6 & 0 & 1 & 0.0312 \\
+RBFOpt vs D-SDA & \texttt{CSTR}, all sizes & -- & 15 & 30 & 1 & 14 & \(2.98\times10^{-8}\) \\
 RBFOpt vs D-SDA & \texttt{Column} & 13 & 3 & 1 & 2 & 4 & 1 \\
 RBFOpt vs D-SDA & \texttt{Small Batch} & 10 & 4 & 1 & 4 & 1 & 0.375 \\
 RBFOpt vs D-SDA & \texttt{Dynamic} & 12 & 4 & 6 & 0 & 0 & 0.0312 \\
-RBFOpt vs D-SDA & \texttt{Dynamic} & 15 & 5 & 5 & 0 & 0 & 0.0625 \\
-RBFOpt vs D-SDA & \texttt{Dynamic} & 20 & 8 & 2 & 0 & 0 & 0.500 \\
+RBFOpt vs D-SDA & \texttt{Dynamic} & 15 & 6 & 4 & 0 & 0 & 0.125 \\
+RBFOpt vs D-SDA & \texttt{Dynamic} & 20 & 10 & 0 & 0 & 0 & 1 \\
 RBFOpt vs D-SDA & \texttt{Dynamic} & 30 & 10 & 0 & 0 & 0 & 1 \\
 RBFOpt vs D-SDA & \texttt{Dynamic} & 37 & 10 & 0 & 0 & 0 & 1 \\
 RBFOpt vs D-SDA & \texttt{Dynamic} & 50 & 10 & 0 & 0 & 0 & 1 \\
@@ -611,7 +612,7 @@ The relaxed columns count runs whose relative gap to \(f_{\mathrm{ref}}\) is at 
 \label{tab:supp-spread}
 \begin{tabular}{llrrrrrr}\toprule
 Family & Method & Exact & \(\leq0.1\%\) & \(\leq1\%\) & \(\leq5\%\) & \makecell{Distinct\\finals} & \makecell{Miss gap\\range (\%)}\\\midrule
-\multirow{7}{*}{\texttt{CSTR}} & D-SDA & 14/60 & 14 & 17 & 27 & 6 & 0.153--13.0 \\
+\multirow{7}{*}{\texttt{CSTR}} & D-SDA & 16/60 & 16 & 19 & 27 & 5 & 0.224--13.0 \\
  & NOMAD & 21/60 & 21 & 21 & 27 & 3 & 2.23--13.0 \\
  & RBFOpt & 45/60 & 45 & 45 & 47 & 3 & 2.23--12.5 \\
  & MISO & 43/60 & 43 & 43 & 49 & 5 & 2.23--10.6 \\
@@ -635,7 +636,7 @@ Family & Method & Exact & \(\leq0.1\%\) & \(\leq1\%\) & \(\leq5\%\) & \makecell{
  & FMQA-SA & 6/10 & 6 & 6 & 6 & 5 & 6.64--22.2 \\
  & Uniform & 4/10 & 4 & 4 & 4 & 4 & 6.64--22.2 \\
 \midrule
-\multirow{7}{*}{\texttt{Dynamic}} & D-SDA & 47/60 & 47 & 47 & 53 & 5 & 2.07--36.3 \\
+\multirow{7}{*}{\texttt{Dynamic}} & D-SDA & 50/60 & 50 & 50 & 54 & 5 & 2.07--36.3 \\
  & NOMAD & 58/60 & 58 & 58 & 60 & 3 & 2.07--2.66 \\
  & RBFOpt & 60/60 & 60 & 60 & 60 & 1 & -- \\
  & MISO & 60/60 & 60 & 60 & 60 & 1 & -- \\
@@ -653,11 +654,11 @@ Family & Method & Exact & \(\leq0.1\%\) & \(\leq1\%\) & \(\leq5\%\) & \makecell{
 \begin{tabular}{lrrrrrrrr}\toprule
  & & \multicolumn{7}{c}{Search time per evaluation (ms)}\\\cmidrule(l){3-9}
 Family & \makecell{Evaluation\\cost (s)} & D-SDA & NOMAD & RBFOpt & MISO & BAM & FMQA-SA & Uniform\\\midrule
-Grid-GDP & 0.389 & 0.120 & 50.5 & 31.1 & 231 & 3.77 & 604 & 0.0336 \\
-\texttt{CSTR} & 1.46 & 1.40 & 72.2 & 24.2 & 287 & 9.01 & 572 & 0.517 \\
-\texttt{Column} & 2.50 & 1.21 & 3.25 & 17.4 & 51.7 & 1.36 & 527 & 0.551 \\
-\texttt{Small Batch} & 0.422 & 1.36 & 4.75 & 17.0 & 66.8 & 1.69 & 487 & 0.536 \\
-\texttt{Dynamic} & 0.836 & 1.09 & 96.9 & 98.4 & 1860 & 9.34 & 567 & 0.471 \\
+Grid-GDP & 0.390 & 0.0777 & 50.5 & 31.1 & 231 & 3.77 & 604 & 0.0336 \\
+\texttt{CSTR} & 1.46 & 1.24 & 72.2 & 24.2 & 287 & 9.01 & 572 & 0.517 \\
+\texttt{Column} & 2.50 & 0.941 & 3.25 & 17.4 & 51.7 & 1.36 & 527 & 0.551 \\
+\texttt{Small Batch} & 0.422 & 1.02 & 4.75 & 17.0 & 66.8 & 1.69 & 487 & 0.536 \\
+\texttt{Dynamic} & 0.836 & 0.893 & 96.9 & 98.4 & 1860 & 9.34 & 567 & 0.471 \\
 \bottomrule\end{tabular}
 \end{table}
 
@@ -689,7 +690,7 @@ No \texttt{MISO} run failed.
 
 \paragraph{Exploratory paired tests.}
 Table~\ref{tab:supp-nomad-miso-tests} compares \texttt{NOMAD} and \texttt{MISO} with \texttt{D-SDA}, \texttt{RBFOpt}, and each other in every process condition, a family of 70 exact McNemar tests defined after the runs were completed.
-With a Holm correction over the 70 tests, the smallest adjusted \(p\)-value is 0.547, for \texttt{MISO} against \texttt{D-SDA} on \texttt{CSTR30} and against \texttt{NOMAD} on \texttt{CSTR20}, so no contrast is significant at the 0.05 level.
+With a Holm correction over the 70 tests, the smallest adjusted \(p\)-value is 0.547, for \texttt{MISO} against \texttt{NOMAD} on \texttt{CSTR20}, so no contrast is significant at the 0.05 level.
 Ten seeds give each test little power, and a nonsignificant test does not establish equivalence.
 The six \texttt{Dynamic} budgets reuse the same seeds and are not independent replications.
 The last row pools the six \texttt{CSTR} sizes for the descriptive comparisons in the main text; it is not part of the corrected family.
@@ -703,59 +704,58 @@ Each cell gives the number of seeds in which only the first or only the second m
 Case & \(B\) & \makecell{\texttt{NOMAD}\\vs \texttt{D-SDA}} & \makecell{\texttt{NOMAD}\\vs \texttt{RBFOpt}} & \makecell{\texttt{MISO}\\vs \texttt{D-SDA}} & \makecell{\texttt{MISO}\\vs \texttt{RBFOpt}} & \makecell{\texttt{MISO}\\vs \texttt{NOMAD}}\\\midrule
 \texttt{Column} & 13 & \makecell{3:1\\0.625} & \makecell{4:1\\0.375} & \makecell{5:0\\0.0625} & \makecell{6:0\\0.0312} & \makecell{3:0\\0.250} \\
 \texttt{CSTR5} & 8 & \makecell{2:0\\0.500} & \makecell{1:5\\0.219} & \makecell{2:0\\0.500} & \makecell{0:4\\0.125} & \makecell{1:1\\1} \\
-\texttt{CSTR10} & 15 & \makecell{1:0\\1} & \makecell{1:4\\0.375} & \makecell{0:0\\1} & \makecell{0:4\\0.125} & \makecell{0:1\\1} \\
+\texttt{CSTR10} & 15 & \makecell{0:0\\1} & \makecell{1:4\\0.375} & \makecell{0:1\\1} & \makecell{0:4\\0.125} & \makecell{0:1\\1} \\
 \texttt{CSTR15} & 22 & \makecell{0:0\\1} & \makecell{0:5\\0.0625} & \makecell{5:0\\0.0625} & \makecell{1:1\\1} & \makecell{5:0\\0.0625} \\
 \texttt{CSTR20} & 29 & \makecell{0:1\\1} & \makecell{0:5\\0.0625} & \makecell{7:0\\0.0156} & \makecell{3:0\\0.250} & \makecell{8:0\\0.00781} \\
 \texttt{CSTR25} & 36 & \makecell{4:1\\0.375} & \makecell{2:4\\0.688} & \makecell{7:0\\0.0156} & \makecell{2:0\\0.500} & \makecell{4:0\\0.125} \\
-\texttt{CSTR30} & 43 & \makecell{2:0\\0.500} & \makecell{1:6\\0.125} & \makecell{8:0\\0.00781} & \makecell{1:0\\1} & \makecell{6:0\\0.0312} \\
+\texttt{CSTR30} & 43 & \makecell{1:0\\1} & \makecell{1:6\\0.125} & \makecell{7:0\\0.0156} & \makecell{1:0\\1} & \makecell{6:0\\0.0312} \\
 \texttt{Small Batch} & 10 & \makecell{1:3\\0.625} & \makecell{2:1\\1} & \makecell{1:2\\1} & \makecell{2:0\\0.500} & \makecell{3:2\\1} \\
 \texttt{Dynamic} & 12 & \makecell{4:0\\0.125} & \makecell{0:2\\0.500} & \makecell{6:0\\0.0312} & \makecell{0:0\\1} & \makecell{2:0\\0.500} \\
-\texttt{Dynamic} & 15 & \makecell{5:0\\0.0625} & \makecell{0:0\\1} & \makecell{5:0\\0.0625} & \makecell{0:0\\1} & \makecell{0:0\\1} \\
-\texttt{Dynamic} & 20 & \makecell{2:0\\0.500} & \makecell{0:0\\1} & \makecell{2:0\\0.500} & \makecell{0:0\\1} & \makecell{0:0\\1} \\
+\texttt{Dynamic} & 15 & \makecell{4:0\\0.125} & \makecell{0:0\\1} & \makecell{4:0\\0.125} & \makecell{0:0\\1} & \makecell{0:0\\1} \\
+\texttt{Dynamic} & 20 & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} \\
 \texttt{Dynamic} & 30 & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} \\
 \texttt{Dynamic} & 37 & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} \\
 \texttt{Dynamic} & 50 & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} & \makecell{0:0\\1} \\
 \midrule
-\texttt{CSTR}, all sizes & -- & \makecell{9:2\\0.0654} & \makecell{5:29\\\(3.86\times10^{-5}\)} & \makecell{29:0\\\(3.73\times10^{-9}\)} & \makecell{7:9\\0.804} & \makecell{24:2\\\(1.05\times10^{-5}\)} \\
+\texttt{CSTR}, all sizes & -- & \makecell{7:2\\0.180} & \makecell{5:29\\\(3.86\times10^{-5}\)} & \makecell{28:1\\\(1.12\times10^{-7}\)} & \makecell{7:9\\0.804} & \makecell{24:2\\\(1.05\times10^{-5}\)} \\
 \bottomrule\end{tabular}
 \end{table}
 \FloatBarrier
 
 \section{Process D-SDA restarts}\label{sec:supp-dsda-restarts}
-The published process \texttt{D-SDA} descends once from the best of the three shared initial configurations (S).
+The process \texttt{D-SDA} of the main comparison descends once from the best of the three shared initial configurations (S).
 Variant R applies the Grid rule and descends from all three shared initial configurations, best first, while budget remains.
 Variant RR continues after R with descents from uniformly drawn unvisited configurations until the budget is exhausted, and it uses the full budget in all 140 runs.
 No variant receives the reference target.
-All variants read the stored responses, and S reproduces every archived run exactly, including its sequence of evaluated configurations.
-The replay ran with the \texttt{NOMAD} and \texttt{MISO} runs (Section~\ref{sec:supp-nomad-miso}).
-Table~\ref{tab:supp-dsda-restarts} shows that the restarts use the remaining budget without changing any target hit: all three variants reach 74 of the 140 targets, although R and RR evaluate 930 and 959 more configurations than S.
-Both restart variants improve the final objective in the same 11 \texttt{CSTR} runs, all target misses: seeds 5, 6, and 7 of \texttt{CSTR10}, seed 8 of \texttt{CSTR15}, seeds 4 and 8 of \texttt{CSTR20}, seed 8 of \texttt{CSTR25}, and seeds 4, 5, 6, and 8 of \texttt{CSTR30}.
-In each of them, S ends at \((5,1)\), 8.3 to 13.0\% above the reference, and the restarts end 0.4 to 4.1\% above it.
-On \texttt{CSTR10} to \texttt{CSTR30}, most completed restart descents end at the target or at the configuration \((5,1)\), where 30 of the 38 single-descent misses also end.
+All variants read the stored responses and, like the main comparison, never evaluate a configuration twice.
+Table~\ref{tab:supp-dsda-restarts} shows that R and RR evaluate 1,055 and 1,249 more configurations than S and add one target, on seed 4 of \texttt{CSTR30}, so target attainment rises from 79 to 80 of the 140 runs.
+Both restart variants improve the final objective in the same 14 \texttt{CSTR} runs.
+In each of them, S ends at \((5,1)\), 8.3 to 13.0\% above the reference, and the restarts end at the target in the one new hit and 0.4 to 8.6\% above it in the other 13.
+On \texttt{CSTR10} to \texttt{CSTR30}, 31 of the 36 single-descent misses end at \((5,1)\).
 
 \begin{table}[htbp]
 \centering\small
 \caption{Process \texttt{D-SDA} with a single descent (S), restarts from the ranked shared initial configurations (R), and additional random restarts (RR).
-Completion times add the search time measured in the replay to the recorded configuration costs, so the S values can differ in the last digit from Table~\ref{tab:process-tts99}.}
+Completion times add the measured search time to the recorded configuration costs.}
 \label{tab:supp-dsda-restarts}
 \setlength{\tabcolsep}{3.6pt}
 \begin{tabular}{@{}lrccccccccccc@{}}\toprule
  & & \multicolumn{3}{c}{Target hits} & \multicolumn{2}{c}{Full-budget runs} & \multicolumn{3}{c}{Median evaluations} & \multicolumn{3}{c}{Median completion (s)}\\\cmidrule(lr){3-5}\cmidrule(lr){6-7}\cmidrule(lr){8-10}\cmidrule(l){11-13}
 Case & \(B\) & S & R & RR & S & R & S & R & RR & S & R & RR\\\midrule
 \texttt{Column} & 13 & 5 & 5 & 5 & 9 & 10 & 13 & 13 & 13 & 35.44 & 35.69 & 35.69 \\
-\texttt{CSTR5} & 8 & 2 & 2 & 2 & 8 & 10 & 8 & 8 & 8 & 10.67 & 10.69 & 10.69 \\
-\texttt{CSTR10} & 15 & 2 & 2 & 2 & 5 & 10 & 14.5 & 15 & 15 & 18.95 & 21.48 & 21.48 \\
-\texttt{CSTR15} & 22 & 2 & 2 & 2 & 3 & 10 & 18 & 22 & 22 & 29.93 & 35.53 & 35.53 \\
-\texttt{CSTR20} & 29 & 3 & 3 & 3 & 2 & 10 & 22.5 & 29 & 29 & 40.68 & 47.04 & 47.04 \\
-\texttt{CSTR25} & 36 & 3 & 3 & 3 & 2 & 10 & 27.5 & 36 & 36 & 51.68 & 60.26 & 60.26 \\
-\texttt{CSTR30} & 43 & 2 & 2 & 2 & 1 & 9 & 27.5 & 43 & 43 & 53.12 & 78.84 & 78.84 \\
-\texttt{Small Batch} & 10 & 8 & 8 & 8 & 10 & 10 & 10 & 10 & 10 & 3.84 & 3.84 & 3.84 \\
-\texttt{Dynamic} & 12 & 4 & 4 & 4 & 10 & 10 & 12 & 12 & 12 & 12.22 & 12.22 & 12.22 \\
-\texttt{Dynamic} & 15 & 5 & 5 & 5 & 10 & 10 & 15 & 15 & 15 & 15.84 & 15.84 & 15.85 \\
-\texttt{Dynamic} & 20 & 8 & 8 & 8 & 6 & 10 & 20 & 20 & 20 & 21.29 & 21.80 & 21.80 \\
-\texttt{Dynamic} & 30 & 10 & 10 & 10 & 2 & 10 & 23.5 & 30 & 30 & 26.61 & 31.18 & 31.18 \\
-\texttt{Dynamic} & 37 & 10 & 10 & 10 & 0 & 10 & 23.5 & 37 & 37 & 26.61 & 38.62 & 38.63 \\
-\texttt{Dynamic} & 50 & 10 & 10 & 10 & 0 & 7 & 23.5 & 50 & 50 & 26.61 & 48.72 & 48.71 \\
+\texttt{CSTR5} & 8 & 2 & 2 & 2 & 8 & 10 & 8 & 8 & 8 & 10.67 & 10.71 & 10.71 \\
+\texttt{CSTR10} & 15 & 3 & 3 & 3 & 3 & 10 & 11.5 & 15 & 15 & 17.61 & 21.57 & 21.57 \\
+\texttt{CSTR15} & 22 & 2 & 2 & 2 & 2 & 10 & 15.5 & 22 & 22 & 25.68 & 35.19 & 35.19 \\
+\texttt{CSTR20} & 29 & 3 & 3 & 3 & 0 & 10 & 19 & 29 & 29 & 32.31 & 47.49 & 47.49 \\
+\texttt{CSTR25} & 36 & 3 & 3 & 3 & 2 & 9 & 23.5 & 36 & 36 & 45.49 & 60.78 & 60.78 \\
+\texttt{CSTR30} & 43 & 3 & 4 & 4 & 1 & 8 & 24.5 & 43 & 43 & 47.17 & 78.88 & 78.88 \\
+\texttt{Small Batch} & 10 & 8 & 8 & 8 & 10 & 10 & 10 & 10 & 10 & 4.23 & 4.23 & 4.23 \\
+\texttt{Dynamic} & 12 & 4 & 4 & 4 & 9 & 10 & 12 & 12 & 12 & 12.22 & 12.25 & 12.25 \\
+\texttt{Dynamic} & 15 & 6 & 6 & 6 & 6 & 10 & 15 & 15 & 15 & 15.32 & 15.76 & 15.76 \\
+\texttt{Dynamic} & 20 & 10 & 10 & 10 & 3 & 10 & 18 & 20 & 20 & 20.02 & 20.76 & 20.76 \\
+\texttt{Dynamic} & 30 & 10 & 10 & 10 & 0 & 10 & 18 & 30 & 30 & 20.02 & 27.13 & 27.13 \\
+\texttt{Dynamic} & 37 & 10 & 10 & 10 & 0 & 2 & 18 & 34.5 & 37 & 20.02 & 28.01 & 30.05 \\
+\texttt{Dynamic} & 50 & 10 & 10 & 10 & 0 & 0 & 18 & 34.5 & 50 & 20.02 & 28.01 & 37.00 \\
 \bottomrule\end{tabular}
 \end{table}
 \FloatBarrier

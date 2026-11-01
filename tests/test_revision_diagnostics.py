@@ -13,7 +13,7 @@ class RevisionDiagnosticsTests(unittest.TestCase):
 
     def test_exact_hits_match_published_counts(self):
         self.assertEqual(self.spread["cstr", "rbfopt_msrsm_genetic"]["exact"], 45)
-        self.assertEqual(self.spread["cstr", "dsda"]["exact"], 14)
+        self.assertEqual(self.spread["cstr", "dsda"]["exact"], 16)
         self.assertEqual(sum(r["exact"] for (f, m), r in self.spread.items() if m == "fmqa_sa"), 42)
 
     def test_nomad_and_miso_counts_match_the_audited_return(self):
