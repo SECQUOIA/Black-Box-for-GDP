@@ -1,0 +1,253 @@
+{
+  "admitted_budget_excess": 0,
+  "analysis_numpy_version": "2.4.6",
+  "best_improvement": 375.77482800000143,
+  "best_known": {
+    "distinct_accepted": 2716,
+    "distinct_solved": 3499,
+    "gaps": [
+      6,
+      0,
+      3,
+      4,
+      0,
+      4
+    ],
+    "objective": 24895.552861,
+    "positions": [
+      8,
+      8,
+      12,
+      17,
+      17,
+      21
+    ],
+    "references": [
+      "/local/scratch/a/lee4382/repository/catdist_live/results/catalytic_distillation_pilot_20261030/final_pilot_200_conopt/solves.csv"
+    ]
+  },
+  "cache_provenance": {
+    "gams": "/package/gams/54.3/gams",
+    "init": "init.gdx",
+    "init_sha256": "2823c039314e362904e86a15c9baa3fc020c2cdb5343f6c80147ce805b4c9ed4",
+    "model": "distillation_model_corrected.gms",
+    "model_sha256": "426ca77ecfa1c5a85723d24ed0ed0dd2cbd8fbe1d4f6942b1bcba8c7431ed021",
+    "solve_configuration_sha256": "3daf12c97f1567556b35f83f2aa894dd4c28690fc17a940223e38f04e9b2bc79",
+    "solver": "conopt",
+    "threads": 1,
+    "timeout_s": 300.0
+  },
+  "cache_returncodes": {
+    "0": 3497,
+    "7": 2
+  },
+  "cache_statuses": {
+    "accepted": 2652,
+    "model5_solve1": 842,
+    "model7_solve4": 4,
+    "modelNone_solveNone": 1
+  },
+  "campaign_wall_s": 10052.615704,
+  "completed_runs": 210,
+  "conopt_version": "4.39.1",
+  "cpu_topology": [
+    {
+      "core": 21,
+      "cpu": 17,
+      "siblings": [
+        17,
+        65
+      ],
+      "socket": 0
+    },
+    {
+      "core": 50,
+      "cpu": 38,
+      "siblings": [
+        38,
+        86
+      ],
+      "socket": 0
+    },
+    {
+      "core": 57,
+      "cpu": 43,
+      "siblings": [
+        43,
+        91
+      ],
+      "socket": 0
+    }
+  ],
+  "duplicates": 0,
+  "execution_revision": "5580a7eacdc8b4098ba5c239822de2300e667a1c",
+  "expected_runs": 210,
+  "finished_indiana": "2026-10-31T23:00:54.444394-04:00",
+  "finished_utc": "2026-11-01T03:00:54.444394+00:00",
+  "gams_version": "54.3.1",
+  "hit_absolute_tolerance": 0.24895552861000003,
+  "invalid_admitted_coordinates": 0,
+  "missing": 0,
+  "native_attempts": 60,
+  "native_crashes": 0,
+  "native_reruns": 0,
+  "nlp_accounting_note": "3,499 cache rows and 3,500 recorded solve counters do not establish an exact total of actual NLP calls: simultaneous cache misses may execute duplicate solves, and non-forked callback counters can omit the losing solve.",
+  "nlp_returncode_note": "The original acceptance predicate uses solvestat == 1 and modelstat in (1, 2), without checking process returncode; both returncode-7 records are retained, including the accepted record with objective 25273.891950.",
+  "nlp_total_exact": false,
+  "nonzero_nlp_returncodes": [
+    {
+      "accepted": true,
+      "gaps": [
+        5,
+        1,
+        4,
+        2,
+        0,
+        4
+      ],
+      "modelstat": 2,
+      "objective": 25273.89195,
+      "positions": [
+        7,
+        8,
+        13,
+        16,
+        16,
+        20
+      ],
+      "returncode": 7,
+      "solvestat": 1,
+      "status": "accepted"
+    },
+    {
+      "accepted": false,
+      "gaps": [
+        2,
+        0,
+        1,
+        6,
+        1,
+        3
+      ],
+      "modelstat": null,
+      "objective": null,
+      "positions": [
+        4,
+        4,
+        6,
+        13,
+        14,
+        17
+      ],
+      "returncode": 7,
+      "solvestat": null,
+      "status": "modelNone_solveNone"
+    }
+  ],
+  "optimizer_or_nlp_runs_locally": 0,
+  "original_archive": {
+    "bytes": 1808154,
+    "crc_passed": true,
+    "name": "catalytic_distillation_live_dantzig_20261101_030054.zip",
+    "sha256": "1ff96f101b3e30cbb0c47663af13d5d8fc680eb1466c425868e1e25825718e26"
+  },
+  "original_median_convention": "Original conditions.csv uses sorted(values)[n//2], the sixth observation for ten seeds. Independent medians average the fifth and sixth, and quartiles use linear interpolation.",
+  "outer_archive_expected_sha256": "9518bf6ab26faed2d2b2b5e9834280c40a98c0c760679170d480e48112e78dab",
+  "passed": true,
+  "pilot_best": 25271.327689,
+  "preflight_evidence_note": "The returned wrapper records all ten required tests passed across the designated environments; skips from the first environment are followed by passes in the method-specific environments. The raw test log and private GAMS logs remain on Dantzig.",
+  "preflight_raw_log_returned": false,
+  "preflight_required_passed": 10,
+  "rejected_after_budget_cap": 120,
+  "rejected_cap_jobs": 30,
+  "repeated_evaluations_within_run": 0,
+  "source_sha256": {
+    "experiments/catalytic_distillation_live/case.py": "7fca7b9fe9e4f5cb3dc1f572a87d950af4812c13d7cedef3b88080968f600dcf",
+    "experiments/catalytic_distillation_live/run.py": "2bcbd05b67fdf29c0f421d68a729123e59941fcb4557675b21eceac015069a09",
+    "experiments/catalytic_distillation_live/run_dantzig.sh": "741005b0b82a77c7f741a0e1f1c66286f4e3d6bf4f87ccab724f33c69e1e0a9c",
+    "experiments/mixed_integer_dfo/run.py": "4060c5f225dd6d6f32cdf626801bda13cee060425670c0506c9f9ad269571e89",
+    "gdp_models/catalytic_distillation/distillation_model_corrected.gms": "426ca77ecfa1c5a85723d24ed0ed0dd2cbd8fbe1d4f6942b1bcba8c7431ed021",
+    "gdp_models/catalytic_distillation/init.gdx": "2823c039314e362904e86a15c9baa3fc020c2cdb5343f6c80147ce805b4c9ed4",
+    "gdp_models/catalytic_distillation/solve_configuration.gms": "3daf12c97f1567556b35f83f2aa894dd4c28690fc17a940223e38f04e9b2bc79",
+    "results/catalytic_distillation_pilot_20261030/final_pilot_200_conopt/solves.csv": "f5e907a291b71df913ff792fdf3c1f6a567baf2fe0d5c9512ee3d803c6f369a5",
+    "tests/test_catalytic_distillation_live.py": "6940de9212f36b4e2e3de26d710d57c5c7a4d71d24a114895c435727db99f815"
+  },
+  "started_indiana": "2026-10-31T20:13:21.828690-04:00",
+  "started_utc": "2026-11-01T00:13:21.828690+00:00",
+  "totals": {
+    "accepted": 6921,
+    "callback_wall_s": 27937.998093130533,
+    "completion_s": 72798.20061955019,
+    "evaluations": 12015,
+    "logical_rejections": 2789,
+    "point_cost_s": 70774.5278405759,
+    "recorded_solved_now": 3500,
+    "repeated_admissible_requests_across_runs": 5727,
+    "search_overhead_s": 2023.6727789742872,
+    "target_hits": 9,
+    "target_misses": 201,
+    "unaccepted_nlp_callbacks": 2305,
+    "unique_accepted_cache": 2652,
+    "unique_accepted_callback_points": 2652,
+    "unique_all_callback_points": 4811,
+    "unique_cache_solve_wall_s": 27690.78333736374,
+    "unique_cached_configurations": 3499,
+    "worker_wall_s": 29961.67087210482
+  },
+  "unaccepted_callback_statuses": {
+    "model5_solve1": 2298,
+    "model7_solve4": 6,
+    "modelNone_solveNone": 1
+  },
+  "under_budget_runs": [
+    {
+      "budget": 100,
+      "evaluations": 99,
+      "job_id": "dsda_B100_seed0"
+    },
+    {
+      "budget": 100,
+      "evaluations": 89,
+      "job_id": "dsda_B100_seed2"
+    },
+    {
+      "budget": 100,
+      "evaluations": 30,
+      "job_id": "dsda_B100_seed3"
+    },
+    {
+      "budget": 100,
+      "evaluations": 50,
+      "job_id": "dsda_B100_seed4"
+    },
+    {
+      "budget": 100,
+      "evaluations": 71,
+      "job_id": "dsda_B100_seed6"
+    },
+    {
+      "budget": 100,
+      "evaluations": 82,
+      "job_id": "dsda_B100_seed7"
+    },
+    {
+      "budget": 100,
+      "evaluations": 64,
+      "job_id": "dsda_B100_seed8"
+    },
+    {
+      "budget": 50,
+      "evaluations": 30,
+      "job_id": "dsda_B50_seed3"
+    }
+  ],
+  "uploaded_return": {
+    "bytes": 1544410,
+    "crc_passed": true,
+    "name": "RETURN_B.zip",
+    "sha256": "9518bf6ab26faed2d2b2b5e9834280c40a98c0c760679170d480e48112e78dab"
+  },
+  "worker_failures": 0,
+  "worker_occupied_fraction": 0.9934950184220173,
+  "worker_timeouts": 0
+}
