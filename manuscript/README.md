@@ -1,4 +1,28 @@
-# Current manuscript snapshot - joint process comparison
+# Current manuscript snapshot - seven-method revision of October 31, 2026
+
+NOMAD and MISO are now primary methods, from the audited [Dantzig return of PR #56](../results/pr56_dantzig_return_20261031/README.md).
+The abstract, contributions, methods, process and Grid results, Discussion, Conclusions, and supplement report all seven DFO methods; NOMAD's 21 crashed Grid runs stay explicit, and the 70 exploratory paired tests have their own supplementary table.
+Tables and figures are generated without solver calls by [seven_methods.py](../review_comparison/seven_methods.py), the [joint_process_*.py](../review_comparison/joint_process_main.py) scripts, and [revision_diagnostics.py](../review_comparison/revision_diagnostics.py) ([outputs](../results/seven_method_comparison_20261031/README.md)).
+D-SDA never evaluates a configuration twice, as in the original D-SDA and LD-SDA; every D-SDA number, table, and figure comes from Albert's audited rerun (`results/dsda_no_revisit_20261031`), which matches the local rerun run for run.
+The combined PDF compiles with zero errors, warnings, or undefined references; the main text ends on page 21.
+
+# Previous snapshot - review revision of October 30, 2026
+
+This snapshot starts from the Overleaf export of October 30, 2026 and applies David's review comments and the revised story.
+`main.tex`, `supplementary.tex`, `reference.bib`, and the figures here supersede the copies in Overleaf and should be uploaded there.
+The combined PDF compiles with zero errors and zero undefined references; the main text ends on page 19.
+`joint_comparison.pdf` and `manuscript_sources.zip` below are earlier excerpts and were not regenerated.
+
+- The story is framed around NLP subproblems solved: new main Figure 3 ([generator](../review_comparison/joint_process_nlp.py), [outputs](../results/joint_process_nlp_20261030/README.md)) compares DFO runs, GDPopt, and full enumeration.
+- Full enumeration is a reference baseline, with costs in the supplementary completion-cost table and NLP counts in Figure 3.
+- Claims rest on exact paired McNemar tests (supplementary paired-test table); Column and Small Batch differences are described as comparable.
+- Grid-GDP is a short controlled-behavior section after the process results; its cost table and the first-hit process profiles moved to the supplement.
+- Seed spread, tolerance sensitivity, search overhead, GDPopt enumeration counts, and paired tests come from [revision_diagnostics.py](../review_comparison/revision_diagnostics.py) ([outputs](../results/revision_diagnostics_20261030/)).
+- Figures use the Okabe-Ito palette ([outputs](../results/colorblind_figures_20261030/README.md)); time-limited conventional runs are shown as 1800+.
+- The process D-SDA restart check ([experiment](../experiments/dsda_process_multistart/README.md)) and the NOMAD/MISO comparison ([experiment](../experiments/mixed_integer_dfo/README.md)) have Dantzig launchers for Albert.
+- Teal `\claude{}` notes mark text that awaits the Dantzig returns.
+
+# Previous snapshot - joint process comparison
 
 The [updated S9 figures and workload table](../results/joint_process_scip_ipopt_20261030/README.md) now use the SCIP-master/IPOPT-subproblem GDPopt campaign.
 Those two figure PDFs and their captions were applied in place to live Overleaf on October 30, 2026.

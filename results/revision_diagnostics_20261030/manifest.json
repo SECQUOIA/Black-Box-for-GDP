@@ -1,0 +1,35 @@
+{
+  "no_new_experiments": true,
+  "input_sha256": {
+    "results/dsda_publication_20261028/tables/run_records.csv": "5948a78341f20faa9507ef3c9f72f8d0a599b8df7e1b96d8e3153d3c1414e386",
+    "results/archives/dsda_abs1e5_rerun_20261028_020753_2004611.zip": "e58982f7179b73c65d83134dcbe0b25854002685812b2511b24523e861c9929e",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part01.zip": "f123d9e7a7ec2576a7f3230e5797d0f538cd23e8fc48625874c430534949c4db",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part02.zip": "3d3d305c9ee17defd2ee0a2ebcd6a492b9cfc455d211c4ba56c46ff8b1daab6d",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part03.zip": "3207478b35b5514e913a739b5907ccb716c7c5c652ddbfc0c667f7baaf9250d1",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part04.zip": "d547a08316e972e191d2bdf719ade32fcedd4e6fb59b9922ee127ce609227895",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part05.zip": "dd99dd7a6ded1b09ebaf583d9f78625d958471b484437b93f9db492eb6ca3c60",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part06.zip": "583ec7f38d0ccac431707836b9f60986d868f49db930c14363432bd93efe8d66"
+  },
+  "source_sha256": {
+    "review_comparison/revision_diagnostics.py": "3c07421863f644b2fcac1600f53bea37ca6300721037b193a4ae299c1e6a3891"
+  },
+  "outputs_sha256": {
+    "enumeration_cost.csv": "28b487d40550c2cbf34ad0b4fc9b2ba1772f7789c5671c669c37cba13b6621c4",
+    "evaluation_cost_overhead.csv": "8559a904307503f1b21e834380d9b581f1dbc0a006f300ab1a3ffe28029a4cff",
+    "evaluation_cost_overhead.tex": "cf517fd76c71b6f415c941c872ba6ff5881a8c7826ac18f7591ac9b4e0bb0fad",
+    "gdpopt_enumeration.csv": "0f9a194b43e6abc5a9b1137aa7d8e3c18aeeee2dd83dd4c3802e4c68510a8f66",
+    "paired_exact_tests.csv": "3885f496f154654bd4047ca11dac7f7adaa36069e4c7f591b6a7d49fb8a10be6",
+    "paired_exact_tests.tex": "ddeea6c34a60bce1db8b1d4b0f227d5e89a48bdcd0c3ebb865d5d17ee011b8d5",
+    "process_spread_tolerance.csv": "972d2c783292d1c63985bc7f2e1304160c8a774f42daa1fd25fddbe39636ae7e",
+    "process_spread_tolerance.tex": "b1749b17a5cd3cdc9f06431007a669385843fe832746519b4e682242efa3947c",
+    "references.json": "deb3b2a75d6e64b1498c8694cfde45334094499ac1981f62fbbcfb50a2b3195b"
+  },
+  "gap_definition": "(best accepted objective - f_ref) / max(1, |f_ref|), as in the target rule",
+  "evaluation_cost": "median over runs of summed point cost divided by evaluations, all five methods",
+  "search_per_evaluation": "median over runs of stored search_s divided by evaluations",
+  "paired_test": "two-sided exact McNemar test on seed-paired target outcomes; descriptive, unadjusted",
+  "environment": {
+    "python": "3.10.19"
+  },
+  "reproduce": "python -m review_comparison.revision_diagnostics --output /tmp/revision-diagnostics"
+}

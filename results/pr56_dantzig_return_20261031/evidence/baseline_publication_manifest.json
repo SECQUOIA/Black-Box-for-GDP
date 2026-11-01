@@ -1,0 +1,84 @@
+{
+  "baseline_revision": "b8fc38b31ee0ef9cb6ad28f4b5e41add53694c6c",
+  "execution_records": {
+    "grid": {
+      "archive": "results/archives/dsda_grid_target_stop_20261028_032943_2346732.zip",
+      "server_revision": "7f110f9122298a4f492d8ad464e782b2435b167b",
+      "utc_started": "2026-10-28T03:29:46.285160+00:00",
+      "utc_finished": "2026-10-28T03:35:14.077728+00:00",
+      "execution_manifest_member": "dsda_grid_target_stop_20261028_032943_2346732/execution_manifest.json"
+    },
+    "process": {
+      "archive": "results/archives/dsda_abs1e5_rerun_20261028_020753_2004611.zip",
+      "server_revision": "7f110f9122298a4f492d8ad464e782b2435b167b",
+      "utc_started": "2026-10-28T02:07:54.260587+00:00",
+      "utc_finished": "2026-10-28T02:16:17.814103+00:00",
+      "execution_manifest_member": "dsda_abs1e5_rerun_20261028_020753_2004611/execution_manifest.json"
+    }
+  },
+  "no_new_experiments": true,
+  "execution_provenance": "Immutable Grid and Process return archives; not replaced by this analysis revision",
+  "input_sha256": {
+    "results/column_publication_20261025/manifest.json": "9ad42965fd5320499ebaa88a88bd1aef80e516432ceff8ec080507bcbbd33961",
+    "results/column_publication_20261025/tables/run_records.csv": "c4d3cd0c2e46cee976a2684a0b83bf0bb543a75790398aaed293a2b6b7267611",
+    "results/column_publication_20261025/tables/configuration_coverage.csv": "9a26c3b7ad4a000340711a241bdc328498139e88a3e8be23f16a3a1b1a54dda2",
+    "results/grid_gdp_20261009/raw/point_timings.csv": "2490d8f8de368d9b54d6cd3d9082ace5c74dfa2ebb84fd266b0488a43a7fcd0f",
+    "results/archives/review_comparison_20261020_124949_return_1792527395393579314.zip": "659ddd3d1c1f62def4f8875399b63bdd4899f44ff848afb4ea45c079b3c1dc36",
+    "results/archives/dsda_grid_target_stop_20261028_032943_2346732.zip": "3611ba036df02ef8b155e32be7557c4bf7b88dfa1a5aff6e91c6d82fe7fb135a",
+    "results/archives/dsda_abs1e5_rerun_20261028_020753_2004611.zip": "e58982f7179b73c65d83134dcbe0b25854002685812b2511b24523e861c9929e"
+  },
+  "source_sha256": {
+    "review_comparison/dsda_publication.py": "e1339040e170fbaeff702afea168a3119303e6b33834b4d7d2afeabf517fb0a6",
+    "review_comparison/manuscript.py": "722e882326da300719c59a305af1a874dcb3b3fef09584579e70ac49b00193b7",
+    "review_comparison/grid_figures.py": "40eaeb6151c2ee8caa45769c5d5fe7394da6662bafa4d1b3e93391b12bca600e",
+    "review_comparison/process_figures.py": "5c772e8faf883e683a03e726acc31f90641f7be71113f9c55484007d491e1568",
+    "review_comparison/column_publication.py": "c7a257a6a5467dc9eaca88f303f2725681802433d72fbc6178775a32534991b4",
+    "review_comparison/cstr30_publication.py": "c61877c9800a9841e95f8721ea6989ffa03ccb36063b8c91eba9123fe8e50c80",
+    "review_comparison/analysis.py": "cdde929239164930aec89d27453a7186f1d655cc347003085683a3eae53480ed"
+  },
+  "bootstrap": {
+    "seed": 20261020,
+    "replications": 2000,
+    "grid_unit": "function with all 10 paired seeds",
+    "process_unit": "paired seed within one condition",
+    "order": "sorted case, then seed 0 through 9"
+  },
+  "environment": {
+    "python": "3.12.13 (main, Jun 23 2026, 15:44:24) [Clang 22.1.3 ]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "matplotlib": "3.10.3",
+    "scipy": "1.15.3"
+  },
+  "reproduce": "python -m review_comparison.dsda_publication --output /tmp/dsda-publication-replay",
+  "outputs_sha256": {
+    "README.md": "19345b8c2aab36f22207555bff62a30eb999619fce126671d54e5d688d6e3954",
+    "figures/figure_B_grid_evaluation_profiles.pdf": "45bc63e51fc7fd77718c3dabaf90ce35ddb9a6c2297344ffd22369740d8ea2f8",
+    "figures/figure_B_grid_evaluation_profiles.png": "a54771a8c768c1c78c11f2e0ed9c85c89d0011947a74a2e8285a4d3c4249335e",
+    "figures/figure_C_grid_completion_profiles.pdf": "9bad770a380b9ada08175b30fd67ad7a39f8d3286581a720914da4e639fe8e0e",
+    "figures/figure_C_grid_completion_profiles.png": "e0b4608817654ebd63f8036d1e46b2b6e2f53876fabe0927336355a7bbe008b3",
+    "figures/figure_D_grid_tts99.pdf": "ef9ded7c7814492e655d1467eec55e9a088f6131340b11f634766e262c2c48e5",
+    "figures/figure_D_grid_tts99.png": "2105fd656d59f449c948f47cf57c872401ac18ddc97237bf8402c20b18a88a9a",
+    "figures/figure_values.json": "0c7de301316050e7ac8fede97147daf2595103bc25c5878398b8c4382b5e4a24",
+    "figures/grid_figure_values.json": "2d17f78f4b3b716efa262cf11999863995ebc8f357e17d87f8a83f562ad5aedb",
+    "figures/process_completion_profiles.pdf": "5f0b3e9c8e66321efce1d8412a3e68ee38eec456a67007b939176a2a5309e75a",
+    "figures/process_completion_profiles.png": "b719fa0f2df333a6be5e46fda325c0e13fddd289a87dd3924a7e129fae2ce776",
+    "figures/process_completion_scatter.pdf": "b4e8f562756540e52ce745dd6fe59b76923e9a4d08367096fe1503d39bb5ad30",
+    "figures/process_completion_scatter.png": "d8b0a8bd2220bcc1dfa24030098e0f1397f108e13a5a47f8adb940f703a5ae7b",
+    "figures/process_cost_breakdown.pdf": "9dc80ff73343f9db6f99ab2b07c9cff29784c6de16f9e5c1bc6a1c1bc7dced36",
+    "figures/process_cost_breakdown.png": "f25b7ee5b48618be7054a69a56857f380d9217430155fa8270380e0d5d3b63cc",
+    "figures/process_evaluation_profiles.pdf": "3b3b74ac14ac10db1ff0eb9b98232521395e434a7fc42df6b2775d402413d529",
+    "figures/process_evaluation_profiles.png": "9097fc4783ffbbb582c6d5bc1ba4ab4a86e9fdbafcac6522c6992408464fc5a5",
+    "tables/configuration_coverage.csv": "c30e24015ae6ccfb3be27c5ef9ccc2f02e62678bb4b8c78a14e7fb09da58252f",
+    "tables/dsda_callbacks.csv": "cbdd8f5ebfc991e820db94b10fb7bc1c59885c30e7543f88fc40ba11fc3561a7",
+    "tables/grid_cost.tex": "f6ca4f50d0f3b7d309dc2a477586f6d017210e8d410aa8f7b618111c79e9de60",
+    "tables/grid_hits.tex": "ce2b68d7b3f7f1d2a45aef622decebf097f586de838febb5f2666d10c9f2d6f6",
+    "tables/grid_intervals_B100.tex": "1d791550f64838439c2bec6dacb21e60843674586cb8512eeb86a01481491804",
+    "tables/paired_adoption.csv": "c538bafabcb2a065e2f4ff9fb79d966a9f8b1043911c4c46f716225a73a8e583",
+    "tables/paired_grid.csv": "bb063208fdeb479d5380ce4842dc4e0ac9974879f0eba8d332c41334e74f36df",
+    "tables/paired_process.csv": "2dd607c40a00dcf07805427a839baa8bce895f05ddd4bd1bd4437a3eac02f691",
+    "tables/process_cost.tex": "8f06ca341957aa4bd487ed67c1a7c3270503fca8278a69b4d60660d0759be0d1",
+    "tables/process_hits.tex": "7c15f7ddd8f7e3a8b75ce5dafeea1196b89a9d02743f8f5c9c3a62c2898ed86b",
+    "tables/run_records.csv": "5948a78341f20faa9507ef3c9f72f8d0a599b8df7e1b96d8e3153d3c1414e386",
+    "tables/summary.json": "ad67770b5276e2a932d7da4293d7ebaeadc08b2369e086f9283b643413123e29"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "input_sha256": {
+    "results/joint_process_scip_ipopt_20261030/manifest.json": "09ba1c9455761a5898f578dc7705b352458448f27a171c08a125db7a1f1f1c2f",
+    "results/joint_process_scip_ipopt_20261030/joint_runs.csv": "5c59364721a0676e5a27822afc9c034ec61eee66ff707a999fc617ab0880a2b0",
+    "results/gdpopt_scip_ipopt_analysis_20261030/jobs.json": "92c4d60045957a814415f768443f268f3d9e49a6f475c8579746c3bbc8766846",
+    "results/process_scip_four_analysis_20261026/jobs.csv": "4f1a3846dee5f346e53563d848aa1a84421f5e96832a1cc1a1c4514d4aa6cc67",
+    "results/dsda_publication_20261028/tables/configuration_coverage.csv": "c30e24015ae6ccfb3be27c5ef9ccc2f02e62678bb4b8c78a14e7fb09da58252f"
+  },
+  "source_sha256": {
+    "review_comparison/joint_process_nlp.py": "4ad4538d7acd16fda88d3eb92399b583f1f3a0b746cb27ec2202b750fec66a2e",
+    "review_comparison/joint_process_main.py": "0c4164b6e011e3bf1c050769c40f79a04d457361d5419b6d0fb61e33f3923fbd",
+    "review_comparison/joint_process.py": "06eff66bafe3bb3411021441204b45744ce6ed69111f6e926630d910fc89edfe",
+    "review_comparison/joint_process_ipopt.py": "302e3be5f2eced60dc5e197c7470d6759012f0f1c6d4e30aed2542196e63b0a2"
+  },
+  "conditions": [
+    [
+      "cstr_5",
+      8
+    ],
+    [
+      "cstr_10",
+      15
+    ],
+    [
+      "cstr_15",
+      22
+    ],
+    [
+      "cstr_20",
+      29
+    ],
+    [
+      "cstr_25",
+      36
+    ],
+    [
+      "cstr_30",
+      43
+    ],
+    [
+      "column",
+      13
+    ],
+    [
+      "small_batch",
+      10
+    ],
+    [
+      "dynamic",
+      12
+    ]
+  ],
+  "enumeration_nlp_solves": {
+    "column": 36,
+    "cstr_10": 55,
+    "cstr_15": 120,
+    "cstr_20": 210,
+    "cstr_25": 325,
+    "cstr_30": 465,
+    "cstr_5": 15,
+    "dynamic": 37,
+    "small_batch": 12
+  },
+  "new_solver_calls": 0,
+  "environment": {
+    "python": "3.10.19",
+    "matplotlib": "3.10.8"
+  },
+  "reproduce": "python -m review_comparison.joint_process_nlp --output /tmp/joint-process-nlp",
+  "output_sha256": {
+    "README.md": "f9d055ccce1e036baa506d090338aec5f76530933801c4630083c55d8dd11ee8",
+    "enumeration_nlp_solves.json": "a9e4abf91dddc7b83dbc25ff993c35ab47e653bfdbde0971af1533c6121c739d",
+    "process_nlp_solves.pdf": "4fff62ae37e74f0b43949a20238ffa846f9d37540adfe28e142282e3d4075d4b",
+    "process_nlp_solves.png": "9155ae523a0f5b40424358a392fa8dbebf2de471660964fe61495b55f36c0dda",
+    "selected_runs.csv": "cab2f85cbf1dba297d8a6244a770476605ff91753dd2f807419d9b5510a5f7af"
+  }
+}

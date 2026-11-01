@@ -2,6 +2,7 @@
 
 import argparse
 from contextlib import contextmanager
+import functools
 from datetime import datetime, timezone
 import hashlib
 import importlib
@@ -232,11 +233,27 @@ def raw_problem(spec):
     return problem(spec)
 
 
+@contextmanager
+def historical_revisits(*modules):
+    """The sealed campaign evaluated revisited configurations again; reproduce that."""
+    saved = [(m, m.dsda_from_csv) for m in modules]
+    for m, original in saved:
+        m.dsda_from_csv = functools.partial(original, reevaluate_explored=True)
+    try:
+        yield
+    finally:
+        for m, original in saved:
+            m.dsda_from_csv = original
+
+
 def invoke(spec):
+    import grid_dsda
+
     if spec["case_name"] == "small_batch":
         from small_batch_full_domain import run_dfo
 
-        return run_dfo(spec, {})
+        with historical_revisits(grid_dsda):
+            return run_dfo(spec, {})
     module = importlib.import_module("case_studies." + spec["case_name"] + "_dsda")
     kwargs = {
         "seed": spec["seed"],
@@ -250,7 +267,8 @@ def invoke(spec):
     }
     if spec["case_name"] == "cstr":
         kwargs["grid_size"] = spec["grid_size"]
-    return getattr(module, "run_" + spec["case_name"] + "_dsda")(**kwargs)
+    with historical_revisits(module):
+        return getattr(module, "run_" + spec["case_name"] + "_dsda")(**kwargs)
 
 
 def check_events(spec, events, record):
