@@ -150,6 +150,8 @@ The operator \(\veebar\) requires that exactly one disjunct be selected within e
 Logical propositions \(\Omega(\mathbf Y)\) impose additional relationships between Boolean variables.
 
 Following the external-variable reformulation of \citet{ovalle2025logic}, each ordered group of \(m_j\) Boolean alternatives is represented by an external integer variable \(\xi_j\in\{1,\ldots,m_j\}\), which identifies the selected alternative.
+Ordered alternatives, such as the position of a feed along a column, are one of the conditions that \citet{ovalle2025logic} use because they make neighboring values of \(\xi_j\) physically similar configurations.
+The representation itself does not require this order: unordered alternatives, such as a choice among equipment types, can be indexed in any fixed order, as in Section~\ref{sec:lomustine-case}.
 Let \(n_E\) denote the number of external integer variables, and \(\mathcal Y_{\mathrm{logic}}\) the set of Boolean assignments that satisfy the conditions \texttt{exactly-one}, and \(\Omega(\mathbf Y)\).
 The external-variable lattice and its logically admissible subset are
 \begin{equation}\label{eqn:external.lattice}
@@ -381,11 +383,11 @@ Model & \(N\) & Full GDP box & \makecell{Full box\\size} & \makecell{Finite\\loo
 
 \subsection{Simulation-based benchmark: lomustine manufacturing}
 \label{sec:lomustine-case}
-The \texttt{Lomustine} benchmark selects the flowsheet of a manufacturing process for the anticancer drug lomustine whose model is a PharmaPy simulation~\citep{casasorozco2021pharmapy,secquoiaPdIsing}.
-\claude{Please add the reference for the original lomustine superstructure if it should be cited; the data come from SECQUOIA/pd\_ising PR 28.}
+The \texttt{Lomustine} benchmark selects the flowsheet of a manufacturing process for the anticancer drug lomustine whose model is a PharmaPy simulation~\citep{casasorozco2021pharmapy,casasorozco2023techno}.
+The superstructure was introduced by \citet{laky2022superstructure}, related flowsheet synthesis frameworks are described by \citet{barhate2025hybrid}, and \citet{park2026ising} studied its discrete landscape with Ising-based solvers; we use the corrected-model data of \citet{secquoiaPdIsing}.
 The superstructure contains two reactors in series, each a batch reactor, a CSTR, or a PFR, followed by a batch vaporizer and a crystallizer that is either an unseeded batch cooling crystallizer or a train of one, two, or three mixed-suspension, mixed-product-removal (MSMPR) crystallizers.
 The external variables \(\xi_1\) and \(\xi_2\) select the two reactors in the order (batch, CSTR, PFR), and \(\xi_3\) selects the crystallizer in the order (batch, one, two, three MSMPR stages), which gives \(3\times3\times4=36\) configurations, all logically admissible.
-These choices are categorical, so their order is a convention taken from the source enumeration; the neighborhoods of \texttt{D-SDA} and \texttt{NOMAD} and the surrogate models act on this order.
+These choices are categorical, so this case does not meet the ordering condition of the external-variable reformulation; we index the alternatives in the order of the source enumeration, and the neighborhoods of \texttt{D-SDA} and \texttt{NOMAD} and the surrogate models act on this order.
 
 For each configuration, \texttt{NOMAD} optimizes 12 to 16 normalized operating inputs, including reactor temperatures and residence times, the reagent concentration, the cooling profile, and the crystallizer residence times, with 60 simulations, which solves Problem~\eqref{eqn:sim-sub} approximately.
 The objective \(-(\dot m/10^{-4}+2d_{50})\), with the production rate \(\dot m\) in kg/s and the median crystal size \(d_{50}\) in \(\mu\)m, rewards both quantities, and a solubility path constraint prevents crystallization before the crystallizer; all 36 configurations satisfy it.
