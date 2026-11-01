@@ -5,7 +5,9 @@
 Reads plan.json and runs/<job>/{spec,result}.json and callbacks.jsonl written by
 experiments/catalytic_distillation_live/run.py with LIVE_DFO_CASE pointing to case.py.
 A run reaches the target when its best accepted objective is within the relative
-tolerance 1e-5 of the best objective of the 36 enumerated configurations.
+tolerance 1e-5 of the best objective of the 36 enumerated configurations.  As in the
+PR #56 NOMAD runs, a native crash that repeats on both attempts after identical
+evaluations is scored on the evaluations completed before the crash, and counted.
 """
 
 import argparse
@@ -31,18 +33,29 @@ def sig3(x):
     return f"{x:#.3g}".rstrip(".")
 
 
+def identical_attempts(directory, calls):
+    """Every attempt evaluated the same configurations as the recorded path."""
+    attempts = sorted(directory.glob("attempt*.jsonl"))
+    paths = [[json.loads(line)["point"] for line in a.read_text().splitlines()] for a in attempts]
+    return len(paths) >= 2 and all(p == [c["point"] for c in calls] for p in paths)
+
+
 def load(runs):
     plan = json.loads((runs / "plan.json").read_text())
     if Path(plan["case"]).name != "case.py" or plan["case_sha256"] != case.sha256(HERE / "case.py"):
         raise ValueError("Runs were planned with a different case module")
+    if plan.get("case_options", case.OPTIONS) != case.OPTIONS:
+        raise ValueError("Set LOMUSTINE_ORDER and LOMUSTINE_OBJECTIVE as in the planned runs")
     rows = []
     for job in plan["jobs"]:
         d = runs / "runs" / job["job_id"]
         result = json.loads((d / "result.json").read_text())
         calls = [json.loads(line) for line in (d / "callbacks.jsonl").read_text().splitlines()]
-        if len(calls) != result["evaluations"] or result["status"] not in ("completed", "completed_after_verified_rerun"):
+        crashed = result["status"].startswith("crashed_exit_") and identical_attempts(d, calls)
+        if len(calls) != result["evaluations"] or not (
+                crashed or result["status"] in ("completed", "completed_after_verified_rerun")):
             raise ValueError(f"Incomplete run {job['job_id']}")
-        rows.append(dict(job=job, result=result, calls=calls))
+        rows.append(dict(job=job, result=result, calls=calls, crashed=crashed))
     if len(rows) != len(plan["jobs"]):
         raise ValueError("Missing runs")
     return plan, rows
@@ -54,7 +67,8 @@ def summarize(rows, reference):
     for r in rows:
         calls, job = r["calls"], r["job"]
         first = next((c["index"] for c in calls if c["accepted"] and abs(c["raw_objective"] - reference) <= target), None)
-        out.append(dict(method=job["method"], budget=job["budget"], seed=job["seed"], hit=first is not None,
+        out.append(dict(method=job["method"], budget=job["budget"], seed=job["seed"], crashed_identical=r["crashed"],
+                        hit=first is not None,
                         first_hit=first, best_objective=r["result"]["best_objective"],
                         evaluations=len(calls), distinct=len({tuple(c["point"]) for c in calls}),
                         point_cost_h=sum(c["point_cost_s"] for c in calls) / 3600,
@@ -145,7 +159,9 @@ def main(argv=None):
                                   max(r["objective"] for r in responses.values())],
                  simulations_per_configuration=sorted({r["simulations"] for r in responses.values()}),
                  continuous_variables=sorted({r["continuous_variables"] for r in responses.values()}),
-                 runs=len(runs), starts={k: v for k, v in plan["starts"].items()},
+                 runs=len(runs), crashed_identical_runs=[f"{r['method']}_B{r['budget']}_seed{r['seed']}"
+                                                         for r in runs if r["crashed_identical"]],
+                 options=case.OPTIONS, starts={k: v for k, v in plan["starts"].items()},
                  case_sha256=plan["case_sha256"], data_sha256=case.DATA_SHA256)
     (args.output / "facts.json").write_text(json.dumps(facts, indent=2) + "\n")
     files = sorted(p for p in args.output.iterdir() if p.name != "manifest.json")

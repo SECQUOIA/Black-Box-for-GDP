@@ -1,0 +1,14 @@
+{
+  "source_sha256": {
+    "case.py": "1651c8ab2bd113ecbbe66fbc4107d1130077f15114b424ff695258c0abf88c80",
+    "analyze.py": "bed25ab28f3f6accb087dc42a2ad1ac9790f1a492850e2f8bad9373822f0f5ff"
+  },
+  "outputs_sha256": {
+    "conditions.csv": "0fbd9a5ed817b69d2e11e806859a0028b6711381a6f6f76d9b30fb54c56c1bb8",
+    "configurations_table.tex": "1346d7f17a00db951b5252a13d2d511a6f9d4441485691e582d919e4142af6ff",
+    "facts.json": "821e8d24fdf79c242fdcab96ea8bffee38e32ab077564726ad2aa4ee1c79255d",
+    "hits_table.tex": "e4b0a82c46e2ac138f6066abf1704074c78b11fbc64ea2076c9be6e327a7e42f",
+    "runs.csv": "ef8c19d0186719314309379a03f267a6c8d8ab8d8990b195ce1eaf7543da153f"
+  },
+  "reproduce": "python experiments/lomustine_simulation/analyze.py --runs RUNS --output OUT"
+}

@@ -151,7 +151,7 @@ Logical propositions \(\Omega(\mathbf Y)\) impose additional relationships betwe
 
 Following the external-variable reformulation of \citet{ovalle2025logic}, each ordered group of \(m_j\) Boolean alternatives is represented by an external integer variable \(\xi_j\in\{1,\ldots,m_j\}\), which identifies the selected alternative.
 Ordered alternatives, such as the position of a feed along a column, are one of the conditions that \citet{ovalle2025logic} use because they make neighboring values of \(\xi_j\) physically similar configurations.
-The representation itself does not require this order: unordered alternatives, such as a choice among equipment types, can be indexed in any fixed order, as in Section~\ref{sec:lomustine-case}.
+The representation itself does not require this order: unordered alternatives, such as a choice among equipment types, can be indexed in any fixed order, as in Section~\ref{sec:lomustine-case}, although the order then shapes the neighborhoods and surrogate models of the search (Section~\ref{sec:lomustine-results}).
 Let \(n_E\) denote the number of external integer variables, and \(\mathcal Y_{\mathrm{logic}}\) the set of Boolean assignments that satisfy the conditions \texttt{exactly-one}, and \(\Omega(\mathbf Y)\).
 The external-variable lattice and its logically admissible subset are
 \begin{equation}\label{eqn:external.lattice}
@@ -788,6 +788,11 @@ In this case, an evaluation costs minutes of simulation, so the completion time 
 Median search times stay below 13~s, whereas the median completion times with ten evaluations range from 1.0 to 1.5~h, compared with 5.3~h for evaluating all 36 configurations.
 \texttt{MISO}, which spends the most search time per evaluation on the other process models, completes its ten-evaluation runs in a median of 1.13~h, about as fast as any method.
 
+Because the order of the categorical alternatives is a convention, we repeated the 210 runs with five other orders, including the reversed order and an order by degree of back-mixing (Supplementary Section~\ref{sec:supp-lomustine}).
+The order changes the results of several methods.
+With 20 evaluations, \texttt{BAM} reaches the reference in 0 to 10 of the ten runs depending on the order, \texttt{D-SDA} in 3 to 8, and \texttt{MISO} in 6 to 10, whereas \texttt{RBFOpt} reaches it in 9 or 10 runs in every order.
+When the objective is the capital cost of each flowsheet at its optimized operation, the all-batch flowsheet is the reference and \texttt{BAM} reaches it in every run.
+
 \begin{table}[htbp]
 \centering
 \caption{\texttt{Lomustine}: runs out of ten that reach the reference configuration (top) and median full-run completion time in hours (bottom), including target misses.
@@ -913,6 +918,7 @@ As the configuration space grows, logic-based methods that solve one subproblem 
 The \texttt{Lomustine} case shows that the configuration search carries over when a simulator defines each subproblem and conventional GDP methods do not apply.
 Its ranking agrees with the \texttt{CSTR} and Grid results: the two radial-basis-function methods reach the reference most often, \texttt{NOMAD} stops early, and the size of the \texttt{D-SDA} neighborhood limits local descent on small budgets.
 Because each evaluation costs minutes, the search overhead that slows \texttt{MISO} on \texttt{Dynamic} is negligible here.
+Unordered alternatives can still be encoded as external variables, but their order is then part of the problem the search sees: with 20 evaluations, only \texttt{RBFOpt} reached the reference in at least nine of ten runs in every order.
 
 These conclusions rest on configuration spaces of 25 to 900 configurations, on NLP responses obtained with one initialization per model, and on completion times that combine recorded search paths with one cost measurement per configuration.
 Because the \texttt{CSTR} budgets grow with \(N\), the \texttt{CSTR} series does not isolate the effect of size.

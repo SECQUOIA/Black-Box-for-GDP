@@ -30,6 +30,21 @@
     16
   ],
   "runs": 210,
+  "crashed_identical_runs": [],
+  "options": {
+    "reactors": [
+      "batch",
+      "CSTR",
+      "PFR"
+    ],
+    "crystallizers": [
+      "batchU",
+      "cont1",
+      "cont2",
+      "cont3"
+    ],
+    "objective": "productivity"
+  },
   "starts": {
     "0": [
       [
@@ -202,6 +217,6 @@
       ]
     ]
   },
-  "case_sha256": "cd44bfa0c6a776670ddfd5a91ee9b7d3786e9ae90bfb9123395e9b46da3996f4",
+  "case_sha256": "1651c8ab2bd113ecbbe66fbc4107d1130077f15114b424ff695258c0abf88c80",
   "data_sha256": "c44dd7b21a91b09d6243c2f9a1fc6f746d25f57edd7562c5636c674cac020a3e"
 }

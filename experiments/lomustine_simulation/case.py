@@ -18,6 +18,13 @@ VAP01 is always a batch vaporizer, and all 36 box points are admissible.  The fo
 single-reactor semibatch options of the source do not fit this box and are excluded.
 The case plugs into experiments/catalytic_distillation_live/run.py through
 LIVE_DFO_CASE.
+
+Two environment variables select variants for sensitivity runs:
+
+  LOMUSTINE_ORDER      reactor and crystallizer orders, e.g. "batch,PFR,CSTR/batchU,cont3,cont2,cont1"
+                       (default: the source order above)
+  LOMUSTINE_OBJECTIVE  "productivity" (default, the optimized objective) or "turton_capex", the
+                       bare-module equipment cost in USD of each flowsheet at its optimized operation
 """
 
 import ast
@@ -25,6 +32,7 @@ import csv
 import hashlib
 import itertools
 import json
+import os
 from pathlib import Path
 import sqlite3
 
@@ -32,8 +40,18 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 DATA = HERE / "data/run_objmassprodcrys_sum_corrected_nomad.csv"
 DATA_SHA256 = "c44dd7b21a91b09d6243c2f9a1fc6f746d25f57edd7562c5636c674cac020a3e"
-REACTORS = ("batch", "CSTR", "PFR")
-CRYSTALLIZERS = ("batchU", "cont1", "cont2", "cont3")
+SOURCE_REACTORS = ("batch", "CSTR", "PFR")
+SOURCE_CRYSTALLIZERS = ("batchU", "cont1", "cont2", "cont3")
+_order = os.environ.get("LOMUSTINE_ORDER", "")
+if _order:
+    REACTORS, CRYSTALLIZERS = (tuple(part.split(",")) for part in _order.split("/"))
+    if sorted(REACTORS) != sorted(SOURCE_REACTORS) or sorted(CRYSTALLIZERS) != sorted(SOURCE_CRYSTALLIZERS):
+        raise ValueError(f"LOMUSTINE_ORDER must permute the source options: {_order}")
+else:
+    REACTORS, CRYSTALLIZERS = SOURCE_REACTORS, SOURCE_CRYSTALLIZERS
+OBJECTIVE = os.environ.get("LOMUSTINE_OBJECTIVE", "productivity")
+OBJECTIVE_COLUMN = {"productivity": "Best Objective Value", "turton_capex": "Total_Turton_CAPEX_USD"}[OBJECTIVE]
+OPTIONS = dict(reactors=list(REACTORS), crystallizers=list(CRYSTALLIZERS), objective=OBJECTIVE)
 DIM = 3
 LOWER, UPPER = [0, 0, 0], [len(REACTORS) - 1, len(REACTORS) - 1, len(CRYSTALLIZERS) - 1]
 COORDINATES = "option_indices"
@@ -93,11 +111,13 @@ def table():
     rows = {}
     for r in csv.DictReader(open(DATA, newline="")):
         layout = ast.literal_eval(r["Layout"])
-        point = gaps_of(layout)
-        if 12 * point[0] + 4 * point[1] + point[2] != int(r["Combination_Index"]):
+        source = (SOURCE_REACTORS.index(layout[0]), SOURCE_REACTORS.index(layout[1]),
+                  SOURCE_CRYSTALLIZERS.index(layout[3]))
+        if 12 * source[0] + 4 * source[1] + source[2] != int(r["Combination_Index"]):
             raise ValueError(f"Unexpected enumeration order at {r['Combination_Index']}")
+        point = gaps_of(layout)
         g1 = float(r["g1_solub_path_con"])
-        rows[point] = dict(objective=float(r["Best Objective Value"]), g1=g1, accepted=g1 <= G1_TOL,
+        rows[point] = dict(objective=float(r[OBJECTIVE_COLUMN]), g1=g1, accepted=g1 <= G1_TOL,
                            inner_optimization_s=float(r["Evaluation Time"]),
                            simulations=int(r["Blackbox Evaluations"]), layout=list(layout),
                            continuous_variables=len(r["Best Solution (feasible)"].strip("() ").split()))
@@ -114,7 +134,7 @@ def reference_values():
 def provenance(_gams=None):
     return dict(source="SECQUOIA/pd_ising PR 28", commit="633cf923f07abba88970fa1fa816c4d06769751e",
                 path="ds-mfg/simulation/data/corrected_model_pharmapy_current/run_objmassprodcrys_sum_corrected_nomad.csv",
-                data_sha256=DATA_SHA256, case_sha256=sha256(__file__))
+                data_sha256=DATA_SHA256, case_sha256=sha256(__file__), options=OPTIONS)
 
 
 class Evaluator:

@@ -328,6 +328,61 @@ Table~\ref{tab:supp-lomustine} lists the 36 two-reactor configurations; the four
 The configurations with a batch crystallizer have the lowest objective for every reactor pair, and the choice of the first reactor changes the objective by up to a factor of 2.9.
 The vendored table, case module, run records, and analysis are listed in Section~\ref{sec:supp-data}.
 
+\paragraph{Option order and objective.}
+The external variables index categorical alternatives, so we repeated the 210 runs with the five other orders of Table~\ref{tab:supp-lomustine-orders}, using the same seeds, initial designs in index space, and budgets.
+Table~\ref{tab:supp-lomustine-order-hits} reports the hits in the source order and their range over the six orders.
+\texttt{NOMAD} 4.6.0 ended with a segmentation fault after identical evaluations on both attempts in 12 runs over all campaigns; as for the Grid runs of Section~\ref{sec:supp-nomad-miso}, these runs are scored on the evaluations completed before the crash.
+Table~\ref{tab:supp-lomustine-capex} repeats the source-order runs with the bare-module capital cost of each flowsheet at its optimized operation as the objective, whose reference is the all-batch flowsheet at \$82{,}766.
+This cost is evaluated at the operating point that maximizes production and crystal size, and it is not itself optimized over the operating inputs.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{\texttt{Lomustine}: orders of the reactor and crystallizer alternatives used as external-variable indices; crystallizers are listed as batch or by the number of MSMPR stages.}
+\label{tab:supp-lomustine-orders}
+\begin{tabular}{@{}lll@{}}\toprule
+Order & Reactors & Crystallizers\\\midrule
+Source & batch, CSTR, PFR & batch, 1, 2, 3 \\
+Reversed & PFR, CSTR, batch & 3, 2, 1, batch \\
+Back-mixing & batch, PFR, CSTR & batch, 3, 2, 1 \\
+Random 1 & PFR, batch, CSTR & 1, 2, batch, 3 \\
+Random 2 & batch, PFR, CSTR & batch, 3, 1, 2 \\
+Random 3 & CSTR, PFR, batch & 2, 1, batch, 3 \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{\texttt{Lomustine}: runs out of ten that reach the reference configuration in the source order and, in brackets, the range over the six orders of Table~\ref{tab:supp-lomustine-orders}.}
+\label{tab:supp-lomustine-order-hits}
+\begin{tabular}{@{}lccc@{}}\toprule
+Method & \(B=10\) & \(B=15\) & \(B=20\)\\\midrule
+\texttt{D-SDA} & 1 [1, 6] & 4 [3, 8] & 4 [3, 8] \\
+\texttt{NOMAD} & 6 [5, 6] & 6 [5, 9] & 6 [5, 9] \\
+\texttt{RBFOpt} & 8 [2, 8] & 9 [7, 10] & 10 [9, 10] \\
+\texttt{MISO} & 7 [4, 7] & 10 [5, 10] & 10 [6, 10] \\
+\texttt{BAM} & 0 [0, 2] & 4 [0, 10] & 6 [0, 10] \\
+\texttt{FMQA-SA} & 2 [2, 7] & 3 [3, 10] & 7 [7, 10] \\
+Uniform & 2 [0, 4] & 4 [2, 4] & 5 [4, 7] \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{\texttt{Lomustine} with the capital-cost objective: runs out of ten that reach the all-batch reference configuration, in the source order.
+Bold counts mark the largest number of hits for each budget, including ties.}
+\label{tab:supp-lomustine-capex}
+\begin{tabular}{@{}lccc@{}}\toprule
+Method & \(B=10\) & \(B=15\) & \(B=20\)\\\midrule
+\texttt{D-SDA} & 3 & 6 & 9 \\
+\texttt{NOMAD} & 9 & 9 & 9 \\
+\texttt{RBFOpt} & 7 & 8 & \textbf{10} \\
+\texttt{MISO} & 8 & \textbf{10} & \textbf{10} \\
+\texttt{BAM} & \textbf{10} & \textbf{10} & \textbf{10} \\
+\texttt{FMQA-SA} & 2 & 3 & 5 \\
+Uniform & 4 & 7 & 8 \\
+\bottomrule\end{tabular}
+\end{table}
+
 \begin{table}[htbp]
 \centering\footnotesize
 \caption{\texttt{Lomustine}: objective of every configuration and, in parentheses, the wall time of its simulation-based optimization.
