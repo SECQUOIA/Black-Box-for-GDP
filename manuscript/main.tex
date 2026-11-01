@@ -52,7 +52,7 @@
 \newcommand{\albert}[1]{\textcolor{blue}{A: #1}}
 \newcommand{\claude}[1]{\textcolor{teal}{C: #1}}
 
-\title{Black-Box Configuration Search for Generalized Disjunctive Programming}
+\title{Generalized Disjunctive Programming with Derivative-Free Configuration Search}
 \author[1]{Albert Joon Lee\orcidB}
 \author[2]{Woosik Kim\orcidC}
 \author[1,*]{David E. Bernal Neira\orcidA}
@@ -68,18 +68,17 @@
 \maketitle
 
 \begin{abstract}
-Selecting the configuration of a generalized disjunctive programming (GDP) model can require solving one nonlinear programming (NLP) subproblem for every candidate configuration.
-We test whether black-box search over an existing external integer representation of the logical decisions finds high-quality configurations with fewer subproblem solves than conventional GDP methods and discrete steepest descent (D-SDA).
-On four process GDP families (nine models) and 21 Grid test functions, we compare the surrogate methods RBFOpt, MISO, Branch-and-Model (BAM), and factorization-machine-based optimization with simulated annealing (FMQA-SA), and the direct-search method NOMAD, with D-SDA, uniform sampling, logic-based GDPopt methods, direct Big-\(M\) and Hull reformulations, and full enumeration, using common initial configurations, evaluation budgets, and stored subproblem responses.
-On continuous stirred-tank reactor (CSTR) networks, the radial-basis-function methods RBFOpt and MISO reach the reference objective in 45 and 43 of 60 runs, compared with 21 for NOMAD and 16 for D-SDA, whose descents mostly end at the same local minimum with or without restarts.
-On the largest network, MISO and RBFOpt reach the reference in ten and nine of ten runs with medians of 29.5 and 31.5 NLP solves, whereas the logic-based methods solve up to 455 subproblems, nearly one for each admissible configuration, and miss it.
-On the two smallest design models, exact paired tests detect no difference between D-SDA and RBFOpt, MISO reaches all ten Column targets, and a direct reformulation solves the smallest in half a second.
-On the Grid functions, MISO and RBFOpt reach 86.2\% and 81.4\% of the targets at a budget of 100 evaluations, compared with 60.0\% for NOMAD and 48.1\% for D-SDA.
-MISO reaches the most targets overall but spends more search time than RBFOpt on several conditions.
-On a pharmaceutical flowsheet whose configurations are evaluated by simulation-based optimization in PharmaPy, where GDP solvers do not apply, RBFOpt and MISO find the best of 36 configurations in every run with 20 evaluations.
-On a catalytic distillation column with 54,159 admissible configurations, each evaluated by solving its NLP, D-SDA and MISO reach the best known design in three of ten runs with 100 evaluations, whereas MINLP solvers applied to its published, Big-\(M\), and Hull formulations find no design within 15\% of it.
-Black-box configuration search is most useful when the configuration space is too large to enumerate and contains deceptive local minima, or when configurations are evaluated by simulation; for small algebraic models, enumeration or direct reformulation is simpler.
+Generalized disjunctive programming (GDP) describes process design alternatives with Boolean variables, disjunctions, and logical propositions, and fixing one configuration leaves a subproblem in the continuous decisions.
+Conventional GDP methods reformulate the model as a mixed-integer nonlinear program (MINLP) or decompose it with logic-based algorithms; both need the equations of every alternative, which a process simulator does not expose, and MINLP reformulations of nonconvex process models can be intractable.
+The external-variable reformulation turns the choice of a configuration into an optimization over an integer lattice whose objective is the subproblem value, which derivative-free optimization (DFO) can search while the GDP model keeps describing the alternatives.
+We pair GDP models with surrogate DFO methods and the direct-search method NOMAD and compare them with discrete steepest descent (D-SDA), logic-based and MINLP solvers, and enumeration on nine process models, 21 test functions, a pharmaceutical flowsheet simulated in PharmaPy, and a catalytic distillation column with 54,159 configurations.
+On the largest reactor network, the surrogate methods MISO and RBFOpt reach the reference in nine or ten of ten runs with about 30 subproblem solves, whereas logic-based methods solve nearly one subproblem for each admissible configuration and most D-SDA descents end at one local minimum.
+On the flowsheet, where GDP solvers do not apply, RBFOpt and MISO find the best of 36 simulated configurations in every run with 20 evaluations.
+On the catalytic column, D-SDA and MISO reach the best known design with 100 evaluations, whereas MINLP solvers find no design within 15\% of it and global solvers return contradictory certificates.
+A GDP model can therefore be solved by derivative-free configuration search whenever its subproblems can be evaluated, including by simulation.
+This search pays off when the configuration space is too large to enumerate, has deceptive local minima, or has MINLP reformulations that fail, and enumeration or a direct reformulation is simpler for small algebraic models.
 % \david{Let's rewrite the abstract using https://imgv2-2-f.scribdassets.com/img/document/277786588/original/2a6edb71c4/1?v=1}
+% Rewritten following that structure: context, problem, approach, results, and their general meaning.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Generalized disjunctive programming; Black-box optimization; Derivative-free optimization; Surrogate modeling; Process systems engineering; Computational benchmarking.
@@ -96,28 +95,36 @@ Consequently, identifying high-quality configurations with fewer evaluations of 
 Conventional GDP solution methods generally rely on mixed-integer nonlinear programming (MINLP) reformulations or logic-based decomposition.
 The Big-\(M\) and Hull reformulations transform disjunctive constraints into algebraic formulations~\citep{raman1994modelling,grossmann2003hull}, while logic-based approaches select discrete configurations and solve the corresponding reduced subproblems~\citep{turkay1996logic,bergamini2005logic}.
 In logic-based approaches, the strategy used to select discrete configurations can significantly affect the number of subproblem evaluations required.
+Both families need the algebraic equations of every disjunct.
+When a unit is described by a process simulator, these equations are not available, and when the model is nonconvex, a reformulation keeps the equations of units that a configuration does not contain, whose terms can be poorly scaled or undefined at the values that absent units take.
 
 Discrete-Steepest Descent (D-SDA) was previously applied to process superstructure optimization by \citet{linan2020optimal}.
 Building on this approach, our previous work introduced the Logic-Based Discrete-Steepest Descent (LD-SDA), which represents ordered Boolean decisions using external integer variables~\citep{ovalle2025logic}.
-LD-SDA explores the resulting integer space through neighborhood search and discrete line search, evaluating selected configurations by solving their corresponding reduced optimization subproblems.
+With this external-variable reformulation, the GDP becomes an optimization over an integer lattice whose objective is the value of the subproblem of each configuration.
+The GDP model still describes the alternatives, their logic, and the subproblem of each configuration, but the method that searches the lattice needs only the value of each configuration.
+LD-SDA explores the integer space through neighborhood search and discrete line search, evaluating selected configurations by solving their corresponding reduced optimization subproblems.
 However, as a local search method, LD-SDA may converge to different locally optimal solutions depending on the starting point and the selected neighborhood~\citep{peng2024dynamic}.
 
-We use the existing external integer representation to search GDP configurations with black-box optimization methods.
-Surrogate-based derivative-free optimization (DFO) uses accumulated objective observations to guide new evaluations~\citep{larson2019derivative}.
+Because the lattice search needs only configuration values, any derivative-free optimization (DFO) method can perform it, and the GDP model can then be solved even when its subproblems are simulations or its MINLP reformulations fail.
+We pair GDP models in their external integer representation with DFO methods that search the configurations.
+Surrogate-based DFO uses accumulated objective observations to guide new evaluations~\citep{larson2019derivative}.
 RBFOpt builds radial basis function surrogates and balances predicted objective values with exploration~\citep{costa2018rbfopt}, and MISO combines radial basis function surrogates with sampling strategies designed for integer variables~\citep{muller2016miso}.
 The comparison also includes Branch-and-Model (BAM)~\citep{ma2023bam} and a variant of the factorization machine with quantum annealing (FMQA) framework~\citep{kitai2020designing}, in which classical simulated annealing replaces quantum annealing; we denote this variant FMQA-SA.
 FMQA represents its surrogate as a quadratic unconstrained binary optimization problem, the input format of quantum annealers, which makes it a candidate for quantum-assisted configuration search.
 We also include the mesh adaptive direct-search solver NOMAD~\citep{audet2022nomad}, which, with MISO, performed best on mixed-integer problems in the comparison of \citet{ploskas2022review}.
-We ask whether these methods find high-quality configurations with fewer NLP subproblem solves than D-SDA and conventional GDP methods, and when this advantage translates into shorter computing time.
+We ask three questions.
+First, do these methods find high-quality configurations with fewer NLP subproblem solves than D-SDA and conventional GDP methods, and when does this advantage translate into shorter computing time?
+Second, does the same search solve GDP models whose subproblems are evaluated by a simulator?
+Third, does it solve GDP models whose MINLP reformulations defeat conventional solvers?
 
 Candidate selection has its own cost, and evaluation costs vary between configurations~\citep{more2009benchmarking}.
 We therefore report three measures for every method: how often it reaches the reference objective, how many NLP subproblems it solves, and its estimated completion time.
-Full enumeration of each configuration domain and uniform sampling serve as references, and all methods share stored configuration responses, initial configurations, and evaluation budgets.
+Full enumeration of each configuration domain and uniform sampling serve as references, and all methods share initial configurations, evaluation budgets, and the responses of each configuration.
 The contributions are as follows:
 \begin{itemize}
+\item A use of the external-variable reformulation as the interface between a GDP model and a derivative-free configuration search, extended to subproblems defined by a process simulator and demonstrated on a lomustine manufacturing flowsheet simulated in PharmaPy and written as a GDP.
 \item A comparison of surrogate-based and direct-search configuration methods with local descent, logic-based and direct GDP methods, and full enumeration on four process GDP families and 21 Grid test functions, measured by target attainment, NLP subproblems solved, and completion time.
 \item Evidence from execution records that the logic-based methods solve one subproblem for each admissible configuration of these models, whereas surrogate search reaches near-optimal configurations with a small fraction of those subproblems.
-\item An extension of the external-variable formulation to subproblems defined by a process simulator, demonstrated on a lomustine manufacturing flowsheet simulated in PharmaPy.
 \item A benchmark with live NLP evaluations on a catalytic distillation column whose 54,159 admissible configurations are too many to enumerate, together with valid Big-\(M\) and Hull reformulations of its GDP model, on which conventional MINLP solvers fail and global solvers return contradictory certificates.
 \item An analysis of the landscape features that determine when surrogate search outperforms local descent, with recommendations for choosing among enumeration, direct reformulation, local descent, and surrogate search.
 \end{itemize}
@@ -183,6 +190,7 @@ When the external-variable mapping represents all logically admissible Boolean c
 \min_{\boldsymbol\xi\in\mathcal E_{\mathrm{adm}}}\Phi(\boldsymbol\xi).
 \end{equation}
 A logically admissible configuration may still yield an infeasible reduced subproblem.
+Problem~\eqref{eqn:outer.value} separates the two tasks of solving a GDP: the model defines the admissible configurations and the subproblem of each, and the method that solves Problem~\eqref{eqn:outer.value} decides which configurations to evaluate.
 
 Problem~\eqref{eqn:outer.value} uses only the value \(\Phi(\boldsymbol\xi)\) of each configuration, so it also applies when a configuration is evaluated by a process simulator.
 Fixing \(\boldsymbol\xi\) then selects the unit models of a flowsheet, and the simulator \(\mathcal S_{\boldsymbol\xi}\) computes its states \(\mathbf s\), such as stream compositions and crystal size distributions, from operating inputs \(\mathbf u\in\mathcal U_{\boldsymbol\xi}\).
@@ -391,6 +399,25 @@ The superstructure contains two reactors in series, each a batch reactor, a CSTR
 The external variables \(\xi_1\) and \(\xi_2\) select the two reactors in the order (batch, CSTR, PFR), and \(\xi_3\) selects the crystallizer in the order (batch, one, two, three MSMPR stages), which gives \(3\times3\times4=36\) configurations, all logically admissible.
 These choices are categorical, so this case does not meet the ordering condition of the external-variable reformulation; we index the alternatives in the order of the source enumeration, and the neighborhoods of \texttt{D-SDA} and \texttt{NOMAD} and the surrogate models act on this order.
 
+Written as a GDP, the flowsheet is
+\begin{equation}\label{eqn:lomustine-gdp}
+\begin{aligned}
+\min_{\mathbf u,\mathbf s,\mathbf Y}\quad & f(\mathbf u,\mathbf s)\\
+\text{s.t.}\quad
+&\bigveebar_{a\in\mathcal R}\left[\begin{gathered}Y^{1}_{a}\\ \mathbf s_1=\mathcal S^{\mathrm R}_{a}(\mathbf u,\mathbf s_0)\end{gathered}\right],\qquad
+\bigveebar_{a\in\mathcal R}\left[\begin{gathered}Y^{2}_{a}\\ \mathbf s_2=\mathcal S^{\mathrm R}_{a}(\mathbf u,\mathbf s_1)\end{gathered}\right],\\
+&\mathbf s_3=\mathcal S^{\mathrm V}(\mathbf u,\mathbf s_2),\qquad
+\bigveebar_{c\in\mathcal C}\left[\begin{gathered}Y^{\mathrm C}_{c}\\ \mathbf s_4=\mathcal S^{\mathrm C}_{c}(\mathbf u,\mathbf s_3)\end{gathered}\right],\\
+&\mathbf g(\mathbf u,\mathbf s)\leq\mathbf 0,\qquad \mathbf u\in\mathcal U,\qquad
+\mathbf Y\in\{\mathrm{False},\mathrm{True}\}^{10},
+\end{aligned}\tag{Lom}
+\end{equation}
+where \(\mathcal R=\{\text{batch},\text{CSTR},\text{PFR}\}\) and \(\mathcal C=\{\text{batch},\text{one},\text{two},\text{three MSMPR stages}\}\).
+Each disjunct contains the PharmaPy model of one unit, which maps the operating inputs \(\mathbf u\) and the state \(\mathbf s_{k-1}\) of the incoming stream to the outlet state \(\mathbf s_k\), and \(\mathbf s_0\) is the reagent feed.
+The vaporizer \(\mathcal S^{\mathrm V}\) is present in every configuration, \(f\) is the objective defined below, and \(\mathbf g\) is the solubility path constraint.
+The external variables \(\xi_1\), \(\xi_2\), and \(\xi_3\) index the three disjunctions, and fixing them selects one unit model in each, which gives Problem~\eqref{eqn:sim-sub}.
+The unit models are available only as simulations, so Problem~\eqref{eqn:lomustine-gdp} is a GDP whose disjuncts have no algebraic form for the conventional GDP methods.
+
 For each configuration, \texttt{NOMAD} optimizes 12 to 16 normalized operating inputs, including reactor temperatures and residence times, the reagent concentration, the cooling profile, and the crystallizer residence times, with 60 simulations, which solves Problem~\eqref{eqn:sim-sub} approximately.
 The objective \(-(\dot m/10^{-4}+2d_{50})\), with the production rate \(\dot m\) in kg/s and the median crystal size \(d_{50}\) in \(\mu\)m, rewards both quantities, and a solubility path constraint prevents crystallization before the crystallizer; all 36 configurations satisfy it.
 These inner optimizations take 91 to 1,019~s per configuration, so evaluating every configuration takes 5.3~h.
@@ -475,15 +502,15 @@ The complete mathematical definitions and coordinate domains of the 21 benchmark
 \subsection{Search protocol and compared algorithms}
 
 \subsubsection{Shared initialization and evaluation budgets}
-All configuration-search methods and sampling controls use precomputed configuration responses during the search.
+In the process, \texttt{Lomustine}, and Grid-GDP benchmarks, all configuration-search methods and sampling controls use precomputed configuration responses during the search; the \texttt{Catalytic Column} solves each configuration when it is first requested (Section~\ref{sec:catdist-case}).
 For process cases, accepted responses are objective values from \texttt{IPOPT} under the initialization and acceptance rules in Section~\ref{sec:protocol}.
 Because \texttt{IPOPT} returns local solutions, these values can exceed the subproblem value \(\Phi(\boldsymbol\xi)\).
 
 Each Grid-GDP benchmark uses ten seeds, each defining a different initial design, and evaluation budgets \(B\in\{10,30,50,70,100\}\).
 The primary Grid comparison comprises six search implementations and two sampling controls, giving \(21\times10\times5\times8=8{,}400\) runs.
 The process benchmarks comprise 14 model-budget conditions, each evaluated with ten paired seeds, giving 140 runs per method and 980 runs across the six search implementations and uniform sampling (Table~\ref{tab:process-cases}).
-The \texttt{Lomustine} benchmark adds three budgets with ten seeds each, 210 runs in total.
-For each problem-budget-seed combination, three distinct initial configurations are generated using seeded Latin hypercube sampling, mapped to integer coordinates, and shared in the same order across all methods and sampling controls.
+The \texttt{Lomustine} benchmark adds three budgets with ten seeds each, 210 runs in total, and the \texttt{Catalytic Column} another 210 runs with seven initial configurations per seed (Section~\ref{sec:catdist-case}).
+In all other benchmarks, for each problem-budget-seed combination, three distinct initial configurations are generated using seeded Latin hypercube sampling, mapped to integer coordinates, and shared in the same order across all methods and sampling controls.
 This common design controls the first three evaluations; subsequent sampling, response handling, and stopping rules follow the individual implementations.
 All process cases use seeds 0-9, with no replacement of failed starts.
 
@@ -567,7 +594,7 @@ It reaches the target by construction, because \(f_{\mathrm{ref}}\) is the best 
 \subsection{Execution environment and conventional GDP comparisons}
 % \david{This section is missing a lot of references for the software and notation for the solvers (\textttt)}
 \label{sec:protocol}
-All experiments were conducted on a server with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
+Except for the MINLP solves of the \texttt{Catalytic Column} (Section~\ref{sec:catdist-case}), all experiments were conducted on a server with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
 All optimization methods and numerical libraries were configured for single-threaded execution.
 The software environment included \texttt{Pyomo} 6.10.0~\citep{bynum2021pyomo}, \texttt{RBFOpt} 4.3.0, \texttt{BAM} 5.0.0, \texttt{PyTorch} 2.8.0~\citep{paszke2019pytorch}, and \texttt{SCIP} 9.2.4~\citep{bolusani2024scip}.
 % \david{Who cares about the historical runs? If they are not comparable, rerun them to make them comparable}
@@ -710,9 +737,9 @@ Each cell lists target hits out of ten paired seeds, median search time, and [Q2
 Search times exclude configuration-evaluation costs and summarize all ten seeds.
 The quartile ranges describe variability across seeds.
 Bold counts mark the largest number of target hits in each row, including ties.
-\david{include median and interval search times (not accounting for NLP solutions) for each method}
-\albert{Added median and [Q25, Q75] search times from the completed 700-run comparison, excluding NLP evaluation costs and retaining all ten seeds per condition.}
-\claude{Added \texttt{NOMAD} and \texttt{MISO} from the audited Dantzig return (980 runs in total).}
+% \david{include median and interval search times (not accounting for NLP solutions) for each method}
+% \albert{Added median and [Q25, Q75] search times from the completed 700-run comparison, excluding NLP evaluation costs and retaining all ten seeds per condition.}
+% \claude{Added \texttt{NOMAD} and \texttt{MISO} from the audited Dantzig return (980 runs in total).}
 }
 \label{tab:process-targets}
 \scriptsize
@@ -763,11 +790,11 @@ Direct Big-\(M\) and Hull runs are omitted because their internal NLP counts are
 \label{fig:process-nlp}
 \end{figure}
 
-\david{If the NLPs or times are comparable to the times in Figures 2 and 3, include them as a vertical bar to contextualize the result (vertical bar is equivalent to them having solved the problem). Units for time (s) are missing. Highlight the best result per row in bold. If the time limit is reached, then put the time as 1800+ (in some cases it is 1791 $\le$ 1800)}
-\albert{Added the joint completion-time comparison to Figure 3 and moved the detailed table to the supplement, retaining all DFO seeds and single conventional observations.
-Time units and bold row minima are shown; TL identifies limit terminations while preserving measured times rather than replacing them with 1800.
-Removed duplicate supplementary panels and the unused cumulative time-profile definition.}
-\claude{Figure~\ref{fig:process-nlp} now places the \texttt{GDPopt} NLP counts on the same axis as the DFO runs, with full enumeration as the vertical reference line; Table~\ref{tab:full-gdp} shows time-limited runs as 1800+.}
+% \david{If the NLPs or times are comparable to the times in Figures 2 and 3, include them as a vertical bar to contextualize the result (vertical bar is equivalent to them having solved the problem). Units for time (s) are missing. Highlight the best result per row in bold. If the time limit is reached, then put the time as 1800+ (in some cases it is 1791 $\le$ 1800)}
+% \albert{Added the joint completion-time comparison to Figure 3 and moved the detailed table to the supplement, retaining all DFO seeds and single conventional observations.
+% Time units and bold row minima are shown; TL identifies limit terminations while preserving measured times rather than replacing them with 1800.
+% Removed duplicate supplementary panels and the unused cumulative time-profile definition.}
+% \claude{Figure~\ref{fig:process-nlp} now places the \texttt{GDPopt} NLP counts on the same axis as the DFO runs, with full enumeration as the vertical reference line; Table~\ref{tab:full-gdp} shows time-limited runs as 1800+.}
 
 \subsubsection{Completion time}
 In wall time, the advantage of fewer subproblem solves depends on how much each solve costs.
@@ -797,17 +824,17 @@ Figure~\ref{fig:process-completion} places the conventional GDP methods on the s
 Hull reaches the target on seven of the nine models, RIC, LOA, and Big-\(M\) on five each, and GLOA only on \texttt{Small Batch}.
 Big-\(M\) and Hull solve \texttt{Small Batch} in about 0.5~s, faster than any DFO run, and they are the only conventional methods that reach the \texttt{CSTR30} target, both stopping at the 1,800~s time limit.
 No conventional method reaches the \texttt{Column} target.
-\david{you usually do not use fractions in a sentence, and the sentence just reads like a laundry list. Have more prose}
-\albert{Replaced the fraction list with a prose summary of the updated results.}
+% \david{you usually do not use fractions in a sentence, and the sentence just reads like a laundry list. Have more prose}
+% \albert{Replaced the fraction list with a prose summary of the updated results.}
 
 All six \texttt{CSTR} GLOA runs report \texttt{optimal} termination, yet none comes within the relative target tolerance of \(10^{-5}\) (Equation~\eqref{eqn:target}); their objectives exceed the references by 2.2\% on \texttt{CSTR5} and by 32\% on \texttt{CSTR30}.
-\david{help the reader, remind them what this means and the epsilon it represents}
-\albert{Stated the reference-target tolerance explicitly.}
+% \david{help the reader, remind them what this means and the epsilon it represents}
+% \albert{Stated the reference-target tolerance explicitly.}
 Their reported lower bounds exceed independently checked feasible objectives.
 An earlier configuration that used \texttt{SCIP} as a global solver for both master problems and subproblems returned the same six objectives within a relative difference of \(3\times10^{-5}\), so these misses do not come from the local NLP solver.
 Supplementary Section~\ref{sec:bound-audit} reports these and the other bound inconsistencies, which affect the interpretation of reported optimality but not the target counts.
-\david{Why would a reader know that Dantzig is a computer? SInce we refer to all computational results from that computer, you can just avoid mentioning its name}
-\albert{Removed the machine name.}
+% \david{Why would a reader know that Dantzig is a computer? SInce we refer to all computational results from that computer, you can just avoid mentioning its name}
+% \albert{Removed the machine name.}
 
 \subsection{Simulation-based lomustine case}
 \label{sec:lomustine-results}
@@ -916,8 +943,10 @@ Each cell contains 210 runs (21 functions and ten seeds).
 The evaluation budget includes the three shared initial evaluations and repeated configurations.
 \texttt{BAM}'s 111 hits at \(B=10\) all precede surrogate-guided selection (11 shared-initialization hits and 100 at two predetermined Sobol points).
 \texttt{NOMAD} at \(B=100\) includes 16 hits reached before a reproducible solver crash.
-Bold entries mark the largest percentage in each row, including ties. \david{last sentence does not belong to the caption and highlight the best in each row}
-\albert{Moved the repository pointer to the text and bolded each row maximum, including ties.}}
+Bold entries mark the largest percentage in each row, including ties.
+% \david{last sentence does not belong to the caption and highlight the best in each row}
+% \albert{Moved the repository pointer to the text and bolded each row maximum, including ties.}
+}
 \label{tab:grid-hits}
 \begin{tabular}{rcccccccc}\toprule
 Budget \(B\) & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFOpt} & \texttt{MISO} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform & \shortstack{\texttt{BAM}-prefix\\control}\\\midrule
@@ -938,8 +967,8 @@ Each curve includes all 210 runs; initial and repeated evaluations count, and ta
 The dashed line marks the three shared initial evaluations.
 Uniform sampling and the \texttt{BAM}-prefix control are defined in Section~\ref{sec:sampling-controls}.
 \texttt{BAM} rises early, while \texttt{MISO} reaches the largest final fraction at 100 evaluations, followed by \texttt{RBFOpt}.
-\david{You cannot differetiate BAM and BAM prefix. I believe this color scheme is not colorblind friendly}
-\albert{Distinguished BAM and its prefix control by solid versus dash-dot lines, filled versus open markers, and green versus black; curve values are unchanged.}
+% \david{You cannot differetiate BAM and BAM prefix. I believe this color scheme is not colorblind friendly}
+% \albert{Distinguished BAM and its prefix control by solid versus dash-dot lines, filled versus open markers, and green versus black; curve values are unchanged.}
 }
 \label{fig:grid-profiles}
 \end{figure}
@@ -967,8 +996,8 @@ With only 29 and 12 accepted configurations and budgets of 13 and 10 evaluations
 \texttt{MISO} nevertheless reaches all ten \texttt{Column} targets; in the nine runs whose initial design does not contain the target, it finds it between the 7th and 11th of its 13 evaluations.
 On Grid-GDP, the early lead of \texttt{BAM} reflects the symmetry of the test functions with respect to its initial design, and \texttt{FMQA-SA} improves on uniform sampling there but not in the small process domains, where its uniform fallback dominates.
 From \(B=30\) onward, the two radial-basis-function methods, \texttt{MISO} and \texttt{RBFOpt}, reach the most Grid targets.
-\david{Provide more details here: why do some instances benefit some solvers? What's the hidden structure?}
-\albert{Added evidence from the saved records on Grid target locations, CSTR30 local stopping, and Column improvement paths.}
+% \david{Provide more details here: why do some instances benefit some solvers? What's the hidden structure?}
+% \albert{Added evidence from the saved records on Grid target locations, CSTR30 local stopping, and Column improvement paths.}
 
 The methods also use additional evaluations differently.
 \texttt{D-SDA} terminates when its descents reach configurations without an improving neighbor, and \texttt{NOMAD} when its mesh reaches the integer resolution, so additional budget helps them only until then.
@@ -981,8 +1010,8 @@ How much search time is worthwhile depends on the cost of an evaluation.
 \texttt{FMQA-SA} spends about 0.5~s on search per evaluation, comparable to the evaluations in these models, while \texttt{RBFOpt} spends 17 to 98~ms in median but more as observations accumulate.
 \texttt{MISO} spends 52~ms to 1.86~s per evaluation, and on \texttt{Dynamic} its search per evaluation exceeds the median evaluation cost of 0.84~s; \texttt{NOMAD} spends 3 to 97~ms (Supplementary Table~\ref{tab:supp-overhead}).
 When each evaluation requires a longer optimization or a process simulation, this overhead becomes small, and the number of subproblem solves becomes the main cost.
-\david{This is to be expected; by preprocessing, you do not solve problems. But mention which solvers stall and which keep growing with more iterations; also mention if there is a tradeoff search time and solution quality.}
-\albert{Added the Dynamic budget comparison showing where target-reaching rates improve or plateau and how completion costs change.}
+% \david{This is to be expected; by preprocessing, you do not solve problems. But mention which solvers stall and which keep growing with more iterations; also mention if there is a tradeoff search time and solution quality.}
+% \albert{Added the Dynamic budget comparison showing where target-reaching rates improve or plateau and how completion costs change.}
 
 Because the initial configurations change with the seed and the surrogate-based methods are randomized, repeated runs can return different solutions, and the spread of these solutions differs between methods.
 \texttt{RBFOpt} returns at most three distinct final objectives across the ten seeds of each \texttt{CSTR}, \texttt{Small Batch}, and \texttt{Dynamic} condition; on \texttt{CSTR10} through \texttt{CSTR30}, its runs either reach the target or stop 8.1 to 12.5\% above it.
@@ -995,8 +1024,8 @@ The comparison with enumeration and conventional GDP methods indicates when each
 For small models such as \texttt{Small Batch} and the Grid functions, enumeration or a direct reformulation finds the optimum in seconds or less.
 As the configuration space grows, logic-based methods that solve one subproblem per admissible configuration and direct reformulations that reach the time limit become expensive, while surrogate search keeps its number of subproblem solves near the budget, as on \texttt{CSTR30}.
 \texttt{Dynamic} lies between these cases: RIC reaches its target in 149.39~s after solving all 37 admissible subproblems, and \texttt{RBFOpt} and \texttt{MISO} reach it in every run at \(B=12\) in medians of 12.29 and 11.80~s.
-\david{This is the usual AI warning about scalability; rather, say which cases benefited from the conventional GDP solution models than the integration with DFOs, and in the conclusion you mention this as recommendations for future instances}
-\albert{Replaced the generic scalability warning with the Small Batch and CSTR30 comparisons and added their implications to the conclusions.}
+% \david{This is the usual AI warning about scalability; rather, say which cases benefited from the conventional GDP solution models than the integration with DFOs, and in the conclusion you mention this as recommendations for future instances}
+% \albert{Replaced the generic scalability warning with the Small Batch and CSTR30 comparisons and added their implications to the conclusions.}
 
 The \texttt{Lomustine} case shows that the configuration search carries over when a simulator defines each subproblem and conventional GDP methods do not apply.
 Its ranking agrees with the \texttt{CSTR} and Grid results: the two radial-basis-function methods reach the reference most often, \texttt{NOMAD} stops early, and the size of the \texttt{D-SDA} neighborhood limits local descent on small budgets.
@@ -1007,6 +1036,7 @@ The \texttt{Catalytic Column} tests the search where enumeration is impractical 
 With 100 evaluations, 0.2\% of the admissible configurations, the median runs of \texttt{D-SDA}, \texttt{MISO}, and \texttt{NOMAD} end within 0.14\% of the best known design, and local descent is competitive with the surrogate methods here because the good designs form one region: six of the ten \texttt{D-SDA} descents end at the reference or one stage from it.
 Within that region, the external variables decide which designs are neighbors: in the gap coordinates, the runner-up and the reference are two coordinates apart although they differ in one stage, so local descent stops 1.29~\$/yr short of the reference, as the order of categorical alternatives changed the results of \texttt{Lomustine}.
 The MINLP forms of the same model keep the equations of every possible stage and catalyst position, and terms that are harmless in a solved configuration, such as reaction rates on stages without catalyst and hydraulics with vanishing flows, make their relaxations so poorly scaled that local solvers stop without a feasible design and global solvers certify inconsistent bounds.
+Reported bounds were also unreliable in the process models, where GLOA terminated as optimal on every \texttt{CSTR} network while missing the reference by 2.2 to 32\%.
 The GDP model avoids these terms because each evaluation contains only the equations of the selected configuration, so the external-variable representation lets a black-box method optimize a model that its direct MINLP reformulations cannot solve reliably.
 
 Except for the \texttt{Catalytic Column}, these conclusions rest on configuration spaces of 25 to 900 configurations, on NLP responses obtained with one initialization per model, and on completion times that combine recorded search paths with one cost measurement per configuration.
@@ -1016,35 +1046,40 @@ With ten seeds per condition, the per-condition differences among \texttt{NOMAD}
 The \texttt{NOMAD} and \texttt{MISO} search times were measured in a later campaign on a shared server, so small timing differences between them and the other methods should not be overinterpreted.
 
 \section{Conclusions}
-This study compared black-box methods for GDP configuration search on an existing external integer representation with local descent, logic-based and direct GDP methods, and full enumeration.
-The experiments lead to four conclusions.
+This study used GDP to model process design alternatives and derivative-free methods to search their configurations, connected by the external-variable reformulation, and compared this pairing with local descent, logic-based and MINLP solvers, and full enumeration.
+The experiments lead to five conclusions.
 
-First, surrogate search reaches near-optimal configurations with a small fraction of the NLP subproblems that logic-based methods solve.
+First, the pairing solves GDP models that conventional methods cannot.
+On the \texttt{Lomustine} flowsheet, whose unit models are simulations, \texttt{RBFOpt} and \texttt{MISO} found the best of 36 configurations in every run with 20 evaluations.
+On the \texttt{Catalytic Column}, \texttt{D-SDA} and \texttt{MISO} reached the best known design in three of ten runs with 100 of its 54,159 configurations, whereas no MINLP solver came within 15\% of it on the published, Big-\(M\), or Hull formulations.
+These formulations keep the equations of absent stages and catalyst, while each GDP evaluation contains only the equations of the selected configuration.
+
+Second, surrogate search reaches near-optimal configurations with a small fraction of the NLP subproblems that logic-based methods solve.
 In these models, RIC and LOA solved one subproblem for each admissible configuration, whereas \texttt{MISO} and \texttt{RBFOpt} reached the \texttt{CSTR30} target in ten and nine of ten runs with medians of 29.5 and 31.5 subproblems, 6 to 7\% of full enumeration.
 
-Second, the benefit over local descent depends on the landscape.
+Third, the benefit over local descent depends on the landscape.
 On \texttt{CSTR}, most \texttt{D-SDA} descents end at one local minimum whose gap to the reference grows with the network size, and restarts add a single target; the direct search of \texttt{NOMAD} ends at the same configuration in 32 of its 33 misses on the larger networks.
 \texttt{RBFOpt} and \texttt{MISO}, which interpolate all observations with radial basis functions, escape it in 45 and 43 of 60 runs.
 On the two smallest design models, \texttt{D-SDA} and \texttt{RBFOpt} perform comparably, and \texttt{MISO} reached all ten \texttt{Column} targets.
 On the \texttt{Catalytic Column}, where the good designs form one region, \texttt{D-SDA} and \texttt{MISO} reached the best known design equally often, and the choice of external variables, which decides which designs are neighbors, kept other runs 1.29~\$/yr short of it.
 
-Third, the stochastic methods differ in how their solutions spread across runs.
+Fourth, the stochastic methods differ in how their solutions spread across runs.
 \texttt{RBFOpt} and \texttt{MISO} either reached the target or stopped at a local solution 6.0 to 12.5\% above it on the larger \texttt{CSTR} instances, whereas \texttt{BAM} rarely reached the exact target but always ended within 0.7\% of it.
 Reporting only exact target attainment can therefore hide reliable near-optimal performance.
-\david{Sure, this is obvious; any deeper insights? How about the fact that they are stochastic? That you would get different solutions when running them separately; were they spread out?}
-\albert{Added the contrasting seed-level results for Dynamic and Column to describe consistency in target discovery and variation in final solution quality.}
+% \david{Sure, this is obvious; any deeper insights? How about the fact that they are stochastic? That you would get different solutions when running them separately; were they spread out?}
+% \albert{Added the contrasting seed-level results for Dynamic and Column to describe consistency in target discovery and variation in final solution quality.}
 
-Fourth, more search per evaluation can buy targets, but its value depends on the cost of an evaluation.
+Fifth, more search per evaluation can buy targets, but its value depends on the cost of an evaluation.
 \texttt{MISO} reached the most targets overall, 181 of 210 on Grid at \(B=100\) and 120 of 140 in the process conditions, against 171 and 114 for \texttt{RBFOpt}, but on \texttt{Dynamic} at \(B=50\) its model refits made it three times slower than \texttt{RBFOpt}.
 \texttt{NOMAD} and \texttt{D-SDA}, in contrast, stop at local optima and leave budget unused.
 
 For future GDP instances, these results suggest enumerating the configurations or solving a direct Big-\(M\) or Hull reformulation when the model is small, as for Grid-GDP and \texttt{Small Batch}.
 When the configuration space is too large to enumerate and contains large basins of local minima, as for the larger \texttt{CSTR} networks, surrogate-based configuration search with radial basis functions reaches good solutions with a small fraction of the subproblem solves; \texttt{MISO} is preferable when evaluations are expensive relative to its search overhead, and \texttt{RBFOpt} when they are cheap.
-The wall-time advantage of surrogate search grows with the cost of each evaluation, and because it requires only objective values, it also applies when configurations are evaluated by simulation and explicit subproblem equations are unavailable, as in the \texttt{Lomustine} flowsheet, where \texttt{RBFOpt} and \texttt{MISO} found the best of 36 simulated configurations in every run with 20 evaluations.
-When the MINLP reformulations of a GDP model keep equations that are ill-defined for absent units, as in the \texttt{Catalytic Column}, evaluating one configuration at a time is a reliable way to solve the model, and both local descent and surrogate search then reach designs within a fraction of a percent of the best known one with 0.2\% of the configurations.
-Testing these expectations on live simulation-based subproblems is the next step.
-\david{how is this a conclusion? What did you learn from all these experiments?}
-\albert{Revised the paragraph to explain what the Small Batch and CSTR30 comparisons teach us and identify simulation-based subproblems as a future application.}
+When the subproblems are simulations, or when the MINLP reformulations keep equations that are ill-defined for absent units, the GDP model is best solved by configuration search, which needs only the value of each configuration.
+Local descent then suffices when the good designs form one region, as in the \texttt{Catalytic Column}, and surrogate search is the safer choice when the landscape has several basins.
+The wall-time advantage of searching fewer configurations grows with the cost of each evaluation, so testing these expectations on live simulation-based subproblems, in which every evaluation runs the inner optimization, is the next step.
+% \david{how is this a conclusion? What did you learn from all these experiments?}
+% \albert{Revised the paragraph to explain what the Small Batch and CSTR30 comparisons teach us and identify simulation-based subproblems as a future application.}
 
 \section{Acknowledgement}
 The authors acknowledge and express sincere gratitude to the Davidson School of Chemical Engineering at Purdue University for providing a supportive research environment and funding.
@@ -1056,8 +1091,8 @@ Supplementary Section~\ref{sec:supp-data} identifies the archived inputs, includ
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
 The authors used ChatGPT and Codex (OpenAI), including the GPT-6 Astra model, to assist with drafting, organizing, and revising the manuscript and developing analysis and plotting code.
 The authors also used Claude Code (Anthropic), with the Claude Opus 5.5 model, to review the manuscript, revise the Discussion and Conclusions, and develop analysis, plotting, and experiment code.
-\david{which models?}
-\albert{Specified GPT-6 Astra and described AI-assisted code development and verification in the Methods.}
+% \david{which models?}
+% \albert{Specified GPT-6 Astra and described AI-assisted code development and verification in the Methods.}
 The resulting text and code were checked and revised by the authors, who remain responsible for the article's content.
 
 \bibliographystyle{elsarticle-harv}
