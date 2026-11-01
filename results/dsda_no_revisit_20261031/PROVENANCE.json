@@ -1,0 +1,45 @@
+{
+  "reference/grid_point_timings.csv": {
+    "revision": "c186408728c6f95ac33a5465edd53035d85c5620",
+    "sha256": "2490d8f8de368d9b54d6cd3d9082ace5c74dfa2ebb84fd266b0488a43a7fcd0f",
+    "source_path": "results/grid_gdp_20261009/raw/point_timings.csv"
+  },
+  "reference/grid_reference.zip": {
+    "revision": "c186408728c6f95ac33a5465edd53035d85c5620",
+    "sha256": "3611ba036df02ef8b155e32be7557c4bf7b88dfa1a5aff6e91c6d82fe7fb135a",
+    "source_path": "results/archives/dsda_grid_target_stop_20261028_032943_2346732.zip"
+  },
+  "reference/previous_process_restarts.zip": {
+    "parent_archive_path": "results/pr56_dantzig_return_20261031/evidence/RETURN.zip",
+    "parent_archive_sha256": "323e7c0bf27012c4838d6273630cf3d55b5ff64a6092802539bf7d63cc1f9c55",
+    "parent_container_revision": "c186408728c6f95ac33a5465edd53035d85c5620",
+    "revision": "c4d7db6b671bbe92a314be524a650d75cd49529c",
+    "sha256": "a86b26b36de8199f567982abaaf013b2d681cc400aab161d21e592726ed0e65f",
+    "source_member": "revision_20261031_173911_c4d7db6b/dsda/attempt_01.zip"
+  },
+  "reference/process_reference.zip": {
+    "revision": "c186408728c6f95ac33a5465edd53035d85c5620",
+    "sha256": "e58982f7179b73c65d83134dcbe0b25854002685812b2511b24523e861c9929e",
+    "source_path": "results/archives/dsda_abs1e5_rerun_20261028_020753_2004611.zip"
+  },
+  "source/dsda_protocol.py": {
+    "revision": "c186408728c6f95ac33a5465edd53035d85c5620",
+    "sha256": "1b969ac953f0c88443b2575927787f0c3a60a8f08f3d706dda06d8fec0091823",
+    "source_path": "dsda_protocol.py"
+  },
+  "source/grid_dsda.py": {
+    "revision": "c186408728c6f95ac33a5465edd53035d85c5620",
+    "sha256": "1ce215a6ce32a9bd519b4e44810791cd2cc2cad7f0cde70eac9fd797e91321f2",
+    "source_path": "grid_dsda.py"
+  },
+  "source/run_no_revisit.py": {
+    "revision": "c186408728c6f95ac33a5465edd53035d85c5620",
+    "sha256": "12da1895b50f59e949a76f2a3e7a6189eea4a9dbea45154409561bafd4b571c5",
+    "source_path": "experiments/dsda_no_revisit/run.py"
+  },
+  "source/run_process_multistart.py": {
+    "revision": "c186408728c6f95ac33a5465edd53035d85c5620",
+    "sha256": "f4b78ba3f6fcfe9e06c7d2c1074b7945192249bbf08c3fa7fe3ca3f7ae7fc133",
+    "source_path": "experiments/dsda_process_multistart/run.py"
+  }
+}
