@@ -26,7 +26,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[letterpaper,margin=1in]{geometry}
 \usepackage{amsmath,amssymb,booktabs,placeins,xurl}
-\usepackage{longtable,pdflscape}
+\usepackage{longtable,pdflscape,graphicx}
+\renewcommand{\thefigure}{S\arabic{figure}}
 \usepackage[authoryear,round,sort]{natbib}
 \usepackage[hidelinks]{hyperref}
 \renewcommand{\thetable}{S\arabic{table}}
@@ -43,7 +44,6 @@
 \maketitle
 \vspace{-2em}
 \fi
-This supplement to \emph{Black-Box Configuration Search for Generalized Disjunctive Programming} provides benchmark definitions, execution and acceptance rules, model sizes, seed-level uncertainty, and the numerical evidence underlying the algebraic bound-consistency checks.
 The Grid-GDP functions are adapted from the Quantum Hamiltonian Descent collection; each instance is defined by its implemented expression and domain rather than its conventional name~\citep{qhdBenchmarks,rbfoptTestArchive}.
 
 \section{Coordinate domains and normalization}\label{sec:supp-domains}
@@ -52,52 +52,50 @@ For each row of Table~\ref{tab:grid-domains}, both endpoints are included and th
  a_i=\ell_x+\frac{i}{30}(u_x-\ell_x),\qquad
  b_j=\ell_y+\frac{j}{30}(u_y-\ell_y),\qquad i,j\in\{0,\ldots,30\}.
 \end{equation}
-The raw objective \(f\) is defined below.
-The minimized objective is
+For the raw functions in Section~\ref{sec:supp-objectives}, the minimized objective is
 \begin{equation}\label{eq:supp-normalization}
  F(x,y)=\frac{f(x,y)-L}{U-L},\qquad
  L=\min_{i,j} f(a_i,b_j),\quad U=\max_{i,j} f(a_i,b_j).
 \end{equation}
 Thus \(L\) and \(U\) are obtained by exhaustive preprocessing of the 961 lattice points, not from the continuous optimum.
-All trigonometric arguments are in radians; \(e=\exp(1)\) and \(\pi\) is the usual circular constant.
+All trigonometric arguments are in radians.
+Full-precision normalization constants and target coordinates are archived in \nolinkurl{grid_inventory.json} (Section~\ref{sec:supp-data}).
 
 \begin{table}[htbp]
 \centering\small
-\caption{Grid-GDP benchmark domains.
-All intervals include both endpoints and have equally spaced coordinates.
-Each row defines one independent problem with 961 configurations and 62 Boolean indicators.
-Historical function expressions and domains are preserved~\citep{rbfoptTestArchive,qhdBenchmarks}.}
+\caption{Grid-GDP benchmark domains and target-set sizes.
+Each problem uses a \(31\times31\) lattice with 961 configurations and 62 Boolean indicators.
+\(n_{\rm target}\) counts lattice points with normalized objective \(F\leq10^{-5}\).}
 \label{tab:grid-domains}
 \begin{tabular}{llll}\toprule
-Function & \(x\) domain & \(y\) domain & Grid\\\midrule
-Ackley & \([-5,5]\) & \([-5,5]\) & \(31\times31\)\\
-Alpine 1 & \([0,10]\) & \([0,10]\) & \(31\times31\)\\
-Alpine 2 & \([0,1000]\) & \([0,1000]\) & \(31\times31\)\\
-Bohachevsky 2 & \([-100,100]\) & \([-100,100]\) & \(31\times31\)\\
-Three-hump camel & \([-5,5]\) & \([-5,5]\) & \(31\times31\)\\
-Csendes (squared variant) & \([-1,1]\) & \([-1,1]\) & \(31\times31\)\\
-Deflected corrugated spring & \([0,10]\) & \([0,10]\) & \(31\times31\)\\
-Drop-Wave & \([-5.12,5.12]\) & \([-5.12,5.12]\) & \(31\times31\)\\
-Easom & \([-10,10]\) & \([-10,10]\) & \(31\times31\)\\
-Griewank & \([-600,600]\) & \([-600,600]\) & \(31\times31\)\\
-H\"older table & \([-10,10]\) & \([-10,10]\) & \(31\times31\)\\
-Hosaki & \([0,5]\) & \([0,6]\) & \(31\times31\)\\
-L\'evy & \([-10,10]\) & \([-10,10]\) & \(31\times31\)\\
-L\'evy 13 & \([-10,10]\) & \([-10,10]\) & \(31\times31\)\\
-Michalewicz & \([0,\pi]\) & \([0,\pi]\) & \(31\times31\)\\
-Rastrigin & \([-5.12,5.12]\) & \([-5.12,5.12]\) & \(31\times31\)\\
-Rosenbrock & \([-2,2]\) & \([-1,3]\) & \(31\times31\)\\
-Shubert (historical variant) & \([0,10]\) & \([0,10]\) & \(31\times31\)\\
-Styblinski--Tang & \([-5,5]\) & \([-5,5]\) & \(31\times31\)\\
-Sum of squares & \([-10,10]\) & \([-10,10]\) & \(31\times31\)\\
-Xin-She Yang 3 (historical variant) & \([-20,20]\) & \([-20,20]\) & \(31\times31\)\\\bottomrule
+Function & \(x\) domain & \(y\) domain & \(n_{\rm target}\)\\\midrule
+Ackley & \([-5,5]\) & \([-5,5]\) & 1\\
+Alpine 1 & \([0,10]\) & \([0,10]\) & 1\\
+Alpine 2 & \([0,1000]\) & \([0,1000]\) & 1\\
+Bohachevsky 2 & \([-100,100]\) & \([-100,100]\) & 1\\
+Three-hump camel & \([-5,5]\) & \([-5,5]\) & 1\\
+Csendes (squared variant) & \([-1,1]\) & \([-1,1]\) & 36\\
+Deflected corrugated spring & \([0,10]\) & \([0,10]\) & 1\\
+Drop-Wave & \([-5.12,5.12]\) & \([-5.12,5.12]\) & 1\\
+Easom & \([-10,10]\) & \([-10,10]\) & 1\\
+Griewank & \([-600,600]\) & \([-600,600]\) & 1\\
+H\"older table & \([-10,10]\) & \([-10,10]\) & 4\\
+Hosaki & \([0,5]\) & \([0,6]\) & 1\\
+L\'evy & \([-10,10]\) & \([-10,10]\) & 2\\
+L\'evy 13 & \([-10,10]\) & \([-10,10]\) & 4\\
+Michalewicz & \([0,\pi]\) & \([0,\pi]\) & 1\\
+Rastrigin & \([-5.12,5.12]\) & \([-5.12,5.12]\) & 1\\
+Rosenbrock & \([-2,2]\) & \([-1,3]\) & 2\\
+Shubert (historical variant) & \([0,10]\) & \([0,10]\) & 1\\
+Styblinski--Tang & \([-5,5]\) & \([-5,5]\) & 1\\
+Sum of squares & \([-10,10]\) & \([-10,10]\) & 1\\
+Xin-She Yang 3 (historical variant) & \([-20,20]\) & \([-20,20]\) & 870\\\bottomrule
 \end{tabular}
 \end{table}
 
 \FloatBarrier % \clearpage
 \section{Grid-GDP objective functions}\label{sec:supp-objectives}
-Each expression below defines a benchmark on the corresponding domain in Table~\ref{tab:grid-domains}, with all coefficients fixed.
-The definitions follow \nolinkurl{gdp_models/grid.py}; differences from the historical \nolinkurl{qhdopt_gdp.py} are noted where relevant~\citep{rbfoptTestArchive,historicalGridSource}.
+The implemented functions below use the domains in Table~\ref{tab:grid-domains}~\citep{rbfoptTestArchive}.
 
 \subsection*{1. Ackley}
 \begin{equation}\label{eq:supp-ackley}
@@ -116,7 +114,6 @@ f(x,y)=|x\sin x+0.1x|+|y\sin y+0.1y|.
 \begin{equation}\label{eq:supp-alpine2}
 f(x,y)=-\sqrt{xy}\,\sin x\sin y.
 \end{equation}
-The negative sign and the domain \([0,1000]^2\) are retained.
 
 \subsection*{4. Bohachevsky 2}
 \begin{equation}\label{eq:supp-bohachevsky2}
@@ -136,12 +133,7 @@ t^6\bigl[2+\sin(1/t)\bigr]^2,&t\ne0,\\
 0,&t=0.
 \end{cases}
 \end{equation}
-The square applies to the entire oscillatory factor.
-The current GDP uses branch-fixed auxiliaries \(r_t=1/t\) for \(t\ne0\) and \(r_t=0\) for \(t=0\), evaluating \(t^6[2+\sin(r_t)]^2\) without division by zero.
-
-The archived \nolinkurl{qhdopt_gdp.py} instead uses \(c_\varepsilon(t)=t^6[2+\sin(1/(t+\varepsilon))]^2\) with \(\varepsilon=10^{-12}\)~\citep{historicalGridSource}.
-This also gives zero at \(t=0\), but is not algebraically identical to Equation~\eqref{eq:supp-csendes} at nonzero coordinates.
-The current implementation uses the exact zero extension, with no epsilon shift; its normalized values agree with the archived grid to the stated \(10^{-12}\) absolute verification tolerance.
+The GDP uses branch-fixed auxiliaries \(r_t=1/t\) for \(t\ne0\) and \(r_t=0\) otherwise, avoiding division by zero without an epsilon shift.
 
 \subsection*{7. Deflected corrugated spring}
 With \(r=\sqrt{(x-5)^2+(y-5)^2}\),
@@ -186,7 +178,6 @@ f(x,y)={}&\sin^2(\pi w_x)\\
 &+(w_y-1)^2\bigl[1+\sin^2(2\pi w_y)\bigr].
 \end{aligned}
 \end{equation}
-The middle sine argument is \(\pi w_x+1\).
 
 \subsection*{14. L\'evy 13}
 \begin{equation}\label{eq:supp-levy13}
@@ -201,7 +192,6 @@ f(x,y)={}&\sin^2(3\pi x)+(x-1)^2\bigl[1+\sin^2(3\pi y)\bigr]\\
 f(x,y)=-\sin x\,\sin^{20}\!\left(\frac{x^2}{\pi}\right)
 -\sin y\,\sin^{20}\!\left(\frac{2y^2}{\pi}\right).
 \end{equation}
-The fixed exponent is \(20\) (equivalently \(2m\) with \(m=10\)).
 
 \subsection*{16. Rastrigin}
 \begin{equation}\label{eq:supp-rastrigin}
@@ -220,8 +210,6 @@ f(x,y)={}&\bigl[\cos(2x+1)+2\cos(3x+2)+3\cos(4x+3)\bigr]\\
 &\times\bigl[\cos(2y+1)+\cos(y+2)\bigr].
 \end{aligned}
 \end{equation}
-This is the implemented three-term by two-term product.
-In particular, the final term is \(\cos(y+2)\) with coefficient one.
 
 \FloatBarrier % \clearpage
 \subsection*{19. Styblinski--Tang}
@@ -229,7 +217,6 @@ In particular, the final term is \(\cos(y+2)\) with coefficient one.
 f(x,y)=\frac{1}{78}\,\frac12
 \left(x^4-16x^2+5x+y^4-16y^2+5y\right).
 \end{equation}
-The historical factor \(1/78\) is retained in the raw objective, even though positive scaling cancels in the normalization of Equation~\eqref{eq:supp-normalization}.
 
 \subsection*{20. Sum of squares}
 \begin{equation}\label{eq:supp-squares}
@@ -241,13 +228,6 @@ f(x,y)=x^2+2y^2.
 f(x,y)=\exp\!\left(-\left[\left(\frac{x}{15}\right)^6+y^6\right]\right)
 +2\exp\!\left(-(x^2+y^2)\right)\cos^2x\cos^2y.
 \end{equation}
-The exponential--cosine term has a positive coefficient \(+2\).
-Only \(x\) is divided by \(15\) in the first exponential; \(y^6\) is unscaled.
-Floating-point exponential underflow can produce stored zero values; these do not change the analytical expression.
-
-\section{Source verification}
-Exhaustive evaluation of the implemented Grid-GDP objectives at all \(21\times961=20{,}181\) lattice points agrees with the archived \nolinkurl{benchmark_grids/*.csv} normalized values within absolute tolerance \(10^{-12}\).
-The target sets at \(F\leq10^{-5}\) also agree.
 
 \FloatBarrier % \clearpage
 \section{Executable protocol and implementation settings}\label{sec:supp-protocol}
@@ -257,20 +237,13 @@ Python and NumPy use the job seed, and \texttt{RBFOpt} also receives \nolinkurl{
 \texttt{FMQA-SA} uses three NumPy \nolinkurl{SeedSequence(seed)} streams for FM initialization, annealing, and uniform unseen-point fallback; each training or annealing invocation draws a seed from its stream.
 \texttt{PyTorch} uses deterministic CPU operations and one thread.
 
-Repeated callbacks reuse the stored response and point cost.
-Unaccepted process evaluations return \(10^6\) to \texttt{D-SDA} and \texttt{RBFOpt}.
+Grid \texttt{D-SDA} enumerates \(L_\infty\) neighbors lexicographically from \((-1,0,1)\), excluding the zero direction and out-of-bounds points; ties select the first point.
 
-Grid \texttt{D-SDA} ranks the initial points and attempts successive descents within the evaluation budget.
-After each completed descent, it applies the common target criterion to the best observed objective before trying the next ranked start, unless the budget is already exhausted.
-It enumerates the full \(L_\infty\) neighborhood as the lexicographic Cartesian product of \((-1,0,1)\), excluding the zero direction and out-of-bounds points; ties select the first point, and improvement must exceed \(10^{-5}\).
-
-Primary \texttt{RBFOpt} 4.3.0 uses MSRSM, \nolinkurl{rbf=auto}, the default genetic candidate-search option \nolinkurl{global_search_method=genetic}, integer variables, and \nolinkurl{do_init_strategy=False}.
-The recorded defaults are \nolinkurl{ga_base_population_size=400} and \nolinkurl{ga_num_generations=20}.
+The \texttt{RBFOpt} options are \nolinkurl{rbf=auto}, \nolinkurl{global_search_method=genetic}, \nolinkurl{do_init_strategy=False}, \nolinkurl{ga_base_population_size=400}, and \nolinkurl{ga_num_generations=20}.
 \texttt{RBFOpt} 4.3.0 uses an effective population of \(400+\lfloor 20n/5\rfloor\), where \(n\) is the dimension passed to the genetic-search routine, giving 408 and 412 for two and three search variables.
-Standalone \texttt{Bonmin} 1.8.9~\citep{bonami2008algorithmic} solves surrogate MINLPs, and the configured \texttt{IPOPT} 3.14.19 executable supports surrogate NLPs~\citep{wachter2006implementation}.
-\texttt{BAM} 5.0.0 receives \nolinkurl{x0=None}, all-integer variables, the three evaluated starts, and \nolinkurl{max_evals}=B-3, with other options at package defaults; its local models use \texttt{ALAMO}/\texttt{BARON}.
+\texttt{BAM} receives \nolinkurl{x0=None} and \nolinkurl{max_evals}=B-3; its local models use \texttt{ALAMO}/\texttt{BARON}, whose internal versions are not reported by the package.
 
-\texttt{FMQA-SA} stops at \(B\) or its 1,800 s method limit, checked between operations and through training/sampling callbacks, without reference-target stopping.
+The \texttt{FMQA-SA} time limit is checked between operations and through training/sampling callbacks.
 Each FM uses identity activation, zero bias, and normal initial weights with mean zero and standard deviation \(0.01\).
 Training uses Adam~\citep{kingma2015adam}, 1,000 full-batch epochs, mean squared error, and learning rate \(0.01\).
 Coordinate \(\xi_j\) uses \(\lfloor\log_2 u_j\rfloor+1\) unsigned bits, where \(u_j>0\) is its upper bound; QUBO coefficients are divided by the largest absolute entry of the quadratic matrix.
@@ -279,52 +252,30 @@ All process workers and the Grid \texttt{FMQA-SA} worker have a 2,100 s watchdog
 The Grid \texttt{RBFOpt}/\texttt{BAM} trace watchdogs are disabled (\nolinkurl{max_run_seconds=0}); archived Grid \texttt{D-SDA} uses budget, target, or local-search termination without an additional method-clock limit.
 
 \subsection{Versions and independently timed process evaluations}\label{sec:supp-acceptance}
-The recorded environments include Python 3.11.16, \texttt{RBFOpt} 4.3.0~\citep{costa2018rbfopt,nannicini2021implementation}, \texttt{BAM} 5.0.0~\citep{ma2023bam}, \texttt{Pyomo} 6.10.0~\citep{bynum2021pyomo}, and \texttt{SCIP} 9.2.4~\citep{bolusani2024scip}.
-The annealer is the classical CPU implementation \nolinkurl{dwave.samplers.SimulatedAnnealingSampler}~\citep{dwaveSamplers}.
-Executable banners identify \texttt{Bonmin} 1.8.9 with \texttt{Cbc} 2.10.12 and \texttt{IPOPT} 3.14.19, and standalone \texttt{IPOPT} 3.14.19, on Linux x86\_64 with ASL 20231111.
-
-The \nolinkurl{bam-solver} 5.0.0 engine identifies version 2026.9.10, build LNX-int-64, timestamp 2026-09-10 17:59:06.
-\texttt{BAM}'s internal \texttt{ALAMO} and \texttt{BARON} versions are unspecified.
-The algebraic comparisons use \texttt{SCIP} 9.2.4 through \texttt{GAMS} 52.2.0 for MINLP reformulations and both \texttt{GDPOpt} subsolvers.
-Grid preprocessing fixes all original variables, and the recorded \texttt{GDPOpt} Grid runs make no NLP solver calls.
+The recorded Python version is 3.11.16; other versions are given in the main paper\ifdefined\manuscriptwithsupplement\space(Section~\ref{sec:protocol})\fi.
+The recorded Grid \texttt{GDPOpt} runs make no NLP solver calls because preprocessing fixes all original variables.
 The algebraic process models retain their archived initializations, including constructor defaults for \texttt{CSTR30}; the updated DFO evaluation table is identified separately in Section~\ref{sec:supp-data}.
 
-The fixed-configuration process evaluations use \texttt{IPOPT} 3.14.19~\citep{wachter2006implementation} with \texttt{MUMPS} 5.8.1~\citep{amestoy2001mumps}, solver tolerance \(10^{-8}\) and a 60 s solver limit.
 The acceptance rule in \nolinkurl{gdp_models/evaluation.py} requires all of the following: a finite objective; termination in \{\texttt{optimal}, \texttt{locallyOptimal}, \texttt{globallyOptimal}\}; solver status other than \texttt{error} or \texttt{aborted}; interface status \texttt{SOLVESTAT}=1 and \texttt{MODELSTAT}\(\in\{1,2\}\); and a finite maximum primal violation no greater than \(10^{-5}\).
-The \(10^{-8}\) solver tolerance is distinct from this acceptance threshold.
 Time-limit, iteration-limit, evaluation-limit, and error outcomes are not accepted, even if a finite feasible candidate is available.
 
-The primal check takes the largest positive absolute constraint-bound or variable-bound violation, with zero for satisfied bounds and no row-wise normalization.
-Constraint rows are collected after fixing the disjunctions and before preprocessing, so rows subsequently deactivated by presolve are also checked.
-Bounds of initialized active variables are checked on the prepared NLP.
-An undefined or non-finite constraint body, a non-finite initialized variable, or a non-finite objective precludes acceptance.
-Uninitialized unused variables are skipped; the objective and all retained constraint expressions are still evaluated.
+The primal check uses unscaled violations of original constraints and initialized-variable bounds, including constraint rows deactivated during preprocessing.
+Nonfinite objectives, constraint bodies, or initialized-variable values preclude acceptance; unused uninitialized variables are skipped.
 Preprocessing rejection or worker failure supplies no accepted objective.
 
- \texttt{CSTR5}--\texttt{CSTR30} start from constructor defaults and then apply \nolinkurl{cstr_box_ipopt.py:initialize_feasible} after preprocessing.
-This sets mass-balance-consistent values with zero recycle and checks the initial primal violation at \(10^{-8}\) without changing constraints or bounds.
-The \texttt{CSTR30} table retains one interface failure, which none of the 50 searches visited.
-\texttt{Column} and \texttt{Small Batch} load \nolinkurl{gdp/dsda/column_17_initialization.json} and \nolinkurl{gdp/dsda/small_batch_initialization.json}, respectively, from the recorded \nolinkurl{dsda-gdp} source revision, using its \nolinkurl{gdp/dsda/model_serializer.py}.
-\texttt{Dynamic} clones the unsolved discretized template; it has no saved initialization vector.
-These are cold starts, with no transfer of an NLP solution between configurations.
+The \texttt{CSTR} initializer \nolinkurl{cstr_box_ipopt.py:initialize_feasible} runs after preprocessing and checks the mass-balance/zero-recycle start at \(10^{-8}\) without changing constraints or bounds.
+All process evaluations use cold starts; NLP solutions are not transferred between configurations.
 Objectives, acceptance status, and NLP point costs are linked to the same recorded attempt by model, \texttt{CSTR} size, and coordinate, without successful-retry selection or cross-size time substitution.
-The \texttt{CSTR30} point costs include initialization and artifact recording.
-Separately measured structural-rejection costs cover 435 \texttt{CSTR30} and 35 \texttt{Dynamic} coordinates without invoking an NLP.
-Each stored cost is reused on revisits, so reconstructed costs do not capture repeat-measurement timing variability; \texttt{Dynamic} template preparation is added once per run.
 
-Process lookup-call times cover coordinate processing and in-memory lookup, excluding callback-file writing; the CSV is loaded before the search clock starts.
-Recorded search time includes callback logging and termination checks, but excludes final incumbent extraction, summary writing, and export.
+The CSV is loaded before timing starts; callback logging remains in search time rather than the subtracted lookup time.
 
 \subsection{Observed proposal and initialization behavior}\label{sec:supp-proposals}
-Table~\ref{tab:supp-fmqa-fallback} pools \texttt{FMQA-SA} proposals across tested budgets and ten seeds per condition, including all six \texttt{CSTR} sizes.
-Counts exclude the shared initialization and include terminal-callback proposals; rates are pooled fallback/proposal ratios.
-Uniform fallback supplies most process proposals, so the results characterize the combined learned-proposal and fallback procedure.
-The added uniform control compares the complete \texttt{FMQA-SA} procedure with sampling under the shared protocol; it does not isolate the individual causal contributions of fitting, annealing, and fallback.
+Table~\ref{tab:supp-fmqa-fallback} pools \texttt{FMQA-SA} proposals across budgets and seeds, excluding the shared initialization and including terminal callbacks.
+Fallback supplies 52.89\% of process proposals; the uniform comparison evaluates the complete procedure, without isolating the contributions of learning, annealing, and fallback.
 
 \begin{table}[htbp]
 \centering\small
-\caption{Recorded \texttt{FMQA-SA} uniform fallback by benchmark family.
-Counts include proposals for terminal callbacks.}
+\caption{Recorded \texttt{FMQA-SA} uniform fallback by benchmark family.}
 \label{tab:supp-fmqa-fallback}
 \begin{tabular}{lrrrr}
 \toprule
@@ -341,21 +292,11 @@ Process total & 140 & 2,980 & 1,576 & 52.89\% \\
 \end{table}
 \FloatBarrier
 
-\subsection{Terminal-callback solutions and final summaries}
-\label{sec:supp-terminal-recovery}
-Process success is defined by the wrapper's best accepted configuration, including callback \(B\), rather than by the native optimizer's returned incumbent.
-The final \texttt{runs.csv} summary stores the coordinates and objective of that configuration.
-
-\FloatBarrier
-
-\FloatBarrier
-
 \section{Process model scale, units, and discrete decisions}\label{sec:supp-models}
-Counts below describe the unfixed original GDP before reformulation or presolve, including all active disjunct branches, not the smaller NLP for a particular selected configuration.
-Fixed continuous variables remain in the continuous-variable count; the numerical suffix in \texttt{CSTR5}--\texttt{CSTR30} specifies the number of potential reactor positions in the superstructure.
+Table~\ref{tab:supp-model-sizes} counts the original GDP before reformulation or presolve, including all active disjunct branches and fixed continuous variables.
 \texttt{Dynamic} is discretized with 30 finite elements per stage and three Radau points.
 Binary counts refer to the indicator variables already constructed by the model, before Boolean-to-binary conversion.
-All nine models have zero additional nonbinary integer variables; the process GDP formulations appear in Appendices A.1--A.3 of \citet{ovalle2025logic}, with external-variable mappings in Appendices B.1, B.2, and B.4, and the \texttt{Dynamic} formulation appears in Section IV-C of \citet{peng2024dynamic}.
+All nine models have zero additional nonbinary integer variables.
 
 \begin{table}[htbp]
 \centering
@@ -377,82 +318,16 @@ Model & \(n_c\) & \(n_b\) & \(m_a\) & \(m_l\) & \(n_d\)\\\midrule
 \bottomrule\end{tabular}\end{table}
 
 \FloatBarrier
-For \texttt{CSTR}, the cutoff/feed and recycle choices determine reactor/bypass and recycle disjuncts; the objective is total reactor volume in litres~\citep{linan2020optimal}.
-\texttt{Column} selects reflux/boilup positions and the implied tray configuration~\citep{ghouse2018comparative}.
-Its implemented objective is \(10^3(Q_c+Q_b)+10^3 n_{\rm active}\), a weighted cost proxy labelled in dollars by the source model; it is not a newly estimated annualized economic cost.
-\texttt{Small Batch} selects the parallel-unit counts for three stages, fixing the discrete unit-number alternatives; its source objective is investment cost in dollars~\citep{kocis1988global}.
-No currency-year conversion is applied.
-\texttt{Dynamic}'s two switching-stage choices fix each stage's mode and leave the continuous state trajectories to the discretized NLP~\citep{peng2024dynamic}.
-Its objective is \(-\int_0^9 x(t)^2\,dt\), so minimization favors a larger integrated squared state.
-State and time are abstract benchmark quantities without a physical unit calibration in the implementation.
-The example adds mode sequencing and dynamic differential constraints to the static equipment/configuration cases; it is not a plant-specific economic metric.
+\texttt{CSTR} volume is measured in litres, and \texttt{Small Batch} investment uses the source model's dollars without currency-year conversion.
+The \texttt{Column} objective is \(10^3(Q_c+Q_b)+10^3 n_{\rm active}\), the source model's weighted cost proxy rather than a newly estimated annualized cost.
+The \texttt{Dynamic} objective is \(-\int_0^9 x(t)^2\,dt\), with no physical-unit calibration for state or time.
 
-\texttt{Column} uses the logical domain \(\{8,\ldots,15\}\times\{1,\ldots,8\}\) (64 points).
-These bounds encode reflux at or above the feed tray and boilup at or below it.
-The remaining algebraic constraints are checked during configuration evaluation.
-All search methods and uniform sampling use this domain; the algebraic references retain the original GDP formulation.
 
-\section{Grid inventory and target-set sizes}\label{sec:supp-inventory}
-All DFO methods receive the integer pair \((i,j)\in\{0,\ldots,30\}^2\).
-The one-based external-variable convention in the main paper corresponds to \((\xi_1,\xi_2)=(i+1,j+1)\); this is a relabelling, not an offset applied by the Grid optimizers.
-Physical coordinates follow Equation~\eqref{eq:supp-coordinates}.
-\texttt{FMQA-SA} uses five unsigned bits per Grid coordinate; decoded coordinate values equal to 31 are rejected as out of bounds.
-The normalized tolerance \(10^{-5}\) equals \(10^{-5}(U-L)\) in raw objective units.
-Target-set sizes therefore vary across functions even though the normalized tolerance is shared.
 
-The inventory in Table~\ref{tab:supp-grid-inventory} is calculated from all 961 implemented raw samples.
-Constants are rounded for display; full precision, physical coordinates, and complete minimum/target lists are in \nolinkurl{grid_inventory.json}.
-\(n_{\min}^{\rm fp}\) counts exact ties at the smallest floating-point raw sample, and \(n_{\rm target}\) counts normalized samples at most \(10^{-5}\).
-Floating arithmetic may split analytic ties: Rosenbrock has two exact minimizers, although only one sample equals the floating minimum bit for bit.
-For Xin-She Yang 3 (historical variant), underflow gives 12 exact stored minima, and 870 grid points meet the target.
-Neither exact stored zeros nor target membership imply that the corresponding continuous analytical function is zero there.
-
-\begin{table}[htbp]
-\centering
-\small
-\caption{Enumerated grid normalization constants and target-set sizes.}\label{tab:supp-grid-inventory}
-\begin{tabular}{lrrrr}
-\toprule
-Function & \(L\) & \(U\) & \(n_{\min}^{\rm fp}\) & \(n_{\rm target}\)\\\midrule
-Ackley & 4.44089e-16 & 14.2469 & 1 & 1 \\
-Alpine 1 & 0 & 17.4297 & 1 & 1 \\
-Alpine 2 & -896.050 & 789.540 & 1 & 1 \\
-Bohachevsky 2 & 0 & 30000 & 1 & 1 \\
-Three-hump camel & 0 & 2047.92 & 1 & 1 \\
-Csendes (squared variant) & 0 & 16.1479 & 1 & 36 \\
-Deflected corrugated spring & -1 & 5.69827 & 1 & 1 \\
-Drop-Wave & -1 & -1.31451e-7 & 1 & 1 \\
-Easom & -0.895368 & 0.00846156 & 1 & 1 \\
-Griewank & 0 & 180.012 & 1 & 1 \\
-H\"older table & -18.1380 & -0 & 2 & 4 \\
-Hosaki & -2.34581 & 0.541341 & 1 & 1 \\
-L\'evy & 0.114062 & 95.3828 & 1 & 2 \\
-L\'evy 13 & 0.305556 & 307.861 & 1 & 4 \\
-Michalewicz & -1.80107 & -0 & 1 & 1 \\
-Rastrigin & 0 & 77.8494 & 1 & 1 \\
-Rosenbrock & 0.00641975 & 2509 & 1 & 2 \\
-Shubert (historical variant) & -11.0378 & 10.7203 & 1 & 1 \\
-Styblinski--Tang & -1 & 3.20513 & 1 & 1 \\
-Sum of squares & 0 & 300 & 1 & 1 \\
-Xin-She Yang 3 (historical variant) & 0 & 3 & 12 & 870 \\
-\bottomrule\end{tabular}\end{table}
-
-\FloatBarrier % \clearpage
 \section{Success-rate uncertainty and completion costs}\label{sec:supp-uncertainty}
-For each problem, method, and budget, let \(h\) be the number of target hits among \(n=10\) seeds, retaining execution failures as non-successes.
-
-We report two-sided 95\% Clopper--Pearson intervals for the binomial success probability~\citep{clopperPearson}:
-\[
- p_L=\begin{cases}0,&h=0,\\B^{-1}_{0.025}(h,n-h+1),&h>0,\end{cases}
- \qquad
- p_U=\begin{cases}1,&h=n,\\B^{-1}_{0.975}(h+1,n-h),&h<n,\end{cases}
-\]
-where \(B^{-1}\) denotes the beta quantile.
-Coverage is conditional on treating the seed-level outcomes as independent Bernoulli trials under the fixed protocol.
-The intervals are pointwise, not simultaneous across comparisons.
-
-Ten observed successes give \([0.692,1]\); zero give \([0,0.308]\).
-Thus neither empirical endpoint establishes a population probability of one or zero.
+For each problem, method, and budget, we report target hits \(h\) out of ten seeds with pointwise two-sided 95\% Clopper--Pearson intervals \([p_L,p_U]\), counting execution failures as non-successes~\citep{clopperPearson}.
+Coverage assumes independent Bernoulli outcomes under the fixed protocol; it is not simultaneous across comparisons.
+Ten successes give \([0.692,1]\), and zero give \([0,0.308]\), so neither observed endpoint establishes a population probability of one or zero.
 Table~\ref{tab:process-tts99} reports completion costs for all 14 process conditions.
 \begin{table}[p]
 \centering
@@ -476,72 +351,22 @@ Case & \(B\) & \texttt{D-SDA} & RBFOpt & BAM & \texttt{FMQA-SA} & Uniform \\\mid
 \texttt{Dynamic} & 30 & 26.62 & 34.19 & 21.91 & 36.24 & 19.38 \\
 \texttt{Dynamic} & 37 & 26.62 & 42.42 & 24.99 & 46.05 & 24.38 \\
 \texttt{Dynamic} & 50 & 26.62 & 65.14 & 33.98 & 61.31 & 33.12 \\
-\bottomrule\end{tabular}\par\medskip
-\begin{minipage}{0.96\linewidth}\footnotesize
-The table reports completion costs, not first-hit times.
-Reconstructed search-completion costs exclude the final wrapper result-extraction and summary-writing pass.
-Pointwise success-rate intervals are defined in Supplementary Section~\ref{sec:supp-uncertainty}.
-Every group has complete measured point-cost coverage, with no zero filling or cross-size substitution.
-\end{minipage}
+\bottomrule\end{tabular}
 \end{table}
 
-Table~\ref{tab:supp-grid-b100} reports function-level results at the largest Grid budget, \(B=100\).
-Complete seed-level outcomes for all Grid budgets and Process conditions are available in the publication analysis linked in Section~\ref{sec:supp-data}.
-Cells report \(h\,[p_L,p_U]\), with limits rounded to two decimals; displayed endpoints may be rounded interior bounds.
-Seed indices remain paired across methods within each problem/budget, but intervals are calculated separately for each group, not by pooling the heterogeneous 21-function suite.
+Per-function Grid results at \(B=100\) and complete seed-level outcomes are available in the analysis files linked in Section~\ref{sec:supp-data}.
 
-\FloatBarrier % \clearpage
-
-\begin{table}[htbp]
-\centering
-\small
-\caption{Grid target hits and pointwise 95\% success-probability intervals at \(B=100\).
-Each cell is \(h\,[p_L,p_U]\) from ten seeds.}\label{tab:supp-grid-b100}
-\setlength{\tabcolsep}{2pt}\footnotesize\begin{tabular}{lllllll}
-\toprule
-Function & \texttt{D-SDA} & \texttt{RBFOpt} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform & \shortstack{\texttt{BAM}-prefix\\control}\\\midrule
-Ackley & 0 [0.00, 0.31] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 8 [0.44, 0.97] & 1 [0.00, 0.45] & 10 [0.69, 1.00] \\
-Alpine1 & 1 [0.00, 0.45] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 5 [0.19, 0.81] & 1 [0.00, 0.45] & 10 [0.69, 1.00] \\
-Alpine2 & 1 [0.00, 0.45] & 3 [0.07, 0.65] & 1 [0.00, 0.45] & 2 [0.03, 0.56] & 1 [0.00, 0.45] & 2 [0.03, 0.56] \\
-Bohachevsky2 & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 9 [0.55, 1.00] & 1 [0.00, 0.45] & 10 [0.69, 1.00] \\
-Camel3 & 9 [0.55, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 3 [0.07, 0.65] & 2 [0.03, 0.56] & 10 [0.69, 1.00] \\
-Csendes & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] \\
-\shortstack[l]{Deflected corrugated\\spring} & 0 [0.00, 0.31] & 1 [0.00, 0.45] & 10 [0.69, 1.00] & 3 [0.07, 0.65] & 3 [0.07, 0.65] & 10 [0.69, 1.00] \\
-Dropwave & 0 [0.00, 0.31] & 2 [0.03, 0.56] & 10 [0.69, 1.00] & 4 [0.12, 0.74] & 0 [0.00, 0.31] & 10 [0.69, 1.00] \\
-Easom & 1 [0.00, 0.45] & 7 [0.35, 0.93] & 0 [0.00, 0.31] & 3 [0.07, 0.65] & 0 [0.00, 0.31] & 1 [0.00, 0.45] \\
-Griewank & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 2 [0.03, 0.56] & 10 [0.69, 1.00] \\
-Holder Table & 1 [0.00, 0.45] & 10 [0.69, 1.00] & 6 [0.26, 0.88] & 8 [0.44, 0.97] & 4 [0.12, 0.74] & 1 [0.00, 0.45] \\
-Hosaki & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 3 [0.07, 0.65] & 6 [0.26, 0.88] & 0 [0.00, 0.31] & 3 [0.07, 0.65] \\
-Levy & 2 [0.03, 0.56] & 10 [0.69, 1.00] & 5 [0.19, 0.81] & 4 [0.12, 0.74] & 0 [0.00, 0.31] & 2 [0.03, 0.56] \\
-Levy13 & 8 [0.44, 0.97] & 10 [0.69, 1.00] & 9 [0.55, 1.00] & 9 [0.55, 1.00] & 6 [0.26, 0.88] & 2 [0.03, 0.56] \\
-Michalewicz & 6 [0.26, 0.88] & 10 [0.69, 1.00] & 2 [0.03, 0.56] & 7 [0.35, 0.93] & 0 [0.00, 0.31] & 2 [0.03, 0.56] \\
-Rastrigin & 0 [0.00, 0.31] & 4 [0.12, 0.74] & 10 [0.69, 1.00] & 5 [0.19, 0.81] & 1 [0.00, 0.45] & 10 [0.69, 1.00] \\
-Rosenbrock & 3 [0.07, 0.65] & 10 [0.69, 1.00] & 0 [0.00, 0.31] & 6 [0.26, 0.88] & 2 [0.03, 0.56] & 1 [0.00, 0.45] \\
-Shubert & 1 [0.00, 0.45] & 4 [0.12, 0.74] & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 1 [0.00, 0.45] & 0 [0.00, 0.31] \\
-Styblinski Tang & 8 [0.44, 0.97] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 7 [0.35, 0.93] & 0 [0.00, 0.31] & 0 [0.00, 0.31] \\
-Sum Of Squares & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 9 [0.55, 1.00] & 0 [0.00, 0.31] & 10 [0.69, 1.00] \\
-Xin She Yang3 & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] & 10 [0.69, 1.00] \\
-\bottomrule\end{tabular}\end{table}
-
-\FloatBarrier % \clearpage
+\FloatBarrier
 \begingroup
 \section{Data sources and reproducibility}\label{sec:supp-data}
 
-The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/blob/3c60f4707b454a9d3e4330466ec5f9372b418f54/manuscript/README.md}{baseline publication analysis} provides the original source records and reproduction instructions~\citep{currentPublicationAnalysis}.
-The CSTR5--25 \texttt{RBFOpt} results use the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/8c7515d602802ab7b5b23eef4373988036a7f7ce/results/cstr_penalty_1e6_analysis_20261022}{finite-penalty records}.
-The \texttt{CSTR30} results use the updated evaluation table in the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/df060f6f6974f8deb8ac085ee908b9e99f666b36/results/cstr30_initialization_analysis_20261025}{initialization follow-up}.
-The current \texttt{D-SDA} results, figures, and tables are provided by the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/e67926f9e0fdd389d368bb8d3cfc943a6e3f3baf/results/dsda_publication_20261028}{tolerance-update publication analysis}.
-The resulting 700-run process comparison contains 2,024 distinct visited configurations and 16,041 callbacks.
-The \texttt{Column} logical-domain records are provided by the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/947c21bf5d81483adcee6b9810f70f3fdb7fa91a/results/column_publication_20261025}{publication analysis}.
-The \texttt{SCIP} algebraic records are pinned separately: \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/ed40a19c33725e0ee8c5403e66768eb6b27072b2/results/grid_scip_20261023}{Grid Big-\(M\)/Hull}, \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/ed40a19c33725e0ee8c5403e66768eb6b27072b2/results/grid_gdpopt_scip_recovery_comparison_20261025}{Grid GDPOpt}, and \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/ed40a19c33725e0ee8c5403e66768eb6b27072b2/results/process_scip_four_analysis_20261026}{all 45 process comparisons}.
-The Grid \texttt{GDPOpt} summary retains each original non-error run and replaces only the 46 execution-error entries with their recovery runs.
-All first attempts remain archived; the retained time-limit misses and differing rerun sets prevent treating the mixed counts as a method ranking.
-The three presolve-disabled LOA diagnostic runs are excluded from these performance counts.
+The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/49d4bcbeb10fe49b74fe2333d27829046e93bf03}{publication snapshot} contains the source code, experimental data, analysis results, and reproduction instructions for the DFO and algebraic comparisons.
+The Grid \texttt{GDPOpt} summary combines original non-error runs with recovery runs for the 46 execution errors, so its counts do not establish a method ranking.
+The three presolve-disabled LOA diagnostic runs are excluded.
 
 \section{Feasibility and bound consistency of the algebraic results}\label{sec:bound-audit}
-The bound-consistency check covers all 45 selected algebraic runs in manuscript Table~\ref{tab:full-gdp}.
-Table~\ref{tab:bound-audit} lists the 19 flagged comparisons, and Table~\ref{tab:witnesses} gives the best saved feasible solution for each model in the current \texttt{SCIP} runs.
-The linked process analysis provides unrounded objectives, bounds, residuals, archive paths, and hashes.
+Of the 45 algebraic runs reported in the main paper\ifdefined\manuscriptwithsupplement\space(Table~\ref{tab:full-gdp})\fi, 19 have flagged bounds (Table~\ref{tab:bound-audit}) relative to the checked solutions in Table~\ref{tab:witnesses}.
+Unrounded values, residuals, and source records are linked in Section~\ref{sec:supp-data}.
 
 For each minimization model, let \(f_w\) be the recorded objective of its best independently checked saved feasible solution, and let \(L\) denote a reported lower bound.
 We apply the same rule to all five methods:
@@ -558,17 +383,15 @@ All 43 saved feasible vectors satisfy the \(10^{-5}\) threshold; the largest vio
 The two Big-\(M\) runs without accepted feasible solutions remain in the 45-run denominator.
 This numerical check establishes neither exact feasibility nor global optimality.
 
-The uniform rule flags six \texttt{CSTR} GLOA runs, \texttt{Dynamic} Hull, RIC and LOA for \texttt{CSTR5}--\texttt{CSTR25}, and Hull for \texttt{CSTR5} and \texttt{CSTR10}.
-The last 12 discrepancies are only 1.09--4.30 times the tolerance and are sensitive to numerical feasibility conventions.
+Twelve of the 19 discrepancies are only 1.09--4.30 times the tolerance and are sensitive to numerical feasibility conventions.
 These conflicting bounds and \nolinkurl{optimal} reports provide no independent global certificate or intrinsic method ranking; their cause in GDPopt or its subsolvers remains unresolved.
 
 \par\endgroup
 \begin{table}[htbp]
 \centering
-\caption{The 19 flagged bound comparisons among the 45 \texttt{SCIP} runs in manuscript Table~\ref{tab:full-gdp}.
-Bounds, violations, and ratios are rounded for display; flags use the unrounded \(\rho>1\) test.
-C identifies the comparison solution in Table~\ref{tab:witnesses}.
-The flags are numerical-consistency categories, not equally strong demonstrations of invalid mathematical bounds.}\label{tab:bound-audit}
+\caption{Flagged bound comparisons, using unrounded \(\rho>1\).
+C identifies the comparison solution in Table~\ref{tab:witnesses}; displayed values are rounded.
+Flags indicate numerical inconsistencies of different magnitudes.}\label{tab:bound-audit}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{lllrrlr}
 \toprule
@@ -598,9 +421,7 @@ S45 & \texttt{Dynamic} & Hull & -196.931 & 1.00e-7 & C09 & 7.11e+3\(^{\dagger}\)
 \FloatBarrier % \clearpage
 \begingroup
 \begin{table}[htbp]\centering\small
-\caption{Saved feasible comparison solutions.
-The process \texttt{SCIP} analysis linked in Section~\ref{sec:supp-data} identifies each full vector and its original-GDP recheck.
-Displayed objectives and violations are rounded.}\label{tab:witnesses}
+\caption{Checked saved comparison solutions; displayed values are rounded.}\label{tab:witnesses}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{lllrr}\toprule
 ID & Model & Method & Recorded \(f_w\) & \(v_{\max}\)\\\midrule
@@ -616,14 +437,12 @@ C09 & \texttt{Dynamic} & Big-\(M\) & -212.009 & 1.00e-7 \\
 \bottomrule\end{tabular}\end{table}
 
 \paragraph{Additional tightened-feasibility check for \texttt{CSTR15}.}
-A separate Dantzig \texttt{IPOPT} 3.14.19 solve with \texttt{MUMPS} 5.8.1 retained the archived LOA witness W03's discrete configuration and continuous starting values and targeted an original-GDP residual of \(10^{-8}\)~\citep{cstrDantzigValidation}.
-That historical witness is distinct from the current \texttt{SCIP} comparison solution C03.
-Only exactly satisfied constant rows were omitted from the computational clone, preserving the fixed-configuration feasible set and all original constraints in the independent check.
-The solve returned objective \(2.82939\).
-The original-GDP recheck gave maximum unscaled violation \(1.11\times10^{-16}\), passing the \(10^{-8}\) target.
-
-The current \texttt{SCIP}-based GLOA lower bound \(3.56190\) exceeds this tightened objective by \(0.732507\), giving \(\rho\approx2.59\times10^4\).
-This comparison preserves the earlier validation result and does not establish exact feasibility or the cause of the bound discrepancy.
+A Dantzig \texttt{IPOPT} 3.14.19 solve retained the archived LOA witness W03's discrete configuration and starting values and targeted an original-GDP residual of \(10^{-8}\)~\citep{rbfoptTestArchive}.
+W03 is distinct from the current \texttt{SCIP} comparison solution C03.
+Only exactly satisfied constant rows were omitted from the computational clone; the independent check retained all original constraints.
+The returned objective was \(2.82939\), with maximum unscaled violation \(1.11\times10^{-16}\).
+The current \texttt{SCIP} GLOA lower bound exceeds this objective by \(0.732507\), or approximately \(2.59\times10^4\) times the audit tolerance.
+The discrepancy persists under the tighter check, but its cause remains unresolved.
 
 \paragraph{Additional formulation check for \texttt{Dynamic} Hull.}
 The saved Big-\(M\) point has objective \(-212.009\), approximately \(15.0776\) below the Hull lower bound \(-196.931\).
@@ -643,7 +462,6 @@ For Grid, the descriptive percentile bootstrap resamples the 21 intact function 
 For Process, paired seeds are resampled within each of the 14 conditions; the six related \texttt{Dynamic} budgets are not pooled for inference.
 The seed is 20261020 with 2,000 bootstrap replications and deterministic case/seed ordering.
 Intervals are exploratory and unadjusted for multiple comparisons; ten-seed boundary cases may yield degenerate intervals, and zero inclusion does not establish equivalence.
-Current Grid and \texttt{D-SDA} process paired comparisons are provided by the publication analysis linked in Section~\ref{sec:supp-data}.
 
 \begin{table}[htbp]\centering\small
 \caption{Selected paired success differences, in percentage points.
@@ -670,7 +488,6 @@ Case & \(B\) & Contrast & Outcomes & Difference & 95\% interval\\\midrule
 \par\smallskip
 \begin{minipage}{0.95\textwidth}\footnotesize
 Outcomes list both successful / first only / second only / neither successful.
-The descriptive intervals resample functions for Grid and paired seeds within each Process condition; they do not establish general superiority or equivalence.
 \end{minipage}
 \end{table}
 \FloatBarrier
@@ -682,11 +499,81 @@ Without both functions, \(B=100\) rates are 79.5\% for \texttt{RBFOpt}, 66.8\% f
 At \(B=10\), \texttt{BAM} and its prefix control each retain 47.9\%, compared with \texttt{RBFOpt} 15.8\%.
 
 \subsection{Limited reconstructed FMQA diagnostics}
-Seven FM models were reconstructed locally from archived observations in three selected runs because the original fitted weights and QUBOs were not saved~\citep{additionalDiagnostics}.
+Seven FM models were reconstructed locally from archived observations in three selected runs because the original fitted weights and QUBOs were not saved~\citep{rbfoptTestArchive}.
 All 3,328 enumerated binary states passed the recorded energy-conversion checks.
 Five selected SA proposals minimized their reconstructed models over eligible candidates; two \texttt{Dynamic} fallback iterations had no eligible stored SA sample.
 These selected checks do not verify the historical weights or isolate the contributions of learning, annealing, and fallback.
-Synthetic zero-coefficient tests produced nonfinite scaling and a wrapper error before annealing or fallback; whether this occurred in the historical fits is unknown.
+\clearpage
+\section{Joint comparison with algebraic methods}
+\label{sec:supp-joint-comparison}
+Figures~\ref{fig:joint-cstr-completion} and \ref{fig:joint-other-completion} place the recorded DFO and algebraic results on the same completion-time axis.
+DFO times are reconstructed from the stored search paths and separately measured configuration costs; algebraic times are measured and include preparation.
+Each DFO condition has ten seeds, whereas each algebraic method has one run per problem.
+The original target rules are retained: absolute agreement with the reference for DFO, and a feasible objective at or below the reference for algebraic methods, using the stated tolerance.
+This descriptive comparison does not estimate an algebraic success probability.
+
+\begin{table}[htbp]\centering\small
+\caption{NLP workload in the recorded process comparisons.
+DFO entries are median counts of corresponding fixed-configuration NLP evaluations over ten seeds; GDPopt entries count confirmed SCIP NLP interface calls in one run.
+Logical and preprocessing rejections are excluded; rejected NLP returns are retained.
+These counts are not internal solver iterations or equally costly subproblems.}
+\label{tab:joint-nlp-workload}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrrrrrrrr}\toprule
+Case & \(B\) & D-SDA & RBFOpt & BAM & FMQA-SA & Uniform & GLOA & LOA & RIC\\\midrule
+CSTR5 & 8 & 6 & 6 & 6 & 5.5 & 4.5 & 2 & 15 & 15 \\
+CSTR10 & 15 & 10 & 12 & 8.5 & 9 & 7.5 & 2 & 55 & 55 \\
+CSTR15 & 22 & 17 & 16.5 & 11 & 15 & 11 & 2 & 120 & 120 \\
+CSTR20 & 29 & 21 & 20.5 & 17 & 17.5 & 15.5 & 2 & 210 & 210 \\
+CSTR25 & 36 & 25 & 25.5 & 18.5 & 23 & 21 & 2 & 325\(^{\dagger}\) & 325 \\
+CSTR30 & 43 & 26.5 & 31.5 & 21.5 & 30.5 & 21.5 & 2 & 362 & 370\(^{\dagger}\) \\
+Column & 13 & 11 & 12 & 7.5 & 7 & 7 & 1 & 1 & 1 \\
+Small Batch & 10 & 4.5 & 6 & 5 & 5 & 4 & 12 & 12 & 12 \\
+Dynamic & 12 & 10 & 10 & 8 & 6.5 & 6 & 1 & 1 & 1 \\
+Dynamic & 15 & 13 & 13 & 9 & 8 & 6.5 & 1 & 1 & 1 \\
+Dynamic & 20 & 17.5 & 16 & 11 & 11 & 9.5 & 1 & 1 & 1 \\
+Dynamic & 30 & 22 & 21 & 17 & 14.5 & 15 & 1 & 1 & 1 \\
+Dynamic & 37 & 22 & 25 & 19 & 19 & 19 & 1 & 1 & 1 \\
+Dynamic & 50 & 22 & 31 & 26 & 24.5 & 26 & 1 & 1 & 1 \\
+\bottomrule\end{tabular}
+\par\smallskip
+\begin{minipage}{0.98\linewidth}\footnotesize
+The same single Dynamic GDPopt execution is repeated across budget rows for reference.
+\(^{\dagger}\)CSTR25 LOA and CSTR30 RIC each have one additional NLP interface attempt without a confirmed solver start; these attempts are excluded.
+Internal NLP counts for direct Big-\(M\) and Hull are unavailable and are not treated as zero.
+\end{minipage}
+\end{table}
+\FloatBarrier
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth]{figures/joint_cstr_completion.pdf}
+\caption{Joint completion-time comparison for the six CSTR cases.
+Each DFO dot represents one seed; gray segments show Q25--Q75 and vertical ticks show medians across all ten runs.
+Diamonds represent successful single algebraic runs; crosses indicate target misses in either group.
+Right-hand labels give DFO hits out of ten or the algebraic yes/no outcome.
+Asterisks retain the bound-inconsistency flags discussed in Section~\ref{sec:bound-audit}.
+The horizontal axis is logarithmic and shows full-run completion, not first-target time.
+}
+\label{fig:joint-cstr-completion}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth]{figures/joint_other_completion.pdf}
+\caption{Joint completion-time comparison for Column, Small Batch, and the six Dynamic budgets.
+Each DFO dot represents one seed; gray segments show Q25--Q75 and vertical ticks show medians across all ten runs.
+Diamonds represent successful single algebraic runs; crosses indicate target misses in either group.
+Right-hand labels give DFO hits out of ten or the algebraic yes/no outcome.
+Asterisks retain the bound-inconsistency flags discussed in Section~\ref{sec:bound-audit}.
+The horizontal axis is logarithmic and shows full-run completion, not first-target time.
+The same single algebraic Dynamic run appears in each budget panel; these are not additional runs.
+}
+\label{fig:joint-other-completion}
+\end{figure}
+\FloatBarrier
+
 
 \ifdefined\manuscriptwithsupplement
 \FloatBarrier % \clearpage

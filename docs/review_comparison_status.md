@@ -1,5 +1,46 @@
 # Professor review disposition — manuscript revision
 
+## Supplementary duplication removed, 30 October 2026
+
+The [reduced supplementary view](../results/joint_process_supplement_20261030/README.md) shows only the eight conditions absent from main Figure 3.
+The main and supplementary panels partition all fourteen conditions and retain all 700 DFO runs exactly once.
+Overleaf now has one joint supplementary figure, Figure S1, instead of the two full-cohort figures and the redundant DFO-only Figure S3.
+The unused cumulative completion-time equation and its explanatory text were removed from Methods, while the evaluation-count profile and reconstructed completion-cost equation were retained.
+Cross-references and the Albert response were updated in place.
+All 41 David commands and the detailed conventional results and NLP-workload tables were preserved.
+The combined PDF decreased from 35 to 33 pages and compiled with zero errors or warnings.
+The eight-panel figure was visually checked in the compiled document.
+All 34 new and related tests and Ruff passed, and two fresh generations reproduced all five output files byte-for-byte.
+No experiments were rerun, and archived figures, data, source snapshots, and manuscript bundles remain unchanged.
+The dated entries below record the preceding layouts.
+
+## Joint comparison promoted to the main text, 30 October 2026
+
+The [six-condition joint view](../results/joint_process_main_20261030/README.md) supplies the new main Figure 3 from the unchanged completed SCIP-IPOPT comparison.
+The panels cover CSTR5 B=8, CSTR30 B=43, Column B=13, Small Batch B=10, and Dynamic B=12 and B=30.
+All ten DFO seeds are shown with medians and quartiles, while conventional GDP methods retain one observation per model.
+The repeated Dynamic conventional marks do not add independent runs.
+Time-limit labels preserve recorded termination and measured time rather than substituting the configured limit.
+The detailed conventional results moved to Supplementary Table S8, and the old DFO-only completion profiles moved to Figure S3.
+The full fourteen-condition joint figures and NLP-workload table remain in the supplement.
+Localized Overleaf edits connect the joint display to Methods and the CSTR30 and Small Batch cost discussion.
+The lower-bound and CSTR15 diagnostic paragraphs, Discussion, and Conclusions were not rewritten.
+All 41 David commands across both sources, including commented commands, were preserved, and an Albert response was added for comment 7.
+The 35-page combined PDF compiled with zero errors or warnings; references begin on page 19, and the new figure, moved table, and retained profile were visually inspected.
+All 35 new and related tests and Ruff passed; two fresh generations reproduced all five outputs byte-for-byte.
+No experiments were rerun, and existing execution records, manifests, figure generators, and manuscript bundles remain unchanged.
+
+## Display comments addressed, 30 October 2026
+
+The [display follow-up](../results/review_display_20261030/README.md) supplies the current single-panel B=100 Figure 1, highlighted Grid hit table, and process search-time table fragments.
+Figure 1 preserves every curve coordinate and distinguishes BAM from its prefix control using color, line style, and filled versus open markers.
+The process table retains all 700 primary runs and reports target hits, median search time, and descriptive [Q25, Q75] in seconds, excluding configuration-evaluation costs.
+Overleaf received localized edits for comments 1, 2, 3, and 8; David's comments and existing tracked changes were preserved, with Albert replies added.
+The repository pointer was moved out of the Grid caption, and the conventional-result footnote now uses reference target consistently.
+The combined Overleaf PDF compiled to 35 pages with zero reported errors or warnings; the updated table and figure were visually checked at page size.
+All 37 new and related tests and Ruff passed, and two fresh generations reproduced all eight output files byte-for-byte.
+No experiment was rerun, and the historical manuscript bundle and execution records below remain unchanged.
+
 ## Current publication update - Column logical domain, 25 October 2026
 
 The [Column publication analysis](../results/column_publication_20261025/README.md) adopts all 50 completed logical-domain/B13 runs and preserves the other 650 primary Process runs.

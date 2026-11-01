@@ -1,0 +1,71 @@
+\clearpage
+\section{Joint comparison with algebraic methods}
+\label{sec:supp-joint-comparison}
+Figures~\ref{fig:joint-cstr-completion} and \ref{fig:joint-other-completion} place the recorded DFO and algebraic results on the same completion-time axis.
+DFO times are reconstructed from the stored search paths and separately measured configuration costs; algebraic times are measured and include preparation.
+Each DFO condition has ten seeds, whereas each algebraic method has one run per problem.
+The original target rules are retained: absolute agreement with the reference for DFO, and a feasible objective at or below the reference for algebraic methods, using the stated tolerance.
+This descriptive comparison does not estimate an algebraic success probability.
+
+\begin{table}[htbp]\centering\small
+\caption{NLP workload in the recorded process comparisons.
+DFO entries are median counts of corresponding fixed-configuration NLP evaluations over ten seeds; GDPopt entries count confirmed SCIP NLP interface calls in one run.
+Logical and preprocessing rejections are excluded; rejected NLP returns are retained.
+These counts are not internal solver iterations or equally costly subproblems.}
+\label{tab:joint-nlp-workload}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrrrrrrrr}\toprule
+Case & \(B\) & D-SDA & RBFOpt & BAM & FMQA-SA & Uniform & GLOA & LOA & RIC\\\midrule
+CSTR5 & 8 & 6 & 6 & 6 & 5.5 & 4.5 & 2 & 15 & 15 \\
+CSTR10 & 15 & 10 & 12 & 8.5 & 9 & 7.5 & 2 & 55 & 55 \\
+CSTR15 & 22 & 17 & 16.5 & 11 & 15 & 11 & 2 & 120 & 120 \\
+CSTR20 & 29 & 21 & 20.5 & 17 & 17.5 & 15.5 & 2 & 210 & 210 \\
+CSTR25 & 36 & 25 & 25.5 & 18.5 & 23 & 21 & 2 & 325\(^{\dagger}\) & 325 \\
+CSTR30 & 43 & 26.5 & 31.5 & 21.5 & 30.5 & 21.5 & 2 & 362 & 370\(^{\dagger}\) \\
+Column & 13 & 11 & 12 & 7.5 & 7 & 7 & 1 & 1 & 1 \\
+Small Batch & 10 & 4.5 & 6 & 5 & 5 & 4 & 12 & 12 & 12 \\
+Dynamic & 12 & 10 & 10 & 8 & 6.5 & 6 & 1 & 1 & 1 \\
+Dynamic & 15 & 13 & 13 & 9 & 8 & 6.5 & 1 & 1 & 1 \\
+Dynamic & 20 & 17.5 & 16 & 11 & 11 & 9.5 & 1 & 1 & 1 \\
+Dynamic & 30 & 22 & 21 & 17 & 14.5 & 15 & 1 & 1 & 1 \\
+Dynamic & 37 & 22 & 25 & 19 & 19 & 19 & 1 & 1 & 1 \\
+Dynamic & 50 & 22 & 31 & 26 & 24.5 & 26 & 1 & 1 & 1 \\
+\bottomrule\end{tabular}
+\par\smallskip
+\begin{minipage}{0.98\linewidth}\footnotesize
+The same single Dynamic GDPopt execution is repeated across budget rows for reference.
+\(^{\dagger}\)CSTR25 LOA and CSTR30 RIC each have one additional NLP interface attempt without a confirmed solver start; these attempts are excluded.
+Internal NLP counts for direct Big-\(M\) and Hull are unavailable and are not treated as zero.
+\end{minipage}
+\end{table}
+\FloatBarrier
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth]{figures/joint_cstr_completion.pdf}
+\caption{Joint completion-time comparison for the six CSTR cases.
+Each DFO dot represents one seed; gray segments show Q25--Q75 and vertical ticks show medians across all ten runs.
+Diamonds represent successful single algebraic runs; crosses indicate target misses in either group.
+Right-hand labels give DFO hits out of ten or the algebraic yes/no outcome.
+Asterisks retain the bound-inconsistency flags discussed in Section~\ref{sec:bound-audit}.
+The horizontal axis is logarithmic and shows full-run completion, not first-target time.
+}
+\label{fig:joint-cstr-completion}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth]{figures/joint_other_completion.pdf}
+\caption{Joint completion-time comparison for Column, Small Batch, and the six Dynamic budgets.
+Each DFO dot represents one seed; gray segments show Q25--Q75 and vertical ticks show medians across all ten runs.
+Diamonds represent successful single algebraic runs; crosses indicate target misses in either group.
+Right-hand labels give DFO hits out of ten or the algebraic yes/no outcome.
+Asterisks retain the bound-inconsistency flags discussed in Section~\ref{sec:bound-audit}.
+The horizontal axis is logarithmic and shows full-run completion, not first-target time.
+The same single algebraic Dynamic run appears in each budget panel; these are not additional runs.
+}
+\label{fig:joint-other-completion}
+\end{figure}
+\FloatBarrier
+
