@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-11-01T03:18:53.317214+00:00",
+  "created_utc": "2026-11-01T13:04:03.912887+00:00",
   "methods": [
     "dsda",
     "rbfopt",
@@ -7881,7 +7881,21 @@
     }
   ],
   "case": "/home/bernalde/repos/RBFopt_Test/.worktrees/catdist/experiments/lomustine_simulation/case.py",
-  "case_sha256": "cd44bfa0c6a776670ddfd5a91ee9b7d3786e9ae90bfb9123395e9b46da3996f4",
+  "case_sha256": "1651c8ab2bd113ecbbe66fbc4107d1130077f15114b424ff695258c0abf88c80",
+  "case_options": {
+    "reactors": [
+      "batch",
+      "CSTR",
+      "PFR"
+    ],
+    "crystallizers": [
+      "batchU",
+      "cont1",
+      "cont2",
+      "cont3"
+    ],
+    "objective": "productivity"
+  },
   "space": {
     "coordinates": "option_indices",
     "lower": [

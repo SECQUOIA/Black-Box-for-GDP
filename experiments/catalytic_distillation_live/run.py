@@ -348,6 +348,7 @@ def plan(args):
     write(output / "plan.json", dict(created_utc=datetime.now(timezone.utc).isoformat(), methods=args.methods,
                                      budgets=args.budgets, seeds=args.seeds, starts=starts, jobs=jobs,
                                      case=str(CASE_FILE), case_sha256=case.sha256(CASE_FILE),
+                                     case_options=getattr(case, "OPTIONS", None),
                                      space=dict(coordinates=getattr(case, "COORDINATES", "gaps"), lower=case.LOWER,
                                                 upper=case.UPPER, sum_limit=getattr(case, "SUM_LIMIT", None))))
     print(f"{len(jobs)} jobs in {output / 'plan.json'}")
