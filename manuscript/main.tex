@@ -76,7 +76,8 @@ On the largest network, MISO and RBFOpt reach the reference in ten and nine of t
 On the two smallest design models, exact paired tests detect no difference between D-SDA and RBFOpt, MISO reaches all ten Column targets, and a direct reformulation solves the smallest in half a second.
 On the Grid functions, MISO and RBFOpt reach 86.2\% and 81.4\% of the targets at a budget of 100 evaluations, compared with 60.0\% for NOMAD and 48.1\% for D-SDA.
 MISO reaches the most targets overall but spends more search time than RBFOpt on several conditions.
-Black-box configuration search is most useful when the configuration space is too large to enumerate and contains deceptive local minima; for small models, enumeration or direct reformulation is simpler.
+On a pharmaceutical flowsheet whose configurations are evaluated by simulation-based optimization in PharmaPy, where GDP solvers do not apply, RBFOpt and MISO find the best of 36 configurations in every run with 20 evaluations.
+Black-box configuration search is most useful when the configuration space is too large to enumerate and contains deceptive local minima, or when configurations are evaluated by simulation; for small algebraic models, enumeration or direct reformulation is simpler.
 % \david{Let's rewrite the abstract using https://imgv2-2-f.scribdassets.com/img/document/277786588/original/2a6edb71c4/1?v=1}
 \end{abstract}
 
@@ -115,6 +116,7 @@ The contributions are as follows:
 \begin{itemize}
 \item A comparison of surrogate-based and direct-search configuration methods with local descent, logic-based and direct GDP methods, and full enumeration on four process GDP families and 21 Grid test functions, measured by target attainment, NLP subproblems solved, and completion time.
 \item Evidence from execution records that the logic-based methods solve one subproblem for each admissible configuration of these models, whereas surrogate search reaches near-optimal configurations with a small fraction of those subproblems.
+\item An extension of the external-variable formulation to subproblems defined by a process simulator, demonstrated on a lomustine manufacturing flowsheet simulated in PharmaPy.
 \item An analysis of the landscape features that determine when surrogate search outperforms local descent, with recommendations for choosing among enumeration, direct reformulation, local descent, and surrogate search.
 \end{itemize}
 
@@ -177,6 +179,17 @@ When the external-variable mapping represents all logically admissible Boolean c
 \min_{\boldsymbol\xi\in\mathcal E_{\mathrm{adm}}}\Phi(\boldsymbol\xi).
 \end{equation}
 A logically admissible configuration may still yield an infeasible reduced subproblem.
+
+Problem~\eqref{eqn:outer.value} uses only the value \(\Phi(\boldsymbol\xi)\) of each configuration, so it also applies when a configuration is evaluated by a process simulator.
+Fixing \(\boldsymbol\xi\) then selects the unit models of a flowsheet, and the simulator \(\mathcal S_{\boldsymbol\xi}\) computes its states \(\mathbf s\), such as stream compositions and crystal size distributions, from operating inputs \(\mathbf u\in\mathcal U_{\boldsymbol\xi}\).
+The reduced subproblem becomes
+\begin{equation}\label{eqn:sim-sub}
+\Phi(\boldsymbol\xi)=\min_{\mathbf u\in\mathcal U_{\boldsymbol\xi}}\bigl\{f(\mathbf u,\mathbf s):\ \mathbf s=\mathcal S_{\boldsymbol\xi}(\mathbf u),\ \mathbf g(\mathbf u,\mathbf s)\leq\mathbf 0\bigr\},\tag{Sim}
+\end{equation}
+whose objective and constraints are known only through simulation outputs.
+A derivative-free method in \(\mathbf u\) solves Problem~\eqref{eqn:sim-sub}, so \(\Phi(\boldsymbol\xi)\) is approximated by the best value that this inner search finds within its simulation budget.
+Logic-based and direct GDP methods require the equations of every disjunct and do not apply to Problem~\eqref{eqn:sim-sub}.
+The configuration-search methods compared here use it through the same evaluation interface as an NLP subproblem, which Section~\ref{sec:lomustine-case} illustrates with a pharmaceutical flowsheet simulated in PharmaPy~\citep{casasorozco2021pharmapy}.
 
 \subsection{Conventional GDP Solution Approaches}
 
@@ -366,6 +379,22 @@ Model & \(N\) & Full GDP box & \makecell{Full box\\size} & \makecell{Finite\\loo
 \end{table}
 \FloatBarrier
 
+\subsection{Simulation-based benchmark: lomustine manufacturing}
+\label{sec:lomustine-case}
+The \texttt{Lomustine} benchmark selects the flowsheet of a manufacturing process for the anticancer drug lomustine whose model is a PharmaPy simulation~\citep{casasorozco2021pharmapy,secquoiaPdIsing}.
+\claude{Please add the reference for the original lomustine superstructure if it should be cited; the data come from SECQUOIA/pd\_ising PR 28.}
+The superstructure contains two reactors in series, each a batch reactor, a CSTR, or a PFR, followed by a batch vaporizer and a crystallizer that is either an unseeded batch cooling crystallizer or a train of one, two, or three mixed-suspension, mixed-product-removal (MSMPR) crystallizers.
+The external variables \(\xi_1\) and \(\xi_2\) select the two reactors in the order (batch, CSTR, PFR), and \(\xi_3\) selects the crystallizer in the order (batch, one, two, three MSMPR stages), which gives \(3\times3\times4=36\) configurations, all logically admissible.
+These choices are categorical, so their order is a convention taken from the source enumeration; the neighborhoods of \texttt{D-SDA} and \texttt{NOMAD} and the surrogate models act on this order.
+
+For each configuration, \texttt{NOMAD} optimizes 12 to 16 normalized operating inputs, including reactor temperatures and residence times, the reagent concentration, the cooling profile, and the crystallizer residence times, with 60 simulations, which solves Problem~\eqref{eqn:sim-sub} approximately.
+The objective \(-(\dot m/10^{-4}+2d_{50})\), with the production rate \(\dot m\) in kg/s and the median crystal size \(d_{50}\) in \(\mu\)m, rewards both quantities, and a solubility path constraint prevents crystallization before the crystallizer; all 36 configurations satisfy it.
+These inner optimizations take 91 to 1,019~s per configuration, so evaluating every configuration takes 5.3~h.
+All methods read the stored results of these inner optimizations, so they evaluate the same \(\Phi(\boldsymbol\xi)\), and each evaluation is charged its recorded inner-optimization time.
+The reference configuration is a PFR followed by a batch reactor and the batch crystallizer, \(\boldsymbol\xi=(3,1,1)\), with \(f_{\mathrm{ref}}=-487.842\); the second-best configuration replaces the PFR by a CSTR and lies 0.8\% above it.
+The budgets are \(B=10\), 15, and 20, with the shared initialization, seeds, unaccepted-response values, and target rule of the process benchmarks, and \texttt{D-SDA} uses the same unit \(L_\infty\) neighborhood.
+Supplementary Section~\ref{sec:supp-lomustine} lists the 36 objective values and the data provenance.
+
 \subsection{Controlled benchmark: Grid-GDP}
 \label{sec:grid-gdp-formulation}
 To study search behavior without NLP subproblems, we also consider 21 two-dimensional test functions adapted from the Quantum Hamiltonian Descent benchmark collection~\citep{qhdBenchmarks}.
@@ -417,6 +446,7 @@ Because \texttt{IPOPT} returns local solutions, these values can exceed the subp
 Each Grid-GDP benchmark uses ten seeds, each defining a different initial design, and evaluation budgets \(B\in\{10,30,50,70,100\}\).
 The primary Grid comparison comprises six search implementations and two sampling controls, giving \(21\times10\times5\times8=8{,}400\) runs.
 The process benchmarks comprise 14 model-budget conditions, each evaluated with ten paired seeds, giving 140 runs per method and 980 runs across the six search implementations and uniform sampling (Table~\ref{tab:process-cases}).
+The \texttt{Lomustine} benchmark adds three budgets with ten seeds each, 210 runs in total.
 For each problem-budget-seed combination, three distinct initial configurations are generated using seeded Latin hypercube sampling, mapped to integer coordinates, and shared in the same order across all methods and sampling controls.
 This common design controls the first three evaluations; subsequent sampling, response handling, and stopping rules follow the individual implementations.
 All process cases use seeds 0-9, with no replacement of failed starts.
@@ -743,6 +773,39 @@ Supplementary Section~\ref{sec:bound-audit} reports these and the other bound in
 \david{Why would a reader know that Dantzig is a computer? SInce we refer to all computational results from that computer, you can just avoid mentioning its name}
 \albert{Removed the machine name.}
 
+\subsection{Simulation-based lomustine case}
+\label{sec:lomustine-results}
+Table~\ref{tab:lomustine} reports the \texttt{Lomustine} results.
+\texttt{RBFOpt} and \texttt{MISO} reach the reference configuration in eight and seven of ten runs with ten evaluations and in all ten runs with 20, and their successful runs find it at a median of the fifth to sixth and the sixth to seventh evaluation.
+\texttt{NOMAD} reaches it in six runs at every budget because, when the budget allows more, it stops after a median of 12.5 evaluations.
+\texttt{D-SDA} reaches it once with ten evaluations: its unit \(L_\infty\) neighborhood in three dimensions contains up to 26 configurations, so ten evaluations do not complete the first neighborhood search.
+\texttt{BAM} misses every target with ten evaluations, and all ten of its runs end at the same PFR--PFR configuration, 11\% above the reference.
+Of the 96 misses over all methods and budgets, 41 end at this PFR--PFR configuration and 27 at the CSTR--batch configuration, 0.8\% above the reference.
+
+In this case, an evaluation costs minutes of simulation, so the completion time is governed by the number of evaluations.
+Median search times stay below 13~s, whereas the median completion times with ten evaluations range from 1.0 to 1.5~h, compared with 5.3~h for evaluating all 36 configurations.
+\texttt{MISO}, which spends the most search time per evaluation on the other process models, completes its ten-evaluation runs in a median of 1.13~h, about as fast as any method.
+
+\begin{table}[htbp]
+\centering
+\caption{\texttt{Lomustine}: runs out of ten that reach the reference configuration (top) and median full-run completion time in hours (bottom), including target misses.
+Bold counts mark the largest number of hits for each budget, including ties.
+Each evaluation is charged the recorded wall time of the PharmaPy simulation-based optimization of its configuration.}
+\label{tab:lomustine}
+\small
+\begin{tabular}{@{}lccc@{}}\toprule
+Method & \(B=10\) & \(B=15\) & \(B=20\)\\\midrule
+\texttt{D-SDA} & \makecell{1\\1.15} & \makecell{4\\1.68} & \makecell{4\\1.97} \\
+\texttt{NOMAD} & \makecell{6\\1.05} & \makecell{6\\1.22} & \makecell{6\\1.22} \\
+\texttt{RBFOpt} & \makecell{\textbf{8}\\1.24} & \makecell{9\\1.70} & \makecell{\textbf{10}\\2.44} \\
+\texttt{MISO} & \makecell{7\\1.13} & \makecell{\textbf{10}\\1.82} & \makecell{\textbf{10}\\2.66} \\
+\texttt{BAM} & \makecell{0\\1.36} & \makecell{4\\1.90} & \makecell{6\\2.48} \\
+\texttt{FMQA-SA} & \makecell{2\\1.47} & \makecell{3\\2.39} & \makecell{7\\3.09} \\
+Uniform & \makecell{2\\1.48} & \makecell{4\\2.11} & \makecell{5\\2.91} \\
+\bottomrule\end{tabular}
+\end{table}
+\FloatBarrier
+
 \subsection{Controlled search behavior on Grid-GDP}
 \label{sec:grid-search-results}
 Grid-GDP isolates search behavior on explicit two-dimensional functions whose configurations need no NLP solve.
@@ -845,6 +908,10 @@ As the configuration space grows, logic-based methods that solve one subproblem 
 \david{This is the usual AI warning about scalability; rather, say which cases benefited from the conventional GDP solution models than the integration with DFOs, and in the conclusion you mention this as recommendations for future instances}
 \albert{Replaced the generic scalability warning with the Small Batch and CSTR30 comparisons and added their implications to the conclusions.}
 
+The \texttt{Lomustine} case shows that the configuration search carries over when a simulator defines each subproblem and conventional GDP methods do not apply.
+Its ranking agrees with the \texttt{CSTR} and Grid results: the two radial-basis-function methods reach the reference most often, \texttt{NOMAD} stops early, and the size of the \texttt{D-SDA} neighborhood limits local descent on small budgets.
+Because each evaluation costs minutes, the search overhead that slows \texttt{MISO} on \texttt{Dynamic} is negligible here.
+
 These conclusions rest on configuration spaces of 25 to 900 configurations, on NLP responses obtained with one initialization per model, and on completion times that combine recorded search paths with one cost measurement per configuration.
 Because the \texttt{CSTR} budgets grow with \(N\), the \texttt{CSTR} series does not isolate the effect of size.
 With ten seeds per condition, the per-condition differences among \texttt{NOMAD}, \texttt{MISO}, \texttt{RBFOpt}, and \texttt{D-SDA} are not significant after correcting for the 70 exploratory tests, so rankings within a single condition are descriptive.
@@ -874,8 +941,8 @@ Fourth, more search per evaluation can buy targets, but its value depends on the
 
 For future GDP instances, these results suggest enumerating the configurations or solving a direct Big-\(M\) or Hull reformulation when the model is small, as for Grid-GDP and \texttt{Small Batch}.
 When the configuration space is too large to enumerate and contains large basins of local minima, as for the larger \texttt{CSTR} networks, surrogate-based configuration search with radial basis functions reaches good solutions with a small fraction of the subproblem solves; \texttt{MISO} is preferable when evaluations are expensive relative to its search overhead, and \texttt{RBFOpt} when they are cheap.
-The wall-time advantage of surrogate search should grow with the cost of each evaluation, and because it requires only objective values, it also applies when configurations are evaluated by simulation and explicit subproblem equations are unavailable.
-Testing these expectations on larger configuration spaces and simulation-based subproblems is the next step.
+The wall-time advantage of surrogate search grows with the cost of each evaluation, and because it requires only objective values, it also applies when configurations are evaluated by simulation and explicit subproblem equations are unavailable, as in the \texttt{Lomustine} flowsheet, where \texttt{RBFOpt} and \texttt{MISO} found the best of 36 simulated configurations in every run with 20 evaluations.
+Testing these expectations on larger configuration spaces and on live simulation-based subproblems is the next step.
 \david{how is this a conclusion? What did you learn from all these experiments?}
 \albert{Revised the paragraph to explain what the Small Batch and CSTR30 comparisons teach us and identify simulation-based subproblems as a future application.}
 

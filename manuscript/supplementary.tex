@@ -319,6 +319,36 @@ The \texttt{Dynamic} objective is \(-\int_0^9 x(t)^2\,dt\).
 
 
 
+\section{Lomustine simulation-based benchmark}\label{sec:supp-lomustine}
+The \texttt{Lomustine} configurations and responses come from the corrected-model tables of \citet{secquoiaPdIsing}, generated with PharmaPy at commit 3194efd.
+For each superstructure option, the source ran \texttt{PyNomad} 4.6.0 from a stored initial point on the normalized operating inputs with 60 simulations and stored the best objective, the constraint values, the equipment sizes, and the wall time of the inner optimization.
+The inner search accepts a point when the solubility path constraint holds.
+The heptane mass-fraction specification of the source is not enforced, because the fixed three-hour vaporizer operation cannot reach it within the pressure bounds.
+Table~\ref{tab:supp-lomustine} lists the 36 two-reactor configurations; the four single-reactor semibatch options of the source do not fit the three external variables and are excluded.
+The configurations with a batch crystallizer have the lowest objective for every reactor pair, and the choice of the first reactor changes the objective by up to a factor of 2.9.
+The vendored table, case module, run records, and analysis are listed in Section~\ref{sec:supp-data}.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{\texttt{Lomustine}: objective of every configuration and, in parentheses, the wall time of its simulation-based optimization.
+Rows give the first (R01) and second (R02) reactor, and columns the crystallizer.
+The bold entry is the reference configuration.}
+\label{tab:supp-lomustine}
+\begin{tabular}{@{}llrrrr@{}}\toprule
+R01 & R02 & batch & 1 MSMPR & 2 MSMPR & 3 MSMPR\\\midrule
+batch & batch & \makecell{-170.68\\(91~s)} & \makecell{-131.70\\(310~s)} & \makecell{-146.86\\(538~s)} & \makecell{-148.92\\(835~s)} \\
+batch & CSTR & \makecell{-230.52\\(146~s)} & \makecell{-175.25\\(348~s)} & \makecell{-175.27\\(650~s)} & \makecell{-166.13\\(970~s)} \\
+batch & PFR & \makecell{-268.46\\(159~s)} & \makecell{-209.36\\(348~s)} & \makecell{-213.29\\(651~s)} & \makecell{-202.26\\(975~s)} \\
+CSTR & batch & \makecell{-483.85\\(152~s)} & \makecell{-360.16\\(331~s)} & \makecell{-365.91\\(656~s)} & \makecell{-345.28\\(936~s)} \\
+CSTR & CSTR & \makecell{-331.90\\(159~s)} & \makecell{-244.39\\(367~s)} & \makecell{-245.34\\(660~s)} & \makecell{-239.50\\(1019~s)} \\
+CSTR & PFR & \makecell{-429.81\\(206~s)} & \makecell{-315.22\\(408~s)} & \makecell{-321.46\\(717~s)} & \makecell{-304.62\\(1017~s)} \\
+PFR & batch & \makecell{\textbf{-487.84}\\(208~s)} & \makecell{-362.45\\(347~s)} & \makecell{-361.55\\(655~s)} & \makecell{-348.06\\(886~s)} \\
+PFR & CSTR & \makecell{-351.71\\(183~s)} & \makecell{-249.82\\(388~s)} & \makecell{-259.47\\(659~s)} & \makecell{-244.65\\(983~s)} \\
+PFR & PFR & \makecell{-433.41\\(211~s)} & \makecell{-318.34\\(393~s)} & \makecell{-324.18\\(629~s)} & \makecell{-306.21\\(907~s)} \\
+\bottomrule\end{tabular}
+\end{table}
+\FloatBarrier
+
 \section{Completion costs}\label{sec:supp-uncertainty}
 
 Table~\ref{tab:process-tts99} reports completion costs for all 14 process conditions, together with the cost of evaluating every configuration of each DFO domain once.
@@ -389,6 +419,7 @@ Seed spread, tolerance sensitivity, search overhead, and \texttt{GDPopt} enumera
 The \texttt{D-SDA} rerun, including the process restart variants, is \nolinkurl{experiments/dsda_no_revisit/run.py}, which replays the sealed lookup package of the adopted \texttt{D-SDA} rerun.
 The \texttt{NOMAD} and \texttt{MISO} runs were executed at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c4d7db6b671bbe92a314be524a650d75cd49529c}{source revision c4d7db6}; the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/841ca986f175dda4d91c784b195e60279cf94b99/results/pr56_dantzig_return_20261031}{returned records} contain the original archive, its SHA-256 checksum, and hash-checked analysis tables of every run.
 All \texttt{D-SDA} runs, including the restart variants, were rerun at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c186408728c6f95ac33a5465edd53035d85c5620}{source revision c186408}, where no configuration is evaluated twice; with re-evaluation switched back on, the same code reproduces all 1,190 published \texttt{D-SDA} runs exactly, and the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/f3b57ac44cccb27552b3a8618ce6abd463e540a4/results/dsda_no_revisit_20261031}{returned records} hold every run.
+The \texttt{Lomustine} case is \nolinkurl{experiments/lomustine_simulation}, which vendors the corrected-model table of \citet{secquoiaPdIsing} and runs the seven methods through the harness in \nolinkurl{experiments/catalytic_distillation_live}; the run records and analysis are in \nolinkurl{results/lomustine_simulation_20261031}.
 The seven-method tables and figures are generated from these tables and the published records by \nolinkurl{review_comparison/seven_methods.py} and the \nolinkurl{review_comparison/joint_process_*.py} scripts, without new solver calls.
 
 \section{Feasibility and bound consistency of conventional GDP results}\label{sec:bound-audit}

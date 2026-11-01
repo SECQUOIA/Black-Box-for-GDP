@@ -1,4 +1,9 @@
-# Current manuscript snapshot - seven-method revision of October 31, 2026
+# Current manuscript snapshot - simulation-based case of October 31, 2026
+
+This branch (PR #57) adds to the PR #56 manuscript a formulation for subproblems defined by a process simulator (Problem Sim) and the `Lomustine` benchmark, a pharmaceutical flowsheet simulated in PharmaPy (SECQUOIA/pd_ising PR 28).
+The seven methods run on its 36 configurations with stored simulation-based optimizations ([case](../experiments/lomustine_simulation/README.md), [results](../results/lomustine_simulation_20261031/README.md)); the catalytic distillation column results are still pending.
+
+# Previous snapshot - seven-method revision of October 31, 2026
 
 NOMAD and MISO are now primary methods, from the audited [Dantzig return of PR #56](../results/pr56_dantzig_return_20261031/README.md).
 The abstract, contributions, methods, process and Grid results, Discussion, Conclusions, and supplement report all seven DFO methods; NOMAD's 21 crashed Grid runs stay explicit, and the 70 exploratory paired tests have their own supplementary table.
