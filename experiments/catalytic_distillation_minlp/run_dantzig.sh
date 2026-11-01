@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Rerun every MINLP experiment of the catalytic distillation column on Dantzig and package the results.
 #
-#   export GAMS_EXE=/package/gams/54.3/gams
+#   export GAMS_EXE=/path/to/gams     # GAMS 54 or later with CONOPT, CPLEX, DICOPT, SBB, BARON, and SCIP
 #   nohup bash experiments/catalytic_distillation_minlp/run_dantzig.sh > ../catdist_minlp_dantzig.log 2>&1 &
 #
 # Steps, each GAMS job pinned to one core and started from init.gdx:
@@ -106,7 +106,7 @@ for solver in dicopt sbb baron scip; do
     echo "$line"
     [[ $line =~ modelstat=(1|2|8)\ solvestat=1 ]] || { echo "PREFLIGHT FAILED for $solver; see $OUTPUT/preflight" >&2; exit 1; }
 done
-grep -h -o -m1 'GAMS [0-9.]*  *[0-9a-f]*' "$OUTPUT/preflight/tiny.lst" | head -1 | sed 's/^/gams_version=/' >> "$OUTPUT/environment.txt"
+grep -h -o -m1 'GAMS [0-9.]*  *[0-9a-f]*' "$OUTPUT/preflight/tiny.lst" | head -1 | sed 's/^/gams_version=/' | tee -a "$OUTPUT/environment.txt"
 mkdir -p "$OUTPUT/preflight/emp"
 (cd "$OUTPUT/preflight/emp" && gams "${C[0]}" "$M/solve_emp.gms" --model="$M/emp_model_corrected.gms" --init="$M/init" \
     --reform=bigm --solver=sbb --reslim=600 "${BEST[@]}" --out="$OUTPUT/preflight/emp/result.txt" > /dev/null 2>&1 || true)
