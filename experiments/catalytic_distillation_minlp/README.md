@@ -69,6 +69,15 @@ GAMS_EXE=/path/to/gams bash experiments/catalytic_distillation_minlp/run_solvers
 
 `check_point.gms` checks a stored point of the product form with the GAMS Examiner or starts SCIP or BARON from it.
 
+## Rerun on Dantzig
+
+```bash
+export GAMS_EXE=/package/gams/54.3/gams
+nohup bash experiments/catalytic_distillation_minlp/run_dantzig.sh > ../catdist_minlp_dantzig.log 2>&1 &
+```
+
+`run_dantzig.sh` repeats every run of `results/catalytic_distillation_minlp_20261101` on 16 idle cores (`CPUS` to choose them) in about 1 h 15 min: a license preflight, the scale reproduction (with Pyomo in `SCALES_PYTHON`), `validate.sh`, the certificate and Examiner checks, the twelve solver runs, and the fixed-design BARON and SCIP runs. It keeps the full output outside the checkout and writes `results/catalytic_distillation_minlp_dantzig_<date>` with the same files, `comparison.txt` against the workstation runs, and a zip of the full output with its SHA-256.
+
 ## Reproduction
 
 ```bash
