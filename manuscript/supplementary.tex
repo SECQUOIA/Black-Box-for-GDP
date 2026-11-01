@@ -404,6 +404,110 @@ PFR & PFR & \makecell{-433.41\\(211~s)} & \makecell{-318.34\\(393~s)} & \makecel
 \end{table}
 \FloatBarrier
 
+\section{Catalytic distillation column}\label{sec:supp-catdist}
+
+\paragraph{Corrected model.}
+We checked every equation block, parameter table, and bound of the published model against standard forms and literature values, and the \texttt{Catalytic Column} benchmark uses the model with the errors fixed.
+The corrections concern the vapor--liquid equilibrium and the equilibrium constant of the reaction, the mixture liquid density (Rackett equation with the Spencer--Danner mixing rule) and surface tension (Macleod--Sugden), the tray hydraulics, and the objective, which counted the annualization factor twice and credited the impurities in the bottoms at the ETBE price.
+The pure-component data of isobutene, 1-butene, and ethanol are fitted to open reference equations of state, and the ETBE data, for which no reference equation exists, agree with open measurements of its vapor pressure and density.
+The bottoms must contain at least 95~mol\% ETBE, the fuel-grade specification, the catalytic stages stay at or below 120~\(^\circ\)C, the maximum operating temperature of the Amberlyst~15 catalyst, and the prices are 2010 market prices.
+The repository lists each finding with its effect on the published optimum; with the 95~mol\% specification, the published optimal configuration is infeasible, because its column is too short.
+
+\paragraph{Evaluation campaign.}
+The 210 runs made 12,015 evaluations: 6,921 returned accepted objectives, 2,789 were logical rejections without an NLP solve, and 2,305 returned unaccepted NLP responses.
+Eight \texttt{D-SDA} runs stopped before their budgets because no neighbor improved, and all other runs used their full budgets.
+The runs requested 3,499 distinct configurations, of which 2,652 were accepted, and solving them took 7.7~h.
+The runs are charged 20.2~h of completion time in total, but the campaign took 2.8~h on three cores because a configuration requested by several runs was solved once.
+Each run evaluated distinct configurations, so the reuse comes from different runs requesting the same configuration.
+
+\paragraph{MINLP forms.}
+The published MINLP form makes the stage decisions binary variables, multiplies switched equations by these variables or by the stage-existence indicator, and keeps the property and kinetic equations on every stage.
+The disjunctive form behind the Big-\(M\) and Hull reformulations has five disjunctions for each internal stage, one per decision, whose terms collect the equations that the GDP model switches on or off (Table~\ref{tab:supp-catdist-disjunctions}).
+The property and feed-enthalpy equations hold on every stage, as in the published form, but the kinetics stay in the catalyst disjunction; with the kinetics on every stage, the bounds of the reaction rate restricted the temperature of a stage without catalyst, and with the binary variables of \((3,4,5,11,11,14)\) fixed, the Big-\(M\) reformulation stopped at 32,075~\$/yr, a point from which the GDP form continues to 30,822~\$/yr.
+Each nonlinear disjunct equation \(h(\mathbf x)=0\) or \(h(\mathbf x)\le 0\) is replaced by the definition \(s\,r=h(\mathbf x)\), which holds on every stage, and by the linear disjunct constraint \(r=0\) or \(r\le 0\); a linear disjunct equation is divided by \(s\).
+The scale \(s\) is 1.01 times the largest absolute value of \(h\) over the variable bounds, computed by interval arithmetic after feasibility-based bound tightening with the constraints that hold for every configuration.
+Every scaled disjunct constraint therefore lies in \([-1,1]\) at every feasible point, so \(M=1\) is a valid Big-\(M\) value for all of them, and the bound tightening adds 101 implied variable bounds that are written into the model.
+The scales range from 0.10 to \(1.3\times10^{18}\); the largest belongs to the rate equation, whose products of activities, adsorption constant, and rate span this range over the variable bounds.
+The interval bounds of the flooding and weeping correlations are finite only if the liquid is denser than the vapor, which the source bounds do not imply, so the disjunctive form bounds the liquid and vapor mass densities by \(\rho_L\ge200\) and \(5\le\rho_V\le150\)~kg/m\(^3\); every validated solution has \(\rho_L\ge529\) and \(\rho_V\le34\)~kg/m\(^3\).
+The \texttt{GAMS} convex hull reformulation accepts only inequalities, so each disjunct equality is written as two inequalities, and Big-\(M\) of the pair equals Big-\(M\) of the equality.
+Table~\ref{tab:supp-catdist-validation} compares the forms with the binary variables fixed.
+
+\begin{table}[htbp]
+\centering
+\caption{Disjunctions of each internal stage \(k\) in the disjunctive form of the \texttt{Catalytic Column}.}
+\label{tab:supp-catdist-disjunctions}
+\small
+\begin{tabular}{@{}lll@{}}\toprule
+Indicator & Indicator true & Indicator false\\\midrule
+stage \(k\) exists & \makecell[l]{vapor--liquid equilibrium, tray hydraulics,\\pressure drop, flooding and weeping limits,\\tray height} & \makecell[l]{vapor composition and flow pass through,\\no pressure drop, no tray height} \\
+catalyst on stage \(k\) & \makecell[l]{kinetics, catalyst hydraulics and flooding,\\reaction terms, 120~\(^\circ\)C limit} & no reaction, no catalyst pressure drop \\
+ethanol feed at \(k\) & feed flow & no feed flow \\
+butenes feed at \(k\) & feed flow & no feed flow \\
+boil-up return at \(k\) & boil-up flow & no boil-up flow \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Objective (\$/yr) of each form with the binary variables fixed, solved by \texttt{CONOPT} from the initialization of the published model.
+``Infeasible'' marks configurations that every form reports as locally infeasible.}
+\label{tab:supp-catdist-validation}
+\small
+\begin{tabular}{@{}lrrrr@{}}\toprule
+\((f_1,c_1,c_2,c_3,f_2,b)\) & GDP & Published MINLP & Big-\(M\) & Hull\\\midrule
+\((8,8,12,17,17,21)\) & 24{,}895.55 & 24{,}895.55 & 24{,}895.55 & 24{,}895.55 \\
+\((7,8,11,16,16,20)\) & 25{,}271.33 & 25{,}271.33 & 25{,}271.33 & 25{,}271.33 \\
+\((3,4,5,11,11,14)\) & 30{,}822.02 & 30{,}822.02 & 30{,}822.02 & 30{,}822.02 \\
+\((4,4,9,10,14,17)\) & 28{,}373.98 & 28{,}373.98 & 28{,}373.98 & 28{,}373.98 \\
+\((3,6,12,14,19,21)\) & 31{,}116.60 & 32{,}320.55 & 31{,}116.60 & 31{,}116.60 \\
+\((2,3,9,10,20,21)\) & 35{,}745.43 & 35{,}194.65 & 35{,}745.43 & 35{,}745.43 \\
+\((4,4,6,8,8,10)\) & \multicolumn{4}{c}{infeasible} \\
+\((3,4,5,6,8,9)\) & \multicolumn{4}{c}{infeasible} \\
+\((13,13,15,16,17,19)\) & \multicolumn{4}{c}{infeasible} \\
+\bottomrule\end{tabular}
+\end{table}
+
+\paragraph{MINLP solvers.}
+Table~\ref{tab:supp-catdist-minlp} lists the results of the MINLP solvers.
+\texttt{SBB} stops on the Big-\(M\) and Hull reformulations when the NLP relaxations of its nodes exceed the limit on function evaluations outside their domains.
+Table~\ref{tab:supp-catdist-certificates} lists the global optimality certificates that \texttt{SCIP} and \texttt{BARON} return when they start from a feasible design of the published form; the \texttt{GAMS} \texttt{Examiner} confirms that both starting designs satisfy every constraint and bound within \(10^{-6}\).
+
+\begin{table}[htbp]
+\centering
+\caption{MINLP solvers on the \texttt{Catalytic Column} from the initial configuration \((3,4,5,6,8,9)\) of the published model, one core, 3,600~s limit.
+The reference is 24,895.55~\$/yr, and times are wall-clock times of the \texttt{GAMS} job.}
+\label{tab:supp-catdist-minlp}
+\small
+\begin{tabular}{@{}llll@{}}\toprule
+Form & Solver & Outcome & Time (s)\\\midrule
+Published & \texttt{DICOPT} & no feasible design; every NLP subproblem infeasible, iteration limit & 638 \\
+ & \texttt{SBB} & 28{,}717.22 at \((4,4,5,6,6,9)\) & 8 \\
+ & \texttt{BARON} & declared infeasible & 74 \\
+ & \texttt{SCIP} & declared infeasible & 5 \\
+Big-\(M\) & \texttt{DICOPT} & no feasible design; NLP subproblem failed & 1{,}247 \\
+ & \texttt{SBB} & no feasible design; domain violation limit & 89 \\
+ & \texttt{BARON} & declared infeasible & 158 \\
+ & \texttt{SCIP} & no feasible design; lower bound \(-5.7\times10^{7}\) & 3{,}600+ \\
+Hull & \texttt{DICOPT} & no feasible design; NLP subproblem failed & 154 \\
+ & \texttt{SBB} & no feasible design; domain violation limit & 123 \\
+ & \texttt{BARON} & declared infeasible & 127 \\
+ & \texttt{SCIP} & no feasible design; lower bound \(-5.7\times10^{7}\) & 3{,}600+ \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Global optimality certificates for the published MINLP form started from two feasible designs.}
+\label{tab:supp-catdist-certificates}
+\small
+\begin{tabular}{@{}lll@{}}\toprule
+Starting design & \texttt{SCIP} & \texttt{BARON}\\\midrule
+\((7,8,11,16,16,20)\) & optimal at 25,271.33 (22~s) & optimal at 25,271.33 (65~s)\\
+\((8,8,12,17,17,21)\) & optimal at 24,895.55 (12~s) & optimal at 24,895.55 (67~s)\\
+\bottomrule\end{tabular}
+\end{table}
+\FloatBarrier
+
 \section{Completion costs}\label{sec:supp-uncertainty}
 
 Table~\ref{tab:process-tts99} reports completion costs for all 14 process conditions, together with the cost of evaluating every configuration of each DFO domain once.
@@ -475,6 +579,8 @@ The \texttt{D-SDA} rerun, including the process restart variants, is \nolinkurl{
 The \texttt{NOMAD} and \texttt{MISO} runs were executed at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c4d7db6b671bbe92a314be524a650d75cd49529c}{source revision c4d7db6}; the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/841ca986f175dda4d91c784b195e60279cf94b99/results/pr56_dantzig_return_20261031}{returned records} contain the original archive, its SHA-256 checksum, and hash-checked analysis tables of every run.
 All \texttt{D-SDA} runs, including the restart variants, were rerun at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c186408728c6f95ac33a5465edd53035d85c5620}{source revision c186408}, where no configuration is evaluated twice; with re-evaluation switched back on, the same code reproduces all 1,190 published \texttt{D-SDA} runs exactly, and the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/f3b57ac44cccb27552b3a8618ce6abd463e540a4/results/dsda_no_revisit_20261031}{returned records} hold every run.
 The \texttt{Lomustine} case is \nolinkurl{experiments/lomustine_simulation}, which vendors the corrected-model table of \citet{secquoiaPdIsing} and runs the seven methods through the harness in \nolinkurl{experiments/catalytic_distillation_live}; the run records and analysis are in \nolinkurl{results/lomustine_simulation_20261031}.
+The \texttt{Catalytic Column} model and its review are in \nolinkurl{gdp_models/catalytic_distillation}, the live runs are \nolinkurl{experiments/catalytic_distillation_live}, and their returned records, with the original archive, its SHA-256 checksum, and an audit of every run, are in \nolinkurl{results/catalytic_distillation_live_20261101}.
+The MINLP forms, their generators, the fixed-configuration validation, and the solver runs are \nolinkurl{experiments/catalytic_distillation_minlp}, with results in \nolinkurl{results/catalytic_distillation_minlp_20261101}.
 The seven-method tables and figures are generated from these tables and the published records by \nolinkurl{review_comparison/seven_methods.py} and the \nolinkurl{review_comparison/joint_process_*.py} scripts, without new solver calls.
 
 \section{Feasibility and bound consistency of conventional GDP results}\label{sec:bound-audit}
