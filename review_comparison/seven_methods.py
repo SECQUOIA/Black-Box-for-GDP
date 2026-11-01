@@ -1,8 +1,9 @@
-"""Seven-method Grid profiles and target tables from the audited PR #56 return; no solver calls.
+"""Seven-method Grid profiles and target tables from the audited Dantzig returns; no solver calls.
 
-All rows come from results/pr56_dantzig_return_20261031/analysis (verified against its
-REPRODUCTION.json): the five published methods (historical_primary_runs.csv), NOMAD and MISO
-(individual_new_runs.csv), and the BAM-prefix control (historical_control_runs.csv).
+RBFOpt, BAM, FMQA-SA, uniform sampling, NOMAD, MISO, and the BAM-prefix control come from
+results/pr56_dantzig_return_20261031/analysis (verified against its REPRODUCTION.json).
+D-SDA comes from results/dsda_no_revisit_20261031 (verified against its FILE_SHA256.json),
+the rerun in which no configuration is evaluated twice.
 
   python -m review_comparison.seven_methods --output /tmp/seven-methods
 """
@@ -16,6 +17,7 @@ from pathlib import Path
 import platform
 import statistics
 
+from . import dsda_no_revisit_runs as dsda
 from . import manuscript as ms
 from . import mi_dfo_runs as mi
 
@@ -43,14 +45,15 @@ def load(root, inputs):
     rows = []
     for name in ("historical_primary_runs.csv", "historical_control_runs.csv"):
         for r in csv.DictReader(io.StringIO(mi.read(root, name, inputs).decode())):
-            if r["method"] not in GRID:
+            # D-SDA comes from the rerun without re-evaluated configurations.
+            if r["method"] not in GRID or r["method"] == "dsda":
                 continue
             rows.append(dict(scope=r["scope"], case=r["case"], budget=int(r["budget"]), seed=int(r["seed"]),
                              method=r["method"], hit=r["hit"] == "True",
                              first_hit=int(r["first_hit"]) if r["first_hit"] else None,
                              search_s=number(r["retained_search_s"]), point_cost_s=number(r["point_cost_s"]),
                              completion_s=number(r["completion_s"])))
-    rows += [dict(r) for r in mi.runs(root, inputs)]
+    rows += [dict(r) for r in dsda.runs(root, inputs)] + [dict(r) for r in mi.runs(root, inputs)]
     groups = {}
     for r in rows:
         groups.setdefault((r["scope"], r["case"], r["budget"], r["method"]), []).append(r)
@@ -190,8 +193,22 @@ def ptex(p):
     return sig3(p)
 
 
+def holm(pvalues):
+    """Holm step-down adjusted p-values, in the input order."""
+    order = sorted(range(len(pvalues)), key=lambda i: pvalues[i])
+    adjusted, running = [0.0] * len(pvalues), 0.0
+    for rank, i in enumerate(order):
+        running = max(running, min(1.0, (len(pvalues) - rank) * pvalues[i]))
+        adjusted[i] = running
+    return adjusted
+
+
 def exploratory_table(root, inputs, rows):
-    """The return's 70 exploratory tests, rechecked against the runs, and pooled CSTR tests outside that family."""
+    """The 70 exploratory tests with Holm correction, and pooled CSTR tests outside that family.
+
+    The PR #56 return defined the family; its D-SDA contrasts used the earlier D-SDA, so all
+    tests are recomputed from the runs. Contrasts without D-SDA must match the return.
+    """
     tests = list(csv.DictReader(io.StringIO(mi.read(root, "process_paired_tests.csv", inputs).decode())))
     hit = {(r["case"], r["budget"], r["seed"], r["method"]): r["hit"] for r in rows if r["scope"] == "process"}
 
@@ -204,19 +221,22 @@ def exploratory_table(root, inputs, rows):
         key = (t["case"], int(t["budget"]), t["first"], t["second"])
         counts = discordant([key[:2]], t["first"], t["second"])
         p = mcnemar_exact(*counts)
-        if counts != (int(t["first_only"]), int(t["second_only"])) or abs(p - float(t["p_exact"])) > 1e-12:
+        if "dsda" not in key[2:] and (counts != (int(t["first_only"]), int(t["second_only"]))
+                                      or abs(p - float(t["p_exact"])) > 1e-12):
             raise ValueError(f"Paired test does not match the runs: {key}")
         cells[key] = (*counts, p)
         data.append(dict(case=key[0], budget=key[1], first=key[2], second=key[3], first_only=counts[0],
-                         second_only=counts[1], p_exact=p, p_holm_70=float(t["p_holm_70"]), family="exploratory_70"))
+                         second_only=counts[1], p_exact=p, family="exploratory_70"))
     if sorted(cells) != sorted((c, b, f, s) for c, b in PROCESS for f, s in CONTRASTS):
         raise ValueError("Expected five contrasts in each of the 14 process conditions")
+    for d, adjusted in zip(data, holm([d["p_exact"] for d in data])):
+        d["p_holm_70"] = adjusted
     cstr = [k for k in PROCESS if k[0].startswith("cstr_")]
     for f, s in CONTRASTS:
         counts = discordant(cstr, f, s)
         cells["cstr_all", None, f, s] = (*counts, mcnemar_exact(*counts))
         data.append(dict(case="cstr_all", budget=None, first=f, second=s, first_only=counts[0], second_only=counts[1],
-                         p_exact=cells["cstr_all", None, f, s][2], p_holm_70=None, family="pooled_descriptive"))
+                         p_exact=cells["cstr_all", None, f, s][2], family="pooled_descriptive", p_holm_70=None))
     lines = []
     for case, b in PROCESS + [("cstr_all", None)]:
         if case == "cstr_all":
@@ -234,28 +254,33 @@ def exploratory_table(root, inputs, rows):
     return tex, data
 
 
-RESTARTS = ["dsda_single", "dsda_ranked", "dsda_ranked_random"]
-
 
 def restart_table(root, inputs):
-    """Process D-SDA restart diagnostic from the Dantzig replay."""
-    rows = list(csv.DictReader(io.StringIO(mi.read(root, "dsda_conditions.csv", inputs).decode())))
-    lines = []
+    """Process D-SDA restart diagnostic from the rerun without re-evaluated configurations."""
+    runs = [r for r in dsda.all_runs(root, inputs) if r["scope"] == "process"]
+    lines, data = [], []
     for case, b in PROCESS:
-        g = {r["method"]: r for r in rows if (r["case"], int(r["budget"])) == (case, b)}
-        if sorted(g) != sorted(RESTARTS):
-            raise ValueError(f"Missing restart variant: {case}/{b}")
-        cells = [case_tex(case), str(b), *(g[v]["hits"] for v in RESTARTS),
-                 *(g[v]["full_budget_runs"] for v in RESTARTS[:2]),
-                 *(f"{float(g[v]['evaluations_median']):g}" for v in RESTARTS),
-                 *(f"{float(g[v]['completion_s_median']):.2f}" for v in RESTARTS)]
+        g = {v: [r for r in runs if (r["case"], r["budget"], r["variant"]) == (case, b, v)] for v in dsda.RESTARTS}
+        if any(len(group) != 10 for group in g.values()):
+            raise ValueError(f"Missing restart runs: {case}/{b}")
+        row = dict(case=case, budget=b)
+        for v, group in g.items():
+            row.update({f"{v}_hits": sum(r["hit"] for r in group),
+                        f"{v}_full_budget_runs": sum(r["unused_budget"] == 0 for r in group),
+                        f"{v}_median_evaluations": statistics.median(r["evaluations"] for r in group),
+                        f"{v}_median_completion_s": statistics.median(r["completion_s"] for r in group)})
+        data.append(row)
+        cells = [case_tex(case), str(b), *(str(row[f"{v}_hits"]) for v in dsda.RESTARTS),
+                 *(str(row[f"{v}_full_budget_runs"]) for v in dsda.RESTARTS[:2]),
+                 *(f"{row[f'{v}_median_evaluations']:g}" for v in dsda.RESTARTS),
+                 *(f"{row[f'{v}_median_completion_s']:.2f}" for v in dsda.RESTARTS)]
         lines.append(" & ".join(cells) + r" \\")
     head = (r" & & \multicolumn{3}{c}{Target hits} & \multicolumn{2}{c}{Full-budget runs} & "
             r"\multicolumn{3}{c}{Median evaluations} & \multicolumn{3}{c}{Median completion (s)}\\"
             r"\cmidrule(lr){3-5}\cmidrule(lr){6-7}\cmidrule(lr){8-10}\cmidrule(l){11-13}" + "\n"
             r"Case & \(B\) & S & R & RR & S & R & S & R & RR & S & R & RR\\\midrule")
     return ("\\begin{tabular}{@{}lrccccccccccc@{}}\\toprule\n" + head + "\n" + "\n".join(lines)
-            + "\n\\bottomrule\\end{tabular}\n")
+            + "\n\\bottomrule\\end{tabular}\n"), data
 
 
 EXCLUDED = ("bohachevsky2", "xin_she_yang3")
@@ -379,7 +404,9 @@ def build(root, out):
     (out / "process_completion_table.tex").write_text(completion_tex)
     (out / "grid_cost_rows.tex").write_text(cost_tex)
     (out / "exploratory_paired_tests.tex").write_text(tests_tex)
-    (out / "dsda_restarts_table.tex").write_text(restart_table(root, inputs))
+    restart_tex, restart_data = restart_table(root, inputs)
+    (out / "dsda_restarts_table.tex").write_text(restart_tex)
+    write_csv(out / "dsda_restarts.csv", restart_data)
     write_csv(out / "grid_hits.csv", grid_data)
     write_csv(out / "process_targets.csv", process_data)
     write_csv(out / "process_completion.csv", completion_data)
@@ -392,7 +419,8 @@ def build(root, out):
     import matplotlib
     (out / "manifest.json").write_text(json.dumps(dict(
         input_sha256=inputs, source_sha256={p: ms.sha(root / p) for p in (
-            "review_comparison/seven_methods.py", "review_comparison/mi_dfo_runs.py", "review_comparison/manuscript.py")},
+            "review_comparison/seven_methods.py", "review_comparison/mi_dfo_runs.py",
+            "review_comparison/dsda_no_revisit_runs.py", "review_comparison/manuscript.py")},
         new_solver_calls=0, environment=dict(python=platform.python_version(), matplotlib=matplotlib.__version__),
         reproduce="python -m review_comparison.seven_methods --output /tmp/seven-methods",
         output_sha256={f.name: ms.sha(f) for f in sorted(out.iterdir())}), indent=2) + "\n")

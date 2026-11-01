@@ -7,6 +7,7 @@ import platform
 
 from . import joint_process as base
 from . import joint_process_ipopt as current
+from . import dsda_no_revisit_runs as dsda
 from . import mi_dfo_runs as mi
 
 INPUT = 'results/joint_process_scip_ipopt_20261030'
@@ -46,8 +47,9 @@ def load(root):
         row['termination'] = (terminations[row['case'], row['method']]
                               if row['family'] == 'algebraic' else '')
         row['time_limit'] = row['termination'] == 'maxTimeLimit'
-    # NOMAD and MISO from the audited Dantzig return of PR #56.
-    rows += mi.process_joint_rows(root, inputs)
+    # D-SDA without re-evaluated configurations, and NOMAD and MISO, from the audited Dantzig returns.
+    rows = [r for r in rows if not (r['family'] == 'DFO' and r['method'] == 'dsda')]
+    rows += dsda.process_joint_rows(root, inputs) + mi.process_joint_rows(root, inputs)
     return rows, inputs
 
 
@@ -144,7 +146,7 @@ Gray intervals and median ticks summarize all ten completion estimates using inc
 Conventional GDP methods each contribute one observation, not an estimated success probability.
 The two Dynamic panels repeat the same five conventional observations, so 450 plotted marks represent 445 distinct saved runs.
 These are 420 DFO runs and 25 distinct conventional runs.
-NOMAD and MISO come from the audited Dantzig return of PR #56 (`results/pr56_dantzig_return_20261031`).
+NOMAD and MISO come from the audited Dantzig return of PR #56 (`results/pr56_dantzig_return_20261031`), and D-SDA from the rerun without re-evaluated configurations (`results/dsda_no_revisit_20261031`).
 The right-hand labels show DFO hits out of ten or the single conventional yes/no outcome.
 Stars retain the existing bound-conflict flags.
 TL labels retain reported `maxTimeLimit` outcomes, including those whose measured time is below the configured 1800-second limit.
@@ -167,7 +169,8 @@ python -m review_comparison.joint_process_main --output /tmp/joint-process-main
     manifest = dict(baseline_revision=REVISION, input_sha256=inputs,
                     source_sha256={p: base.sha((root / p).read_bytes()) for p in (
                         'review_comparison/joint_process_main.py', 'review_comparison/joint_process.py',
-                        'review_comparison/joint_process_ipopt.py', 'review_comparison/mi_dfo_runs.py')},
+                        'review_comparison/joint_process_ipopt.py', 'review_comparison/mi_dfo_runs.py',
+                        'review_comparison/dsda_no_revisit_runs.py')},
                     conditions=CONDITIONS, dfo_runs=420, conventional_distinct_runs=25,
                     conventional_plotted_marks=30, new_solver_calls=0,
                     execution_provenance='Unchanged; see original manifests and source references.',

@@ -11,7 +11,7 @@ Gray intervals and median ticks summarize all ten completion estimates using inc
 Conventional GDP methods each contribute one observation, not an estimated success probability.
 The two Dynamic panels repeat the same five conventional observations, so 450 plotted marks represent 445 distinct saved runs.
 These are 420 DFO runs and 25 distinct conventional runs.
-NOMAD and MISO come from the audited Dantzig return of PR #56 (`results/pr56_dantzig_return_20261031`).
+NOMAD and MISO come from the audited Dantzig return of PR #56 (`results/pr56_dantzig_return_20261031`), and D-SDA from the rerun without re-evaluated configurations (`results/dsda_no_revisit_20261031`).
 The right-hand labels show DFO hits out of ten or the single conventional yes/no outcome.
 Stars retain the existing bound-conflict flags.
 TL labels retain reported `maxTimeLimit` outcomes, including those whose measured time is below the configured 1800-second limit.

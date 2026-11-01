@@ -102,7 +102,7 @@ No optimizer, NLP solver, or benchmark is rerun.
 Every DFO condition retains all ten seeds, including misses, with inclusive quartiles and medians computed over all ten runs.
 All underlying values, target rules, statuses, and source references are unchanged.
 The 600 plotted marks comprise 560 distinct DFO runs and 25 distinct conventional GDP runs.
-NOMAD and MISO come from the audited Dantzig return of PR #56 (`results/pr56_dantzig_return_20261031`).
+NOMAD and MISO come from the audited Dantzig return of PR #56 (`results/pr56_dantzig_return_20261031`), and D-SDA from the rerun without re-evaluated configurations (`results/dsda_no_revisit_20261031`).
 The same five conventional Dynamic observations are repeated for context across four budgets, not counted as additional executions.
 The figure retains individual outcomes, bound flags, measured-time TL labels, and the different recorded time bases.
 The previous full fourteen-condition figures and old DFO-only profile remain archived in their original result directories, but are no longer repeated in the Overleaf supplement.
@@ -124,7 +124,8 @@ python -m review_comparison.joint_process_supplement --output /tmp/joint-process
                         'review_comparison/joint_process_supplement.py',
                         'review_comparison/joint_process_main.py',
                         'review_comparison/joint_process.py',
-                        'review_comparison/joint_process_ipopt.py')},
+                        'review_comparison/joint_process_ipopt.py', 'review_comparison/mi_dfo_runs.py',
+                        'review_comparison/dsda_no_revisit_runs.py')},
                     conditions=CONDITIONS, excluded_main_conditions=main.CONDITIONS,
                     dfo_runs=sum(r['family'] == 'DFO' for r in selected),
                     conventional_distinct_runs=len({r['source'] for r in selected if r['family'] == 'algebraic'}),
