@@ -1,0 +1,51 @@
+{
+  "baseline_revision": "d5e6ee5af33f569697a17e9c30b3dc919afb6856",
+  "publication_data_revision": "49d4bcbeb10fe49b74fe2333d27829046e93bf03",
+  "counts": {
+    "dfo_runs": 700,
+    "algebraic_runs": 45,
+    "dfo_callbacks": 16041,
+    "corresponding_dfo_nlp_evaluations": 10114,
+    "new_optimizer_or_nlp_calls": 0
+  },
+  "input_sha256": {
+    "results/dsda_publication_20261028/manifest.json": "98c41bd3fe0cec9c0a1a54949e156e8b96995a722306faec996b1cccc6e9e811",
+    "results/dsda_publication_20261028/tables/run_records.csv": "5948a78341f20faa9507ef3c9f72f8d0a599b8df7e1b96d8e3153d3c1414e386",
+    "results/dsda_publication_20261028/tables/configuration_coverage.csv": "c30e24015ae6ccfb3be27c5ef9ccc2f02e62678bb4b8c78a14e7fb09da58252f",
+    "results/process_scip_four_analysis_20261026/manifest.json": "0d9db4ea1d44631d4661969f454514e7b2b329d719b285e1f1311246d572553a",
+    "results/process_scip_four_analysis_20261026/artifact_checksums.json": "c3891dd505429fc79f9268b97459bc0cb73e576b0a5c1fb1e3dfc22b4fd1b447",
+    "results/process_scip_four_analysis_20261026/jobs.csv": "4f1a3846dee5f346e53563d848aa1a84421f5e96832a1cc1a1c4514d4aa6cc67",
+    "results/process_scip_four_analysis_20261026/solver_calls.csv": "d3c46f1dddb0bdf440673d4774d78d93e648f1af0ff8d04201623e07fa5a2b00",
+    "results/dsda_publication_20261028/tables/dsda_callbacks.csv": "cbdd8f5ebfc991e820db94b10fb7bc1c59885c30e7543f88fc40ba11fc3561a7",
+    "results/column_publication_20261025/manifest.json": "9ad42965fd5320499ebaa88a88bd1aef80e516432ceff8ec080507bcbbd33961",
+    "results/column_publication_20261025/tables/column_callbacks.csv": "cb8f0d4892106fe6c6fb1f54dda1cc706f8939881957bcea6c8dec0e01eb5510",
+    "results/cstr30_publication_20261025/manifest.json": "64ff512bf377c293c84dab2dbbc8ee1a36f52394c1e77214f65be93ccd6d3840",
+    "results/cstr30_publication_20261025/tables/cstr30_callbacks.csv": "51e74718ba4d5714ad744c4d2d2cc8d5c4e326c0a24231d1349ea1618c034efd",
+    "results/cstr_penalty_1e6_analysis_20261022/manifest.json": "2aa74e47deb2617f93013ad5489c236bd4f0c10c11ae1ed444eaed589655dbd1",
+    "results/cstr_penalty_1e6_analysis_20261022/callback_paths.csv": "ce00b0b5ccf5ad92c5d4bc4d99da94149f472b024760301c96911d9937214dd7",
+    "reproduction/validation/checkout_replay.json": "d773eee7a935a04a3615a16bd39dda6e284065713d00a207e14d5fa7c2c4db1f",
+    "results/process_ipopt_bam_v2_20261015/tables/callbacks.csv": "d2c0a54340f030e2b61f1416485057e43be87f9f39bd8a26641b2adcb378dc83",
+    "results/review_comparison_20261020/manifest.json": "03d23f69783e71b0125be6cd8bed63a0b3a296977ffa76b719d26cc09c61022f",
+    "results/archives/review_comparison_20261020_124949_return_1792527395393579314.zip": "659ddd3d1c1f62def4f8875399b63bdd4899f44ff848afb4ea45c079b3c1dc36"
+  },
+  "source_sha256": {
+    "review_comparison/joint_process.py": "06eff66bafe3bb3411021441204b45744ce6ed69111f6e926630d910fc89edfe"
+  },
+  "environment": {
+    "python": "3.10.20",
+    "matplotlib": "3.10.9"
+  },
+  "reproduce": "python -m review_comparison.joint_process --output /tmp/joint-process-review",
+  "execution_provenance": "Unchanged; retained in the input manifests.",
+  "output_sha256": {
+    "README.md": "49721f3b62a8c0898a5bfe33bd4c7fc90753e8e0a6bbd0a846348353719a7b32",
+    "dfo_nlp_callbacks.csv": "b673c6ae2347b5f0663bfcd6640f17bc2667bf835d5d37358a23d56390a61782",
+    "joint_cstr_completion.pdf": "961a584ae427e5d27cc5a39e05220ab9bad2ba844380a28ba25e238e83029522",
+    "joint_cstr_completion.png": "110742b7cedbdfa817475527aba8881a7a549eb9ad7824281a4d1dc8176caf3a",
+    "joint_other_completion.pdf": "fb5a3ccb3d6182f903a60b2bd7d16d565fac7d60dd0427dc0e30eba7a33db536",
+    "joint_other_completion.png": "a3ac5741d8ce8ce4e94ff929cf38ef4e001dcc0529a579ab9030f5e2d159aa06",
+    "joint_runs.csv": "cab8cebaf76670fc764a881fe3bc7b7b176bb6200b572f8c181b13affe1b417c",
+    "joint_summary.csv": "12e10082715f19111cbb0fe99f883685cc1275bd0b7917100d893c02f6cbc0c3",
+    "supplement_fragment.tex": "eb446216fecc51e33c678dc17c9ff98e910ca9d1a39c468511a92d180fbbdebc"
+  }
+}
