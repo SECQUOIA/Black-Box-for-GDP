@@ -1,0 +1,639 @@
+{
+  "bigm_hull_max_abs_difference_from_gdp": 1.0000003385357559e-06,
+  "certificates": [
+    {
+      "configuration": "7_8_11_16_16_20",
+      "missing_baron_option_warning": false,
+      "mode": "examine",
+      "modelstat": 7,
+      "objective": 25271.327689,
+      "reported_solver_seconds": null,
+      "solvestat": 4
+    },
+    {
+      "configuration": "7_8_11_16_16_20",
+      "missing_baron_option_warning": false,
+      "mode": "scip_free",
+      "modelstat": 1,
+      "objective": 25271.3276887953,
+      "reported_solver_seconds": 8.01,
+      "solvestat": 1
+    },
+    {
+      "configuration": "7_8_11_16_16_20",
+      "missing_baron_option_warning": true,
+      "mode": "baron_free",
+      "modelstat": 1,
+      "objective": 25271.3276887951,
+      "reported_solver_seconds": 172.49,
+      "solvestat": 1
+    },
+    {
+      "configuration": "8_8_12_17_17_21",
+      "missing_baron_option_warning": false,
+      "mode": "examine",
+      "modelstat": 7,
+      "objective": 24895.552861,
+      "reported_solver_seconds": null,
+      "solvestat": 4
+    },
+    {
+      "configuration": "8_8_12_17_17_21",
+      "missing_baron_option_warning": false,
+      "mode": "scip_free",
+      "modelstat": 1,
+      "objective": 24895.5528611452,
+      "reported_solver_seconds": 10.05,
+      "solvestat": 1
+    },
+    {
+      "configuration": "8_8_12_17_17_21",
+      "missing_baron_option_warning": true,
+      "mode": "baron_free",
+      "modelstat": 1,
+      "objective": 24895.5528611452,
+      "reported_solver_seconds": 270.24,
+      "solvestat": 1
+    }
+  ],
+  "controller_elapsed_seconds": 4006.906599,
+  "duplicate_runs": 0,
+  "examiner_primal_checks_passed": 3,
+  "execution": {
+    "command": [
+      "bash",
+      "/local/scratch/a/lee4382/m54_2hwupl6j/src/experiments/catalytic_distillation_minlp/run_dantzig.sh"
+    ],
+    "cores": [
+      {
+        "core": 41,
+        "cpu": 31,
+        "siblings": [
+          31,
+          79
+        ],
+        "socket": 0
+      },
+      {
+        "core": 42,
+        "cpu": 32,
+        "siblings": [
+          32,
+          80
+        ],
+        "socket": 0
+      },
+      {
+        "core": 43,
+        "cpu": 33,
+        "siblings": [
+          33,
+          81
+        ],
+        "socket": 0
+      },
+      {
+        "core": 44,
+        "cpu": 34,
+        "siblings": [
+          34,
+          82
+        ],
+        "socket": 0
+      },
+      {
+        "core": 45,
+        "cpu": 35,
+        "siblings": [
+          35,
+          83
+        ],
+        "socket": 0
+      },
+      {
+        "core": 48,
+        "cpu": 36,
+        "siblings": [
+          36,
+          84
+        ],
+        "socket": 0
+      },
+      {
+        "core": 49,
+        "cpu": 37,
+        "siblings": [
+          37,
+          85
+        ],
+        "socket": 0
+      },
+      {
+        "core": 50,
+        "cpu": 38,
+        "siblings": [
+          38,
+          86
+        ],
+        "socket": 0
+      },
+      {
+        "core": 51,
+        "cpu": 39,
+        "siblings": [
+          39,
+          87
+        ],
+        "socket": 0
+      },
+      {
+        "core": 52,
+        "cpu": 40,
+        "siblings": [
+          40,
+          88
+        ],
+        "socket": 0
+      },
+      {
+        "core": 53,
+        "cpu": 41,
+        "siblings": [
+          41,
+          89
+        ],
+        "socket": 0
+      },
+      {
+        "core": 56,
+        "cpu": 42,
+        "siblings": [
+          42,
+          90
+        ],
+        "socket": 0
+      },
+      {
+        "core": 58,
+        "cpu": 44,
+        "siblings": [
+          44,
+          92
+        ],
+        "socket": 0
+      },
+      {
+        "core": 59,
+        "cpu": 45,
+        "siblings": [
+          45,
+          93
+        ],
+        "socket": 0
+      },
+      {
+        "core": 60,
+        "cpu": 46,
+        "siblings": [
+          46,
+          94
+        ],
+        "socket": 0
+      },
+      {
+        "core": 61,
+        "cpu": 47,
+        "siblings": [
+          47,
+          95
+        ],
+        "socket": 0
+      }
+    ],
+    "destination": "/local/scratch/a/lee4382/m54_2hwupl6j/src/results/catalytic_distillation_minlp_dantzig_20261101",
+    "exit_code": 0,
+    "finished_utc": "2026-11-01T22:45:52.444740+00:00",
+    "host": "dantzig.ecn.purdue.edu",
+    "output": "/local/scratch/a/lee4382/m54_2hwupl6j/raw",
+    "pid": 422377,
+    "revision": "a1c3bf336493dc496bb2571e160b1054f237e0be",
+    "start_ticks": "176281121",
+    "started_utc": "2026-11-01T21:39:05.538141+00:00",
+    "timezone": "UTC"
+  },
+  "external_watchdog_timeouts": 0,
+  "feasible_main_runs": 1,
+  "fixed_best": [
+    {
+      "cpu": 44,
+      "feasible_objective": null,
+      "form": "bigm",
+      "modelstat": 19,
+      "outcome": "reported_infeasible_no_solution",
+      "process_exit": 0,
+      "raw_zobj": 23671.19374,
+      "solver": "baron",
+      "solvestat": 1,
+      "wall_s": 105.786675
+    },
+    {
+      "cpu": 45,
+      "feasible_objective": null,
+      "form": "bigm",
+      "modelstat": 14,
+      "outcome": "time_limit_without_feasible_solution",
+      "process_exit": 0,
+      "raw_zobj": 23671.19374,
+      "solver": "scip",
+      "solvestat": 3,
+      "wall_s": 1201.260691
+    },
+    {
+      "cpu": 46,
+      "feasible_objective": null,
+      "form": "chull",
+      "modelstat": 19,
+      "outcome": "reported_infeasible_no_solution",
+      "process_exit": 0,
+      "raw_zobj": 23671.19374,
+      "solver": "baron",
+      "solvestat": 1,
+      "wall_s": 179.274946
+    },
+    {
+      "cpu": 47,
+      "feasible_objective": null,
+      "form": "chull",
+      "modelstat": 14,
+      "outcome": "time_limit_without_feasible_solution",
+      "process_exit": 0,
+      "raw_zobj": 23671.19374,
+      "solver": "scip",
+      "solvestat": 3,
+      "wall_s": 1201.004929
+    }
+  ],
+  "fixed_solver_time_limits": 2,
+  "language_scan": {
+    "counts": {
+      "text": 426,
+      "zip": 1
+    },
+    "hangul_hits": []
+  },
+  "main_outcomes": {
+    "evaluation_interrupt_without_feasible_solution": 2,
+    "feasible_solution_returned": 1,
+    "reported_infeasible_no_solution": 4,
+    "solver_terminated_without_feasible_solution": 3,
+    "time_limit_without_feasible_solution": 2
+  },
+  "main_runs": [
+    {
+      "configuration": [
+        4,
+        4,
+        5,
+        6,
+        6,
+        9
+      ],
+      "cpu": 31,
+      "feasible_objective": null,
+      "finished_utc": "2026-11-01T21:57:02.269974+00:00",
+      "form": "product",
+      "maxfrac": 0.251196,
+      "modelstat": 9,
+      "outcome": "solver_terminated_without_feasible_solution",
+      "process_exit": 0,
+      "raw_objective_difference": 0.0,
+      "raw_zobj": 28680.457608,
+      "solver": "dicopt",
+      "solvestat": 4,
+      "started_utc": "2026-11-01T21:45:35.825027+00:00",
+      "target_hit": false,
+      "wall_s": 686.5,
+      "workstation_raw_zobj": 28680.457608,
+      "workstation_wall_s": 638.0
+    },
+    {
+      "configuration": [
+        4,
+        4,
+        5,
+        6,
+        6,
+        9
+      ],
+      "cpu": 32,
+      "feasible_objective": 28717.220843,
+      "finished_utc": "2026-11-01T21:45:46.218215+00:00",
+      "form": "product",
+      "maxfrac": 0.0,
+      "modelstat": 8,
+      "outcome": "feasible_solution_returned",
+      "process_exit": 0,
+      "raw_objective_difference": 0.0,
+      "raw_zobj": 28717.220843,
+      "solver": "sbb",
+      "solvestat": 1,
+      "started_utc": "2026-11-01T21:45:35.828264+00:00",
+      "target_hit": false,
+      "wall_s": 10.4,
+      "workstation_raw_zobj": 28717.220843,
+      "workstation_wall_s": 8.2
+    },
+    {
+      "configuration": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "cpu": 33,
+      "feasible_objective": null,
+      "finished_utc": "2026-11-01T21:49:51.049379+00:00",
+      "form": "product",
+      "maxfrac": 0.0,
+      "modelstat": 19,
+      "outcome": "reported_infeasible_no_solution",
+      "process_exit": 0,
+      "raw_objective_difference": 0.0,
+      "raw_zobj": 23671.19374,
+      "solver": "baron",
+      "solvestat": 1,
+      "started_utc": "2026-11-01T21:45:35.824355+00:00",
+      "target_hit": false,
+      "wall_s": 255.3,
+      "workstation_raw_zobj": 23671.19374,
+      "workstation_wall_s": 73.6
+    },
+    {
+      "configuration": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "cpu": 34,
+      "feasible_objective": null,
+      "finished_utc": "2026-11-01T21:45:44.902247+00:00",
+      "form": "product",
+      "maxfrac": 0.0,
+      "modelstat": 19,
+      "outcome": "reported_infeasible_no_solution",
+      "process_exit": 0,
+      "raw_objective_difference": 0.0,
+      "raw_zobj": 23671.19374,
+      "solver": "scip",
+      "solvestat": 1,
+      "started_utc": "2026-11-01T21:45:35.825835+00:00",
+      "target_hit": false,
+      "wall_s": 9.1,
+      "workstation_raw_zobj": 23671.19374,
+      "workstation_wall_s": 5.3
+    },
+    {
+      "configuration": [
+        4,
+        12,
+        15,
+        17,
+        20,
+        20
+      ],
+      "cpu": 35,
+      "feasible_objective": null,
+      "finished_utc": "2026-11-01T22:00:37.635289+00:00",
+      "form": "bigm",
+      "maxfrac": 0.0,
+      "modelstat": 9,
+      "outcome": "solver_terminated_without_feasible_solution",
+      "process_exit": 0,
+      "raw_objective_difference": -9.98377799987793e-07,
+      "raw_zobj": -56644055.376813,
+      "solver": "dicopt",
+      "solvestat": 4,
+      "started_utc": "2026-11-01T21:45:35.834354+00:00",
+      "target_hit": false,
+      "wall_s": 901.8,
+      "workstation_raw_zobj": -56644055.376812,
+      "workstation_wall_s": 1246.7
+    },
+    {
+      "configuration": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "cpu": 36,
+      "feasible_objective": null,
+      "finished_utc": "2026-11-01T21:46:13.654693+00:00",
+      "form": "bigm",
+      "maxfrac": 0.0,
+      "modelstat": 14,
+      "outcome": "evaluation_interrupt_without_feasible_solution",
+      "process_exit": 0,
+      "raw_objective_difference": 0.0,
+      "raw_zobj": 23671.19374,
+      "solver": "sbb",
+      "solvestat": 5,
+      "started_utc": "2026-11-01T21:45:35.830367+00:00",
+      "target_hit": false,
+      "wall_s": 37.9,
+      "workstation_raw_zobj": 23671.19374,
+      "workstation_wall_s": 88.9
+    },
+    {
+      "configuration": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "cpu": 37,
+      "feasible_objective": null,
+      "finished_utc": "2026-11-01T21:49:10.270724+00:00",
+      "form": "bigm",
+      "maxfrac": 0.0,
+      "modelstat": 19,
+      "outcome": "reported_infeasible_no_solution",
+      "process_exit": 0,
+      "raw_objective_difference": 0.0,
+      "raw_zobj": 23671.19374,
+      "solver": "baron",
+      "solvestat": 1,
+      "started_utc": "2026-11-01T21:45:35.832716+00:00",
+      "target_hit": false,
+      "wall_s": 214.5,
+      "workstation_raw_zobj": 23671.19374,
+      "workstation_wall_s": 157.6
+    },
+    {
+      "configuration": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "cpu": 38,
+      "feasible_objective": null,
+      "finished_utc": "2026-11-01T22:45:36.826454+00:00",
+      "form": "bigm",
+      "maxfrac": 0.0,
+      "modelstat": 14,
+      "outcome": "time_limit_without_feasible_solution",
+      "process_exit": 0,
+      "raw_objective_difference": 0.0,
+      "raw_zobj": 23671.19374,
+      "solver": "scip",
+      "solvestat": 3,
+      "started_utc": "2026-11-01T21:45:35.835628+00:00",
+      "target_hit": false,
+      "wall_s": 3601.0,
+      "workstation_raw_zobj": 23671.19374,
+      "workstation_wall_s": 3602.4
+    },
+    {
+      "configuration": [
+        18,
+        18,
+        19,
+        20,
+        20,
+        21
+      ],
+      "cpu": 39,
+      "feasible_objective": null,
+      "finished_utc": "2026-11-01T21:49:07.109647+00:00",
+      "form": "chull",
+      "maxfrac": 0.0,
+      "modelstat": 9,
+      "outcome": "solver_terminated_without_feasible_solution",
+      "process_exit": 0,
+      "raw_objective_difference": 7.699988782405853e-05,
+      "raw_zobj": -13144920.786558,
+      "solver": "dicopt",
+      "solvestat": 4,
+      "started_utc": "2026-11-01T21:45:35.825390+00:00",
+      "target_hit": false,
+      "wall_s": 211.3,
+      "workstation_raw_zobj": -13144920.786635,
+      "workstation_wall_s": 154.0
+    },
+    {
+      "configuration": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "cpu": 40,
+      "feasible_objective": null,
+      "finished_utc": "2026-11-01T21:47:46.074038+00:00",
+      "form": "chull",
+      "maxfrac": 0.0,
+      "modelstat": 14,
+      "outcome": "evaluation_interrupt_without_feasible_solution",
+      "process_exit": 0,
+      "raw_objective_difference": 0.0,
+      "raw_zobj": 23671.19374,
+      "solver": "sbb",
+      "solvestat": 5,
+      "started_utc": "2026-11-01T21:45:35.826744+00:00",
+      "target_hit": false,
+      "wall_s": 130.3,
+      "workstation_raw_zobj": 23671.19374,
+      "workstation_wall_s": 123.1
+    },
+    {
+      "configuration": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "cpu": 41,
+      "feasible_objective": null,
+      "finished_utc": "2026-11-01T21:51:38.167484+00:00",
+      "form": "chull",
+      "maxfrac": 0.0,
+      "modelstat": 19,
+      "outcome": "reported_infeasible_no_solution",
+      "process_exit": 0,
+      "raw_objective_difference": 0.0,
+      "raw_zobj": 23671.19374,
+      "solver": "baron",
+      "solvestat": 1,
+      "started_utc": "2026-11-01T21:45:35.830160+00:00",
+      "target_hit": false,
+      "wall_s": 362.4,
+      "workstation_raw_zobj": 23671.19374,
+      "workstation_wall_s": 126.7
+    },
+    {
+      "configuration": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "cpu": 42,
+      "feasible_objective": null,
+      "finished_utc": "2026-11-01T22:45:36.823917+00:00",
+      "form": "chull",
+      "maxfrac": 0.0,
+      "modelstat": 14,
+      "outcome": "time_limit_without_feasible_solution",
+      "process_exit": 0,
+      "raw_objective_difference": 0.0,
+      "raw_zobj": 23671.19374,
+      "solver": "scip",
+      "solvestat": 3,
+      "started_utc": "2026-11-01T21:45:35.830637+00:00",
+      "target_hit": false,
+      "wall_s": 3601.0,
+      "workstation_raw_zobj": 23671.19374,
+      "workstation_wall_s": 3602.1
+    }
+  ],
+  "main_solver_time_limits": 2,
+  "missing_runs": 0,
+  "model_status_9_label": "Intermediate Non-Integer",
+  "process_failures": 0,
+  "raw_zip_bytes": 14705155,
+  "raw_zip_sha256": "f432d0172e699c29fe0e1d1e176ed32527e725ee980e13542377b4ae01deb1e0",
+  "revision": "a1c3bf336493dc496bb2571e160b1054f237e0be",
+  "scales_reproduced": true,
+  "source_hashes_verified": 47,
+  "status_reference": "https://www.gams.com/54/docs/UG_GAMSOutput.html",
+  "structural_verification_passed": true,
+  "target_hits": 0,
+  "uploaded_manifest_verified_files": 80,
+  "validation_count": 36,
+  "validation_exact_workstation_match": true,
+  "warnings": [
+    "Four warm-start optimality claims are mutually inconsistent and are not accepted as proofs.",
+    "Both BARON warm-start checks warn that baron.opt is absent, then continue with default options.",
+    "Big-M Examiner passes the initial primal checks, then reports unknown subsolver none; no subsolver solution exists.",
+    "Original evidence excludes GDX files and 225? scratch directories.",
+    "Scheduler reservation and continuous CPU exclusivity are not established."
+  ]
+}

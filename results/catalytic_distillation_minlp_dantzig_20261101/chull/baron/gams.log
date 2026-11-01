@@ -1,0 +1,191 @@
+--- Job solve_emp.gms Start 11/01/26 16:45:36 54.3.1 61154be4 LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/54.3/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/m54_2hwupl6j/src/gdp_models/catalytic_distillation/solve_emp.gms
+    ScrDir /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/225a/
+    SysDir /package/gams/54.3/
+    CurDir /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/
+    LogOption 3
+    AppendLog 1
+    --model /local/scratch/a/lee4382/m54_2hwupl6j/src/gdp_models/catalytic_distillation/emp_model_corrected.gms
+    --reform chull
+    --init /local/scratch/a/lee4382/m54_2hwupl6j/src/gdp_models/catalytic_distillation/init
+    --solver baron
+    --reslim 3600
+    --out /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/result.txt
+    --gdx /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/solution.gdx
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:41443 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 54.3.1   Copyright (C) 1987-2026 GAMS Development. All rights reserved
+--- Starting compilation
+--- solve_emp.gms(37) 2 Mb
+--- > emp_model_corrected.gms(1574) 3 Mb
+--- solve_emp.gms(38) 3 Mb
+--- > emp_scales.gms(2203) 3 Mb
+--- solve_emp.gms(126) 3 Mb
+--- $echo File /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/jams.opt
+--- solve_emp.gms(157) 3 Mb
+--- Starting execution: elapsed 0:00:00.019
+--- solve_emp.gms(3815) 4 Mb
+--- GDXin=/local/scratch/a/lee4382/m54_2hwupl6j/src/gdp_models/catalytic_distillation/init.gdx
+--- solve_emp.gms(3815) 5 Mb
+--- 173 symbol(s) loaded implicitly
+--- GDX File (execute_load) /local/scratch/a/lee4382/m54_2hwupl6j/src/gdp_models/catalytic_distillation/init.gdx
+--- solve_emp.gms(3890) 5 Mb
+--- Generating EMP model DSDA
+--- solve_emp.gms(3891) 8 Mb
+---   5,023 rows  3,454 columns  19,657 non-zeroes
+---   64,071 nl-code  11,785 nl-non-zeroes
+---   102 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.000E-01, 1.148E+05] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E-12, 1.000E+09] - Zero values observed as well
+--- Matrix    [min, max] : [ 7.462E-10, 1.276E+18] - Zero values observed as well
+--- solve_emp.gms(3891) 6 Mb
+--- Executing JAMS (Solvelink=2): elapsed 0:00:00.050
+
+JAMS 1.0         54.3.1 61154be4 Aug 21, 2026          LEG x86 64bit/Linux    
+
+JAMS - Solver for Extended Mathematical Programs (EMP)
+------------------------------------------------------
+
+--- Using Option File
+Reading parameter(s) from "/local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/jams.opt"
+>>  SubSolver baron
+>>  FileName reformulated_chull.gms
+Finished reading from "/local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/jams.opt"
+
+--- EMP Summary
+    Logical Constraints = 0
+    Disjunctions        = 100
+    Adjusted Constraint = 0
+    Flipped Constraints = 0
+    Dual Variable Maps  = 0
+    Dual Equation Maps  = 0
+    VI Functions        = 0
+    QVI Parameters      = 0
+    Equilibrium Agent   = 0
+    Bilevel Followers   = 0
+
+--- Writing JAMS      : reformulated_chull.gms
+--- The model reformulated_chull.gms will be solved by GAMS
+---
+--- Job reformulated_chull.gms Start 11/01/26 16:45:36 54.3.1 61154be4 LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/54.3/gmsprmun.txt
+--- GAMS Parameters defined
+    LP baron
+    MIP baron
+    RMIP baron
+    NLP baron
+    MCP PATH
+    MPEC NLPEC
+    RMPEC NLPEC
+    CNS baron
+    DNLP baron
+    RMINLP baron
+    MINLP baron
+    QCP baron
+    MIQCP baron
+    RMIQCP baron
+    Input /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/reformulated_chull.gms
+    ScrDir /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/225b/
+    SysDir /package/gams/54.3/
+    LogOption 3
+    AppendLog 1
+    Suppress 1
+    SolverCntr /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/225a/empcntr.dat
+    SolverMatr /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/225a/empmatr.dat
+    SolverStat /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/225a/empstat.dat
+    SolverSolu /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/225a/empsolu.dat
+    License /local/scratch/a/lee4382/.local/share/GAMS/gamslice.txt
+    SolveLink 2
+    ProcDirPath /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/225b/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:58879 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 54.3.1   Copyright (C) 1987-2026 GAMS Development. All rights reserved
+--- Starting compilation
+--- reformulated_chull.gms(29827) 8 Mb
+--- Starting execution: elapsed 0:00:00.057
+--- reformulated_chull.gms(29826) 9 Mb
+--- Generating MINLP model m
+--- reformulated_chull.gms(29827) 13 Mb
+---   9,502 rows  5,534 columns  29,757 non-zeroes
+---   62,396 nl-code  11,785 nl-non-zeroes
+---   102 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.283E-08, 1.148E+05] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E-12, 1.000E+09] - Zero values observed as well
+--- Matrix    [min, max] : [ 7.462E-10, 1.276E+18] - Zero values observed as well
+--- reformulated_chull.gms(29827) 11 Mb
+--- Executing BARON (Solvelink=2): elapsed 0:00:00.113
+
+GAMS/BARON       54.3.1 61154be4 Aug 21, 2026          LEG x86 64bit/Linux    
+
+===========================================================================
+ BARON version 26.5.27. Built: LNX-int-64 2026-05-27 12:18:04           
+ Running on machine dantzig.ecn.purdue.edu
+
+ BARON is a product of The Optimization Firm. For more information and 
+ related optimization and data analytics products visit https://minlp.com.
+
+
+ If you publish work using this software, please cite publications from
+ https://minlp.com/baron-publications, such as: 
+
+ Zhang, Y. and N. V. Sahinidis, Solving continuous and discrete
+ nonlinear programs with BARON, Comput Optim Appl, 92, 1123-1161, 2025. 
+ https://doi.org/10.1007/s10589-024-00633-0
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP/QP: CLP/CBC, ILOG CPLEX                             
+ For NLP: MINOS, SNOPT, External NLP, IPOPT, FILTERSQP
+===========================================================================
+ Doing local search
+ Solving bounding LP
+ Starting multi-start local search
+ Estimated remaining time for local search is 72 secs
+ Done with local search
+===========================================================================
+  Iteration       Time (s)     Mem   Lower bound     Upper bound   Progress
+          1         360.12   199MB    infinity        0.100000E+52  100.00%
+
+                         *** Normal completion ***            
+
+                   *** No feasible solution was found ***
+
+ Wall clock time:                   361.36
+ Total CPU time used:               360.12
+
+ Total no. of BaR iterations:         1
+ Best solution found at node:        -3
+ Max. no. of nodes in memory:         1
+ 
+ All done
+===========================================================================
+--- Reading solution for model m
+*** Status: Normal completion
+--- Job reformulated_chull.gms Stop 11/01/26 16:51:37 elapsed 0:06:01.562
+--- Returning from GAMS step
+--- Reading solution for model DSDA
+--- Solver did not provide marginals for model DSDA
+--- To request marginals from the solver set option requestMarginals >= 1
+--- Executing after solve: elapsed 0:06:01.989
+--- solve_emp.gms(3895) 6 Mb--- solve_emp.gms(3913) 6 Mb
+--- GDX File (execute_unload) /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/solution.gdx
+--- Putfile result /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/baron/result.txt
+*** Status: Normal completion
+--- Job solve_emp.gms Stop 11/01/26 16:51:38 elapsed 0:06:01.991
