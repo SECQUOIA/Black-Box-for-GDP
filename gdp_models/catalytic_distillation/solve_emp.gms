@@ -1,7 +1,7 @@
 * Solve the disjunctive (EMP) form of the corrected column (emp_model_corrected.gms) through GAMS/JAMS.
 *
 * Usage: gams solve_emp.gms --reform=bigm --solver=dicopt [--reslim=3600] [--init=init]
-*                            [--out=result.txt] [--gdx=solution.gdx]
+*                            [--out=result.txt] [--gdx=solution.gdx] [--subopt=1]
 *        gams solve_emp.gms --reform=chull --solver=sbb --f1=7 --c1=8 --c2=11 --c3=16 --f2=16 --b=20 [...]
 *
 * --reform is bigm or chull (Big-M or convex hull reformulation by JAMS).  For each internal stage,
@@ -115,10 +115,19 @@ loop(inner(Net),
 );
 putclose emp;
 
+* --subopt=N passes the option file N of the subsolver, e.g. examiner.opt with --solver=examiner.
+$ifthen set subopt
+$onecho > jams.opt
+SubSolver %solver%
+SubSolverOpt %subopt%
+FileName reformulated_%reform%.gms
+$offecho
+$else
 $onecho > jams.opt
 SubSolver %solver%
 FileName reformulated_%reform%.gms
 $offecho
+$endif
 DSDA.optfile = 1;
 option nlp = conopt, mip = cplex, minlp = %solver%, threads = 1;
 DSDA.optcr = 0;
