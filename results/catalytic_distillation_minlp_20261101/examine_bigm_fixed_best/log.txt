@@ -1,0 +1,187 @@
+--- Job solve_emp_ex.gms Start 11/01/26 11:04:42 54.2.2 f90090a2 LEX-LEG x86 64bit/Linux
+--- Applying:
+    /home/bernalde/packages/gams54.2_linux_x64_64_sfx/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/solve_emp_ex.gms
+    ScrDir /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/225a/
+    SysDir /home/bernalde/packages/gams54.2_linux_x64_64_sfx/
+    LogOption 3
+    AppendLog 1
+    --model /home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/emp_model_corrected.gms
+    --scales /home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/emp_scales.gms
+    --init /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/sol/sol
+    --reform bigm
+    --solver examiner
+    --f1 8
+    --c1 8
+    --c2 12
+    --c3 17
+    --f2 17
+    --b 21
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:64144403 mem:40 cores:18 ipport:48973 v:2                   
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 18 physical cores and 40 Gb physical memory detected
+GAMS 54.2.2   Copyright (C) 1987-2026 GAMS Development. All rights reserved
+--- Starting compilation
+--- solve_emp_ex.gms(37) 2 Mb
+--- > emp_model_corrected.gms(1574) 3 Mb
+--- solve_emp_ex.gms(38) 3 Mb
+--- > emp_scales.gms(2203) 3 Mb
+--- solve_emp_ex.gms(118) 3 Mb
+--- $echo File /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/jams.opt
+--- solve_emp_ex.gms(149) 3 Mb
+--- Starting execution: elapsed 0:00:00.013
+--- solve_emp_ex.gms(3815) 4 Mb
+--- GDXin=/tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/sol/sol.gdx
+--- solve_emp_ex.gms(3815) 5 Mb
+--- 280 symbol(s) loaded implicitly
+--- GDX File (execute_load) /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/sol/sol.gdx
+--- solve_emp_ex.gms(3892) 5 Mb
+--- Generating EMP model DSDA
+--- solve_emp_ex.gms(3893) 8 Mb
+---   5,023 rows  3,454 columns  19,657 non-zeroes
+---   64,071 nl-code  11,785 nl-non-zeroes
+---   102 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.000E-01, 1.148E+05] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E-12, 1.000E+09] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.023E-17, 1.276E+18] - Zero values observed as well
+--- solve_emp_ex.gms(3893) 6 Mb
+--- Executing JAMS (Solvelink=2): elapsed 0:00:00.048
+
+JAMS 1.0         54.2.2 f90090a2 Aug 3, 2026           LEG x86 64bit/Linux    
+
+JAMS - Solver for Extended Mathematical Programs (EMP)
+------------------------------------------------------
+
+--- Using Option File
+Reading parameter(s) from "/tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/jams.opt"
+>>  SubSolver examiner
+>>  SubSolverOpt 1
+>>  FileName reformulated_bigm.gms
+Finished reading from "/tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/jams.opt"
+
+--- EMP Summary
+    Logical Constraints = 0
+    Disjunctions        = 100
+    Adjusted Constraint = 0
+    Flipped Constraints = 0
+    Dual Variable Maps  = 0
+    Dual Equation Maps  = 0
+    VI Functions        = 0
+    QVI Parameters      = 0
+    Equilibrium Agent   = 0
+    Bilevel Followers   = 0
+
+--- Writing JAMS      : reformulated_bigm.gms
+--- The model reformulated_bigm.gms will be solved by GAMS
+---
+--- Job reformulated_bigm.gms Start 11/01/26 11:04:42 54.2.2 f90090a2 LEX-LEG x86 64bit/Linux
+--- Applying:
+    /home/bernalde/packages/gams54.2_linux_x64_64_sfx/gmsprmun.txt
+--- GAMS Parameters defined
+    LP examiner
+    MIP examiner
+    RMIP examiner
+    NLP examiner
+    MCP examiner
+    MPEC examiner
+    RMPEC examiner
+    CNS CONOPT
+    DNLP examiner
+    RMINLP examiner
+    MINLP examiner
+    QCP examiner
+    MIQCP examiner
+    RMIQCP examiner
+    Input /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/reformulated_bigm.gms
+    ScrDir /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/225b/
+    SysDir /home/bernalde/packages/gams54.2_linux_x64_64_sfx/
+    LogOption 3
+    AppendLog 1
+    Suppress 1
+    SolverCntr /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/225a/empcntr.dat
+    SolverMatr /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/225a/empmatr.dat
+    SolverStat /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/225a/empstat.dat
+    SolverSolu /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/225a/empsolu.dat
+    License /home/bernalde/packages/gams54.2_linux_x64_64_sfx/gamslice.txt
+    OptFile 1
+    OptDir /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/
+    SolveLink 2
+    ProcDirPath /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/225b/gamslice.dat
+          5a82958a-fbca-4a23
+          node:64144403 mem:40 cores:18 ipport:58357 v:2                   
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 18 physical cores and 40 Gb physical memory detected
+GAMS 54.2.2   Copyright (C) 1987-2026 GAMS Development. All rights reserved
+--- Starting compilation
+--- reformulated_bigm.gms(23922) 6 Mb
+--- Starting execution: elapsed 0:00:00.032
+--- reformulated_bigm.gms(23921) 7 Mb
+--- Generating MINLP model m
+--- reformulated_bigm.gms(23922) 11 Mb
+---   5,022 rows  3,454 columns  21,617 non-zeroes
+---   62,397 nl-code  11,785 nl-non-zeroes
+---   102 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 9.901E-03, 1.148E+05] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E-12, 1.000E+09] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.331E-17, 1.276E+18] - Zero values observed as well
+--- reformulated_bigm.gms(23922) 9 Mb
+--- Executing EXAMINER (Solvelink=2): elapsed 0:00:00.078
+
+EXAMINER UTIL    54.2.2 f90090a2 Aug 3, 2026           LEG x86 64bit/Linux    
+
+Reading parameter(s) from "/tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/examiner.opt"
+>>  examineInitPoint 1
+>>  examineSolvPoint 0
+>>  subsolver none
+Finished reading from "/tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/examiner.opt"
+Reading rows . . . done.
+Reading columns . . . done.
+
+InitPoint - GAMS-provided x.l & f.m, Examiner-computed x.m & f.f:
+Scale range (observed but not applied): [1.9802e-05,1.27588e+18]
+Maximum element: row=e1423, col=x1531: Aij = 1.27588e+18
+Primal variable bounds satisfied (tol = 1e-06)
+Dual variable bounds satisfied (tol = 1e-06)
+Primal constraints satisfied (tol = 1e-06)
+Dual constraints satisfied (tol = 1e-06)
+Primal CS is nonzero (tol = 1e-07):
+  Max violation: x1537.l: -0.9901 <= 0 <= 0.00098226
+                 x1537.m: -INF <= 192 <= +INF
+Dual CS is nonzero (tol = 1e-07):
+  Max violation: e1439.m: -INF <= 0 <= +INF
+                 e1439.l: 0 <= -9.4692e-07 <= 0
+Model attributes not checked
+
+*** gevCapabilityCheck: Could not find algorithm none
+Calling subsolver none
+
+*** gevCallSolver: Unknown solver name none
+ERROR: Failure calling MINLP solver none: rc = 1
+There will be no solution to examine.
+
+EXAMINER ALL DONE.
+
+--- Reading solution for model m
+*** Status: Normal completion
+--- Job reformulated_bigm.gms Stop 11/01/26 11:04:43 elapsed 0:00:00.123
+--- Returning from GAMS step
+--- Reading solution for model DSDA
+--- Solver did not provide marginals for model DSDA
+--- To request marginals from the solver set option requestMarginals >= 1
+--- Executing after solve: elapsed 0:00:00.556
+--- solve_emp_ex.gms(3897) 6 Mb--- solve_emp_ex.gms(3914) 6 Mb
+--- Putfile result /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/examine/ex/emp_result.txt
+*** Status: Normal completion
+--- Job solve_emp_ex.gms Stop 11/01/26 11:04:43 elapsed 0:00:00.557

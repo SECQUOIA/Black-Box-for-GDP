@@ -1,0 +1,96 @@
+--- Job solve_minlp.gms Start 11/01/26 10:47:58 54.2.2 f90090a2 LEX-LEG x86 64bit/Linux
+--- Applying:
+    /home/bernalde/packages/gams54.2_linux_x64_64_sfx/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/solve_minlp.gms
+    ScrDir /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/product/baron/225a/
+    SysDir /home/bernalde/packages/gams54.2_linux_x64_64_sfx/
+    CurDir /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/product/baron/
+    LogOption 3
+    AppendLog 1
+    --model /home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/minlp_model_corrected.gms
+    --init /home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/init
+    --solver baron
+    --reslim 3600
+    --out /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/product/baron/result.txt
+    --gdx /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/product/baron/solution.gdx
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:64144403 mem:40 cores:18 ipport:59247 v:2                   
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 18 physical cores and 40 Gb physical memory detected
+GAMS 54.2.2   Copyright (C) 1987-2026 GAMS Development. All rights reserved
+--- Starting compilation
+--- solve_minlp.gms(17) 2 Mb
+--- > minlp_model_corrected.gms(1337) 3 Mb
+--- solve_minlp.gms(76) 3 Mb
+--- Starting execution: elapsed 0:00:00.005
+--- solve_minlp.gms(1356) 4 Mb
+--- GDXin=/home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/init.gdx
+--- 165 symbol(s) loaded implicitly
+--- GDX File (execute_load) /home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/init.gdx
+--- solve_minlp.gms(1376) 4 Mb
+--- Generating MINLP model DSDA
+--- solve_minlp.gms(1377) 8 Mb
+---   3,324 rows  2,924 columns  18,645 non-zeroes
+---   69,649 nl-code  13,811 nl-non-zeroes
+---   88 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.000E-01, 1.148E+05] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E-12, 1.000E+09] - Zero values observed as well
+--- Matrix    [min, max] : [ 6.939E-18, 5.931E+04] - Zero values observed as well
+--- solve_minlp.gms(1377) 6 Mb
+--- Executing BARON (Solvelink=2): elapsed 0:00:00.026
+
+GAMS/BARON       54.2.2 f90090a2 Aug 3, 2026           LEG x86 64bit/Linux    
+
+===========================================================================
+ BARON version 26.5.27. Built: LNX-int-64 2026-05-27 12:18:04           
+ Running on machine X-FRNYG027CPC01
+
+ BARON is a product of The Optimization Firm. For more information and 
+ related optimization and data analytics products visit https://minlp.com.
+
+
+ If you publish work using this software, please cite publications from
+ https://minlp.com/baron-publications, such as: 
+
+ Zhang, Y. and N. V. Sahinidis, Solving continuous and discrete
+ nonlinear programs with BARON, Comput Optim Appl, 92, 1123-1161, 2025. 
+ https://doi.org/10.1007/s10589-024-00633-0
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP/QP: CLP/CBC, ILOG CPLEX                             
+ For NLP: MINOS, SNOPT, External NLP, IPOPT, FILTERSQP
+===========================================================================
+ Doing local search
+ Solving bounding LP
+ Starting multi-start local search
+ Done with local search
+===========================================================================
+  Iteration       Time (s)     Mem   Lower bound     Upper bound   Progress
+          1          73.15   174MB    infinity        0.100000E+52  100.00%
+
+                         *** Normal completion ***            
+
+                   *** No feasible solution was found ***
+
+ Wall clock time:                    73.08
+ Total CPU time used:                73.15
+
+ Total no. of BaR iterations:         1
+ Best solution found at node:        -3
+ Max. no. of nodes in memory:         1
+ 
+ All done
+===========================================================================
+--- Reading solution for model DSDA
+--- Executing after solve: elapsed 0:01:13.212
+--- solve_minlp.gms(1382) 6 Mb--- solve_minlp.gms(1400) 6 Mb
+--- GDX File (execute_unload) /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/product/baron/solution.gdx
+--- Putfile result /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/product/baron/result.txt
+*** Status: Normal completion
+--- Job solve_minlp.gms Stop 11/01/26 10:49:11 elapsed 0:01:13.213
