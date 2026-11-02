@@ -51,7 +51,7 @@
 The Grid-GDP functions are adapted from the Quantum Hamiltonian Descent collection; each instance is defined by its implemented expression and domain rather than its conventional name~\citep{qhdBenchmarks,rbfoptTestArchive}.
 
 \section{Coordinate domains and normalization}\label{sec:supp-domains}
-The coordinate mapping and objective normalization follow Section~\ifdefined\manuscriptwithsupplement\ref{sec:grid-gdp-formulation}\else3.1\fi{} of the main paper.
+The coordinate mapping and objective normalization follow Section~\ifdefined\manuscriptwithsupplement\ref{sec:grid-gdp-formulation}\else3.4\fi{} of the main paper.
 Both coordinate endpoints are included, and \(L\) and \(U\) are the minimum and maximum over the 961 lattice points.
 All trigonometric arguments are in radians.
 Full-precision normalization constants and target coordinates are archived in \nolinkurl{grid_inventory.json} (Section~\ref{sec:supp-data}).
@@ -321,7 +321,7 @@ The \texttt{Dynamic} objective is \(-\int_0^9 x(t)^2\,dt\).
 
 \section{Lomustine simulation-based benchmark}\label{sec:supp-lomustine}
 The \texttt{Lomustine} configurations and responses come from the corrected-model tables of \citet{secquoiaPdIsing}, generated with PharmaPy at commit 3194efd.
-For each superstructure option, the source ran \texttt{PyNomad} 4.6.0 from a stored initial point on the normalized operating inputs with 60 simulations and stored the best objective, the constraint values, the equipment sizes, and the wall time of the inner optimization.
+For each superstructure option, the source ran \texttt{PyNomadBBO} 4.6.0 from a stored initial point on the normalized operating inputs with 60 simulations and stored the best objective, the constraint values, the equipment sizes, and the wall time of the inner optimization.
 The inner search accepts a point when the solubility path constraint holds.
 The heptane mass-fraction specification of the source is not enforced, because the fixed three-hour vaporizer operation cannot reach it within the pressure bounds.
 Table~\ref{tab:supp-lomustine} lists the 36 two-reactor configurations; the four single-reactor semibatch options of the source do not fit the three external variables and are excluded.
@@ -419,6 +419,12 @@ Eight \texttt{D-SDA} runs stopped before their budgets because no neighbor impro
 The runs requested 3,499 distinct configurations, of which 2,652 were accepted, and solving them took 7.7~h.
 The runs are charged 20.2~h of completion time in total, but the campaign took 2.8~h on three cores because a configuration requested by several runs was solved once.
 Each run evaluated distinct configurations, so the reuse comes from different runs requesting the same configuration.
+
+\paragraph{Search box.}
+The GDP admits 100,947 configurations, and the gap box \(g_i\le6\) of the search methods keeps 54,159 of them, including every good design found in a pilot of 202 configurations.
+The reference has \(g_1=f_1-2=6\), on the bound of the box, so a better design could lie just outside it.
+We therefore solved, with the initialization and acceptance rule of the campaign, all 747 configurations outside the box within two stages of the reference in every stage position.
+Of these, 255 are accepted and 492 are locally infeasible, and none is better than the reference: the best, \((9,9,13,17,17,21)\) at 24,930.96~\$/yr, lies 0.14\% above it.
 
 \paragraph{MINLP forms.}
 The published MINLP form makes the stage decisions binary variables, multiplies switched equations by these variables or by the stage-existence indicator, and keeps the property and kinetic equations on every stage.
@@ -570,7 +576,8 @@ Per-function Grid results at \(B=100\) and complete seed-level outcomes are avai
 \begingroup
 \section{Data sources and reproducibility}\label{sec:supp-data}
 
-The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/49d4bcbeb10fe49b74fe2333d27829046e93bf03}{publication snapshot} contains the source code, experimental data, analysis results, and reproduction instructions for the DFO and conventional GDP comparisons.
+The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/eebea680038b3e22442147c6f9128ea9970fca85}{publication snapshot} contains the source code, experimental data, analysis results, and reproduction instructions for every experiment in this article.
+The \texttt{CSTR} updates are the penalty of \(10^6\) for unaccepted responses, analyzed in \nolinkurl{results/cstr_penalty_1e6_analysis_20261022}, and the \texttt{CSTR30} evaluation table rebuilt with the mass-balance/zero-recycle initialization, in \nolinkurl{results/cstr30_publication_20261025}; the \texttt{Column} runs on its 64-configuration logical domain with \(B=13\) are in \nolinkurl{results/column_logical_b13_analysis_20261025}.
 The updated \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/329c6f93f4940436425582ae60323c0c9f95b581/results/gdpopt_scip_ipopt_analysis_20261030}{GDPopt analysis and execution records} contain the 63 Grid and 27 process runs configured with \texttt{SCIP} for MIP and \texttt{IPOPT} for NLP subproblems.
 The three presolve-disabled LOA diagnostic runs are excluded.
 The same records contain the paired comparison with the earlier configuration that used \texttt{SCIP} for both MIP and NLP subproblems, in which GLOA returned the same \texttt{CSTR} objectives within a relative difference of \(3\times10^{-5}\).
@@ -581,6 +588,7 @@ All \texttt{D-SDA} runs, including the restart variants, were rerun at \href{htt
 The \texttt{Lomustine} case is \nolinkurl{experiments/lomustine_simulation}, which vendors the corrected-model table of \citet{secquoiaPdIsing} and runs the seven methods through the harness in \nolinkurl{experiments/catalytic_distillation_live}; the run records and analysis are in \nolinkurl{results/lomustine_simulation_20261031}.
 The \texttt{Catalytic Column} model and its review are in \nolinkurl{gdp_models/catalytic_distillation}, the live runs are \nolinkurl{experiments/catalytic_distillation_live}, and their returned records, with the original archive, its SHA-256 checksum, and an audit of every run, are in \nolinkurl{results/catalytic_distillation_live_20261101}.
 The MINLP forms, their generators, the fixed-configuration validation, and the solver runs are \nolinkurl{experiments/catalytic_distillation_minlp}; the runs reported here are in \nolinkurl{results/catalytic_distillation_minlp_dantzig_20261101}, and an earlier run of the same experiments on a workstation with \texttt{GAMS} 54.2.2, in \nolinkurl{results/catalytic_distillation_minlp_20261101}, returned the same outcome for every solver, form, and configuration.
+The \texttt{D-SDA} neighborhood comparison of Section~\ref{sec:supp-dsda-neighborhood} is \nolinkurl{experiments/dsda_separable}, with results in \nolinkurl{results/dsda_separable_20261101}.
 The seven-method tables and figures are generated from these tables and the published records by \nolinkurl{review_comparison/seven_methods.py} and the \nolinkurl{review_comparison/joint_process_*.py} scripts, without new solver calls.
 
 \section{Feasibility and bound consistency of conventional GDP results}\label{sec:bound-audit}
@@ -1007,7 +1015,7 @@ Grid (210 runs) & 100 & \textbf{101} & 88 & 5 & 18 & 37 & 25 \\
 \label{sec:supp-joint-comparison}
 Figure~\ref{fig:joint-remaining-completion} compares the eight process conditions not shown in the main joint completion-time figure.
 Each DFO condition has ten seeds, whereas each conventional GDP method has one run per problem.
-Timing and target criteria follow Figure~\ifdefined\manuscriptwithsupplement\ref{fig:process-completion}\else3\fi{} of the main paper.
+Timing and target criteria follow Figure~\ifdefined\manuscriptwithsupplement\ref{fig:process-completion}\else2\fi{} of the main paper.
 Table~\ref{tab:full-gdp} reports all nine models, including final objectives and termination flags.
 
 \begin{table}[htbp]
