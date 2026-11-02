@@ -18,5 +18,6 @@ Each is solved with `gdp_models/catalytic_distillation/solve_configuration.gms` 
 - `configs.txt`: the 747 configurations, written by `scripts/list_configs.py`.
 - `scripts/solve_one.sh`: the script that solved each configuration (run as `xargs -P 12 -L 1 ./solve_one.sh < configs.txt`, with paths for the machine that ran it).
 - `results.csv`: one row per configuration with the solver's model and solver status, objective, resource time, and bottoms ETBE.
+- `evidence/outside_box_results.zip`: the result line that GAMS wrote for each configuration (`runs/<f1>_<c1>_<c2>_<c3>_<f2>_<b>/result.txt`), from which `results.csv` is collected; `evidence/outside_box_results.zip.sha256` and `FILE_SHA256.txt` hold the SHA-256 checksums.
 
 Run on 2 November 2026 on an Intel Xeon w5-2565X workstation with GAMS 54.2.2 and CONOPT 4.39.1, the CONOPT version of the Dantzig campaign (GAMS 54.3.1).

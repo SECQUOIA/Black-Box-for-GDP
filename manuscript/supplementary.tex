@@ -421,10 +421,11 @@ The runs are charged 20.2~h of completion time in total, but the campaign took 2
 Each run evaluated distinct configurations, so the reuse comes from different runs requesting the same configuration.
 
 \paragraph{Search box.}
-The GDP admits 100,947 configurations, and the gap box \(g_i\le6\) of the search methods keeps 54,159 of them, including every good design found in a pilot of 202 configurations.
+The GDP admits 100,947 configurations, and the gap box \(g_i\le6\) of the search methods keeps 54,159 of them, including every design within 5\% of the best of a pilot of 202 configurations.
 The reference has \(g_1=f_1-2=6\), on the bound of the box, so a better design could lie just outside it.
 We therefore solved, with the initialization and acceptance rule of the campaign, all 747 configurations outside the box within two stages of the reference in every stage position.
 Of these, 255 are accepted and 492 are locally infeasible, and none is better than the reference: the best, \((9,9,13,17,17,21)\) at 24,930.96~\$/yr, lies 0.14\% above it.
+This check ran on a workstation with \texttt{GAMS} 54.2.2 and \texttt{CONOPT} 4.39.1, the \texttt{CONOPT} version of the campaign, and every solve finished within 97~s, below the campaign's 300~s limit.
 
 \paragraph{MINLP forms.}
 The published MINLP form makes the stage decisions binary variables, multiplies switched equations by these variables or by the stage-existence indicator, and keeps the property and kinetic equations on every stage.
@@ -576,7 +577,7 @@ Per-function Grid results at \(B=100\) and complete seed-level outcomes are avai
 \begingroup
 \section{Data sources and reproducibility}\label{sec:supp-data}
 
-The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/eebea680038b3e22442147c6f9128ea9970fca85}{publication snapshot} contains the source code, experimental data, analysis results, and reproduction instructions for every experiment in this article.
+The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/de6ab9395e5121f27db3b95844b1cd381264367d}{publication snapshot} contains the source code, experimental data, analysis results, and reproduction instructions for every experiment in this article.
 The \texttt{CSTR} updates are the penalty of \(10^6\) for unaccepted responses, analyzed in \nolinkurl{results/cstr_penalty_1e6_analysis_20261022}, and the \texttt{CSTR30} evaluation table rebuilt with the mass-balance/zero-recycle initialization, in \nolinkurl{results/cstr30_publication_20261025}; the \texttt{Column} runs on its 64-configuration logical domain with \(B=13\) are in \nolinkurl{results/column_logical_b13_analysis_20261025}.
 The updated \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/329c6f93f4940436425582ae60323c0c9f95b581/results/gdpopt_scip_ipopt_analysis_20261030}{GDPopt analysis and execution records} contain the 63 Grid and 27 process runs configured with \texttt{SCIP} for MIP and \texttt{IPOPT} for NLP subproblems.
 The three presolve-disabled LOA diagnostic runs are excluded.
@@ -588,7 +589,7 @@ All \texttt{D-SDA} runs, including the restart variants, were rerun at \href{htt
 The \texttt{Lomustine} case is \nolinkurl{experiments/lomustine_simulation}, which vendors the corrected-model table of \citet{secquoiaPdIsing} and runs the seven methods through the harness in \nolinkurl{experiments/catalytic_distillation_live}; the run records and analysis are in \nolinkurl{results/lomustine_simulation_20261031}.
 The \texttt{Catalytic Column} model and its review are in \nolinkurl{gdp_models/catalytic_distillation}, the live runs are \nolinkurl{experiments/catalytic_distillation_live}, and their returned records, with the original archive, its SHA-256 checksum, and an audit of every run, are in \nolinkurl{results/catalytic_distillation_live_20261101}.
 The MINLP forms, their generators, the fixed-configuration validation, and the solver runs are \nolinkurl{experiments/catalytic_distillation_minlp}; the runs reported here are in \nolinkurl{results/catalytic_distillation_minlp_dantzig_20261101}, and an earlier run of the same experiments on a workstation with \texttt{GAMS} 54.2.2, in \nolinkurl{results/catalytic_distillation_minlp_20261101}, returned the same outcome for every solver, form, and configuration.
-The \texttt{D-SDA} neighborhood comparison of Section~\ref{sec:supp-dsda-neighborhood} is \nolinkurl{experiments/dsda_separable}, with results in \nolinkurl{results/dsda_separable_20261101}.
+The \texttt{D-SDA} neighborhood comparison of Section~\ref{sec:supp-dsda-neighborhood} is \nolinkurl{experiments/dsda_separable}, with results in \nolinkurl{results/dsda_separable_20261101}, and the check of the \texttt{Catalytic Column} configurations outside the search box is in \nolinkurl{results/catalytic_distillation_outside_box_20261102}.
 The seven-method tables and figures are generated from these tables and the published records by \nolinkurl{review_comparison/seven_methods.py} and the \nolinkurl{review_comparison/joint_process_*.py} scripts, without new solver calls.
 
 \section{Feasibility and bound consistency of conventional GDP results}\label{sec:bound-audit}
