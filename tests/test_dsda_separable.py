@@ -1,15 +1,14 @@
 """Checks of the D-SDA neighborhood comparison (results/dsda_separable_20261101)."""
 import csv
 import importlib
+import importlib.util
 import json
 from pathlib import Path
-import sys
 
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results/dsda_separable_20261101"
-sys.path.insert(0, str(ROOT / "experiments/dsda_separable"))
 
 
 def test_every_run_is_separable_and_passes_its_checks():
@@ -24,7 +23,7 @@ def test_every_run_is_separable_and_passes_its_checks():
 
 def test_analysis_reproduces_the_committed_comparison(tmp_path):
     pytest.importorskip("numpy")
-    analyze = importlib.import_module("analyze")
+    analyze = load("dsda_separable_analyze", ROOT / "experiments/dsda_separable/analyze.py")
     for sub in ["grid_process", "lomustine"]:
         (tmp_path / sub).symlink_to(RESULTS / sub)
     analyze.main(["--results", str(tmp_path)])
@@ -40,11 +39,17 @@ def test_linf_counts_match_the_manuscript_runs():
     assert grid == {10: 13, 30: 78, 50: 91, 70: 101, 100: 101}
 
 
+def load(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def test_lomustine_wrapper_changes_only_the_dsda_neighborhood(monkeypatch):
     monkeypatch.delenv("LOMUSTINE_ORDER", raising=False)
-    sys.path.insert(0, str(ROOT / "experiments/lomustine_simulation"))
-    case = importlib.import_module("case")
-    wrapper = importlib.import_module("lomustine_case")
+    case = load("lomustine_case_under_test", ROOT / "experiments/lomustine_simulation/case.py")
+    wrapper = load("lomustine_separable_under_test", ROOT / "experiments/dsda_separable/lomustine_case.py")
     assert case.SETTINGS["dsda"]["diagonal"] is True and wrapper.SETTINGS["dsda"]["diagonal"] is False
     assert wrapper.OPTIONS == {**case.OPTIONS, "dsda_neighborhood": "separable"}
     assert (wrapper.BUDGETS, wrapper.N_STARTS, wrapper.LOWER, wrapper.UPPER) == (
