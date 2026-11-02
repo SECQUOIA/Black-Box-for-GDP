@@ -1,0 +1,21 @@
+{
+  "started_utc": "2026-11-01T21:31:37.557745+00:00",
+  "finished_utc": "2026-11-01T21:31:46.243920+00:00",
+  "head": "a1c3bf336493dc496bb2571e160b1054f237e0be",
+  "dirty": true,
+  "host": "X-FRNYG027CPC01",
+  "python": "3.10.19",
+  "cpu": {
+    "mode": "pinned",
+    "cpu": 11,
+    "effective_cpus": [
+      11
+    ],
+    "selection": null,
+    "exclusive_reservation": false
+  },
+  "archive": "results/archives/dsda_abs1e5_rerun_20261028_020753_2004611.zip",
+  "archive_sha256": "e58982f7179b73c65d83134dcbe0b25854002685812b2511b24523e861c9929e",
+  "neighborhood": "separable",
+  "jobs": 1190
+}
