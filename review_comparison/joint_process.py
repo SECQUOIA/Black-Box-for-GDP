@@ -324,8 +324,10 @@ The horizontal axis is logarithmic and shows full-run completion, not first-targ
 
 
 def write_csv(path, rows):
+    # Rows from different sources carry different fields; keep every field in first-seen order.
+    fields = list(dict.fromkeys(k for row in rows for k in row))
     with path.open('w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator='\n')
+        writer = csv.DictWriter(f, fieldnames=fields, lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
 

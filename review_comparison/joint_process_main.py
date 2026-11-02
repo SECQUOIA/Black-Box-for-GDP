@@ -14,9 +14,12 @@ INPUT = 'results/joint_process_scip_ipopt_20261030'
 REVISION = '341d9c6b6e790ba15318113083e43a4489c8b68e'
 CONDITIONS = [('cstr_5', 8), ('cstr_30', 43), ('column', 13),
               ('small_batch', 10), ('dynamic', 12), ('dynamic', 30)]
-# DFO methods in alphabetical order of their keys, then the conventional GDP methods.
-DFO = sorted(current.PRIMARY + mi.METHODS)
-METHODS = DFO + base.ALG_METHODS
+# DFO methods in the order of the manuscript tables, then the conventional GDP methods.
+DFO = ['dsda', 'nomad', 'rbfopt_msrsm_genetic', 'miso', 'bam', 'fmqa_sa', 'uniform_without_replacement']
+CONVENTIONAL = ['gloa', 'loa', 'ric', 'bigm', 'hull']
+base.require(sorted(DFO) == sorted(current.PRIMARY + mi.METHODS), 'DFO method list changed')
+base.require(sorted(CONVENTIONAL) == sorted(base.ALG_METHODS), 'Conventional method list changed')
+METHODS = DFO + CONVENTIONAL
 LABELS = {**base.LABELS, **mi.LABELS}
 
 

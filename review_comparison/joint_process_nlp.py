@@ -11,7 +11,7 @@ from . import joint_process_main as main_figure
 COVERAGE = 'results/dsda_publication_20261028/tables/configuration_coverage.csv'
 CONDITIONS = [(f'cstr_{n}', b) for n, b in zip((5, 10, 15, 20, 25, 30), (8, 15, 22, 29, 36, 43))]
 CONDITIONS += [('column', 13), ('small_batch', 10), ('dynamic', 12)]
-GDPOPT = ['ric', 'loa', 'gloa']
+GDPOPT = ['gloa', 'loa', 'ric']
 DFO = main_figure.DFO
 METHODS = DFO + GDPOPT
 LABELS = main_figure.LABELS

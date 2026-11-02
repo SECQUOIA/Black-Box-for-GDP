@@ -324,7 +324,7 @@ def grid_profiles(rows, out):
             ax.axvline(3, color="#777777", ls="--", lw=0.8)
             ax.axvspan(3, min(13, b), color="#008b8b", alpha=0.09)
             ax.set(title=f"Budget B={b}", ylim=(-0.02, 1.03), yticks=[0, 0.5, 1], xlim=(0, b),
-                   xlabel="Charged evaluations")
+                   xlabel="Evaluations")
             ax.set_xticks([0, b // 2, b])
             ax.grid(axis="y", alpha=0.2)
         for ax in axs[:, 0]:
@@ -334,7 +334,7 @@ def grid_profiles(rows, out):
         handles = [Line2D([], [], color=COLOR[m], ls=STYLE[m], marker=MARK[m], ms=4, lw=1.5, label=LABEL[m])
                    for m in GRID]
         ax.legend(handles=handles, loc="upper left", frameon=False, fontsize=9.5)
-        ax.text(0.02, 0.0, "Dashed: shared starts end (3)\nShaded: BAM fixed prefix", fontsize=9,
+        ax.text(0.02, 0.0, "Dashed: three shared starts\nShaded: BAM initial design", fontsize=9,
                 transform=ax.transAxes)
         fig.tight_layout(h_pad=1.8, w_pad=0.8)
         for ext, kw in (("pdf", dict(metadata={"CreationDate": None, "ModDate": None})), ("png", dict(dpi=160))):
@@ -343,7 +343,7 @@ def grid_profiles(rows, out):
     return checks
 
 
-PROFILE_PANELS = [("column", 13), ("cstr_30", 43), ("small_batch", 10)] + [("dynamic", b) for b in (12, 15, 20, 30, 37, 50)]
+PROFILE_PANELS = [("cstr_30", 43), ("column", 13), ("small_batch", 10)] + [("dynamic", b) for b in (12, 15, 20, 30, 37, 50)]
 
 
 def process_profiles(rows, out):
@@ -366,8 +366,8 @@ def process_profiles(rows, out):
                 ax.step(xs, ys, where="post", color=COLOR[m], ls=STYLE[m], lw=1.6, marker=MARK[m], ms=3.5,
                         markevery=max(1, len(xs) // 5))
             ax.axvline(3, color="#777", ls="--", lw=0.8)
-            ax.set(title=f"{ms.pname(case)} (B={b})", ylim=(-0.03, 1.04), yticks=[0, 0.5, 1], xlim=(0, b),
-                   xlabel="Charged evaluations")
+            ax.set(title=f"{ms.pname(case).replace('CSTR ', 'CSTR')}, B={b}", ylim=(-0.03, 1.04),
+                   yticks=[0, 0.5, 1], xlim=(0, b), xlabel="Evaluations")
             ax.set_xticks([0, b // 2, b])
             ax.grid(axis="y", alpha=0.2)
         for ax in axs[:, 0]:

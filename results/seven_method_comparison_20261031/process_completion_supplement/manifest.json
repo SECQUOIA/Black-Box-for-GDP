@@ -12,8 +12,8 @@
   },
   "source_sha256": {
     "review_comparison/joint_process_supplement.py": "97c8c6b47609b963b30b0d5ca0d9ab82df4d7ee83261c058f5b456fc8a1cca9e",
-    "review_comparison/joint_process_main.py": "62526450d68b611065659e705905a16af8bdee8c137a47e3807a4cf8536425b5",
-    "review_comparison/joint_process.py": "06eff66bafe3bb3411021441204b45744ce6ed69111f6e926630d910fc89edfe",
+    "review_comparison/joint_process_main.py": "37853625a67b3b127e38917042944f5f56c6372e53b1f678949084d6c78188b9",
+    "review_comparison/joint_process.py": "c68060fa3e6d94ed35fcab6768ef9ca42abca8f589f10d0f7870aa29ed971b93",
     "review_comparison/joint_process_ipopt.py": "302e3be5f2eced60dc5e197c7470d6759012f0f1c6d4e30aed2542196e63b0a2",
     "review_comparison/mi_dfo_runs.py": "9c528ab079c0b605f96a42a45704590f80eda0235ea526d275186dc33c3b784a",
     "review_comparison/dsda_no_revisit_runs.py": "11051338746525fa9d7e1d78fe9757ef22d8ca23ea9c19ec7b8ac2f5b8371b71"
@@ -90,8 +90,8 @@
   "reproduce": "python -m review_comparison.joint_process_supplement --output /tmp/joint-process-supplement",
   "output_sha256": {
     "README.md": "8887ab9d9d1e143f49f6eede01c306fd2a6dfa27e398ecefd9afb99e59c3351a",
-    "joint_remaining_completion.pdf": "c46942c816010f2502e2dba74d733fd120965b2b755de6be6b6391295ec89983",
-    "joint_remaining_completion.png": "0eea25448d5a1a45fc34bfa7fd61d8cb945e8bd74891e2daa61cad1458eadc1e",
-    "selected_runs.csv": "5709829182445458fca1c563c999707e9c5ea5146a8a39f8531e2106a79c0971"
+    "joint_remaining_completion.pdf": "eeb67c8ec71da0924ba466955f982315e00c9a8f8e56183e52c02b44835b11e9",
+    "joint_remaining_completion.png": "ab9f32249f06c4a986d06059f11089cc021324b9cf38717306b114341c0e484c",
+    "selected_runs.csv": "0c17c3e0aacccd62b8ec5d2ee1cf5c16c172d0731820e22adb43d79a8ce6b102"
   }
 }
