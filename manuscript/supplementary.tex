@@ -319,6 +319,195 @@ The \texttt{Dynamic} objective is \(-\int_0^9 x(t)^2\,dt\).
 
 
 
+\section{Lomustine simulation-based benchmark}\label{sec:supp-lomustine}
+The \texttt{Lomustine} configurations and responses come from the corrected-model tables of \citet{secquoiaPdIsing}, generated with PharmaPy at commit 3194efd.
+For each superstructure option, the source ran \texttt{PyNomad} 4.6.0 from a stored initial point on the normalized operating inputs with 60 simulations and stored the best objective, the constraint values, the equipment sizes, and the wall time of the inner optimization.
+The inner search accepts a point when the solubility path constraint holds.
+The heptane mass-fraction specification of the source is not enforced, because the fixed three-hour vaporizer operation cannot reach it within the pressure bounds.
+Table~\ref{tab:supp-lomustine} lists the 36 two-reactor configurations; the four single-reactor semibatch options of the source do not fit the three external variables and are excluded.
+The configurations with a batch crystallizer have the lowest objective for every reactor pair, and the choice of the first reactor changes the objective by up to a factor of 2.9.
+The vendored table, case module, run records, and analysis are listed in Section~\ref{sec:supp-data}.
+
+\paragraph{Option order and objective.}
+The external variables index categorical alternatives, so we repeated the 210 runs with the five other orders of Table~\ref{tab:supp-lomustine-orders}, using the same seeds, initial designs in index space, and budgets.
+Table~\ref{tab:supp-lomustine-order-hits} reports the hits in the source order and their range over the six orders.
+\texttt{NOMAD} 4.6.0 ended with a segmentation fault after identical evaluations on both attempts in 12 runs over all campaigns; as for the Grid runs of Section~\ref{sec:supp-nomad-miso}, these runs are scored on the evaluations completed before the crash.
+Table~\ref{tab:supp-lomustine-capex} repeats the source-order runs with the bare-module capital cost of each flowsheet at its optimized operation as the objective, whose reference is the all-batch flowsheet at \$82{,}766.
+This cost is evaluated at the operating point that maximizes production and crystal size, and it is not itself optimized over the operating inputs.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{\texttt{Lomustine}: orders of the reactor and crystallizer alternatives used as external-variable indices; crystallizers are listed as batch or by the number of MSMPR stages.}
+\label{tab:supp-lomustine-orders}
+\begin{tabular}{@{}lll@{}}\toprule
+Order & Reactors & Crystallizers\\\midrule
+Source & batch, CSTR, PFR & batch, 1, 2, 3 \\
+Reversed & PFR, CSTR, batch & 3, 2, 1, batch \\
+Back-mixing & batch, PFR, CSTR & batch, 3, 2, 1 \\
+Random 1 & PFR, batch, CSTR & 1, 2, batch, 3 \\
+Random 2 & batch, PFR, CSTR & batch, 3, 1, 2 \\
+Random 3 & CSTR, PFR, batch & 2, 1, batch, 3 \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{\texttt{Lomustine}: runs out of ten that reach the reference configuration in the source order and, in brackets, the range over the six orders of Table~\ref{tab:supp-lomustine-orders}.}
+\label{tab:supp-lomustine-order-hits}
+\begin{tabular}{@{}lccc@{}}\toprule
+Method & \(B=10\) & \(B=15\) & \(B=20\)\\\midrule
+\texttt{D-SDA} & 1 [1, 6] & 4 [3, 8] & 4 [3, 8] \\
+\texttt{NOMAD} & 6 [5, 6] & 6 [5, 9] & 6 [5, 9] \\
+\texttt{RBFOpt} & 8 [2, 8] & 9 [7, 10] & 10 [9, 10] \\
+\texttt{MISO} & 7 [4, 7] & 10 [5, 10] & 10 [6, 10] \\
+\texttt{BAM} & 0 [0, 2] & 4 [0, 10] & 6 [0, 10] \\
+\texttt{FMQA-SA} & 2 [2, 7] & 3 [3, 10] & 7 [7, 10] \\
+Uniform & 2 [0, 4] & 4 [2, 4] & 5 [4, 7] \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{\texttt{Lomustine} with the capital-cost objective: runs out of ten that reach the all-batch reference configuration, in the source order.
+Bold counts mark the largest number of hits for each budget, including ties.}
+\label{tab:supp-lomustine-capex}
+\begin{tabular}{@{}lccc@{}}\toprule
+Method & \(B=10\) & \(B=15\) & \(B=20\)\\\midrule
+\texttt{D-SDA} & 3 & 6 & 9 \\
+\texttt{NOMAD} & 9 & 9 & 9 \\
+\texttt{RBFOpt} & 7 & 8 & \textbf{10} \\
+\texttt{MISO} & 8 & \textbf{10} & \textbf{10} \\
+\texttt{BAM} & \textbf{10} & \textbf{10} & \textbf{10} \\
+\texttt{FMQA-SA} & 2 & 3 & 5 \\
+Uniform & 4 & 7 & 8 \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{\texttt{Lomustine}: objective of every configuration and, in parentheses, the wall time of its simulation-based optimization.
+Rows give the first (R01) and second (R02) reactor, and columns the crystallizer.
+The bold entry is the reference configuration.}
+\label{tab:supp-lomustine}
+\begin{tabular}{@{}llrrrr@{}}\toprule
+R01 & R02 & batch & 1 MSMPR & 2 MSMPR & 3 MSMPR\\\midrule
+batch & batch & \makecell{-170.68\\(91~s)} & \makecell{-131.70\\(310~s)} & \makecell{-146.86\\(538~s)} & \makecell{-148.92\\(835~s)} \\
+batch & CSTR & \makecell{-230.52\\(146~s)} & \makecell{-175.25\\(348~s)} & \makecell{-175.27\\(650~s)} & \makecell{-166.13\\(970~s)} \\
+batch & PFR & \makecell{-268.46\\(159~s)} & \makecell{-209.36\\(348~s)} & \makecell{-213.29\\(651~s)} & \makecell{-202.26\\(975~s)} \\
+CSTR & batch & \makecell{-483.85\\(152~s)} & \makecell{-360.16\\(331~s)} & \makecell{-365.91\\(656~s)} & \makecell{-345.28\\(936~s)} \\
+CSTR & CSTR & \makecell{-331.90\\(159~s)} & \makecell{-244.39\\(367~s)} & \makecell{-245.34\\(660~s)} & \makecell{-239.50\\(1019~s)} \\
+CSTR & PFR & \makecell{-429.81\\(206~s)} & \makecell{-315.22\\(408~s)} & \makecell{-321.46\\(717~s)} & \makecell{-304.62\\(1017~s)} \\
+PFR & batch & \makecell{\textbf{-487.84}\\(208~s)} & \makecell{-362.45\\(347~s)} & \makecell{-361.55\\(655~s)} & \makecell{-348.06\\(886~s)} \\
+PFR & CSTR & \makecell{-351.71\\(183~s)} & \makecell{-249.82\\(388~s)} & \makecell{-259.47\\(659~s)} & \makecell{-244.65\\(983~s)} \\
+PFR & PFR & \makecell{-433.41\\(211~s)} & \makecell{-318.34\\(393~s)} & \makecell{-324.18\\(629~s)} & \makecell{-306.21\\(907~s)} \\
+\bottomrule\end{tabular}
+\end{table}
+\FloatBarrier
+
+\section{Catalytic distillation column}\label{sec:supp-catdist}
+
+\paragraph{Corrected model.}
+We checked every equation block, parameter table, and bound of the published model against standard forms and literature values, and the \texttt{Catalytic Column} benchmark uses the model with the errors fixed.
+The corrections concern the vapor--liquid equilibrium and the equilibrium constant of the reaction, the mixture liquid density (Rackett equation with the Spencer--Danner mixing rule) and surface tension (Macleod--Sugden), the tray hydraulics, and the objective, which counted the annualization factor twice and credited the impurities in the bottoms at the ETBE price.
+The pure-component data of isobutene, 1-butene, and ethanol are fitted to open reference equations of state, and the ETBE data, for which no reference equation exists, agree with open measurements of its vapor pressure and density.
+The bottoms must contain at least 95~mol\% ETBE, the fuel-grade specification, the catalytic stages stay at or below 120~\(^\circ\)C, the maximum operating temperature of the Amberlyst~15 catalyst, and the prices are 2010 market prices.
+The repository lists each finding with its effect on the published optimum; with the 95~mol\% specification, the published optimal configuration is infeasible, because its column is too short.
+
+\paragraph{Evaluation campaign.}
+The 210 runs made 12,015 evaluations: 6,921 returned accepted objectives, 2,789 were logical rejections without an NLP solve, and 2,305 returned unaccepted NLP responses.
+Eight \texttt{D-SDA} runs stopped before their budgets because no neighbor improved, and all other runs used their full budgets.
+The runs requested 3,499 distinct configurations, of which 2,652 were accepted, and solving them took 7.7~h.
+The runs are charged 20.2~h of completion time in total, but the campaign took 2.8~h on three cores because a configuration requested by several runs was solved once.
+Each run evaluated distinct configurations, so the reuse comes from different runs requesting the same configuration.
+
+\paragraph{MINLP forms.}
+The published MINLP form makes the stage decisions binary variables, multiplies switched equations by these variables or by the stage-existence indicator, and keeps the property and kinetic equations on every stage.
+The disjunctive form behind the Big-\(M\) and Hull reformulations has five disjunctions for each internal stage, one per decision, whose terms collect the equations that the GDP model switches on or off (Table~\ref{tab:supp-catdist-disjunctions}).
+The property and feed-enthalpy equations hold on every stage, as in the published form, but the kinetics stay in the catalyst disjunction; with the kinetics on every stage, the bounds of the reaction rate restricted the temperature of a stage without catalyst, and with the binary variables of \((3,4,5,11,11,14)\) fixed, the Big-\(M\) reformulation stopped at 32,075~\$/yr, a point from which the GDP form continues to 30,822~\$/yr.
+Each nonlinear disjunct equation \(h(\mathbf x)=0\) or \(h(\mathbf x)\le 0\) is replaced by the definition \(s\,r=h(\mathbf x)\), which holds on every stage, and by the linear disjunct constraint \(r=0\) or \(r\le 0\); a linear disjunct equation is divided by \(s\).
+The scale \(s\) is 1.01 times the largest absolute value of \(h\) over the variable bounds, computed by interval arithmetic after feasibility-based bound tightening with the constraints that hold for every configuration.
+Every scaled disjunct constraint therefore lies in \([-1,1]\) at every feasible point, so \(M=1\) is a valid Big-\(M\) value for all of them, and the bound tightening adds 101 implied variable bounds that are written into the model.
+The scales range from 0.10 to \(1.3\times10^{18}\); the largest belongs to the rate equation, whose products of activities, adsorption constant, and rate span this range over the variable bounds.
+The interval bounds of the flooding and weeping correlations are finite only if the liquid is denser than the vapor, which the source bounds do not imply, so the disjunctive form bounds the liquid and vapor mass densities by \(\rho_L\ge200\) and \(5\le\rho_V\le150\)~kg/m\(^3\); every validated solution has \(\rho_L\ge529\) and \(\rho_V\le34\)~kg/m\(^3\).
+The \texttt{GAMS} convex hull reformulation accepts only inequalities, so each disjunct equality is written as two inequalities, and Big-\(M\) of the pair equals Big-\(M\) of the equality.
+Table~\ref{tab:supp-catdist-validation} compares the forms with the binary variables fixed.
+
+\begin{table}[htbp]
+\centering
+\caption{Disjunctions of each internal stage \(k\) in the disjunctive form of the \texttt{Catalytic Column}.}
+\label{tab:supp-catdist-disjunctions}
+\small
+\begin{tabular}{@{}lll@{}}\toprule
+Indicator & Indicator true & Indicator false\\\midrule
+stage \(k\) exists & \makecell[l]{vapor--liquid equilibrium, tray hydraulics,\\pressure drop, flooding and weeping limits,\\tray height} & \makecell[l]{vapor composition and flow pass through,\\no pressure drop, no tray height} \\
+catalyst on stage \(k\) & \makecell[l]{kinetics, catalyst hydraulics and flooding,\\reaction terms, 120~\(^\circ\)C limit} & no reaction, no catalyst pressure drop \\
+ethanol feed at \(k\) & feed flow & no feed flow \\
+butenes feed at \(k\) & feed flow & no feed flow \\
+boil-up return at \(k\) & boil-up flow & no boil-up flow \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Objective (\$/yr) of each form with the binary variables fixed, solved by \texttt{CONOPT} from the initialization of the published model.
+``Infeasible'' marks configurations that every form reports as locally infeasible.}
+\label{tab:supp-catdist-validation}
+\small
+\begin{tabular}{@{}lrrrr@{}}\toprule
+\((f_1,c_1,c_2,c_3,f_2,b)\) & GDP & Published MINLP & Big-\(M\) & Hull\\\midrule
+\((8,8,12,17,17,21)\) & 24{,}895.55 & 24{,}895.55 & 24{,}895.55 & 24{,}895.55 \\
+\((7,8,11,16,16,20)\) & 25{,}271.33 & 25{,}271.33 & 25{,}271.33 & 25{,}271.33 \\
+\((3,4,5,11,11,14)\) & 30{,}822.02 & 30{,}822.02 & 30{,}822.02 & 30{,}822.02 \\
+\((4,4,9,10,14,17)\) & 28{,}373.98 & 28{,}373.98 & 28{,}373.98 & 28{,}373.98 \\
+\((3,6,12,14,19,21)\) & 31{,}116.60 & 32{,}320.55 & 31{,}116.60 & 31{,}116.60 \\
+\((2,3,9,10,20,21)\) & 35{,}745.43 & 35{,}194.65 & 35{,}745.43 & 35{,}745.43 \\
+\((4,4,6,8,8,10)\) & \multicolumn{4}{c}{infeasible} \\
+\((3,4,5,6,8,9)\) & \multicolumn{4}{c}{infeasible} \\
+\((13,13,15,16,17,19)\) & \multicolumn{4}{c}{infeasible} \\
+\bottomrule\end{tabular}
+\end{table}
+
+\paragraph{MINLP solvers.}
+Table~\ref{tab:supp-catdist-minlp} lists the results of the MINLP solvers.
+\texttt{SBB} stops on the Big-\(M\) and Hull reformulations when the NLP relaxations of its nodes exceed the limit on function evaluations outside their domains.
+Table~\ref{tab:supp-catdist-certificates} lists the global optimality certificates that \texttt{SCIP} and \texttt{BARON} return when they start from a feasible design of the published form; the \texttt{GAMS} \texttt{Examiner} confirms that both starting designs satisfy every constraint and bound within \(10^{-6}\).
+
+\begin{table}[htbp]
+\centering
+\caption{MINLP solvers on the \texttt{Catalytic Column} from the initial configuration \((3,4,5,6,8,9)\) of the published model, one core, 3,600~s limit.
+The reference is 24,895.55~\$/yr, and times are wall-clock times of the \texttt{GAMS} job.}
+\label{tab:supp-catdist-minlp}
+\small
+\begin{tabular}{@{}llll@{}}\toprule
+Form & Solver & Outcome & Time (s)\\\midrule
+Published & \texttt{DICOPT} & no feasible design; every NLP subproblem infeasible, iteration limit & 686 \\
+ & \texttt{SBB} & 28{,}717.22 at \((4,4,5,6,6,9)\) & 10 \\
+ & \texttt{BARON} & declared infeasible & 255 \\
+ & \texttt{SCIP} & declared infeasible & 9 \\
+Big-\(M\) & \texttt{DICOPT} & no feasible design; NLP subproblem failed & 902 \\
+ & \texttt{SBB} & no feasible design; domain violation limit & 38 \\
+ & \texttt{BARON} & declared infeasible & 214 \\
+ & \texttt{SCIP} & no feasible design; lower bound \(-5.7\times10^{7}\) & 3{,}600+ \\
+Hull & \texttt{DICOPT} & no feasible design; NLP subproblem failed & 211 \\
+ & \texttt{SBB} & no feasible design; domain violation limit & 130 \\
+ & \texttt{BARON} & declared infeasible & 362 \\
+ & \texttt{SCIP} & no feasible design; lower bound \(-5.7\times10^{7}\) & 3{,}600+ \\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Global optimality certificates for the published MINLP form started from two feasible designs.}
+\label{tab:supp-catdist-certificates}
+\small
+\begin{tabular}{@{}lll@{}}\toprule
+Starting design & \texttt{SCIP} & \texttt{BARON}\\\midrule
+\((7,8,11,16,16,20)\) & optimal at 25,271.33 (8~s) & optimal at 25,271.33 (172~s)\\
+\((8,8,12,17,17,21)\) & optimal at 24,895.55 (10~s) & optimal at 24,895.55 (270~s)\\
+\bottomrule\end{tabular}
+\end{table}
+\FloatBarrier
+
 \section{Completion costs}\label{sec:supp-uncertainty}
 
 Table~\ref{tab:process-tts99} reports completion costs for all 14 process conditions, together with the cost of evaluating every configuration of each DFO domain once.
@@ -389,12 +578,15 @@ Seed spread, tolerance sensitivity, search overhead, and \texttt{GDPopt} enumera
 The \texttt{D-SDA} rerun, including the process restart variants, is \nolinkurl{experiments/dsda_no_revisit/run.py}, which replays the sealed lookup package of the adopted \texttt{D-SDA} rerun.
 The \texttt{NOMAD} and \texttt{MISO} runs were executed at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c4d7db6b671bbe92a314be524a650d75cd49529c}{source revision c4d7db6}; the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/841ca986f175dda4d91c784b195e60279cf94b99/results/pr56_dantzig_return_20261031}{returned records} contain the original archive, its SHA-256 checksum, and hash-checked analysis tables of every run.
 All \texttt{D-SDA} runs, including the restart variants, were rerun at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c186408728c6f95ac33a5465edd53035d85c5620}{source revision c186408}, where no configuration is evaluated twice; with re-evaluation switched back on, the same code reproduces all 1,190 published \texttt{D-SDA} runs exactly, and the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/f3b57ac44cccb27552b3a8618ce6abd463e540a4/results/dsda_no_revisit_20261031}{returned records} hold every run.
+The \texttt{Lomustine} case is \nolinkurl{experiments/lomustine_simulation}, which vendors the corrected-model table of \citet{secquoiaPdIsing} and runs the seven methods through the harness in \nolinkurl{experiments/catalytic_distillation_live}; the run records and analysis are in \nolinkurl{results/lomustine_simulation_20261031}.
+The \texttt{Catalytic Column} model and its review are in \nolinkurl{gdp_models/catalytic_distillation}, the live runs are \nolinkurl{experiments/catalytic_distillation_live}, and their returned records, with the original archive, its SHA-256 checksum, and an audit of every run, are in \nolinkurl{results/catalytic_distillation_live_20261101}.
+The MINLP forms, their generators, the fixed-configuration validation, and the solver runs are \nolinkurl{experiments/catalytic_distillation_minlp}; the runs reported here are in \nolinkurl{results/catalytic_distillation_minlp_dantzig_20261101}, and an earlier run of the same experiments on a workstation with \texttt{GAMS} 54.2.2, in \nolinkurl{results/catalytic_distillation_minlp_20261101}, returned the same outcome for every solver, form, and configuration.
 The seven-method tables and figures are generated from these tables and the published records by \nolinkurl{review_comparison/seven_methods.py} and the \nolinkurl{review_comparison/joint_process_*.py} scripts, without new solver calls.
 
 \section{Feasibility and bound consistency of conventional GDP results}\label{sec:bound-audit}
 Of the 45 conventional GDP runs in Table~\ref{tab:full-gdp}, 21 have flagged bounds (Table~\ref{tab:bound-audit}) relative to the checked solutions in Table~\ref{tab:witnesses}.
-\david{we agreed that we are not calling algebraic the conventional methods for GDP}
-\albert{Replaced algebraic with conventional GDP for the compared methods throughout the supplement, including the section heading.}
+% \david{we agreed that we are not calling algebraic the conventional methods for GDP}
+% \albert{Replaced algebraic with conventional GDP for the compared methods throughout the supplement, including the section heading.}
 These results combine the 27 new \texttt{SCIP}--\texttt{IPOPT} GDPopt runs with the 18 retained direct \texttt{SCIP} runs.
 Unrounded values, residuals, and source records are linked in Section~\ref{sec:supp-data}.
 
@@ -453,8 +645,8 @@ C identifies the comparison solution in Table~\ref{tab:witnesses}.
 Displayed values are rounded; flags use unrounded values.
 \end{minipage}
 \end{table}
-\david{something is wrong here, it appears as if there were two table captions}
-\albert{Shortened the caption and moved the explanation below the table, with this review comment outside the caption.}
+% \david{something is wrong here, it appears as if there were two table captions}
+% \albert{Shortened the caption and moved the explanation below the table, with this review comment outside the caption.}
 \FloatBarrier % \clearpage
 \begingroup
 \begin{table}[htbp]\centering\small
@@ -485,8 +677,8 @@ The discrepancy persists under the tighter check, but its cause remains unresolv
 The saved Big-\(M\) point has objective \(-212.009\), approximately \(15.0776\) below the Hull lower bound \(-196.931\).
 It satisfies both the original GDP and a reconstructed Hull formulation at \(10^{-5}\), with maximum violation approximately \(10^{-7}\).
 The cause of the discrepancy remains unresolved.
-\david{This is more of an implementation detail, why including it?}
-\albert{Removed the export and implementation details, retaining only the feasibility check relevant to the reported bound.}
+% \david{This is more of an implementation detail, why including it?}
+% \albert{Removed the export and implementation details, retaining only the feasibility check relevant to the reported bound.}
 
 \FloatBarrier
 \par\endgroup
@@ -519,8 +711,8 @@ Intervals are exploratory and unadjusted for multiple comparisons; ten-seed boun
 An interval entirely above zero favors the first method under this resampling; an interval spanning zero leaves the direction uncertain.
 There is no preset cutoff for practical importance.
 For example, \texttt{BAM} matches its prefix control at \(B=10\) but exceeds it by 10.95 percentage points at \(B=100\), so initial sampling alone does not account for its final target-hit rate.
-\david{SO what does this mean? WHy are you reporting this? If the difference is greater than a value does it mean something?}
-\albert{Explained the sign and interval interpretation and used the BAM-prefix comparison to show why the paired results are reported.}
+% \david{SO what does this mean? WHy are you reporting this? If the difference is greater than a value does it mean something?}
+% \albert{Explained the sign and interval interpretation and used the BAM-prefix comparison to show why the paired results are reported.}
 
 \begin{table}[htbp]\centering\small
 \caption{Selected paired success differences, in percentage points.
@@ -591,8 +783,8 @@ Without both functions, \(B=100\) rates are 84.7\% for \texttt{MISO}, 79.5\% for
 At \(B=10\), \texttt{BAM} and its prefix control each retain 47.9\%, compared with 15.8\% for \texttt{RBFOpt}, 14.7\% for \texttt{MISO}, and 12.6\% for \texttt{NOMAD}.
 
 
-\david{This section is irrelevant, if the QUBOs were not saved, then just repeat the whole experiment and have it cleanly worked out}
-\albert{Removed the reconstructed FMQA diagnostics and their main-text reference; no experiment was rerun and no validation of unsaved historical weights or QUBOs is claimed.}
+% \david{This section is irrelevant, if the QUBOs were not saved, then just repeat the whole experiment and have it cleanly worked out}
+% \albert{Removed the reconstructed FMQA diagnostics and their main-text reference; no experiment was rerun and no validation of unsaved historical weights or QUBOs is claimed.}
 
 
 \FloatBarrier
@@ -761,6 +953,56 @@ Case & \(B\) & S & R & RR & S & R & S & R & RR & S & R & RR\\\midrule
 \FloatBarrier
 
 \clearpage
+\section{D-SDA neighborhood}\label{sec:supp-dsda-neighborhood}
+The process, Grid, and \texttt{Lomustine} \texttt{D-SDA} runs use the unit \(L_\infty\) neighborhood, whose \(3^d-1\) neighbors number 8 for \(d=2\) external variables and 26 for \(d=3\).
+The \texttt{Catalytic Column}, with \(d=6\) and 728 such neighbors, uses the separable neighborhood, which changes one external variable by \(\pm1\) and has at most \(2d\) neighbors.
+To test the effect of this choice, we repeated every \texttt{D-SDA} run on stored responses with the separable neighborhood and all other settings unchanged: the 1,050 Grid runs, the 140 single-descent process runs, and the 180 \texttt{Lomustine} runs in the six option orders of Section~\ref{sec:supp-lomustine}.
+Table~\ref{tab:supp-dsda-neighborhood} pairs each run with its \(L_\infty\) counterpart.
+
+The separable neighborhood reaches more targets when the budget is small compared with the \(L_\infty\) neighborhood: on Grid at \(B=10\) (22 against 13 of 210 runs, with 9 and 0 discordant runs, exact McNemar \(p=0.004\)), on \texttt{Dynamic} at \(B=12\) and 15 (16 against 10 of 20, \(p=0.031\)), and on \texttt{Lomustine} over the six orders (99 against 90 of 180, \(p=0.022\)).
+Its descents also stop earlier: from \(B=50\), the Grid runs end after a median of 25 evaluations in place of 37, and they reach 88 targets against 101 at \(B=70\) and 100 (\(p=0.011\)).
+On \texttt{CSTR}, the separable neighborhood reaches 7 of the 60 targets against 16 (\(p=0.004\)).
+Eighteen of its 53 misses stop on the edge \(\xi_1=\xi_2\) of the admissible region, where every one-coordinate move leaves the region or worsens the objective, whereas a diagonal move continues along the edge to the target at \((N,N)\).
+Over the 140 process runs, the two neighborhoods reach 79 and 78 targets.
+Neither neighborhood dominates: the \(L_\infty\) neighborhood suits two external variables with budgets that cover its eight neighbors, and the separable neighborhood suits more external variables or smaller budgets.
+
+\begin{table}[htbp]
+\centering
+\caption{Target hits of \texttt{D-SDA} with the unit \(L_\infty\) and the separable neighborhoods, the runs that only one of them solves, and the median number of evaluations.
+Each process row has ten paired runs.
+Bold counts mark the larger number of hits.}
+\label{tab:supp-dsda-neighborhood}
+\scriptsize
+\begin{tabular}{@{}llrrrrrr@{}}\toprule
+Case & \(B\) & \(L_\infty\) & Separable & Separable only & \(L_\infty\) only & \makecell{Median evals\\\(L_\infty\)} & \makecell{Median evals\\separable} \\\midrule
+Grid (210 runs) & 10 & 13 & \textbf{22} & 9 & 0 & 10 & 10 \\
+Grid (210 runs) & 30 & 78 & \textbf{79} & 14 & 13 & 30 & 25 \\
+Grid (210 runs) & 50 & \textbf{91} & 87 & 10 & 14 & 37 & 25 \\
+Grid (210 runs) & 70 & \textbf{101} & 88 & 5 & 18 & 37 & 25 \\
+Grid (210 runs) & 100 & \textbf{101} & 88 & 5 & 18 & 37 & 25 \\
+\midrule
+\texttt{Column} & 13 & 5 & \textbf{6} & 3 & 2 & 13 & 12 \\
+\texttt{CSTR5} & 8 & 2 & 2 & 0 & 0 & 8 & 8 \\
+\texttt{CSTR10} & 15 & \textbf{3} & 1 & 0 & 2 & 11.5 & 8 \\
+\texttt{CSTR15} & 22 & \textbf{2} & 1 & 0 & 1 & 15.5 & 10.5 \\
+\texttt{CSTR20} & 29 & \textbf{3} & 1 & 0 & 2 & 19 & 14 \\
+\texttt{CSTR25} & 36 & \textbf{3} & 1 & 0 & 2 & 23.5 & 15.5 \\
+\texttt{CSTR30} & 43 & \textbf{3} & 1 & 0 & 2 & 24.5 & 17 \\
+\texttt{Small Batch} & 10 & 8 & \textbf{9} & 2 & 1 & 10 & 10 \\
+\texttt{Dynamic} & 12 & 4 & \textbf{6} & 2 & 0 & 12 & 12 \\
+\texttt{Dynamic} & 15 & 6 & \textbf{10} & 4 & 0 & 15 & 13 \\
+\texttt{Dynamic} & 20 & 10 & 10 & 0 & 0 & 18 & 13 \\
+\texttt{Dynamic} & 30 & 10 & 10 & 0 & 0 & 18 & 13 \\
+\texttt{Dynamic} & 37 & 10 & 10 & 0 & 0 & 18 & 13 \\
+\texttt{Dynamic} & 50 & 10 & 10 & 0 & 0 & 18 & 13 \\
+\midrule
+\texttt{Lomustine}, six orders (60 runs) & 10 & 23 & \textbf{27} & 6 & 2 & 10 & 10 \\
+\texttt{Lomustine}, six orders (60 runs) & 15 & 32 & \textbf{36} & 4 & 0 & 15 & 11 \\
+\texttt{Lomustine}, six orders (60 runs) & 20 & 35 & \textbf{36} & 1 & 0 & 19 & 11 \\
+\bottomrule\end{tabular}
+\end{table}
+\FloatBarrier
+
 \section{Joint comparison with conventional GDP methods}
 \label{sec:supp-joint-comparison}
 Figure~\ref{fig:joint-remaining-completion} compares the eight process conditions not shown in the main joint completion-time figure.
@@ -805,8 +1047,8 @@ Dash: no accepted feasible solution.
 \(\dagger\): reported lower bound exceeds the best checked saved numerically feasible objective \(f\) by more than \(10^{-5}\max\{1,|f|\}\).
 \par
 \(\ddagger\): reference target missed despite reported \texttt{optimal} and a better checked numerically feasible solution.
-\david{SOmetimes you call it target, sometimes lookup reference, unify this}
-\albert{Used reference target for the success criterion; lookup now refers only to access to stored configuration responses.}
+% \david{SOmetimes you call it target, sometimes lookup reference, unify this}
+% \albert{Used reference target for the success criterion; lookup now refers only to access to stored configuration responses.}
 \end{minipage}
 \end{table}
 \FloatBarrier

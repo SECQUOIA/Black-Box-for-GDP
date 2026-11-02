@@ -1,0 +1,553 @@
+{
+  "archive": {
+    "bytes": 1808154,
+    "crc_passed": true,
+    "name": "catalytic_distillation_live_dantzig_20261101_030054.zip",
+    "sha256": "1ff96f101b3e30cbb0c47663af13d5d8fc680eb1466c425868e1e25825718e26"
+  },
+  "branch_verified_at_packaging": {
+    "branch": "feature/catalytic-distillation-pilot",
+    "checked_at_utc": "2026-10-31 23:00:37 UTC",
+    "pr": 57,
+    "sha": "5580a7eacdc8b4098ba5c239822de2300e667a1c",
+    "url": "https://github.com/SECQUOIA/Black-Box-for-GDP/pull/57"
+  },
+  "controller": {
+    "log": "/local/scratch/a/lee4382/repository/catdist_live/results/catalytic_distillation_live/controller.log",
+    "pid": 44743,
+    "start_ticks": "168566778",
+    "started_utc": "2026-11-01T00:13:22.111628+00:00"
+  },
+  "controller_exit_code": 0,
+  "cpu_range": [
+    17,
+    48
+  ],
+  "cpus": [
+    {
+      "core": 21,
+      "cpu": 17,
+      "siblings": [
+        17,
+        65
+      ],
+      "socket": 0
+    },
+    {
+      "core": 50,
+      "cpu": 38,
+      "siblings": [
+        38,
+        86
+      ],
+      "socket": 0
+    },
+    {
+      "core": 57,
+      "cpu": 43,
+      "siblings": [
+        43,
+        91
+      ],
+      "socket": 0
+    }
+  ],
+  "created_utc": "2026-10-31T23:08:33.363615+00:00",
+  "environment": {
+    "DFO_PYTHON": {
+      "distribution_paths": {
+        "bam-solver": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-nlp-overnight/lib/python3.11/site-packages",
+        "numpy": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-nlp-overnight/lib/python3.11/site-packages",
+        "pandas": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-nlp-overnight/lib/python3.11/site-packages",
+        "rbfopt": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-nlp-overnight/lib/python3.11/site-packages"
+      },
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-nlp-overnight/bin/python",
+      "packages": {
+        "bam-solver": "5.0.0",
+        "numpy": "2.4.6",
+        "pandas": "3.0.5",
+        "rbfopt": "4.3.0"
+      },
+      "preflight_only_dependencies": {
+        "distribution_paths": {
+          "Pygments": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "iniconfig": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "packaging": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "pluggy": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "pytest": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support"
+        },
+        "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-nlp-overnight/bin/python",
+        "packages": {
+          "Pygments": "2.21.0",
+          "iniconfig": "2.3.1",
+          "packaging": "26.3",
+          "pluggy": "1.7.0",
+          "pytest": "9.1.1"
+        },
+        "python": "3.11.16"
+      },
+      "python": "3.11.16"
+    },
+    "FMQA_PYTHON": {
+      "distribution_paths": {
+        "dimod": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/lib/python3.11/site-packages",
+        "dwave-samplers": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/lib/python3.11/site-packages",
+        "numpy": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/lib/python3.11/site-packages",
+        "torch": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/lib/python3.11/site-packages"
+      },
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/bin/python",
+      "packages": {
+        "dimod": "0.12.21",
+        "dwave-samplers": "1.6.0",
+        "numpy": "2.2.6",
+        "torch": "2.8.0+cpu"
+      },
+      "preflight_only_dependencies": {
+        "distribution_paths": {
+          "Pygments": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "iniconfig": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "packaging": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "pluggy": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "pytest": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support"
+        },
+        "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig-fmqa-qhd/bin/python",
+        "packages": {
+          "Pygments": "2.21.0",
+          "iniconfig": "2.3.1",
+          "packaging": "26.3",
+          "pluggy": "1.7.0",
+          "pytest": "9.1.1"
+        },
+        "python": "3.11.16"
+      },
+      "python": "3.11.16"
+    },
+    "MIDFO_PYTHON": {
+      "distribution_paths": {
+        "PyNomadBBO": "/local/scratch/a/lee4382/repository/RBFopt_Test/pr56_dantzig_ready_20261031_c4d7db6b/.venv-mi-dfo/lib/python3.11/site-packages",
+        "numpy": "/local/scratch/a/lee4382/repository/RBFopt_Test/pr56_dantzig_ready_20261031_c4d7db6b/.venv-mi-dfo/lib/python3.11/site-packages",
+        "pandas": "/local/scratch/a/lee4382/repository/RBFopt_Test/pr56_dantzig_ready_20261031_c4d7db6b/.venv-mi-dfo/lib/python3.11/site-packages",
+        "scipy": "/local/scratch/a/lee4382/repository/RBFopt_Test/pr56_dantzig_ready_20261031_c4d7db6b/.venv-mi-dfo/lib/python3.11/site-packages",
+        "soogo": "/local/scratch/a/lee4382/repository/RBFopt_Test/pr56_dantzig_ready_20261031_c4d7db6b/.venv-mi-dfo/lib/python3.11/site-packages"
+      },
+      "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/pr56_dantzig_ready_20261031_c4d7db6b/.venv-mi-dfo/bin/python",
+      "packages": {
+        "PyNomadBBO": "4.6.0",
+        "numpy": "2.4.6",
+        "pandas": "2.3.3",
+        "scipy": "1.17.1",
+        "soogo": "2.1.0"
+      },
+      "preflight_only_dependencies": {
+        "distribution_paths": {
+          "Pygments": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "iniconfig": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "packaging": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "pluggy": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support",
+          "pytest": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/test_support"
+        },
+        "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/pr56_dantzig_ready_20261031_c4d7db6b/.venv-mi-dfo/bin/python",
+        "packages": {
+          "Pygments": "2.21.0",
+          "iniconfig": "2.3.1",
+          "packaging": "26.3",
+          "pluggy": "1.7.0",
+          "pytest": "9.1.1"
+        },
+        "python": "3.11.16"
+      },
+      "python": "3.11.16"
+    }
+  },
+  "error": null,
+  "expected_revision": "5580a7eacdc8b4098ba5c239822de2300e667a1c",
+  "finished_utc": "2026-11-01T03:00:54.444394+00:00",
+  "launch_execution": {
+    "command": [
+      "bash",
+      "experiments/catalytic_distillation_live/run_dantzig.sh",
+      "run"
+    ],
+    "cwd": "/local/scratch/a/lee4382/repository/catdist_live",
+    "exit_code": 0,
+    "finished_utc": "2026-11-01T00:13:22.110256+00:00",
+    "log": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/state/B_start_20261101_001321.log",
+    "pid": 44737,
+    "start_ticks": "168566750",
+    "started_utc": "2026-11-01T00:13:21.830742+00:00"
+  },
+  "log": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/state/B_preflight_20261101_001146/test.log",
+  "original_archive": "/local/scratch/a/lee4382/repository/catdist_live/results/catalytic_distillation_live_dantzig_20261101_030054.zip",
+  "output": "/local/scratch/a/lee4382/repository/catdist_live/results/catalytic_distillation_live",
+  "preflight": {
+    "execution": {
+      "command": [
+        "bash",
+        "experiments/catalytic_distillation_live/run_dantzig.sh",
+        "test"
+      ],
+      "cwd": "/local/scratch/a/lee4382/repository/catdist_live",
+      "exit_code": 0,
+      "finished_utc": "2026-11-01T00:13:16.784460+00:00",
+      "log": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/state/B_preflight_20261101_001146/test.log",
+      "pid": 44101,
+      "start_ticks": "168557583",
+      "started_utc": "2026-11-01T00:11:50.165351+00:00"
+    },
+    "passed": true,
+    "passed_tests": [
+      "test_gap_coordinates_map_the_admissible_configurations",
+      "test_mixed_integer_adapters_run_on_live_responses[miso-soogo]",
+      "test_mixed_integer_adapters_run_on_live_responses[nomad-PyNomad]",
+      "test_oracle_charges_every_callback_and_solves_each_point_once[dsda]",
+      "test_oracle_charges_every_callback_and_solves_each_point_once[uniform]",
+      "test_oracle_rejects_a_changed_initial_order",
+      "test_shared_starts_are_reproducible_admissible_and_span_the_space",
+      "test_surrogate_methods_run_on_live_oracle[bam-bam]",
+      "test_surrogate_methods_run_on_live_oracle[fmqa_sa-torch]",
+      "test_worker_solves_live_configurations"
+    ],
+    "preflight_cpu_binding": {
+      "executed_arguments": [
+        "run",
+        "--output",
+        "/tmp/pytest-of-lee4382/pytest-0/test_worker_solves_live_config0/campaign",
+        "--gams",
+        "/package/gams/54.3/gams",
+        "--cpus",
+        "44"
+      ],
+      "finished_utc": "2026-11-01T00:13:05.806341+00:00",
+      "original_arguments": [
+        "run",
+        "--output",
+        "/tmp/pytest-of-lee4382/pytest-0/test_worker_solves_live_config0/campaign",
+        "--gams",
+        "/package/gams/54.3/gams",
+        "--cpus",
+        "0"
+      ],
+      "original_cpu": 0,
+      "parent_affinity": [
+        44
+      ],
+      "returncode": 0,
+      "selected_cpu": 44,
+      "started_utc": "2026-11-01T00:11:54.790547+00:00",
+      "test_source_sha256": "6940de9212f36b4e2e3de26d710d57c5c7a4d71d24a114895c435727db99f815"
+    },
+    "private_log_directory": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/state/B_preflight_20261101_001146",
+    "required_tests": [
+      "test_gap_coordinates_map_the_admissible_configurations",
+      "test_shared_starts_are_reproducible_admissible_and_span_the_space",
+      "test_oracle_charges_every_callback_and_solves_each_point_once[uniform]",
+      "test_oracle_charges_every_callback_and_solves_each_point_once[dsda]",
+      "test_oracle_rejects_a_changed_initial_order",
+      "test_mixed_integer_adapters_run_on_live_responses[nomad-PyNomad]",
+      "test_mixed_integer_adapters_run_on_live_responses[miso-soogo]",
+      "test_surrogate_methods_run_on_live_oracle[bam-bam]",
+      "test_surrogate_methods_run_on_live_oracle[fmqa_sa-torch]",
+      "test_worker_solves_live_configurations"
+    ],
+    "skipped_lines": [
+      "../../tests/test_catalytic_distillation_live.py::test_mixed_integer_adapters_run_on_live_responses[nomad-PyNomad] SKIPPED [ 60%]",
+      "../../tests/test_catalytic_distillation_live.py::test_mixed_integer_adapters_run_on_live_responses[miso-soogo] SKIPPED [ 70%]",
+      "../../tests/test_catalytic_distillation_live.py::test_surrogate_methods_run_on_live_oracle[fmqa_sa-torch] SKIPPED [ 90%]",
+      "SKIPPED [1] ../../tests/test_catalytic_distillation_live.py:98: could not import 'PyNomad': No module named 'PyNomad'",
+      "SKIPPED [1] ../../tests/test_catalytic_distillation_live.py:98: could not import 'soogo': No module named 'soogo'",
+      "SKIPPED [1] ../../tests/test_catalytic_distillation_live.py:109: could not import 'torch': No module named 'torch'"
+    ],
+    "versions": {
+      "conopt_version": "4.39.1",
+      "conopt_version_evidence": [
+        {
+          "line": 58,
+          "source": "probe_solver_private.log",
+          "source_sha256": "64bba8310c1fe9c5c4d9dfb9ceb049b12275094373c52ad3dfb0fdaf9cfa0ce1",
+          "version": "4.39.1"
+        },
+        {
+          "line": 4552,
+          "source": "probe_private.lst",
+          "source_sha256": "2ebf1f658ce26253267c5b5ece441da1a086656dbd50117c61983cbee012ff58",
+          "version": "4.39.1"
+        }
+      ],
+      "gams_executable": "/package/gams/54.3/gams",
+      "gams_sha256": "d5e3b28c93702383a65c98acd4cf7e7ea6020c51b3bd9e6792175a9d41d8f6ff",
+      "gams_version": "54.3.1",
+      "modelstat": "2",
+      "objective": 25271.327689,
+      "preflight_only": true,
+      "solvestat": "1"
+    }
+  },
+  "preflight_directory": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/state/B_preflight_20261101_001146",
+  "preflight_stage": "passed",
+  "probe_versions": {
+    "conopt_version": "4.39.1",
+    "conopt_version_evidence": [
+      {
+        "line": 58,
+        "source": "probe_solver_private.log",
+        "source_sha256": "64bba8310c1fe9c5c4d9dfb9ceb049b12275094373c52ad3dfb0fdaf9cfa0ce1",
+        "version": "4.39.1"
+      },
+      {
+        "line": 4552,
+        "source": "probe_private.lst",
+        "source_sha256": "2ebf1f658ce26253267c5b5ece441da1a086656dbd50117c61983cbee012ff58",
+        "version": "4.39.1"
+      }
+    ],
+    "gams_executable": "/package/gams/54.3/gams",
+    "gams_sha256": "d5e3b28c93702383a65c98acd4cf7e7ea6020c51b3bd9e6792175a9d41d8f6ff",
+    "gams_version": "54.3.1",
+    "modelstat": "2",
+    "objective": 25271.327689,
+    "preflight_only": true,
+    "solvestat": "1"
+  },
+  "revision": "5580a7eacdc8b4098ba5c239822de2300e667a1c",
+  "selection_attempts": 1,
+  "source_repository": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/source.git",
+  "started_utc": "2026-11-01T00:13:21.828690+00:00",
+  "startup_checks": {
+    "controller_present": true,
+    "first_result": "/local/scratch/a/lee4382/repository/catdist_live/results/catalytic_distillation_live/runs/bam_B100_seed0/result.json",
+    "log_grew": true,
+    "worker_affinity_verified": true
+  },
+  "state": "checking",
+  "task": "B",
+  "updated_utc": "2026-11-01T03:00:55.115521+00:00",
+  "validation": {
+    "accepted_cached_configurations": 2652,
+    "best_known": {
+      "distinct_accepted": 2716,
+      "distinct_solved": 3499,
+      "gaps": [
+        6,
+        0,
+        3,
+        4,
+        0,
+        4
+      ],
+      "objective": 24895.552861,
+      "positions": [
+        8,
+        8,
+        12,
+        17,
+        17,
+        21
+      ],
+      "references": [
+        "/local/scratch/a/lee4382/repository/catdist_live/results/catalytic_distillation_pilot_20261030/final_pilot_200_conopt/solves.csv"
+      ]
+    },
+    "cache_note": "Unique cache rows and recorded solved_now counters are not an exact total NLP-call count: concurrent cache misses can solve the same point before INSERT OR IGNORE, and non-forked workers may report that race as cached; prior native attempts can also be uncounted. The existing cache and recording code are unchanged.",
+    "cache_provenance": {
+      "gams": "/package/gams/54.3/gams",
+      "init": "init.gdx",
+      "init_sha256": "2823c039314e362904e86a15c9baa3fc020c2cdb5343f6c80147ce805b4c9ed4",
+      "model": "distillation_model_corrected.gms",
+      "model_sha256": "426ca77ecfa1c5a85723d24ed0ed0dd2cbd8fbe1d4f6942b1bcba8c7431ed021",
+      "solve_configuration_sha256": "3daf12c97f1567556b35f83f2aa894dd4c28690fc17a940223e38f04e9b2bc79",
+      "solver": "conopt",
+      "threads": 1,
+      "timeout_s": 300.0
+    },
+    "callback_evaluations": 12015,
+    "completed": 210,
+    "conditions": [
+      {
+        "budget": 25,
+        "completed": 10,
+        "hits": 0,
+        "method": "bam",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 50,
+        "completed": 10,
+        "hits": 0,
+        "method": "bam",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 100,
+        "completed": 10,
+        "hits": 0,
+        "method": "bam",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 25,
+        "completed": 10,
+        "hits": 0,
+        "method": "dsda",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 50,
+        "completed": 10,
+        "hits": 0,
+        "method": "dsda",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 100,
+        "completed": 10,
+        "hits": 3,
+        "method": "dsda",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 25,
+        "completed": 10,
+        "hits": 0,
+        "method": "fmqa_sa",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 50,
+        "completed": 10,
+        "hits": 0,
+        "method": "fmqa_sa",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 100,
+        "completed": 10,
+        "hits": 0,
+        "method": "fmqa_sa",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 25,
+        "completed": 10,
+        "hits": 0,
+        "method": "miso",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 50,
+        "completed": 10,
+        "hits": 1,
+        "method": "miso",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 100,
+        "completed": 10,
+        "hits": 3,
+        "method": "miso",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 25,
+        "completed": 10,
+        "hits": 0,
+        "method": "nomad",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 50,
+        "completed": 10,
+        "hits": 0,
+        "method": "nomad",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 100,
+        "completed": 10,
+        "hits": 0,
+        "method": "nomad",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 25,
+        "completed": 10,
+        "hits": 0,
+        "method": "rbfopt",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 50,
+        "completed": 10,
+        "hits": 1,
+        "method": "rbfopt",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 100,
+        "completed": 10,
+        "hits": 1,
+        "method": "rbfopt",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 25,
+        "completed": 10,
+        "hits": 0,
+        "method": "uniform",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 50,
+        "completed": 10,
+        "hits": 0,
+        "method": "uniform",
+        "planned": 10,
+        "results": 10
+      },
+      {
+        "budget": 100,
+        "completed": 10,
+        "hits": 0,
+        "method": "uniform",
+        "planned": 10,
+        "results": 10
+      }
+    ],
+    "duplicates": 0,
+    "missing": 0,
+    "nlp_call_count_exact": false,
+    "passed": true,
+    "planned": 210,
+    "recorded_nlp_calls": 3500,
+    "result_failures": 0,
+    "result_files": 210,
+    "statuses": {
+      "completed": 210
+    },
+    "uncounted_attempts": [],
+    "unique_cached_configurations": 3499,
+    "worker_failure_records": {},
+    "worker_failures": 0,
+    "worker_timeouts": 0
+  },
+  "waiting_reason": null,
+  "worktree": "/local/scratch/a/lee4382/repository/catdist_live"
+}

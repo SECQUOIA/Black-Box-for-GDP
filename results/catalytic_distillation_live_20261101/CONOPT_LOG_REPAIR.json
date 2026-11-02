@@ -1,0 +1,21 @@
+{
+  "backup": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/state/before_conopt_log_repair_20261101_001140_711990",
+  "cpu_selection_range": [
+    17,
+    48
+  ],
+  "experiment_source_modified": false,
+  "maximum_workers": 16,
+  "new_control_sha256": "b8943dfa07b596c6bc4c0eb4d0117857276acf8cf263bb6f29ca50e8a136bb82",
+  "original_campaign_command_modified": false,
+  "original_control_sha256": "e7c94c79946ebd9f867d982d5e6681e8f0b7c796dae284c41411b04a4a68aa13",
+  "original_probe_configuration_modified": false,
+  "original_tests_and_cpu_plugin_modified": false,
+  "preflight_change": "Enable private probe logging and parse the explicit CONOPT backend version banner, including spaced letters; retain solver acceptance and every required test",
+  "private_listing": "probe_private.lst",
+  "private_solver_log": "probe_solver_private.log",
+  "repaired_utc": "2026-11-01T00:11:40.713800+00:00",
+  "revision": "5580a7eacdc8b4098ba5c239822de2300e667a1c",
+  "virtual_environments_modified": false,
+  "wait_retry_seconds": 30
+}

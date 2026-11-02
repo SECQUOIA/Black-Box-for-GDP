@@ -1,0 +1,221 @@
+--- Job solve_emp.gms Start 11/01/26 10:54:19 54.2.2 f90090a2 LEX-LEG x86 64bit/Linux
+--- Applying:
+    /home/bernalde/packages/gams54.2_linux_x64_64_sfx/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/solve_emp.gms
+    ScrDir /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/225a/
+    SysDir /home/bernalde/packages/gams54.2_linux_x64_64_sfx/
+    LogOption 3
+    AppendLog 1
+    --model /home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/emp_model_corrected.gms
+    --init /home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/init
+    --reform bigm
+    --solver scip
+    --reslim 1200
+    --f1 8
+    --c1 8
+    --c2 12
+    --c3 17
+    --f2 17
+    --b 21
+    --out /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/result.txt
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:64144403 mem:40 cores:18 ipport:48175 v:2                   
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 18 physical cores and 40 Gb physical memory detected
+GAMS 54.2.2   Copyright (C) 1987-2026 GAMS Development. All rights reserved
+--- Starting compilation
+--- solve_emp.gms(37) 2 Mb
+--- > emp_model_corrected.gms(1574) 3 Mb
+--- solve_emp.gms(38) 3 Mb
+--- > emp_scales.gms(2203) 3 Mb
+--- solve_emp.gms(118) 3 Mb
+--- $echo File /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/jams.opt
+--- solve_emp.gms(148) 3 Mb
+--- Starting execution: elapsed 0:00:00.016
+--- solve_emp.gms(3815) 4 Mb
+--- GDXin=/home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/init.gdx
+--- solve_emp.gms(3815) 5 Mb
+--- 173 symbol(s) loaded implicitly
+--- GDX File (execute_load) /home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/init.gdx
+--- solve_emp.gms(3891) 5 Mb
+--- Generating EMP model DSDA
+--- solve_emp.gms(3892) 8 Mb
+---   5,023 rows  3,454 columns  19,657 non-zeroes
+---   64,071 nl-code  11,785 nl-non-zeroes
+---   102 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.000E-01, 1.148E+05] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E-12, 1.000E+09] - Zero values observed as well
+--- Matrix    [min, max] : [ 7.462E-10, 1.276E+18] - Zero values observed as well
+--- solve_emp.gms(3892) 6 Mb
+--- Executing JAMS (Solvelink=2): elapsed 0:00:00.051
+
+JAMS 1.0         54.2.2 f90090a2 Aug 3, 2026           LEG x86 64bit/Linux    
+
+JAMS - Solver for Extended Mathematical Programs (EMP)
+------------------------------------------------------
+
+--- Using Option File
+Reading parameter(s) from "/tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/jams.opt"
+>>  SubSolver scip
+>>  FileName reformulated_bigm.gms
+Finished reading from "/tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/jams.opt"
+
+--- EMP Summary
+    Logical Constraints = 0
+    Disjunctions        = 100
+    Adjusted Constraint = 0
+    Flipped Constraints = 0
+    Dual Variable Maps  = 0
+    Dual Equation Maps  = 0
+    VI Functions        = 0
+    QVI Parameters      = 0
+    Equilibrium Agent   = 0
+    Bilevel Followers   = 0
+
+--- Writing JAMS      : reformulated_bigm.gms
+--- The model reformulated_bigm.gms will be solved by GAMS
+---
+--- Job reformulated_bigm.gms Start 11/01/26 10:54:19 54.2.2 f90090a2 LEX-LEG x86 64bit/Linux
+--- Applying:
+    /home/bernalde/packages/gams54.2_linux_x64_64_sfx/gmsprmun.txt
+--- GAMS Parameters defined
+    LP CPLEX
+    MIP scip
+    RMIP CPLEX
+    NLP scip
+    MCP PATH
+    MPEC NLPEC
+    RMPEC NLPEC
+    CNS scip
+    DNLP scip
+    RMINLP scip
+    MINLP scip
+    QCP scip
+    MIQCP scip
+    RMIQCP scip
+    Input /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/reformulated_bigm.gms
+    ScrDir /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/225b/
+    SysDir /home/bernalde/packages/gams54.2_linux_x64_64_sfx/
+    LogOption 3
+    AppendLog 1
+    Suppress 1
+    SolverCntr /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/225a/empcntr.dat
+    SolverMatr /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/225a/empmatr.dat
+    SolverStat /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/225a/empstat.dat
+    SolverSolu /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/225a/empsolu.dat
+    License /home/bernalde/packages/gams54.2_linux_x64_64_sfx/gamslice.txt
+    SolveLink 2
+    ProcDirPath /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/225b/gamslice.dat
+          5a82958a-fbca-4a23
+          node:64144403 mem:40 cores:18 ipport:47167 v:2                   
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 18 physical cores and 40 Gb physical memory detected
+GAMS 54.2.2   Copyright (C) 1987-2026 GAMS Development. All rights reserved
+--- Starting compilation
+--- reformulated_bigm.gms(22043) 6 Mb
+--- Starting execution: elapsed 0:00:00.043
+--- reformulated_bigm.gms(22042) 6 Mb
+--- Generating MINLP model m
+--- reformulated_bigm.gms(22043) 10 Mb
+---   5,022 rows  3,454 columns  21,617 non-zeroes
+---   62,397 nl-code  11,785 nl-non-zeroes
+---   102 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 9.901E-03, 1.148E+05] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E-12, 1.000E+09] - Zero values observed as well
+--- Matrix    [min, max] : [ 7.462E-10, 1.276E+18] - Zero values observed as well
+--- reformulated_bigm.gms(22043) 8 Mb
+--- Executing SCIP (Solvelink=2): elapsed 0:00:00.086
+
+SCIP             54.2.2 f90090a2 Aug 3, 2026           LEG x86 64bit/Linux    
+SCIP version 10.0.3 (d409edf9f6)
+Copyright (c) 2002-2026 Zuse Institute Berlin (ZIB)
+
+External libraries: 
+  CPLEX 22.1.2.0       Linear Programming Solver developed by IBM (www.cplex.com)
+  CppAD 20180000.0     Algorithmic Differentiation of C++ algorithms developed by B. Bell (github.com/coin-or/CppAD)
+  PaPILO 3.0.1         parallel presolve for integer and linear optimization (github.com/scipopt/papilo) (built with TBB) [GitHash: ac69a19d]
+  Nauty 2.8.9          Computing Graph Automorphism Groups by Brendan D. McKay (users.cecs.anu.edu.au/~bdm/nauty)
+  sassy 2.1            Symmetry preprocessor by Markus Anders (github.com/markusa4/sassy)
+  CONOPT 4.39.1        Feasible path solver for large-scale nonlinear problems (conopt.com)
+  Ipopt 3.14.19        Interior Point Optimizer developed by A. Waechter et.al. (github.com/coin-or/Ipopt)
+non-default parameter settings:
+limits/time = 1200
+misc/printreason = FALSE
+presolving/milp/threads = 0
+nlpi/ipopt/linear_solver = "ma27"
+nlpi/ipopt/linear_system_scaling = "mc19"
+
+original problem has 3454 variables (102 bin, 0 int, 3352 cont) and 5022 constraints
+
+Changing lower bound for child of log() from 0 to 1e-09.
+Check your model formulation or use option expr/log/minzerodistance to avoid this warning.
+Expression: log((0.00273103442689443*<t_x45>+0.00248529920350231*<t_x67>+0.00272555417388124*<t_x89>+0.00268*<t_x111>))
+Changing lower bound for child of pow(.,-1) from 0 to 1e-09.
+Check your model formulation or use option expr/pow/minzerodistance to avoid this warning.
+Expression: ((<t_x67>*<t_x1039>+<t_x45>*<t_x951>+<t_x89>*<t_x1127>+<t_x111>*<t_x1215>))^(-1)
+all 1 solutions given by solution candidate storage are infeasible
+
+presolving:
+(round 1, fast)       917 del vars, 2445 del conss, 0 add conss, 6472 chg bounds, 1 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 0 clqs, 0 implints
+(round 2, fast)       918 del vars, 2446 del conss, 0 add conss, 8680 chg bounds, 1 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 0 clqs, 0 implints
+(round 3, fast)       918 del vars, 2446 del conss, 0 add conss, 8786 chg bounds, 1 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 0 clqs, 0 implints
+(round 4, exhaustive) 918 del vars, 2498 del conss, 0 add conss, 8786 chg bounds, 1 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 0 clqs, 0 implints
+(round 5, fast)       951 del vars, 2531 del conss, 0 add conss, 8940 chg bounds, 1 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 0 clqs, 0 implints
+(round 6, fast)       951 del vars, 2531 del conss, 0 add conss, 9029 chg bounds, 1 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 0 clqs, 0 implints
+(round 7, fast)       951 del vars, 2531 del conss, 0 add conss, 9077 chg bounds, 1 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 0 clqs, 0 implints
+   (1.2s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (1.2s) symmetry computation finished: 18 generators found (max: 1500, log10 of symmetry group size: 17.09) (symcode time: 0.02)
+dynamic symmetry handling statistics:
+   orbitopal reduction:       no components
+   orbital reduction:         no components
+   lexicographic reduction:   no permutations
+handled 1 out of 1 symmetry components
+(round 8, exhaustive) 951 del vars, 2531 del conss, 18 add conss, 9077 chg bounds, 1 chg sides, 0 chg coeffs, 0 upgd conss, 0 impls, 0 clqs, 0 implints
+presolving (9 rounds: 9 fast, 3 medium, 3 exhaustive):
+ 951 deleted vars, 2531 deleted constraints, 18 added constraints, 9077 tightened bounds, 0 added holes, 1 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 2503 variables (0 bin, 0 int, 2503 cont) and 2509 constraints
+    127 constraints of type <linear>
+   2382 constraints of type <nonlinear>
+Presolving Time: 1.42
+
+(node 1) unresolved numerical troubles in LP 4 -- using pseudo solution instead (loop 1)
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  8.2s|     1 |     2 | 14821 |     - |   175M |   0 |  13k|2508 |  24k|   0 |  0 |   0 |   0 |-5.664517e+07 |      --      |    Inf | unknown
+  310s|   100 |    83 |  2529k|25403.8 |   176M |  31 |  13k|2508 |  24k|   0 |  0 |   0 |   0 |-5.664517e+07 |      --      |    Inf |  35.94%
+Starting spatial branch-and-bound on unbounded variable <t_xobj> ([-5.09807e+07,1e+20]) - cannot guarantee finite termination.
+  480s|   200 |   157 |  4118k|20619.3 |   179M |  75 |  13k|2510 |  24k|   0 |  0 |   2 |   0 |-5.664517e+07 |      --      |    Inf |  42.19%
+  721s|   300 |   237 |  6237k|20813.2 |   179M |  75 |  13k|2510 |  24k|   0 |  0 |   2 |   0 |-5.664517e+07 |      --      |    Inf |  49.22%
+  986s|   400 |   309 |  8276k|20705.5 |   179M |  75 |  13k|2510 |  24k|   0 |  0 |   2 |   0 |-5.664517e+07 |      --      |    Inf |  49.22%
+
+SCIP Status        : solving was interrupted [time limit reached]
+Solving Time (sec) : 1200.01
+Solving Nodes      : 479
+Primal Bound       : +1.00000000000000e+20 (0 solutions)
+Dual Bound         : -5.66451691473280e+07
+Gap                : infinite
+
+
+--- Reading solution for model m
+*** Status: Normal completion
+--- Job reformulated_bigm.gms Stop 11/01/26 11:14:20 elapsed 0:20:00.390
+--- Returning from GAMS step
+--- Reading solution for model DSDA
+--- Solver did not provide marginals for model DSDA
+--- To request marginals from the solver set option requestMarginals >= 1
+--- Executing after solve: elapsed 0:20:00.882
+--- solve_emp.gms(3896) 6 Mb--- solve_emp.gms(3913) 6 Mb
+--- Putfile result /tmp/claude-1000/-home-bernalde-repos-RBFopt-Test/260af9a6-c152-4bfb-b6a0-088cf1f52905/scratchpad/minlp_20261101/fixed_best/bigm/scip/result.txt
+*** Status: Normal completion
+--- Job solve_emp.gms Stop 11/01/26 11:14:20 elapsed 0:20:00.882

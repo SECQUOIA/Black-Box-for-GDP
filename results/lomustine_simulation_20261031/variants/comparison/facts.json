@@ -1,0 +1,34 @@
+{
+  "capex_reference": 82765.6466687157,
+  "capex_reference_layout": [
+    "batch",
+    "batch",
+    "batch",
+    "batchU"
+  ],
+  "crashed_identical_runs": {
+    "source": [],
+    "reversed": [
+      "nomad_B15_seed5",
+      "nomad_B15_seed9",
+      "nomad_B20_seed5",
+      "nomad_B20_seed9"
+    ],
+    "backmixing": [
+      "nomad_B20_seed5"
+    ],
+    "random1": [],
+    "random2": [],
+    "random3": [
+      "nomad_B15_seed2",
+      "nomad_B20_seed2"
+    ],
+    "capex": [
+      "nomad_B15_seed5",
+      "nomad_B15_seed7",
+      "nomad_B20_seed4",
+      "nomad_B20_seed5",
+      "nomad_B20_seed7"
+    ]
+  }
+}

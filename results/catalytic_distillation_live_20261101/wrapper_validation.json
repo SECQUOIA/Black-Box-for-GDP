@@ -1,0 +1,227 @@
+{
+  "accepted_cached_configurations": 2652,
+  "best_known": {
+    "distinct_accepted": 2716,
+    "distinct_solved": 3499,
+    "gaps": [
+      6,
+      0,
+      3,
+      4,
+      0,
+      4
+    ],
+    "objective": 24895.552861,
+    "positions": [
+      8,
+      8,
+      12,
+      17,
+      17,
+      21
+    ],
+    "references": [
+      "/local/scratch/a/lee4382/repository/catdist_live/results/catalytic_distillation_pilot_20261030/final_pilot_200_conopt/solves.csv"
+    ]
+  },
+  "cache_note": "Unique cache rows and recorded solved_now counters are not an exact total NLP-call count: concurrent cache misses can solve the same point before INSERT OR IGNORE, and non-forked workers may report that race as cached; prior native attempts can also be uncounted. The existing cache and recording code are unchanged.",
+  "cache_provenance": {
+    "gams": "/package/gams/54.3/gams",
+    "init": "init.gdx",
+    "init_sha256": "2823c039314e362904e86a15c9baa3fc020c2cdb5343f6c80147ce805b4c9ed4",
+    "model": "distillation_model_corrected.gms",
+    "model_sha256": "426ca77ecfa1c5a85723d24ed0ed0dd2cbd8fbe1d4f6942b1bcba8c7431ed021",
+    "solve_configuration_sha256": "3daf12c97f1567556b35f83f2aa894dd4c28690fc17a940223e38f04e9b2bc79",
+    "solver": "conopt",
+    "threads": 1,
+    "timeout_s": 300.0
+  },
+  "callback_evaluations": 12015,
+  "completed": 210,
+  "conditions": [
+    {
+      "budget": 25,
+      "completed": 10,
+      "hits": 0,
+      "method": "bam",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 50,
+      "completed": 10,
+      "hits": 0,
+      "method": "bam",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 100,
+      "completed": 10,
+      "hits": 0,
+      "method": "bam",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 25,
+      "completed": 10,
+      "hits": 0,
+      "method": "dsda",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 50,
+      "completed": 10,
+      "hits": 0,
+      "method": "dsda",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 100,
+      "completed": 10,
+      "hits": 3,
+      "method": "dsda",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 25,
+      "completed": 10,
+      "hits": 0,
+      "method": "fmqa_sa",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 50,
+      "completed": 10,
+      "hits": 0,
+      "method": "fmqa_sa",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 100,
+      "completed": 10,
+      "hits": 0,
+      "method": "fmqa_sa",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 25,
+      "completed": 10,
+      "hits": 0,
+      "method": "miso",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 50,
+      "completed": 10,
+      "hits": 1,
+      "method": "miso",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 100,
+      "completed": 10,
+      "hits": 3,
+      "method": "miso",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 25,
+      "completed": 10,
+      "hits": 0,
+      "method": "nomad",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 50,
+      "completed": 10,
+      "hits": 0,
+      "method": "nomad",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 100,
+      "completed": 10,
+      "hits": 0,
+      "method": "nomad",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 25,
+      "completed": 10,
+      "hits": 0,
+      "method": "rbfopt",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 50,
+      "completed": 10,
+      "hits": 1,
+      "method": "rbfopt",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 100,
+      "completed": 10,
+      "hits": 1,
+      "method": "rbfopt",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 25,
+      "completed": 10,
+      "hits": 0,
+      "method": "uniform",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 50,
+      "completed": 10,
+      "hits": 0,
+      "method": "uniform",
+      "planned": 10,
+      "results": 10
+    },
+    {
+      "budget": 100,
+      "completed": 10,
+      "hits": 0,
+      "method": "uniform",
+      "planned": 10,
+      "results": 10
+    }
+  ],
+  "duplicates": 0,
+  "missing": 0,
+  "nlp_call_count_exact": false,
+  "passed": true,
+  "planned": 210,
+  "recorded_nlp_calls": 3500,
+  "result_failures": 0,
+  "result_files": 210,
+  "statuses": {
+    "completed": 210
+  },
+  "uncounted_attempts": [],
+  "unique_cached_configurations": 3499,
+  "worker_failure_records": {},
+  "worker_failures": 0,
+  "worker_timeouts": 0
+}

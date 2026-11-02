@@ -1,0 +1,17 @@
+{
+  "backup": "/local/scratch/a/lee4382/repository/pr57_catdist_offline_20261031/state/before_cpu_range_repair_20261031_234922_749087",
+  "cpu_selection_range": [
+    17,
+    48
+  ],
+  "experiment_source_modified": false,
+  "maximum_workers": 16,
+  "new_control_sha256": "e7c94c79946ebd9f867d982d5e6681e8f0b7c796dae284c41411b04a4a68aa13",
+  "original_control_sha256": "2c6a439c72d2fd3669e6890e715a8dd008a7349c09fd4342529b64d1b5f483ca",
+  "plugin_sha256": "3e448801168259d72fa5e33aef5832600523cde1b3e1a2d9a49297df6b006eda",
+  "preflight_change": "Only the original end-to-end test's --cpus 0 argument is rebound to the allocated CPU; all assertions and actual GAMS-CONOPT execution remain unchanged",
+  "repaired_utc": "2026-10-31T23:49:22.750810+00:00",
+  "revision": "5580a7eacdc8b4098ba5c239822de2300e667a1c",
+  "virtual_environments_modified": false,
+  "wait_retry_seconds": 30
+}

@@ -1,0 +1,22 @@
+{
+  "active_supervisor_lock_refused": true,
+  "actual_dantzig_preflight_passed": false,
+  "actual_dantzig_preflight_status": "pending user deployment",
+  "all_original_required_tests_preserved": true,
+  "cpu_range": [
+    17,
+    48
+  ],
+  "full_prior_repair_chain_integration_passed": true,
+  "idempotent_apply": true,
+  "interface_build_not_accepted_as_backend_version": true,
+  "new_probe_recognizes_official_spaced_banner": true,
+  "old_failure_reproduced_with_mocked_solver_output": true,
+  "optimizer_or_nlp_runs_locally": 0,
+  "recorded_utc": "2026-11-01T00:09:58.391100+00:00",
+  "ruff_and_shell_syntax_passed": true,
+  "solver_failure_and_missing_version_still_block": true,
+  "source_and_existing_dependencies_and_state_preserved": true,
+  "updated_package_hashes_passed": true,
+  "wrapper_tests_passed": 54
+}

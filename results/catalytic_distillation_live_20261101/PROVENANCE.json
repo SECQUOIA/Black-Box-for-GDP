@@ -1,0 +1,36 @@
+{
+  "date_basis": "UTC execution date",
+  "execution_revision": "5580a7eacdc8b4098ba5c239822de2300e667a1c",
+  "later_branch_change": "Optional LIVE_DFO_CASE and case-specific settings/reference support; original Column execution revision retained.",
+  "no_existing_source_models_manuscript_or_other_results_modified": true,
+  "no_experiments_rerun": true,
+  "original_collect_archive": {
+    "bytes": 1808154,
+    "crc_passed": true,
+    "name": "catalytic_distillation_live_dantzig_20261101_030054.zip",
+    "sha256": "1ff96f101b3e30cbb0c47663af13d5d8fc680eb1466c425868e1e25825718e26"
+  },
+  "original_summaries_preserved": true,
+  "pr": 57,
+  "publication_base_revision": "8612336dc67733d1cf2162572cab1677fb529588",
+  "repository": "SECQUOIA/Black-Box-for-GDP",
+  "result_directory": "results/catalytic_distillation_live_20261101",
+  "source_hashes_checked": {
+    "experiments/catalytic_distillation_live/case.py": "7fca7b9fe9e4f5cb3dc1f572a87d950af4812c13d7cedef3b88080968f600dcf",
+    "experiments/catalytic_distillation_live/run.py": "2bcbd05b67fdf29c0f421d68a729123e59941fcb4557675b21eceac015069a09",
+    "experiments/catalytic_distillation_live/run_dantzig.sh": "741005b0b82a77c7f741a0e1f1c66286f4e3d6bf4f87ccab724f33c69e1e0a9c",
+    "experiments/mixed_integer_dfo/run.py": "4060c5f225dd6d6f32cdf626801bda13cee060425670c0506c9f9ad269571e89",
+    "gdp_models/catalytic_distillation/distillation_model_corrected.gms": "426ca77ecfa1c5a85723d24ed0ed0dd2cbd8fbe1d4f6942b1bcba8c7431ed021",
+    "gdp_models/catalytic_distillation/init.gdx": "2823c039314e362904e86a15c9baa3fc020c2cdb5343f6c80147ce805b4c9ed4",
+    "gdp_models/catalytic_distillation/solve_configuration.gms": "3daf12c97f1567556b35f83f2aa894dd4c28690fc17a940223e38f04e9b2bc79",
+    "results/catalytic_distillation_pilot_20261030/final_pilot_200_conopt/solves.csv": "f5e907a291b71df913ff792fdf3c1f6a567baf2fe0d5c9512ee3d803c6f369a5",
+    "tests/test_catalytic_distillation_live.py": "6940de9212f36b4e2e3de26d710d57c5c7a4d71d24a114895c435727db99f815"
+  },
+  "target_branch": "feature/catalytic-distillation-pilot",
+  "uploaded_archive": {
+    "bytes": 1544410,
+    "crc_passed": true,
+    "name": "RETURN_B.zip",
+    "sha256": "9518bf6ab26faed2d2b2b5e9834280c40a98c0c760679170d480e48112e78dab"
+  }
+}

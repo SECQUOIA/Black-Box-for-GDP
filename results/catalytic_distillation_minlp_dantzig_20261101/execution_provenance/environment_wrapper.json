@@ -1,0 +1,246 @@
+{
+  "cores": [
+    {
+      "core": 41,
+      "cpu": 31,
+      "siblings": [
+        31,
+        79
+      ],
+      "socket": 0
+    },
+    {
+      "core": 42,
+      "cpu": 32,
+      "siblings": [
+        32,
+        80
+      ],
+      "socket": 0
+    },
+    {
+      "core": 43,
+      "cpu": 33,
+      "siblings": [
+        33,
+        81
+      ],
+      "socket": 0
+    },
+    {
+      "core": 44,
+      "cpu": 34,
+      "siblings": [
+        34,
+        82
+      ],
+      "socket": 0
+    },
+    {
+      "core": 45,
+      "cpu": 35,
+      "siblings": [
+        35,
+        83
+      ],
+      "socket": 0
+    },
+    {
+      "core": 48,
+      "cpu": 36,
+      "siblings": [
+        36,
+        84
+      ],
+      "socket": 0
+    },
+    {
+      "core": 49,
+      "cpu": 37,
+      "siblings": [
+        37,
+        85
+      ],
+      "socket": 0
+    },
+    {
+      "core": 50,
+      "cpu": 38,
+      "siblings": [
+        38,
+        86
+      ],
+      "socket": 0
+    },
+    {
+      "core": 51,
+      "cpu": 39,
+      "siblings": [
+        39,
+        87
+      ],
+      "socket": 0
+    },
+    {
+      "core": 52,
+      "cpu": 40,
+      "siblings": [
+        40,
+        88
+      ],
+      "socket": 0
+    },
+    {
+      "core": 53,
+      "cpu": 41,
+      "siblings": [
+        41,
+        89
+      ],
+      "socket": 0
+    },
+    {
+      "core": 56,
+      "cpu": 42,
+      "siblings": [
+        42,
+        90
+      ],
+      "socket": 0
+    },
+    {
+      "core": 58,
+      "cpu": 44,
+      "siblings": [
+        44,
+        92
+      ],
+      "socket": 0
+    },
+    {
+      "core": 59,
+      "cpu": 45,
+      "siblings": [
+        45,
+        93
+      ],
+      "socket": 0
+    },
+    {
+      "core": 60,
+      "cpu": 46,
+      "siblings": [
+        46,
+        94
+      ],
+      "socket": 0
+    },
+    {
+      "core": 61,
+      "cpu": 47,
+      "siblings": [
+        47,
+        95
+      ],
+      "socket": 0
+    }
+  ],
+  "expected_gams": "54.3.1",
+  "gams_registry_sha256": "44ecc9807ec5e9017c6854ef7cdd3f484e02a7d29995aa0c5cfa3e052bb1202a",
+  "gams_sha256": "d5e3b28c93702383a65c98acd4cf7e7ea6020c51b3bd9e6792175a9d41d8f6ff",
+  "host": "dantzig.ecn.purdue.edu",
+  "instrumentation": "BASH_ENV gates scale/version checks and pins validation children; timeout shim records the unchanged watchdog exit",
+  "real_gams": "/package/gams/54.3/gams",
+  "real_gams_resolved": "/package/gams/54.3/gams",
+  "registered_helpers": [
+    "conopt",
+    "cplex",
+    "dicopt",
+    "sbb",
+    "baron",
+    "scip",
+    "jams",
+    "convert",
+    "examiner",
+    "examiner2"
+  ],
+  "scales_python": {
+    "distribution_paths": {
+      "pyomo": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/lib/python3.11/site-packages"
+    },
+    "executable": "/local/scratch/a/lee4382/repository/RBFopt_Test/.venv-dantzig/bin/python",
+    "packages": {
+      "pyomo": "6.10.0"
+    },
+    "python": "3.11.16"
+  },
+  "source_revision": "a1c3bf336493dc496bb2571e160b1054f237e0be",
+  "source_sha256": {
+    "experiments/catalytic_distillation_minlp/README.md": "50299ffc47044bea94cbf77ef677561f6f2a5a70bcb199e574d68161700fb31d",
+    "experiments/catalytic_distillation_minlp/check_point.gms": "6a84f41dc196c49cb9577a1668abf3e75f5592d8ef250bef0f7c7c1598c4ebf6",
+    "experiments/catalytic_distillation_minlp/compute_emp_scales.py": "ffc3e8bc4b972127574b76f954352b8345c25bc924a7be03a815e71a712be8e4",
+    "experiments/catalytic_distillation_minlp/make_emp.py": "bb9bfbe15e3382d35f058e2a63ccc18b117c9c2d505692ec4a6669fb89dd8e27",
+    "experiments/catalytic_distillation_minlp/make_minlp.py": "3cb82d88f49464ed7c8b97574b9cd07532d5f79e0d404d4c62c536c2493774b4",
+    "experiments/catalytic_distillation_minlp/run_dantzig.sh": "12516f21c8776668ecbff258b2fa090653378b7e7371a0248fe70cfd696cb59c",
+    "experiments/catalytic_distillation_minlp/run_solvers.sh": "e69dd7fd02bd0279284344c49d03c183b03c9645b1df11e1b82247e4fdcc11e7",
+    "experiments/catalytic_distillation_minlp/summarize.py": "28058aed51faf68cf3219a838957c6f422062bf8d1c8c5db980321f0d29d939e",
+    "experiments/catalytic_distillation_minlp/validate.sh": "cc88248b1bb82bc098b3090a9042bc96020bad392e442bd25be4516c47b45d22",
+    "gdp_models/catalytic_distillation/DISTILLATION.gms": "05b605c7b6c22792bde3c66a3c46f1936056f2a7a7f89a0836315bac7d8f4397",
+    "gdp_models/catalytic_distillation/DSDA_solution_CONOPT.gdx": "36e8abecd0b3333491c13b15aaea594f7a2d6569f97d74d651af209f8200192e",
+    "gdp_models/catalytic_distillation/D_SDA.gms": "225f78746ba0c0dfcd5489c740d3b4c9fa1178fb4121e2e5b09e3c88a3bda5c1",
+    "gdp_models/catalytic_distillation/README.md": "7d3df25734af3dca12a17695a64bb5fbf50e23aed10b53d6f0c120e6796b3626",
+    "gdp_models/catalytic_distillation/REVIEW.md": "a6c0f857a030dde448f0290fa90e2889e23312e13fb5a335a6258099606f7e30",
+    "gdp_models/catalytic_distillation/distillation_model.gms": "a5951af2783dad7e9a179210176691b1d3a5bb17a14137e5a15323d0ac39dac2",
+    "gdp_models/catalytic_distillation/distillation_model_corrected.gms": "426ca77ecfa1c5a85723d24ed0ed0dd2cbd8fbe1d4f6942b1bcba8c7431ed021",
+    "gdp_models/catalytic_distillation/emp_model_corrected.gms": "018b6f87df64ac5a6953a931d35e4628cc500e3793c3a06df1df59c7e5b47576",
+    "gdp_models/catalytic_distillation/emp_scales.gms": "051f2621087957264697204c179e0eb62b72e13cfaa6fd9c20cafa61700cbd9e",
+    "gdp_models/catalytic_distillation/init.gdx": "2823c039314e362904e86a15c9baa3fc020c2cdb5343f6c80147ce805b4c9ed4",
+    "gdp_models/catalytic_distillation/main.gms": "242929a5e4f960690e031353035da86c3b08f011058e0947241f79191c6e3d15",
+    "gdp_models/catalytic_distillation/minlp_model_corrected.gms": "f7078acd4282a08830dfc3c1b2d3a377079e822dc9d1849f7bf8038e92bbbd2e",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/2_Infinity.csv": "f319a9a27ae3eefa235eda0b5d2852819d9b7ed63e8a2f1583ace5e9ae1f25b4",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/2_Lflat.csv": "77ed6c990680562e7f41db048de942299a8ba0a3e393bfa1a2df97ae1412d846",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/2_Mflat.csv": "c6db23d0b7da6a308d1b46158afdc8639c4c16fe91c31518ab81f1bd9379db9e",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/2_Separable.csv": "bc1bcf89a70c27c800fb8220b0545f833bcb679c0605a83cdb92e35093e5da0d",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/3_Infinity.csv": "608520404c7f3eeec3ef8fbf185b0c8d0d802b684301746c08fd0006e74d69c1",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/3_Lflat.csv": "9df83d3cdb26324a8ecac029fca38128e9ef04ed54a1a3ee012b1a0d87c2f5a9",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/3_Mflat.csv": "2f17f6b3bc6252f1791cc5130e856ad29be50b796dbd429236b11e7ab9c98d71",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/3_Separable.csv": "4a54767b10797016df0cd1ab4b94145facd532818c1b590efaae68818b318f83",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/4_Infinity.csv": "a628d22816c3c22b8cffb8fec1c29960b2b70b6ec926a44274170c48a7abe279",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/4_Lflat.csv": "14d8ac6948aed0feb3d5f2e0fa02bb83d33d0f5cb14ab27a4134bdab8560624b",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/4_Mflat.csv": "6a8bb43add5fe44f031b5f920689e3bcfd39229e8692ed69114f8ba8035994f0",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/4_Separable.csv": "d01acf60f521412207fe38633f23b08f0d61bf4f64db6dc06ec032031bd3c452",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/5_Infinity.csv": "183c2058f907c105d358cd79b1d7ff9c2c1437a4d670915016a0bdaf365bafe2",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/5_Lflat.csv": "f9877d0ab098549344a74b60a83a06dba51b25cf64f6b30937bb5b7b326d618e",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/5_Mflat.csv": "0f666f386338101e572eed7607a2d3fcf6d2ae382434bcb2e45d5a056358fb3d",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/5_Separable.csv": "7b493dc18ae6e9db495c79b8aa22b809f907e10c682aa00f0d56177867b1111a",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/6_Infinity.csv": "62e6bcce912fc9c7272aace8674c742b0d0e78d5142443c118684c9438170b53",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/6_Lflat.csv": "00fb86229368b442476daf6f89ec22acd3689dc15d6a9372c2b5524d95b0d99c",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/6_Mflat.csv": "268af0470d104067d47da3e40431383f8ef43bb0d38de0ca6cc7e8ae146dd9a7",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/6_Separable.csv": "fa56ec31abf0743139ab59cbc7385cfc674c9d398c6c47666704b318e85de79f",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/license.txt": "ba40ed0d350cc91751826e899a171cc2973954ad0a8929f14bebb2022d1e134d",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/npermutek.m": "516d0f16021b2421a76369968bc00c1fce2983a956a9e8fc35b88e91ca2b5a8f",
+    "gdp_models/catalytic_distillation/neighborhood_MATLAB/vecinos.m": "eac76a95404a415cecdd3d9e75795d48a162eb7524749220472efa548d376d61",
+    "gdp_models/catalytic_distillation/solve_configuration.gms": "3daf12c97f1567556b35f83f2aa894dd4c28690fc17a940223e38f04e9b2bc79",
+    "gdp_models/catalytic_distillation/solve_emp.gms": "00d65daa8cbc0f175f55f561bfb83de92eed78484551bda3fe31bb4f47c824c7",
+    "gdp_models/catalytic_distillation/solve_minlp.gms": "dd829f33173e60bcb61fbe61746199b4dd3f85b7a2441c26dbd0c23dcd21d6dd"
+  },
+  "threads": {
+    "BLIS_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": "",
+    "GOTO_NUM_THREADS": "1",
+    "MKL_DYNAMIC": "FALSE",
+    "MKL_NUM_THREADS": "1",
+    "MPLBACKEND": "Agg",
+    "NUMEXPR_MAX_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_DYNAMIC": "FALSE",
+    "OMP_NUM_THREADS": "1",
+    "OMP_THREAD_LIMIT": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONUNBUFFERED": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "utc_started": "2026-11-01T21:39:05.532974+00:00"
+}
