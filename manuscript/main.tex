@@ -31,7 +31,7 @@
 % Commands used to include orcid (taken from https://gugushvili.github.io/blog/2019/08/09/orcid)
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
-\usepackage{rotating}
+\usepackage{threeparttable}
 \definecolor{lime}{HTML}{A6CE39}
 % Okabe-Ito palette for Figure 1
 \definecolor{oiblue}{HTML}{0072B2}
@@ -121,34 +121,32 @@ Figure~\ref{fig:methodology} summarizes this approach and the conventional GDP m
 \centering
 \begin{tikzpicture}[font=\scriptsize,
   box/.style={draw=#1, fill=#1!10, line width=0.8pt, rounded corners=2pt, align=left,
-              inner sep=5pt, anchor=north west, text width=3.2cm, minimum height=3.3cm,
+              inner sep=5pt, anchor=north west, text width=3.2cm, minimum height=3.4cm,
               execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000\setlength{\baselineskip}{9pt}}},
-  wide/.style={box=#1, minimum height=1.55cm},
-  head/.style={font=\footnotesize\bfseries},
+  wide/.style={box=#1, minimum height=1.45cm},
+  case/.style={box=gray, draw=black!45, fill=black!4, minimum height=2.45cm},
   arr/.style={-{Stealth[length=2.2mm]}, line width=0.8pt, draw=black!75},
   lab/.style={font=\scriptsize, inner sep=1.5pt}]
+% general method
 \node[box=oiblue] (gdp) at (0,0) {{\footnotesize\bfseries GDP model}\\[3pt]
-  Boolean variables \(Y_{ik}\), disjunctions, and logical propositions \(\Omega(\mathbf Y)\), Problem~\eqref{eqn:gdp.general}\\[3pt]
-  each disjunct given by equations or by a unit simulation};
+  Boolean variables, disjunctions, and logical propositions, Problem~\eqref{eqn:gdp.general}\\[3pt]
+  disjuncts given by algebraic equations or by unit simulations};
 \node[box=oisky] (ext) at (4.03,0) {{\footnotesize\bfseries External-variable\\reformulation}\\[3pt]
-  \(\xi_j\in\{1,\ldots,m_j\}\) selects an alternative of group \(j\)\\[3pt]
-  logic leaves the admissible set \(\mathcal E_{\mathrm{adm}}\)\\[3pt]
-  the GDP becomes \(\min_{\boldsymbol\xi\in\mathcal E_{\mathrm{adm}}}\Phi(\boldsymbol\xi)\)};
+  integer variables \(\xi_j\) index the ordered alternatives of each disjunction group\\[3pt]
+  the GDP becomes \(\min_{\boldsymbol\xi\in\mathcal E_{\mathrm{adm}}}\Phi(\boldsymbol\xi)\), Problem~\eqref{eqn:outer.value}};
 \node[box=oiorange] (dfo) at (8.06,0) {{\footnotesize\bfseries DFO configuration\\search}\\[3pt]
-  local descent: \texttt{D-SDA}\\
-  direct search: \texttt{NOMAD}\\
-  surrogate models: \texttt{RBFOpt}, \texttt{MISO}, \texttt{BAM}, \texttt{FMQA-SA}\\
-  control: uniform sampling};
-\node[box=oigreen] (eval) at (12.69,0) {{\footnotesize\bfseries Fixed-configuration\\evaluation}\\[3pt]
-  NLP~\eqref{eqn:Sub}: \texttt{IPOPT} or \texttt{CONOPT}\\[3pt]
-  simulation~\eqref{eqn:sim-sub}: PharmaPy with an inner \texttt{NOMAD} search\\[3pt]
-  Grid-GDP: explicit function};
+  any DFO method for integer variables, e.g.,\\
+  local descent (\texttt{D-SDA}),\\
+  direct search (\texttt{NOMAD}),\\
+  surrogate models (\texttt{RBFOpt}, \texttt{MISO}, \texttt{BAM}, \texttt{FMQA-SA})};
+\node[box=oigreen] (eval) at (12.69,0) {{\footnotesize\bfseries Fixed-configuration\\subproblem}\\[3pt]
+  fix the Boolean variables of \(\boldsymbol\xi\) and solve the reduced subproblem:\\[2pt]
+  an NLP~\eqref{eqn:Sub}, e.g., with \texttt{IPOPT} or \texttt{CONOPT}\\[2pt]
+  a simulation-based optimization~\eqref{eqn:sim-sub}, e.g., with PharmaPy};
 \node[wide=oivermilion, text width=7.25cm] (conv) at (0,-4.2) {{\footnotesize\bfseries Conventional GDP methods (comparison)}\\[3pt]
-  MINLP reformulations, Big-\(M\) and Hull, solved by \texttt{SCIP}, \texttt{BARON}, \texttt{DICOPT}, or \texttt{SBB}\\
-  logic-based \texttt{GDPopt}: LOA, GLOA, RIC\\
-  both need the equations of every disjunct};
+  MINLP reformulations, e.g., Big-\(M\) and Hull, or logic-based decomposition, e.g., LOA, GLOA, and RIC of \texttt{GDPopt}; both need the equations of every disjunct};
 \node[wide=oipurple, text width=7.85cm] (best) at (8.06,-4.2) {{\footnotesize\bfseries Best configuration found}\\[3pt]
-  methods compared by target hits (runs that reach the reference objective), NLP subproblems solved, and full-run completion time};
+  compared by target hits (runs that reach the reference objective), NLP subproblems solved, and full-run completion time};
 \draw[arr] (gdp.east) -- (ext.west);
 \draw[arr] (ext.east) -- (dfo.west);
 \draw[arr] ([yshift=5mm]dfo.east) -- node[lab, above] {\(\boldsymbol\xi\)} ([yshift=5mm]eval.west);
@@ -156,13 +154,28 @@ Figure~\ref{fig:methodology} summarizes this approach and the conventional GDP m
 \draw[arr] (dfo.south) -- node[lab, right] {after \(B\) evaluations} (dfo.south |- best.north);
 \draw[arr] (gdp.south) -- (gdp.south |- conv.north);
 \draw[arr] (conv.east) -- (best.west);
+% cases of this paper
+\draw[black!45, line width=0.6pt] (0,-6.1) -- (16.22,-6.1);
+\node[anchor=west, font=\footnotesize\bfseries, fill=white, inner sep=2pt] at (0.25,-6.1) {Cases in this paper};
+\node[case] (c1) at (0,-6.45) {{\footnotesize\bfseries Process GDP models}\\[2pt]
+  \texttt{CSTR} (\(N=5\) to 30), \texttt{Column}, \texttt{Small Batch}, \texttt{Dynamic}\\[2pt]
+  NLP subproblems with stored \texttt{IPOPT} solves (Section~\ref{sec:process-cases})};
+\node[case] (c2) at (4.03,-6.45) {{\footnotesize\bfseries \texttt{Lomustine}}\\[2pt]
+  pharmaceutical flowsheet with 36 configurations\\[2pt]
+  PharmaPy simulations optimized by an inner \texttt{NOMAD} search (Section~\ref{sec:lomustine-case})};
+\node[case] (c3) at (8.06,-6.45) {{\footnotesize\bfseries \texttt{Catalytic Column}}\\[2pt]
+  100,947 configurations\\[2pt]
+  NLP subproblems solved by \texttt{CONOPT} when first requested (Section~\ref{sec:catdist-case})};
+\node[case] (c4) at (12.69,-6.45) {{\footnotesize\bfseries Grid-GDP}\\[2pt]
+  21 test functions on a \(31\times31\) lattice\\[2pt]
+  explicit objective, no subproblem solve (Section~\ref{sec:grid-gdp-formulation})};
 \end{tikzpicture}
 \caption{Methodology of this study.
-A GDP model (blue) is rewritten with external integer variables \(\boldsymbol\xi\) that index the alternatives of its disjunctions (light blue), so that solving it becomes a search over the admissible configurations whose objective is the subproblem value \(\Phi(\boldsymbol\xi)\) (Problem~\eqref{eqn:outer.value}).
-A DFO method (orange) proposes a configuration, which is evaluated by fixing its Boolean variables and solving the reduced subproblem (green): an NLP, a simulation-based optimization of a PharmaPy flowsheet, or, in the Grid-GDP benchmarks, an explicit function.
-The returned value updates the search until the evaluation budget \(B\) is spent.
-Conventional GDP methods (vermilion) solve the same models where the equations of every disjunct are available.
-All methods are compared by the measures in the purple box (Section~\ref{sec:metrics}).}
+Top: the general method.
+A GDP model (blue) is rewritten with external integer variables \(\boldsymbol\xi\) that index the alternatives of its disjunctions (light blue), so that solving it becomes a search over the admissible configurations whose objective is the subproblem value \(\Phi(\boldsymbol\xi)\).
+A DFO method (orange) proposes a configuration, which is evaluated by fixing its Boolean variables and solving the reduced subproblem (green), an NLP or a simulation-based optimization, and the returned value updates the search until the evaluation budget \(B\) is spent.
+Conventional GDP methods (vermilion) solve the same models when the equations of every disjunct are available.
+Bottom: the four cases of this paper, with the subproblem evaluation each one uses.}
 \label{fig:methodology}
 \end{figure}
 Surrogate-based DFO uses accumulated objective observations to guide new evaluations~\citep{larson2019derivative}.
@@ -414,37 +427,40 @@ Of these configurations, 15 are rejected during feasibility-based bound tighteni
 
 \begin{table}[htbp]
 \centering
-\caption{Configuration domains, evaluation budgets, and reference objectives of the nine process GDP models.
-\(N\): number of potential reactors of \texttt{CSTR}.
-Full GDP box: the box of external-variable values before logical restrictions, and its number of configurations.
-DFO domain: the configurations that the DFO methods search, every one of which has a measured evaluation cost; it is the full GDP box except for \texttt{Column}, whose DFO domain is its logical domain \(\{8,\ldots,15\}\times\{1,\ldots,8\}\).
-Accepted: configurations of the DFO domain whose fixed-configuration \texttt{IPOPT} solve meets the acceptance criteria of Section~\ref{sec:protocol}, so that they have an objective value.
-\(B\): evaluation budget.
-\(f_{\mathrm{ref}}\): reference objective, the lowest accepted objective of the DFO domain, in liters of reactor volume for \texttt{CSTR}, the weighted cost of duties and active trays of the source model for \texttt{Column}, dollars of investment for \texttt{Small Batch}, and without units for \texttt{Dynamic} (Supplementary Table~\ref{tab:supp-model-sizes}).}
+\caption{Process GDP models: configuration domains, evaluation budgets, reference objectives, and the cost of full enumeration.}
 \label{tab:process-cases}
 \footnotesize
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{@{}llcrrrrr@{}}
+\setlength{\tabcolsep}{3.5pt}
+\begin{threeparttable}
+\begin{tabular}{@{}llcrrrrrcr@{}}
 \toprule
-Model & \(N\) & Full GDP box & \makecell{Full box\\size} & \makecell{DFO\\domain} & Accepted & \(B\) & \(f_{\mathrm{ref}}\) \\
+Model & \(N\) & Full GDP box & \makecell{Full box\\size} & \makecell{DFO\\domain} & Accepted & \(B\) & \(f_{\mathrm{ref}}\) & Unit & \makecell{Enumeration\\time (s)} \\
 \midrule
-\multirow{6}{*}{\texttt{CSTR}} & 5 & \multirow{6}{*}{\(\{1,\ldots,N\}^{2}\)} & 25 & 25 & 15 & 8 & 3.06201 \\
- & 10 &  & 100 & 100 & 54 & 15 & 2.88954 \\
- & 15 &  & 225 & 225 & 120 & 22 & 2.82939 \\
- & 20 &  & 400 & 400 & 210 & 29 & 2.79941 \\
- & 25 &  & 625 & 625 & 325 & 36 & 2.78148 \\
- & 30 &  & 900 & 900 & 464 & 43 & 2.76957 \\
+\multirow{6}{*}{\texttt{CSTR}} & 5 & \multirow{6}{*}{\(\{1,\ldots,N\}^{2}\)} & 25 & 25 & 15 & 8 & 3.06201 & L & 30.27 \\
+ & 10 &  & 100 & 100 & 54 & 15 & 2.88954 & L & 122.06 \\
+ & 15 &  & 225 & 225 & 120 & 22 & 2.82939 & L & 298.42 \\
+ & 20 &  & 400 & 400 & 210 & 29 & 2.79941 & L & 553.38 \\
+ & 25 &  & 625 & 625 & 325 & 36 & 2.78148 & L & 899.39 \\
+ & 30 &  & 900 & 900 & 464 & 43 & 2.76957 & L & 1{,}719.00 \\
 \midrule
-\texttt{Column} & -- & \(\{1,\ldots,15\}^{2}\) & 225 & 64 & 29 & 13 & 19346.1 \\
+\texttt{Column} & -- & \(\{1,\ldots,15\}^{2}\) & 225 & 64 & 29 & 13 & 19346.1 & -- & 137.24 \\
 \midrule
-\texttt{Small Batch} & -- & \(\{1,2,3\}^{3}\) & 27 & 27 & 12 & 10 & 167428 \\
-\texttt{Dynamic} & -- & \makecell{\(\{1,\ldots,9\}\)\\\(\times\{2,\ldots,9\}\)} & 72 & 72 & 37 & \makecell{12,15,20,\\30,37,50} & -212.009 \\
+\texttt{Small Batch} & -- & \(\{1,2,3\}^{3}\) & 27 & 27 & 12 & 10 & 167428 & \$ & 10.18 \\
+\texttt{Dynamic} & -- & \makecell{\(\{1,\ldots,9\}\)\\\(\times\{2,\ldots,9\}\)} & 72 & 72 & 37 & \makecell{12,15,20,\\30,37,50} & -212.009 & -- & 47.25 \\
 \bottomrule
 \end{tabular}
-\par\smallskip
-\begin{minipage}{0.96\linewidth}
-\footnotesize The 980 primary process runs (\texttt{D-SDA}, \texttt{NOMAD}, \texttt{RBFOpt}, \texttt{MISO}, \texttt{BAM}, \texttt{FMQA-SA}, and uniform sampling; 14 model-budget conditions and ten seeds per condition) evaluate 2,106 distinct configurations over all models and sizes.
-\end{minipage}
+\begin{tablenotes}[flushleft]\footnotesize
+\item \(N\): number of potential reactors of \texttt{CSTR}.
+Full GDP box: external-variable values before logical restrictions.
+DFO domain: configurations that the DFO methods search; it equals the full GDP box except for \texttt{Column}, whose DFO domain is its logical domain \(\{8,\ldots,15\}\times\{1,\ldots,8\}\), and every configuration in it has a measured evaluation cost.
+Accepted: configurations of the DFO domain whose fixed-configuration \texttt{IPOPT} solve meets the acceptance criteria of Section~\ref{sec:protocol}.
+\(B\): evaluation budget.
+\(f_{\mathrm{ref}}\): reference objective, the lowest accepted objective of the DFO domain.
+Unit: L, reactor volume in liters; \$, investment in the dollars of the source model; --, no physical unit (the weighted cost of duties and active trays of the \texttt{Column} source model and the negative squared-state integral of \texttt{Dynamic}).
+Enumeration time: summed measured cost of evaluating every configuration of the DFO domain once.
+The 980 primary process runs (\texttt{D-SDA}, \texttt{NOMAD}, \texttt{RBFOpt}, \texttt{MISO}, \texttt{BAM}, \texttt{FMQA-SA}, and uniform sampling; 14 model-budget conditions and ten seeds per condition) evaluate 2,106 distinct configurations over all models and sizes.
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 \FloatBarrier
 
@@ -793,45 +809,74 @@ Restarting it from the remaining shared initial configurations, or from uniforml
 \texttt{FMQA-SA} reaches 42 of 140 process targets, compared with 37 for uniform sampling.
 In the small process domains, the 100 annealed samples often contain no new configuration within the bounds, so 52.9\% of the \texttt{FMQA-SA} proposals come from its uniform fallback (Supplementary Section~\ref{sec:supp-proposals}).
 
-Table~\ref{tab:process-targets} also reports search times, which exclude configuration-evaluation costs.
+Supplementary Table~\ref{tab:process-search} reports the search times, which exclude configuration-evaluation costs.
 Median search times stay below 0.06~s for \texttt{D-SDA} and uniform sampling and below 1~s for \texttt{BAM}.
 For \texttt{RBFOpt}, they grow with the budget, from 0.06~s on \texttt{CSTR5} to 26.3~s on \texttt{Dynamic} at \(B=50\).
 \texttt{MISO} needs 0.66 to 158~s because it refits its model and scores a large candidate pool at every iteration, whereas \texttt{NOMAD} stays below 2~s.
 \texttt{FMQA-SA} needs 3.7 to 29.8~s because it refits its factorization machine after every evaluation.
-\begin{sidewaystable}
+\begin{table}[htbp]
 \centering
-\caption{Target hits and search times of the six DFO methods and uniform sampling in the 14 process conditions, with ten seeds per method and condition.
-In each cell, the first line is the number of the ten runs that reach the reference target of Equation~\eqref{eqn:target}, and the second the median search time in seconds followed, in brackets, by its 25th and 75th percentiles over the ten seeds.
-Search time is the time a method spends selecting configurations; it excludes the cost of evaluating them, which the methods read from stored \texttt{IPOPT} results (Section~\ref{sec:process-cases}).
-\(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; Uniform: uniform sampling without replacement.
-Bold marks the most target hits in each row, including ties.}
+\caption{Process GDP models: target hits and median full-run completion times of the six DFO methods and uniform sampling, with ten runs per method and condition.}
 \label{tab:process-targets}
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lrrccccccc@{}}\toprule
-Model & \(N\) & \(B\) & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFOpt} & \texttt{MISO} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform \\
-\multirow{12}{*}{\texttt{CSTR}} & 5 & 8 & \makecell{2\\0.0105 [0.0102, 0.0111]} & \makecell{4\\0.0367 [0.0323, 1.13]} & \makecell{8\\0.0596 [0.0590, 0.0597]} & \makecell{4\\0.659 [0.658, 0.669]} & \makecell{\textbf{10}\\0.0360 [0.0151, 0.0816]} & \makecell{3\\3.66 [3.64, 3.67]} & \makecell{4\\0.00460 [0.00387, 0.00478]} \\
- & 10 & 15 & \makecell{3\\0.0137 [0.0130, 0.0147]} & \makecell{3\\1.83 [0.469, 1.88]} & \makecell{\textbf{6}\\0.302 [0.288, 0.315]} & \makecell{2\\0.677 [0.675, 0.683]} & \makecell{1\\0.137 [0.126, 0.158]} & \makecell{2\\8.00 [7.98, 8.08]} & \makecell{1\\0.00807 [0.00772, 0.00812]} \\
- & 15 & 22 & \makecell{2\\0.0169 [0.0156, 0.0172]} & \makecell{2\\0.825 [0.0949, 1.82]} & \makecell{\textbf{7}\\1.00 [0.492, 3.26]} & \makecell{\textbf{7}\\3.29 [1.21, 7.50]} & \makecell{1\\0.150 [0.140, 0.162]} & \makecell{1\\12.4 [12.3, 12.4]} & \makecell{2\\0.0113 [0.0108, 0.0116]} \\
- & 20 & 29 & \makecell{3\\0.0207 [0.0189, 0.0218]} & \makecell{2\\1.63 [0.521, 1.92]} & \makecell{7\\2.82 [0.632, 4.01]} & \makecell{\textbf{10}\\10.8 [9.02, 15.8]} & \makecell{2\\0.167 [0.165, 0.313]} & \makecell{1\\16.9 [16.8, 16.9]} & \makecell{2\\0.0139 [0.0121, 0.0148]} \\
- & 25 & 36 & \makecell{3\\0.0258 [0.0238, 0.0299]} & \makecell{6\\1.08 [0.170, 2.32]} & \makecell{8\\2.47 [1.86, 4.43]} & \makecell{\textbf{10}\\17.6 [16.4, 18.8]} & \makecell{2\\0.401 [0.392, 0.449]} & \makecell{1\\21.3 [21.3, 21.4]} & \makecell{1\\0.0161 [0.0147, 0.0186]} \\
- & 30 & 43 & \makecell{3\\0.0585 [0.0556, 0.0610]} & \makecell{4\\1.90 [1.76, 7.65]} & \makecell{9\\4.99 [2.95, 10.3]} & \makecell{\textbf{10}\\18.1 [14.0, 19.3]} & \makecell{2\\0.425 [0.404, 0.451]} & \makecell{1\\25.8 [25.7, 26.0]} & \makecell{1\\0.0241 [0.0224, 0.0257]} \\
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{threeparttable}
+\begin{tabular}{@{}lrrlrrrrrrr@{}}\toprule
+Model & \(N\) & \(B\) & & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFOpt} & \texttt{MISO} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform \\\midrule
+\multirow{12}{*}{\texttt{CSTR}} & \multirow{2}{*}{5} & \multirow{2}{*}{8} & Target hits (of 10) & 2 & 4 & 8 & 4 & \textbf{10} & 3 & 4 \\
+ & &  & Median completion time (s) & 10.67 & 10.71 & 10.72 & 11.33 & 10.67 & 13.92 & \textbf{9.44} \\
+\addlinespace[2pt]
+ & \multirow{2}{*}{10} & \multirow{2}{*}{15} & Target hits (of 10) & 3 & 3 & \textbf{6} & 2 & 1 & 2 & 1 \\
+ & &  & Median completion time (s) & \textbf{17.61} & 21.25 & 21.79 & 21.87 & 18.54 & 27.07 & 17.75 \\
+\addlinespace[2pt]
+ & \multirow{2}{*}{15} & \multirow{2}{*}{22} & Target hits (of 10) & 2 & 2 & \textbf{7} & \textbf{7} & 1 & 1 & 2 \\
+ & &  & Median completion time (s) & \textbf{25.68} & 33.92 & 37.59 & 39.79 & 27.67 & 42.82 & 27.84 \\
+\addlinespace[2pt]
+ & \multirow{2}{*}{20} & \multirow{2}{*}{29} & Target hits (of 10) & 3 & 2 & 7 & \textbf{10} & 2 & 1 & 2 \\
+ & &  & Median completion time (s) & \textbf{32.31} & 38.17 & 45.03 & 56.03 & 39.37 & 59.10 & 40.12 \\
+\addlinespace[2pt]
+ & \multirow{2}{*}{25} & \multirow{2}{*}{36} & Target hits (of 10) & 3 & 6 & 8 & \textbf{10} & 2 & 1 & 1 \\
+ & &  & Median completion time (s) & \textbf{45.49} & 56.56 & 62.29 & 78.56 & 50.47 & 74.70 & 51.17 \\
+\addlinespace[2pt]
+ & \multirow{2}{*}{30} & \multirow{2}{*}{43} & Target hits (of 10) & 3 & 4 & 9 & \textbf{10} & 2 & 1 & 1 \\
+ & &  & Median completion time (s) & \textbf{47.17} & 71.23 & 101.96 & 107.33 & 115.41 & 101.19 & 65.20 \\
 \midrule
-\texttt{Column} & -- & 13 & \makecell{5\\0.0120 [0.0116, 0.0124]} & \makecell{7\\0.0423 [0.0358, 0.0461]} & \makecell{4\\0.226 [0.205, 0.239]} & \makecell{\textbf{10}\\0.672 [0.669, 0.681]} & \makecell{1\\0.0177 [0.0168, 0.155]} & \makecell{4\\6.85 [6.81, 6.89]} & \makecell{1\\0.00716 [0.00711, 0.00748]} \\
+\multirow{2}{*}{\texttt{Column}} & \multirow{2}{*}{--} & \multirow{2}{*}{13} & Target hits (of 10) & 5 & 7 & 4 & \textbf{10} & 1 & 4 & 1 \\
+ & &  & Median completion time (s) & 35.44 & 31.93 & 54.60 & 31.98 & 27.50 & 41.82 & \textbf{21.69} \\
 \midrule
-\texttt{Small Batch} & -- & 10 & \makecell{\textbf{8}\\0.0102 [0.00971, 0.0103]} & \makecell{6\\0.0475 [0.0333, 0.0540]} & \makecell{5\\0.170 [0.159, 0.180]} & \makecell{7\\0.668 [0.666, 0.670]} & \makecell{2\\0.0169 [0.0161, 0.0191]} & \makecell{6\\4.87 [4.86, 4.89]} & \makecell{4\\0.00536 [0.00506, 0.00545]} \\
+\multirow{2}{*}{\texttt{Small Batch}} & \multirow{2}{*}{--} & \multirow{2}{*}{10} & Target hits (of 10) & \textbf{8} & 6 & 5 & 7 & 2 & 6 & 4 \\
+ & &  & Median completion time (s) & 4.23 & 4.97 & 5.12 & 5.62 & 4.23 & 9.09 & \textbf{3.49} \\
 \midrule
-\multirow{12}{*}{\texttt{Dynamic}} & -- & 12 & \makecell{4\\0.0119 [0.0113, 0.0125]} & \makecell{8\\0.0419 [0.0377, 0.0630]} & \makecell{\textbf{10}\\0.186 [0.182, 0.189]} & \makecell{\textbf{10}\\0.671 [0.670, 0.676]} & \makecell{0\\0.0173 [0.0172, 0.0174]} & \makecell{2\\6.16 [6.14, 6.20]} & \makecell{0\\0.00589 [0.00540, 0.00658]} \\
- & & 15 & \makecell{6\\0.0123 [0.0115, 0.0131]} & \makecell{\textbf{10}\\0.0896 [0.0627, 1.09]} & \makecell{\textbf{10}\\0.296 [0.291, 0.321]} & \makecell{\textbf{10}\\0.679 [0.676, 0.683]} & \makecell{3\\0.139 [0.128, 0.156]} & \makecell{3\\8.04 [8.01, 8.09]} & \makecell{3\\0.00740 [0.00622, 0.00760]} \\
- & & 20 & \makecell{\textbf{10}\\0.0133 [0.0119, 0.0154]} & \makecell{\textbf{10}\\1.49 [0.447, 6.90]} & \makecell{\textbf{10}\\0.367 [0.355, 0.381]} & \makecell{\textbf{10}\\25.0 [24.6, 30.1]} & \makecell{3\\0.143 [0.130, 0.156]} & \makecell{3\\11.2 [11.1, 11.2]} & \makecell{3\\0.00987 [0.00927, 0.00991]} \\
- & & 30 & \makecell{\textbf{10}\\0.0149 [0.0124, 0.0157]} & \makecell{\textbf{10}\\1.77 [1.44, 9.24]} & \makecell{\textbf{10}\\7.61 [4.88, 13.7]} & \makecell{\textbf{10}\\79.7 [79.4, 80.5]} & \makecell{4\\0.355 [0.204, 0.364]} & \makecell{4\\17.4 [17.2, 17.5]} & \makecell{4\\0.0141 [0.0135, 0.0145]} \\
- & & 37 & \makecell{\textbf{10}\\0.0134 [0.0118, 0.0160]} & \makecell{\textbf{10}\\1.77 [1.43, 9.23]} & \makecell{\textbf{10}\\10.1 [5.25, 14.2]} & \makecell{\textbf{10}\\81.0 [79.7, 82.9]} & \makecell{7\\0.376 [0.364, 0.383]} & \makecell{5\\21.7 [21.6, 21.8]} & \makecell{5\\0.0173 [0.0171, 0.0174]} \\
- & & 50 & \makecell{\textbf{10}\\0.0135 [0.0129, 0.0153]} & \makecell{\textbf{10}\\1.77 [1.42, 9.21]} & \makecell{\textbf{10}\\26.3 [17.0, 37.2]} & \makecell{\textbf{10}\\158 [157, 160]} & \makecell{\textbf{10}\\0.732 [0.685, 0.751]} & \makecell{6\\29.8 [29.7, 30.1]} & \makecell{6\\0.0233 [0.0229, 0.0235]} \\
+\multirow{12}{*}{\texttt{Dynamic}} & \multirow{2}{*}{--} & \multirow{2}{*}{12} & Target hits (of 10) & 4 & 8 & \textbf{10} & \textbf{10} & 0 & 2 & 0 \\
+ & &  & Median completion time (s) & 12.22 & 12.36 & 12.29 & 11.80 & 9.95 & 14.47 & \textbf{7.80} \\
+\addlinespace[2pt]
+ &  & \multirow{2}{*}{15} & Target hits (of 10) & 6 & \textbf{10} & \textbf{10} & \textbf{10} & 3 & 3 & 3 \\
+ & &  & Median completion time (s) & 15.32 & 15.48 & 16.10 & 15.44 & 11.53 & 18.39 & \textbf{8.71} \\
+\addlinespace[2pt]
+ &  & \multirow{2}{*}{20} & Target hits (of 10) & \textbf{10} & \textbf{10} & \textbf{10} & \textbf{10} & 3 & 3 & 3 \\
+ & &  & Median completion time (s) & 20.02 & 20.85 & 20.54 & 42.42 & 14.07 & 25.23 & \textbf{12.27} \\
+\addlinespace[2pt]
+ &  & \multirow{2}{*}{30} & Target hits (of 10) & \textbf{10} & \textbf{10} & \textbf{10} & \textbf{10} & 4 & 4 & 4 \\
+ & &  & Median completion time (s) & 20.02 & 22.00 & 34.19 & 106.24 & 21.91 & 36.24 & \textbf{19.38} \\
+\addlinespace[2pt]
+ &  & \multirow{2}{*}{37} & Target hits (of 10) & \textbf{10} & \textbf{10} & \textbf{10} & \textbf{10} & 7 & 5 & 5 \\
+ & &  & Median completion time (s) & \textbf{20.02} & 22.00 & 42.42 & 111.61 & 24.99 & 46.05 & 24.38 \\
+\addlinespace[2pt]
+ &  & \multirow{2}{*}{50} & Target hits (of 10) & \textbf{10} & \textbf{10} & \textbf{10} & \textbf{10} & \textbf{10} & 6 & 6 \\
+ & &  & Median completion time (s) & \textbf{20.02} & 21.99 & 65.14 & 195.36 & 33.98 & 61.31 & 33.12 \\
 \bottomrule
 \end{tabular}
-\end{sidewaystable}
+\begin{tablenotes}[flushleft]\footnotesize
+\item Target hits: runs that reach the reference target of Equation~\eqref{eqn:target}.
+Completion time: search time plus the measured cost of every evaluated configuration and, for \texttt{Dynamic}, one model preparation (Equation~\eqref{eqn:reconstructed-cost}); medians are over all ten runs, including target misses.
+Table~\ref{tab:process-cases} gives the enumeration times, and Supplementary Table~\ref{tab:process-search} the search times alone.
+\(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; Uniform: uniform sampling without replacement.
+Bold: most target hits and shortest median completion time in each row, including ties.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
 % \david{join first vertical axis as in Table 1, put in a single row the median and intervals, highlight the best in each row}
-% Resolved: Model, N, and B columns as in Table 1; median and quartiles on one line; bold marks the most hits in each row.
+% Resolved: Model, N, and B columns as in Table 1; one row per measure with its unit, as in Tables 3 and 4; the search-time quartiles moved to Supplementary Table S(process-search); bold marks the best entry in each row.
 
 Supplementary Figure~\ref{fig:process-evaluations} shows the evaluation at which each successful run first reaches the target.
 
@@ -862,7 +907,8 @@ Uniform: uniform sampling without replacement.}
 \subsubsection{Completion time}
 In wall time, the advantage of fewer subproblem solves depends on how much each solve costs.
 Configuration evaluations have median costs of 0.4 to 2.5~s in these models (Supplementary Table~\ref{tab:supp-overhead}).
-Full enumeration therefore takes 10.2~s for \texttt{Small Batch}, 47.2~s for \texttt{Dynamic}, 137~s for \texttt{Column}, and 1,719~s for \texttt{CSTR30} (Supplementary Table~\ref{tab:process-tts99}).
+Full enumeration therefore takes 10.18~s for \texttt{Small Batch}, 47.25~s for \texttt{Dynamic}, 137.24~s for \texttt{Column}, and 1,719.00~s for \texttt{CSTR30} (Table~\ref{tab:process-cases}).
+Table~\ref{tab:process-targets} gives the median completion times of the DFO methods.
 On \texttt{Small Batch}, the DFO medians of 3.49 to 9.09~s are close to the enumeration time, and on \texttt{Dynamic} at \(B=50\), \texttt{RBFOpt} and \texttt{MISO} need 65.14 and 195.36~s, more than enumerating all 72 configurations.
 On \texttt{CSTR30}, \texttt{MISO} and \texttt{RBFOpt} reach the target in ten and nine of ten runs with medians of 107.33 and 101.96~s, about one sixteenth of the enumeration time, while \texttt{NOMAD} and \texttt{D-SDA} reach four and three targets with medians of 71.23 and 47.17~s.
 
@@ -917,16 +963,12 @@ When the objective is the capital cost of each flowsheet at its optimized operat
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Lomustine}: target hits and median full-run completion times of the six DFO methods and uniform sampling at evaluation budgets \(B\) of 10, 15, and 20, with ten runs per method and budget.
-Target hits count the runs that reach the reference configuration, the best of the 36 simulated configurations (a PFR, a batch reactor, and the batch crystallizer, \(f_{\mathrm{ref}}=-487.842\)), within the tolerance of Equation~\eqref{eqn:target}.
-The completion time of a run adds its search time to the recorded wall time of the PharmaPy simulation-based optimization of each configuration it evaluates; the medians, in hours, are over all ten runs, including target misses.
-Evaluating all 36 configurations takes 5.3~h.
-Uniform: uniform sampling without replacement.
-Bold marks the most target hits and the shortest median completion time for each budget, including ties.}
+\caption{\texttt{Lomustine}: target hits and median full-run completion times of the six DFO methods and uniform sampling, with ten runs per method and budget.}
 \label{tab:lomustine}
-\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{@{}clccccccc@{}}\toprule
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{threeparttable}
+\begin{tabular}{@{}rlrrrrrrr@{}}\toprule
 \(B\) & & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFOpt} & \texttt{MISO} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform\\\midrule
 \multirow{2}{*}{10} & Target hits (of 10) & 1 & 6 & \textbf{8} & 7 & 0 & 2 & 2 \\
  & Median completion time (h) & 1.15 & \textbf{1.05} & 1.24 & 1.13 & 1.36 & 1.47 & 1.48 \\
@@ -936,7 +978,16 @@ Bold marks the most target hits and the shortest median completion time for each
 \midrule
 \multirow{2}{*}{20} & Target hits (of 10) & 4 & 6 & \textbf{10} & \textbf{10} & 6 & 7 & 5 \\
  & Median completion time (h) & 1.97 & \textbf{1.22} & 2.44 & 2.66 & 2.48 & 3.09 & 2.91 \\
-\bottomrule\end{tabular}
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item Target hits: runs that reach the reference configuration (a PFR, a batch reactor, and the batch crystallizer, \(f_{\mathrm{ref}}=-487.842\)), the best of the 36 simulated configurations, within the tolerance of Equation~\eqref{eqn:target}.
+Completion time: search time plus the recorded wall time of the PharmaPy simulation-based optimization of every evaluated configuration; medians are over all ten runs, including target misses.
+Evaluating all 36 configurations takes 5.3~h.
+\(B\): evaluation budget; Uniform: uniform sampling without replacement.
+Bold: most target hits and shortest median completion time for each budget, including ties.
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 % \david{flip rows and columns and have the best in each row (the budgets) highlighted}
 % Resolved: budgets as rows and methods as columns; bold marks the best entry of each row.
@@ -973,17 +1024,12 @@ The GDP evaluation used by the search methods solves only the equations of the s
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Catalytic Column}: target hits, gaps to the reference, and median full-run completion times of the six DFO methods and uniform sampling at evaluation budgets \(B\) of 25, 50, and 100, with ten runs per method and budget.
-Target hits count the runs that reach the reference design \((f_1,c_1,c_2,c_3,f_2,b)=(8,8,12,17,17,21)\), with \(f_{\mathrm{ref}}=24{,}895.55\)~\$/yr, within the tolerance of Equation~\eqref{eqn:target}.
-The gap of a run is its best objective minus \(f_{\mathrm{ref}}\), and zero if it reaches the reference.
-The completion time of a run adds its search time to the recorded \texttt{CONOPT} solve time of each configuration it evaluates.
-Gaps and completion times are medians over all ten runs, including target misses.
-Uniform: uniform sampling without replacement.
-Bold marks, for each budget, the most target hits when any run reaches the reference, the smallest median gap, and the shortest median completion time, including ties.}
+\caption{\texttt{Catalytic Column}: target hits, gaps to the reference, and median full-run completion times of the six DFO methods and uniform sampling, with ten runs per method and budget.}
 \label{tab:catdist}
-\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{@{}clccccccc@{}}\toprule
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{threeparttable}
+\begin{tabular}{@{}rlrrrrrrr@{}}\toprule
 \(B\) & & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFOpt} & \texttt{MISO} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform\\\midrule
 \multirow{3}{*}{25} & Target hits (of 10) & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
  & Median gap (\$/yr) & 1{,}720 & \textbf{843} & 1{,}970 & 1{,}140 & 1{,}170 & 1{,}900 & 1{,}400 \\
@@ -996,7 +1042,18 @@ Bold marks, for each budget, the most target hits when any run reaches the refer
 \multirow{3}{*}{100} & Target hits (of 10) & \textbf{3} & 0 & 1 & \textbf{3} & 0 & 0 & 0 \\
  & Median gap (\$/yr) & \textbf{1.29} & 30.4 & 417 & 34.5 & 1{,}170 & 1{,}020 & 1{,}120 \\
  & Median completion time (min) & 8.71 & 11.4 & 9.07 & 10.5 & 9.52 & 10.1 & \textbf{8.25} \\
-\bottomrule\end{tabular}
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item Target hits: runs that reach the reference design \((f_1,c_1,c_2,c_3,f_2,b)=(8,8,12,17,17,21)\), with \(f_{\mathrm{ref}}=24{,}895.55\)~\$/yr, within the tolerance of Equation~\eqref{eqn:target}.
+Gap: best objective of a run minus \(f_{\mathrm{ref}}\), zero for a run that reaches the reference.
+Completion time: search time plus the recorded \texttt{CONOPT} solve time of every evaluated configuration.
+Gaps and completion times are medians over all ten runs, including target misses.
+Solving all 54,159 admissible configurations of the search box would take about 119~h.
+\(B\): evaluation budget; Uniform: uniform sampling without replacement.
+Bold: most target hits when any run reaches the reference, smallest median gap, and shortest median completion time for each budget, including ties.
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 % \david{flip rows and columns and have the best in each row (the budgets) highlighted, maybe add the units inside of the table because it might be hard to read}
 % Resolved: budgets as rows with one row per measure and its unit; bold marks the best entry of each row.
@@ -1017,17 +1074,14 @@ By \(B=100\), the model-based search of \texttt{BAM} adds 23 hits over the prefi
 Excluding Xin-She Yang~3, whose target set covers 870 of the 961 lattice points, and Bohachevsky~2, which nearly duplicates Sum of Squares on the lattice, preserves this ordering.
 \begin{table}[htbp]
 \centering
-\caption{Grid-GDP: percentage of the 210 runs (21 test functions and ten seeds) that reach the reference target of Equation~\eqref{eqn:target}, at each evaluation budget \(B\), for the six DFO methods, uniform sampling without replacement (Uniform), and the \texttt{BAM}-prefix control, which evaluates the ten predetermined points of \texttt{BAM} after the three shared initial configurations and then samples uniformly (Section~\ref{sec:sampling-controls}).
-Each budget is a separate experiment, and the budget counts the three shared initial evaluations and repeated configurations.
-At \(B=10\), all 111 \texttt{BAM} hits precede its surrogate-guided selection: 11 occur at the shared initial configurations and 100 at two of its predetermined points.
-The \texttt{NOMAD} percentage at \(B=100\) includes 16 targets reached before a solver crash that recurred on every attempt.
-Bold marks the largest percentage in each row, including ties.
-% \david{last sentence does not belong to the caption and highlight the best in each row}
-% \albert{Moved the repository pointer to the text and bolded each row maximum, including ties.}
-}
+\caption{Grid-GDP: target hits of the six DFO methods, uniform sampling, and the \texttt{BAM}-prefix control at five evaluation budgets, as percentages of 210 runs.}
 \label{tab:grid-hits}
-\begin{tabular}{rcccccccc}\toprule
-\(B\) & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFOpt} & \texttt{MISO} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform & \shortstack{\texttt{BAM}-prefix\\control}\\\midrule
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{threeparttable}
+\begin{tabular}{@{}rrrrrrrrr@{}}\toprule
+ & \multicolumn{8}{c}{Target hits (\% of 210 runs)}\\\cmidrule(l){2-9}
+\(B\) & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFOpt} & \texttt{MISO} & \texttt{BAM} & \texttt{FMQA-SA} & Uniform & \makecell{\texttt{BAM}-prefix\\control}\\\midrule
 10 & 6.2 & 18.6 & 20.0 & 18.1 & \textbf{52.9} & 7.6 & 6.7 & \textbf{52.9} \\
 30 & 37.1 & 52.9 & 61.9 & \textbf{67.1} & 54.8 & 22.4 & 11.9 & 54.8 \\
 50 & 43.3 & 59.0 & \textbf{73.3} & 70.0 & 57.6 & 36.2 & 13.8 & 56.7 \\
@@ -1035,6 +1089,16 @@ Bold marks the largest percentage in each row, including ties.
 100 & 48.1 & 60.0 & 81.4 & \textbf{86.2} & 70.0 & 61.4 & 21.4 & 59.0 \\
 \bottomrule
 \end{tabular}
+\begin{tablenotes}[flushleft]\footnotesize
+\item Target hits: runs that reach the reference target of Equation~\eqref{eqn:target}; the 210 runs are 21 test functions with ten seeds each.
+Each budget is a separate experiment, and the budget \(B\) counts the three shared initial evaluations and repeated configurations.
+\texttt{BAM}-prefix control: the ten predetermined points of \texttt{BAM} after the three shared initial configurations, then uniform sampling (Section~\ref{sec:sampling-controls}).
+Uniform: uniform sampling without replacement.
+At \(B=10\), all 111 \texttt{BAM} hits precede its surrogate-guided selection: 11 occur at the shared initial configurations and 100 at two of its predetermined points.
+The \texttt{NOMAD} percentage at \(B=100\) includes 16 targets reached before a solver crash that recurred on every attempt.
+Bold: largest percentage in each row, including ties.
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 
 \begin{figure}[htbp]
