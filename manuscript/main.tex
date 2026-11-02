@@ -439,7 +439,7 @@ The objective is the negative annual profit, in \$/yr, of a column whose bottoms
 With the configuration fixed, the model is an NLP with about 2,600 variables and 2,700 equations, which \texttt{CONOPT} 4.39.1~\citep{drud1994conopt} solves from the initialization of the published model.
 
 The search methods use the six gaps \(\mathbf g=(f_1-2,\;c_1-f_1,\;c_2-c_1-1,\;c_3-c_2-1,\;f_2-c_3,\;b-f_2)\in\{0,\ldots,6\}^6\) as external variables, so that every point of the box satisfies the order of the stages.
-The GDP admits 100,947 configurations, and the bound of six on each gap, which keeps every good design found in a pilot, leaves 54,159 of them in the box.
+The GDP admits 100,947 configurations, and the bound of six on each gap, which keeps every design of a pilot within 5\% of the pilot's best, leaves 54,159 of them in the box.
 Of the 117,649 points of this box, the 54,159 with \(\sum_i g_i\le 17\) are admissible; the others would place the boil-up return below the last internal stage and are charged to the budget without an NLP solve, like the logical rejections of \texttt{CSTR} and \texttt{Dynamic}.
 Unlike in the other process cases, no stored table of responses exists: each evaluation solves the NLP of its configuration when the configuration is first requested.
 Because these responses are deterministic, they are stored and reused when another run requests the same configuration, and each evaluation is charged the recorded solve time of its configuration.
@@ -579,7 +579,7 @@ With integer variables, \texttt{NOMAD} stops when its mesh reaches the integer r
 \texttt{NOMAD} 4.6.0 sometimes terminated with a segmentation fault after its last new evaluation.
 Such a run is repeated with larger evaluation caps, and a rerun is accepted only if it evaluates exactly the same configurations in the same order; 123 of the 1,190 runs completed this way.
 Twenty-one Grid runs at \(B=100\) crashed on every attempt after identical evaluations; they are scored on the evaluations completed before the crash, and 16 of them had already reached the target (Supplementary Section~\ref{sec:supp-nomad-miso}).
-The \texttt{Lomustine} harness repeats a crashed run once; 12 of its runs crashed on both attempts after identical evaluations and are scored in the same way (Supplementary Section~\ref{sec:supp-lomustine}).
+The \texttt{Lomustine} harness repeats a crashed run once; 12 runs of its option-order and capital-cost repetitions, none in the source order of Table~\ref{tab:lomustine}, crashed on both attempts after identical evaluations and are scored in the same way (Supplementary Section~\ref{sec:supp-lomustine}).
 
 \subsubsection{RBFOpt}
 \texttt{RBFOpt} uses MSRSM, automatic RBF selection, and the default genetic candidate-search option of version 4.3.0~\citep{costa2018rbfopt,nannicini2021implementation}.
@@ -855,7 +855,7 @@ Of the 96 misses over all methods and budgets, 41 end at this PFR--PFR configura
 
 In this case, an evaluation costs minutes of simulation, so the completion time is governed by the number of evaluations.
 Median search times stay below 13~s, whereas the median completion times with ten evaluations range from 1.0 to 1.5~h, compared with 5.3~h for evaluating all 36 configurations.
-\texttt{MISO}, whose search time per evaluation is the largest of any method on \texttt{Dynamic}, completes its ten-evaluation runs in a median of 1.13~h, about as fast as any method.
+Search adds less than 0.7~s per evaluation in every run, so the methods differ in completion time through the evaluations they choose; \texttt{MISO}, for example, completes its ten-evaluation runs in a median of 1.13~h, about as fast as any method.
 
 Because the order of the categorical alternatives is a convention, we repeated the 210 runs with five other orders, including the reversed order and an order by degree of back-mixing (Supplementary Section~\ref{sec:supp-lomustine}).
 The order changes the results of several methods.
@@ -887,7 +887,7 @@ Uniform & \makecell{2\\1.48} & \makecell{4\\2.11} & \makecell{5\\2.91} \\
 Table~\ref{tab:catdist} reports the \texttt{Catalytic Column} results.
 No method reaches the reference with 25 evaluations; with 100 evaluations, \texttt{D-SDA} and \texttt{MISO} reach it in three of ten runs and \texttt{RBFOpt} in one.
 Targets are rare because the 54,159 admissible configurations of the search box are more than 500 times the largest budget and the seven initial configurations are spread over the whole space.
-The eight best accepted designs share the ethanol feed and the first catalytic stage at stage 8, the butenes feed at the last catalytic stage, and the boil-up return at stage 20 or 21, so a run must first reach this region and then refine three stage positions within it.
+The eight best designs accepted in the campaign share the ethanol feed and the first catalytic stage at stage 8, the butenes feed at the last catalytic stage, and the boil-up return at stage 20 or 21, so a run must first reach this region and then refine three stage positions within it.
 
 Most runs that miss the reference with 100 evaluations end close to it.
 Nine of them, three of \texttt{D-SDA}, five of \texttt{NOMAD}, and one of \texttt{RBFOpt}, end at \((8,8,13,17,17,21)\), whose objective is 1.29~\$/yr (0.005\%) above the reference.
@@ -1100,7 +1100,7 @@ The wall-time advantage of searching fewer configurations grows with the cost of
 The authors acknowledge and express sincere gratitude to the Davidson School of Chemical Engineering at Purdue University for providing a supportive research environment and funding.
 
 \section*{Data and code availability}
-The code and data are available in the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/eebea680038b3e22442147c6f9128ea9970fca85}{Black-Box-for-GDP repository}~\citep{rbfoptTestArchive}.
+The code and data are available in the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/de6ab9395e5121f27db3b95844b1cd381264367d}{Black-Box-for-GDP repository}~\citep{rbfoptTestArchive}.
 Supplementary Section~\ref{sec:supp-data} identifies the archived inputs, including the CSTR updates, Column logical-domain runs, conventional GDP comparisons, \texttt{D-SDA} reruns, the \texttt{Lomustine} runs, and the \texttt{Catalytic Column} runs and MINLP comparisons.
 
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
