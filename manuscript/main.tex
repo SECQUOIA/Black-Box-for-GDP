@@ -68,17 +68,15 @@
 \maketitle
 
 \begin{abstract}
-Generalized disjunctive programming (GDP) describes process design alternatives with Boolean variables, disjunctions, and logical propositions, and fixing one configuration leaves a subproblem in the continuous decisions.
+Generalized disjunctive programming (GDP) describes process design alternatives with Boolean variables, disjunctions, and logical propositions, and fixing one configuration leaves a subproblem in the continuous variables.
 Conventional GDP methods reformulate the model as a mixed-integer nonlinear program (MINLP) or decompose it with logic-based algorithms; both need the equations of every alternative, which a process simulator does not expose, and MINLP reformulations of nonconvex process models can be intractable.
-The external-variable reformulation turns the choice of a configuration into an optimization over an integer lattice whose objective is the subproblem value, which derivative-free optimization (DFO) can search while the GDP model keeps describing the alternatives.
+The external-variable reformulation turns configuration choice into an optimization over an integer lattice whose objective is the subproblem value, which derivative-free optimization (DFO) can search while the GDP model continues describing the alternatives.
 We pair GDP models with surrogate DFO methods and the direct-search method NOMAD and compare them with discrete steepest descent (D-SDA), logic-based and MINLP solvers, and enumeration on nine process models, 21 test functions, a pharmaceutical flowsheet simulated in PharmaPy, and a catalytic distillation column with 100,947 configurations.
 On the largest reactor network, the surrogate methods MISO and RBFOpt reach the reference in nine or ten of ten runs with about 30 subproblem solves, whereas logic-based methods solve nearly one subproblem for each admissible configuration and most D-SDA descents end at one local minimum.
-On the flowsheet, where GDP solvers do not apply, RBFOpt and MISO find the best of 36 simulated configurations in every run with 20 evaluations.
-On the catalytic column, D-SDA and MISO reach the best known design with 100 evaluations, whereas MINLP solvers find no design within 15\% of it and global solvers return contradictory certificates.
-A GDP model can therefore be solved by derivative-free configuration search whenever its subproblems can be evaluated, including by simulation.
+In the flowsheet example, where GDP solvers do not apply, RBFOpt and MISO find the best of 36 simulated configurations in every run with 20 evaluations.
+For the catalytic column, D-SDA and MISO reach the best known design with 100 evaluations, whereas MINLP solvers find no design within 15\% of it and global solvers return contradictory certificates.
+A GDP model can therefore be solved by a derivative-free configuration search whenever its subproblems can be evaluated, including by simulation.
 This search pays off when the configuration space is too large to enumerate, has deceptive local minima, or has MINLP reformulations that fail, and enumeration or a direct reformulation is simpler for small algebraic models.
-% \david{Let's rewrite the abstract using https://imgv2-2-f.scribdassets.com/img/document/277786588/original/2a6edb71c4/1?v=1}
-% Rewritten following that structure: context, problem, approach, results, and their general meaning.
 \end{abstract}
 
 \noindent\textbf{Keywords:} Generalized disjunctive programming; Black-box optimization; Derivative-free optimization; Surrogate modeling; Process systems engineering; Computational benchmarking.
@@ -105,12 +103,13 @@ The GDP model still describes the alternatives, their logic, and the subproblem 
 LD-SDA explores the integer space through neighborhood search and discrete line search, evaluating selected configurations by solving their corresponding reduced optimization subproblems.
 However, as a local search method, LD-SDA may converge to different locally optimal solutions depending on the starting point and the selected neighborhood~\citep{peng2024dynamic}.
 
-Because the lattice search needs only configuration values, any derivative-free optimization (DFO) method can perform it, and the GDP model can then be solved even when its subproblems are simulations or its MINLP reformulations fail.
+\albert{Don't we have to limit the scope of the DFO which handles the integer lattice, instead of saying any?}
+Because the lattice search needs only configuration values, any derivative-free optimization (DFO) method can perform it, and the GDP model can be solved even when its subproblems are simulations or its MINLP reformulations fail.
 We pair GDP models in their external integer representation with DFO methods that search the configurations.
 Surrogate-based DFO uses accumulated objective observations to guide new evaluations~\citep{larson2019derivative}.
-RBFOpt builds radial basis function surrogates and balances predicted objective values with exploration~\citep{costa2018rbfopt}, and MISO combines radial basis function surrogates with sampling strategies designed for integer variables~\citep{muller2016miso}.
+RBFOpt builds surrogates for the radial basis function and balances predicted objective values with exploration~\citep{costa2018rbfopt}, and MISO combines surrogates for the radial basis function with sampling strategies designed for integer variables~\citep{muller2016miso}.
 The comparison also includes Branch-and-Model (BAM)~\citep{ma2023bam} and a variant of the factorization machine with quantum annealing (FMQA) framework~\citep{kitai2020designing}, in which classical simulated annealing replaces quantum annealing; we denote this variant FMQA-SA.
-FMQA represents its surrogate as a quadratic unconstrained binary optimization problem, the input format of quantum annealers, which makes it a candidate for quantum-assisted configuration search.
+FMQA represents its surrogate as a quadratic unconstrained binary optimization problem, the input format of quantum annealers, which makes it a candidate for a possibly quantum-assisted configuration search.
 We also include the mesh adaptive direct-search solver NOMAD~\citep{audet2022nomad}, which, with MISO, performed best on mixed-integer problems in the comparison of \citet{ploskas2022review}.
 We ask three questions.
 First, do these methods find high-quality configurations with fewer NLP subproblem solves than D-SDA and conventional GDP methods, and when does this advantage translate into shorter computing time?
@@ -119,14 +118,14 @@ Third, does it solve GDP models whose MINLP reformulations defeat conventional s
 
 Candidate selection has its own cost, and evaluation costs vary between configurations~\citep{more2009benchmarking}.
 We therefore report three measures for every method: how often it reaches the reference objective, how many NLP subproblems it solves, and its estimated completion time.
-Full enumeration of each configuration domain and uniform sampling serve as references, and all methods share initial configurations, evaluation budgets, and the responses of each configuration.
+The complete enumeration of each configuration domain and uniform sampling serve as references, and all methods share initial configurations, evaluation budgets, and the responses of each configuration.
 The contributions are as follows:
 \begin{itemize}
 \item A use of the external-variable reformulation as the interface between a GDP model and a derivative-free configuration search, extended to subproblems defined by a process simulator and demonstrated on a lomustine manufacturing flowsheet simulated in PharmaPy and written as a GDP.
 \item A comparison of surrogate-based and direct-search configuration methods with local descent, logic-based and direct GDP methods, and full enumeration on four process GDP families and 21 Grid test functions, measured by target attainment, NLP subproblems solved, and completion time.
-\item Evidence from execution records that the logic-based methods RIC and LOA solve one subproblem for each admissible configuration of most of these models, whereas surrogate search reaches near-optimal configurations with a small fraction of those subproblems.
-\item A benchmark with live NLP evaluations on a catalytic distillation column whose 100,947 configurations are too many to enumerate, together with valid Big-\(M\) and Hull reformulations of its GDP model, on which conventional MINLP solvers fail and global solvers return contradictory certificates.
-\item An analysis of the landscape features that determine when surrogate search outperforms local descent, with recommendations for choosing among enumeration, direct reformulation, local descent, and surrogate search.
+\item Evidence from execution records that the logic-based methods \david{never defined before} RIC and LOA solve one subproblem for each admissible configuration of most of these models, whereas surrogate search reaches near-optimal configurations with a small fraction of those subproblems.
+\item A benchmark with live NLP evaluations on a catalytic distillation column whose 100,947 configurations are too many to enumerate, together with valid Big-\(M\) and Hull reformulations of its GDP model, on which conventional MINLP solvers fail, and global solvers return contradictory certificates.
+\item An analysis of landscape features that determines when the surrogate search outperforms local descent, with recommendations for choosing between enumeration, direct reformulation, local descent, and surrogate search.
 \end{itemize}
 
 \section{Background}
@@ -306,13 +305,13 @@ New objective evaluations update the model.
 
 \subsubsection{MISO}
 MISO uses the radial basis function surrogate of Equation~\eqref{eqn:rbf.surrogate} but selects candidates with strategies designed for integer and mixed-integer variables~\citep{muller2016miso}.
-Its CPTV strategy first perturbs randomly chosen coordinates of the best configuration found and scores the candidates by surrogate value and distance to evaluated points, as MSRSM does.
-When this stage stops improving, it switches to a target-value step, which proposes the configuration at which the surrogate could attain a prescribed target value with the least added bumpiness.
+Its CPTV strategy first perturbs randomly chosen coordinates of the best configuration found and scores the candidates by surrogate value and distance to the evaluated points, as MSRSM does.
+When this stage stops improving, it switches to a target value step, which proposes the configuration at which the surrogate could attain a prescribed target value with the least added bumpiness.
 
 \subsubsection{NOMAD}
 NOMAD implements mesh adaptive direct search (MADS)~\citep{audet2022nomad}.
 Each poll evaluates trial points on a mesh around the incumbent, and the mesh is refined after unsuccessful polls and coarsened after successful ones; for integer variables, it cannot become finer than the integer spacing~\citep{abramson2009mads}.
-By default, NOMAD~4 complements the poll with search steps based on local quadratic models, but it keeps no global surrogate of the objective.
+By default, NOMAD~4 complements the poll with search steps based on local quadratic models, but it does not retain a global surrogate of the objective.
 
 \section{Experimental Methods}
 \label{sec:methodology}\label{sec:cases}
@@ -321,7 +320,6 @@ By default, NOMAD~4 complements the poll with search steps based on local quadra
 \label{sec:process-cases}
 The process benchmarks include a CSTR network~\citep{linan2020optimal}, a 17-stage distillation column~\citep{ghouse2018comparative}, and a small batch plant~\citep{kocis1988global}.
 We use their GDP formulations reported by \citet{ovalle2025logic}, and the nine-stage nonlinear mode-switching model of \citet{peng2024dynamic}.
-% \david{This is the citation of the GDP reformulation of the problems, but above add the citation of the original problems}
 Their objectives minimize the total reactor volume (\texttt{CSTR}), condenser and reboiler duties, plus the active tray cost (\texttt{Column}), the investment cost (\texttt{Small Batch}), and the negative integral of the squared state (\texttt{Dynamic}).
 The external variables represent the reactor/feed cutoff and recycle location (\texttt{CSTR}), reflux and boilup positions (\texttt{Column}), parallel unit counts (\texttt{Small Batch}), and final stages of modes 1 and 2 (\texttt{Dynamic}).
 For these process benchmarks, fixing the external choices leaves only continuous variables, so the resulting subproblems are NLPs.
@@ -331,7 +329,6 @@ We denote each \texttt{CSTR} instance by its size parameter \(N\), such as \text
 The reference configurations in external variable coordinates are \((N,N)\) for \texttt{CSTR}, \((13,4)\) for \texttt{Column} (physical trays \((14,5)\)), \((2,2,1)\) for \texttt{Small Batch}, and \((1,4)\) for \texttt{Dynamic}.
 The full GDP formulations of the \texttt{CSTR}, \texttt{Column}, and \texttt{Small Batch} benchmarks are provided in Appendices A.1-A.3 of \citet{ovalle2025logic}, respectively, while the \texttt{Dynamic} formulation is described in Section IV.C of \citet{peng2024dynamic}.
 External-variable mappings for the three design cases are provided in Appendices B.1, B.2, and B.4 of \citet{ovalle2025logic}.
-% \david{At least say the section (I believe it was the appendices of the paper with Ovalle)}.
 The \texttt{CSTR} volume is reported in liters and the \texttt{Small Batch} investment in the source model's dollars.
 The \texttt{Column} uses the source model's weighted cost proxy based on duties and active trays.
 The model sizes and unit conventions are given in the Supplementary Section~\ref{sec:supp-models} (Table~\ref{tab:supp-model-sizes}).
@@ -339,7 +336,7 @@ The model sizes and unit conventions are given in the Supplementary Section~\ref
 Minimizing its negative squared-state integral favors greater integrated state magnitude and tests mode sequencing coupled to dynamic equations.
 
 % \david{What is meant by coverage?}
-Table~\ref{tab:process-cases} summarizes the original GDP and DFO candidate domains, the number of configurations with \texttt{IPOPT}-accepted objective values, the number of configurations with measured evaluation times, and the evaluation budgets.
+Table~\ref{tab:process-cases} summarizes the original GDP and DFO candidate domains, the number of configurations with \texttt{IPOPT}-accepted \david{this is the first time IPOPT is mentioned, citation missing} objective values, the number of configurations with measured evaluation times, and the evaluation budgets.
 The process searches use frozen objective tables from fixed-configuration \texttt{IPOPT} evaluations; only accepted finite objectives are used as valid lookup objectives.
 The objective, acceptance status, and point cost are taken from the same recorded evaluation attempt for the same model, CSTR size, and external-variable tuple.
 Measured coverage includes all configurations in each DFO candidate box, including unsuccessful and structural-rejection evaluations.
@@ -350,11 +347,8 @@ Other cases use their full boxes.
 The \texttt{Column} bounds encode the reflux and boilup placement restrictions; algebraic constraints are still checked during configuration evaluation.
 All DFO methods use this box, and the \texttt{Column} conclusions apply only to it.
 For \texttt{CSTR}, recycle/feed ordering admits \(N(N+1)/2\) logical candidates, but not all yield objective values satisfying the solver acceptance criteria defined in Section~\ref{sec:protocol}.
-% \david{What is meant by an accepted solution?}
 The \texttt{CSTR} comparisons do not isolate scalability: evaluation budgets change with size.
-% \david{This notation is new (putting the total size next to CSTR). We need to introduce it}
 \texttt{Dynamic} admits only configurations with \(\xi_1<\xi_2\) or \((\xi_1,\xi_2)=(9,9)\), which leaves 37 logically admissible configurations.
-% \david{I think that if we are using the name of the instances, we should use /texttt for them as well}
 \texttt{Small Batch} uses all 27 configurations in \(\{1,2,3\}^{3}\), whose decisions count parallel mixer, reactor, and centrifuge units.
 Of these configurations, 15 are rejected during feasibility-based bound tightening (FBBT) preprocessing.
 
@@ -393,7 +387,7 @@ Model & \(N\) & Full GDP box & \makecell{Full box\\size} & \makecell{Finite\\loo
 
 \subsection{Simulation-based benchmark: lomustine manufacturing}
 \label{sec:lomustine-case}
-The \texttt{Lomustine} benchmark selects the flowsheet of a manufacturing process for the anticancer drug lomustine whose model is a PharmaPy simulation~\citep{casasorozco2021pharmapy,casasorozco2023techno}.
+The \texttt{Lomustine} benchmark selects the flowsheet of a manufacturing process for the anticancer drug lomustine, whose model is a PharmaPy simulation~\citep{casasorozco2021pharmapy,casasorozco2023techno}.
 The superstructure was introduced by \citet{laky2022superstructure}, related flowsheet synthesis frameworks are described by \citet{barhate2025hybrid}, and \citet{park2026ising} studied its discrete landscape with Ising-based solvers; we use the corrected-model data of \citet{secquoiaPdIsing}.
 The superstructure contains two reactors in series, each a batch reactor, a CSTR, or a PFR, followed by a batch vaporizer and a crystallizer that is either an unseeded batch cooling crystallizer or a train of one, two, or three mixed-suspension, mixed-product-removal (MSMPR) crystallizers.
 The external variables \(\xi_1\) and \(\xi_2\) select the two reactors in the order (batch, CSTR, PFR), and \(\xi_3\) selects the crystallizer in the order (batch, one, two, three MSMPR stages), which gives \(3\times3\times4=36\) configurations, all logically admissible.
@@ -460,9 +454,11 @@ These forms contain all 100,947 configurations of the GDP.
 The first is the MINLP form published with the D-SDA study, which multiplies the switched equations by binary variables~\citep{linan2020optimalII}.
 The other two are the Big-\(M\) and Hull reformulations that the \texttt{GAMS} extended mathematical programming framework~\citep{ferris2009emp} generates from a disjunctive form of the corrected model with one disjunction for each stage decision.
 Both reformulations are valid only after two modeling steps.
+\albert{Are the additional density bounds in Supplementary Section S6 also used in the GDP evaluations? If not, could we explain why they do not exclude feasible GDP solutions?}
 Each nonlinear equation of a disjunct defines a residual variable on every stage, so that every disjunct constraint is linear and the Hull reformulation never evaluates terms such as \(1/\rho_L\) at zero.
 Each disjunct constraint is also divided by an interval bound on its residual, so that \(M=1\) relaxes every constraint whose disjunct is inactive (Supplementary Section~\ref{sec:supp-catdist}).
-With the binary variables fixed, the Big-\(M\) and Hull reformulations reproduce the GDP objective at the six feasible configurations we tested, the published form reproduces it at four of them and reaches other local optima at the remaining two, and all forms agree that three other configurations are infeasible.
+With the binary variables fixed, the Big-\(M\) and Hull reformulations reproduce the GDP objective at the six feasible configurations we tested, the published form reproduces it at four of them and reaches other local optima at the remaining two, and all forms agree that three other configurations are locally infeasible.
+\albert{Added ``locally'' because the reported solver status does not prove that these configurations are infeasible.}
 
 \subsection{Controlled benchmark: Grid-GDP}
 \label{sec:grid-gdp-formulation}
@@ -521,12 +517,12 @@ This common design controls the first three evaluations; subsequent sampling, re
 All process cases use seeds 0-9, with no replacement of failed starts.
 
 Methods may terminate before exhausting \(B\); only Grid \texttt{D-SDA} receives the reference target as a stopping criterion.
-Detailed settings and worker time limits are provided in Supplementary Section~\ref{sec:supp-protocol}.
+Detailed settings and worker time limits are provided in the Supplementary Section~\ref{sec:supp-protocol}.
 Every objective evaluation consumes budget, including initialization, repeated configurations, and unaccepted evaluations; internal cache lookups that do not request an evaluation are free.
 Target attainment uses the recorded acceptance status and original objective values, while each method receives the following values for unaccepted evaluations.
 In all process cases, \texttt{D-SDA}, \texttt{RBFOpt}, \texttt{NOMAD}, and \texttt{MISO} assign a penalty of \(10^6\) to unaccepted evaluations.
 \texttt{BAM} represents these evaluations by \texttt{NaN}, indicating that no accepted objective value is available.
-For surrogate training, \texttt{FMQA-SA} scales accepted objective values to \([0,1]\) and assigns unaccepted evaluations a value of \(2\).
+For surrogate training, \texttt{FMQA-SA} scales the accepted objective values to \([0,1]\) and assigns the unaccepted evaluations a value of \(2\).
 
 
 \subsubsection{BAM}
@@ -534,13 +530,10 @@ For surrogate training, \texttt{FMQA-SA} scales accepted objective values to \([
 All external variables are integers.
 The three shared configurations and their responses are supplied without an additional starting point.
 The remaining evaluation budget is \(B-3\), with other settings at their defaults.
-% \david{Didn't you say that it was 1e6?}.
 On Grid-GDP, the next ten planned evaluations use a Sobol sequence, which distributes points across the domain, subject to the remaining budget.
-% \david{nobody knows what this is this far, this applies in general, if there is a term you don't know, don't assume the reader knows it}
 In the process experiments, \texttt{BAM} stops at its own evaluation limit after the \(B\)-th evaluation.
 
 \subsubsection{Budget-limited D-SDA} 
-% \david{This is my main complaint. D-SDA precedes LD-SDA and this is not our contribution.}}
 We use a budget-limited implementation of the previously developed \texttt{D-SDA}~\citep{linan2020optimal}, applying its neighborhood search and discrete line search over the GDP external integer lattice as in LD-SDA~\citep{ovalle2025logic}.
 It evaluates the unit \(L_\infty\) neighborhood in fixed enumeration order, selects the best improving neighbor, and continues along the resulting direction through a discrete line search; on the six-dimensional \texttt{Catalytic Column}, it uses the separable neighborhood instead (Section~\ref{sec:catdist-case}), and Supplementary Section~\ref{sec:supp-dsda-neighborhood} repeats every other \texttt{D-SDA} run with the separable neighborhood.
 Neighborhood and line-search moves require an absolute objective improvement greater than \(10^{-5}\).
@@ -604,14 +597,12 @@ It reaches the target by construction, because \(f_{\mathrm{ref}}\) is the best 
 All experiments were conducted on a server with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
 All optimization methods and numerical libraries were configured for single-threaded execution.
 The software environment included \texttt{Pyomo} 6.10.0~\citep{bynum2021pyomo}, \texttt{RBFOpt} 4.3.0, \texttt{BAM} 5.0.0, \texttt{PyTorch} 2.8.0~\citep{paszke2019pytorch}, and \texttt{SCIP} 9.2.4~\citep{bolusani2024scip}.
-% \david{Who cares about the historical runs? If they are not comparable, rerun them to make them comparable}
 We used the General Algebraic Modeling System (\texttt{GAMS}) 52.2.0~\citep{gams2025} to call \texttt{IPOPT} and \texttt{SCIP} in the process and Grid comparisons; the \texttt{Catalytic Column} used \texttt{GAMS} 54.3.1 (Section~\ref{sec:catdist-case}).
 ChatGPT and Codex (OpenAI), including GPT-6 Astra, and Claude Code (Anthropic), with Claude Opus 5.5, assisted in developing analysis, plotting, and experiment code.
 The authors reviewed the code and checked the generated tables and figures against the recorded experimental results.
 
 \paragraph{Fixed-disjunction NLP evaluations.}
 We fix the original Boolean GDP decisions and evaluate the resulting subproblems using \texttt{IPOPT} 3.14.19 with \texttt{MUMPS} 5.8.1~\citep{amestoy2001mumps}.
-% \david{Versions}.
 For the Grid-GDP benchmarks, all 20,181 configurations were evaluated individually, while the process benchmarks used fixed-configuration evaluations of the corresponding process models.
 \texttt{IPOPT} used a tolerance of \(10^{-8}\) and a solver time limit of 60~s per configuration.
 Process acceptance requires a finite objective, a maximum absolute violation of any constraint or variable bound not greater than \(10^{-5}\), and the accepted solver and termination statuses specified in the Supplementary Section~\ref{sec:supp-acceptance}.
@@ -625,6 +616,7 @@ Conventional comparisons include \texttt{GDPopt} RIC, GLOA, and LOA, as well as 
 Because fixing both Grid disjunctions also fixes \(x\) and \(y\), the Grid subproblems are solved as linear problems by \texttt{SCIP}, and \texttt{IPOPT} is not called in those runs.
 The Big-\(M\) and Hull reformulations are solved directly using \texttt{SCIP}.
 All conventional GDP methods use the original GDP domains, a time limit of 1,800~s per instance, and a relative optimality gap of \(10^{-5}\).
+\albert{I believe that the catalytic column took 3600s.}
 
 \subsection{Target attainment and cumulative success profiles}
 \label{sec:metrics}
@@ -637,6 +629,7 @@ A run reaches the reference target when
 \end{equation}
 For the process experiments, \(f_{\mathrm{ref}}\) is the lowest accepted objective value among the precomputed fixed-configuration NLP evaluations, so reaching the target means matching the best configuration that full enumeration of the stored responses would find.
 Runs that terminate with an execution failure are counted as unsuccessful, even if the target was observed earlier.
+\albert{Aren't NOMAD runs counted as successful if they reach the target before crashing?}
 For process runs, the reported solution is the best accepted configuration recorded within budget, including the final evaluation.
 Reported objectives and bounds use six significant figures; all target and bound checks use unrounded values.
 For the full-process-GDP comparison, a feasible objective at or below \(f_{\mathrm{ref}}+10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) counts as achievement, so solutions better than the reference are also included.
@@ -672,7 +665,7 @@ For a recorded lookup-based run with \(n\) objective evaluations and measured lo
   +\sum_{q=1}^{n}c(\boldsymbol\xi^{(q)})+t_{\mathrm{prep}}.
 \end{equation}
 Here, \(T_{\mathrm{recorded}}\) is the measured runtime of the search based on lookup, \(t_q^{\mathrm{lookup}}\) is the measured lookup-processing interval of its \(q\)th objective call, and \(\boldsymbol\xi^{(q)}\) is the external integer configuration evaluated in that call.
-The point cost \(c(\boldsymbol\xi^{(q)})\) is measured separately for the same benchmark model, problem size and configuration, including configuration-specific preparation, preprocessing, invocation of the solver when required and validation.
+The point cost \(c(\boldsymbol\xi^{(q)})\) is measured separately for the same benchmark model, problem size and configuration, including configuration-specific preparation, preprocessing, invocation of the solver when required, and validation.
 The term \(t_{\mathrm{prep}}\) accounts for the preparation of a single model that is not already included in the point costs.
 Search time includes surrogate fitting, candidate generation, auxiliary optimization, and recording performed within the method clock.
 Throughout this manuscript, full-run completion denotes completion of this recorded search stage with reconstructed evaluation costs, excluding final result extraction and export.
@@ -698,6 +691,7 @@ Full-process-GDP timings include model-template preparation.
 \paragraph{Statistical comparisons.}
 With ten seeds per process condition, we compare two methods with the two-sided exact McNemar test on their seed-paired target outcomes, and we call differences that this test does not resolve at the 0.05 level comparable (Supplementary Table~\ref{tab:supp-paired}).
 The tests are descriptive and not adjusted for multiple comparisons.
+\albert{Wasn't a Holm correction applied to the 70 comparisons involving NOMAD or MISO?}
 Grid comparisons use a percentile bootstrap that resamples the 21 functions (Supplementary Section~\ref{sec:supp-additional}).
 
 \section{Computational Results and Discussion}
@@ -743,10 +737,7 @@ For \texttt{RBFOpt}, they grow with the budget, from 0.06~s on \texttt{CSTR5} to
 Each cell lists target hits out of ten paired seeds, median search time, and [Q25, Q75] search time in seconds, from top to bottom.
 Search times exclude configuration-evaluation costs and summarize all ten seeds.
 The quartile ranges describe variability across seeds.
-Bold counts mark the largest number of target hits in each row, including ties.
-% \david{include median and interval search times (not accounting for NLP solutions) for each method}
-% \albert{Added median and [Q25, Q75] search times from the completed 700-run comparison, excluding NLP evaluation costs and retaining all ten seeds per condition.}
-% \claude{Added \texttt{NOMAD} and \texttt{MISO} from the audited Dantzig return (980 runs in total).}
+Bold counts mark the largest number of target hits in each row, including ties. \david{join first vertical axis as in Table 1, put in a single row the median and intervals, highlight the best in each row}
 }
 \label{tab:process-targets}
 \scriptsize
@@ -792,16 +783,9 @@ GLOA solves two to four subproblems per \texttt{CSTR} model and misses every \te
 Dots show successful DFO seeds, diamonds successful \texttt{GDPopt} runs, and crosses target misses; gray segments and ticks show Q25--Q75 and medians over the ten DFO seeds.
 The dashed line marks the subproblems needed to evaluate every configuration of the DFO domain, and the dotted line the evaluation budget \(B\).
 Logical and FBBT rejections are not counted as NLP solves.
-\texttt{GDPopt} searches the full \texttt{Column} box of 225 configurations, so its count can exceed the enumeration line of the 64-configuration DFO domain.
-Direct Big-\(M\) and Hull runs are omitted because their internal NLP counts are unavailable.}
+\texttt{GDPopt} searches the full \texttt{Column} box of 225 configurations, so its count can exceed the enumeration line of the 64-configuration DFO domain.}
 \label{fig:process-nlp}
 \end{figure}
-
-% \david{If the NLPs or times are comparable to the times in Figures 2 and 3, include them as a vertical bar to contextualize the result (vertical bar is equivalent to them having solved the problem). Units for time (s) are missing. Highlight the best result per row in bold. If the time limit is reached, then put the time as 1800+ (in some cases it is 1791 $\le$ 1800)}
-% \albert{Added the joint completion-time comparison to Figure 3 and moved the detailed table to the supplement, retaining all DFO seeds and single conventional observations.
-% Time units and bold row minima are shown; TL identifies limit terminations while preserving measured times rather than replacing them with 1800.
-% Removed duplicate supplementary panels and the unused cumulative time-profile definition.}
-% \claude{Figure~\ref{fig:process-nlp} now places the \texttt{GDPopt} NLP counts on the same axis as the DFO runs, with full enumeration as the vertical reference line; Table~\ref{tab:full-gdp} shows time-limited runs as 1800+.}
 
 \subsubsection{Completion time}
 In wall time, the advantage of fewer subproblem solves depends on how much each solve costs.
@@ -835,13 +819,9 @@ No conventional method reaches the \texttt{Column} target.
 % \albert{Replaced the fraction list with a prose summary of the updated results.}
 
 All six \texttt{CSTR} GLOA runs report \texttt{optimal} termination, yet none comes within the relative target tolerance of \(10^{-5}\) (Equation~\eqref{eqn:target}); their objectives exceed the references by 2.2\% on \texttt{CSTR5} and by 32\% on \texttt{CSTR30}.
-% \david{help the reader, remind them what this means and the epsilon it represents}
-% \albert{Stated the reference-target tolerance explicitly.}
 Their reported lower bounds exceed independently checked feasible objectives.
 An earlier configuration that used \texttt{SCIP} as a global solver for both master problems and subproblems returned the same six objectives within a relative difference of \(3\times10^{-5}\), so these misses do not come from the local NLP solver.
 Supplementary Section~\ref{sec:bound-audit} reports these and the other bound inconsistencies, which affect the interpretation of reported optimality but not the target counts.
-% \david{Why would a reader know that Dantzig is a computer? SInce we refer to all computational results from that computer, you can just avoid mentioning its name}
-% \albert{Removed the machine name.}
 
 \subsection{Simulation-based lomustine case}
 \label{sec:lomustine-results}
@@ -866,7 +846,7 @@ When the objective is the capital cost of each flowsheet at its optimized operat
 \centering
 \caption{\texttt{Lomustine}: runs out of ten that reach the reference configuration (top) and median full-run completion time in hours (bottom), including target misses.
 Bold counts mark the largest number of hits for each budget, including ties.
-Each evaluation is charged the recorded wall time of the PharmaPy simulation-based optimization of its configuration.}
+Each evaluation is charged the recorded wall time of the PharmaPy simulation-based optimization of its configuration. \david{flip rows and columns and have the best in each row (the budgets) highlighted}}
 \label{tab:lomustine}
 \small
 \begin{tabular}{@{}lccc@{}}\toprule
@@ -915,7 +895,7 @@ The GDP evaluation used by the search methods solves only the equations of the s
 \centering
 \caption{\texttt{Catalytic Column}: runs out of ten that reach the reference configuration (top), median gap to the reference in \$/yr (middle), and median full-run completion time in minutes (bottom), including target misses.
 Bold counts mark the largest positive number of hits for each budget, including ties.
-Each evaluation is charged the recorded \texttt{CONOPT} solve time of its configuration.}
+Each evaluation is charged the recorded \texttt{CONOPT} solve time of its configuration.  \david{flip rows and columns and have the best in each row (the budgets) highlighted, maybe add the units inside of the table because it might be hard to read}}
 \label{tab:catdist}
 \small
 \begin{tabular}{@{}lccc@{}}\toprule
@@ -975,8 +955,6 @@ Each curve includes all 210 runs; initial and repeated evaluations count, and ta
 The dashed line marks the three shared initial evaluations.
 Uniform sampling and the \texttt{BAM}-prefix control are defined in Section~\ref{sec:sampling-controls}.
 \texttt{BAM} rises early, while \texttt{MISO} reaches the largest final fraction at 100 evaluations, followed by \texttt{RBFOpt}.
-% \david{You cannot differetiate BAM and BAM prefix. I believe this color scheme is not colorblind friendly}
-% \albert{Distinguished BAM and its prefix control by solid versus dash-dot lines, filled versus open markers, and green versus black; curve values are unchanged.}
 }
 \label{fig:grid-profiles}
 \end{figure}
@@ -1004,8 +982,6 @@ With only 29 and 12 accepted configurations and budgets of 13 and 10 evaluations
 \texttt{MISO} nevertheless reaches all ten \texttt{Column} targets; in the nine runs whose initial design does not contain the target, it finds it between the 7th and 11th of its 13 evaluations.
 On Grid-GDP, the early lead of \texttt{BAM} reflects the symmetry of the test functions with respect to its initial design, and \texttt{FMQA-SA} improves on uniform sampling there, but in the small process domains, where more than half of its proposals come from its uniform fallback, it reaches only five more targets than uniform sampling (42 against 37 of 140).
 From \(B=30\) onward, the two radial-basis-function methods, \texttt{MISO} and \texttt{RBFOpt}, reach the most Grid targets.
-% \david{Provide more details here: why do some instances benefit some solvers? What's the hidden structure?}
-% \albert{Added evidence from the saved records on Grid target locations, CSTR30 local stopping, and Column improvement paths.}
 
 The methods also use additional evaluations differently.
 \texttt{D-SDA} terminates when its descents reach configurations without an improving neighbor, and \texttt{NOMAD} when its mesh reaches the integer resolution, so additional budget helps them only until then.
@@ -1050,6 +1026,8 @@ The \texttt{Catalytic Column} tests the search where enumeration is impractical 
 With 100 evaluations, 0.2\% of the configurations in the search box, the median runs of \texttt{D-SDA}, \texttt{MISO}, and \texttt{NOMAD} end within 0.14\% of the best known design, and local descent is competitive with the surrogate methods here because the good designs form one region: six of the ten \texttt{D-SDA} descents end at the reference or one stage from it.
 Within that region, the external variables and the neighborhood decide which designs are neighbors: in the gap coordinates, the runner-up and the reference are two coordinates apart although they differ in one stage, so the separable neighborhood stops local descent 1.29~\$/yr short of the reference, as the order of categorical alternatives changed the results of \texttt{Lomustine}.
 The MINLP forms of the same model keep the equations of every possible stage and catalyst position, and terms that are harmless in a solved configuration, such as reaction rates on stages without catalyst and hydraulics with vanishing flows, make their relaxations so poorly scaled that local solvers stop without a feasible design and global solvers certify inconsistent bounds.
+\albert{Wasn't the domain-violation limit reported only for SBB?
+Could the other solvers have struggled with the size and complexity of the full MINLP, rather than failed for the same reason?}
 Reported bounds were also unreliable in the process models, where GLOA terminated as optimal on every \texttt{CSTR} network while missing the reference by 2.2 to 32\%.
 The GDP model avoids these terms because each evaluation contains only the equations of the selected configuration, so the external-variable representation lets a black-box method optimize a model that its direct MINLP reformulations cannot solve reliably.
 
@@ -1063,7 +1041,8 @@ The \texttt{NOMAD} and \texttt{MISO} search times were measured in a later campa
 This study used GDP to model process design alternatives and derivative-free methods to search their configurations, connected by the external-variable reformulation, and compared this pairing with local descent, logic-based and MINLP solvers, and full enumeration.
 The experiments lead to five conclusions.
 
-First, the pairing solves GDP models that conventional methods cannot.
+First, the pairing solves GDP models that conventional methods are inapplicable to or fail to find solutions.
+\albert{Replaced ``cannot'' to limit the claim to inapplicability or failure in the reported experiments.}
 On the \texttt{Lomustine} flowsheet, whose unit models are simulations, \texttt{RBFOpt} and \texttt{MISO} found the best of 36 configurations in every run with 20 evaluations.
 On the \texttt{Catalytic Column}, \texttt{D-SDA} and \texttt{MISO} reached the best known design in three of ten runs with 100 of the 54,159 configurations in its search box, whereas no MINLP solver came within 15\% of it on the published, Big-\(M\), or Hull formulations.
 These formulations keep the equations of absent stages and catalyst, while each GDP evaluation contains only the equations of the selected configuration.
@@ -1073,7 +1052,8 @@ On \texttt{CSTR5} through \texttt{CSTR20} and on \texttt{Dynamic}, RIC and LOA s
 
 Third, the benefit over local descent depends on the landscape.
 On \texttt{CSTR}, most \texttt{D-SDA} descents end at one local minimum whose gap to the reference grows with the network size, and restarts add a single target; the direct search of \texttt{NOMAD} ends at the same configuration in 32 of its 33 misses on the larger networks.
-\texttt{RBFOpt} and \texttt{MISO}, which interpolate all observations with radial basis functions, escape it in 45 and 43 of 60 runs.
+\texttt{RBFOpt} and \texttt{MISO}, which interpolate all observations with radial basis functions, reached the target in 45 and 43 of 60 runs.
+\albert{Replaced ``escape it'' with ``reached the target'' because these counts report target hits, not confirmed escapes from the local minimum.}
 On the two smallest design models, \texttt{D-SDA} and \texttt{RBFOpt} perform comparably, and \texttt{MISO} reached all ten \texttt{Column} targets.
 On the \texttt{Catalytic Column}, where the good designs form one region, \texttt{D-SDA} and \texttt{MISO} reached the best known design equally often, and the choice of external variables and neighborhood, which decides which designs are neighbors, kept other runs 1.29~\$/yr short of it.
 
@@ -1086,6 +1066,7 @@ Reporting only exact target attainment can therefore hide reliable near-optimal 
 Fifth, more search per evaluation can buy targets, but its value depends on the cost of an evaluation.
 \texttt{MISO} reached the most targets overall, 181 of 210 on Grid at \(B=100\) and 120 of 140 in the process conditions, against 171 and 114 for \texttt{RBFOpt}, but on \texttt{Dynamic} at \(B=50\) its model refits made it three times slower than \texttt{RBFOpt}.
 \texttt{NOMAD} and \texttt{D-SDA}, in contrast, stop at local optima and leave budget unused.
+\albert{Is ``local optima'' shorthand for the stopping conditions here, since NOMAD stops at the integer mesh resolution?}
 
 For future GDP instances, these results suggest enumerating the configurations or solving a direct Big-\(M\) or Hull reformulation when the model is small, as for Grid-GDP and \texttt{Small Batch}.
 When the configuration space is too large to enumerate and contains large basins of local minima, as for the larger \texttt{CSTR} networks, surrogate-based configuration search with radial basis functions reaches good solutions with a small fraction of the subproblem solves; \texttt{MISO} is preferable when evaluations are expensive relative to its search overhead, and \texttt{RBFOpt} when they are cheap.
