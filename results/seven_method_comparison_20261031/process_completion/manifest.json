@@ -11,8 +11,8 @@
     "results/pr56_dantzig_return_20261031/analysis/individual_new_runs.csv": "1a85b6490c5a28f62f5b672e5cbfb5a2bea0517c07e4ebd230dea3e87bde491d"
   },
   "source_sha256": {
-    "review_comparison/joint_process_main.py": "62526450d68b611065659e705905a16af8bdee8c137a47e3807a4cf8536425b5",
-    "review_comparison/joint_process.py": "06eff66bafe3bb3411021441204b45744ce6ed69111f6e926630d910fc89edfe",
+    "review_comparison/joint_process_main.py": "37853625a67b3b127e38917042944f5f56c6372e53b1f678949084d6c78188b9",
+    "review_comparison/joint_process.py": "c68060fa3e6d94ed35fcab6768ef9ca42abca8f589f10d0f7870aa29ed971b93",
     "review_comparison/joint_process_ipopt.py": "302e3be5f2eced60dc5e197c7470d6759012f0f1c6d4e30aed2542196e63b0a2",
     "review_comparison/mi_dfo_runs.py": "9c528ab079c0b605f96a42a45704590f80eda0235ea526d275186dc33c3b784a",
     "review_comparison/dsda_no_revisit_runs.py": "11051338746525fa9d7e1d78fe9757ef22d8ca23ea9c19ec7b8ac2f5b8371b71"
@@ -55,8 +55,8 @@
   "reproduce": "python -m review_comparison.joint_process_main --output /tmp/joint-process-main",
   "output_sha256": {
     "README.md": "e2748b9dd54b801f4b304731b738e3e7f7d57533657ac180f6cfb73c8056e0ed",
-    "process_joint_completion.pdf": "82b48a6031ddd16a42acebc8654cbbaff9f9fd8ddc54323ebe013b423b8921e0",
-    "process_joint_completion.png": "ae6885f72f985060c051a78711e2857ea4ce44fe86c7550cc0dd6e34bf09198c",
-    "selected_runs.csv": "0a7e14bd7f340f45afef12dc669d16d249d14344cde95b399eb49b0c3714faa6"
+    "process_joint_completion.pdf": "9182bf6cf51a4bd49291fe1baad3df845de1db0da9bc185ab9cb224a3cc97472",
+    "process_joint_completion.png": "38fa86a2e32870fe2f5cb9d134b99a4fbadb9d8d80d79b9faa6667d435cbab38",
+    "selected_runs.csv": "c8cf694b44df2a55d63357069f1c61d3d68415c93196c9316c8914863e4798d8"
   }
 }
