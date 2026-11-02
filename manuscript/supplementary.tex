@@ -480,17 +480,17 @@ The reference is 24,895.55~\$/yr, and times are wall-clock times of the \texttt{
 \small
 \begin{tabular}{@{}llll@{}}\toprule
 Form & Solver & Outcome & Time (s)\\\midrule
-Published & \texttt{DICOPT} & no feasible design; every NLP subproblem infeasible, iteration limit & 638 \\
- & \texttt{SBB} & 28{,}717.22 at \((4,4,5,6,6,9)\) & 8 \\
- & \texttt{BARON} & declared infeasible & 74 \\
- & \texttt{SCIP} & declared infeasible & 5 \\
-Big-\(M\) & \texttt{DICOPT} & no feasible design; NLP subproblem failed & 1{,}247 \\
- & \texttt{SBB} & no feasible design; domain violation limit & 89 \\
- & \texttt{BARON} & declared infeasible & 158 \\
+Published & \texttt{DICOPT} & no feasible design; every NLP subproblem infeasible, iteration limit & 686 \\
+ & \texttt{SBB} & 28{,}717.22 at \((4,4,5,6,6,9)\) & 10 \\
+ & \texttt{BARON} & declared infeasible & 255 \\
+ & \texttt{SCIP} & declared infeasible & 9 \\
+Big-\(M\) & \texttt{DICOPT} & no feasible design; NLP subproblem failed & 902 \\
+ & \texttt{SBB} & no feasible design; domain violation limit & 38 \\
+ & \texttt{BARON} & declared infeasible & 214 \\
  & \texttt{SCIP} & no feasible design; lower bound \(-5.7\times10^{7}\) & 3{,}600+ \\
-Hull & \texttt{DICOPT} & no feasible design; NLP subproblem failed & 154 \\
- & \texttt{SBB} & no feasible design; domain violation limit & 123 \\
- & \texttt{BARON} & declared infeasible & 127 \\
+Hull & \texttt{DICOPT} & no feasible design; NLP subproblem failed & 211 \\
+ & \texttt{SBB} & no feasible design; domain violation limit & 130 \\
+ & \texttt{BARON} & declared infeasible & 362 \\
  & \texttt{SCIP} & no feasible design; lower bound \(-5.7\times10^{7}\) & 3{,}600+ \\
 \bottomrule\end{tabular}
 \end{table}
@@ -502,8 +502,8 @@ Hull & \texttt{DICOPT} & no feasible design; NLP subproblem failed & 154 \\
 \small
 \begin{tabular}{@{}lll@{}}\toprule
 Starting design & \texttt{SCIP} & \texttt{BARON}\\\midrule
-\((7,8,11,16,16,20)\) & optimal at 25,271.33 (22~s) & optimal at 25,271.33 (65~s)\\
-\((8,8,12,17,17,21)\) & optimal at 24,895.55 (12~s) & optimal at 24,895.55 (67~s)\\
+\((7,8,11,16,16,20)\) & optimal at 25,271.33 (8~s) & optimal at 25,271.33 (172~s)\\
+\((8,8,12,17,17,21)\) & optimal at 24,895.55 (10~s) & optimal at 24,895.55 (270~s)\\
 \bottomrule\end{tabular}
 \end{table}
 \FloatBarrier
@@ -580,7 +580,7 @@ The \texttt{NOMAD} and \texttt{MISO} runs were executed at \href{https://github.
 All \texttt{D-SDA} runs, including the restart variants, were rerun at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c186408728c6f95ac33a5465edd53035d85c5620}{source revision c186408}, where no configuration is evaluated twice; with re-evaluation switched back on, the same code reproduces all 1,190 published \texttt{D-SDA} runs exactly, and the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/f3b57ac44cccb27552b3a8618ce6abd463e540a4/results/dsda_no_revisit_20261031}{returned records} hold every run.
 The \texttt{Lomustine} case is \nolinkurl{experiments/lomustine_simulation}, which vendors the corrected-model table of \citet{secquoiaPdIsing} and runs the seven methods through the harness in \nolinkurl{experiments/catalytic_distillation_live}; the run records and analysis are in \nolinkurl{results/lomustine_simulation_20261031}.
 The \texttt{Catalytic Column} model and its review are in \nolinkurl{gdp_models/catalytic_distillation}, the live runs are \nolinkurl{experiments/catalytic_distillation_live}, and their returned records, with the original archive, its SHA-256 checksum, and an audit of every run, are in \nolinkurl{results/catalytic_distillation_live_20261101}.
-The MINLP forms, their generators, the fixed-configuration validation, and the solver runs are \nolinkurl{experiments/catalytic_distillation_minlp}, with results in \nolinkurl{results/catalytic_distillation_minlp_20261101}.
+The MINLP forms, their generators, the fixed-configuration validation, and the solver runs are \nolinkurl{experiments/catalytic_distillation_minlp}; the runs reported here are in \nolinkurl{results/catalytic_distillation_minlp_dantzig_20261101}, and an earlier run of the same experiments on a workstation with \texttt{GAMS} 54.2.2, in \nolinkurl{results/catalytic_distillation_minlp_20261101}, returned the same outcome for every solver, form, and configuration.
 The seven-method tables and figures are generated from these tables and the published records by \nolinkurl{review_comparison/seven_methods.py} and the \nolinkurl{review_comparison/joint_process_*.py} scripts, without new solver calls.
 
 \section{Feasibility and bound consistency of conventional GDP results}\label{sec:bound-audit}
@@ -953,6 +953,56 @@ Case & \(B\) & S & R & RR & S & R & S & R & RR & S & R & RR\\\midrule
 \FloatBarrier
 
 \clearpage
+\section{D-SDA neighborhood}\label{sec:supp-dsda-neighborhood}
+The process, Grid, and \texttt{Lomustine} \texttt{D-SDA} runs use the unit \(L_\infty\) neighborhood, whose \(3^d-1\) neighbors number 8 for \(d=2\) external variables and 26 for \(d=3\).
+The \texttt{Catalytic Column}, with \(d=6\) and 728 such neighbors, uses the separable neighborhood, which changes one external variable by \(\pm1\) and has at most \(2d\) neighbors.
+To test the effect of this choice, we repeated every \texttt{D-SDA} run on stored responses with the separable neighborhood and all other settings unchanged: the 1,050 Grid runs, the 140 single-descent process runs, and the 180 \texttt{Lomustine} runs in the six option orders of Section~\ref{sec:supp-lomustine}.
+Table~\ref{tab:supp-dsda-neighborhood} pairs each run with its \(L_\infty\) counterpart.
+
+The separable neighborhood reaches more targets when the budget is small compared with the \(L_\infty\) neighborhood: on Grid at \(B=10\) (22 against 13 of 210 runs, with 9 and 0 discordant runs, exact McNemar \(p=0.004\)), on \texttt{Dynamic} at \(B=12\) and 15 (16 against 10 of 20, \(p=0.031\)), and on \texttt{Lomustine} over the six orders (99 against 90 of 180, \(p=0.022\)).
+Its descents also stop earlier: from \(B=50\), the Grid runs end after a median of 25 evaluations in place of 37, and they reach 88 targets against 101 at \(B=70\) and 100 (\(p=0.011\)).
+On \texttt{CSTR}, the separable neighborhood reaches 7 of the 60 targets against 16 (\(p=0.004\)).
+Eighteen of its 53 misses stop on the edge \(\xi_1=\xi_2\) of the admissible region, where every one-coordinate move leaves the region or worsens the objective, whereas a diagonal move continues along the edge to the target at \((N,N)\).
+Over the 140 process runs, the two neighborhoods reach 79 and 78 targets.
+Neither neighborhood dominates: the \(L_\infty\) neighborhood suits two external variables with budgets that cover its eight neighbors, and the separable neighborhood suits more external variables or smaller budgets.
+
+\begin{table}[htbp]
+\centering
+\caption{Target hits of \texttt{D-SDA} with the unit \(L_\infty\) and the separable neighborhoods, the runs that only one of them solves, and the median number of evaluations.
+Each process row has ten paired runs.
+Bold counts mark the larger number of hits.}
+\label{tab:supp-dsda-neighborhood}
+\scriptsize
+\begin{tabular}{@{}llrrrrrr@{}}\toprule
+Case & \(B\) & \(L_\infty\) & Separable & Separable only & \(L_\infty\) only & \makecell{Median evals\\\(L_\infty\)} & \makecell{Median evals\\separable} \\\midrule
+Grid (210 runs) & 10 & 13 & \textbf{22} & 9 & 0 & 10 & 10 \\
+Grid (210 runs) & 30 & 78 & \textbf{79} & 14 & 13 & 30 & 25 \\
+Grid (210 runs) & 50 & \textbf{91} & 87 & 10 & 14 & 37 & 25 \\
+Grid (210 runs) & 70 & \textbf{101} & 88 & 5 & 18 & 37 & 25 \\
+Grid (210 runs) & 100 & \textbf{101} & 88 & 5 & 18 & 37 & 25 \\
+\midrule
+\texttt{Column} & 13 & 5 & \textbf{6} & 3 & 2 & 13 & 12 \\
+\texttt{CSTR5} & 8 & 2 & 2 & 0 & 0 & 8 & 8 \\
+\texttt{CSTR10} & 15 & \textbf{3} & 1 & 0 & 2 & 11.5 & 8 \\
+\texttt{CSTR15} & 22 & \textbf{2} & 1 & 0 & 1 & 15.5 & 10.5 \\
+\texttt{CSTR20} & 29 & \textbf{3} & 1 & 0 & 2 & 19 & 14 \\
+\texttt{CSTR25} & 36 & \textbf{3} & 1 & 0 & 2 & 23.5 & 15.5 \\
+\texttt{CSTR30} & 43 & \textbf{3} & 1 & 0 & 2 & 24.5 & 17 \\
+\texttt{Small Batch} & 10 & 8 & \textbf{9} & 2 & 1 & 10 & 10 \\
+\texttt{Dynamic} & 12 & 4 & \textbf{6} & 2 & 0 & 12 & 12 \\
+\texttt{Dynamic} & 15 & 6 & \textbf{10} & 4 & 0 & 15 & 13 \\
+\texttt{Dynamic} & 20 & 10 & 10 & 0 & 0 & 18 & 13 \\
+\texttt{Dynamic} & 30 & 10 & 10 & 0 & 0 & 18 & 13 \\
+\texttt{Dynamic} & 37 & 10 & 10 & 0 & 0 & 18 & 13 \\
+\texttt{Dynamic} & 50 & 10 & 10 & 0 & 0 & 18 & 13 \\
+\midrule
+\texttt{Lomustine}, six orders (60 runs) & 10 & 23 & \textbf{27} & 6 & 2 & 10 & 10 \\
+\texttt{Lomustine}, six orders (60 runs) & 15 & 32 & \textbf{36} & 4 & 0 & 15 & 11 \\
+\texttt{Lomustine}, six orders (60 runs) & 20 & 35 & \textbf{36} & 1 & 0 & 19 & 11 \\
+\bottomrule\end{tabular}
+\end{table}
+\FloatBarrier
+
 \section{Joint comparison with conventional GDP methods}
 \label{sec:supp-joint-comparison}
 Figure~\ref{fig:joint-remaining-completion} compares the eight process conditions not shown in the main joint completion-time figure.

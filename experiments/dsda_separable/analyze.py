@@ -93,8 +93,14 @@ def group_by(pairs, key):
 
 
 def table(conditions):
+    def bold(x, y):
+        if x > y:
+            return f"\\textbf{{{x}}}", str(y)
+        if y > x:
+            return str(x), f"\\textbf{{{y}}}"
+        return str(x), str(y)
+
     def row(label, c):
-        bold = lambda x, y: (f"\\textbf{{{x}}}", str(y)) if x > y else (str(x), f"\\textbf{{{y}}}") if y > x else (str(x), str(y))
         linf, sep = bold(c["hits_linf"], c["hits_separable"])
         return (f"{label} & {linf} & {sep} & {c['separable_only']} & {c['linf_only']} & {c['median_evaluations_linf']:g} & "
                 f"{c['median_evaluations_separable']:g} \\\\")

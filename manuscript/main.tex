@@ -453,7 +453,7 @@ Because \texttt{D-SDA} moves in the gap coordinates, one move shifts every stage
 No global optimum is known, so the reference is the best accepted configuration found by any run or by a pilot of 202 configurations, \((f_1,c_1,c_2,c_3,f_2,b)=(8,8,12,17,17,21)\) with \(f_{\mathrm{ref}}=24{,}895.55\)~\$/yr, and the target rule is that of the process benchmarks.
 The 210 runs ran as three concurrent single-core jobs on the server described in Section~\ref{sec:protocol} with \texttt{GAMS} 54.3.1 and \texttt{CONOPT} 4.39.1.
 
-We also solved three MINLP forms of the column with \texttt{DICOPT}~\citep{viswanathan1990combined}, \texttt{SBB}~\citep{gamsSBB}, \texttt{BARON}~\citep{sahinidis1996baron}, and \texttt{SCIP}~\citep{bolusani2024scip} in \texttt{GAMS} 54.2.2, each on one core of an Intel Xeon w5-2565X workstation with a limit of 3,600~s, from the initialization and initial configuration of the published model.
+We also solved three MINLP forms of the column with \texttt{DICOPT}~\citep{viswanathan1990combined}, \texttt{SBB}~\citep{gamsSBB}, \texttt{BARON}~\citep{sahinidis1996baron}, and \texttt{SCIP}~\citep{bolusani2024scip} in \texttt{GAMS} 54.3.1, each on one core of the same server with a limit of 3,600~s, from the initialization and initial configuration of the published model.
 The first is the MINLP form published with the D-SDA study, which multiplies the switched equations by binary variables~\citep{linan2020optimalII}.
 The other two are the Big-\(M\) and Hull reformulations that the \texttt{GAMS} extended mathematical programming framework~\citep{ferris2009emp} generates from a disjunctive form of the corrected model with one disjunction for each stage decision.
 Both reformulations are valid only after two modeling steps.
@@ -539,7 +539,7 @@ In the process experiments, \texttt{BAM} stops at its own evaluation limit after
 \subsubsection{Budget-limited D-SDA} 
 % \david{This is my main complaint. D-SDA precedes LD-SDA and this is not our contribution.}}
 We use a budget-limited implementation of the previously developed \texttt{D-SDA}~\citep{linan2020optimal}, applying its neighborhood search and discrete line search over the GDP external integer lattice as in LD-SDA~\citep{ovalle2025logic}.
-It evaluates the unit \(L_\infty\) neighborhood in fixed enumeration order, selects the best improving neighbor, and continues along the resulting direction through a discrete line search; on the six-dimensional \texttt{Catalytic Column}, it uses the separable neighborhood instead (Section~\ref{sec:catdist-case}).
+It evaluates the unit \(L_\infty\) neighborhood in fixed enumeration order, selects the best improving neighbor, and continues along the resulting direction through a discrete line search; on the six-dimensional \texttt{Catalytic Column}, it uses the separable neighborhood instead (Section~\ref{sec:catdist-case}), and Supplementary Section~\ref{sec:supp-dsda-neighborhood} repeats every other \texttt{D-SDA} run with the separable neighborhood.
 Neighborhood and line-search moves require an absolute objective improvement greater than \(10^{-5}\).
 As in the original \texttt{D-SDA} and LD-SDA implementations, a configuration is never evaluated twice: when a neighbor or line-search point was already evaluated in the same run, including the shared initial configurations, \texttt{D-SDA} reuses its stored value, and no evaluation is charged.
 If the evaluation budget \(B\) is exhausted, the best solution found is retained.
@@ -597,7 +597,7 @@ It reaches the target by construction, because \(f_{\mathrm{ref}}\) is the best 
 \subsection{Execution environment and conventional GDP comparisons}
 % \david{This section is missing a lot of references for the software and notation for the solvers (\textttt)}
 \label{sec:protocol}
-Except for the MINLP solves of the \texttt{Catalytic Column} (Section~\ref{sec:catdist-case}), all experiments were conducted on a server with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
+All experiments were conducted on a server with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
 All optimization methods and numerical libraries were configured for single-threaded execution.
 The software environment included \texttt{Pyomo} 6.10.0~\citep{bynum2021pyomo}, \texttt{RBFOpt} 4.3.0, \texttt{BAM} 5.0.0, \texttt{PyTorch} 2.8.0~\citep{paszke2019pytorch}, and \texttt{SCIP} 9.2.4~\citep{bolusani2024scip}.
 % \david{Who cares about the historical runs? If they are not comparable, rerun them to make them comparable}
@@ -845,6 +845,7 @@ Table~\ref{tab:lomustine} reports the \texttt{Lomustine} results.
 \texttt{RBFOpt} and \texttt{MISO} reach the reference configuration in eight and seven of ten runs with ten evaluations and in all ten runs with 20, and their successful runs find it at a median of the fifth to sixth and the sixth to seventh evaluation.
 \texttt{NOMAD} reaches it in six runs at every budget because, when the budget allows more, it stops after a median of 12.5 evaluations.
 \texttt{D-SDA} reaches it once with ten evaluations: its unit \(L_\infty\) neighborhood in three dimensions contains up to 26 configurations, so ten evaluations do not complete the first neighborhood search.
+With the separable neighborhood, which has at most six neighbors, \texttt{D-SDA} reaches the reference in two, five, and five runs at the three budgets (Supplementary Section~\ref{sec:supp-dsda-neighborhood}).
 \texttt{BAM} misses every target with ten evaluations, and all ten of its runs end at the same PFR--PFR configuration, 11\% above the reference.
 Of the 96 misses over all methods and budgets, 41 end at this PFR--PFR configuration and 27 at the CSTR--batch configuration, 0.8\% above the reference.
 
@@ -897,9 +898,9 @@ With 100 evaluations, the median completion times range from 8.25~min for unifor
 Solving all admissible configurations would take about 119~h, so these runs evaluate 0.2\% of the configurations, and the median runs of \texttt{D-SDA}, \texttt{NOMAD}, and \texttt{MISO} end within 0.14\% of the reference.
 
 No MINLP solver reaches the reference or comes within 15\% of it (Supplementary Table~\ref{tab:supp-catdist-minlp}).
-On the published MINLP form, \texttt{SBB} stops after 8~s at \((4,4,5,6,6,9)\), next to the initial configuration and 15\% above the reference.
-\texttt{DICOPT} ends without a feasible design on all three forms after 154 to 1,247~s, and \texttt{SBB} finds none on the Big-\(M\) and Hull reformulations.
-\texttt{BARON} and \texttt{SCIP} declare the published form infeasible after 74 and 5~s, and \texttt{BARON} declares the Big-\(M\) and Hull reformulations infeasible after 158 and 127~s.
+On the published MINLP form, \texttt{SBB} stops after 10~s at \((4,4,5,6,6,9)\), next to the initial configuration and 15\% above the reference.
+\texttt{DICOPT} ends without a feasible design on all three forms after 211 to 902~s, and \texttt{SBB} finds none on the Big-\(M\) and Hull reformulations.
+\texttt{BARON} and \texttt{SCIP} declare the published form infeasible after 255 and 9~s, and \texttt{BARON} declares the Big-\(M\) and Hull reformulations infeasible after 214 and 362~s.
 \texttt{SCIP} finds no feasible design on the Big-\(M\) and Hull reformulations and stops at the 3,600~s time limit with a lower bound of \(-5.7\times10^{7}\)~\$/yr.
 These infeasibility claims are wrong: with the binary variables fixed at the reference design, \texttt{BARON} still declares both reformulations infeasible, although a \texttt{CONOPT} solution satisfies every constraint and bound of the Big-\(M\) reformulation within \(10^{-6}\).
 When started from a feasible design, both solvers instead certify that design as the global optimum of the published form, and they do so both for the design of the pilot, at 25,271.33~\$/yr, and for the reference, at 24,895.55~\$/yr, so the first certificate is contradicted by the second design.
@@ -1035,6 +1036,12 @@ Its ranking agrees with the \texttt{CSTR} and Grid results: the two radial-basis
 Because each evaluation costs minutes, the search overhead that slows \texttt{MISO} on \texttt{Dynamic} is negligible here.
 Unordered alternatives can still be encoded as external variables, but their order is then part of the problem the search sees: with 20 evaluations, only \texttt{RBFOpt} reached the reference in at least nine of ten runs in every order.
 
+The neighborhood of \texttt{D-SDA} trades the number of evaluations per step against the moves it can make.
+Repeating every stored-response \texttt{D-SDA} run with the separable neighborhood, which changes one external variable at a time, shows no overall winner (Supplementary Section~\ref{sec:supp-dsda-neighborhood}).
+The separable neighborhood reaches more targets when the budget barely covers the \(L_\infty\) neighborhood, as on Grid at \(B=10\) (22 against 13 of 210 runs) and on \texttt{Lomustine} (99 against 90 of 180 runs over the six orders).
+It reaches fewer when a descent must move diagonally: on \texttt{CSTR}, 7 against 16 of 60 runs, because 18 of its misses stop on the edge of the admissible region that leads to the target.
+The \(L_\infty\) neighborhood therefore suits two external variables with budgets that cover its eight neighbors, and the separable neighborhood suits more external variables or smaller budgets, which is why the \texttt{Catalytic Column} uses it.
+
 The \texttt{Catalytic Column} tests the search where enumeration is impractical and every evaluation is a live NLP solve.
 With 100 evaluations, 0.2\% of the admissible configurations, the median runs of \texttt{D-SDA}, \texttt{MISO}, and \texttt{NOMAD} end within 0.14\% of the best known design, and local descent is competitive with the surrogate methods here because the good designs form one region: six of the ten \texttt{D-SDA} descents end at the reference or one stage from it.
 Within that region, the external variables and the neighborhood decide which designs are neighbors: in the gap coordinates, the runner-up and the reference are two coordinates apart although they differ in one stage, so the separable neighborhood stops local descent 1.29~\$/yr short of the reference, as the order of categorical alternatives changed the results of \texttt{Lomustine}.
@@ -1078,6 +1085,7 @@ Fifth, more search per evaluation can buy targets, but its value depends on the 
 
 For future GDP instances, these results suggest enumerating the configurations or solving a direct Big-\(M\) or Hull reformulation when the model is small, as for Grid-GDP and \texttt{Small Batch}.
 When the configuration space is too large to enumerate and contains large basins of local minima, as for the larger \texttt{CSTR} networks, surrogate-based configuration search with radial basis functions reaches good solutions with a small fraction of the subproblem solves; \texttt{MISO} is preferable when evaluations are expensive relative to its search overhead, and \texttt{RBFOpt} when they are cheap.
+For local descent, the unit \(L_\infty\) neighborhood suits two external variables, and the separable neighborhood suits more variables or budgets smaller than the \(3^d-1\) neighbors of the \(L_\infty\) neighborhood.
 When the subproblems are simulations, or when the MINLP reformulations keep equations that are ill-defined for absent units, the GDP model is best solved by configuration search, which needs only the value of each configuration.
 Local descent then suffices when the good designs form one region, as in the \texttt{Catalytic Column}, and surrogate search is the safer choice when the landscape has several basins.
 The wall-time advantage of searching fewer configurations grows with the cost of each evaluation, so testing these expectations on live simulation-based subproblems, in which every evaluation runs the inner optimization, is the next step.
