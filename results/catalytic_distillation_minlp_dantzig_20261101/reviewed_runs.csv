@@ -1,0 +1,13 @@
+configuration,cpu,feasible_objective,finished_utc,form,maxfrac,modelstat,outcome,process_exit,raw_objective_difference,raw_zobj,solver,solvestat,started_utc,target_hit,wall_s,workstation_raw_zobj,workstation_wall_s
+"[4, 4, 5, 6, 6, 9]",31,,2026-11-01T21:57:02.269974+00:00,product,0.251196,9,solver_terminated_without_feasible_solution,0,0.0,28680.457608,dicopt,4,2026-11-01T21:45:35.825027+00:00,False,686.5,28680.457608,638.0
+"[4, 4, 5, 6, 6, 9]",32,28717.220843,2026-11-01T21:45:46.218215+00:00,product,0.0,8,feasible_solution_returned,0,0.0,28717.220843,sbb,1,2026-11-01T21:45:35.828264+00:00,False,10.4,28717.220843,8.2
+"[3, 4, 5, 6, 8, 9]",33,,2026-11-01T21:49:51.049379+00:00,product,0.0,19,reported_infeasible_no_solution,0,0.0,23671.19374,baron,1,2026-11-01T21:45:35.824355+00:00,False,255.3,23671.19374,73.6
+"[3, 4, 5, 6, 8, 9]",34,,2026-11-01T21:45:44.902247+00:00,product,0.0,19,reported_infeasible_no_solution,0,0.0,23671.19374,scip,1,2026-11-01T21:45:35.825835+00:00,False,9.1,23671.19374,5.3
+"[4, 12, 15, 17, 20, 20]",35,,2026-11-01T22:00:37.635289+00:00,bigm,0.0,9,solver_terminated_without_feasible_solution,0,-9.98377799987793e-07,-56644055.376813,dicopt,4,2026-11-01T21:45:35.834354+00:00,False,901.8,-56644055.376812,1246.7
+"[3, 4, 5, 6, 8, 9]",36,,2026-11-01T21:46:13.654693+00:00,bigm,0.0,14,evaluation_interrupt_without_feasible_solution,0,0.0,23671.19374,sbb,5,2026-11-01T21:45:35.830367+00:00,False,37.9,23671.19374,88.9
+"[3, 4, 5, 6, 8, 9]",37,,2026-11-01T21:49:10.270724+00:00,bigm,0.0,19,reported_infeasible_no_solution,0,0.0,23671.19374,baron,1,2026-11-01T21:45:35.832716+00:00,False,214.5,23671.19374,157.6
+"[3, 4, 5, 6, 8, 9]",38,,2026-11-01T22:45:36.826454+00:00,bigm,0.0,14,time_limit_without_feasible_solution,0,0.0,23671.19374,scip,3,2026-11-01T21:45:35.835628+00:00,False,3601.0,23671.19374,3602.4
+"[18, 18, 19, 20, 20, 21]",39,,2026-11-01T21:49:07.109647+00:00,chull,0.0,9,solver_terminated_without_feasible_solution,0,7.699988782405853e-05,-13144920.786558,dicopt,4,2026-11-01T21:45:35.825390+00:00,False,211.3,-13144920.786635,154.0
+"[3, 4, 5, 6, 8, 9]",40,,2026-11-01T21:47:46.074038+00:00,chull,0.0,14,evaluation_interrupt_without_feasible_solution,0,0.0,23671.19374,sbb,5,2026-11-01T21:45:35.826744+00:00,False,130.3,23671.19374,123.1
+"[3, 4, 5, 6, 8, 9]",41,,2026-11-01T21:51:38.167484+00:00,chull,0.0,19,reported_infeasible_no_solution,0,0.0,23671.19374,baron,1,2026-11-01T21:45:35.830160+00:00,False,362.4,23671.19374,126.7
+"[3, 4, 5, 6, 8, 9]",42,,2026-11-01T22:45:36.823917+00:00,chull,0.0,14,time_limit_without_feasible_solution,0,0.0,23671.19374,scip,3,2026-11-01T21:45:35.830637+00:00,False,3601.0,23671.19374,3602.1

@@ -1,0 +1,236 @@
+--- Job solve_emp.gms Start 11/01/26 16:45:36 54.3.1 61154be4 LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/54.3/gmsprmun.txt
+--- GAMS Parameters defined
+    Input /local/scratch/a/lee4382/m54_2hwupl6j/src/gdp_models/catalytic_distillation/solve_emp.gms
+    ScrDir /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/225a/
+    SysDir /package/gams/54.3/
+    CurDir /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/
+    LogOption 3
+    AppendLog 1
+    --model /local/scratch/a/lee4382/m54_2hwupl6j/src/gdp_models/catalytic_distillation/emp_model_corrected.gms
+    --reform chull
+    --init /local/scratch/a/lee4382/m54_2hwupl6j/src/gdp_models/catalytic_distillation/init
+    --solver scip
+    --reslim 3600
+    --out /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/result.txt
+    --gdx /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/solution.gdx
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          225a/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:45291 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 54.3.1   Copyright (C) 1987-2026 GAMS Development. All rights reserved
+--- Starting compilation
+--- solve_emp.gms(37) 2 Mb
+--- > emp_model_corrected.gms(1574) 3 Mb
+--- solve_emp.gms(38) 3 Mb
+--- > emp_scales.gms(2203) 3 Mb
+--- solve_emp.gms(126) 3 Mb
+--- $echo File /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/jams.opt
+--- solve_emp.gms(157) 3 Mb
+--- Starting execution: elapsed 0:00:00.012
+--- solve_emp.gms(3815) 4 Mb
+--- GDXin=/local/scratch/a/lee4382/m54_2hwupl6j/src/gdp_models/catalytic_distillation/init.gdx
+--- solve_emp.gms(3815) 5 Mb
+--- 173 symbol(s) loaded implicitly
+--- GDX File (execute_load) /local/scratch/a/lee4382/m54_2hwupl6j/src/gdp_models/catalytic_distillation/init.gdx
+--- solve_emp.gms(3890) 5 Mb
+--- Generating EMP model DSDA
+--- solve_emp.gms(3891) 8 Mb
+---   5,023 rows  3,454 columns  19,657 non-zeroes
+---   64,071 nl-code  11,785 nl-non-zeroes
+---   102 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.000E-01, 1.148E+05] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E-12, 1.000E+09] - Zero values observed as well
+--- Matrix    [min, max] : [ 7.462E-10, 1.276E+18] - Zero values observed as well
+--- solve_emp.gms(3891) 6 Mb
+--- Executing JAMS (Solvelink=2): elapsed 0:00:00.047
+
+JAMS 1.0         54.3.1 61154be4 Aug 21, 2026          LEG x86 64bit/Linux    
+
+JAMS - Solver for Extended Mathematical Programs (EMP)
+------------------------------------------------------
+
+--- Using Option File
+Reading parameter(s) from "/local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/jams.opt"
+>>  SubSolver scip
+>>  FileName reformulated_chull.gms
+Finished reading from "/local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/jams.opt"
+
+--- EMP Summary
+    Logical Constraints = 0
+    Disjunctions        = 100
+    Adjusted Constraint = 0
+    Flipped Constraints = 0
+    Dual Variable Maps  = 0
+    Dual Equation Maps  = 0
+    VI Functions        = 0
+    QVI Parameters      = 0
+    Equilibrium Agent   = 0
+    Bilevel Followers   = 0
+
+--- Writing JAMS      : reformulated_chull.gms
+--- The model reformulated_chull.gms will be solved by GAMS
+---
+--- Job reformulated_chull.gms Start 11/01/26 16:45:36 54.3.1 61154be4 LEX-LEG x86 64bit/Linux
+--- Applying:
+    /package/gams/54.3/gmsprmun.txt
+--- GAMS Parameters defined
+    LP CPLEX
+    MIP scip
+    RMIP CPLEX
+    NLP scip
+    MCP PATH
+    MPEC NLPEC
+    RMPEC NLPEC
+    CNS scip
+    DNLP scip
+    RMINLP scip
+    MINLP scip
+    QCP scip
+    MIQCP scip
+    RMIQCP scip
+    Input /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/reformulated_chull.gms
+    ScrDir /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/225b/
+    SysDir /package/gams/54.3/
+    LogOption 3
+    AppendLog 1
+    Suppress 1
+    SolverCntr /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/225a/empcntr.dat
+    SolverMatr /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/225a/empmatr.dat
+    SolverStat /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/225a/empstat.dat
+    SolverSolu /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/225a/empsolu.dat
+    License /local/scratch/a/lee4382/.local/share/GAMS/gamslice.txt
+    SolveLink 2
+    ProcDirPath /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip
+Licensee: David Bernal / SECQUOIA Research Group         G251008+0003Ac-GEN
+          Purdue University, Davidson School of Chemical EngineeringDCE4838
+          /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/225b/gamslice.dat
+          5a82958a-fbca-4a23
+          node:66820903 mem:995 cores:48 ipport:46813 v:2                  
+          Evaluation license: Not for commercial or production use
+          The time-limited license stops working on : Jun 30, 2027
+System information: 48 physical cores and 995 Gb physical memory detected
+GAMS 54.3.1   Copyright (C) 1987-2026 GAMS Development. All rights reserved
+--- Starting compilation
+--- reformulated_chull.gms(29827) 8 Mb
+--- Starting execution: elapsed 0:00:00.062
+--- reformulated_chull.gms(29826) 9 Mb
+--- Generating MINLP model m
+--- reformulated_chull.gms(29827) 13 Mb
+---   9,502 rows  5,534 columns  29,757 non-zeroes
+---   62,396 nl-code  11,785 nl-non-zeroes
+---   102 discrete-columns
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 4.283E-08, 1.148E+05] - Zero values observed as well
+--- Bound     [min, max] : [ 1.000E-12, 1.000E+09] - Zero values observed as well
+--- Matrix    [min, max] : [ 7.462E-10, 1.276E+18] - Zero values observed as well
+--- reformulated_chull.gms(29827) 11 Mb
+--- Executing SCIP (Solvelink=2): elapsed 0:00:00.120
+
+SCIP             54.3.1 61154be4 Aug 21, 2026          LEG x86 64bit/Linux    
+SCIP version 10.0.3 (d409edf9f6)
+Copyright (c) 2002-2026 Zuse Institute Berlin (ZIB)
+
+External libraries: 
+  CPLEX 22.1.2.0       Linear Programming Solver developed by IBM (www.cplex.com)
+  CppAD 20180000.0     Algorithmic Differentiation of C++ algorithms developed by B. Bell (github.com/coin-or/CppAD)
+  PaPILO 3.0.1         parallel presolve for integer and linear optimization (github.com/scipopt/papilo) (built with TBB) [GitHash: ac69a19d]
+  Nauty 2.8.9          Computing Graph Automorphism Groups by Brendan D. McKay (users.cecs.anu.edu.au/~bdm/nauty)
+  sassy 2.1            Symmetry preprocessor by Markus Anders (github.com/markusa4/sassy)
+  CONOPT 4.39.1        Feasible path solver for large-scale nonlinear problems (conopt.com)
+  Ipopt 3.14.19        Interior Point Optimizer developed by A. Waechter et.al. (github.com/coin-or/Ipopt)
+non-default parameter settings:
+limits/time = 3600
+misc/printreason = FALSE
+presolving/milp/threads = 0
+nlpi/ipopt/linear_solver = "ma27"
+nlpi/ipopt/linear_system_scaling = "mc19"
+
+original problem has 5534 variables (102 bin, 0 int, 5432 cont) and 9502 constraints
+
+Changing lower bound for child of log() from 0 to 1e-09.
+Check your model formulation or use option expr/log/minzerodistance to avoid this warning.
+Expression: log((0.00273103442689443*<t_x45>+0.00248529920350231*<t_x67>+0.00272555417388124*<t_x89>+0.00268*<t_x111>))
+Changing lower bound for child of pow(.,-1) from 0 to 1e-09.
+Check your model formulation or use option expr/pow/minzerodistance to avoid this warning.
+Expression: ((<t_x67>*<t_x1039>+<t_x45>*<t_x951>+<t_x89>*<t_x1127>+<t_x111>*<t_x1215>))^(-1)
+all 1 solutions given by solution candidate storage are infeasible
+
+presolving:
+(round 1, fast)       1722 del vars, 3880 del conss, 0 add conss, 8528 chg bounds, 1 chg sides, 20 chg coeffs, 0 upgd conss, 268 impls, 63 clqs, 0 implints
+(round 2, fast)       1723 del vars, 3889 del conss, 0 add conss, 10823 chg bounds, 58 chg sides, 117 chg coeffs, 0 upgd conss, 268 impls, 63 clqs, 0 implints
+(round 3, fast)       1723 del vars, 3889 del conss, 0 add conss, 10956 chg bounds, 114 chg sides, 222 chg coeffs, 0 upgd conss, 268 impls, 63 clqs, 0 implints
+(round 4, fast)       1723 del vars, 3889 del conss, 0 add conss, 10956 chg bounds, 120 chg sides, 234 chg coeffs, 0 upgd conss, 268 impls, 63 clqs, 0 implints
+(round 5, exhaustive) 1723 del vars, 4185 del conss, 0 add conss, 10956 chg bounds, 120 chg sides, 234 chg coeffs, 0 upgd conss, 268 impls, 63 clqs, 0 implints
+(round 6, fast)       1921 del vars, 4383 del conss, 0 add conss, 10956 chg bounds, 120 chg sides, 238 chg coeffs, 0 upgd conss, 268 impls, 63 clqs, 0 implints
+(round 7, exhaustive) 1921 del vars, 4619 del conss, 0 add conss, 10956 chg bounds, 120 chg sides, 238 chg coeffs, 0 upgd conss, 268 impls, 63 clqs, 0 implints
+(round 8, exhaustive) 1921 del vars, 4619 del conss, 0 add conss, 10956 chg bounds, 120 chg sides, 238 chg coeffs, 1951 upgd conss, 268 impls, 63 clqs, 0 implints
+(round 9, exhaustive) 1951 del vars, 4620 del conss, 0 add conss, 10987 chg bounds, 121 chg sides, 238 chg coeffs, 1951 upgd conss, 2282 impls, 69 clqs, 0 implints
+(round 10, fast)       1969 del vars, 4711 del conss, 0 add conss, 10987 chg bounds, 126 chg sides, 249 chg coeffs, 1951 upgd conss, 2285 impls, 68 clqs, 0 implints
+(round 11, exhaustive) 1999 del vars, 4711 del conss, 0 add conss, 11080 chg bounds, 126 chg sides, 249 chg coeffs, 1951 upgd conss, 6511 impls, 143 clqs, 0 implints
+(round 12, fast)       2017 del vars, 4802 del conss, 0 add conss, 11080 chg bounds, 147 chg sides, 314 chg coeffs, 1951 upgd conss, 6577 impls, 142 clqs, 0 implints
+(round 13, fast)       2017 del vars, 4802 del conss, 0 add conss, 11184 chg bounds, 147 chg sides, 314 chg coeffs, 1951 upgd conss, 6577 impls, 142 clqs, 0 implints
+(round 14, fast)       2017 del vars, 4802 del conss, 0 add conss, 11293 chg bounds, 206 chg sides, 397 chg coeffs, 1951 upgd conss, 6577 impls, 142 clqs, 0 implints
+(round 15, fast)       2017 del vars, 4802 del conss, 0 add conss, 11301 chg bounds, 269 chg sides, 506 chg coeffs, 1951 upgd conss, 6577 impls, 142 clqs, 0 implints
+(round 16, fast)       2017 del vars, 4802 del conss, 0 add conss, 11301 chg bounds, 273 chg sides, 514 chg coeffs, 1951 upgd conss, 6577 impls, 142 clqs, 0 implints
+(round 17, exhaustive) 2042 del vars, 4802 del conss, 0 add conss, 11484 chg bounds, 273 chg sides, 514 chg coeffs, 1951 upgd conss, 19858 impls, 472 clqs, 0 implints
+(round 18, fast)       2073 del vars, 4889 del conss, 0 add conss, 11484 chg bounds, 294 chg sides, 660 chg coeffs, 1951 upgd conss, 19938 impls, 472 clqs, 0 implints
+(round 19, fast)       2073 del vars, 4892 del conss, 3 add conss, 11484 chg bounds, 294 chg sides, 660 chg coeffs, 1951 upgd conss, 19938 impls, 472 clqs, 0 implints
+(round 20, medium)     2073 del vars, 4898 del conss, 3 add conss, 11484 chg bounds, 294 chg sides, 660 chg coeffs, 1951 upgd conss, 19938 impls, 472 clqs, 0 implints
+   (4.2s) probing cycle finished: starting next cycle
+(round 21, exhaustive) 2087 del vars, 4898 del conss, 3 add conss, 11723 chg bounds, 294 chg sides, 660 chg coeffs, 1952 upgd conss, 41603 impls, 1832 clqs, 0 implints
+(round 22, fast)       2137 del vars, 5037 del conss, 3 add conss, 11723 chg bounds, 353 chg sides, 778 chg coeffs, 1952 upgd conss, 41603 impls, 1832 clqs, 0 implints
+(round 23, fast)       2137 del vars, 5065 del conss, 31 add conss, 11723 chg bounds, 353 chg sides, 778 chg coeffs, 1952 upgd conss, 41603 impls, 1832 clqs, 0 implints
+(round 24, medium)     2137 del vars, 5077 del conss, 31 add conss, 11723 chg bounds, 353 chg sides, 778 chg coeffs, 1952 upgd conss, 41603 impls, 1832 clqs, 0 implints
+   (5.5s) probing cycle finished: starting next cycle
+   (5.9s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   (5.9s) symmetry computation finished: 1 generators found (max: 1500, log10 of symmetry group size: 0.30) (symcode time: 0.02)
+dynamic symmetry handling statistics:
+   orbitopal reduction:       no components
+   orbital reduction:         no components
+   lexicographic reduction:   no permutations
+handled 1 out of 1 symmetry components
+presolving (25 rounds: 25 fast, 10 medium, 8 exhaustive):
+ 2137 deleted vars, 5077 deleted constraints, 32 added constraints, 11724 tightened bounds, 0 added holes, 353 changed sides, 786 changed coefficients
+ 42657 implications, 1832 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 3397 variables (89 bin, 0 int, 3308 cont) and 4457 constraints
+   1486 constraints of type <varbound>
+     53 constraints of type <setppc>
+    463 constraints of type <linear>
+     73 constraints of type <logicor>
+   2382 constraints of type <nonlinear>
+Presolving Time: 5.92
+
+(node 1) unresolved numerical troubles in LP 27 -- using pseudo solution instead (loop 1)
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+ 45.1s|     1 |     2 |295907 |     - |   189M |   0 |  14k|4456 |  26k|   0 |  0 |   0 |   0 |-5.664518e+07 |      --      |    Inf | unknown
+ 1494s|   100 |    99 |  6254k|62796.7 |   190M |  19 |  14k|4456 |  26k|   0 |  0 |   0 |   0 |-5.664518e+07 |      --      |    Inf | unknown
+ 2604s|   200 |   199 | 11385k|57025.3 |   190M |  19 |  14k|4456 |  26k|   0 |  0 |   0 |   0 |-5.664518e+07 |      --      |    Inf | unknown
+
+SCIP Status        : solving was interrupted [time limit reached]
+Solving Time (sec) : 3600.00
+Solving Nodes      : 265
+Primal Bound       : +1.00000000000000e+20 (0 solutions)
+Dual Bound         : -5.66451824083676e+07
+Gap                : infinite
+
+
+--- Reading solution for model m
+*** Status: Normal completion
+--- Job reformulated_chull.gms Stop 11/01/26 17:45:36 elapsed 1:00:00.318
+--- Returning from GAMS step
+--- Reading solution for model DSDA
+--- Solver did not provide marginals for model DSDA
+--- To request marginals from the solver set option requestMarginals >= 1
+--- Executing after solve: elapsed 1:00:00.726
+--- solve_emp.gms(3895) 6 Mb--- solve_emp.gms(3913) 6 Mb
+--- GDX File (execute_unload) /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/solution.gdx
+--- Putfile result /local/scratch/a/lee4382/m54_2hwupl6j/raw/chull/scip/result.txt
+*** Status: Normal completion
+--- Job solve_emp.gms Stop 11/01/26 17:45:36 elapsed 1:00:00.728

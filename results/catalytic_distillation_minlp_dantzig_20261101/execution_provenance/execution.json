@@ -1,0 +1,162 @@
+{
+  "command": [
+    "bash",
+    "/local/scratch/a/lee4382/m54_2hwupl6j/src/experiments/catalytic_distillation_minlp/run_dantzig.sh"
+  ],
+  "cores": [
+    {
+      "core": 41,
+      "cpu": 31,
+      "siblings": [
+        31,
+        79
+      ],
+      "socket": 0
+    },
+    {
+      "core": 42,
+      "cpu": 32,
+      "siblings": [
+        32,
+        80
+      ],
+      "socket": 0
+    },
+    {
+      "core": 43,
+      "cpu": 33,
+      "siblings": [
+        33,
+        81
+      ],
+      "socket": 0
+    },
+    {
+      "core": 44,
+      "cpu": 34,
+      "siblings": [
+        34,
+        82
+      ],
+      "socket": 0
+    },
+    {
+      "core": 45,
+      "cpu": 35,
+      "siblings": [
+        35,
+        83
+      ],
+      "socket": 0
+    },
+    {
+      "core": 48,
+      "cpu": 36,
+      "siblings": [
+        36,
+        84
+      ],
+      "socket": 0
+    },
+    {
+      "core": 49,
+      "cpu": 37,
+      "siblings": [
+        37,
+        85
+      ],
+      "socket": 0
+    },
+    {
+      "core": 50,
+      "cpu": 38,
+      "siblings": [
+        38,
+        86
+      ],
+      "socket": 0
+    },
+    {
+      "core": 51,
+      "cpu": 39,
+      "siblings": [
+        39,
+        87
+      ],
+      "socket": 0
+    },
+    {
+      "core": 52,
+      "cpu": 40,
+      "siblings": [
+        40,
+        88
+      ],
+      "socket": 0
+    },
+    {
+      "core": 53,
+      "cpu": 41,
+      "siblings": [
+        41,
+        89
+      ],
+      "socket": 0
+    },
+    {
+      "core": 56,
+      "cpu": 42,
+      "siblings": [
+        42,
+        90
+      ],
+      "socket": 0
+    },
+    {
+      "core": 58,
+      "cpu": 44,
+      "siblings": [
+        44,
+        92
+      ],
+      "socket": 0
+    },
+    {
+      "core": 59,
+      "cpu": 45,
+      "siblings": [
+        45,
+        93
+      ],
+      "socket": 0
+    },
+    {
+      "core": 60,
+      "cpu": 46,
+      "siblings": [
+        46,
+        94
+      ],
+      "socket": 0
+    },
+    {
+      "core": 61,
+      "cpu": 47,
+      "siblings": [
+        47,
+        95
+      ],
+      "socket": 0
+    }
+  ],
+  "destination": "/local/scratch/a/lee4382/m54_2hwupl6j/src/results/catalytic_distillation_minlp_dantzig_20261101",
+  "exit_code": 0,
+  "finished_utc": "2026-11-01T22:45:52.444740+00:00",
+  "host": "dantzig.ecn.purdue.edu",
+  "output": "/local/scratch/a/lee4382/m54_2hwupl6j/raw",
+  "pid": 422377,
+  "revision": "a1c3bf336493dc496bb2571e160b1054f237e0be",
+  "start_ticks": "176281121",
+  "started_utc": "2026-11-01T21:39:05.538141+00:00",
+  "timezone": "UTC"
+}

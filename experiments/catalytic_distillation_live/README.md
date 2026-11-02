@@ -1,0 +1,77 @@
+# Live DFO runs on the catalytic distillation column
+
+Seven methods search the configurations of the corrected catalytic distillation model (`gdp_models/catalytic_distillation/distillation_model_corrected.gms`; see `REVIEW.md` there).
+Every evaluation solves the NLP of the requested configuration. Nothing is enumerated in advance, unlike the published process cases, which used stored lookup tables.
+
+## Black box
+
+- Each admissible configuration is solved with CONOPT from `init.gdx`, one thread, with a 300 s limit.
+- A configuration is accepted when CONOPT reports normal completion with a locally optimal solution. Its value is `zobj`, the negative annual profit in $/yr.
+- Every response is a deterministic function of the configuration, so it is solved at most once per campaign and stored in `cache.sqlite`, which all runs share. The cache records the model, initialization, and solver hashes and refuses a mismatch.
+- A repeated request is still charged to the budget and to the point cost, as in the published accounting; D-SDA never makes one.
+
+## Search space
+
+The six external variables are the ethanol feed stage f1, the catalytic stages c1 < c2 < c3, the butenes feed stage f2, and the boil-up stage b, with 2 <= f1 <= c1 < c2 < c3 <= f2 <= b <= 21.
+All methods search the gaps
+
+    g = (f1 - 2, c1 - f1, c2 - c1 - 1, c3 - c2 - 1, f2 - c3, b - f2),   0 <= g_i <= 6.
+
+Of the 117,649 points in this box, 54,159 satisfy sum(g) <= 17 and are admissible; they include every good design found in the pilots.
+An inadmissible point is charged to the budget and returned as infeasible without an NLP solve, as the logical rejections of the CSTR and Dynamic cases were.
+
+## Protocol
+
+- Seeds 0–9, each with seven shared starts (d + 1 = 7), drawn uniformly from the admissible points and spanning the space. The starts are the first seven evaluations of every method.
+- Budgets B = 25, 50, and 100 evaluations, including the starts. The full plan is 7 methods × 10 seeds × 3 budgets = 210 runs.
+- Methods:
+  - D-SDA from the best accepted start, with the Separable neighborhood (one-coordinate moves, the neighborhood the original D-SDA used for this column) and improvement tolerance 1e-5. As in the original D-SDA and LD-SDA, a configuration evaluated earlier in the run, including the shared starts, is never requested again.
+  - RBFOpt 4.3 MSRSM with genetic global search.
+  - BAM with the starts as its predetermined design.
+  - FMQA-SA, with a time limit of 7,200 s because objective time counts toward it.
+  - Uniform sampling without replacement over the box.
+  - NOMAD 4.6 and MISO (soogo CPTV) through the adapters of `experiments/mixed_integer_dfo`.
+- Unaccepted values follow the published methods: 1e6, NaN for BAM, and +inf for FMQA.
+- Completion time is search overhead plus the measured solve time of every evaluated point, as in the published runs.
+- NOMAD and MISO run in a forked child. A native crash is rerun once and kept only if the rerun repeats the search path.
+- No global optimum is known, so a hit is a value within 1e-5 relative of the best accepted value found by any run or by the 202-configuration pilot of the same protocol. That value is reported as best-known in `best_known.json`.
+
+## Cost and local pilot
+
+The local pilot ran all seven methods at seed 0 and B = 25 on the final corrected model, which has the 95 mol% ETBE specification and 2010 prices. Each method ran pinned to one CPU of a shared workstation. BAM and FMQA-SA used uv-built Python 3.12 environments with the pinned packages: `bam-solver` 5.0.0, and torch 2.13.0 (CPU) with `requirements-fmqa-qhd.txt`.
+
+Each run took 117–220 s, about 5–9 s per evaluation, because unaccepted configurations are slower to solve. None of the 25 runs found the best known design, (7, 8, 11, 16, 16, 20) at 25,271.33 $/yr, which comes from the 202-configuration pilot.
+
+| Method | Accepted | Logical rejections | Gap to best known ($/yr) |
+|---|---:|---:|---:|
+| MISO | 17 | 4 | 759 |
+| BAM | 6 | 7 | 797 |
+| Uniform | 9 | 10 | 1,086 |
+| FMQA-SA | 16 | 2 | 1,530 |
+| NOMAD | 11 | 7 | 3,175 |
+| D-SDA | 16 | 0 | 3,429 |
+| RBFOpt | 15 | 4 | 4,142 |
+
+The full plan has 12,250 evaluations. At this rate it needs about 20–30 CPU-hours before cache reuse, so about 1 h on 32 cores.
+
+## Running on Dantzig
+
+    export GAMS_EXE=/path/to/gams                                   # GAMS 54 or later with CONOPT
+    bash experiments/catalytic_distillation_live/run_dantzig.sh test     # preflight, about 2 min
+    bash experiments/catalytic_distillation_live/run_dantzig.sh run      # starts or resumes the 210 runs in the background
+    bash experiments/catalytic_distillation_live/run_dantzig.sh status   # progress
+    bash experiments/catalytic_distillation_live/run_dantzig.sh collect  # after all runs: summary and one zip
+
+- The launcher uses these interpreters, which can be overridden with `DFO_PYTHON`, `FMQA_PYTHON`, and `MIDFO_PYTHON`:
+  - `.venv-dantzig-nlp-overnight` for D-SDA, RBFOpt, and BAM.
+  - `.venv-dantzig-fmqa-qhd` for FMQA-SA.
+  - `.venv-mi-dfo` for NOMAD and MISO.
+- It also uses Bonmin and IPOPT from `.venv-dantzig` for RBFOpt's surrogate subproblems, and the BAM license file.
+- By default it picks one logical CPU on each of 16 idle physical cores (`CATDIST_WORKERS`, or `CPUS` to choose). Each job is pinned to one CPU, and GAMS inherits the pinning.
+- `run` skips jobs that already have a `result.json`, so it can resume.
+
+Outputs in `results/catalytic_distillation_live` (override with `CATDIST_OUTPUT`):
+
+- `plan.json`, `cache.sqlite`, and `controller.log`.
+- `runs/<job>/`: `spec.json`, `callbacks.jsonl`, `result.json`, and `worker.log`.
+- After `summarize`: `best_known.json`, `runs.csv`, and `conditions.csv`.

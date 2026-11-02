@@ -1,0 +1,16 @@
+{
+  "cpu_range": [
+    17,
+    48
+  ],
+  "existing_dependencies_and_state_preserved": true,
+  "full_prior_repair_plus_cpu_patch_passed": true,
+  "idempotent_apply": true,
+  "optimizer_or_nlp_runs_locally": 0,
+  "plugin_preserves_success_and_failure": true,
+  "preflight_plugin_changes_only_cpu_argument": true,
+  "same_smt_core_never_assigned_twice": true,
+  "synthetic_tests_only": true,
+  "updated_package_hashes_passed": true,
+  "wrapper_tests_passed": 30
+}

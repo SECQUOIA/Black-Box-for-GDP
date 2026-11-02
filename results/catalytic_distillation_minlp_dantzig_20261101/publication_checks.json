@@ -1,0 +1,20 @@
+{
+  "structural_checks": "passed",
+  "original_manifest_files_preserved": 80,
+  "original_outer_zip_sha256": "e47443dda2e2376e764ddcff85975e9d707632c347c0ee389be3dd2ea6579f9c",
+  "language_scan": {
+    "recursive_types": {
+      "text": 1020,
+      "pdf": 1,
+      "zip": 3,
+      "gzip": 16
+    },
+    "hangul_hits": [],
+    "pdf_text_and_metadata_checked": true
+  },
+  "pdf_visual_review": "All three pages inspected; no clipping, overlap or orphan pages.",
+  "experiment_reruns": 0,
+  "existing_tracked_files_changed": 0,
+  "scope": "Only results/catalytic_distillation_minlp_dantzig_20261101 is added.",
+  "interpretation": "Evidence integrity passes; optimization failures and contradictory optimality claims remain documented."
+}
