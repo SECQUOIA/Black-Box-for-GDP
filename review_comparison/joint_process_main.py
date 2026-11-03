@@ -14,9 +14,12 @@ INPUT = 'results/joint_process_scip_ipopt_20261030'
 REVISION = '341d9c6b6e790ba15318113083e43a4489c8b68e'
 CONDITIONS = [('cstr_5', 8), ('cstr_30', 43), ('column', 13),
               ('small_batch', 10), ('dynamic', 12), ('dynamic', 30)]
-# DFO methods in alphabetical order of their keys, then the conventional GDP methods.
-DFO = sorted(current.PRIMARY + mi.METHODS)
-METHODS = DFO + base.ALG_METHODS
+# DFO methods in the order of the manuscript tables, then the conventional GDP methods.
+DFO = ['dsda', 'nomad', 'rbfopt_msrsm_genetic', 'miso', 'bam', 'fmqa_sa', 'uniform_without_replacement']
+CONVENTIONAL = ['gloa', 'loa', 'ric', 'bigm', 'hull']
+base.require(sorted(DFO) == sorted(current.PRIMARY + mi.METHODS), 'DFO method list changed')
+base.require(sorted(CONVENTIONAL) == sorted(base.ALG_METHODS), 'Conventional method list changed')
+METHODS = DFO + CONVENTIONAL
 LABELS = {**base.LABELS, **mi.LABELS}
 
 
@@ -76,8 +79,8 @@ def render(selected, out):
     import matplotlib.pyplot as plt
     from matplotlib.lines import Line2D
 
-    with plt.rc_context({'font.family': 'DejaVu Sans', 'font.size': 9,
-                         'axes.titlesize': 10, 'axes.spines.top': False,
+    with plt.rc_context({'font.family': 'DejaVu Sans', 'font.size': 11,
+                         'axes.titlesize': 12, 'axes.spines.top': False,
                          'axes.spines.right': False, 'pdf.fonttype': 42}):
         fig, axs = plt.subplots(3, 2, figsize=(7.2, 9.0), sharex=True, sharey=True)
         for ax, (case, budget) in zip(axs.flat, CONDITIONS):
@@ -103,24 +106,24 @@ def render(selected, out):
                 label = f'{hits}/10' if dfo else ('yes' if hits else 'no')
                 if not dfo and group[0]['time_limit']:
                     label += ' TL'
-                ax.text(1.015, i, label, transform=ax.get_yaxis_transform(), va='center', fontsize=7.8)
+                ax.text(1.015, i, label, transform=ax.get_yaxis_transform(), va='center', fontsize=10)
             ax.axhline(len(DFO) - .5, color='#999999', lw=.7)
             ax.set(xscale='log', xlim=(.1, 3000), ylim=(len(METHODS) - .3, -.7), yticks=range(len(METHODS)),
                    yticklabels=[LABELS[m] for m in METHODS],
                    title=f'{base.pname(case)}, B={budget}')
-            ax.tick_params(axis='y', length=0, labelleft=True, labelsize=8.2)
-            ax.tick_params(axis='x', labelsize=8)
+            ax.tick_params(axis='y', length=0, labelleft=True, labelsize=10.5)
+            ax.tick_params(axis='x', labelsize=10)
             ax.grid(axis='x', which='major', alpha=.18)
         for ax in axs[-1]:
-            ax.set_xlabel('Full-run completion time (s)', fontsize=9)
+            ax.set_xlabel('Full-run completion time (s)', fontsize=11)
         handles = [Line2D([], [], marker='o', color='#0072B2', ls='', label='DFO target reached'),
                    Line2D([], [], marker='D', color='#0072B2', ls='', label='Conventional GDP target reached'),
                    Line2D([], [], marker='x', color='#D55E00', ls='', label='Target not reached'),
                    Line2D([], [], marker='|', color='#b0b0b0', markeredgecolor='#222222',
                           ms=9, lw=3, label='DFO median and Q25-Q75')]
-        fig.legend(handles=handles, loc='lower center', ncol=2, frameon=False, fontsize=8,
+        fig.legend(handles=handles, loc='lower center', ncol=2, frameon=False, fontsize=10,
                    bbox_to_anchor=(.5, .001))
-        fig.subplots_adjust(left=.108, right=.90, top=.962, bottom=.10, hspace=.28, wspace=.70)
+        fig.subplots_adjust(left=.13, right=.885, top=.962, bottom=.105, hspace=.30, wspace=.86)
         fig.savefig(out / 'process_joint_completion.pdf', metadata={'CreationDate': None, 'ModDate': None})
         fig.savefig(out / 'process_joint_completion.png', dpi=180)
         plt.close(fig)

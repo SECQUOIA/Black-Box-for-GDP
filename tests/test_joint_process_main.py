@@ -68,3 +68,10 @@ def test_checksum_mismatch_stops_load(tmp_path):
     (directory / 'joint_runs.csv').write_text('changed')
     with pytest.raises(ValueError, match='Input hash mismatch'):
         j.load(tmp_path)
+
+
+def test_csv_keeps_fields_missing_from_first_row(tmp_path):
+    # D-SDA rows come first in the plotted order and lack fields of the conventional rows.
+    path = tmp_path / 'rows.csv'
+    j.base.write_csv(path, [dict(a=1), dict(a=2, b=3)])
+    assert path.read_text() == 'a,b\n1,\n2,3\n'
