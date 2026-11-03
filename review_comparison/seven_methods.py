@@ -300,6 +300,13 @@ def grid_exclusions(rows):
     return data
 
 
+def row_major(handles, ncol):
+    """Order legend handles so that a multi-column legend reads across rows."""
+    nrow = -(-len(handles) // ncol)
+    grid = [handles[r * ncol:(r + 1) * ncol] for r in range(nrow)]
+    return [grid[r][c] for c in range(ncol) for r in range(nrow) if c < len(grid[r])]
+
+
 def grid_profiles(rows, out):
     """Cumulative target hits at B = 100; the per-budget checks still cover every budget."""
     import matplotlib
@@ -318,7 +325,7 @@ def grid_profiles(rows, out):
             checks.append(dict(method=m, budget=b, runs=len(group), hits=len(vals), final=len(vals) / len(group)))
     b = max(ms.BUDGETS)
     with plt.rc_context(params):
-        fig, ax = plt.subplots(figsize=(7.4, 4.0))
+        fig, ax = plt.subplots(figsize=(7.4, 4.6))
         for m in GRID:
             group = [r for r in rows if r["scope"] == "grid" and r["budget"] == b and r["method"] == m]
             vals = sorted(r["first_hit"] for r in group if r["hit"])
@@ -334,7 +341,8 @@ def grid_profiles(rows, out):
         ax.grid(axis="y", alpha=0.2)
         handles = [Line2D([], [], color=COLOR[m], ls=STYLE[m], marker=MARK[m], ms=4, lw=1.5, label=LABEL[m])
                    for m in GRID]
-        ax.legend(handles=handles, loc="center left", bbox_to_anchor=(1.01, 0.5), frameon=False, fontsize=9.5)
+        ax.legend(handles=row_major(handles, 4), loc="upper center", bbox_to_anchor=(0.5, -0.16), ncol=4,
+                  frameon=False, fontsize=10)
         fig.tight_layout()
         for ext, kw in (("pdf", dict(metadata={"CreationDate": None, "ModDate": None})), ("png", dict(dpi=160))):
             fig.savefig(out / f"figure_B_grid_evaluation_profiles.{ext}", bbox_inches="tight", pad_inches=0.04, **kw)
@@ -374,7 +382,7 @@ def process_profiles(rows, out):
             ax.set_ylabel("Target-hit fraction")
         handles = [Line2D([], [], color=COLOR[m], ls=STYLE[m], marker=MARK[m], ms=4, lw=1.5, label=LABEL[m])
                    for m in METHODS]
-        fig.legend(handles=handles, loc="lower center", ncol=4, frameon=False, fontsize=10)
+        fig.legend(handles=row_major(handles, 4), loc="lower center", ncol=4, frameon=False, fontsize=10)
         fig.tight_layout(rect=(0, 0.085, 1, 1), h_pad=1.5, w_pad=1)
         for ext, kw in (("pdf", dict(metadata={"CreationDate": None, "ModDate": None})), ("png", dict(dpi=160))):
             fig.savefig(out / f"process_evaluation_profiles.{ext}", bbox_inches="tight", pad_inches=0.04, **kw)
