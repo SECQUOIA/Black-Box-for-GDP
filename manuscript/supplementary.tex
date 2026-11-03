@@ -59,7 +59,9 @@ Full-precision normalization constants and target coordinates are archived in \n
 
 \begin{table}[htbp]
 \centering
-\caption{Grid-GDP: coordinate domains and target-set sizes of the 21 test functions of Section~\ref{sec:supp-objectives}.}
+\caption{Grid-GDP: coordinate domains and target-set sizes of the 21 test functions of Section~\ref{sec:supp-objectives}.
+Each coordinate range is sampled at 31 equally spaced points that include both endpoints, which gives a \(31\times31\) lattice of 961 configurations and 62 Boolean indicators.
+The target set of a function contains the lattice points whose normalized objective \(F=(f-L)/(U-L)\) is at most \(10^{-5}\), where \(L\) and \(U\) are the minimum and maximum of \(f\) over the lattice, and a run reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper when it evaluates one of these points.}
 \label{tab:grid-domains}
 \footnotesize
 \begin{threeparttable}
@@ -88,8 +90,7 @@ Sum of squares & \([-10,10]\) & \([-10,10]\) & 1\\
 Xin-She Yang 3 (variant) & \([-20,20]\) & \([-20,20]\) & 870\\\bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item \(x\) domain, \(y\) domain: coordinate ranges, each sampled at 31 equally spaced points that include both endpoints, which gives a \(31\times31\) lattice of 961 configurations and 62 Boolean indicators.
-\(n_{\rm target}\): number of lattice points whose normalized objective \(F=(f-L)/(U-L)\) is at most \(10^{-5}\), where \(L\) and \(U\) are the minimum and maximum of \(f\) over the lattice; a run reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper when it evaluates one of these points.
+\item \(x\) domain, \(y\) domain: coordinate ranges; \(n_{\rm target}\): number of lattice points in the target set.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -276,7 +277,9 @@ Fallback supplies 52.89\% of process proposals; the uniform comparison evaluates
 
 \begin{table}[htbp]
 \centering
-\caption{Grid-GDP and process GDP models: proposals and uniform fallback proposals of \texttt{FMQA-SA}, pooled over all budgets and seeds.}
+\caption{Grid-GDP and process GDP models: proposals and uniform fallback proposals of \texttt{FMQA-SA}, pooled over all budgets and seeds, with 1,050 Grid-GDP runs (21 functions, five budgets, and ten seeds) and ten runs per process condition.
+A proposal is a configuration that \texttt{FMQA-SA} selects after the three shared initial configurations, so a run with evaluation budget \(B\) makes \(B-3\) proposals.
+A fallback is a proposal drawn uniformly from the unevaluated configurations because no annealed candidate is a new configuration within the coordinate bounds.}
 \label{tab:supp-fmqa-fallback}
 \footnotesize
 \begin{threeparttable}
@@ -295,10 +298,7 @@ Process total & 140 & 2,980 & 1,576 & 52.89 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Runs: number of \texttt{FMQA-SA} runs (Grid-GDP: 21 functions, five budgets, and ten seeds; process models: ten seeds for each \texttt{CSTR} size or budget).
-Proposals: configurations that \texttt{FMQA-SA} selects after the three shared initial configurations, so a run with evaluation budget \(B\) makes \(B-3\) proposals.
-Fallbacks: proposals drawn uniformly from the unevaluated configurations because no annealed candidate is a new configuration within the coordinate bounds.
-Rate: fallbacks as a percentage of proposals.
+\item Runs: number of \texttt{FMQA-SA} runs; Rate: fallbacks as a percentage of proposals; Process total: sum over the four process models.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -312,7 +312,8 @@ All nine models have zero additional nonbinary integer variables.
 
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: numbers of variables, constraints, and disjunctions of the original GDP models.}
+\caption{Process GDP models: numbers of variables, constraints, and disjunctions of the original GDP models.
+The counts are taken before reformulation or presolve and include all active disjunct branches and fixed continuous variables, and \texttt{Dynamic} is discretized with 30 finite elements per stage and three Radau collocation points.}
 \label{tab:supp-model-sizes}
 \footnotesize
 \begin{threeparttable}
@@ -334,8 +335,7 @@ Model & \(N\) & \(n_c\) & \(n_b\) & \(m_a\) & \(m_l\) & \(n_d\)\\\midrule
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Counts: original GDP before reformulation or presolve, including all active disjunct branches and fixed continuous variables; \texttt{Dynamic} is discretized with 30 finite elements per stage and three Radau collocation points.
-\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable).
+\item \(N\): number of potential reactors of \texttt{CSTR}; --: not applicable.
 \(n_c\): continuous variables; \(n_b\): binary indicator variables constructed by the model; \(m_a\): algebraic constraints; \(m_l\): logical constraints; \(n_d\): disjunctions.
 \end{tablenotes}
 \end{threeparttable}
@@ -366,7 +366,9 @@ This cost is evaluated at the operating point that maximizes production and crys
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Lomustine}: the six orders of the reactor and crystallizer alternatives used as external-variable indices.}
+\caption{\texttt{Lomustine}: the six orders of the reactor and crystallizer alternatives used as external-variable indices.
+An order assigns consecutive index values to the alternatives of each external variable in the listed sequence.
+The source order is used in the main comparison, whose runs are repeated in the five other orders with the same seeds, initial designs in index space, and budgets.}
 \label{tab:supp-lomustine-orders}
 \footnotesize
 \begin{threeparttable}
@@ -381,18 +383,17 @@ Random 3 & CSTR, PFR, batch & 2, 1, batch, 3 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Source: order of the source enumeration, used in the main comparison.
-Back-mixing: alternatives ordered by degree of back-mixing.
-Random 1 to 3: three further permutations.
-CSTR: continuous stirred-tank reactor; PFR: plug-flow reactor.
-Crystallizers: batch, or the number of mixed-suspension, mixed-product-removal (MSMPR) stages.
+\item Source: order of the source enumeration; Reversed: source order backward; Back-mixing: alternatives ordered by degree of back-mixing; Random 1 to 3: three further permutations.
+CSTR: continuous stirred-tank reactor; PFR: plug-flow reactor; 1, 2, 3: number of mixed-suspension, mixed-product-removal (MSMPR) crystallizer stages.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Lomustine}: target hits of the six DFO methods and uniform sampling in the source order and over the six option orders, with ten runs per method, budget, and order.}
+\caption{\texttt{Lomustine}: target hits of the six DFO methods and uniform sampling in the source order and over the six option orders of Table~\ref{tab:supp-lomustine-orders}, with ten runs per method, budget, and order.
+A target hit is a run that reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper, here the reference configuration of Table~\ref{tab:supp-lomustine}.
+All orders share the seeds, initial designs in index space, and budgets of the source order.}
 \label{tab:supp-lomustine-order-hits}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -414,17 +415,15 @@ Crystallizers: batch, or the number of mixed-suspension, mixed-product-removal (
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Target hits: runs that reach the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper, here the reference configuration.
-Source order: target hits in the order of the source enumeration, used in the main comparison.
-Fewest and most over orders: smallest and largest number of target hits over the six orders of Table~\ref{tab:supp-lomustine-orders}.
-\(B\): evaluation budget; Uniform: uniform sampling without replacement.
+\item \(B\): evaluation budget; Uniform: uniform sampling without replacement; Source order: order of the source enumeration, used in the main comparison; Fewest over orders, Most over orders: smallest and largest number of target hits over the six orders.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Lomustine} with the capital-cost objective: target hits of the six DFO methods and uniform sampling in the source order, with ten runs per method and budget.}
+\caption{\texttt{Lomustine} with the capital-cost objective: target hits of the six DFO methods and uniform sampling in the source order, with ten runs per method and budget.
+The capital-cost objective is the bare-module capital cost of each flowsheet at its optimized operation, and a target hit is a run that reaches the reference of this objective, the all-batch configuration at \$82{,}766.}
 \label{tab:supp-lomustine-capex}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -438,9 +437,7 @@ Fewest and most over orders: smallest and largest number of target hits over the
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Target hits: runs that reach the reference of the capital-cost objective, the all-batch configuration at \$82{,}766.
-Capital-cost objective: bare-module capital cost of each flowsheet at its optimized operation.
-\(B\): evaluation budget; Uniform: uniform sampling without replacement.
+\item \(B\): evaluation budget; Uniform: uniform sampling without replacement.
 Bold: most target hits for each budget, including ties.
 \end{tablenotes}
 \end{threeparttable}
@@ -448,7 +445,9 @@ Bold: most target hits for each budget, including ties.
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Lomustine}: objective of every configuration after the simulation-based optimization of its operating inputs, and the wall time of that optimization.}
+\caption{\texttt{Lomustine}: objective of every configuration after the simulation-based optimization of its operating inputs, and the wall time of that optimization, with one optimization per configuration.
+The objective is \(-(\dot m/10^{-4}+2d_{50})\), with the production rate \(\dot m\) in kg/s and the median crystal size \(d_{50}\) in \(\mu\)m, and each configuration combines a first reactor, a second reactor, and a crystallizer.
+The reference configuration, a plug-flow reactor followed by a batch reactor and the batch crystallizer, has the lowest objective.}
 \label{tab:supp-lomustine}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -470,11 +469,8 @@ R01 & R02 & batch & 1 MSMPR & 2 MSMPR & 3 MSMPR & batch & 1 MSMPR & 2 MSMPR & 3 
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Objective: \(-(\dot m/10^{-4}+2d_{50})\), with the production rate \(\dot m\) in kg/s and the median crystal size \(d_{50}\) in \(\mu\)m.
-Wall time: wall time of the simulation-based optimization of the operating inputs.
-R01, R02: first and second reactor; CSTR: continuous stirred-tank reactor; PFR: plug-flow reactor.
-batch, 1 to 3 MSMPR: batch crystallizer or one to three mixed-suspension, mixed-product-removal (MSMPR) stages.
-Bold: reference configuration, which has the lowest objective.
+\item R01, R02: first and second reactor; CSTR: continuous stirred-tank reactor; PFR: plug-flow reactor; batch, 1 to 3 MSMPR: batch crystallizer or one to three mixed-suspension, mixed-product-removal (MSMPR) stages.
+Bold: reference configuration.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -519,7 +515,9 @@ Table~\ref{tab:supp-catdist-validation} compares the forms with the binary varia
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Catalytic Column}: the five disjunctions of each internal stage \(k\) in the disjunctive form behind the Big-\(M\) and Hull reformulations.}
+\caption{\texttt{Catalytic Column}: the five disjunctions of each internal stage \(k\) in the disjunctive form behind the Big-\(M\) and Hull reformulations.
+Each disjunction selects, through its Boolean indicator, which equations are enforced on stage \(k\).
+The property and feed-enthalpy equations hold on every stage and belong to no disjunction.}
 \label{tab:supp-catdist-disjunctions}
 \footnotesize
 \begin{threeparttable}
@@ -533,16 +531,16 @@ boil-up return at \(k\) & boil-up flow & no boil-up flow \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item \(k\): internal stage of the column. Indicator: Boolean indicator of one disjunction.
-Indicator true, Indicator false: equations enforced when the indicator is true or false.
-The property and feed-enthalpy equations hold on every stage and belong to no disjunction.
+\item \(k\): internal stage of the column; Indicator: Boolean indicator of one disjunction; Indicator true, Indicator false: equations enforced when the indicator is true or false.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Catalytic Column}: objectives of four model forms with the binary variables fixed at nine configurations, solved by \texttt{CONOPT} from the initialization of the published model.}
+\caption{\texttt{Catalytic Column}: objectives of four model forms with the binary variables fixed at nine configurations, with one \texttt{CONOPT} solve per form and configuration from the initialization of the published model.
+The four forms are the GDP model evaluated by the search methods, the MINLP form published with the original \texttt{D-SDA} study of this column, and the Big-\(M\) and Hull reformulations of the disjunctive form of Table~\ref{tab:supp-catdist-disjunctions}.
+The first row is the reference configuration.}
 \label{tab:supp-catdist-validation}
 \footnotesize
 \begin{threeparttable}
@@ -561,8 +559,7 @@ The property and feed-enthalpy equations hold on every stage and belong to no di
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item \((f_1,c_1,c_2,c_3,f_2,b)\): configuration given by the stages of the ethanol feed \(f_1\), the three catalytic stages \(c_1<c_2<c_3\), the butenes feed \(f_2\), and the boil-up return \(b\); the first row is the reference configuration.
-GDP: the GDP model evaluated by the search methods; Published MINLP: the MINLP form published with the original \texttt{D-SDA} study of this column; Big-\(M\) and Hull: the reformulations of the disjunctive form of Table~\ref{tab:supp-catdist-disjunctions}.
+\item \(f_1\), \(f_2\): stages of the ethanol and butenes feeds; \(c_1<c_2<c_3\): catalytic stages; \(b\): stage of the boil-up return.
 infeasible: every form reports the configuration as locally infeasible.
 \end{tablenotes}
 \end{threeparttable}
@@ -575,7 +572,9 @@ Table~\ref{tab:supp-catdist-certificates} lists the global optimality certificat
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Catalytic Column}: outcomes and solve times of four MINLP solvers on three model forms, with one run per solver and form started from the initial configuration \((3,4,5,6,8,9)\) of the published model.}
+\caption{\texttt{Catalytic Column}: outcomes and solve times of four MINLP solvers on three model forms, with one run per solver and form started from the initial configuration \((3,4,5,6,8,9)\) of the published model.
+The outcome is the objective and configuration of the design found, or the reason no feasible design was returned; the reference design has an objective of 24,895.55~\$/yr.
+The time is the wall-clock time of the \texttt{GAMS} job, and each run uses one core and a 3,600~s time limit.}
 \label{tab:supp-catdist-minlp}
 \footnotesize
 \begin{threeparttable}
@@ -598,17 +597,16 @@ Form & Solver & Outcome & Time (s)\\\midrule
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Outcome: objective and configuration \((f_1,c_1,c_2,c_3,f_2,b)\) of the design found, with configurations as in Table~\ref{tab:supp-catdist-validation}, or the reason no feasible design was returned; the reference is 24,895.55~\$/yr.
-Time: wall-clock time of the \texttt{GAMS} job; each run uses one core and a 3,600~s time limit.
-Published: the published MINLP form; Big-\(M\) and Hull: the reformulations of the disjunctive form.
-3,600+: stopped at the time limit.
+\item Published: published MINLP form; Big-\(M\), Hull: reformulations of the disjunctive form; configurations \((f_1,c_1,c_2,c_3,f_2,b)\) as in Table~\ref{tab:supp-catdist-validation}; 3,600+: stopped at the time limit.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Catalytic Column}: global optimality certificates that \texttt{SCIP} and \texttt{BARON} return for the published MINLP form, with one run per solver from each of two feasible starting designs.}
+\caption{\texttt{Catalytic Column}: global optimality certificates that \texttt{SCIP} and \texttt{BARON} return for the published MINLP form, with one run per solver from each of two feasible starting designs.
+The first starting design comes from the pilot of 202 configurations and the second is the reference configuration.
+The status and objective are those reported by each solver, and the time is its solve time.}
 \label{tab:supp-catdist-certificates}
 \footnotesize
 \begin{threeparttable}
@@ -620,9 +618,7 @@ Starting design & Status & Objective (\$/yr) & Time (s) & Status & Objective (\$
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Starting design: configuration \((f_1,c_1,c_2,c_3,f_2,b)\) as in Table~\ref{tab:supp-catdist-validation}; the first is a design from the pilot of 202 configurations and the second the reference configuration.
-Status, Objective: status and objective reported by the solver.
-Time: solve time.
+\item Starting design: configuration \((f_1,c_1,c_2,c_3,f_2,b)\) as in Table~\ref{tab:supp-catdist-validation}.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -635,7 +631,9 @@ Table~\ref{tab:grid-cost} reports the Grid-GDP costs at \(B=100\).
 \texttt{MISO} reaches the most Grid targets, but its median search time of 32.70~s is about four times that of \texttt{RBFOpt}, whereas \texttt{D-SDA} and \texttt{NOMAD} stop after medians of 37 and 31.5 evaluations and have the lowest median completion times, 18.38 and 18.50~s (\texttt{NOMAD} over its 189 timed runs).
 \begin{table}[p]
 \centering
-\caption{Process GDP models: search times of the six DFO methods and uniform sampling, with ten runs per method and condition.}
+\caption{Process GDP models: search times of the six DFO methods and uniform sampling, with ten runs per method and condition.
+The search time of a run is the time the method spends selecting configurations, which excludes the cost of evaluating them, and the medians and percentiles are over the ten runs.
+Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-targets}\else2\fi{} of the main paper gives the full-run completion times and target hits.}
 \label{tab:process-search}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -690,16 +688,17 @@ Model & \(N\) & \(B\) & Search time & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Search time: the time a method spends selecting configurations, which excludes the cost of evaluating them; the full-run completion times and target hits are in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-targets}\else2\fi{} of the main paper.
-Percentiles are over the ten runs.
-\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable); \(B\): evaluation budget; Uniform: uniform sampling without replacement.
+\item \(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; --: not applicable; Uniform: uniform sampling without replacement.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
 \begin{table}[htbp]
 \centering
-\caption{Grid-GDP: target hits, full-run completion times, summed evaluation costs, and search times of the six DFO methods and the two sampling controls with a budget of 100 evaluations, with 210 runs per method.}
+\caption{Grid-GDP: target hits, full-run completion times, summed evaluation costs, and search times of the six DFO methods and the two sampling controls with a budget of 100 evaluations, with 210 runs per method (21 test functions and ten seeds).
+A target hit is a run that reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper, a normalized objective within \(10^{-5}\) of the normalized reference objective zero.
+The summed evaluation cost of a run adds the separately measured costs of all its evaluations, including repeated configurations, the search time is the method time excluding this cost, and the full-run completion time is their sum (Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:reconstructed-cost}\else(10)\fi{} of the main paper).
+Medians and linearly interpolated 25th and 75th percentiles are taken over all runs, including target misses, and separately for each quantity, so the percentiles of the two components need not sum to those of the completion time.}
 \label{tab:grid-cost}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -718,12 +717,7 @@ Uniform & 45 & 60.51 & 43.33 & 78.60 & 60.51 & 43.33 & 78.59 & 0.0026 & 0.0026 &
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Target hits: runs that reach the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper, the normalized reference objective zero within \(10^{-5}\); the 210 runs are 21 test functions with ten seeds each.
-Full-run completion time: search time plus summed evaluation cost (Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:reconstructed-cost}\else(10)\fi{} of the main paper).
-Summed evaluation cost: sum of the separately measured costs of every evaluation in the run, including repeated configurations.
-Search time: method time excluding the evaluation cost.
-Median, 25th pct., 75th pct.: median and linearly interpolated 25th and 75th percentiles over all runs, including target misses; percentiles of the two components need not sum to percentiles of the completion time.
-Uniform: uniform sampling without replacement after the three shared initial configurations; \texttt{BAM}-prefix control: the ten predetermined sampling points of \texttt{BAM} after the three shared initial configurations, followed by uniform sampling without replacement.
+\item pct.: percentile; Uniform: uniform sampling without replacement after the three shared initial configurations; \texttt{BAM}-prefix control: the ten predetermined sampling points of \texttt{BAM} after the three shared initial configurations, followed by uniform sampling without replacement.
 \item[a] \texttt{NOMAD} times cover the 189 runs with recorded times; the 21 runs that crashed on every attempt have none, but their target hits are counted (Section~\ref{sec:supp-nomad-miso}).
 \end{tablenotes}
 \end{threeparttable}
@@ -778,7 +772,9 @@ These conflicting bounds and \nolinkurl{optimal} reports provide no independent 
 \par\endgroup
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: the 21 conventional GDP runs whose reported lower bound exceeds the recorded objective of the comparison solution of the same model by more than the audit tolerance.}
+\caption{Process GDP models: the 21 conventional GDP runs whose reported lower bound exceeds the recorded objective of the comparison solution of the same model by more than the audit tolerance, from one run per method and model.
+The comparison solution of each model is the checked feasible solution of Table~\ref{tab:witnesses}, with recorded objective \(f_w\), and each row gives the reported lower bound of the run, the largest violation at its saved solution, and the excess of the bound over \(f_w\) in multiples of the audit tolerance (Section~\ref{sec:bound-audit}).
+Displayed values are rounded, and the flags use unrounded values.}
 \label{tab:bound-audit}
 \footnotesize
 \begin{threeparttable}
@@ -816,15 +812,9 @@ Model & \(N\) & Method & ID & Reported \(L\) & Unit & \(v_{\max}\) & C & \(\rho\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item ID: run identifier; C: identifier of the comparison solution of the same model in Table~\ref{tab:witnesses}, with recorded objective \(f_w\).
-Reported \(L\): lower bound reported by the run. Unit: unit of the objective, as in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper; none, no physical unit.
-\(v_{\max}\): largest unscaled violation of the original GDP constraints and variable bounds at the run's saved solution.
-\(\rho=(L-f_w)/\tau_w\): excess of the reported lower bound over \(f_w\) in multiples of the audit tolerance \(\tau_w=10^{-5}\max\{1,|f_w|\}\).
-\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable).
-GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts; all three are \texttt{GDPopt} methods.
-Hull: the reformulation solved directly by \texttt{SCIP}.
-\(\dagger\): \(\rho>1\).
-Displayed values are rounded; flags use unrounded values.
+\item \(N\): number of potential reactors of \texttt{CSTR}; --: not applicable; GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts; all three are \texttt{GDPopt} methods; Hull: the reformulation solved directly by \texttt{SCIP}.
+ID: run identifier; Reported \(L\): lower bound reported by the run; Unit: unit of the objective, as in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper, with none for no physical unit; C: identifier of the comparison solution in Table~\ref{tab:witnesses}.
+\(v_{\max}\): largest unscaled violation of the original GDP constraints and variable bounds at the saved solution of the run; \(\rho=(L-f_w)/\tau_w\), with the audit tolerance \(\tau_w=10^{-5}\max\{1,|f_w|\}\); \(\dagger\): \(\rho>1\).
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -834,7 +824,9 @@ Displayed values are rounded; flags use unrounded values.
 \begingroup
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: comparison solutions of Table~\ref{tab:bound-audit}, one for each model.}
+\caption{Process GDP models: comparison solutions of Table~\ref{tab:bound-audit}, one for each model, from the conventional GDP runs with one run per method and model.
+The comparison solution of a model is the saved solution with the lowest recorded objective \(f_w\) among the conventional GDP runs whose saved solutions pass the independent feasibility check in the original GDP at \(10^{-5}\), and the method is the conventional GDP method that returned it.
+Displayed values are rounded.}
 \label{tab:witnesses}
 \footnotesize
 \begin{threeparttable}
@@ -855,14 +847,8 @@ Model & \(N\) & Method & ID & Recorded \(f_w\) & Unit & \(v_{\max}\)\\\midrule
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Comparison solution: saved solution with the lowest recorded objective \(f_w\) among the conventional GDP runs on the model whose saved solutions pass the independent feasibility check in the original GDP at \(10^{-5}\).
-ID: identifier used in column C of Table~\ref{tab:bound-audit}.
-Method: conventional GDP method that returned the solution.
-Unit: unit of the objective, as in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper; none, no physical unit.
-\(v_{\max}\): largest unscaled violation of the original GDP constraints and variable bounds at the solution.
-\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable).
-RIC: relaxation with integer cuts of \texttt{GDPopt}; Big-\(M\) and Hull: reformulations solved directly by \texttt{SCIP}.
-Displayed values are rounded.
+\item \(N\): number of potential reactors of \texttt{CSTR}; --: not applicable; RIC: relaxation with integer cuts of \texttt{GDPopt}; Big-\(M\), Hull: reformulations solved directly by \texttt{SCIP}.
+ID: identifier used in column C of Table~\ref{tab:bound-audit}; Unit: unit of the objective, as in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper, with none for no physical unit; \(v_{\max}\): largest unscaled violation of the original GDP constraints and variable bounds at the solution.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -920,7 +906,10 @@ For example, \texttt{BAM} matches its prefix control at \(B=10\) but exceeds it 
 
 \begin{table}[htbp]
 \centering
-\caption{Grid-GDP and process GDP models: seed-paired differences in the target-hit percentage of selected pairs of methods, with 95\% percentile bootstrap intervals.}
+\caption{Grid-GDP and process GDP models: seed-paired differences in the target-hit percentage of selected pairs of methods and their 95\% percentile bootstrap intervals, with 210 paired runs per Grid-GDP budget (21 functions and ten seeds) and ten per process condition.
+The difference is the percentage of runs of the first method that reach the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper minus that of the second, so positive values favor the first method.
+The intervals come from 2,000 bootstrap replications that resample the 21 functions for Grid-GDP and the ten seeds within the stated condition only for the process models, and they are not adjusted for multiple comparisons.
+For the process conditions, the seed outcomes count the seeds in which both methods, only the first, only the second, or neither reaches the target.}
 \label{tab:supp-paired-differences}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -943,11 +932,7 @@ Benchmark & \(B\) & Contrast & \makecell{Difference\\(pp)} & Lower & Upper & Bot
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Difference: percentage of runs of the first method that reach the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper minus that of the second, in percentage points (pp), so positive values favor the first method.
-95\% interval: lower and upper limits of the percentile bootstrap interval from 2,000 replications; the intervals are not adjusted for multiple comparisons.
-Paired runs: 210 per Grid-GDP budget (21 functions and ten seeds), with the 21 functions resampled; ten seeds per process condition, resampled within the stated condition only.
-Seed outcomes: numbers of seeds in which both methods, only the first, only the second, or neither reaches the target, listed for the process conditions.
-\(B\): evaluation budget; Uniform: uniform sampling without replacement; \texttt{BAM}-prefix control: the ten predetermined sampling points of \texttt{BAM} after the three shared initial configurations, followed by uniform sampling without replacement.
+\item \(B\): evaluation budget; pp: percentage points; Contrast: first method \(-\) second method; Uniform: uniform sampling without replacement; \texttt{BAM}-prefix control: the ten predetermined sampling points of \texttt{BAM} after the three shared initial configurations, followed by uniform sampling without replacement.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -961,7 +946,10 @@ In the 60 paired \texttt{CSTR} runs, \texttt{RBFOpt} reaches the target in 30 of
 
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: seed-paired target outcomes of \texttt{RBFOpt} and \texttt{D-SDA} and of \texttt{BAM} and \texttt{RBFOpt}, with ten seed pairs per condition.}
+\caption{Process GDP models: seed-paired target outcomes of \texttt{RBFOpt} and \texttt{D-SDA} and of \texttt{BAM} and \texttt{RBFOpt}, with ten seed pairs per condition.
+The counts give the seeds in which both methods, only the first, only the second, or neither reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper.
+The \(p\)-value uses only the seeds in which exactly one method reaches the target, and the \(p\)-values are descriptive and not adjusted for multiple comparisons.
+The pooled \texttt{CSTR} row combines the six sizes, with 60 seed pairs.}
 \label{tab:supp-paired}
 \footnotesize
 \begin{threeparttable}
@@ -992,9 +980,7 @@ Model & \(N\) & \(B\) & Both & First only & Second only & Neither & \(p\)\\\midr
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Both, First only, Second only, Neither: numbers of seeds in which both methods, only the first, only the second, or neither reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper.
-\(p\): two-sided exact McNemar \(p\)-value, which uses only the seeds in which exactly one method reaches the target; the \(p\)-values are descriptive and not adjusted for multiple comparisons.
-\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable); all: the six sizes pooled (60 seed pairs); \(B\): evaluation budget (--: several budgets, in the pooled row).
+\item \(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; all: the six sizes pooled; --: not applicable in the \(N\) column and several budgets in the \(B\) column; \(p\): two-sided exact McNemar \(p\)-value.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -1023,7 +1009,9 @@ The 21 \texttt{NOMAD} Grid runs without a recorded search time are left out of i
 
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: exact and relaxed target attainment and the spread of final objectives of the six DFO methods and uniform sampling, with ten runs per method and condition.}
+\caption{Process GDP models: exact and relaxed target attainment and the spread of final objectives of the six DFO methods and uniform sampling, with ten runs per method and condition, pooled over the six sizes of \texttt{CSTR} and the six budgets of \texttt{Dynamic}.
+An exact target hit is a run that reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper, with relative tolerance \(10^{-5}\), and the relaxed rows count the runs whose relative gap \((f_{\mathrm{best}}-f_{\mathrm{ref}})/\max\{1,|f_{\mathrm{ref}}|\}\) is at most the stated value.
+The miss gaps are the smallest and largest relative gaps over the runs that miss the exact target, and the distinct-finals row gives the largest number of different final objectives among the ten seeds of any condition of the model.}
 \label{tab:supp-spread}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -1064,19 +1052,17 @@ Model & & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFOpt} & \texttt{MISO} & \t
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Exact target hits: runs that reach the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper (relative tolerance \(10^{-5}\)), out of the runs of each model (\texttt{CSTR}: six sizes and ten seeds; \texttt{Column} and \texttt{Small Batch}: ten seeds; \texttt{Dynamic}: six budgets and ten seeds).
-Runs with gap \(\leq0.1\%\), \(\leq1\%\), \(\leq5\%\): runs whose relative gap \((f_{\mathrm{best}}-f_{\mathrm{ref}})/\max\{1,|f_{\mathrm{ref}}|\}\) is at most the stated value, where \(f_{\mathrm{best}}\) is the best accepted objective of the run and \(f_{\mathrm{ref}}\) the reference objective.
-Distinct finals: largest number of different final objectives among the ten seeds of any condition of the model.
-Smallest and largest miss gap: smallest and largest relative gap over the runs that miss the exact target.
-Uniform: uniform sampling without replacement.
---: no run misses the exact target.
+\item \(f_{\mathrm{best}}\): best accepted objective of the run; \(f_{\mathrm{ref}}\): reference objective of Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper; Uniform: uniform sampling without replacement; --: no run misses the exact target.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
 \begin{table}[htbp]
 \centering
-\caption{Grid-GDP and process GDP models: median evaluation cost and median search time per evaluation of the six DFO methods and uniform sampling.}
+\caption{Grid-GDP and process GDP models: median evaluation cost and median search time per evaluation of the six DFO methods and uniform sampling, with 1,050 Grid-GDP runs per method (21 functions, five budgets, and ten seeds) and ten runs per method and process condition.
+The evaluation cost of a run is the summed recorded cost of its evaluated configurations divided by its number of evaluations, and its median pools the runs of all seven methods.
+The search time per evaluation of a run is its search time, the method time excluding the evaluation cost, divided by its number of evaluations.
+Medians are over runs, and the 21 \texttt{NOMAD} Grid-GDP runs without a recorded search time are left out of the \texttt{NOMAD} median.}
 \label{tab:supp-overhead}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -1093,10 +1079,7 @@ Grid-GDP & 0.390 & 0.0777 & 50.5 & 31.1 & 231 & 3.77 & 604 & 0.0336 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Evaluation cost: summed recorded cost of the evaluated configurations divided by the number of evaluations of the run; its median pools the runs of all seven methods.
-Search time per evaluation: search time, the method time excluding the evaluation cost, divided by the number of evaluations of the run.
-Medians are over runs; the 21 \texttt{NOMAD} Grid-GDP runs without a recorded search time are left out of its median.
-Uniform: uniform sampling without replacement.
+\item Uniform: uniform sampling without replacement.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -1136,7 +1119,10 @@ The last row pools the six \texttt{CSTR} sizes for the descriptive comparisons i
 
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: seed-paired target outcomes of \texttt{NOMAD} and \texttt{MISO} against \texttt{D-SDA}, \texttt{RBFOpt}, and each other, with ten seed pairs per condition.}
+\caption{Process GDP models: seed-paired target outcomes of \texttt{NOMAD} and \texttt{MISO} against \texttt{D-SDA}, \texttt{RBFOpt}, and each other, with ten seed pairs per condition.
+The discordant seeds are those in which only one method of the column reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper, and the \(p\)-values are not adjusted for multiple comparisons.
+With a Holm correction over the 70 per-condition tests, the smallest adjusted \(p\)-value is 0.547.
+The pooled \texttt{CSTR} row combines the six sizes, with 60 seed pairs, and is not part of the 70 per-condition tests.}
 \label{tab:supp-nomad-miso-tests}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -1190,9 +1176,7 @@ Model & \(N\) & \(B\) & & \makecell{\texttt{NOMAD}\\vs \texttt{D-SDA}} & \makece
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Discordant seeds: \(a{:}b\), the numbers of seeds in which only the first or only the second method of the column reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper.
-\(p\): unadjusted two-sided exact McNemar \(p\)-value; the smallest Holm-adjusted \(p\)-value of the 70 per-condition tests is 0.547.
-\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable); all: the six sizes pooled (60 seed pairs), which is not part of the 70 per-condition tests; \(B\): evaluation budget (--: several budgets, in the pooled row).
+\item \(a{:}b\): discordant seeds in which only the first or only the second method of the column reaches the target; \(p\): unadjusted two-sided exact McNemar \(p\)-value; \(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; all: the six sizes pooled; --: not applicable in the \(N\) column and several budgets in the \(B\) column.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -1211,7 +1195,9 @@ On \texttt{CSTR10} to \texttt{CSTR30}, 31 of the 36 single-descent misses end at
 
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: target hits, full-budget runs, median evaluations, and median full-run completion times of three \texttt{D-SDA} restart variants, with ten runs per variant and condition.}
+\caption{Process GDP models: target hits, full-budget runs, median evaluations, and median full-run completion times of three \texttt{D-SDA} restart variants, with ten runs per variant and condition.
+A target hit is a run that reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper, and a full-budget run uses all \(B\) evaluations, as every RR run does.
+The completion time of a run adds its measured search time to the recorded cost of every evaluated configuration, and medians are over the ten runs.}
 \label{tab:supp-dsda-restarts}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -1239,11 +1225,8 @@ Model & \(N\) & \(B\) & S & R & RR & S & R & S & R & RR & S & R & RR\\\midrule
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Target hits: runs that reach the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper.
-Full budget: runs that use all \(B\) evaluations; RR uses the full budget in every run.
-Completion time: measured search time plus the recorded cost of every evaluated configuration; medians are over the ten runs.
-S: single descent from the best shared initial configuration; R: descents from the three shared initial configurations, best first, while budget remains; RR: R followed by descents from uniformly drawn unvisited configurations until the budget is exhausted.
-\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable); \(B\): evaluation budget.
+\item S: single descent from the best shared initial configuration; R: descents from the three shared initial configurations, best first, while budget remains; RR: R followed by descents from uniformly drawn unvisited configurations until the budget is exhausted.
+\(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; --: not applicable.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -1265,7 +1248,9 @@ Neither neighborhood dominates: the \(L_\infty\) neighborhood suits two external
 
 \begin{table}[htbp]
 \centering
-\caption{Grid-GDP, process GDP models, and \texttt{Lomustine}: target hits and median evaluations of \texttt{D-SDA} with the unit \(L_\infty\) neighborhood and with the separable neighborhood, on stored responses and with all other settings unchanged.}
+\caption{Grid-GDP, process GDP models, and \texttt{Lomustine}: target hits and median evaluations of \texttt{D-SDA} with the unit \(L_\infty\) neighborhood and with the separable neighborhood, with 210 runs of each neighborhood per Grid-GDP row (21 functions and ten seeds), ten per process row, and 60 per \texttt{Lomustine} row (six option orders and ten seeds).
+Both neighborhoods run on stored responses with all other settings unchanged, the process runs use the single descent, and each separable run is paired with its \(L_\infty\) counterpart.
+A target hit is a run that reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper, and the median evaluations are medians of the number of evaluations per run.}
 \label{tab:supp-dsda-neighborhood}
 \footnotesize
 \begin{threeparttable}
@@ -1302,11 +1287,8 @@ Benchmark & \(N\) & \(B\) & \(L_\infty\) & Separable & Separable only & \(L_\inf
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Target hits: runs that reach the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper; Separable only and \(L_\infty\) only: paired runs in which only that neighborhood reaches the target.
-Paired runs: 210 per Grid-GDP row (21 functions and ten seeds), ten per process row, and 60 per \texttt{Lomustine} row (six option orders and ten seeds).
-Median evaluations: median number of evaluations per run.
-\(L_\infty\): unit neighborhood, which changes every external variable by at most one; Separable: neighborhood that changes one external variable by \(\pm1\); process runs use the single descent.
-\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable); \(B\): evaluation budget.
+\item \(L_\infty\): unit neighborhood, which changes every external variable by at most one; Separable: neighborhood that changes one external variable by \(\pm1\); Separable only, \(L_\infty\) only: paired runs in which only that neighborhood reaches the target.
+\(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; --: not applicable.
 Bold: larger number of target hits of the two neighborhoods in each row; equal counts are not bold.
 \end{tablenotes}
 \end{threeparttable}
@@ -1322,7 +1304,11 @@ Table~\ref{tab:full-gdp} reports all nine models, including final objectives and
 
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: final objectives and full-run completion times of the conventional GDP methods, with one run per method and model.}
+\caption{Process GDP models: final objectives and full-run completion times of the conventional GDP methods, with one run per method and model.
+The \texttt{GDPopt} methods GLOA, LOA, and RIC use \texttt{SCIP} for the master problems and \texttt{IPOPT} for the NLP subproblems, and the Big-\(M\) and Hull columns are the retained runs that solve these reformulations directly with \texttt{SCIP}.
+The final objective is in the unit of the row label, as in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper, with no physical unit for \texttt{Column} and \texttt{Dynamic}, and the completion time is the measured full-run time, including model-template preparation.
+The success threshold of a conventional GDP run is a final objective of at most \(f_{\mathrm{ref}}+10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\), and feasibility means numerical feasibility under the original-GDP residual test at \(10^{-5}\), which does not establish exact feasibility.
+Runs that do not stop at the time limit report \texttt{optimal} termination.}
 \label{tab:full-gdp}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -1360,18 +1346,10 @@ Model & \(N\) & & \multicolumn{2}{c}{GLOA} & \multicolumn{2}{c}{LOA} & \multicol
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Final objective: in the unit given in the row label, as in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper; the \texttt{Column} and \texttt{Dynamic} objectives have no physical unit.
-Completion time: measured full-run time, including model-template preparation.
-\(N\): number of potential reactors of \texttt{CSTR}.
-GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts; all three are \texttt{GDPopt} methods, which use \texttt{SCIP} for master problems and \texttt{IPOPT} for NLP subproblems.
-Big-\(M\) and Hull: the retained runs that solve these reformulations directly with \texttt{SCIP}.
-1800+: stopped at the 1,800~s time limit.
-TL: stopped at the time limit, with reported \texttt{maxTimeLimit}; runs without TL report \texttt{optimal}.
---: no accepted feasible solution in an objective cell; not applicable in the \(N\) column.
-\(\dagger\): reported lower bound exceeds the best checked saved numerically feasible objective \(f\) of the model by more than \(10^{-5}\max\{1,|f|\}\) (Section~\ref{sec:bound-audit}).
-\(\ddagger\): final objective above \(f_{\mathrm{ref}}+10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\), where \(f_{\mathrm{ref}}\) is the reference objective of Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper, the success threshold of the conventional GDP methods, despite reported \texttt{optimal} termination and a better checked numerically feasible solution.
-Feasibility: numerical feasibility under the original-GDP residual test at \(10^{-5}\), which does not establish exact feasibility.
-Bold: lowest final objective of each model, including ties within \(10^{-5}\max\{1,|f_{\min}|\}\), where \(f_{\min}\) is that lowest objective, and shortest completion time of each model, including ties.
+\item \(N\): number of potential reactors of \texttt{CSTR}; \(f_{\mathrm{ref}}\): reference objective of Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper; GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts.
+1800+: stopped at the 1,800~s time limit; TL: stopped at the time limit, with reported \texttt{maxTimeLimit}; --: no accepted feasible solution in an objective cell and not applicable in the \(N\) column.
+\(\dagger\): reported lower bound exceeds the best checked saved numerically feasible objective \(f\) of the model by more than \(10^{-5}\max\{1,|f|\}\) (Section~\ref{sec:bound-audit}); \(\ddagger\): final objective above the success threshold, despite reported \texttt{optimal} termination and a better checked numerically feasible solution.
+Bold: lowest final objective of each model, including ties within \(10^{-5}\max\{1,|f_{\min}|\}\) of that lowest objective \(f_{\min}\), and shortest completion time of each model, including ties.
 \end{tablenotes}
 \end{threeparttable}
 % \david{SOmetimes you call it target, sometimes lookup reference, unify this}
@@ -1381,7 +1359,11 @@ Bold: lowest final objective of each model, including ties within \(10^{-5}\max\
 
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: NLP subproblems solved per run by the six DFO methods and uniform sampling, with ten runs per method and condition, and by the single run of each \texttt{GDPopt} method.}
+\caption{Process GDP models: NLP subproblems solved per run by the six DFO methods and uniform sampling, with ten runs per method and condition, and by the single run of each \texttt{GDPopt} method.
+The DFO entries are medians over the ten runs of the number of evaluations that called \texttt{IPOPT}, whether or not its result was accepted, without logical and preprocessing rejections, and the \texttt{GDPopt} entries are the \texttt{IPOPT} calls confirmed in the execution log of the run.
+The counts are numbers of subproblem solves, which differ in cost, and do not include solver iterations; the internal NLP counts of the direct Big-\(M\) and Hull solves are unavailable and are not treated as zero.
+Every \texttt{GDPopt} NLP call fixes a different configuration, out of \(N(N+1)/2\) logically admissible configurations for \texttt{CSTR} with \(N\) potential reactors and 37 for \texttt{Dynamic} (Section~\ref{sec:supp-spread-overhead}).
+The \texttt{GDPopt} methods have no evaluation budget, so the single \texttt{Dynamic} run of each appears in every \texttt{Dynamic} row.}
 \label{tab:joint-nlp-workload}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -1409,14 +1391,8 @@ Model & \(N\) & \(B\) & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFOpt} & \tex
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item DFO count: median over the ten runs of the number of evaluations that called \texttt{IPOPT}, whether or not its result was accepted; logical and preprocessing rejections are not counted.
-\texttt{GDPopt} count: number of \texttt{IPOPT} calls confirmed in the execution log of the run.
-The counts are numbers of subproblem solves, which differ in cost, and do not include solver iterations.
-Every \texttt{GDPopt} NLP call fixes a different configuration; \texttt{CSTR} with \(N\) potential reactors has \(N(N+1)/2\) logically admissible configurations, and \texttt{Dynamic} has 37 (Section~\ref{sec:supp-spread-overhead}).
-Internal NLP counts of the direct Big-\(M\) and Hull solves are unavailable and are not treated as zero.
-\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable); \(B\): evaluation budget of the DFO methods; the \texttt{GDPopt} methods have no budget, so the single \texttt{Dynamic} run of each appears in every \texttt{Dynamic} row.
-GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts; the \texttt{GDPopt} methods use \texttt{SCIP} for master problems and \texttt{IPOPT} for NLP subproblems.
-Uniform: uniform sampling without replacement.
+\item \(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget of the DFO methods; --: not applicable; Uniform: uniform sampling without replacement.
+GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts; all three use \texttt{SCIP} for master problems and \texttt{IPOPT} for NLP subproblems.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}

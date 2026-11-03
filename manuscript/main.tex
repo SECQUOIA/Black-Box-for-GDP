@@ -311,8 +311,32 @@ Surrogate methods seek to reduce expensive evaluations by fitting models to obse
 Several DFO methods handle integer or categorical variables directly, and \citet{ploskas2022review} compare many of them on mixed-integer test problems.
 Mesh adaptive direct search, implemented in \texttt{NOMAD}, extends pattern search to mixed variables through user-defined discrete neighborhoods~\citep{abramson2009mads,audet2022nomad}, and \texttt{MISO} combines radial basis function surrogates with sampling strategies for integer variables~\citep{muller2016miso}.
 Bayesian optimization has also been adapted to combinatorial spaces, for example by fitting sparse second-order models of binary variables in \texttt{BOCS}~\citep{baptista2018bocs}, which are closely related to the factorization-machine surrogate used here, or by placing kernels on graphs of discrete configurations in \texttt{COMBO}~\citep{oh2019combo}.
-We compare four surrogate-based methods that represent different modeling choices: \texttt{RBFOpt} and \texttt{MISO} interpolate all observations with global radial basis function models but select candidates differently, \texttt{BAM} partitions the domain and fits local algebraic models, and \texttt{FMQA-SA} fits a quadratic model over a binary encoding.
-\texttt{NOMAD} adds a direct-search method that polls trial configurations on an adaptive mesh and keeps no global surrogate.
+The direct-search method \texttt{NOMAD} polls trial configurations on an adaptive mesh and keeps no global surrogate.
+We also compare four surrogate-based methods that represent different modeling choices: \texttt{RBFOpt} and \texttt{MISO} interpolate all observations with global radial basis function models but select candidates differently, \texttt{BAM} partitions the domain and fits local algebraic models, and \texttt{FMQA-SA} fits a quadratic model over a binary encoding.
+
+\subsubsection{\texttt{NOMAD}}
+\texttt{NOMAD} implements mesh adaptive direct search (MADS)~\citep{audet2022nomad}.
+Each poll evaluates trial points on a mesh around the incumbent, and the mesh is refined after unsuccessful polls and coarsened after successful ones; for integer variables, it cannot become finer than the integer spacing~\citep{abramson2009mads}.
+By default, \texttt{NOMAD}~4 complements the poll with search steps based on local quadratic models, but it does not retain a global surrogate of the objective.
+
+\subsubsection{\texttt{RBFOpt}}
+\texttt{RBFOpt} is an open-source surrogate optimizer for bounded black-box problems, with support for continuous, integer, and categorical variables~\citep{costa2018rbfopt,nannicini2021implementation}.
+Given \(N\) observed objective values in external integer configurations \(\boldsymbol\xi^{(1)},\ldots,\boldsymbol\xi^{(N)}\), \texttt{RBFOpt} constructs a radial basis function (RBF) surrogate model of the form
+\begin{equation}\label{eqn:rbf.surrogate}
+\widehat\Phi_N(\boldsymbol\xi)
+=\sum_{r=1}^{N}\lambda_r\varphi\!\left(\|\boldsymbol\xi-\boldsymbol\xi^{(r)}\|_2\right)
++p(\boldsymbol\xi),
+\end{equation}
+where \(\widehat\Phi_N(\boldsymbol\xi)\) approximates the objective value for a candidate configuration \(\boldsymbol\xi\), \(\lambda_r\) are interpolation coefficients determined from the observed values, \(\varphi\) is the RBF kernel evaluated at the Euclidean distance between configurations, and \(p(\boldsymbol\xi)\) is a polynomial tail depending on the selected kernel.
+
+Candidate selection balances low predicted values against exploration away from evaluated points.
+The metric stochastic response surface method (MSRSM) combines scaled surrogate predictions and distances to existing samples, changing their relative weights during the search~\citep{regis2007stochastic}.
+New objective evaluations update the model.
+
+\subsubsection{\texttt{MISO}}
+\texttt{MISO} uses the radial basis function surrogate of Equation~\eqref{eqn:rbf.surrogate} but selects candidates with strategies designed for integer and mixed-integer variables~\citep{muller2016miso}.
+Its coordinate perturbation and target value (CPTV) strategy first perturbs randomly chosen coordinates of the best configuration found and scores the candidates by surrogate value and distance to the evaluated points, as MSRSM does.
+When this stage stops improving, it switches to a target value step, which proposes the configuration at which the surrogate could attain a prescribed target value with the least added bumpiness.
 
 \subsubsection{\texttt{BAM}}
 \texttt{BAM} combines domain partitioning with local surrogate construction~\citep{ma2023bam}.
@@ -356,30 +380,6 @@ Based on observed evaluations, the method fits the FM, samples binary candidates
 Temperature-dependent acceptance of uphill moves supports exploration, while gradual cooling favors lower-energy solutions~\citep{kirkpatrick1983optimization}.
 In this study, no quantum hardware was used.
 
-\subsubsection{\texttt{RBFOpt}}
-\texttt{RBFOpt} is an open-source surrogate optimizer for bounded black-box problems, with support for continuous, integer, and categorical variables~\citep{costa2018rbfopt,nannicini2021implementation}.
-Given \(N\) observed objective values in external integer configurations \(\boldsymbol\xi^{(1)},\ldots,\boldsymbol\xi^{(N)}\), \texttt{RBFOpt} constructs a radial basis function (RBF) surrogate model of the form
-\begin{equation}\label{eqn:rbf.surrogate}
-\widehat\Phi_N(\boldsymbol\xi)
-=\sum_{r=1}^{N}\lambda_r\varphi\!\left(\|\boldsymbol\xi-\boldsymbol\xi^{(r)}\|_2\right)
-+p(\boldsymbol\xi),
-\end{equation}
-where \(\widehat\Phi_N(\boldsymbol\xi)\) approximates the objective value for a candidate configuration \(\boldsymbol\xi\), \(\lambda_r\) are interpolation coefficients determined from the observed values, \(\varphi\) is the RBF kernel evaluated at the Euclidean distance between configurations, and \(p(\boldsymbol\xi)\) is a polynomial tail depending on the selected kernel.
-
-Candidate selection balances low predicted values against exploration away from evaluated points.
-The metric stochastic response surface method (MSRSM) combines scaled surrogate predictions and distances to existing samples, changing their relative weights during the search~\citep{regis2007stochastic}.
-New objective evaluations update the model.
-
-\subsubsection{\texttt{MISO}}
-\texttt{MISO} uses the radial basis function surrogate of Equation~\eqref{eqn:rbf.surrogate} but selects candidates with strategies designed for integer and mixed-integer variables~\citep{muller2016miso}.
-Its coordinate perturbation and target value (CPTV) strategy first perturbs randomly chosen coordinates of the best configuration found and scores the candidates by surrogate value and distance to the evaluated points, as MSRSM does.
-When this stage stops improving, it switches to a target value step, which proposes the configuration at which the surrogate could attain a prescribed target value with the least added bumpiness.
-
-\subsubsection{\texttt{NOMAD}}
-\texttt{NOMAD} implements mesh adaptive direct search (MADS)~\citep{audet2022nomad}.
-Each poll evaluates trial points on a mesh around the incumbent, and the mesh is refined after unsuccessful polls and coarsened after successful ones; for integer variables, it cannot become finer than the integer spacing~\citep{abramson2009mads}.
-By default, \texttt{NOMAD}~4 complements the poll with search steps based on local quadratic models, but it does not retain a global surrogate of the objective.
-
 \section{Experimental Methods}
 \label{sec:methodology}\label{sec:cases}
 
@@ -403,6 +403,7 @@ The model sizes and unit conventions are given in the Supplementary Section~\ref
 Minimizing its negative squared-state integral favors greater integrated state magnitude and tests mode sequencing coupled to dynamic equations.
 
 Table~\ref{tab:process-cases} summarizes the original GDP and DFO candidate domains, the number of configurations whose objective values the interior-point NLP solver \texttt{IPOPT}~\citep{wachter2006implementation} returns with an accepted status, the number of configurations with measured evaluation times, and the evaluation budgets.
+The 980 primary process runs, seven methods with ten seeds in each of the 14 model-budget conditions, evaluate 2,106 distinct configurations over all models and sizes.
 The process searches use frozen objective tables from fixed-configuration \texttt{IPOPT} evaluations; only accepted finite objectives are used as valid lookup objectives.
 The objective, acceptance status, and point cost are taken from the same recorded evaluation attempt for the same model instance and configuration.
 Measured coverage includes all configurations in each DFO candidate box, including unsuccessful and structural-rejection evaluations.
@@ -420,7 +421,10 @@ Of these configurations, 15 are rejected during feasibility-based bound tighteni
 
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: configuration domains, evaluation budgets, reference objectives, and the cost of full enumeration.}
+\caption{Process GDP models: configuration domains, evaluation budgets, reference objectives, and the cost of full enumeration.
+The full GDP box lists the external-variable values before logical restrictions, and the DFO domain is the part of it that the DFO methods search; it equals the full box except for \texttt{Column}, whose DFO domain is its logical domain \(\{8,\ldots,15\}\times\{1,\ldots,8\}\), and every configuration in it has a measured evaluation cost.
+Accepted configurations are those whose fixed-configuration \texttt{IPOPT} solve returns a finite objective, violates no constraint or bound by more than \(10^{-5}\), and ends with an accepted solver status (Section~\ref{sec:protocol}), and the reference objective \(f_{\mathrm{ref}}\) is the lowest accepted objective of the DFO domain.
+The enumeration time is the summed measured cost of evaluating every configuration of the DFO domain once.}
 \label{tab:process-cases}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -444,15 +448,8 @@ Model & \(N\) & Full GDP box & \makecell{Full box\\size} & \makecell{DFO domain\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item \(N\): number of potential reactors of \texttt{CSTR}; --: not applicable.
-Full GDP box: external-variable values before logical restrictions.
-DFO domain: configurations that the DFO methods search; it equals the full GDP box except for \texttt{Column}, whose DFO domain is its logical domain \(\{8,\ldots,15\}\times\{1,\ldots,8\}\), and every configuration in it has a measured evaluation cost.
-Accepted: configurations of the DFO domain whose fixed-configuration \texttt{IPOPT} solve returns a finite objective, violates no constraint or bound by more than \(10^{-5}\), and ends with an accepted solver status (Section~\ref{sec:protocol}).
-\(B\): evaluation budget.
-\(f_{\mathrm{ref}}\): reference objective, the lowest accepted objective of the DFO domain.
-Unit: L, reactor volume in liters; \$, investment in the dollars of the source model; none, no physical unit (the weighted cost of duties and active trays of the \texttt{Column} source model and the negative squared-state integral of \texttt{Dynamic}).
-Enumeration time: summed measured cost of evaluating every configuration of the DFO domain once.
-The 980 primary process runs (\texttt{D-SDA}, \texttt{NOMAD}, \texttt{RBFOpt}, \texttt{MISO}, \texttt{BAM}, \texttt{FMQA-SA}, and uniform sampling; 14 model-budget conditions and ten seeds per condition) evaluate 2,106 distinct configurations over all models and sizes.
+\item \(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; --: not applicable.
+Unit: L, liters of reactor volume; \$, dollars of investment; none, no physical unit (the weighted cost of duties and active trays of \texttt{Column} and the negative squared-state integral of \texttt{Dynamic}).
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -598,14 +595,6 @@ In all process cases, \texttt{D-SDA}, \texttt{RBFOpt}, \texttt{NOMAD}, and \text
 For surrogate training, \texttt{FMQA-SA} scales the accepted objective values to \([0,1]\) and assigns the unaccepted evaluations a value of \(2\).
 
 
-\subsubsection{\texttt{BAM}}
-\texttt{BAM} uses local algebraic surrogate models optimized by \texttt{BARON} to generate candidate configurations~\citep{ma2023bam,bamManual}.
-All external variables are integers.
-The three shared configurations and their responses are supplied without an additional starting point.
-The remaining evaluation budget is \(B-3\), with other settings at their defaults.
-On Grid-GDP, the next ten planned evaluations use a Sobol sequence, which distributes points across the domain, subject to the remaining budget.
-In the process experiments, \texttt{BAM} stops at its own evaluation limit after the \(B\)-th evaluation.
-
 \subsubsection{Budget-limited \texttt{D-SDA}} 
 We use a budget-limited implementation of the previously developed \texttt{D-SDA}~\citep{linan2020optimal}, applying its neighborhood search and discrete line search over the GDP external integer lattice as in \texttt{LD-SDA}~\citep{ovalle2025logic}.
 It evaluates the unit \(L_\infty\) neighborhood in fixed enumeration order, selects the best improving neighbor, and continues along the resulting direction through a discrete line search; on the six-dimensional \texttt{Catalytic Column}, it uses the separable neighborhood instead (Section~\ref{sec:catdist-case}), and Supplementary Section~\ref{sec:supp-dsda-neighborhood} repeats every other \texttt{D-SDA} run with the separable neighborhood.
@@ -618,24 +607,6 @@ For Grid-GDP benchmarks, initial configurations are ranked by objective value an
 After each completed descent, the search stops if the best observed objective satisfies the common target criterion in Equation~\eqref{eqn:target}; otherwise, it tries the next ranked initial configuration.
 For all process benchmarks, \texttt{D-SDA} searches within the declared integer bounds without precomputed feasibility filtering, using the evaluation accounting and unaccepted-response values stated above.
 To check that the single process descent does not handicap \texttt{D-SDA}, we repeated the 140 process runs with the Grid restart rule, and with further descents from uniformly drawn unvisited configurations until the budget is exhausted (Supplementary Section~\ref{sec:supp-dsda-restarts}).
-
-\subsubsection{\texttt{FMQA-SA}}
-\texttt{FMQA-SA} uses the FM training and QUBO construction code of \citet{secquoiaBboFmqa}.
-At each iteration, a new second-order rank-eight FM is fitted to all evaluated configurations.
-Finite precomputed responses are min-max scaled to \([0,1]\) (or zero when all finite values are identical), while non-finite evaluations receive a training target of \(2.0\).
-
-Integer coordinates are encoded in unsigned binary, and the fitted FM is converted to a QUBO.
-Binary candidates are generated on CPU using D-Wave's classical simulated annealing sampler~\citep{dwaveSamplers}.
-The lowest-energy decoded candidate within the coordinate bounds that has not been previously evaluated is selected; if none is available, a candidate is drawn uniformly from the remaining unevaluated configurations.
-Candidates are not screened for the feasibility of logical or nonlinear constraints before evaluation.
-The new observation is appended, and FM fitting and candidate generation repeat until the evaluation budget \(B\) or the 1,800~s method time limit is reached.
-
-\subsubsection{\texttt{MISO}}
-\texttt{MISO} uses the CPTV strategy of \citet{muller2016miso} as implemented in \texttt{soogo}, with a cubic radial basis function model with a linear polynomial tail, integer coordinates, and a median low-pass filter on large objective values.
-The three shared configurations and their responses initialize the model.
-Because \texttt{soogo} does not accept pure-integer domains in its coordinate-perturbation step, our adapter applies the same dynamically dimensioned search perturbation on the integer lattice and disables the continuous local search, which has no continuous coordinates to act on.
-A linear tail needs \(d+1\) affinely independent points, so when the shared initial configurations do not span the space, as with the three initial configurations of the three-dimensional \texttt{Small Batch} and \texttt{Lomustine} cases, uniformly drawn admissible configurations, charged to the budget, are added until they do.
-A run stops at the budget, or after ten consecutive iterations without a new evaluation when no unevaluated candidate remains.
 
 \subsubsection{\texttt{NOMAD}}
 \label{sec:nomad-settings}
@@ -654,6 +625,32 @@ Search stops at the evaluation budget or the native iteration and stall limits.
 Other surrogate-minimization operations use standalone \texttt{Bonmin}~\citep{bonami2008algorithmic} and \texttt{IPOPT}~\citep{wachter2006implementation} executables.
 % \david{citation to Bonmin}.
 These calls contribute to search time, but not the objective-evaluation budget.
+
+\subsubsection{\texttt{MISO}}
+\texttt{MISO} uses the CPTV strategy of \citet{muller2016miso} as implemented in \texttt{soogo}, with a cubic radial basis function model with a linear polynomial tail, integer coordinates, and a median low-pass filter on large objective values.
+The three shared configurations and their responses initialize the model.
+Because \texttt{soogo} does not accept pure-integer domains in its coordinate-perturbation step, our adapter applies the same dynamically dimensioned search perturbation on the integer lattice and disables the continuous local search, which has no continuous coordinates to act on.
+A linear tail needs \(d+1\) affinely independent points, so when the shared initial configurations do not span the space, as with the three initial configurations of the three-dimensional \texttt{Small Batch} and \texttt{Lomustine} cases, uniformly drawn admissible configurations, charged to the budget, are added until they do.
+A run stops at the budget, or after ten consecutive iterations without a new evaluation when no unevaluated candidate remains.
+
+\subsubsection{\texttt{BAM}}
+\texttt{BAM} uses local algebraic surrogate models optimized by \texttt{BARON} to generate candidate configurations~\citep{ma2023bam,bamManual}.
+All external variables are integers.
+The three shared configurations and their responses are supplied without an additional starting point.
+The remaining evaluation budget is \(B-3\), with other settings at their defaults.
+On Grid-GDP, the next ten planned evaluations use a Sobol sequence, which distributes points across the domain, subject to the remaining budget.
+In the process experiments, \texttt{BAM} stops at its own evaluation limit after the \(B\)-th evaluation.
+
+\subsubsection{\texttt{FMQA-SA}}
+\texttt{FMQA-SA} uses the FM training and QUBO construction code of \citet{secquoiaBboFmqa}.
+At each iteration, a new second-order rank-eight FM is fitted to all evaluated configurations.
+Finite precomputed responses are min-max scaled to \([0,1]\) (or zero when all finite values are identical), while non-finite evaluations receive a training target of \(2.0\).
+
+Integer coordinates are encoded in unsigned binary, and the fitted FM is converted to a QUBO.
+Binary candidates are generated on CPU using D-Wave's classical simulated annealing sampler~\citep{dwaveSamplers}.
+The lowest-energy decoded candidate within the coordinate bounds that has not been previously evaluated is selected; if none is available, a candidate is drawn uniformly from the remaining unevaluated configurations.
+Candidates are not screened for the feasibility of logical or nonlinear constraints before evaluation.
+The new observation is appended, and FM fitting and candidate generation repeat until the evaluation budget \(B\) or the 1,800~s method time limit is reached.
 
 \subsubsection{Sampling controls and full enumeration}
 \label{sec:sampling-controls}
@@ -800,7 +797,10 @@ For \texttt{RBFOpt}, they grow with the budget, from 0.06~s on \texttt{CSTR5} to
 \texttt{FMQA-SA} needs 3.7 to 29.8~s because it refits its factorization machine after every evaluation.
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: target hits and median full-run completion times of the six DFO methods and uniform sampling, with ten runs per method and condition.}
+\caption{Process GDP models: target hits and median full-run completion times of the six DFO methods and uniform sampling, with ten runs per method and condition.
+A target hit is a run whose best accepted objective lies within \(10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) of the reference objective \(f_{\mathrm{ref}}\) of Table~\ref{tab:process-cases} (Equation~\eqref{eqn:target}).
+The completion time of a run adds its search time to the measured cost of every evaluated configuration and, for \texttt{Dynamic}, one model preparation (Equation~\eqref{eqn:reconstructed-cost}); medians are over all ten runs, including target misses.
+Table~\ref{tab:process-cases} gives the enumeration times, and Supplementary Table~\ref{tab:process-search} the search times.}
 \label{tab:process-targets}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -851,10 +851,7 @@ Model & \(N\) & \(B\) & Measure & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFO
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Target hits: runs whose best accepted objective is within \(10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) of the reference objective \(f_{\mathrm{ref}}\) of Table~\ref{tab:process-cases}, the lowest accepted objective of the DFO domain (Equation~\eqref{eqn:target}).
-Completion time: search time plus the measured cost of every evaluated configuration and, for \texttt{Dynamic}, one model preparation (Equation~\eqref{eqn:reconstructed-cost}); medians are over all ten runs, including target misses.
-Table~\ref{tab:process-cases} gives the enumeration times, and Supplementary Table~\ref{tab:process-search} the search times alone.
-\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable); \(B\): evaluation budget; Uniform: uniform sampling without replacement.
+\item \(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; --: not applicable; Uniform: uniform sampling without replacement.
 Bold: most target hits and shortest median completion time in each row, including ties.
 \end{tablenotes}
 \end{threeparttable}
@@ -900,7 +897,7 @@ Across these ten runs, \texttt{D-SDA} and \texttt{NOMAD} evaluate 167 and 170 co
 At \(B=30\), \texttt{RBFOpt} reaches all ten \texttt{Dynamic} targets in fewer evaluations than \texttt{D-SDA} (Supplementary Figure~\ref{fig:process-evaluations}), but it continues to the budget, and its median completion time is 34.19~s, compared with 20.02~s for \texttt{D-SDA}, 22.00~s for \texttt{NOMAD}, and 106.24~s for \texttt{MISO}.
 On \texttt{Column}, where \texttt{MISO} reaches all ten targets, the median completion times are 31.93~s for \texttt{NOMAD}, 31.98~s for \texttt{MISO}, 35.44~s for \texttt{D-SDA}, and 54.60~s for \texttt{RBFOpt}.
 \begin{figure}[htbp]
-\centering\includegraphics[width=\linewidth,height=0.72\textheight,keepaspectratio]{figures/process_joint_completion.pdf}
+\centering\includegraphics[width=\linewidth,height=0.69\textheight,keepaspectratio]{figures/process_joint_completion.pdf}
 \caption{Process GDP models: full-run completion times of the six DFO methods and uniform sampling (ten runs each, at the evaluation budget \(B\) of each panel title) and of the single run of each conventional GDP method on six conditions: GLOA (global logic-based outer approximation), LOA (logic-based outer approximation), and RIC (relaxation with integer cuts) of \texttt{GDPopt} and the Big-\(M\) and Hull reformulations solved by \texttt{SCIP}.
 DFO times add the search time to the measured cost of each evaluated configuration (Equation~\eqref{eqn:reconstructed-cost}); conventional GDP times are measured and include model preparation.
 Dots mark DFO runs that reach the reference target of Equation~\eqref{eqn:target}, an objective within \(10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) of the reference objective \(f_{\mathrm{ref}}\) of Table~\ref{tab:process-cases}; diamonds mark conventional GDP runs whose feasible objective is at most \(f_{\mathrm{ref}}+10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) (Section~\ref{sec:metrics}); crosses mark the other runs; gray bars span the 25th to 75th percentiles of the ten DFO seeds, with a tick at the median.
@@ -943,7 +940,9 @@ When the objective is the capital cost of each flowsheet at its optimized operat
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Lomustine}: target hits and median full-run completion times of the six DFO methods and uniform sampling, with ten runs per method and budget.}
+\caption{\texttt{Lomustine}: target hits and median full-run completion times of the six DFO methods and uniform sampling, with ten runs per method and budget.
+A target hit is a run whose best objective, \(-(\dot m/10^{-4}+2d_{50})\) with the production rate \(\dot m\) in kg/s and the median crystal size \(d_{50}\) in \(\mu\)m, lies within \(10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) of \(f_{\mathrm{ref}}=-487.842\), the best of the 36 simulated configurations, in which a plug-flow reactor (PFR) is followed by a batch reactor and the batch crystallizer (Equation~\eqref{eqn:target}).
+The completion time of a run adds its search time to the recorded wall time of the \texttt{PharmaPy} simulation-based optimization of every evaluated configuration; medians are over all ten runs, including target misses, and evaluating all 36 configurations takes 5.3~h.}
 \label{tab:lomustine}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -961,11 +960,7 @@ When the objective is the capital cost of each flowsheet at its optimized operat
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Objective: \(-(\dot m/10^{-4}+2d_{50})\), with the production rate \(\dot m\) in kg/s and the median crystal size \(d_{50}\) in \(\mu\)m (Section~\ref{sec:lomustine-case}).
-Target hits: runs whose best objective is within \(10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) of \(f_{\mathrm{ref}}=-487.842\), the objective of the reference configuration, a plug-flow reactor (PFR) followed by a batch reactor and the batch crystallizer, which is the best of the 36 simulated configurations (Equation~\eqref{eqn:target}).
-Completion time: search time plus the recorded wall time of the \texttt{PharmaPy} simulation-based optimization of every evaluated configuration; medians are over all ten runs, including target misses.
-Evaluating all 36 configurations takes 5.3~h.
-\(B\): evaluation budget; Uniform: uniform sampling without replacement.
+\item \(B\): evaluation budget; Uniform: uniform sampling without replacement.
 Bold: most target hits and shortest median completion time for each budget, including ties.
 \end{tablenotes}
 \end{threeparttable}
@@ -1003,7 +998,10 @@ The GDP evaluation used by the search methods solves only the equations of the s
 
 \begin{table}[htbp]
 \centering
-\caption{\texttt{Catalytic Column}: target hits, gaps to the reference, and median full-run completion times of the six DFO methods and uniform sampling, with ten runs per method and budget.}
+\caption{\texttt{Catalytic Column}: target hits, gaps to the reference, and median full-run completion times of the six DFO methods and uniform sampling, with ten runs per method and budget.
+A target hit is a run whose best objective, the negative annual profit, lies within \(10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) of \(f_{\mathrm{ref}}=24{,}895.55\)~\$/yr, the best known design, which places the ethanol feed and the first catalytic stage at stage 8, the other catalytic stages at stages 12 and 17, the butenes feed at stage 17, and the boil-up return at stage 21 (Equation~\eqref{eqn:target}).
+The gap of a run is its best objective minus \(f_{\mathrm{ref}}\), and its completion time adds its search time to the recorded \texttt{CONOPT} solve time of every evaluated configuration; both are medians over all ten runs, including target misses.
+Solving all 54,159 admissible configurations of the search box would take about 119~h.}
 \label{tab:catdist}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -1024,12 +1022,7 @@ The GDP evaluation used by the search methods solves only the equations of the s
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Target hits: runs whose best objective, the negative annual profit, is within \(10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) of \(f_{\mathrm{ref}}=24{,}895.55\)~\$/yr, the objective of the reference design, which places the ethanol feed and the first catalytic stage at stage 8, the second and third catalytic stages at stages 12 and 17, the butenes feed at stage 17, and the boil-up return at stage 21 (Equation~\eqref{eqn:target}).
-Gap: best objective of a run minus \(f_{\mathrm{ref}}\), zero for a run that reaches the reference.
-Completion time: search time plus the recorded \texttt{CONOPT} solve time of every evaluated configuration.
-Gaps and completion times are medians over all ten runs, including target misses.
-Solving all 54,159 admissible configurations of the search box would take about 119~h.
-\(B\): evaluation budget; Uniform: uniform sampling without replacement.
+\item \(B\): evaluation budget; Uniform: uniform sampling without replacement.
 Bold: most target hits when any run reaches the reference, smallest median gap, and shortest median completion time for each budget, including ties.
 \end{tablenotes}
 \end{threeparttable}
@@ -1051,7 +1044,10 @@ By \(B=100\), the model-based search of \texttt{BAM} adds 23 hits over the prefi
 Excluding Xin-She Yang~3, whose target set covers 870 of the 961 lattice points, and Bohachevsky~2, which nearly duplicates Sum of Squares on the lattice, preserves this ordering.
 \begin{table}[htbp]
 \centering
-\caption{Grid-GDP: target hits of the six DFO methods, uniform sampling, and the \texttt{BAM}-prefix control at five evaluation budgets, as percentages of 210 runs.}
+\caption{Grid-GDP: target hits of the six DFO methods, uniform sampling, and the \texttt{BAM}-prefix control at five evaluation budgets, as percentages of 210 runs (21 test functions and ten seeds).
+A target hit is a run that evaluates a configuration whose normalized objective is within \(10^{-5}\) of zero, the normalized minimum over the lattice (Equation~\eqref{eqn:target}).
+Each budget is a separate experiment and counts the three shared initial evaluations and repeated configurations.
+At \(B=10\), all 111 \texttt{BAM} hits precede its surrogate-guided selection, 11 at the shared initial configurations and 100 at two of its predetermined points, and the \texttt{NOMAD} percentage at \(B=100\) includes 16 targets reached before a solver crash that recurred on every attempt.}
 \label{tab:grid-hits}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -1067,12 +1063,7 @@ Excluding Xin-She Yang~3, whose target set covers 870 of the 961 lattice points,
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Target hits: runs that evaluate a configuration whose normalized objective is within \(10^{-5}\) of zero, the normalized minimum over the lattice (Equation~\eqref{eqn:target}); the 210 runs are 21 test functions with ten seeds each.
-Each budget is a separate experiment, and the budget \(B\) counts the three shared initial evaluations and repeated configurations.
-\texttt{BAM}-prefix control: the ten predetermined points of \texttt{BAM} after the three shared initial configurations, then uniform sampling (Section~\ref{sec:sampling-controls}).
-Uniform: uniform sampling without replacement.
-At \(B=10\), all 111 \texttt{BAM} hits precede its surrogate-guided selection: 11 occur at the shared initial configurations and 100 at two of its predetermined points.
-The \texttt{NOMAD} percentage at \(B=100\) includes 16 targets reached before a solver crash that recurred on every attempt.
+\item \(B\): evaluation budget; Uniform: uniform sampling without replacement; \texttt{BAM}-prefix control: the ten predetermined points of \texttt{BAM} after the three shared initial configurations, then uniform sampling (Section~\ref{sec:sampling-controls}).
 Bold: largest percentage in each row, including ties.
 \end{tablenotes}
 \end{threeparttable}
