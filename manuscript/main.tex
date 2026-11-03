@@ -175,11 +175,11 @@ The dashed path (C) shows the conventional GDP methods, MINLP reformulations or 
 Bottom: the four cases of this paper and the subproblem evaluation each one uses.}
 \label{fig:methodology}
 \end{figure}
-Surrogate-based DFO uses accumulated objective observations to guide new evaluations~\citep{larson2019derivative}.
+We include the mesh adaptive direct-search solver \texttt{NOMAD}~\citep{audet2022nomad} and four surrogate-based methods, which use accumulated objective observations to guide new evaluations~\citep{larson2019derivative}.
 \texttt{RBFOpt} builds surrogate models from radial basis functions and balances predicted objective values with exploration~\citep{costa2018rbfopt}, and \texttt{MISO} combines radial-basis-function surrogate models with sampling strategies designed for integer variables~\citep{muller2016miso}.
-The comparison also includes Branch-and-Model (\texttt{BAM})~\citep{ma2023bam} and a variant of the factorization machine with quantum annealing (\texttt{FMQA}) framework~\citep{kitai2020designing}, in which classical simulated annealing replaces quantum annealing; we denote this variant \texttt{FMQA-SA}.
+\texttt{NOMAD} and \texttt{MISO} performed best on mixed-integer problems in the comparison of \citet{ploskas2022review}.
+The other two are Branch-and-Model (\texttt{BAM})~\citep{ma2023bam} and a variant of the factorization machine with quantum annealing (\texttt{FMQA}) framework~\citep{kitai2020designing}, in which classical simulated annealing replaces quantum annealing; we denote this variant \texttt{FMQA-SA}.
 \texttt{FMQA} represents its surrogate as a quadratic unconstrained binary optimization problem, the input format of quantum annealers, which makes it a candidate for a possibly quantum-assisted configuration search.
-We also include the mesh adaptive direct-search solver \texttt{NOMAD}~\citep{audet2022nomad}, which, with \texttt{MISO}, performed best on mixed-integer problems in the comparison of \citet{ploskas2022review}.
 We ask three questions.
 First, do these methods find high-quality configurations with fewer NLP subproblem solves than \texttt{D-SDA} and conventional GDP methods, and when does this advantage translate into shorter computing time?
 Second, does the same search solve GDP models whose subproblems are evaluated by a simulator?
@@ -448,7 +448,7 @@ Model & \(N\) & Full GDP box & \makecell{Full box\\size} & \makecell{DFO domain\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item \(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; --: not applicable.
+\item \(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; \(f_{\mathrm{ref}}\): reference objective; --: not applicable.
 Unit: L, liters of reactor volume; \$, dollars of investment; none, no physical unit (the weighted cost of duties and active trays of \texttt{Column} and the negative squared-state integral of \texttt{Dynamic}).
 \end{tablenotes}
 \end{threeparttable}
@@ -941,7 +941,8 @@ When the objective is the capital cost of each flowsheet at its optimized operat
 \begin{table}[htbp]
 \centering
 \caption{\texttt{Lomustine}: target hits and median full-run completion times of the six DFO methods and uniform sampling, with ten runs per method and budget.
-A target hit is a run whose best objective, \(-(\dot m/10^{-4}+2d_{50})\) with the production rate \(\dot m\) in kg/s and the median crystal size \(d_{50}\) in \(\mu\)m, lies within \(10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) of \(f_{\mathrm{ref}}=-487.842\), the best of the 36 simulated configurations, in which a plug-flow reactor (PFR) is followed by a batch reactor and the batch crystallizer (Equation~\eqref{eqn:target}).
+The objective is \(-(\dot m/10^{-4}+2d_{50})\), and a target hit is a run whose best objective lies within \(10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) of the reference objective \(f_{\mathrm{ref}}=-487.842\) (Equation~\eqref{eqn:target}).
+The reference is the best of the 36 simulated configurations, in which a plug-flow reactor (PFR) is followed by a batch reactor and the batch crystallizer.
 The completion time of a run adds its search time to the recorded wall time of the \texttt{PharmaPy} simulation-based optimization of every evaluated configuration; medians are over all ten runs, including target misses, and evaluating all 36 configurations takes 5.3~h.}
 \label{tab:lomustine}
 \footnotesize
@@ -960,7 +961,7 @@ The completion time of a run adds its search time to the recorded wall time of t
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item \(B\): evaluation budget; Uniform: uniform sampling without replacement.
+\item \(\dot m\): production rate (kg/s); \(d_{50}\): median crystal size (\(\mu\)m); \(f_{\mathrm{ref}}\): reference objective; \(B\): evaluation budget; Uniform: uniform sampling without replacement.
 Bold: most target hits and shortest median completion time for each budget, including ties.
 \end{tablenotes}
 \end{threeparttable}

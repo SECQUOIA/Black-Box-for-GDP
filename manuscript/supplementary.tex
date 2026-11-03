@@ -61,7 +61,7 @@ Full-precision normalization constants and target coordinates are archived in \n
 \centering
 \caption{Grid-GDP: coordinate domains and target-set sizes of the 21 test functions of Section~\ref{sec:supp-objectives}.
 Each coordinate range is sampled at 31 equally spaced points that include both endpoints, which gives a \(31\times31\) lattice of 961 configurations and 62 Boolean indicators.
-The target set of a function contains the lattice points whose normalized objective \(F=(f-L)/(U-L)\) is at most \(10^{-5}\), where \(L\) and \(U\) are the minimum and maximum of \(f\) over the lattice, and a run reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper when it evaluates one of these points.}
+The target set of a function contains the lattice points whose normalized objective \(F=(f-L)/(U-L)\) is at most \(10^{-5}\), and a run reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper when it evaluates one of these points.}
 \label{tab:grid-domains}
 \footnotesize
 \begin{threeparttable}
@@ -90,7 +90,7 @@ Sum of squares & \([-10,10]\) & \([-10,10]\) & 1\\
 Xin-She Yang 3 (variant) & \([-20,20]\) & \([-20,20]\) & 870\\\bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item \(x\) domain, \(y\) domain: coordinate ranges; \(n_{\rm target}\): number of lattice points in the target set.
+\item \(x\) domain, \(y\) domain: coordinate ranges; \(n_{\rm target}\): number of lattice points in the target set; \(F\): normalized objective; \(L\), \(U\): minimum and maximum of the objective \(f\) over the lattice.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -279,7 +279,7 @@ Fallback supplies 52.89\% of process proposals; the uniform comparison evaluates
 \centering
 \caption{Grid-GDP and process GDP models: proposals and uniform fallback proposals of \texttt{FMQA-SA}, pooled over all budgets and seeds, with 1,050 Grid-GDP runs (21 functions, five budgets, and ten seeds) and ten runs per process condition.
 A proposal is a configuration that \texttt{FMQA-SA} selects after the three shared initial configurations, so a run with evaluation budget \(B\) makes \(B-3\) proposals.
-A fallback is a proposal drawn uniformly from the unevaluated configurations because no annealed candidate is a new configuration within the coordinate bounds.}
+A fallback is a proposal drawn uniformly from the unevaluated configurations because no annealed candidate is a new configuration within the coordinate bounds; the rate is the percentage of proposals that are fallbacks, and the process total pools the four process models.}
 \label{tab:supp-fmqa-fallback}
 \footnotesize
 \begin{threeparttable}
@@ -298,7 +298,7 @@ Process total & 140 & 2,980 & 1,576 & 52.89 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item Runs: number of \texttt{FMQA-SA} runs; Rate: fallbacks as a percentage of proposals; Process total: sum over the four process models.
+\item Runs: number of \texttt{FMQA-SA} runs.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -393,7 +393,7 @@ CSTR: continuous stirred-tank reactor; PFR: plug-flow reactor; 1, 2, 3: number o
 \centering
 \caption{\texttt{Lomustine}: target hits of the six DFO methods and uniform sampling in the source order and over the six option orders of Table~\ref{tab:supp-lomustine-orders}, with ten runs per method, budget, and order.
 A target hit is a run that reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper, here the reference configuration of Table~\ref{tab:supp-lomustine}.
-All orders share the seeds, initial designs in index space, and budgets of the source order.}
+All orders share the seeds, initial designs in index space, and budgets of the source order, and the rows for the fewest and most target hits give the smallest and largest count over the six orders.}
 \label{tab:supp-lomustine-order-hits}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -415,7 +415,7 @@ All orders share the seeds, initial designs in index space, and budgets of the s
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item \(B\): evaluation budget; Uniform: uniform sampling without replacement; Source order: order of the source enumeration, used in the main comparison; Fewest over orders, Most over orders: smallest and largest number of target hits over the six orders.
+\item \(B\): evaluation budget; Uniform: uniform sampling without replacement; Source order: order of the source enumeration, used in the main comparison.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -446,7 +446,7 @@ Bold: most target hits for each budget, including ties.
 \begin{table}[htbp]
 \centering
 \caption{\texttt{Lomustine}: objective of every configuration after the simulation-based optimization of its operating inputs, and the wall time of that optimization, with one optimization per configuration.
-The objective is \(-(\dot m/10^{-4}+2d_{50})\), with the production rate \(\dot m\) in kg/s and the median crystal size \(d_{50}\) in \(\mu\)m, and each configuration combines a first reactor, a second reactor, and a crystallizer.
+The objective is \(-(\dot m/10^{-4}+2d_{50})\), and each configuration combines a first reactor, a second reactor, and a crystallizer.
 The reference configuration, a plug-flow reactor followed by a batch reactor and the batch crystallizer, has the lowest objective.}
 \label{tab:supp-lomustine}
 \footnotesize
@@ -469,7 +469,7 @@ R01 & R02 & batch & 1 MSMPR & 2 MSMPR & 3 MSMPR & batch & 1 MSMPR & 2 MSMPR & 3 
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item R01, R02: first and second reactor; CSTR: continuous stirred-tank reactor; PFR: plug-flow reactor; batch, 1 to 3 MSMPR: batch crystallizer or one to three mixed-suspension, mixed-product-removal (MSMPR) stages.
+\item \(\dot m\): production rate (kg/s); \(d_{50}\): median crystal size (\(\mu\)m); R01, R02: first and second reactor; CSTR: continuous stirred-tank reactor; PFR: plug-flow reactor; batch, 1 to 3 MSMPR: batch crystallizer or one to three mixed-suspension, mixed-product-removal (MSMPR) stages.
 Bold: reference configuration.
 \end{tablenotes}
 \end{threeparttable}
@@ -516,7 +516,7 @@ Table~\ref{tab:supp-catdist-validation} compares the forms with the binary varia
 \begin{table}[htbp]
 \centering
 \caption{\texttt{Catalytic Column}: the five disjunctions of each internal stage \(k\) in the disjunctive form behind the Big-\(M\) and Hull reformulations.
-Each disjunction selects, through its Boolean indicator, which equations are enforced on stage \(k\).
+Each row is one disjunction, whose Boolean indicator enforces the equations of the second column on stage \(k\) when it is true and those of the third column when it is false.
 The property and feed-enthalpy equations hold on every stage and belong to no disjunction.}
 \label{tab:supp-catdist-disjunctions}
 \footnotesize
@@ -531,7 +531,7 @@ boil-up return at \(k\) & boil-up flow & no boil-up flow \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item \(k\): internal stage of the column; Indicator: Boolean indicator of one disjunction; Indicator true, Indicator false: equations enforced when the indicator is true or false.
+\item \(k\): internal stage of the column; Indicator: Boolean indicator of the disjunction.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -698,7 +698,7 @@ Model & \(N\) & \(B\) & Search time & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{
 \caption{Grid-GDP: target hits, full-run completion times, summed evaluation costs, and search times of the six DFO methods and the two sampling controls with a budget of 100 evaluations, with 210 runs per method (21 test functions and ten seeds).
 A target hit is a run that reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper, a normalized objective within \(10^{-5}\) of the normalized reference objective zero.
 The summed evaluation cost of a run adds the separately measured costs of all its evaluations, including repeated configurations, the search time is the method time excluding this cost, and the full-run completion time is their sum (Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:reconstructed-cost}\else(10)\fi{} of the main paper).
-Medians and linearly interpolated 25th and 75th percentiles are taken over all runs, including target misses, and separately for each quantity, so the percentiles of the two components need not sum to those of the completion time.}
+Medians and linearly interpolated 25th and 75th percentiles are taken over all runs with recorded times, including target misses, which leaves out the times of the 21 \texttt{NOMAD} runs marked \(a\), and separately for each quantity, so the percentiles of the two components need not sum to those of the completion time.}
 \label{tab:grid-cost}
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
@@ -812,7 +812,7 @@ Model & \(N\) & Method & ID & Reported \(L\) & Unit & \(v_{\max}\) & C & \(\rho\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item \(N\): number of potential reactors of \texttt{CSTR}; --: not applicable; GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts; all three are \texttt{GDPopt} methods; Hull: the reformulation solved directly by \texttt{SCIP}.
+\item \(f_w\): recorded objective of the comparison solution; \(N\): number of potential reactors of \texttt{CSTR}; --: not applicable; GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts; all three are \texttt{GDPopt} methods; Hull: the reformulation solved directly by \texttt{SCIP}.
 ID: run identifier; Reported \(L\): lower bound reported by the run; Unit: unit of the objective, as in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper, with none for no physical unit; C: identifier of the comparison solution in Table~\ref{tab:witnesses}.
 \(v_{\max}\): largest unscaled violation of the original GDP constraints and variable bounds at the saved solution of the run; \(\rho=(L-f_w)/\tau_w\), with the audit tolerance \(\tau_w=10^{-5}\max\{1,|f_w|\}\); \(\dagger\): \(\rho>1\).
 \end{tablenotes}
@@ -847,7 +847,7 @@ Model & \(N\) & Method & ID & Recorded \(f_w\) & Unit & \(v_{\max}\)\\\midrule
 \bottomrule
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
-\item \(N\): number of potential reactors of \texttt{CSTR}; --: not applicable; RIC: relaxation with integer cuts of \texttt{GDPopt}; Big-\(M\), Hull: reformulations solved directly by \texttt{SCIP}.
+\item \(f_w\): recorded objective of the comparison solution; \(N\): number of potential reactors of \texttt{CSTR}; --: not applicable; RIC: relaxation with integer cuts of \texttt{GDPopt}; Big-\(M\), Hull: reformulations solved directly by \texttt{SCIP}.
 ID: identifier used in column C of Table~\ref{tab:bound-audit}; Unit: unit of the objective, as in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper, with none for no physical unit; \(v_{\max}\): largest unscaled violation of the original GDP constraints and variable bounds at the solution.
 \end{tablenotes}
 \end{threeparttable}
@@ -1359,7 +1359,7 @@ Bold: lowest final objective of each model, including ties within \(10^{-5}\max\
 
 \begin{table}[htbp]
 \centering
-\caption{Process GDP models: NLP subproblems solved per run by the six DFO methods and uniform sampling, with ten runs per method and condition, and by the single run of each \texttt{GDPopt} method.
+\caption{Process GDP models: NLP subproblems solved per run by the six DFO methods and uniform sampling, with ten runs per method and condition, and by the single run of each \texttt{GDPopt} method, which uses \texttt{SCIP} for the master problems and \texttt{IPOPT} for the NLP subproblems.
 The DFO entries are medians over the ten runs of the number of evaluations that called \texttt{IPOPT}, whether or not its result was accepted, without logical and preprocessing rejections, and the \texttt{GDPopt} entries are the \texttt{IPOPT} calls confirmed in the execution log of the run.
 The counts are numbers of subproblem solves, which differ in cost, and do not include solver iterations; the internal NLP counts of the direct Big-\(M\) and Hull solves are unavailable and are not treated as zero.
 Every \texttt{GDPopt} NLP call fixes a different configuration, out of \(N(N+1)/2\) logically admissible configurations for \texttt{CSTR} with \(N\) potential reactors and 37 for \texttt{Dynamic} (Section~\ref{sec:supp-spread-overhead}).
@@ -1392,7 +1392,7 @@ Model & \(N\) & \(B\) & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{RBFOpt} & \tex
 \end{tabular}
 \begin{tablenotes}[flushleft]\footnotesize
 \item \(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget of the DFO methods; --: not applicable; Uniform: uniform sampling without replacement.
-GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts; all three use \texttt{SCIP} for master problems and \texttt{IPOPT} for NLP subproblems.
+GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
