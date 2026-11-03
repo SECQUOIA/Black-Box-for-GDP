@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-03",
+  "reviewed_revision": "b8a2acfa517b462eaa3b7a67067f81c374b38f8c",
+  "reason": "Remove a superseded partial archive containing a GAMS license payload before public distribution.",
+  "removed_files": {
+    "results/archives/gdpopt_baron_highs_20261001_partial.tar.gz": {
+      "original_sha256": "65cdbd4712a8845f88e89db754a2c64b99bd8f3013f94fce2561a71f8c92ad58",
+      "original_bytes": 494711,
+      "sensitive_member": "gdpopt_baron_highs/dantzig_gdp_compare_20261001_175249_6lvrs3wy/jobs/column/ric/gams-c76fu4db/225a/gamslice.dat",
+      "comparison_input": false
+    },
+    "results/archives/gdpopt_baron_highs_20261001_partial.tar.gz.sha256": {
+      "original_sha256": "d8a27c1775d9c76f61a89a9e3279a9c7ac1021f0481e242c7fd7197b65ec4eb4",
+      "original_bytes": 109
+    }
+  },
+  "updated_indexes": {
+    "results/archives/SHA256SUMS": {
+      "original_sha256": "db099e915b59c8cb06b7caf9f6efd2f808e678c42e0126d32c9cf13a7f42ebbf",
+      "sanitized_sha256": "8e709da56e86fb4defd68757d8a578f39230a046bd99e20222fb2834a287cde9",
+      "change": "Delete only the removed partial-archive entry."
+    }
+  },
+  "replacement_evidence": {
+    "archive": "results/archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip",
+    "completed_cstr_result_and_vector_files_checked": 24,
+    "completed_cstr_files_byte_identical": true,
+    "retained_experiment_files_changed": false
+  },
+  "historical_inventories": "Retained unchanged as records of the original private snapshots; references to the removed archive do not authorize redistributing it.",
+  "history_cleanup": "An isolated rewritten-history candidate is required before publishing the existing repository; current-tree removal alone does not erase old Git objects.",
+  "updated_provider_files": {
+    "scripts/verify_final_process.py": {
+      "original_sha256": "3c7f8a96b2f7fb9e81143207b2f415bd5c2627f6a55cca7f256a1c729b070efd",
+      "sanitized_sha256": "d926db76968e5a57bc2f0bce4c46638b5f4156c28f5b0e05d10eb63ee0aa189b",
+      "checksum_index": "reproduction/cited_files.json",
+      "change": "Permit only exact documented publication removals while retaining all other integrity checks."
+    }
+  }
+}

@@ -1,5 +1,12 @@
 # Frozen manuscript reproduction (Issue #44)
 
+This guide and its retained validation reports describe the **October 19,
+2026 four-method manuscript baseline**. The later seven-method manuscript,
+Lomustine and catalytic-distillation results have separate reproduction guides
+linked from [the current manuscript overview](../manuscript/README.md).
+See [the publication readiness review](../docs/publication_readiness.md) for
+the current release status.
+
 This companion regenerates all eight main figures and the data for all eight
 main tables and fifteen supplementary tables using **saved records only**.
 It includes the authors' supporting data and complete algebraic audit. It does
@@ -9,9 +16,11 @@ against their original GDP constraints; it does not optimize them.
 
 The October 19 top-level `main.tex` and `supplementary.tex` supplied for review
 are the reference. Their checksums, and those of the older nested manuscript
-sources, are in [provenance.json](provenance.json). Manuscript TeX, the Overleaf
-project ZIP and submission PDFs are deliberately **not distributed here**.
-No existing manuscript source was deleted. See [OUTPUT_INDEX.md](OUTPUT_INDEX.md)
+sources, are in [provenance.json](provenance.json). This frozen-data subset does
+not include manuscript TeX, the Overleaf project ZIP or submission PDFs.
+Current manuscript sources and PDFs are under [`manuscript/`](../manuscript/).
+The package builder includes all committed files at the selected revision,
+including manuscript files present at that revision. See [OUTPUT_INDEX.md](OUTPUT_INDEX.md)
 for every output and [cited_files.json](cited_files.json) for cited file paths,
 purpose, provenance and SHA-256.
 
@@ -85,6 +94,13 @@ cd rbfopt-companion
 python reproduction/package.py verify --root .
 ```
 
+The builder checks the selected committed tree and its pinned submodules before
+creating a ZIP. It rejects known private solver-license filenames and the
+superseded partial archive removed during the
+[public-release privacy cleanup](../docs/publication_sanitization.md).
+Use the sanitized publication history; an older private revision can still
+contain that archive even when it is absent from the working tree.
+
 The ZIP has normalized timestamps and includes `PACKAGE_MANIFEST.json` with
 SHA-256 and size for every committed file, including expanded submodules.
 Its sibling `.zip.sha256` covers the whole archive and `.package.json` records
@@ -109,8 +125,10 @@ file. Local package verification is not a logged-out access test.
 - [ ] Separately update the manuscript availability statement and Supplementary
       S8 to the immutable locator/output index. Refresh stale nested deployment
       archives only after checking them against the final top-level manuscript.
-- [ ] Close Issue #44 only when these public-access and manuscript conditions
-      are satisfied. This PR addresses the repository handoff, not final release.
+- [ ] Record completion of these public-access and manuscript conditions.
+      Issue #44 was closed administratively; its
+      [closure note](https://github.com/SECQUOIA/Black-Box-for-GDP/issues/44#issuecomment-6318113679)
+      explicitly leaves final release and public-access verification as follow-up.
 
 Live optimizer/NLP reruns described elsewhere in the repository are separate
 experiments, need their original environments and sometimes licensed solvers,

@@ -149,7 +149,6 @@ The [96-point logical-rejection supplement](fmqa_qhd_points_20261012_234651_f39l
 | Grid GDP retry, October 9, CPU 6, 21 error retries | [grid_gdp_retry_all_20261009_153057_czhvd9w7.zip](grid_gdp_retry_all_20261009_153057_czhvd9w7.zip) |
 | Corrected Grid GDP retry, October 9, CPU 6, ten cases | [grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip](grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip) |
 | RBFOpt Grid trajectories, October 10, CPU 0, all 1,050 runs | [grid_trace_rbfopt_20261008_190603_og2app39.zip](grid_trace_rbfopt_20261008_190603_og2app39.zip) |
-| Superseded partial RIC/GLOA snapshot, not a comparison input | [gdpopt_baron_highs_20261001_partial.tar.gz](gdpopt_baron_highs_20261001_partial.tar.gz) |
 
 Verify from the repository root:
 
@@ -170,8 +169,12 @@ their overlap on CPU 0. They are not inputs to current analyses.
 
 The two final October 1 GDPopt ZIPs pass their supplied external checksums and
 all 189 internal file checksums. Their 27 saved solutions pass independent
-original-GDP feasibility checks. The partial tar.gz is retained as historical
-evidence only; all 12 CSTR records already complete in it match the final ZIP.
+original-GDP feasibility checks. The superseded partial tar.gz and its checksum
+sidecar were removed from the publication tree because the snapshot contained
+a solver license file. All 12 CSTR records already complete in it match the
+final ZIP. Historical inventories retain the original hashes; see
+[publication sanitization](../../docs/publication_sanitization.md) for the
+documented removal and Git-history publication gate.
 
 These ZIPs contain the current FMQA runs and the other supplied benchmark
 archives. Earlier GDP point failures remain part of their provenance; archiving a run does

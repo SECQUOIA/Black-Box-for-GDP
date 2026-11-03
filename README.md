@@ -1,16 +1,36 @@
 # Black-Box-for-GDP
 
-## Reproduce the manuscript from frozen data
+## Current manuscript and results
+
+The [current manuscript](manuscript/README.md) compares D-SDA, NOMAD, RBFOpt,
+MISO, BAM, FMQA-SA, and uniform sampling, including the Lomustine simulation
+and catalytic distillation cases. Start with these guides:
+
+- [Seven-method Grid and process comparison](results/seven_method_comparison_20261031/README.md).
+- [Lomustine simulation results](results/lomustine_simulation_20261031/README.md).
+- [Catalytic distillation live campaign](results/catalytic_distillation_live_20261101/README.md).
+- [Catalytic distillation MINLP comparison on Dantzig](results/catalytic_distillation_minlp_dantzig_20261101/README.md)
+  and [configurations outside the search box](results/catalytic_distillation_outside_box_dantzig_20261103/README.md).
+- [D-SDA separable-neighborhood comparison](results/dsda_separable_20261101/README.md).
+
+These guides identify retained records and the commands for each analysis.
+Public release and unauthenticated access verification remain pending; see
+[publication readiness](docs/publication_readiness.md).
+
+## Reproduce the October 19 baseline from frozen data
 
 Start with the [complete reproduction guide](reproduction/README.md),
 [all-figure/table output index](reproduction/OUTPUT_INDEX.md), and
 [executed validation report](reproduction/validation/REPORT.md).
-The companion rebuilds eight figures and 23 table datasets from retained
+This companion targets the October 19 four-method manuscript baseline, before
+the seven-method revision and the Lomustine and catalytic distillation cases.
+It rebuilds eight figures and 23 table datasets from retained
 records without running optimizers or NLP solvers. It includes the protocol,
 terminal-callback, stopping and algebraic-audit evidence, and a pinned package
 builder with file-level checksums. Original execution archives remain intact.
-The final public release locator and logged-out access check are still pending;
-see the guide's post-merge checklist (Issue #44).
+Its validation report applies to that baseline. The final companion release
+locator and logged-out access check are still pending; see the guide's
+post-merge checklist (Issue #44).
 
 
 RBFopt_Test is a research and testing repository for derivative-free
@@ -544,9 +564,12 @@ python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py 
 
 ## License
 
-This project's code is distributed under the MIT License. See `LICENSE` for
-the full license text. External source submodules retain their upstream terms;
-see [original GDP source attribution](docs/original_gdp_models.md#original-sources).
+Original project code is distributed under the [MIT License](LICENSE).
+Vendored sources, copied catalytic distillation models, and external submodules
+retain the notices and terms described in [third-party notices](THIRD_PARTY_NOTICES.md).
+The pinned Dynamic source has no license file; the maintainer confirmed its
+redistribution permission on November 3, 2026. The root MIT notice does not
+relicense that source.
 
 ## Process GDP interface integration
 

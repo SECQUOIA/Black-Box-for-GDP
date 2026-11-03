@@ -22,3 +22,5 @@ results/workspace_cleanup_20261025/** -text -whitespace
 
 # Vendored catalytic distillation model: keep the source CRLF line endings.
 gdp_models/catalytic_distillation/** -text
+# The verbatim upstream license uses a seven-equals reStructuredText heading.
+gdp_models/catalytic_distillation/LICENSE.dsda-gdp conflict-marker-size=32

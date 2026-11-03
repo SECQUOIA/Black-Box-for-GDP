@@ -13,8 +13,11 @@ internally (`LPSol 8`) and IPOPT local search (`NLPSol 9`).
 The original process survived the SSH disconnect. The previous tar.gz was
 copied while Column RIC was still running; its 12 completed CSTR records are
 identical to the final records. The full archive supersedes that snapshot.
-The partial archive remains in `results/archives/` as historical evidence,
-but it is not selected for comparisons and no six-job restart result is used.
+The superseded partial archive and its checksum sidecar were removed from the
+publication tree because the snapshot contained a solver license file; see
+[publication sanitization](../../docs/publication_sanitization.md).
+Its completed CSTR records remain in the final ZIP. The partial snapshot is
+not selected for comparisons and no six-job restart result is used.
 
 - [Original final ZIP](../archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip)
   and [server checksum](../archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip.sha256).

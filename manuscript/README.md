@@ -1,9 +1,35 @@
-# Current manuscript snapshot - simulation-based case of October 31, 2026
+# Current manuscript snapshot - November 3, 2026
+
+The current [main source](main.tex), [supplementary source](supplementary.tex),
+[bibliography](reference.bib), [combined PDF](main.pdf), and
+[supplementary PDF](supplementary.pdf) include the seven-method comparison,
+Lomustine simulation, catalytic distillation results, and the D-SDA
+separable-neighborhood comparison.
+
+The retained records and analysis commands are documented in:
+
+- [Seven-method Grid and process results](../results/seven_method_comparison_20261031/README.md).
+- [Lomustine simulation results](../results/lomustine_simulation_20261031/README.md).
+- [Catalytic distillation live campaign](../results/catalytic_distillation_live_20261101/README.md).
+- [Catalytic distillation MINLP comparison on Dantzig](../results/catalytic_distillation_minlp_dantzig_20261101/README.md)
+  and [the Dantzig check outside the search box](../results/catalytic_distillation_outside_box_dantzig_20261103/README.md).
+- [D-SDA separable-neighborhood comparison](../results/dsda_separable_20261101/README.md).
+
+The manuscript cites publication snapshot `ea65c5339486b576008df68645ea68d22f7c7213`.
+Public access remains to be verified; see [publication readiness](../docs/publication_readiness.md).
+The [frozen reproduction companion](../reproduction/README.md) validates the
+October 19 baseline and does not cover all later manuscript revisions.
+
+The earlier snapshot notes below are historical. In particular,
+`publication_manifest.json`, `manuscript_sources.zip`, and `joint_comparison.pdf`
+describe earlier snapshots and do not verify or package the current manuscript.
+
+# Historical snapshot - simulation-based case of October 31, 2026
 
 This branch (PR #57) adds to the PR #56 manuscript a formulation for subproblems defined by a process simulator (Problem Sim) and the `Lomustine` benchmark, a pharmaceutical flowsheet simulated in PharmaPy (SECQUOIA/pd_ising PR 28).
 The seven methods run on its 36 configurations with stored simulation-based optimizations ([case](../experiments/lomustine_simulation/README.md), [results](../results/lomustine_simulation_20261031/README.md)); the catalytic distillation column results are still pending.
 
-# Previous snapshot - seven-method revision of October 31, 2026
+# Historical snapshot - seven-method revision of October 31, 2026
 
 NOMAD and MISO are now primary methods, from the audited [Dantzig return of PR #56](../results/pr56_dantzig_return_20261031/README.md).
 The abstract, contributions, methods, process and Grid results, Discussion, Conclusions, and supplement report all seven DFO methods; NOMAD's 21 crashed Grid runs stay explicit, and the 70 exploratory paired tests have their own supplementary table.
@@ -11,7 +37,7 @@ Tables and figures are generated without solver calls by [seven_methods.py](../r
 D-SDA never evaluates a configuration twice, as in the original D-SDA and LD-SDA; every D-SDA number, table, and figure comes from Albert's audited rerun (`results/dsda_no_revisit_20261031`), which matches the local rerun run for run.
 The combined PDF compiles with zero errors, warnings, or undefined references; the main text ends on page 21.
 
-# Previous snapshot - review revision of October 30, 2026
+# Historical snapshot - review revision of October 30, 2026
 
 This snapshot starts from the Overleaf export of October 30, 2026 and applies David's review comments and the revised story.
 `main.tex`, `supplementary.tex`, `reference.bib`, and the figures here supersede the copies in Overleaf and should be uploaded there.
@@ -27,7 +53,7 @@ The combined PDF compiles with zero errors and zero undefined references; the ma
 - The process D-SDA restart check ([experiment](../experiments/dsda_process_multistart/README.md)) and the NOMAD/MISO comparison ([experiment](../experiments/mixed_integer_dfo/README.md)) have Dantzig launchers for Albert.
 - Teal `\claude{}` notes mark text that awaits the Dantzig returns.
 
-# Previous snapshot - joint process comparison
+# Historical snapshot - joint process comparison
 
 The [updated S9 figures and workload table](../results/joint_process_scip_ipopt_20261030/README.md) now use the SCIP-master/IPOPT-subproblem GDPopt campaign.
 Those two figure PDFs and their captions were applied in place to live Overleaf on October 30, 2026.
@@ -55,7 +81,7 @@ The earlier [Grid presentation update](../results/grid_presentation_20261029/REA
 The underlying [DFO publication analysis](../results/dsda_publication_20261028/README.md) and [SCIP analysis](../results/process_scip_four_analysis_20261026/README.md) are unchanged.
 The old Grid and D-SDA verification files describe those earlier steps and are retained as historical records.
 
-- [Combined review PDF](main.pdf), [supplementary PDF](supplementary.pdf), and [S9 review excerpt](joint_comparison.pdf).
-- [Main source](main.tex), [supplementary source](supplementary.tex), [bibliography](reference.bib), and [source distribution](manuscript_sources.zip).
-- [Snapshot manifest](publication_manifest.json) and [new verification](joint_revision_verification.json).
+- The main/supplementary sources, PDFs, and bibliography linked above have since been updated.
+- [Historical S9 review excerpt](joint_comparison.pdf) and [historical source distribution](manuscript_sources.zip).
+- [Historical snapshot manifest](publication_manifest.json) and [historical verification](joint_revision_verification.json).
 - [Preceding snapshot metadata](review_history/pre_joint_comparison/).

@@ -1,7 +1,8 @@
 """Build a deterministic, pinned companion ZIP or verify its extracted contents.
 
-Only committed Git blobs and exact pinned submodule revisions are packaged.
-No working-tree files, licenses, virtual environments or manuscript attachments.
+Every committed file and exact pinned submodule revision is packaged, including
+manuscript attachments and open-source license notices. Untracked local files
+are excluded. Known private solver-license paths are rejected before ZIP creation.
 """
 
 import argparse
@@ -16,8 +17,37 @@ import zipfile
 from common import ROOT, read_json, sha, write_json
 
 
+PRIVATE_SOLVER_LICENSE_NAMES = {"gamslice.dat", "gamslice.txt", "bamlice.txt"}
+REMOVED_PRIVATE_ARCHIVE = "results/archives/gdpopt_baron_highs_20261001_partial.tar.gz"
+
+
 def git(*args, cwd=ROOT):
     return subprocess.check_output(["git", *args], cwd=cwd)
+
+
+def preflight_publication_paths(repo, revision, prefix=""):
+    """Reject known private paths in the committed tree and pinned submodules."""
+    for entry in git("ls-tree", "-rz", revision, cwd=repo).decode().split("\0"):
+        if not entry:
+            continue
+        metadata, name = entry.split("\t", 1)
+        _, kind, commit = metadata.split()
+        path = prefix + name
+        if (
+            PurePosixPath(path).name.lower() in PRIVATE_SOLVER_LICENSE_NAMES
+            or path == REMOVED_PRIVATE_ARCHIVE
+            or path.endswith("/" + REMOVED_PRIVATE_ARCHIVE)
+        ):
+            raise ValueError(
+                f"Private solver-license artifact cannot be packaged: {path}; "
+                "use the sanitized publication revision described in "
+                "docs/publication_sanitization.md"
+            )
+        if kind == "commit":
+            sub = repo / name
+            if not (sub / ".git").exists():
+                raise ValueError(f"Initialize pinned submodule first: {path}")
+            preflight_publication_paths(sub, commit, path + "/")
 
 
 def revision_files(repo, revision, prefix=""):
@@ -45,6 +75,7 @@ def build(revision, output):
     commit = git("rev-parse", "--verify", revision + "^{commit}").decode().strip()
     if output.exists() or output.with_suffix(".zip.sha256").exists():
         raise ValueError("Refusing to overwrite an existing release candidate")
+    preflight_publication_paths(ROOT, commit)
     output.parent.mkdir(parents=True, exist_ok=True)
     records = []
     with zipfile.ZipFile(

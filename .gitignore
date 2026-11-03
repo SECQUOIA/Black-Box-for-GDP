@@ -4,6 +4,7 @@ OsiDefaultName_start
 
 # Local benchmark review notes and full archive extraction
 /results/dantzig_review/
+/.local_review/
 
 # Detailed immutable records are retained in results/archives/*.zip.
 /results/fmqa_20260925/grid/jobs/
@@ -37,7 +38,33 @@ OsiDefaultName_start
 
 # Local solver licenses
 bamlice.txt
+gamslice.txt
+gamslice.dat
 *.lic
+
+# Superseded archive removed during the public-release privacy review.
+/results/archives/gdpopt_baron_highs_20261001_partial.tar.gz
+/results/archives/gdpopt_baron_highs_20261001_partial.tar.gz.sha256
+
+# Local credentials and environment settings
+.env
+.env.*
+!.env.example
+!.env.*.example
+.aws/
+.ssh/
+
+# Local manuscript export and LaTeX build intermediates
+/BlackBoxOptimization_Manuscript.zip
+/manuscript/*.aux
+/manuscript/*.bbl
+/manuscript/*.blg
+/manuscript/*.fdb_latexmk
+/manuscript/*.fls
+/manuscript/*.log
+/manuscript/*.out
+/manuscript/*.synctex.gz
+/manuscript/*.toc
 
 # Python
 .pytest_cache/
