@@ -25,6 +25,34 @@ RESULT = ROOT / "results/process_ipopt_bam_v2_20261015"
 MANIFEST = RESULT / "integration/manifest.json"
 
 
+# Documentation-only corrections reviewed in 44ed7215. Preserve the original
+# integration manifest and require both exact endpoints of each later edit.
+DOCUMENTATION_UPDATES = {
+    'results/grid_gdp_20261009/README.md': (
+        'ad4d5c5b06ff8811cbbf186400b3b7c65c5d38ef7424038c31185a38f5c12f12',
+        '21c40baa6605e86708622a06b77808a65f67c738daaf05abab1debd8eb96e596'),
+    'results/grid_gdp_corrected_20261009/README.md': (
+        'e7fdbc7c70a82ef2d850e50ca8a41e927b3e50a51b65ad322b6b5de51c802df0',
+        'b1ec44f19ef2794e898c0b8afcdffdfc02ba30adacf4eeedf8b74c2834271bf8'),
+}
+
+
+# Exact publication removals: the superseded partial snapshot contained a
+# solver license file. Historical inventories remain unchanged. This exception
+# is deliberately closed to other files; see docs/publication_sanitization.md.
+PUBLICATION_REMOVALS = {
+    'results/archives/gdpopt_baron_highs_20261001_partial.tar.gz':
+        '65cdbd4712a8845f88e89db754a2c64b99bd8f3013f94fce2561a71f8c92ad58',
+    'results/archives/gdpopt_baron_highs_20261001_partial.tar.gz.sha256':
+        'd8a27c1775d9c76f61a89a9e3279a9c7ac1021f0481e242c7fd7197b65ec4eb4',
+}
+PUBLICATION_INDEX = 'results/archives/SHA256SUMS'
+PUBLICATION_INDEX_HASHES = (
+    'db099e915b59c8cb06b7caf9f6efd2f808e678c42e0126d32c9cf13a7f42ebbf',
+    '8e709da56e86fb4defd68757d8a578f39230a046bd99e20222fb2834a287cde9',
+)
+
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -44,12 +72,33 @@ def rows(path):
         return list(csv.DictReader(stream))
 
 
+def verify_publication_sanitization(baseline):
+    """Verify only the two fixed removals and the exact checksum-index edit."""
+    files = baseline["files"]
+    if not any(name in files for name in (*PUBLICATION_REMOVALS, PUBLICATION_INDEX)):
+        return []
+    for name, expected in PUBLICATION_REMOVALS.items():
+        require(name in files and files[name]["sha256"] == expected,
+                f"Publication removal baseline mismatch: {name}")
+        path = ROOT / name
+        require(not path.exists() and not path.is_symlink(),
+                f"Removed private publication artifact is present: {name}")
+    require(PUBLICATION_INDEX in files and
+            files[PUBLICATION_INDEX]["sha256"] == PUBLICATION_INDEX_HASHES[0],
+            "Publication checksum index baseline mismatch")
+    path = ROOT / PUBLICATION_INDEX
+    require(path.is_file() and sha(path) == PUBLICATION_INDEX_HASHES[1],
+            "Sanitized publication checksum index changed")
+    return sorted(PUBLICATION_REMOVALS)
+
+
 def verify_preservation(manifest):
-    """Match pre-merge bytes either in the tree or PR #23's original ZIPs."""
+    """Verify retained records and separately report exact publication removals."""
     baseline_path = ROOT / manifest["before_inventory"]["path"]
     require(sha(baseline_path) == manifest["before_inventory"]["sha256"], "Baseline inventory changed")
     with gzip.open(baseline_path, "rt") as stream:
         baseline = json.load(stream)
+    removed = verify_publication_sanitization(baseline)
     updates = manifest.get("derived_artifact_updates", {})
     for name, update in updates.items():
         require(name.startswith(("results/gdp_comparison_current/analysis/",
@@ -64,12 +113,18 @@ def verify_preservation(manifest):
                 f"Derived artifact changed after verified regeneration: {name}")
     changed, missing, retained = [], {}, 0
     for name, old in baseline["files"].items():
+        if name in removed or (removed and name == PUBLICATION_INDEX):
+            continue
         path = ROOT / name
         if not path.is_file():
             missing[name] = old
         elif sha(path) != old["sha256"]:
             if name not in updates:
-                require(name in manifest["documented_nondata_changes"], f"Original artifact changed: {name}")
+                if name in DOCUMENTATION_UPDATES:
+                    require((old["sha256"], sha(path)) == DOCUMENTATION_UPDATES[name],
+                            f"Reviewed documentation changed: {name}")
+                else:
+                    require(name in manifest["documented_nondata_changes"], f"Original artifact changed: {name}")
                 changed.append(name)
         else:
             retained += 1
@@ -97,11 +152,23 @@ def verify_preservation(manifest):
     for name, expected in manifest["additional_files_sha256"].items():
         require(sha(ROOT / name) == expected, f"Additional artifact changed: {name}")
     return {"baseline_files": len(baseline["files"]), "unchanged_files_in_tree": retained,
-            "unchanged_original_archives": sum(name.endswith((".zip", ".tar.gz"))
+            "unchanged_original_archives": sum(name.endswith((".zip", ".tar.gz")) and name not in removed
                                                for name in baseline["files"]),
             "byte_identical_copies_in_original_archives": len(archived),
             "documented_documentation_or_verifier_changes": changed,
             "verified_derived_artifact_updates": sorted(updates),
+            "publication_sanitization_removed_files": removed,
+            "publication_sanitization_index_update": {
+                "path": PUBLICATION_INDEX,
+                "before_sha256": PUBLICATION_INDEX_HASHES[0],
+                "after_sha256": PUBLICATION_INDEX_HASHES[1],
+            } if removed else None,
+            "publication_sanitization_documentation":
+                "docs/publication_sanitization.md" if removed else None,
+            "experimental_artifact_preservation_scope":
+                "Retained completed experimental records; the superseded partial "
+                "archive and its sidecar are reported separately as publication removals"
+                if removed else "All baseline experimental artifacts",
             "missing_or_changed_experimental_artifacts": 0}
 
 

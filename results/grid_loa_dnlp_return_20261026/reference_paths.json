@@ -1,0 +1,2498 @@
+[
+  {
+    "grid_name": "holder_table",
+    "point": [
+      3,
+      1
+    ],
+    "old_discrete_selections": 1,
+    "old_evaluation_entries": 0,
+    "new_path_counts": {
+      "after_discrete_problem": 1,
+      "before_subproblem": 1,
+      "after_subproblem": 1
+    },
+    "presolve_bypassed_in_actual_config": true,
+    "events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 153,
+        "elapsed_s": 168.87883037910797,
+        "completed_solver_calls": 305,
+        "grid_point": [
+          3,
+          1
+        ],
+        "selected_coordinate_indices": [
+          [
+            3
+          ],
+          [
+            1
+          ]
+        ],
+        "physical_point": [
+          -8.0,
+          -9.333333333333334
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 1.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 1.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 305,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 1621.5557536720298,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.828637340494052,
+            "OBJVAL": -0.828637340494052,
+            "NUMVAR": 66.0,
+            "NUMEQU": 279.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 9732.0,
+            "ETSOLVE": 0.091999978758395
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.828637340494052,
+          "upper_bound": -0.828637340494052,
+          "global_subproblem_complete": true,
+          "wall_s": 0.44359346316196024
+        }
+      },
+      {
+        "event": "before_subproblem",
+        "iteration": 153,
+        "elapsed_s": 168.8827144871466,
+        "completed_solver_calls": 305,
+        "grid_point": [
+          3,
+          1
+        ],
+        "selected_coordinate_indices": [
+          [
+            3
+          ],
+          [
+            1
+          ]
+        ],
+        "physical_point": [
+          0.0,
+          0.0
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 1.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 1.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 305,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 1621.5557536720298,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.828637340494052,
+            "OBJVAL": -0.828637340494052,
+            "NUMVAR": 66.0,
+            "NUMEQU": 279.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 9732.0,
+            "ETSOLVE": 0.091999978758395
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.828637340494052,
+          "upper_bound": -0.828637340494052,
+          "global_subproblem_complete": true,
+          "wall_s": 0.44359346316196024
+        }
+      },
+      {
+        "event": "after_subproblem",
+        "iteration": 153,
+        "elapsed_s": 169.28452385705896,
+        "completed_solver_calls": 306,
+        "grid_point": [
+          3,
+          1
+        ],
+        "selected_coordinate_indices": [
+          [
+            3
+          ],
+          [
+            1
+          ]
+        ],
+        "physical_point": [
+          -8.0,
+          -9.333333333333336
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 1.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 1.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 306,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 1621.1042145329993,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.054999953135848
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": true,
+          "wall_s": 0.3978565197903663
+        }
+      }
+    ],
+    "independently_checked_target_returns": [
+      {
+        "event": {
+          "event": "gdpopt_feasible_subproblem",
+          "iteration": 153,
+          "elapsed_s": 169.28856672905385,
+          "has_feasible_solution": true,
+          "candidate_objective": -1.9587104186792927e-16,
+          "max_primal_violation": 1.7763568394002505e-15,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[3]",
+            "Ychoice[1]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            3,
+            1
+          ],
+          "selected_coordinate_indices": [
+            [
+              3
+            ],
+            [
+              1
+            ]
+          ],
+          "physical_point": [
+            -8.0,
+            -9.333333333333336
+          ]
+        },
+        "original_validation": {
+          "has_feasible_solution": true,
+          "candidate_objective": -1.9587104186792927e-16,
+          "max_primal_violation": 1.7763568394002505e-15,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[3]",
+            "Ychoice[1]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            3,
+            1
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+          "normalized_gap": -1.9587104186792927e-16,
+          "target_hit": true
+        }
+      }
+    ]
+  },
+  {
+    "grid_name": "holder_table",
+    "point": [
+      3,
+      29
+    ],
+    "old_discrete_selections": 1,
+    "old_evaluation_entries": 0,
+    "new_path_counts": {
+      "after_discrete_problem": 1,
+      "before_subproblem": 1,
+      "after_subproblem": 1
+    },
+    "presolve_bypassed_in_actual_config": true,
+    "events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 152,
+        "elapsed_s": 167.86395320412703,
+        "completed_solver_calls": 303,
+        "grid_point": [
+          3,
+          29
+        ],
+        "selected_coordinate_indices": [
+          [
+            3
+          ],
+          [
+            29
+          ]
+        ],
+        "physical_point": [
+          -8.0,
+          9.333333333333332
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 1.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 1.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 303,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 1622.5708477830049,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.828637340494052,
+            "OBJVAL": -0.828637340494052,
+            "NUMVAR": 66.0,
+            "NUMEQU": 278.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 9670.0,
+            "ETSOLVE": 0.081999530084431
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.828637340494052,
+          "upper_bound": -0.828637340494052,
+          "global_subproblem_complete": true,
+          "wall_s": 0.4438825468532741
+        }
+      },
+      {
+        "event": "before_subproblem",
+        "iteration": 152,
+        "elapsed_s": 167.86774115799926,
+        "completed_solver_calls": 303,
+        "grid_point": [
+          3,
+          29
+        ],
+        "selected_coordinate_indices": [
+          [
+            3
+          ],
+          [
+            29
+          ]
+        ],
+        "physical_point": [
+          0.0,
+          0.0
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 1.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 1.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 303,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 1622.5708477830049,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.828637340494052,
+            "OBJVAL": -0.828637340494052,
+            "NUMVAR": 66.0,
+            "NUMEQU": 278.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 9670.0,
+            "ETSOLVE": 0.081999530084431
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.828637340494052,
+          "upper_bound": -0.828637340494052,
+          "global_subproblem_complete": true,
+          "wall_s": 0.4438825468532741
+        }
+      },
+      {
+        "event": "after_subproblem",
+        "iteration": 152,
+        "elapsed_s": 168.26553747220896,
+        "completed_solver_calls": 304,
+        "grid_point": [
+          3,
+          29
+        ],
+        "selected_coordinate_indices": [
+          [
+            3
+          ],
+          [
+            29
+          ]
+        ],
+        "physical_point": [
+          -8.0,
+          9.333333333333332
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 1.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 1.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 304,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 1622.119862645166,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.045000133104622
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": true,
+          "wall_s": 0.3945078270044178
+        }
+      }
+    ],
+    "independently_checked_target_returns": [
+      {
+        "event": {
+          "event": "gdpopt_feasible_subproblem",
+          "iteration": 152,
+          "elapsed_s": 168.2696099912282,
+          "has_feasible_solution": true,
+          "candidate_objective": 9.793552093396464e-16,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[3]",
+            "Ychoice[29]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            3,
+            29
+          ],
+          "selected_coordinate_indices": [
+            [
+              3
+            ],
+            [
+              29
+            ]
+          ],
+          "physical_point": [
+            -8.0,
+            9.333333333333332
+          ]
+        },
+        "original_validation": {
+          "has_feasible_solution": true,
+          "candidate_objective": 9.793552093396464e-16,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[3]",
+            "Ychoice[29]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            3,
+            29
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+          "normalized_gap": 9.793552093396464e-16,
+          "target_hit": true
+        }
+      }
+    ]
+  },
+  {
+    "grid_name": "holder_table",
+    "point": [
+      27,
+      1
+    ],
+    "old_discrete_selections": 1,
+    "old_evaluation_entries": 0,
+    "new_path_counts": {
+      "after_discrete_problem": 1,
+      "before_subproblem": 1,
+      "after_subproblem": 1
+    },
+    "presolve_bypassed_in_actual_config": true,
+    "events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 695,
+        "elapsed_s": 1353.576460431097,
+        "completed_solver_calls": 1389,
+        "grid_point": [
+          27,
+          1
+        ],
+        "selected_coordinate_indices": [
+          [
+            27
+          ],
+          [
+            1
+          ]
+        ],
+        "physical_point": [
+          8.0,
+          -9.333333333333334
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 1.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 1.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 1389,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 437.11642722110264,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.828637340494052,
+            "OBJVAL": -0.828637340494052,
+            "NUMVAR": 66.0,
+            "NUMEQU": 821.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 43336.0,
+            "ETSOLVE": 0.285000214353204
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.828637340494052,
+          "upper_bound": -0.828637340494052,
+          "global_subproblem_complete": true,
+          "wall_s": 0.7015850869938731
+        }
+      },
+      {
+        "event": "before_subproblem",
+        "iteration": 695,
+        "elapsed_s": 1353.5799788390286,
+        "completed_solver_calls": 1389,
+        "grid_point": [
+          27,
+          1
+        ],
+        "selected_coordinate_indices": [
+          [
+            27
+          ],
+          [
+            1
+          ]
+        ],
+        "physical_point": [
+          0.0,
+          0.0
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 1.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 1.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 1389,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 437.11642722110264,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.828637340494052,
+            "OBJVAL": -0.828637340494052,
+            "NUMVAR": 66.0,
+            "NUMEQU": 821.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 43336.0,
+            "ETSOLVE": 0.285000214353204
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.828637340494052,
+          "upper_bound": -0.828637340494052,
+          "global_subproblem_complete": true,
+          "wall_s": 0.7015850869938731
+        }
+      },
+      {
+        "event": "after_subproblem",
+        "iteration": 695,
+        "elapsed_s": 1353.9517935442273,
+        "completed_solver_calls": 1390,
+        "grid_point": [
+          27,
+          1
+        ],
+        "selected_coordinate_indices": [
+          [
+            27
+          ],
+          [
+            1
+          ]
+        ],
+        "physical_point": [
+          8.0,
+          -9.333333333333336
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 1.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 1.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 1390,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 436.40791750419885,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.043999962508678
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": true,
+          "wall_s": 0.36888699792325497
+        }
+      }
+    ],
+    "independently_checked_target_returns": [
+      {
+        "event": {
+          "event": "gdpopt_feasible_subproblem",
+          "iteration": 695,
+          "elapsed_s": 1353.955787241226,
+          "has_feasible_solution": true,
+          "candidate_objective": -1.9587104186792927e-16,
+          "max_primal_violation": 1.7763568394002505e-15,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[27]",
+            "Ychoice[1]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            27,
+            1
+          ],
+          "selected_coordinate_indices": [
+            [
+              27
+            ],
+            [
+              1
+            ]
+          ],
+          "physical_point": [
+            8.0,
+            -9.333333333333336
+          ]
+        },
+        "original_validation": {
+          "has_feasible_solution": true,
+          "candidate_objective": -1.9587104186792927e-16,
+          "max_primal_violation": 1.7763568394002505e-15,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[27]",
+            "Ychoice[1]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            27,
+            1
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+          "normalized_gap": -1.9587104186792927e-16,
+          "target_hit": true
+        }
+      }
+    ]
+  },
+  {
+    "grid_name": "holder_table",
+    "point": [
+      27,
+      29
+    ],
+    "old_discrete_selections": 1,
+    "old_evaluation_entries": 0,
+    "new_path_counts": {
+      "after_discrete_problem": 1,
+      "before_subproblem": 1,
+      "after_subproblem": 1
+    },
+    "presolve_bypassed_in_actual_config": true,
+    "events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 542,
+        "elapsed_s": 980.5005425701384,
+        "completed_solver_calls": 1083,
+        "grid_point": [
+          27,
+          29
+        ],
+        "selected_coordinate_indices": [
+          [
+            27
+          ],
+          [
+            29
+          ]
+        ],
+        "physical_point": [
+          8.0,
+          9.333333333333332
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 1.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 1.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 1083,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 810.0853064581752,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.828637340494052,
+            "OBJVAL": -0.828637340494052,
+            "NUMVAR": 66.0,
+            "NUMEQU": 668.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 33850.0,
+            "ETSOLVE": 0.192000064998865
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.828637340494052,
+          "upper_bound": -0.828637340494052,
+          "global_subproblem_complete": true,
+          "wall_s": 0.5946796871721745
+        }
+      },
+      {
+        "event": "before_subproblem",
+        "iteration": 542,
+        "elapsed_s": 980.5040274930652,
+        "completed_solver_calls": 1083,
+        "grid_point": [
+          27,
+          29
+        ],
+        "selected_coordinate_indices": [
+          [
+            27
+          ],
+          [
+            29
+          ]
+        ],
+        "physical_point": [
+          0.0,
+          0.0
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 1.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 1.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 1083,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 810.0853064581752,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.828637340494052,
+            "OBJVAL": -0.828637340494052,
+            "NUMVAR": 66.0,
+            "NUMEQU": 668.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 33850.0,
+            "ETSOLVE": 0.192000064998865
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.828637340494052,
+          "upper_bound": -0.828637340494052,
+          "global_subproblem_complete": true,
+          "wall_s": 0.5946796871721745
+        }
+      },
+      {
+        "event": "after_subproblem",
+        "iteration": 542,
+        "elapsed_s": 980.8931056661531,
+        "completed_solver_calls": 1084,
+        "grid_point": [
+          27,
+          29
+        ],
+        "selected_coordinate_indices": [
+          [
+            27
+          ],
+          [
+            29
+          ]
+        ],
+        "physical_point": [
+          8.0,
+          9.333333333333332
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 1.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 1.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 1084,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 809.4837381890975,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.044999504461884
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": true,
+          "wall_s": 0.3859753499273211
+        }
+      }
+    ],
+    "independently_checked_target_returns": [
+      {
+        "event": {
+          "event": "gdpopt_feasible_subproblem",
+          "iteration": 542,
+          "elapsed_s": 980.8971240511164,
+          "has_feasible_solution": true,
+          "candidate_objective": 9.793552093396464e-16,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[27]",
+            "Ychoice[29]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            27,
+            29
+          ],
+          "selected_coordinate_indices": [
+            [
+              27
+            ],
+            [
+              29
+            ]
+          ],
+          "physical_point": [
+            8.0,
+            9.333333333333332
+          ]
+        },
+        "original_validation": {
+          "has_feasible_solution": true,
+          "candidate_objective": 9.793552093396464e-16,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[27]",
+            "Ychoice[29]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            27,
+            29
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "130098080f787d5fb8492e870485fa11ec7d56f00c86909299ca49967cf07181",
+          "normalized_gap": 9.793552093396464e-16,
+          "target_hit": true
+        }
+      }
+    ]
+  },
+  {
+    "grid_name": "michalewicz",
+    "point": [
+      21,
+      15
+    ],
+    "old_discrete_selections": 1,
+    "old_evaluation_entries": 0,
+    "new_path_counts": {
+      "after_discrete_problem": 1,
+      "before_subproblem": 1,
+      "after_subproblem": 1
+    },
+    "presolve_bypassed_in_actual_config": true,
+    "events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 671,
+        "elapsed_s": 1478.1653179479763,
+        "completed_solver_calls": 1341,
+        "grid_point": [
+          21,
+          15
+        ],
+        "selected_coordinate_indices": [
+          [
+            21
+          ],
+          [
+            15
+          ]
+        ],
+        "physical_point": [
+          2.199114857512855,
+          1.570796326794897
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 1.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 1.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 1341,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 312.53085974091664,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.110450831302087,
+            "OBJVAL": -0.110450831302087,
+            "NUMVAR": 66.0,
+            "NUMEQU": 797.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 41848.0,
+            "ETSOLVE": 0.268999999389052
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.110450831302087,
+          "upper_bound": -0.110450831302087,
+          "global_subproblem_complete": true,
+          "wall_s": 0.7004484471399337
+        }
+      },
+      {
+        "event": "before_subproblem",
+        "iteration": 671,
+        "elapsed_s": 1478.1689377899747,
+        "completed_solver_calls": 1341,
+        "grid_point": [
+          21,
+          15
+        ],
+        "selected_coordinate_indices": [
+          [
+            21
+          ],
+          [
+            15
+          ]
+        ],
+        "physical_point": [
+          1.5707963267948966,
+          1.5707963267948966
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 1.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 1.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 1341,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 312.53085974091664,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.110450831302087,
+            "OBJVAL": -0.110450831302087,
+            "NUMVAR": 66.0,
+            "NUMEQU": 797.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 41848.0,
+            "ETSOLVE": 0.268999999389052
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.110450831302087,
+          "upper_bound": -0.110450831302087,
+          "global_subproblem_complete": true,
+          "wall_s": 0.7004484471399337
+        }
+      },
+      {
+        "event": "after_subproblem",
+        "iteration": 671,
+        "elapsed_s": 1478.5753226790112,
+        "completed_solver_calls": 1342,
+        "grid_point": [
+          21,
+          15
+        ],
+        "selected_coordinate_indices": [
+          [
+            21
+          ],
+          [
+            15
+          ]
+        ],
+        "physical_point": [
+          2.199114857512855,
+          1.570796326794897
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 0.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 1.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 1.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 0.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 1342,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 311.82349441596307,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.054999953135848
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": true,
+          "wall_s": 0.4033074539620429
+        }
+      }
+    ],
+    "independently_checked_target_returns": [
+      {
+        "event": {
+          "event": "gdpopt_feasible_subproblem",
+          "iteration": 671,
+          "elapsed_s": 1478.579257364152,
+          "has_feasible_solution": true,
+          "candidate_objective": 0.0,
+          "max_primal_violation": 4.440892098500626e-16,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[21]",
+            "Ychoice[15]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            21,
+            15
+          ],
+          "selected_coordinate_indices": [
+            [
+              21
+            ],
+            [
+              15
+            ]
+          ],
+          "physical_point": [
+            2.199114857512855,
+            1.570796326794897
+          ]
+        },
+        "original_validation": {
+          "has_feasible_solution": true,
+          "candidate_objective": 0.0,
+          "max_primal_violation": 4.440892098500626e-16,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[21]",
+            "Ychoice[15]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            21,
+            15
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "ccaecd464ee21d412feaac6b60aecc8e8d62fb03665f35871a9250d4b1c44616",
+          "normalized_gap": 0.0,
+          "target_hit": true
+        }
+      }
+    ]
+  },
+  {
+    "grid_name": "shubert",
+    "point": [
+      17,
+      22
+    ],
+    "old_discrete_selections": 1,
+    "old_evaluation_entries": 0,
+    "new_path_counts": {
+      "after_discrete_problem": 1,
+      "before_subproblem": 1,
+      "after_subproblem": 1
+    },
+    "presolve_bypassed_in_actual_config": true,
+    "events": [
+      {
+        "event": "after_discrete_problem",
+        "iteration": 478,
+        "elapsed_s": 986.3992945209611,
+        "completed_solver_calls": 955,
+        "grid_point": [
+          17,
+          22
+        ],
+        "selected_coordinate_indices": [
+          [
+            17
+          ],
+          [
+            22
+          ]
+        ],
+        "physical_point": [
+          5.666666666666666,
+          7.333333333333333
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 1.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 1.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 955,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 804.1708866620902,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.044221747369219,
+            "OBJVAL": -0.044221747369219,
+            "NUMVAR": 66.0,
+            "NUMEQU": 604.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 29882.0,
+            "ETSOLVE": 0.167000200599432
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.044221747369219,
+          "upper_bound": -0.044221747369219,
+          "global_subproblem_complete": true,
+          "wall_s": 0.5745305430609733
+        }
+      },
+      {
+        "event": "before_subproblem",
+        "iteration": 478,
+        "elapsed_s": 986.4029261858668,
+        "completed_solver_calls": 955,
+        "grid_point": [
+          17,
+          22
+        ],
+        "selected_coordinate_indices": [
+          [
+            17
+          ],
+          [
+            22
+          ]
+        ],
+        "physical_point": [
+          5.0,
+          5.0
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 1.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 1.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 955,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 804.1708866620902,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -0.044221747369219,
+            "OBJVAL": -0.044221747369219,
+            "NUMVAR": 66.0,
+            "NUMEQU": 604.0,
+            "NUMDVAR": 62.0,
+            "NUMNZ": 29882.0,
+            "ETSOLVE": 0.167000200599432
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": -0.044221747369219,
+          "upper_bound": -0.044221747369219,
+          "global_subproblem_complete": true,
+          "wall_s": 0.5745305430609733
+        }
+      },
+      {
+        "event": "after_subproblem",
+        "iteration": 478,
+        "elapsed_s": 986.8052163438406,
+        "completed_solver_calls": 956,
+        "grid_point": [
+          17,
+          22
+        ],
+        "selected_coordinate_indices": [
+          [
+            17
+          ],
+          [
+            22
+          ]
+        ],
+        "physical_point": [
+          5.666666666666666,
+          7.333333333333333
+        ],
+        "binary_values": {
+          "Xchoice[0].binary_indicator_var": 0.0,
+          "Xchoice[1].binary_indicator_var": 0.0,
+          "Xchoice[2].binary_indicator_var": 0.0,
+          "Xchoice[3].binary_indicator_var": 0.0,
+          "Xchoice[4].binary_indicator_var": 0.0,
+          "Xchoice[5].binary_indicator_var": 0.0,
+          "Xchoice[6].binary_indicator_var": 0.0,
+          "Xchoice[7].binary_indicator_var": 0.0,
+          "Xchoice[8].binary_indicator_var": 0.0,
+          "Xchoice[9].binary_indicator_var": 0.0,
+          "Xchoice[10].binary_indicator_var": 0.0,
+          "Xchoice[11].binary_indicator_var": 0.0,
+          "Xchoice[12].binary_indicator_var": 0.0,
+          "Xchoice[13].binary_indicator_var": 0.0,
+          "Xchoice[14].binary_indicator_var": 0.0,
+          "Xchoice[15].binary_indicator_var": 0.0,
+          "Xchoice[16].binary_indicator_var": 0.0,
+          "Xchoice[17].binary_indicator_var": 1.0,
+          "Xchoice[18].binary_indicator_var": 0.0,
+          "Xchoice[19].binary_indicator_var": 0.0,
+          "Xchoice[20].binary_indicator_var": 0.0,
+          "Xchoice[21].binary_indicator_var": 0.0,
+          "Xchoice[22].binary_indicator_var": 0.0,
+          "Xchoice[23].binary_indicator_var": 0.0,
+          "Xchoice[24].binary_indicator_var": 0.0,
+          "Xchoice[25].binary_indicator_var": 0.0,
+          "Xchoice[26].binary_indicator_var": 0.0,
+          "Xchoice[27].binary_indicator_var": 0.0,
+          "Xchoice[28].binary_indicator_var": 0.0,
+          "Xchoice[29].binary_indicator_var": 0.0,
+          "Xchoice[30].binary_indicator_var": 0.0,
+          "Ychoice[0].binary_indicator_var": 0.0,
+          "Ychoice[1].binary_indicator_var": 0.0,
+          "Ychoice[2].binary_indicator_var": 0.0,
+          "Ychoice[3].binary_indicator_var": 0.0,
+          "Ychoice[4].binary_indicator_var": 0.0,
+          "Ychoice[5].binary_indicator_var": 0.0,
+          "Ychoice[6].binary_indicator_var": 0.0,
+          "Ychoice[7].binary_indicator_var": 0.0,
+          "Ychoice[8].binary_indicator_var": 0.0,
+          "Ychoice[9].binary_indicator_var": 0.0,
+          "Ychoice[10].binary_indicator_var": 0.0,
+          "Ychoice[11].binary_indicator_var": 0.0,
+          "Ychoice[12].binary_indicator_var": 0.0,
+          "Ychoice[13].binary_indicator_var": 0.0,
+          "Ychoice[14].binary_indicator_var": 0.0,
+          "Ychoice[15].binary_indicator_var": 0.0,
+          "Ychoice[16].binary_indicator_var": 0.0,
+          "Ychoice[17].binary_indicator_var": 0.0,
+          "Ychoice[18].binary_indicator_var": 0.0,
+          "Ychoice[19].binary_indicator_var": 0.0,
+          "Ychoice[20].binary_indicator_var": 0.0,
+          "Ychoice[21].binary_indicator_var": 0.0,
+          "Ychoice[22].binary_indicator_var": 1.0,
+          "Ychoice[23].binary_indicator_var": 0.0,
+          "Ychoice[24].binary_indicator_var": 0.0,
+          "Ychoice[25].binary_indicator_var": 0.0,
+          "Ychoice[26].binary_indicator_var": 0.0,
+          "Ychoice[27].binary_indicator_var": 0.0,
+          "Ychoice[28].binary_indicator_var": 0.0,
+          "Ychoice[29].binary_indicator_var": 0.0,
+          "Ychoice[30].binary_indicator_var": 0.0
+        },
+        "last_solver_call": {
+          "index": 956,
+          "solver": "scip",
+          "mtype": "dnlp",
+          "limit_s": 803.5892104140949,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 0.0,
+            "OBJVAL": 0.0,
+            "NUMVAR": 4.0,
+            "NUMEQU": 4.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 7.0,
+            "ETSOLVE": 0.043000420555472
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 0.0,
+          "upper_bound": 0.0,
+          "global_subproblem_complete": true,
+          "wall_s": 0.39904764806851745
+        }
+      }
+    ],
+    "independently_checked_target_returns": [
+      {
+        "event": {
+          "event": "gdpopt_feasible_subproblem",
+          "iteration": 478,
+          "elapsed_s": 986.8093304028735,
+          "has_feasible_solution": true,
+          "candidate_objective": 0.0,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[17]",
+            "Ychoice[22]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            17,
+            22
+          ],
+          "selected_coordinate_indices": [
+            [
+              17
+            ],
+            [
+              22
+            ]
+          ],
+          "physical_point": [
+            5.666666666666666,
+            7.333333333333333
+          ]
+        },
+        "original_validation": {
+          "has_feasible_solution": true,
+          "candidate_objective": 0.0,
+          "max_primal_violation": 0.0,
+          "invalid_or_undefined": [],
+          "selected_disjuncts": [
+            "Xchoice[17]",
+            "Ychoice[22]"
+          ],
+          "selected_booleans": [],
+          "grid_point": [
+            17,
+            22
+          ],
+          "missing_variables": [],
+          "reference_minimum": 0.0,
+          "original_structure_sha256": "10b5789737dd3620036c81ad6a67d3db9eb29c2d94ef5292e5e3d2fba9e2fdb9",
+          "normalized_gap": 0.0,
+          "target_hit": true
+        }
+      }
+    ]
+  }
+]

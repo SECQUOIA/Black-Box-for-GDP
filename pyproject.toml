@@ -69,6 +69,7 @@ py-modules = [
     "case_study_analysis",
     "case_study_benchmark",
     "grid_dsda",
+    "dsda_protocol",
     "grid_rbfopt",
     "instrumentation",
     "evaluation_trace",
@@ -78,6 +79,8 @@ py-modules = [
 ]
 packages = [
     "fmqa_benchmark",
+    "review_comparison",
+    "review_diagnostics",
     "gdp_models",
     "benchmark_grids",
     "case_studies",

@@ -1,0 +1,26 @@
+{
+  "repository": "SECQUOIA/Black-Box-for-GDP",
+  "branch": "review/manuscript-revision-20261030",
+  "revision": "c4d7db6b671bbe92a314be524a650d75cd49529c",
+  "source_format": "Detached sparse source capsule; original commit and tree objects, selected unmodified tracked blobs; no new commit, remotes are provenance only; do not fetch or checkout in this capsule.",
+  "files": {
+    ".gitattributes": "28fa16730f57e197179786568dfdbfea271d6f585e5b91330e6b4910b3a069d6",
+    ".gitignore": "62535f00c28956f72655fabe0db39145331f21ffe9fcb519db86c7b9ad83e578",
+    "experiments/dsda_process_multistart/README.md": "5a3c140dc178d58196b636fab5f560386c14ce960835736021a181ac131995ab",
+    "experiments/dsda_process_multistart/run.py": "f4b78ba3f6fcfe9e06c7d2c1074b7945192249bbf08c3fa7fe3ca3f7ae7fc133",
+    "experiments/dsda_process_multistart/run_dantzig.sh": "6d635ddd90de5730eaf24ae88fd562b37a73be130297049b712e49209709a54c",
+    "experiments/mixed_integer_dfo/README.md": "de13dd87e439a46cf571edaa8ae140a9588ddf16e356717ee0c6f45587d3d17f",
+    "experiments/mixed_integer_dfo/run.py": "4060c5f225dd6d6f32cdf626801bda13cee060425670c0506c9f9ad269571e89",
+    "experiments/mixed_integer_dfo/run_dantzig.sh": "8bcc84dcc64a31319dfa341449e1b3b524240487f84cc26a8c0e4f576a5225c3",
+    "experiments/run_revision_dantzig.sh": "de9a9840a97ab96fd5d51b1db3e7698c9f126b7136f9581a73eec45abfc4b97b",
+    "pyproject.toml": "5034680a93768b91dbde74b8a7f4f71af7326c568cf9d4dd584f039586dc7a4f",
+    "requirements-mi-dfo.txt": "441bc0b054ebf9bad39340a87f9d3ee3e7011ede023beaff971536c60e647ebf",
+    "results/archives/dsda_abs1e5_rerun_20261028_020753_2004611.zip": "e58982f7179b73c65d83134dcbe0b25854002685812b2511b24523e861c9929e",
+    "results/dsda_publication_20261028/tables/configuration_coverage.csv": "c30e24015ae6ccfb3be27c5ef9ccc2f02e62678bb4b8c78a14e7fb09da58252f",
+    "results/dsda_publication_20261028/tables/run_records.csv": "5948a78341f20faa9507ef3c9f72f8d0a599b8df7e1b96d8e3153d3c1414e386",
+    "results/grid_gdp_20261009/raw/point_timings.csv": "2490d8f8de368d9b54d6cd3d9082ace5c74dfa2ebb84fd266b0488a43a7fcd0f",
+    "tests/conftest.py": "f704b76b2c828365484baaa59aef129099789c2461849f545846b98d7b9d1a46",
+    "tests/test_dsda_process_multistart.py": "23b13f80683719bf9cef2668de1de7e76394cf5c71b666edc3dd669a395478c4",
+    "tests/test_mixed_integer_dfo.py": "428d2720f8a174c66a47cc6cb2eb41e95e8bb128fc464275b6636a7bbaf2f158"
+  }
+}

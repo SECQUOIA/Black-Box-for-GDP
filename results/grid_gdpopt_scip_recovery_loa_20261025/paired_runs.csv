@@ -1,0 +1,20 @@
+grid_name,method,old_status,new_status,old_failure_kind,new_termination,old_target,new_target,old_objective,new_objective,old_grid_point,new_grid_point,old_worker_wall_s,new_worker_wall_s,objective_change
+ackley,loa,error,finished,gams_network_session_close,optimal,False,True,0.1851296975719256,-3.117085571445524e-17,"[12, 15]","[15, 15]",1365.3635943580884,1070.5170941171236,-0.18512969757192563
+alpine2,loa,error,finished,gams_network_session_close,optimal,False,True,0.06723263291103136,0.0,"[30, 27]","[27, 27]",777.8136101379059,1520.062221494969,-0.06723263291103136
+bohachevsky2,loa,error,finished,pyomo_fbbt_interval,optimal,False,True,0.3333333333333333,0.0,"[30, 15]","[15, 15]",247.73041188297793,1102.2663034370635,-0.3333333333333333
+camel3,loa,error,finished,gams_network_session_close,maxTimeLimit,False,True,0.008236012207527977,0.0,"[21, 0]","[15, 15]",324.74272796697915,1793.8073484399356,-0.008236012207527977
+csendes,loa,error,finished,gams_network_session_start,optimal,False,True,0.08311844982226278,1.9808350653109343e-08,"[14, 0]","[14, 14]",149.4270921938587,71.50320324790664,-0.08311843001391213
+deflected_corrugated_spring,loa,error,finished,gams_network_session_close,optimal,False,True,0.5865663958147436,0.0,"[30, 4]","[15, 15]",68.31484161596745,1213.4748166280333,-0.5865663958147436
+dropwave,loa,error,finished,gams_network_session_close,optimal,False,True,0.8589150948674817,0.0,"[2, 10]","[15, 15]",479.308535075048,1171.0445549688302,-0.8589150948674817
+easom,loa,error,finished,gams_network_session_close,optimal,False,True,0.9906380961993085,0.0,"[30, 0]","[20, 20]",812.3559899770189,1556.168184600072,-0.9906380961993085
+griewank,loa,error,finished,gams_network_session_start,optimal,False,True,0.5021942892861294,0.0,"[30, 14]","[15, 15]",169.44239085610025,1088.3593764470425,-0.5021942892861294
+holder_table,loa,error,finished,gams_network_session_close,optimal,False,False,0.14516723995340786,0.14516723995340786,"[30, 1]","[30, 1]",82.30812279018573,1623.760965614114,0.0
+hosaki,loa,error,finished,gams_network_session_start,maxTimeLimit,False,True,0.421875000000001,0.0,"[6, 10]","[24, 10]",514.6217991260346,1790.6303990001325,-0.421875000000001
+levy,loa,error,finished,gams_network_session_start,optimal,False,True,0.126682958370363,-1.4566988880917495e-19,"[2, 16]","[16, 17]",655.8365175051149,1758.2695102160797,-0.126682958370363
+levy13,loa,error,finished,gams_network_session_start,optimal,False,True,0.263005780346821,0.0,"[30, 16]","[17, 17]",241.18483242904767,1762.1388662050012,-0.263005780346821
+michalewicz,loa,error,finished,gams_network_session_close,optimal,False,False,0.4447745843489565,0.08649170482029742,"[30, 15]","[22, 15]",387.4990433049388,1490.7609859369695,-0.3582828795286591
+rastrigin,loa,error,finished,gams_network_session_start,optimal,False,True,0.014927003374186948,0.0,"[12, 15]","[15, 15]",1031.8564323319588,1415.6421844179276,-0.014927003374186948
+rosenbrock,loa,error,finished,gams_network_session_start,optimal,False,True,0.040252626009897825,0.0,"[30, 30]","[22, 14]",176.34782490809448,1265.5632490271237,-0.040252626009897825
+shubert,loa,error,finished,gams_network_session_start,optimal,False,False,0.49457510048043263,0.08242781075119937,"[13, 0]","[17, 21]",102.34858331014402,1278.4461603821255,-0.41214728972923326
+styblinski_tang,loa,error,finished,gams_network_session_start,maxTimeLimit,False,True,0.16538693164709423,0.0,"[2, 6]","[6, 6]",309.8934234979097,1789.1278064460494,-0.16538693164709423
+sum_of_squares,loa,error,finished,gams_network_session_start,optimal,False,True,0.6296296296296298,0.0,"[30, 5]","[15, 15]",65.96322415885516,1109.3803649721667,-0.6296296296296298

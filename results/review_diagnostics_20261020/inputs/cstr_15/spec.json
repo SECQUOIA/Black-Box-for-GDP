@@ -1,0 +1,37 @@
+{
+  "job_id": "cstr_15_B22_seed0_fmqa_sa",
+  "case": "cstr_15",
+  "cstr_size": 15,
+  "seed": 0,
+  "budget": 22,
+  "lower": [
+    1,
+    1
+  ],
+  "upper": [
+    15,
+    15
+  ],
+  "starts": [
+    [
+      3,
+      4
+    ],
+    [
+      15,
+      15
+    ],
+    [
+      7,
+      6
+    ]
+  ],
+  "settings": {
+    "epochs": 1000,
+    "learning_rate": 0.01,
+    "num_reads": 100,
+    "num_sweeps": 1000,
+    "time_limit": 1800
+  },
+  "method": "fmqa_sa"
+}

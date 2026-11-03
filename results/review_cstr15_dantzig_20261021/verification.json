@@ -1,0 +1,209 @@
+{
+  "original_verifier_passed": false,
+  "original_verifier_error": "Saved summary disagrees with independent replay",
+  "independent_primal_and_provenance_verified": true,
+  "new_solver_calls": 0,
+  "returned_vector_exactly_preserved": true,
+  "replayed_summary": {
+    "actual_new_NLP_calls": 1,
+    "returned_solution": true,
+    "raw_gams_statistics": {
+      "MODELSTAT": 2.0,
+      "SOLVESTAT": 1.0,
+      "OBJEST": null,
+      "OBJVAL": 2.8293940632857595,
+      "NUMVAR": 157.0,
+      "NUMEQU": 156.0,
+      "NUMDVAR": 0.0,
+      "NUMNZ": 423.0,
+      "ETSOLVE": 0.12499995063990355
+    },
+    "tightened_feasibility_passed": true,
+    "execution_protocol_confirmed": true,
+    "objective": 2.8293940632857604,
+    "maximum_unscaled_original_GDP_violation": 1.1102230246251565e-16,
+    "bounds": {
+      "gloa": {
+        "audit_id": "A12",
+        "lower_bound": 3.522552007803194,
+        "source_result": "raw/R2/jobs/cstr_15/gloa/result.json",
+        "source_result_sha256": "25805e670139499144ba27510c7f0b81d13755e568e1356709e1ef99cf347de1",
+        "objective": 2.8293940632857604,
+        "delta": 0.6931579445174338,
+        "tau": 2.8293940632857607e-05,
+        "rho": 24498.458999114217,
+        "rho_gt_1": true,
+        "tightened_bound_discrepancy_persists": true
+      },
+      "hull": {
+        "audit_id": "A15",
+        "lower_bound": 2.829394077848967,
+        "source_result": "raw/R1/jobs/cstr_15/hull/result.json",
+        "source_result_sha256": "5fc973c19faec177b585d81d5b861e074a50edc8406fe23fe09792b6eaacf4a0",
+        "objective": 2.8293940632857604,
+        "delta": 1.45632066406165e-08,
+        "tau": 2.8293940632857607e-05,
+        "rho": 0.0005147111471529817,
+        "rho_gt_1": false,
+        "tightened_bound_discrepancy_persists": false
+      }
+    },
+    "log_evidence": {
+      "solver_entry_count": 1,
+      "banners": [
+        [
+          "3.14.19",
+          "MUMPS",
+          "5.8.1"
+        ]
+      ],
+      "iterations": [
+        "8"
+      ],
+      "option_echo": {
+        "acceptable_iter": {
+          "value": "0",
+          "used": "yes"
+        },
+        "bound_relax_factor": {
+          "value": "0",
+          "used": "yes"
+        },
+        "constr_viol_tol": {
+          "value": "1e-10",
+          "used": "yes"
+        },
+        "honor_original_bounds": {
+          "value": "yes",
+          "used": "yes"
+        },
+        "linear_solver": {
+          "value": "mumps",
+          "used": "yes"
+        },
+        "max_iter": {
+          "value": "3000",
+          "used": "yes"
+        },
+        "nlp_scaling_method": {
+          "value": "none",
+          "used": "yes"
+        },
+        "tol": {
+          "value": "1e-10",
+          "used": "yes"
+        },
+        "warm_start_init_point": {
+          "value": "no",
+          "used": "yes"
+        }
+      },
+      "option_errors": [],
+      "environment_and_options_confirmed": true,
+      "exit_messages": [
+        "EXIT: Optimal Solution Found."
+      ],
+      "too_few_dof": false
+    },
+    "error": null,
+    "status": "passed",
+    "new_benchmark_runs": 0,
+    "new_fit_or_annealing_calls": 0,
+    "interpretation": "Fixed-configuration numerical evidence only; not exact feasibility, global optimality, solver-defect proof, or reproduction of LOA/BARON."
+  },
+  "derived_bound_differences": {
+    "gloa": {
+      "objective": {
+        "saved": 2.8293940632857595,
+        "replayed": 2.8293940632857604,
+        "difference": 8.881784197001252e-16
+      },
+      "delta": {
+        "saved": 0.6931579445174347,
+        "replayed": 0.6931579445174338,
+        "difference": -8.881784197001252e-16
+      },
+      "tau": {
+        "saved": 2.8293940632857597e-05,
+        "replayed": 2.8293940632857607e-05,
+        "difference": 1.0164395367051604e-20
+      },
+      "rho": {
+        "saved": 24498.458999114257,
+        "replayed": 24498.458999114217,
+        "difference": -4.001776687800884e-11
+      }
+    },
+    "hull": {
+      "objective": {
+        "saved": 2.8293940632857595,
+        "replayed": 2.8293940632857604,
+        "difference": 8.881784197001252e-16
+      },
+      "delta": {
+        "saved": 1.456320752879492e-08,
+        "replayed": 1.45632066406165e-08,
+        "difference": -8.881784197001252e-16
+      },
+      "tau": {
+        "saved": 2.8293940632857597e-05,
+        "replayed": 2.8293940632857607e-05,
+        "difference": 1.0164395367051604e-20
+      },
+      "rho": {
+        "saved": 0.0005147111785440996,
+        "replayed": 0.0005147111471529817,
+        "difference": -3.13911178951784e-11
+      }
+    }
+  },
+  "residual_metadata": {
+    "all_named_residuals_verified": true,
+    "saved_largest_residual_names": [
+      "YP_is_cstr[8].YPD_rate_calc",
+      "YP_is_cstr[11].YPD_rate_calc",
+      "YP_is_cstr[12].YPD_rate_calc",
+      "YP_is_cstr[14].YPD_rate_calc",
+      "react_mole[B,1]",
+      "react_mole[A,10]",
+      "react_mole[A,11]",
+      "react_mole[A,12]",
+      "react_mole[A,13]",
+      "split_cont",
+      "react_mole[B,4]",
+      "react_mole[A,8]",
+      "react_mole[B,8]",
+      "split_mole[B]",
+      "YP_is_cstr[4].YPD_rate_calc",
+      "react_mole[A,9]",
+      "react_mole[B,5]",
+      "react_mole[B,7]",
+      "react_mole[B,9]",
+      "react_mole[B,2]"
+    ],
+    "replayed_largest_residual_names": [
+      "YP_is_cstr[8].YPD_rate_calc",
+      "YP_is_cstr[11].YPD_rate_calc",
+      "YP_is_cstr[12].YPD_rate_calc",
+      "YP_is_cstr[14].YPD_rate_calc",
+      "react_mole[B,1]",
+      "react_mole[A,10]",
+      "react_mole[A,11]",
+      "react_mole[A,12]",
+      "react_mole[A,13]",
+      "split_cont",
+      "react_mole[B,4]",
+      "unreact_mole[A,15]",
+      "react_mole[A,8]",
+      "react_mole[B,8]",
+      "split_mole[B]",
+      "YP_is_cstr[4].YPD_rate_calc",
+      "react_mole[A,9]",
+      "react_mole[B,5]",
+      "react_mole[B,7]",
+      "react_mole[B,9]"
+    ],
+    "ranking_identical": false
+  },
+  "comparison_policy": "Original 1e-12 replay comparator retained for primal/full named residual data; each derived ratio and ranking checked exactly against its own data; original 1e-8 feasibility criterion unchanged."
+}

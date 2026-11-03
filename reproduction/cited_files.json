@@ -1972,10 +1972,15 @@
     {
       "displayed_filename": "verify_final_process.py",
       "path": "scripts/verify_final_process.py",
-      "sha256": "62d66de98e614d6c3081084d90a3003ed4b4ed94813cac7d77747f20cd469a3c",
-      "size": 15898,
+      "sha256": "d926db76968e5a57bc2f0bce4c46638b5f4156c28f5b0e05d10eb63ee0aa189b",
+      "size": 19434,
       "purpose": "Frozen input, source or historical archive; output dependencies in output_index.json",
-      "provenance": "Provider code updated in Issue #44 for package-without-Git provenance; execution sources remain in original archives."
+      "provenance": "Provider code updated in Issue #44 for package-without-Git provenance; execution sources remain in original archives. PR #52 provider revision 0f50a0d91c4db9cd26224c43541d314901384afd verifies the exact before/after hashes of the two Grid solver-usage README corrections from 44ed7215; original integration manifests, analysis sources and experimental artifacts are unchanged. Public-release privacy cleanup on 2026-11-03 adds only exact, documented removal checks for the superseded license-containing partial archive, its sidecar and checksum index. Prior provider hashes are retained; scientific data and historical inventories remain unchanged. See docs/publication_sanitization.json.",
+      "previous_provider_sha256": "3c7f8a96b2f7fb9e81143207b2f415bd5c2627f6a55cca7f256a1c729b070efd",
+      "provider_sha256_history": [
+        "62d66de98e614d6c3081084d90a3003ed4b4ed94813cac7d77747f20cd469a3c",
+        "3c7f8a96b2f7fb9e81143207b2f415bd5c2627f6a55cca7f256a1c729b070efd"
+      ]
     }
   ],
   "displayed_path_aliases": {

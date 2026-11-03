@@ -1,0 +1,66 @@
+{
+  "all_affinities_and_threads_verified": true,
+  "archive_sha256": "323e7c0bf27012c4838d6273630cf3d55b5ff64a6092802539bf7d63cc1f9c55",
+  "batch_exit_codes_all_zero": true,
+  "bundle_count": 66,
+  "dsda_exact_replays": 140,
+  "dsda_prefix_checks": 280,
+  "dsda_recomputed_results": 420,
+  "dsda_results": 420,
+  "duplicate_jobs": 0,
+  "errors": [],
+  "independent_physical_cores": [
+    {
+      "core": 36,
+      "cpu": 28,
+      "siblings": "28,76",
+      "socket": 0
+    },
+    {
+      "core": 21,
+      "cpu": 17,
+      "siblings": "17,65",
+      "socket": 0
+    },
+    {
+      "core": 44,
+      "cpu": 34,
+      "siblings": "34,82",
+      "socket": 0
+    },
+    {
+      "core": 58,
+      "cpu": 44,
+      "siblings": "44,92",
+      "socket": 0
+    },
+    {
+      "core": 59,
+      "cpu": 45,
+      "siblings": "45,93",
+      "socket": 0
+    },
+    {
+      "core": 32,
+      "cpu": 24,
+      "siblings": "24,72",
+      "socket": 0
+    }
+  ],
+  "internal_members_verified": 11229,
+  "mi_results": 2380,
+  "missing_jobs": 0,
+  "missing_times_not_imputed": true,
+  "native_attempts": 2558,
+  "no_optimizer_or_nlp_executed": true,
+  "original_failure_and_retry_policy_preserved": true,
+  "preflight_passed": 12,
+  "preflight_skipped": 0,
+  "sealed_members_verified": 263,
+  "server_aggregate_rows_recomputed": 2380,
+  "server_condition_summaries_recomputed": 38,
+  "server_validation_passed": true,
+  "target_rule": "abs(value-target) <= 1e-5 * max(1,abs(target))",
+  "validation_passed": true,
+  "zip_crc_passed": true
+}

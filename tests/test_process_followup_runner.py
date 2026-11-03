@@ -92,6 +92,8 @@ def test_real_dsda_trace_and_durable_writes(tmp_path, monkeypatch):
     assert len(calls) == len(entries)
     assert entries[-1]["event"] == "run_complete"
     assert result["result_record"]["total_evals"] <= 16
+    assert entries[1]["incumbent"] == 1e6
+    assert result["result_record"]["incumbent_trajectory"][0] == 1e6
     followup.validate_trace(entries[1:-1], result["result_record"], spec)
 
 

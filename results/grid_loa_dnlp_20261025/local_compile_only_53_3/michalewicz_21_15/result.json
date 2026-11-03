@@ -1,0 +1,26 @@
+{
+  "grid_name": "michalewicz",
+  "point": [
+    21,
+    15
+  ],
+  "model_type": "dnlp",
+  "command": [
+    "/Library/Frameworks/GAMS.framework/Versions/53/Resources/gams",
+    "model.gms",
+    "action=c",
+    "lo=3",
+    "threads=1"
+  ],
+  "utc": "2026-10-26T03:55:45.723322+00:00",
+  "optimizer_calls": 0,
+  "structure_sha256": "70b631a5d9a6ebaf3a77f39cc343dc5b89438df91f261a20f40c0abca4ef9dd4",
+  "model_sha256": "12e1b0a4f5af12a5e22d72a1bcf86819676217aba1027fcbb223d01fe921cfca",
+  "returncode": 0,
+  "passed": true,
+  "wall_s": 0.23979770904406905,
+  "gams_banners": [
+    "10/25/26 23:55:45 53.3.0 68a37de8 DAX-DAC arm 64bit/macOS"
+  ],
+  "confirmed_optimizer_starts": 0
+}

@@ -1,0 +1,24 @@
+{
+  "started_utc": "2026-10-20T22:12:04.090383+00:00",
+  "maximum_calls": 1,
+  "source_sha256": {
+    "review_diagnostics/feasibility_followup.py": "cebcf8db5ef21773fd67586decde33cda55f78357149f92f293e18bd87823d76",
+    "review_diagnostics/feasibility.py": "52a0913a1dfc7d857825ec9e76c46b3ed27a4582d5abd425bf6ea196009cc2d3",
+    "review_diagnostics/common.py": "8da1f5a6fa1c2481f56e0ded2548fbe3507d36497a218986365691d94f211d43",
+    "review_comparison/common.py": "8d2cfc82d7f7f29f762908cb214fcc5783316d7165d77262913450b596adf3a9",
+    "gdp_models/models.py": "1dddc02ee1463c03c1b041dfaf83444171765514e570ab8da7bf26d3ec2e9c23",
+    "gdp_models/comparison.py": "71725cccdae93fbccaa5071d547fa406ebf4819b1015f09939c67e444fb7d300",
+    "gdp_models/_sources.py": "88fc01e27c0ce4b926de669adbe9f1ceb855420fec61d9a27bf2605dd2e40afa",
+    "review_diagnostics/feasibility_tautology.py": "a2804a5b309640770ef13fbaa3aea64f3141f3f571d2654e08f637de10a36104"
+  },
+  "selection_sha256": "d1eb16afea8dabc4ad71427a803195938633d9e1eca5169481a6f763b4cbb52b",
+  "solver_sha256": "40a19ebcfe47d646e8f5696102ffd7363559b2698c10b270bb8e6f981a30e145",
+  "NL_sha256": "773225b69f52ffb0e91a50eeb06ce1ebbd4bb6749fe94ca149de69206df39443",
+  "option_file_sha256": "6c43f6c19e3d6a7b21302e5a4d76656e8faec76225e14623721bde40c9f08407",
+  "interface_options": {
+    "option_file_name": "/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_tautology_20261020/ipopt.opt"
+  },
+  "solver": "/Users/albertlee0125/Solvers/ampl.macos64/ipopt",
+  "NL_file": "/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_tautology_20261020/solver_input/model.nl",
+  "external_wall_limit_s": 300
+}

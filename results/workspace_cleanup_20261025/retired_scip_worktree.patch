@@ -1,0 +1,427 @@
+diff --git a/gdp_models/comparison.py b/gdp_models/comparison.py
+index c90951c4..b10f489d 100644
+--- a/gdp_models/comparison.py
++++ b/gdp_models/comparison.py
+@@ -49,10 +49,17 @@ def solver_policy(config, method):
+                   "mip": config.get("mip_solver", "cplex")}
+         if policy["nlp"] == "baron":
+             policy.update(baron)
++        elif policy["nlp"] == "scip":
++            policy.update(warmstart=False, scip_options=list(SCIP_OPTIONS))
+         return policy
++    if config.get("minlp_solver") == "scip":
++        return {"minlp": "scip", "warmstart": False, "scip_options": list(SCIP_OPTIONS)}
+     return {"minlp": "baron", **baron}
+ 
+ 
++SCIP_OPTIONS = ("gams/mipstart = 0", "timing/clocktype = 2")
++
++
+ def baron_options(config):
+     lp = {"cplex": 3, "clp": 8}[config.get("baron_lp_solver", "cplex")]
+     return (f"LPSol {lp}", "NLPSol 9")
+@@ -79,7 +86,9 @@ def subproblem_complete(call, relative_gap):
+     status = stats.get("MODELSTAT")
+     if status in {1, 4, 10, 19}:
+         return True
+-    allowed = {2, 8} if call["solver"] == "baron" else {8}
++    # GAMS/SCIP reports a normal gap-limit stop as intermediate nonoptimal
++    # (MODELSTAT 7) for NLPs. Accept it only with finite, converged global bounds.
++    allowed = {2, 7, 8} if call["solver"] == "scip" else {2, 8} if call["solver"] == "baron" else {8}
+     value, bound = finite(stats.get("OBJVAL")), finite(stats.get("OBJEST"))
+     if status not in allowed or value is None or bound is None:
+         return False
+@@ -148,7 +157,7 @@ class TimedGAMS(GAMSShell):
+         context = CONTEXT
+         seconds = context.remaining()
+         solver = kwargs.pop("solver")
+-        if solver not in {"ipopt", "cplex", "highs", "baron"}:
++        if solver not in {"ipopt", "cplex", "highs", "baron", "scip"}:
+             raise ValueError(f"Unsupported comparison solver: {solver}")
+         load = kwargs.pop("load_solutions", True)
+         call = {"index": len(context.calls) + 1, "solver": solver, "mtype": kwargs.get("mtype"),
+@@ -167,18 +176,22 @@ class TimedGAMS(GAMSShell):
+                 # Avoid platform-dependent automatic subsolver switching.
+                 (path / "baron.opt").write_text("\n".join(context.baron_options) + "\n")
+                 opts.append("GAMS_MODEL.optfile=1;")
++            elif solver == "scip":
++                (path / "scip.opt").write_text("\n".join(SCIP_OPTIONS) + "\n")
++                opts.append("GAMS_MODEL.optfile=1;")
+             option_file = path / f"{solver}.opt"
+             call["solver_option_file"] = option_file.read_text().splitlines() if option_file.exists() else []
++            save_json(context.directory / "active_solver_call.json", call)
+             try:
+                 result = super().solve(
+                     model, solver=solver, load_solutions=False, keepfiles=True,
+-                    tmpdir=str(path), warmstart=(solver != "baron"), tee=True,
++                    tmpdir=str(path), warmstart=(solver not in {"baron", "scip"}), tee=True,
+                     io_options={"put_results_format": "dat"}, add_options=opts, **kwargs)
+                 stats = read_gams_statistics(path / "resultsstat.dat")
+                 if not {"MODELSTAT", "SOLVESTAT"} <= stats.keys():
+                     raise RuntimeError("Missing raw GAMS status records")
+                 call["gams_statistics"] = stats
+-                if solver == "baron" and stats["MODELSTAT"] not in {1, 2, 8}:
++                if solver in {"baron", "scip"} and stats["MODELSTAT"] not in {1, 2, 8}:
+                     listing = path / "output.lst"
+                     if listing.exists():
+                         (context.directory / f"call_{call['index']:05d}_diagnostic.lst").write_bytes(listing.read_bytes())
+@@ -211,11 +224,12 @@ class TimedGAMS(GAMSShell):
+                 call["wall_s"] = monotonic() - started
+                 context.calls.append(call)
+                 append_event(context.directory / "solver_calls.jsonl", call)
++                (context.directory / "active_solver_call.json").unlink(missing_ok=True)
+         if context.strict_subproblems:
+             # GDPopt accepts local/incomplete NLPs and can cut their discrete
+             # configuration off. Stop before that happens in the BARON run.
+             if not call["global_subproblem_complete"]:
+-                candidate = model if solver == "baron" and load and len(result.solution) else None
++                candidate = model if solver in {"baron", "scip"} and load and len(result.solution) else None
+                 raise IncompleteSubproblem(candidate, call)
+         return result
+ 
+@@ -342,7 +356,7 @@ def solve_method(template, method, directory, config, deadline):
+     policy = solver_policy(config, method)
+     CONTEXT = SolveContext(config["executable"], directory, deadline, config["relative_gap"],
+                            baron_options=baron_options(config),
+-                           strict_subproblems=policy.get("nlp") == "baron")
++                           strict_subproblems=policy.get("nlp") in {"baron", "scip"})
+     if template.metadata["case"] == "column" and method == "hull":
+         # BARON's linear range reduction falsely rejected a feasible Column Hull
+         # model in local validation. Keep the model unchanged and record this
+@@ -354,13 +368,13 @@ def solve_method(template, method, directory, config, deadline):
+               "global_bound_valid": method in {"bigm", "hull"},
+               "solver_policy": {**policy, **({"options": list(CONTEXT.baron_options)}
+                                   if "baron" in policy.values() else {})},
+-              "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with BARON NLP subproblems."
++              "certificate_note": "LOA on nonconvex GDPs: outer-approximation bounds are not global certificates, including with global NLP subproblems."
+                                   if method == "loa" else
+                                   "Local IPOPT subproblems: GDPopt bounds/termination do not certify global optimality."
+                                   if policy.get("nlp") == "ipopt" else
+-                                  "BARON subproblems: GDPopt bounds and global certificate require a separate audit."
++                                  "Global NLP subproblems: GDPopt bounds and global certificate require a separate audit."
+                                   if method in {"ric", "gloa", "loa"} else
+-                                  "Certificate requires BARON optimal termination and original GDP feasibility."}
++                                  "Certificate requires global solver optimal termination and original GDP feasibility."}
+     report_path = directory / "result.json"
+     save_json(report_path, report)
+     reference = template.model.clone()
+@@ -378,6 +392,8 @@ def solve_method(template, method, directory, config, deadline):
+         checked = validate_original(reference)
+         event_record = {"event": event, "iteration": iteration, "elapsed_s": monotonic() - started,
+                         **checked}
++        if config.get("record_grid_path"):
++            event_record.update(grid_coordinates(reference))
+         append_event(directory / "incumbents.jsonl", event_record)
+         if checked["has_feasible_solution"] and (
+                 report["objective"] is None or checked["candidate_objective"] < report["objective"]):
+@@ -397,11 +413,37 @@ def solve_method(template, method, directory, config, deadline):
+         report["model_constraints"] = sum(1 for _ in model.component_data_objects(pyo.Constraint, active=True, descend_into=DESCEND))
+         solve_started = monotonic()
+         if method in {"bigm", "hull"}:
+-            result = TimedGAMS().solve(model, solver="baron", mtype="minlp")
++            result = TimedGAMS().solve(model, solver=policy["minlp"], mtype="minlp")
+         else:
+             def feasible(solver, subproblem, util):
+                 record_incumbent(subproblem, "gdpopt_feasible_subproblem", solver.iteration)
+ 
++            callbacks = {}
++            if config.get("record_grid_path") or config.get("record_gdp_path"):
++                def trace(event):
++                    def callback(solver, subproblem, util):
++                        entry = {
++                            "event": event, "iteration": solver.iteration,
++                            "elapsed_s": monotonic() - started,
++                            "completed_solver_calls": len(CONTEXT.calls),
++                        }
++                        if config.get("record_grid_path"):
++                            entry.update(grid_coordinates(subproblem))
++                            append_event(directory / "grid_path.jsonl", entry)
++                        if config.get("record_gdp_path"):
++                            entry["binary_values"] = {
++                                v.name: finite(v.value) for v in subproblem.component_data_objects(
++                                    pyo.Var, descend_into=DESCEND) if v.is_binary()
++                            }
++                            entry["last_solver_call"] = CONTEXT.calls[-1] if CONTEXT.calls else None
++                            append_event(directory / "gdp_path.jsonl", entry)
++                    return callback
++                callbacks = {
++                    "call_before_subproblem_solve": trace("before_subproblem"),
++                    "call_after_subproblem_solve": trace("after_subproblem"),
++                }
++                if config.get("record_gdp_path"):
++                    callbacks["call_after_discrete_problem_solve"] = trace("after_discrete_problem")
+             algorithm = pyo.SolverFactory("gdpopt." + method)
+             result = algorithm.solve(
+                 model, time_limit=max(1, int(CONTEXT.remaining())), tee=True,
+@@ -410,7 +452,7 @@ def solve_method(template, method, directory, config, deadline):
+                 nlp_solver_args={"solver": policy["nlp"], "mtype": "nlp"},
+                 force_subproblem_nlp=True, init_algorithm="set_covering",
+                 bound_tolerance=config["relative_gap"],
+-                call_after_subproblem_feasible=feasible)
++                call_after_subproblem_feasible=feasible, **callbacks)
+             report["gdpopt_iterations"] = algorithm.iteration
+         report["solve_wall_s"] = monotonic() - solve_started
+         record_incumbent(model, "final_model")
+@@ -423,7 +465,10 @@ def solve_method(template, method, directory, config, deadline):
+             stats = CONTEXT.calls[-1].get("gams_statistics", {})
+             report["gams_statistics"] = stats
+             report["global_optimality_certified"] = bool(
+-                report["has_feasible_solution"] and stats.get("SOLVESTAT") == 1 and stats.get("MODELSTAT") == 1)
++                report["has_feasible_solution"] and (
++                    subproblem_complete(CONTEXT.calls[-1], config["relative_gap"])
++                    if policy["minlp"] == "scip" else
++                    stats.get("SOLVESTAT") == 1 and stats.get("MODELSTAT") == 1))
+     except IncompleteSubproblem as error:
+         if error.model is not None:
+             record_incumbent(error.model, "incomplete_subproblem")
+@@ -445,6 +490,23 @@ def solve_method(template, method, directory, config, deadline):
+     return report
+ 
+ 
++def grid_coordinates(model):
++    """Record choices independently of stale continuous starting values."""
++    selected = []
++    for name in ("Xchoice", "Ychoice"):
++        choices = model.find_component(name)
++        selected.append([
++            int(i) for i in choices
++            if finite(choices[i].binary_indicator_var.value) is not None
++            and choices[i].binary_indicator_var.value > 0.5
++        ] if choices is not None else [])
++    point = [axis[0] for axis in selected] if all(len(a) == 1 for a in selected) else None
++    return {
++        "grid_point": point, "selected_coordinate_indices": selected,
++        "physical_point": [finite(model.find_component(n).value) for n in ("x", "y")],
++    }
++
++
+ def smoke_solvers(executable, directory, solvers=("ipopt", "cplex", "baron"), *, config=None):
+     """Actual tiny MIP/NLP/MINLP solves; version/availability alone are insufficient."""
+     global CONTEXT
+@@ -456,25 +518,33 @@ def smoke_solvers(executable, directory, solvers=("ipopt", "cplex", "baron"), *,
+                                baron_options=baron_options(config or {}))
+         model = pyo.ConcreteModel()
+         model.x = pyo.Var(bounds=(0, 3), initialize=0.5)
+-        if name == "baron_nlp":
++        if name in {"baron_nlp", "scip_nlp"}:
+             # Boundary local minimum x=0 (f=0), global minimum
+             # x=(3+sqrt(3))/2. Test actual nonconvex continuous NLP support.
+             model.obj = pyo.Objective(expr=model.x**4 - 4*model.x**3 + 3*model.x**2)
++        elif name == "scip_trig":
++            model.x.setlb(-math.pi)
++            model.x.setub(math.pi)
++            model.obj = pyo.Objective(expr=pyo.sin(model.x) + pyo.cos(model.x))
+         elif name == "ipopt":
+             model.obj = pyo.Objective(expr=(model.x - 1) ** 2)
+         else:
+             model.y = pyo.Var(domain=pyo.Binary)
+             model.c = pyo.Constraint(expr=model.x >= 1 + model.y)
+-            model.obj = pyo.Objective(expr=model.x + model.y if name in {"cplex", "highs"} else model.x**2 + model.y)
+-        result = TimedGAMS().solve(model, solver="baron" if name == "baron_nlp" else name,
++            model.obj = pyo.Objective(expr=model.x + model.y if name in {"cplex", "highs", "scip_mip"} else model.x**2 + model.y)
++        solver = "scip" if name.startswith("scip") else "baron" if name == "baron_nlp" else name
++        result = TimedGAMS().solve(model, solver=solver,
+                                   mtype={"ipopt": "nlp", "baron_nlp": "nlp", "cplex": "mip",
++                                         "scip_nlp": "nlp", "scip_trig": "nlp", "scip": "minlp", "scip_mip": "mip",
+                                          "highs": "mip", "baron": "minlp"}[name])
+         expected = 0 if name == "ipopt" else 1
+-        if name == "baron_nlp":
++        if name in {"baron_nlp", "scip_nlp"}:
+             x = (3 + math.sqrt(3)) / 2
+             expected = x**4 - 4*x**3 + 3*x**2
++        elif name == "scip_trig":
++            expected = -math.sqrt(2)
+         stats = CONTEXT.calls[-1].get("gams_statistics", {})
+-        complete = subproblem_complete(CONTEXT.calls[-1], CONTEXT.relative_gap) if name.startswith("baron") else (
++        complete = subproblem_complete(CONTEXT.calls[-1], CONTEXT.relative_gap) if solver in {"baron", "scip"} else (
+             stats.get("SOLVESTAT") == 1 and stats.get("MODELSTAT") in {1, 2})
+         if not complete or abs(pyo.value(model.obj)-expected) > 1e-5:
+             raise RuntimeError(f"GAMS/{name} execution/license test failed: {result.solver}")
+diff --git a/gdp_models/grid_benchmark.py b/gdp_models/grid_benchmark.py
+index d2aa9102..1153acfd 100644
+--- a/gdp_models/grid_benchmark.py
++++ b/gdp_models/grid_benchmark.py
+@@ -34,6 +34,17 @@ def method_config(config, method):
+     """Exactly the method-specific profiles in the current process comparison."""
+     if method not in METHODS:
+         raise ValueError(f"Unknown method: {method}")
++    if config.get("solver_profile") == "scip-v1":
++        from .grid_retry_fixes import PROFILE, FBBT_GRIDS
++
++        name = config.get("grid_name")
++        corrected = (name in FBBT_GRIDS and method in {"ric", "gloa", "loa"}
++                     or name == "alpine1" and method == "loa")
++        return {
++            **config, "nlp_solver": "scip", "minlp_solver": "scip",
++            "mip_solver": "highs", "record_grid_path": True,
++            "retry_fix_profile": PROFILE if corrected else None,
++        }
+     return {
+         **config,
+         "nlp_solver": "baron",
+diff --git a/grid_gdp_benchmark.py b/grid_gdp_benchmark.py
+index a0b1f55d..8ea1564d 100644
+--- a/grid_gdp_benchmark.py
++++ b/grid_gdp_benchmark.py
+@@ -1,7 +1,7 @@
+ """Uploadable 21-grid GDP comparisons and exhaustive single-thread IPOPT timings."""
+ 
+ import argparse
+-from contextlib import contextmanager
++from contextlib import contextmanager, redirect_stdout, redirect_stderr
+ import csv
+ from datetime import datetime, timezone
+ import fcntl
+@@ -73,11 +73,17 @@ def source_files():
+         "docs/grid_gdp.md",
+         "docs/grid_gdp_benchmark.md",
+         "grid_gdp_process_profile.json",
++        "grid_gdp_scip_profile.json",
++        "grid_scip_package.py",
++        "run_grid_scip_dantzig.sh",
++        "docs/grid_gdp_scip.md",
+     )
+     return sorted(
+         [ROOT / n for n in names]
+         + list((ROOT / "gdp_models").glob("*.py"))
+         + list((ROOT / "benchmark_grids").glob("*.csv"))
++        + [ROOT / name for name in ("grid_scip_package.json", "README.md")
++           if (ROOT / "grid_scip_package.json").exists() and (ROOT / name).exists()]
+     )
+ 
+ 
+@@ -183,14 +189,25 @@ def runtime(config, *, exercise=False, directory=None):
+         if "points" in config["phases"]:
+             impl.smoke_solvers(str(executable), directory / "ipopt", ("ipopt",))
+         if "benchmark" in config["phases"]:
+-            if set(config["methods"]) & {"ric", "gloa", "loa"}:
++            if config.get("solver_profile") == "scip-v1":
++                solvers = ["scip_nlp", "scip_trig"]
++                if set(config["methods"]) & {"ric", "gloa", "loa"}:
++                    solvers.append("highs")
++                if set(config["methods"]) & {"bigm", "hull"}:
++                    solvers.append("scip")
++                # GDPopt may preprocess fixed subproblems into linear models.
++                # Retain preflight's actual SCIP version/execution evidence too.
++                with (directory / "scip.log").open("w") as log:
++                    with redirect_stdout(log), redirect_stderr(log):
++                        impl.smoke_solvers(str(executable), directory / "scip", solvers)
++            elif set(config["methods"]) & {"ric", "gloa", "loa"}:
+                 impl.smoke_solvers(
+                     str(executable),
+                     directory / "baron_highs",
+                     ("baron_nlp", "highs"),
+                     config=method_config(config, "ric"),
+                 )
+-            if set(config["methods"]) & {"bigm", "hull"}:
++            if config.get("solver_profile") != "scip-v1" and set(config["methods"]) & {"bigm", "hull"}:
+                 impl.smoke_solvers(
+                     str(executable),
+                     directory / "baron_cplex",
+@@ -698,6 +715,15 @@ def pack(directory):
+             raise ValueError("Result ZIP failed CRC verification")
+     temporary.replace(output)
+     output.with_suffix(".zip.sha256").write_text(f"{sha(output)}  {output.name}\n")
++    if read(directory / "run.json")["config"].get("solver_profile") == "scip-v1":
++        save(directory.parent / "latest_result.json", {
++            "run_dir": str(directory), "result_zip": str(output),
++            "all_jobs_finished": summary["all_jobs_finished"],
++        })
++        pointer = directory.parent / "result_zip.txt"
++        temp_pointer = pointer.with_suffix(".txt.tmp")
++        temp_pointer.write_text(str(output) + "\n")
++        temp_pointer.replace(pointer)
+     print(json.dumps(summary), flush=True)
+     print(f"RESULT_ZIP={output}", flush=True)
+ 
+@@ -750,7 +776,8 @@ def execute(directory, run):
+                         unsupported = template.metadata["grid_preparation"][
+                             "unsupported_baron_functions"
+                         ]
+-                        if method in {"bigm", "hull"} and unsupported:
++                        if (method in {"bigm", "hull"} and unsupported
++                                and config.get("solver_profile") != "scip-v1"):
+                             save(
+                                 job / "result.json",
+                                 {
+@@ -769,9 +796,17 @@ def execute(directory, run):
+                                 template,
+                                 method,
+                                 job,
+-                                method_config(config, method),
++                                method_config({**config, "grid_name": name}, method),
+                                 target=benchmark_worker,
+                             )
++                            if config.get("solver_profile") == "scip-v1":
++                                # The watchdog may kill the worker before its final
++                                # CSV/coordinate check. Validate any saved incumbent
++                                # in the parent as well, including partial results.
++                                from gdp_models.grid_benchmark import check_grid_solution
++
++                                save(job / "result.json", check_grid_solution(
++                                    template, job, read(job / "result.json")))
+                         seal_benchmark(job)
+                         summarize(directory)
+         finally:
+@@ -828,6 +863,7 @@ def main():
+     )
+     parser.add_argument("--grids")
+     parser.add_argument("--methods", default="ric,gloa,loa,bigm,hull")
++    parser.add_argument("--solver-profile", choices=("process-v1", "scip-v1"), default="process-v1")
+     parser.add_argument("--point-indices")
+     parser.add_argument("--point-seconds", type=float, default=60)
+     parser.add_argument("--time-limit", type=float, default=1800)
+@@ -919,7 +955,7 @@ def main():
+         ["points"]
+         if args.mode in {"points", "pilot"}
+         else ["benchmark"]
+-        if args.mode == "benchmark"
++        if args.mode == "benchmark" or (args.mode == "check" and args.solver_profile == "scip-v1")
+         else ["points", "benchmark"]
+     )
+     executable = shutil.which(args.executable)
+@@ -938,6 +974,10 @@ def main():
+         "expected_gams_version": args.expected_gams_version,
+         "objective": "original normalized analytic formula",
+     }
++    if args.solver_profile == "scip-v1":
++        if phases != ["benchmark"]:
++            parser.error("SCIP profile is benchmark-only; use benchmark or check")
++        config.update(solver_profile="scip-v1", point_indices=[])
+     if args.mode == "check":
+         with tempfile.TemporaryDirectory(prefix="grid_gdp_check_") as temp:
+             identity = runtime(config, exercise=True, directory=Path(temp))
+@@ -946,6 +986,8 @@ def main():
+                 json.dumps(
+                     {
+                         "runtime": identity,
++                        "solver_profile": args.solver_profile,
++                        "methods": methods,
+                         "grids": [
+                             {
+                                 "name": a["grid_name"],
+@@ -959,9 +1001,12 @@ def main():
+             )
+         return
+     args.output_root.mkdir(parents=True, exist_ok=True)
++    label = f"grid_gdp_{args.mode}"
++    if args.solver_profile == "scip-v1":
++        label = "grid_scip_" + ("minlp" if methods == ["bigm", "hull"] else "_".join(methods))
+     directory = Path(
+         tempfile.mkdtemp(
+-            prefix=f"grid_gdp_{args.mode}_{time.strftime('%Y%m%d_%H%M%S')}_",
++            prefix=f"{label}_{time.strftime('%Y%m%d_%H%M%S')}_",
+             dir=args.output_root,
+         )
+     ).resolve()
+@@ -978,8 +1023,8 @@ def main():
+         "config": config,
+         "runtime": identity,
+         "source_sha256": hashes,
+-        "process_profile": read(ROOT / "grid_gdp_process_profile.json"),
+-        "time_policy": "points first; all 961/grid; 60s solver cap/point, 1800s total/method; 1 CPU/thread",
++        "process_profile": read(ROOT / ("grid_gdp_scip_profile.json" if args.solver_profile == "scip-v1" else "grid_gdp_process_profile.json")),
++        "time_policy": f"phases={phases}; {args.time_limit}s total/method; 1 CPU/thread; template audit outside method timer",
+         "fixed_point_policy": "all original variables fixed; actual IPOPT call through standard GAMS objective-variable representation",
+     }
+     save(directory / "run.json", run)

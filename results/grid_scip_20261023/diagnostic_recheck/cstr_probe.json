@@ -1,0 +1,1401 @@
+[
+  {
+    "corrected_convex_slope": false,
+    "cuts": [
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  FR[A,15] - (F[A,15] - 0.98144842803448) + 0.0*(rate[A,15] + 0.036415213401968) + 10.0*(V[15] - 0.234836800520213) + 2.35691957716765"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "FR[A,15] - (F[A,15] - 0.98144842803448) + 0.0*(rate[A,15] + 0.036415213401968) + 10.0*(V[15] - 0.234836800520213) - 2.339816433236609  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[2]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  FR[B,15] - (F[B,15] - 0.018551762802357) + 0.0*(rate[B,15] - 0.036415213401968) + 10.0*(V[15] - 0.234836800520213) + 2.339816242399773"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[3]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "FR[B,15] - (F[B,15] - 0.018551762802357) + 0.0*(rate[B,15] - 0.036415213401968) + 10.0*(V[15] - 0.234836800520213) - 2.356919768004487  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[4]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,2] - 0.077392442901638 + FR[A,1] - (F[A,1] - 0.055082143114872) + 0.0*(rate[A,1] + 0.095003524172194) + 10.0*(V[1] - 0.234836800520213) + 2.370678304988896"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[5]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,2] - 0.077392442901638 + FR[A,1] - (F[A,1] - 0.055082143114872) + 0.0*(rate[A,1] + 0.095003524172194) + 10.0*(V[1] - 0.234836800520213) - 2.3260577054153635  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[6]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,3] - 0.108070968492115 + FR[A,2] - (F[A,2] - 0.077392442901638) + 0.0*(rate[A,2] + 0.130637774403129) + 10.0*(V[2] - 0.234836800520213) + 2.3790465307926065"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[7]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,3] - 0.108070968492115 + FR[A,2] - (F[A,2] - 0.077392442901638) + 0.0*(rate[A,2] + 0.130637774403129) + 10.0*(V[2] - 0.234836800520213) - 2.317689479611653  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[8]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,4] - 0.149627340479804 + FR[A,3] - (F[A,3] - 0.108070968492115) + 0.0*(rate[A,3] + 0.176958675308847) + 10.0*(V[3] - 0.234836800520213) + 2.389924377189819"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[9]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,4] - 0.149627340479804 + FR[A,3] - (F[A,3] - 0.108070968492115) + 0.0*(rate[A,3] + 0.176958675308847) + 10.0*(V[3] - 0.234836800520213) - 2.3068116332144406  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[10]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,5] - 0.204756775666724 + FR[A,4] - (F[A,4] - 0.149627340479804) + 0.0*(rate[A,4] + 0.234756548715368) + 10.0*(V[4] - 0.234836800520213) + 2.40349744038905"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[11]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,5] - 0.204756775666724 + FR[A,4] - (F[A,4] - 0.149627340479804) + 0.0*(rate[A,4] + 0.234756548715368) + 10.0*(V[4] - 0.234836800520213) - 2.2932385700152094  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[12]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,6] - 0.275829511772282 + FR[A,5] - (F[A,5] - 0.204756775666724) + 0.0*(rate[A,5] + 0.302647545198328) + 10.0*(V[5] - 0.234836800520213) + 2.419440741307688"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[13]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,6] - 0.275829511772282 + FR[A,5] - (F[A,5] - 0.204756775666724) + 0.0*(rate[A,5] + 0.302647545198328) + 10.0*(V[5] - 0.234836800520213) - 2.2772952690965713  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[14]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,7] - 0.363984816381664 + FR[A,6] - (F[A,6] - 0.275829511772282) + 0.0*(rate[A,6] + 0.375389854827214) + 10.0*(V[6] - 0.234836800520213) + 2.436523309811512"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[15]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,7] - 0.363984816381664 + FR[A,6] - (F[A,6] - 0.275829511772282) + 0.0*(rate[A,6] + 0.375389854827214) + 10.0*(V[6] - 0.234836800520213) - 2.2602127005927475  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[16]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,8] - 0.467895850806598 + FR[A,7] - (F[A,7] - 0.363984816381664) + 0.0*(rate[A,7] + 0.442482116447672) + 10.0*(V[7] - 0.234836800520213) + 2.4522790396270633"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[17]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,8] - 0.467895850806598 + FR[A,7] - (F[A,7] - 0.363984816381664) + 0.0*(rate[A,7] + 0.442482116447672) + 10.0*(V[7] - 0.234836800520213) - 2.244456970777196  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[18]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,9] - 0.582654274401256 + FR[A,8] - (F[A,8] - 0.467895850806598) + 0.0*(rate[A,8] + 0.488673305460946) + 10.0*(V[8] - 0.234836800520213) + 2.4631264287967873"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[19]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,9] - 0.582654274401256 + FR[A,8] - (F[A,8] - 0.467895850806598) + 0.0*(rate[A,8] + 0.488673305460946) + 10.0*(V[8] - 0.234836800520213) - 2.233609581607472  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[20]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,10] - 0.699680210540172 + FR[A,9] - (F[A,9] - 0.582654274401256) + 0.0*(rate[A,9] + 0.498329007435161) + 10.0*(V[9] - 0.234836800520213) + 2.465393941341046"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[21]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,10] - 0.699680210540172 + FR[A,9] - (F[A,9] - 0.582654274401256) + 0.0*(rate[A,9] + 0.498329007435161) + 10.0*(V[9] - 0.234836800520213) - 2.2313420690632135  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[22]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,11] - 0.808520298455667 + FR[A,10] - (F[A,10] - 0.699680210540172) + 0.0*(rate[A,10] + 0.46347140965729) + 10.0*(V[10] - 0.234836800520213) + 2.4572080931176243"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[23]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,11] - 0.808520298455667 + FR[A,10] - (F[A,10] - 0.699680210540172) + 0.0*(rate[A,10] + 0.46347140965729) + 10.0*(V[10] - 0.234836800520213) - 2.239527917286635  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[24]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,12] - 0.895152220883345 + FR[A,11] - 0.005080384893536 - (F[A,11] - 0.808520298455667) + 0.0*(rate[A,11] + 0.390536592381064) + 10.0*(V[11] - 0.234836800520213) + 2.440080312523344"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[25]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,12] - 0.895152220883345 + FR[A,11] - 0.005080384893536 - (F[A,11] - 0.808520298455667) + 0.0*(rate[A,11] + 0.390536592381064) + 10.0*(V[11] - 0.234836800520213) - 2.256655697880916  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[26]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,13] - 0.939233508654454 + FR[A,12] - (F[A,12] - 0.895152220883345) + 0.0*(rate[A,12] + 0.187710551324223) + 10.0*(V[12] - 0.234836800520213) + 2.392449292973239"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[27]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,13] - 0.939233508654454 + FR[A,12] - (F[A,12] - 0.895152220883345) + 0.0*(rate[A,12] + 0.187710551324223) + 10.0*(V[12] - 0.234836800520213) - 2.304286717431021  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[28]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,14] - 0.96603978235083 + FR[A,13] - (F[A,13] - 0.939233508654454) + 0.0*(rate[A,13] + 0.11414877110325) + 10.0*(V[13] - 0.234836800520213) + 2.375174278898506"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[29]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,14] - 0.96603978235083 + FR[A,13] - (F[A,13] - 0.939233508654454) + 0.0*(rate[A,13] + 0.11414877110325) + 10.0*(V[13] - 0.234836800520213) - 2.3215617315057537  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[30]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,15] - 0.98144842803448 + FR[A,14] - (F[A,14] - 0.96603978235083) + 0.0*(rate[A,14] + 0.065614524902859) + 10.0*(V[14] - 0.234836800520213) + 2.36377665088578"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[31]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,15] - 0.98144842803448 + FR[A,14] - (F[A,14] - 0.96603978235083) + 0.0*(rate[A,14] + 0.065614524902859) + 10.0*(V[14] - 0.234836800520213) - 2.3329593595184797  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[32]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,2] - 1.024211551400606 + FR[B,1] - (F[B,1] - 1.046521929057198) + 0.0*(rate[B,1] - 0.095003524172194) + 10.0*(V[1] - 0.234836800520213) + 2.326057627545538"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[33]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,2] - 1.024211551400606 + FR[B,1] - (F[B,1] - 1.046521929057198) + 0.0*(rate[B,1] - 0.095003524172194) + 10.0*(V[1] - 0.234836800520213) - 2.3706783828587215  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[34]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,3] - 0.993532939699965 + FR[B,2] - (F[B,2] - 1.024211551400606) + 0.0*(rate[B,2] - 0.130637774403129) + 10.0*(V[2] - 0.234836800520213) + 2.317689393501489"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[35]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,3] - 0.993532939699965 + FR[B,2] - (F[B,2] - 1.024211551400606) + 0.0*(rate[B,2] - 0.130637774403129) + 10.0*(V[2] - 0.234836800520213) - 2.3790466169027713  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[36]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,4] - 0.951976475078483 + FR[B,3] - (F[B,3] - 0.993532939699965) + 0.0*(rate[B,3] - 0.176958675308847) + 10.0*(V[3] - 0.234836800520213) + 2.306811540580648"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[37]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,4] - 0.951976475078483 + FR[B,3] - (F[B,3] - 0.993532939699965) + 0.0*(rate[B,3] - 0.176958675308847) + 10.0*(V[3] - 0.234836800520213) - 2.3899244698236113  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[38]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,5] - 0.89684694197817 + FR[B,4] - (F[B,4] - 0.951976475078483) + 0.0*(rate[B,4] - 0.234756548715368) + 10.0*(V[4] - 0.234836800520213) + 2.293238472101817"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[39]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,5] - 0.89684694197817 + FR[B,4] - (F[B,4] - 0.951976475078483) + 0.0*(rate[B,4] - 0.234756548715368) + 10.0*(V[4] - 0.234836800520213) - 2.4034975383024433  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[40]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,6] - 0.825774103580853 + FR[B,5] - (F[B,5] - 0.89684694197817) + 0.0*(rate[B,5] - 0.302647545198328) + 10.0*(V[5] - 0.234836800520213) + 2.277295166804813"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[41]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,6] - 0.825774103580853 + FR[B,5] - (F[B,5] - 0.89684694197817) + 0.0*(rate[B,5] - 0.302647545198328) + 10.0*(V[5] - 0.234836800520213) - 2.419440843599447  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[42]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,7] - 0.737618692931084 + FR[B,6] - (F[B,6] - 0.825774103580853) + 0.0*(rate[B,6] - 0.375389854827214) + 10.0*(V[6] - 0.234836800520213) + 2.260212594552361"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[43]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,7] - 0.737618692931084 + FR[B,6] - (F[B,6] - 0.825774103580853) + 0.0*(rate[B,6] - 0.375389854827214) + 10.0*(V[6] - 0.234836800520213) - 2.436523415851899  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[44]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,8] - 0.633707549082326 + FR[B,7] - (F[B,7] - 0.737618692931084) + 0.0*(rate[B,7] - 0.442482116447672) + 10.0*(V[7] - 0.234836800520213) + 2.2444568613533717"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[45]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,8] - 0.633707549082326 + FR[B,7] - (F[B,7] - 0.737618692931084) + 0.0*(rate[B,7] - 0.442482116447672) + 10.0*(V[7] - 0.234836800520213) - 2.452279149050888  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[46]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,9] - 0.518949012867598 + FR[B,8] - (F[B,8] - 0.633707549082326) + 0.0*(rate[B,8] - 0.488673305460946) + 10.0*(V[8] - 0.234836800520213) + 2.233609468987402"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[47]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,9] - 0.518949012867598 + FR[B,8] - (F[B,8] - 0.633707549082326) + 0.0*(rate[B,8] - 0.488673305460946) + 10.0*(V[8] - 0.234836800520213) - 2.463126541416858  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[48]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,10] - 0.401922960946485 + FR[B,9] - (F[B,9] - 0.518949012867598) + 0.0*(rate[B,9] - 0.498329007435161) + 10.0*(V[9] - 0.234836800520213) + 2.2313419532810173"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[49]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,10] - 0.401922960946485 + FR[B,9] - (F[B,9] - 0.518949012867598) + 0.0*(rate[B,9] - 0.498329007435161) + 10.0*(V[9] - 0.234836800520213) - 2.465394057123243  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[50]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,11] - 0.293082754018139 + FR[B,10] - (F[B,10] - 0.401922960946485) + 0.0*(rate[B,10] - 0.46347140965729) + 10.0*(V[10] - 0.234836800520213) + 2.2395277982737833"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[51]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,11] - 0.293082754018139 + FR[B,10] - (F[B,10] - 0.401922960946485) + 0.0*(rate[B,10] - 0.46347140965729) + 10.0*(V[10] - 0.234836800520213) - 2.457208212130476  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[52]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,12] - 0.104848395470603 + FR[B,11] - 0.096521929057198 - (F[B,11] - 0.293082754018139) + 0.0*(rate[B,11] - 0.390536592381064) + 10.0*(V[11] - 0.234836800520213) + 2.2566555757117923"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[53]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,12] - 0.104848395470603 + FR[B,11] - 0.096521929057198 - (F[B,11] - 0.293082754018139) + 0.0*(rate[B,11] - 0.390536592381064) + 10.0*(V[11] - 0.234836800520213) - 2.440080434692468  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[54]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,13] - 0.060766979044278 + FR[B,12] - (F[B,12] - 0.104848395470603) + 0.0*(rate[B,12] - 0.187710551324223) + 10.0*(V[12] - 0.234836800520213) + 2.3042865887758053"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[55]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,13] - 0.060766979044278 + FR[B,12] - (F[B,12] - 0.104848395470603) + 0.0*(rate[B,12] - 0.187710551324223) + 10.0*(V[12] - 0.234836800520213) - 2.3924494216284544  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[56]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,14] - 0.033960566111867 + FR[B,13] - (F[B,13] - 0.060766979044278) + 0.0*(rate[B,13] - 0.11414877110325) + 10.0*(V[13] - 0.234836800520213) + 2.321561592269719"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[57]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,14] - 0.033960566111867 + FR[B,13] - (F[B,13] - 0.060766979044278) + 0.0*(rate[B,13] - 0.11414877110325) + 10.0*(V[13] - 0.234836800520213) - 2.3751744181345407  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[58]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,15] - 0.018551762802357 + FR[B,14] - (F[B,14] - 0.033960566111867) + 0.0*(rate[B,14] - 0.065614524902859) + 10.0*(V[14] - 0.234836800520213) + 2.3329592018926197"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[59]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,15] - 0.018551762802357 + FR[B,14] - (F[B,14] - 0.033960566111867) + 0.0*(rate[B,14] - 0.065614524902859) + 10.0*(V[14] - 0.234836800520213) - 2.36377680851164  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[60]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  10.0*(P[A] - 0.050001814740916) + 0.0*(Q[1] - 1.101602030586524) + 0.0*(F[A,1] - 0.055082143114872) + 0.0*(QP - 1.0) + 0.5000181474091601"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[61]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "10.0*(P[A] - 0.050001814740916) + 0.0*(Q[1] - 1.101602030586524) + 0.0*(F[A,1] - 0.055082143114872) + 0.0*(QP - 1.0) - 0.500819616407804  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[62]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  P[B] - 0.95 + 9.5*(Q[1] - 1.101602030586524) + 0.0*(F[B,1] - 1.046521929057198) + 0.0*(QP - 1.0) + 1.9152192905719776"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[63]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "P[B] - 0.95 + 9.5*(Q[1] - 1.101602030586524) + 0.0*(F[B,1] - 1.046521929057198) + 0.0*(QP - 1.0) - 9.05  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[1].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[1]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,1] + 0.095003524172194 + 110.0*(Q[1] - 1.101602030586524) + 20.0*(F[A,1] - 0.055082143114872) + 0.0*(F[B,1] - 1.046521929057198) + 12.182862702642872"
+      },
+      {
+        "cut": "YP_is_cstr[1].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[1]",
+        "applicable_to_W03": true,
+        "violation": 4.702969303491954,
+        "expression": "rate[A,1] + 0.095003524172194 + 110.0*(Q[1] - 1.101602030586524) + 20.0*(F[A,1] - 0.055082143114872) + 0.0*(F[B,1] - 1.046521929057198) - 11.271226888689824  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[2].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[2]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,2] + 0.130637774403129 + 110.0*(Q[2] - 1.101602030586524) + 20.0*(F[A,2] - 0.077392442901638) + 0.0*(F[B,2] - 1.024211551400606) + 12.593434448147258"
+      },
+      {
+        "cut": "YP_is_cstr[2].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[2]",
+        "applicable_to_W03": true,
+        "violation": 4.589670195013451,
+        "expression": "rate[A,2] + 0.130637774403129 + 110.0*(Q[2] - 1.101602030586524) + 20.0*(F[A,2] - 0.077392442901638) + 0.0*(F[B,2] - 1.024211551400606) - 11.306861138920766  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[3].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[3]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,3] + 0.176958675308847 + 110.0*(Q[3] - 1.101602030586524) + 20.0*(F[A,3] - 0.108070968492115) + 0.0*(F[B,3] - 0.993532939699965) + 13.160684059051079"
+      },
+      {
+        "cut": "YP_is_cstr[3].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[3]",
+        "applicable_to_W03": true,
+        "violation": 4.399497212894602,
+        "expression": "rate[A,3] + 0.176958675308847 + 110.0*(Q[3] - 1.101602030586524) + 20.0*(F[A,3] - 0.108070968492115) + 0.0*(F[B,3] - 0.993532939699965) - 11.353182039826478  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[4].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[4]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,4] + 0.234756548715368 + 110.0*(Q[4] - 1.101602030586524) + 20.0*(F[A,4] - 0.149627340479804) + 0.0*(F[B,4] - 0.951976475078483) + 13.934013625398336"
+      },
+      {
+        "cut": "YP_is_cstr[4].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[4]",
+        "applicable_to_W03": true,
+        "violation": 4.10304772259652,
+        "expression": "rate[A,4] + 0.234756548715368 + 110.0*(Q[4] - 1.101602030586524) + 20.0*(F[A,4] - 0.149627340479804) + 0.0*(F[B,4] - 0.951976475078483) - 11.410979913233007  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[5].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[5]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,5] + 0.302647545198328 + 110.0*(Q[5] - 1.101602030586524) + 20.0*(F[A,5] - 0.204756775666724) + 0.0*(F[B,5] - 0.89684694197817) + 14.968711332653783"
+      },
+      {
+        "cut": "YP_is_cstr[5].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[5]",
+        "applicable_to_W03": true,
+        "violation": 3.6695521256323973,
+        "expression": "rate[A,5] + 0.302647545198328 + 110.0*(Q[5] - 1.101602030586524) + 20.0*(F[A,5] - 0.204756775666724) + 0.0*(F[B,5] - 0.89684694197817) - 11.478870909715965  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[6].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[6]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,6] + 0.375389854827214 + 110.0*(Q[6] - 1.101602030586524) + 20.0*(F[A,6] - 0.275829511772282) + 0.0*(F[B,6] - 0.825774103580853) + 16.317423745136047"
+      },
+      {
+        "cut": "YP_is_cstr[6].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[6]",
+        "applicable_to_W03": true,
+        "violation": 3.0757449703812254,
+        "expression": "rate[A,6] + 0.375389854827214 + 110.0*(Q[6] - 1.101602030586524) + 20.0*(F[A,6] - 0.275829511772282) + 0.0*(F[B,6] - 0.825774103580853) - 11.551613219344844  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[7].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[7]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,7] + 0.442482116447672 + 110.0*(Q[7] - 1.101602030586524) + 20.0*(F[A,7] - 0.363984816381664) + 0.0*(F[B,7] - 0.737618692931084) + 18.013437575703243"
+      },
+      {
+        "cut": "YP_is_cstr[7].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[7]",
+        "applicable_to_W03": true,
+        "violation": 2.3214971626269434,
+        "expression": "rate[A,7] + 0.442482116447672 + 110.0*(Q[7] - 1.101602030586524) + 20.0*(F[A,7] - 0.363984816381664) + 0.0*(F[B,7] - 0.737618692931084) - 11.618705480965303  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[8].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[8]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,8] + 0.488673305460946 + 110.0*(Q[8] - 1.101602030586524) + 20.0*(F[A,8] - 0.467895850806598) + 0.0*(F[B,8] - 0.633707549082326) + 20.04546707518865"
+      },
+      {
+        "cut": "YP_is_cstr[8].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[8]",
+        "applicable_to_W03": true,
+        "violation": 1.4505945732962502,
+        "expression": "rate[A,8] + 0.488673305460946 + 110.0*(Q[8] - 1.101602030586524) + 20.0*(F[A,8] - 0.467895850806598) + 0.0*(F[B,8] - 0.633707549082326) - 11.664896669978575  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[9].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[9]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,9] + 0.498329007435161 + 110.0*(Q[9] - 1.101602030586524) + 0.0*(F[A,9] - 0.582654274401256) + 20.0*(F[B,9] - 0.518949012867598) + 21.056874614434438"
+      },
+      {
+        "cut": "YP_is_cstr[9].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[9]",
+        "applicable_to_W03": true,
+        "violation": 10.746514432753385,
+        "expression": "rate[A,9] + 0.498329007435161 + 110.0*(Q[9] - 1.101602030586524) + 0.0*(F[A,9] - 0.582654274401256) + 20.0*(F[B,9] - 0.518949012867598) - 11.6745523719528  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[10].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[10]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,10] + 0.46347140965729 + 110.0*(Q[10] - 1.101602030586524) + 0.0*(F[A,10] - 0.699680210540172) + 20.0*(F[B,10] - 0.401922960946485) + 18.751211173790054"
+      },
+      {
+        "cut": "YP_is_cstr[10].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[10]",
+        "applicable_to_W03": true,
+        "violation": 11.40331603067571,
+        "expression": "rate[A,10] + 0.46347140965729 + 110.0*(Q[10] - 1.101602030586524) + 0.0*(F[A,10] - 0.699680210540172) + 20.0*(F[B,10] - 0.401922960946485) - 11.639694774174927  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[11].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[11]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,11] + 0.390536592381064 + 110.0*(Q[11] - 1.101602030586524) + 0.0*(F[A,11] - 0.808520298455667) + 20.0*(F[B,11] - 0.293082754018139) + 16.647341852499352"
+      },
+      {
+        "cut": "YP_is_cstr[11].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[11]",
+        "applicable_to_W03": true,
+        "violation": 11.767605796669947,
+        "expression": "rate[A,11] + 0.390536592381064 + 110.0*(Q[11] - 1.101602030586524) + 0.0*(F[A,11] - 0.808520298455667) + 20.0*(F[B,11] - 0.293082754018139) - 11.566759956898693  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[12].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[12]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,12] + 0.187710551324223 + 110.0*(Q[12] - 1.0) + 0.0*(F[A,12] - 0.895152220883345) + 20.0*(F[B,12] - 0.104848395470603) + 1.9092573580878445"
+      },
+      {
+        "cut": "YP_is_cstr[12].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[12]",
+        "applicable_to_W03": true,
+        "violation": 36.01008109919173,
+        "expression": "rate[A,12] + 0.187710551324223 + 110.0*(Q[12] - 1.0) + 0.0*(F[A,12] - 0.895152220883345) + 20.0*(F[B,12] - 0.104848395470603) - 0.18771055132421566  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[13].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[13]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,13] + 0.11414877110325 + 110.0*(Q[13] - 1.0) + 0.0*(F[A,13] - 0.939233508654454) + 20.0*(F[B,13] - 0.060766979044278) + 1.1011908097823144"
+      },
+      {
+        "cut": "YP_is_cstr[13].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[13]",
+        "applicable_to_W03": true,
+        "violation": 35.03610763375801,
+        "expression": "rate[A,13] + 0.11414877110325 + 110.0*(Q[13] - 1.0) + 0.0*(F[A,13] - 0.939233508654454) + 20.0*(F[B,13] - 0.060766979044278) - 0.1141487711032454  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[14].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[14]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,14] + 0.065614524902859 + 110.0*(Q[14] - 1.0) + 0.0*(F[A,14] - 0.96603978235083) + 20.0*(F[B,14] - 0.033960566111867) + 0.6135967973344845"
+      },
+      {
+        "cut": "YP_is_cstr[14].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[14]",
+        "applicable_to_W03": true,
+        "violation": 33.81891648035314,
+        "expression": "rate[A,14] + 0.065614524902859 + 110.0*(Q[14] - 1.0) + 0.0*(F[A,14] - 0.96603978235083) + 20.0*(F[B,14] - 0.033960566111867) - 0.06561452490285546  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[15].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[15]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,15] + 0.036415213401968 + 110.0*(Q[15] - 1.0) + 0.0*(F[A,15] - 0.98144842803448) + 20.0*(F[B,15] - 0.018551762802357) + 0.3346200426451738"
+      },
+      {
+        "cut": "YP_is_cstr[15].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[15]",
+        "applicable_to_W03": true,
+        "violation": 32.54674075773867,
+        "expression": "rate[A,15] + 0.036415213401968 + 110.0*(Q[15] - 1.0) + 0.0*(F[A,15] - 0.98144842803448) + 20.0*(F[B,15] - 0.018551762802357) - 0.036415213401966184  <=  0.0"
+      }
+    ],
+    "W03_no_good_body": 4,
+    "no_good_lower_bound": 1,
+    "W03_initial_master_bound_violations": [],
+    "transformed_witness_violations": [
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[0].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 4.702969303491954
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[2].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 4.589670195013451
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[4].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 4.399497212894602
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[6].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 4.10304772259652
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[8].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 3.6695521256323973
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[10].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 3.0757449703812254
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[12].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 2.3214971626269434
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[14].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 1.4505945732962502
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[16].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 10.746514432753385
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[18].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 11.40331603067571
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[20].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 11.767605796669947
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[22].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 36.01008109919173
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[24].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 35.03610763375801
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[26].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 33.81891648035314
+      },
+      {
+        "constraint": "_pyomo_gdp_bigm_reformulation.relaxedDisjuncts[28].transformedConstraints['GDPopt_aff_cons[1]_5',None,ub]",
+        "violation": 32.54674075773867
+      }
+    ],
+    "initial_cuts_mip_fbbt": "passed",
+    "limitations": "Saved final incumbent equals initialization incumbent; later nonincumbent continuous vector was not retained; local MC++ binary differs from Dantzig."
+  },
+  {
+    "corrected_convex_slope": true,
+    "cuts": [
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  FR[A,15] - (F[A,15] - 0.98144842803448) + 0.0*(rate[A,15] + 0.036415213401968) + 10.0*(V[15] - 0.234836800520213) + 2.35691957716765"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "FR[A,15] - (F[A,15] - 0.98144842803448) + 0.0*(rate[A,15] + 0.036415213401968) - 10.0*(V[15] - 0.234836800520213) - 2.339816433236609  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[2]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  FR[B,15] - (F[B,15] - 0.018551762802357) + 0.0*(rate[B,15] - 0.036415213401968) + 10.0*(V[15] - 0.234836800520213) + 2.339816242399773"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[3]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "FR[B,15] - (F[B,15] - 0.018551762802357) + 0.0*(rate[B,15] - 0.036415213401968) - 10.0*(V[15] - 0.234836800520213) - 2.356919768004487  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[4]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,2] - 0.077392442901638 + FR[A,1] - (F[A,1] - 0.055082143114872) + 0.0*(rate[A,1] + 0.095003524172194) + 10.0*(V[1] - 0.234836800520213) + 2.370678304988896"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[5]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,2] - 0.077392442901638 + FR[A,1] - (F[A,1] - 0.055082143114872) + 0.0*(rate[A,1] + 0.095003524172194) - 10.0*(V[1] - 0.234836800520213) - 2.3260577054153635  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[6]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,3] - 0.108070968492115 + FR[A,2] - (F[A,2] - 0.077392442901638) + 0.0*(rate[A,2] + 0.130637774403129) + 10.0*(V[2] - 0.234836800520213) + 2.3790465307926065"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[7]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,3] - 0.108070968492115 + FR[A,2] - (F[A,2] - 0.077392442901638) + 0.0*(rate[A,2] + 0.130637774403129) - 10.0*(V[2] - 0.234836800520213) - 2.317689479611653  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[8]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,4] - 0.149627340479804 + FR[A,3] - (F[A,3] - 0.108070968492115) + 0.0*(rate[A,3] + 0.176958675308847) + 10.0*(V[3] - 0.234836800520213) + 2.389924377189819"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[9]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,4] - 0.149627340479804 + FR[A,3] - (F[A,3] - 0.108070968492115) + 0.0*(rate[A,3] + 0.176958675308847) - 10.0*(V[3] - 0.234836800520213) - 2.3068116332144406  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[10]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,5] - 0.204756775666724 + FR[A,4] - (F[A,4] - 0.149627340479804) + 0.0*(rate[A,4] + 0.234756548715368) + 10.0*(V[4] - 0.234836800520213) + 2.40349744038905"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[11]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,5] - 0.204756775666724 + FR[A,4] - (F[A,4] - 0.149627340479804) + 0.0*(rate[A,4] + 0.234756548715368) - 10.0*(V[4] - 0.234836800520213) - 2.2932385700152094  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[12]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,6] - 0.275829511772282 + FR[A,5] - (F[A,5] - 0.204756775666724) + 0.0*(rate[A,5] + 0.302647545198328) + 10.0*(V[5] - 0.234836800520213) + 2.419440741307688"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[13]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,6] - 0.275829511772282 + FR[A,5] - (F[A,5] - 0.204756775666724) + 0.0*(rate[A,5] + 0.302647545198328) - 10.0*(V[5] - 0.234836800520213) - 2.2772952690965713  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[14]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,7] - 0.363984816381664 + FR[A,6] - (F[A,6] - 0.275829511772282) + 0.0*(rate[A,6] + 0.375389854827214) + 10.0*(V[6] - 0.234836800520213) + 2.436523309811512"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[15]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,7] - 0.363984816381664 + FR[A,6] - (F[A,6] - 0.275829511772282) + 0.0*(rate[A,6] + 0.375389854827214) - 10.0*(V[6] - 0.234836800520213) - 2.2602127005927475  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[16]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,8] - 0.467895850806598 + FR[A,7] - (F[A,7] - 0.363984816381664) + 0.0*(rate[A,7] + 0.442482116447672) + 10.0*(V[7] - 0.234836800520213) + 2.4522790396270633"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[17]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,8] - 0.467895850806598 + FR[A,7] - (F[A,7] - 0.363984816381664) + 0.0*(rate[A,7] + 0.442482116447672) - 10.0*(V[7] - 0.234836800520213) - 2.244456970777196  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[18]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,9] - 0.582654274401256 + FR[A,8] - (F[A,8] - 0.467895850806598) + 0.0*(rate[A,8] + 0.488673305460946) + 10.0*(V[8] - 0.234836800520213) + 2.4631264287967873"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[19]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,9] - 0.582654274401256 + FR[A,8] - (F[A,8] - 0.467895850806598) + 0.0*(rate[A,8] + 0.488673305460946) - 10.0*(V[8] - 0.234836800520213) - 2.233609581607472  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[20]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,10] - 0.699680210540172 + FR[A,9] - (F[A,9] - 0.582654274401256) + 0.0*(rate[A,9] + 0.498329007435161) + 10.0*(V[9] - 0.234836800520213) + 2.465393941341046"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[21]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,10] - 0.699680210540172 + FR[A,9] - (F[A,9] - 0.582654274401256) + 0.0*(rate[A,9] + 0.498329007435161) - 10.0*(V[9] - 0.234836800520213) - 2.2313420690632135  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[22]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,11] - 0.808520298455667 + FR[A,10] - (F[A,10] - 0.699680210540172) + 0.0*(rate[A,10] + 0.46347140965729) + 10.0*(V[10] - 0.234836800520213) + 2.4572080931176243"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[23]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,11] - 0.808520298455667 + FR[A,10] - (F[A,10] - 0.699680210540172) + 0.0*(rate[A,10] + 0.46347140965729) - 10.0*(V[10] - 0.234836800520213) - 2.239527917286635  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[24]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,12] - 0.895152220883345 + FR[A,11] - 0.005080384893536 - (F[A,11] - 0.808520298455667) + 0.0*(rate[A,11] + 0.390536592381064) + 10.0*(V[11] - 0.234836800520213) + 2.440080312523344"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[25]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,12] - 0.895152220883345 + FR[A,11] - 0.005080384893536 - (F[A,11] - 0.808520298455667) + 0.0*(rate[A,11] + 0.390536592381064) - 10.0*(V[11] - 0.234836800520213) - 2.256655697880916  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[26]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,13] - 0.939233508654454 + FR[A,12] - (F[A,12] - 0.895152220883345) + 0.0*(rate[A,12] + 0.187710551324223) + 10.0*(V[12] - 0.234836800520213) + 2.392449292973239"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[27]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,13] - 0.939233508654454 + FR[A,12] - (F[A,12] - 0.895152220883345) + 0.0*(rate[A,12] + 0.187710551324223) - 10.0*(V[12] - 0.234836800520213) - 2.304286717431021  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[28]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,14] - 0.96603978235083 + FR[A,13] - (F[A,13] - 0.939233508654454) + 0.0*(rate[A,13] + 0.11414877110325) + 10.0*(V[13] - 0.234836800520213) + 2.375174278898506"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[29]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,14] - 0.96603978235083 + FR[A,13] - (F[A,13] - 0.939233508654454) + 0.0*(rate[A,13] + 0.11414877110325) - 10.0*(V[13] - 0.234836800520213) - 2.3215617315057537  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[30]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[A,15] - 0.98144842803448 + FR[A,14] - (F[A,14] - 0.96603978235083) + 0.0*(rate[A,14] + 0.065614524902859) + 10.0*(V[14] - 0.234836800520213) + 2.36377665088578"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[31]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[A,15] - 0.98144842803448 + FR[A,14] - (F[A,14] - 0.96603978235083) + 0.0*(rate[A,14] + 0.065614524902859) - 10.0*(V[14] - 0.234836800520213) - 2.3329593595184797  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[32]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,2] - 1.024211551400606 + FR[B,1] - (F[B,1] - 1.046521929057198) + 0.0*(rate[B,1] - 0.095003524172194) + 10.0*(V[1] - 0.234836800520213) + 2.326057627545538"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[33]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,2] - 1.024211551400606 + FR[B,1] - (F[B,1] - 1.046521929057198) + 0.0*(rate[B,1] - 0.095003524172194) - 10.0*(V[1] - 0.234836800520213) - 2.3706783828587215  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[34]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,3] - 0.993532939699965 + FR[B,2] - (F[B,2] - 1.024211551400606) + 0.0*(rate[B,2] - 0.130637774403129) + 10.0*(V[2] - 0.234836800520213) + 2.317689393501489"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[35]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,3] - 0.993532939699965 + FR[B,2] - (F[B,2] - 1.024211551400606) + 0.0*(rate[B,2] - 0.130637774403129) - 10.0*(V[2] - 0.234836800520213) - 2.3790466169027713  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[36]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,4] - 0.951976475078483 + FR[B,3] - (F[B,3] - 0.993532939699965) + 0.0*(rate[B,3] - 0.176958675308847) + 10.0*(V[3] - 0.234836800520213) + 2.306811540580648"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[37]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,4] - 0.951976475078483 + FR[B,3] - (F[B,3] - 0.993532939699965) + 0.0*(rate[B,3] - 0.176958675308847) - 10.0*(V[3] - 0.234836800520213) - 2.3899244698236113  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[38]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,5] - 0.89684694197817 + FR[B,4] - (F[B,4] - 0.951976475078483) + 0.0*(rate[B,4] - 0.234756548715368) + 10.0*(V[4] - 0.234836800520213) + 2.293238472101817"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[39]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,5] - 0.89684694197817 + FR[B,4] - (F[B,4] - 0.951976475078483) + 0.0*(rate[B,4] - 0.234756548715368) - 10.0*(V[4] - 0.234836800520213) - 2.4034975383024433  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[40]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,6] - 0.825774103580853 + FR[B,5] - (F[B,5] - 0.89684694197817) + 0.0*(rate[B,5] - 0.302647545198328) + 10.0*(V[5] - 0.234836800520213) + 2.277295166804813"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[41]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,6] - 0.825774103580853 + FR[B,5] - (F[B,5] - 0.89684694197817) + 0.0*(rate[B,5] - 0.302647545198328) - 10.0*(V[5] - 0.234836800520213) - 2.419440843599447  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[42]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,7] - 0.737618692931084 + FR[B,6] - (F[B,6] - 0.825774103580853) + 0.0*(rate[B,6] - 0.375389854827214) + 10.0*(V[6] - 0.234836800520213) + 2.260212594552361"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[43]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,7] - 0.737618692931084 + FR[B,6] - (F[B,6] - 0.825774103580853) + 0.0*(rate[B,6] - 0.375389854827214) - 10.0*(V[6] - 0.234836800520213) - 2.436523415851899  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[44]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,8] - 0.633707549082326 + FR[B,7] - (F[B,7] - 0.737618692931084) + 0.0*(rate[B,7] - 0.442482116447672) + 10.0*(V[7] - 0.234836800520213) + 2.2444568613533717"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[45]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,8] - 0.633707549082326 + FR[B,7] - (F[B,7] - 0.737618692931084) + 0.0*(rate[B,7] - 0.442482116447672) - 10.0*(V[7] - 0.234836800520213) - 2.452279149050888  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[46]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,9] - 0.518949012867598 + FR[B,8] - (F[B,8] - 0.633707549082326) + 0.0*(rate[B,8] - 0.488673305460946) + 10.0*(V[8] - 0.234836800520213) + 2.233609468987402"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[47]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,9] - 0.518949012867598 + FR[B,8] - (F[B,8] - 0.633707549082326) + 0.0*(rate[B,8] - 0.488673305460946) - 10.0*(V[8] - 0.234836800520213) - 2.463126541416858  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[48]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,10] - 0.401922960946485 + FR[B,9] - (F[B,9] - 0.518949012867598) + 0.0*(rate[B,9] - 0.498329007435161) + 10.0*(V[9] - 0.234836800520213) + 2.2313419532810173"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[49]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,10] - 0.401922960946485 + FR[B,9] - (F[B,9] - 0.518949012867598) + 0.0*(rate[B,9] - 0.498329007435161) - 10.0*(V[9] - 0.234836800520213) - 2.465394057123243  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[50]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,11] - 0.293082754018139 + FR[B,10] - (F[B,10] - 0.401922960946485) + 0.0*(rate[B,10] - 0.46347140965729) + 10.0*(V[10] - 0.234836800520213) + 2.2395277982737833"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[51]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,11] - 0.293082754018139 + FR[B,10] - (F[B,10] - 0.401922960946485) + 0.0*(rate[B,10] - 0.46347140965729) - 10.0*(V[10] - 0.234836800520213) - 2.457208212130476  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[52]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,12] - 0.104848395470603 + FR[B,11] - 0.096521929057198 - (F[B,11] - 0.293082754018139) + 0.0*(rate[B,11] - 0.390536592381064) + 10.0*(V[11] - 0.234836800520213) + 2.2566555757117923"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[53]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,12] - 0.104848395470603 + FR[B,11] - 0.096521929057198 - (F[B,11] - 0.293082754018139) + 0.0*(rate[B,11] - 0.390536592381064) - 10.0*(V[11] - 0.234836800520213) - 2.440080434692468  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[54]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,13] - 0.060766979044278 + FR[B,12] - (F[B,12] - 0.104848395470603) + 0.0*(rate[B,12] - 0.187710551324223) + 10.0*(V[12] - 0.234836800520213) + 2.3042865887758053"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[55]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,13] - 0.060766979044278 + FR[B,12] - (F[B,12] - 0.104848395470603) + 0.0*(rate[B,12] - 0.187710551324223) - 10.0*(V[12] - 0.234836800520213) - 2.3924494216284544  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[56]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,14] - 0.033960566111867 + FR[B,13] - (F[B,13] - 0.060766979044278) + 0.0*(rate[B,13] - 0.11414877110325) + 10.0*(V[13] - 0.234836800520213) + 2.321561592269719"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[57]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,14] - 0.033960566111867 + FR[B,13] - (F[B,13] - 0.060766979044278) + 0.0*(rate[B,13] - 0.11414877110325) - 10.0*(V[13] - 0.234836800520213) - 2.3751744181345407  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[58]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  F[B,15] - 0.018551762802357 + FR[B,14] - (F[B,14] - 0.033960566111867) + 0.0*(rate[B,14] - 0.065614524902859) + 10.0*(V[14] - 0.234836800520213) + 2.3329592018926197"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[59]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "F[B,15] - 0.018551762802357 + FR[B,14] - (F[B,14] - 0.033960566111867) + 0.0*(rate[B,14] - 0.065614524902859) - 10.0*(V[14] - 0.234836800520213) - 2.36377680851164  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[60]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  10.0*(P[A] - 0.050001814740916) + 0.0*(Q[1] - 1.101602030586524) + 0.0*(F[A,1] - 0.055082143114872) + 0.0*(QP - 1.0) + 0.5000181474091601"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[61]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "P[A] - 0.050001814740916 + 0.0*(Q[1] - 1.101602030586524) - 10.0*(F[A,1] - 0.055082143114872) + 0.0*(QP - 1.0) - 0.500819616407804  <=  0.0"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[62]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  P[B] - 0.95 + 9.5*(Q[1] - 1.101602030586524) + 0.0*(F[B,1] - 1.046521929057198) + 0.0*(QP - 1.0) + 1.9152192905719776"
+      },
+      {
+        "cut": "GDPopt_aff.GDPopt_aff_cons[63]",
+        "scope": "gdp_reactors",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "P[B] - 0.95 + 0.0*(Q[1] - 1.101602030586524) + 0.0*(F[B,1] - 1.046521929057198) - 10.0*(QP - 1.0) - 9.05  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[1].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[1]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,1] + 0.095003524172194 + 110.0*(Q[1] - 1.101602030586524) + 20.0*(F[A,1] - 0.055082143114872) + 0.0*(F[B,1] - 1.046521929057198) + 12.182862702642872"
+      },
+      {
+        "cut": "YP_is_cstr[1].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[1]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,1] + 0.095003524172194 - 110.0*(Q[1] - 1.101602030586524) + 0.0*(F[A,1] - 0.055082143114872) + 0.0*(F[B,1] - 1.046521929057198) - 11.271226888689824  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[2].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[2]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,2] + 0.130637774403129 + 110.0*(Q[2] - 1.101602030586524) + 20.0*(F[A,2] - 0.077392442901638) + 0.0*(F[B,2] - 1.024211551400606) + 12.593434448147258"
+      },
+      {
+        "cut": "YP_is_cstr[2].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[2]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,2] + 0.130637774403129 - 110.0*(Q[2] - 1.101602030586524) + 0.0*(F[A,2] - 0.077392442901638) + 0.0*(F[B,2] - 1.024211551400606) - 11.306861138920766  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[3].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[3]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,3] + 0.176958675308847 + 110.0*(Q[3] - 1.101602030586524) + 20.0*(F[A,3] - 0.108070968492115) + 0.0*(F[B,3] - 0.993532939699965) + 13.160684059051079"
+      },
+      {
+        "cut": "YP_is_cstr[3].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[3]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,3] + 0.176958675308847 - 110.0*(Q[3] - 1.101602030586524) + 0.0*(F[A,3] - 0.108070968492115) + 0.0*(F[B,3] - 0.993532939699965) - 11.353182039826478  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[4].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[4]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,4] + 0.234756548715368 + 110.0*(Q[4] - 1.101602030586524) + 20.0*(F[A,4] - 0.149627340479804) + 0.0*(F[B,4] - 0.951976475078483) + 13.934013625398336"
+      },
+      {
+        "cut": "YP_is_cstr[4].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[4]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,4] + 0.234756548715368 - 110.0*(Q[4] - 1.101602030586524) + 0.0*(F[A,4] - 0.149627340479804) + 0.0*(F[B,4] - 0.951976475078483) - 11.410979913233007  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[5].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[5]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,5] + 0.302647545198328 + 110.0*(Q[5] - 1.101602030586524) + 20.0*(F[A,5] - 0.204756775666724) + 0.0*(F[B,5] - 0.89684694197817) + 14.968711332653783"
+      },
+      {
+        "cut": "YP_is_cstr[5].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[5]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,5] + 0.302647545198328 - 110.0*(Q[5] - 1.101602030586524) + 0.0*(F[A,5] - 0.204756775666724) + 0.0*(F[B,5] - 0.89684694197817) - 11.478870909715965  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[6].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[6]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,6] + 0.375389854827214 + 110.0*(Q[6] - 1.101602030586524) + 20.0*(F[A,6] - 0.275829511772282) + 0.0*(F[B,6] - 0.825774103580853) + 16.317423745136047"
+      },
+      {
+        "cut": "YP_is_cstr[6].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[6]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,6] + 0.375389854827214 - 110.0*(Q[6] - 1.101602030586524) + 0.0*(F[A,6] - 0.275829511772282) + 0.0*(F[B,6] - 0.825774103580853) - 11.551613219344844  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[7].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[7]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,7] + 0.442482116447672 + 110.0*(Q[7] - 1.101602030586524) + 20.0*(F[A,7] - 0.363984816381664) + 0.0*(F[B,7] - 0.737618692931084) + 18.013437575703243"
+      },
+      {
+        "cut": "YP_is_cstr[7].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[7]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,7] + 0.442482116447672 - 110.0*(Q[7] - 1.101602030586524) + 0.0*(F[A,7] - 0.363984816381664) + 0.0*(F[B,7] - 0.737618692931084) - 11.618705480965303  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[8].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[8]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,8] + 0.488673305460946 + 110.0*(Q[8] - 1.101602030586524) + 20.0*(F[A,8] - 0.467895850806598) + 0.0*(F[B,8] - 0.633707549082326) + 20.04546707518865"
+      },
+      {
+        "cut": "YP_is_cstr[8].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[8]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,8] + 0.488673305460946 - 110.0*(Q[8] - 1.101602030586524) + 0.0*(F[A,8] - 0.467895850806598) + 0.0*(F[B,8] - 0.633707549082326) - 11.664896669978575  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[9].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[9]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,9] + 0.498329007435161 + 110.0*(Q[9] - 1.101602030586524) + 0.0*(F[A,9] - 0.582654274401256) + 20.0*(F[B,9] - 0.518949012867598) + 21.056874614434438"
+      },
+      {
+        "cut": "YP_is_cstr[9].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[9]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,9] + 0.498329007435161 - 110.0*(Q[9] - 1.101602030586524) + 0.0*(F[A,9] - 0.582654274401256) + 0.0*(F[B,9] - 0.518949012867598) - 11.6745523719528  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[10].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[10]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,10] + 0.46347140965729 + 110.0*(Q[10] - 1.101602030586524) + 0.0*(F[A,10] - 0.699680210540172) + 20.0*(F[B,10] - 0.401922960946485) + 18.751211173790054"
+      },
+      {
+        "cut": "YP_is_cstr[10].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[10]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,10] + 0.46347140965729 - 110.0*(Q[10] - 1.101602030586524) + 0.0*(F[A,10] - 0.699680210540172) + 0.0*(F[B,10] - 0.401922960946485) - 11.639694774174927  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[11].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[11]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,11] + 0.390536592381064 + 110.0*(Q[11] - 1.101602030586524) + 0.0*(F[A,11] - 0.808520298455667) + 20.0*(F[B,11] - 0.293082754018139) + 16.647341852499352"
+      },
+      {
+        "cut": "YP_is_cstr[11].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[11]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,11] + 0.390536592381064 - 110.0*(Q[11] - 1.101602030586524) + 0.0*(F[A,11] - 0.808520298455667) + 0.0*(F[B,11] - 0.293082754018139) - 11.566759956898693  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[12].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[12]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,12] + 0.187710551324223 + 110.0*(Q[12] - 1.0) + 0.0*(F[A,12] - 0.895152220883345) + 20.0*(F[B,12] - 0.104848395470603) + 1.9092573580878445"
+      },
+      {
+        "cut": "YP_is_cstr[12].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[12]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,12] + 0.187710551324223 - 110.0*(Q[12] - 1.0) + 0.0*(F[A,12] - 0.895152220883345) + 0.0*(F[B,12] - 0.104848395470603) - 0.18771055132421566  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[13].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[13]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,13] + 0.11414877110325 + 110.0*(Q[13] - 1.0) + 0.0*(F[A,13] - 0.939233508654454) + 20.0*(F[B,13] - 0.060766979044278) + 1.1011908097823144"
+      },
+      {
+        "cut": "YP_is_cstr[13].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[13]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,13] + 0.11414877110325 - 110.0*(Q[13] - 1.0) + 0.0*(F[A,13] - 0.939233508654454) + 0.0*(F[B,13] - 0.060766979044278) - 0.1141487711032454  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[14].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[14]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,14] + 0.065614524902859 + 110.0*(Q[14] - 1.0) + 0.0*(F[A,14] - 0.96603978235083) + 20.0*(F[B,14] - 0.033960566111867) + 0.6135967973344845"
+      },
+      {
+        "cut": "YP_is_cstr[14].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[14]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,14] + 0.065614524902859 - 110.0*(Q[14] - 1.0) + 0.0*(F[A,14] - 0.96603978235083) + 0.0*(F[B,14] - 0.033960566111867) - 0.06561452490285546  <=  0.0"
+      },
+      {
+        "cut": "YP_is_cstr[15].GDPopt_aff.GDPopt_aff_cons[0]",
+        "scope": "YP_is_cstr[15]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "0.0  <=  rate[A,15] + 0.036415213401968 + 110.0*(Q[15] - 1.0) + 0.0*(F[A,15] - 0.98144842803448) + 20.0*(F[B,15] - 0.018551762802357) + 0.3346200426451738"
+      },
+      {
+        "cut": "YP_is_cstr[15].GDPopt_aff.GDPopt_aff_cons[1]",
+        "scope": "YP_is_cstr[15]",
+        "applicable_to_W03": true,
+        "violation": 0,
+        "expression": "rate[A,15] + 0.036415213401968 - 110.0*(Q[15] - 1.0) + 0.0*(F[A,15] - 0.98144842803448) + 0.0*(F[B,15] - 0.018551762802357) - 0.036415213401966184  <=  0.0"
+      }
+    ],
+    "W03_no_good_body": 4,
+    "no_good_lower_bound": 1,
+    "W03_initial_master_bound_violations": [],
+    "transformed_witness_violations": [],
+    "initial_cuts_mip_fbbt": "passed",
+    "limitations": "Saved final incumbent equals initialization incumbent; later nonincumbent continuous vector was not retained; local MC++ binary differs from Dantzig."
+  }
+]

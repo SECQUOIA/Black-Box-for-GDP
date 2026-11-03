@@ -1,0 +1,640 @@
+{
+  "source_base_revision": "7a8b26a2d33e5d280594307b6ffd55fdcf10afea",
+  "archive": {
+    "archive": "grid_gdpopt_scip_20261025_180441_051rkijg.zip",
+    "sha256": "69ec44f83c20817a33f51a94ec2e1a3e01ad37031cb3f8c37aae4993eafe1f50",
+    "bytes": 10687057,
+    "internal_checksums": 293,
+    "delivered_package": "results/runners/grid_gdpopt_scip_recovery_20261025/grid_gdpopt_scip_recovery_loa_dantzig_20261025.zip",
+    "delivered_sha256": "a064a49267570849e2a89518683681dbd90774508285c23a1a0f38687084b3a7",
+    "executed_source_files_verified": 68,
+    "unchanged_base_files_verified": 60,
+    "config": {
+      "kind": "gdpopt_actual_scip_20261024_v1",
+      "package": "grid",
+      "tag": "20261025",
+      "methods": [
+        "loa"
+      ],
+      "time_limit": 1800.0,
+      "relative_gap": 1e-05,
+      "threads": 1,
+      "planned_jobs": 19,
+      "cases": [
+        "cstr",
+        "column",
+        "small_batch",
+        "dynamic"
+      ],
+      "cstr_sizes": [
+        5,
+        10,
+        15,
+        20,
+        25,
+        30
+      ],
+      "mip_solver": "scip",
+      "nlp_solver": "scip",
+      "cpu": 14,
+      "peer_cpu": 6,
+      "split_method": "loa",
+      "separate_cpu_ids": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ],
+      "recovery_grids": [
+        "ackley",
+        "alpine2",
+        "bohachevsky2",
+        "camel3",
+        "csendes",
+        "deflected_corrugated_spring",
+        "dropwave",
+        "easom",
+        "griewank",
+        "holder_table",
+        "hosaki",
+        "levy",
+        "levy13",
+        "michalewicz",
+        "rastrigin",
+        "rosenbrock",
+        "shubert",
+        "styblinski_tang",
+        "sum_of_squares"
+      ],
+      "recovery_policy": "grid-scip-network-and-bohachevsky2-v1",
+      "grids": [
+        "ackley",
+        "alpine2",
+        "bohachevsky2",
+        "camel3",
+        "csendes",
+        "deflected_corrugated_spring",
+        "dropwave",
+        "easom",
+        "griewank",
+        "holder_table",
+        "hosaki",
+        "levy",
+        "levy13",
+        "michalewicz",
+        "rastrigin",
+        "rosenbrock",
+        "shubert",
+        "styblinski_tang",
+        "sum_of_squares"
+      ],
+      "phases": [
+        "benchmark"
+      ],
+      "expected_gams_version": "52.2",
+      "executable": "/package/gams/52.2/gams",
+      "record_grid_path": true,
+      "record_gdp_path": true,
+      "gams_version": [
+        52,
+        2,
+        0,
+        0
+      ]
+    },
+    "runtime": {
+      "host": "dantzig.ecn.purdue.edu",
+      "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+      "gams_version": [
+        52,
+        2,
+        0,
+        0
+      ],
+      "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+      "affinity": {
+        "cpu": 14,
+        "physical_package_id": "0",
+        "core_id": "18",
+        "thread_siblings_list": "14,62",
+        "effective_cpus": [
+          14
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "mcpp_sha256": null,
+      "versions": {
+        "pyomo": "6.10.0",
+        "numpy": "2.4.6",
+        "sympy": "1.14.0",
+        "networkx": "3.6.1"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1"
+      },
+      "solver_checks": {
+        "scip_mip": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 28.499447912198956,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 1.0,
+            "OBJVAL": 1.0,
+            "NUMVAR": 3.0,
+            "NUMEQU": 2.0,
+            "NUMDVAR": 1.0,
+            "NUMNZ": 5.0,
+            "ETSOLVE": 0.053999782539904
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "wall_s": 0.39790673297829926
+        },
+        "scip_nlp": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "nlp",
+          "limit_s": 28.49969065618934,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 7.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -4.848101982208935,
+            "OBJVAL": -4.848076211353316,
+            "NUMVAR": 2.0,
+            "NUMEQU": 1.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 2.0,
+            "ETSOLVE": 0.126000121235847
+          },
+          "termination": "feasible",
+          "solver_status": "ok",
+          "lower_bound": -4.848101982208935,
+          "upper_bound": -4.848076211353316,
+          "wall_s": 0.48471342609263957
+        },
+        "scip_trig": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "nlp",
+          "limit_s": 28.49972862506984,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 7.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -1.414217826113529,
+            "OBJVAL": -1.414213562373095,
+            "NUMVAR": 2.0,
+            "NUMEQU": 1.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 2.0,
+            "ETSOLVE": 0.072000338695943
+          },
+          "termination": "feasible",
+          "solver_status": "ok",
+          "lower_bound": -1.414217826113529,
+          "upper_bound": -1.414213562373095,
+          "wall_s": 0.4251759110484272
+        }
+      }
+    },
+    "created_utc": "2026-10-25T18:04:41.438666+00:00",
+    "preflight_calls": [
+      {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "mip",
+        "limit_s": 28.499447912198956,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 1.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": 1.0,
+          "OBJVAL": 1.0,
+          "NUMVAR": 3.0,
+          "NUMEQU": 2.0,
+          "NUMDVAR": 1.0,
+          "NUMNZ": 5.0,
+          "ETSOLVE": 0.053999782539904
+        },
+        "termination": "optimal",
+        "solver_status": "ok",
+        "lower_bound": 1.0,
+        "upper_bound": 1.0,
+        "wall_s": 0.39790673297829926
+      },
+      {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "nlp",
+        "limit_s": 28.49969065618934,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 7.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": -4.848101982208935,
+          "OBJVAL": -4.848076211353316,
+          "NUMVAR": 2.0,
+          "NUMEQU": 1.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 2.0,
+          "ETSOLVE": 0.126000121235847
+        },
+        "termination": "feasible",
+        "solver_status": "ok",
+        "lower_bound": -4.848101982208935,
+        "upper_bound": -4.848076211353316,
+        "wall_s": 0.48471342609263957
+      },
+      {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "nlp",
+        "limit_s": 28.49972862506984,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 7.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": -1.414217826113529,
+          "OBJVAL": -1.414213562373095,
+          "NUMVAR": 2.0,
+          "NUMEQU": 1.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 2.0,
+          "ETSOLVE": 0.072000338695943
+        },
+        "termination": "feasible",
+        "solver_status": "ok",
+        "lower_bound": -1.414217826113529,
+        "upper_bound": -1.414213562373095,
+        "wall_s": 0.4251759110484272
+      }
+    ]
+  },
+  "baseline": {
+    "archive": "grid_gdpopt_scip_20261025_072657_vzeme2eq.zip",
+    "sha256": "ee1f588b9a98ef3bdd805742dd3b44ddbb53492c053df5321dc2809ba06b983f",
+    "bytes": 2937961,
+    "internal_checksums": 292,
+    "delivered_package": "results/runners/grid_gdpopt_scip_split_20261025/grid_gdpopt_scip_loa_dantzig_20261025.zip",
+    "delivered_sha256": "17b32093362031cdaf1308007cc77aad20abd028ce66d1cf9a8f0bacfd80b928",
+    "executed_source_files_verified": 65,
+    "unchanged_base_files_verified": 59,
+    "config": {
+      "kind": "gdpopt_actual_scip_20261024_v1",
+      "package": "grid",
+      "tag": "20261025",
+      "methods": [
+        "loa"
+      ],
+      "time_limit": 1800.0,
+      "relative_gap": 1e-05,
+      "threads": 1,
+      "planned_jobs": 21,
+      "cases": [
+        "cstr",
+        "column",
+        "small_batch",
+        "dynamic"
+      ],
+      "cstr_sizes": [
+        5,
+        10,
+        15,
+        20,
+        25,
+        30
+      ],
+      "mip_solver": "scip",
+      "nlp_solver": "scip",
+      "cpu": 14,
+      "peer_cpu": 6,
+      "split_method": "loa",
+      "separate_cpu_ids": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16
+      ],
+      "grids": [
+        "ackley",
+        "alpine1",
+        "alpine2",
+        "bohachevsky2",
+        "camel3",
+        "csendes",
+        "deflected_corrugated_spring",
+        "dropwave",
+        "easom",
+        "griewank",
+        "holder_table",
+        "hosaki",
+        "levy",
+        "levy13",
+        "michalewicz",
+        "rastrigin",
+        "rosenbrock",
+        "shubert",
+        "styblinski_tang",
+        "sum_of_squares",
+        "xin_she_yang3"
+      ],
+      "phases": [
+        "benchmark"
+      ],
+      "expected_gams_version": "52.2",
+      "executable": "/package/gams/52.2/gams",
+      "record_grid_path": true,
+      "record_gdp_path": true,
+      "gams_version": [
+        52,
+        2,
+        0,
+        0
+      ]
+    },
+    "runtime": {
+      "host": "dantzig.ecn.purdue.edu",
+      "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+      "gams_version": [
+        52,
+        2,
+        0,
+        0
+      ],
+      "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+      "affinity": {
+        "cpu": 14,
+        "physical_package_id": "0",
+        "core_id": "18",
+        "thread_siblings_list": "14,62",
+        "effective_cpus": [
+          14
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "mcpp_sha256": null,
+      "versions": {
+        "pyomo": "6.10.0",
+        "numpy": "2.4.6",
+        "sympy": "1.14.0",
+        "networkx": "3.6.1"
+      },
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "NUMEXPR_MAX_THREADS": "1"
+      },
+      "solver_checks": {
+        "scip_mip": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "mip",
+          "limit_s": 28.499436245358083,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 1.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": 1.0,
+            "OBJVAL": 1.0,
+            "NUMVAR": 3.0,
+            "NUMEQU": 2.0,
+            "NUMDVAR": 1.0,
+            "NUMNZ": 5.0,
+            "ETSOLVE": 0.053999782539904
+          },
+          "termination": "optimal",
+          "solver_status": "ok",
+          "lower_bound": 1.0,
+          "upper_bound": 1.0,
+          "wall_s": 57.06298243999481
+        },
+        "scip_nlp": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "nlp",
+          "limit_s": 28.499719925702085,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 7.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -4.848101982208935,
+            "OBJVAL": -4.848076211353316,
+            "NUMVAR": 2.0,
+            "NUMEQU": 1.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 2.0,
+            "ETSOLVE": 0.137000111863017
+          },
+          "termination": "feasible",
+          "solver_status": "ok",
+          "lower_bound": -4.848101982208935,
+          "upper_bound": -4.848076211353316,
+          "wall_s": 0.4758721610996872
+        },
+        "scip_trig": {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "nlp",
+          "limit_s": 28.49974776743911,
+          "threads": 1,
+          "status": "returned",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "gams_statistics": {
+            "MODELSTAT": 7.0,
+            "SOLVESTAT": 1.0,
+            "OBJEST": -1.414217826113529,
+            "OBJVAL": -1.414213562373095,
+            "NUMVAR": 2.0,
+            "NUMEQU": 1.0,
+            "NUMDVAR": 0.0,
+            "NUMNZ": 2.0,
+            "ETSOLVE": 0.072999880649149
+          },
+          "termination": "feasible",
+          "solver_status": "ok",
+          "lower_bound": -1.414217826113529,
+          "upper_bound": -1.414213562373095,
+          "wall_s": 0.3952588988468051
+        }
+      }
+    },
+    "created_utc": "2026-10-25T07:26:57.690754+00:00",
+    "preflight_calls": [
+      {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "mip",
+        "limit_s": 28.499436245358083,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 1.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": 1.0,
+          "OBJVAL": 1.0,
+          "NUMVAR": 3.0,
+          "NUMEQU": 2.0,
+          "NUMDVAR": 1.0,
+          "NUMNZ": 5.0,
+          "ETSOLVE": 0.053999782539904
+        },
+        "termination": "optimal",
+        "solver_status": "ok",
+        "lower_bound": 1.0,
+        "upper_bound": 1.0,
+        "wall_s": 57.06298243999481
+      },
+      {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "nlp",
+        "limit_s": 28.499719925702085,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 7.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": -4.848101982208935,
+          "OBJVAL": -4.848076211353316,
+          "NUMVAR": 2.0,
+          "NUMEQU": 1.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 2.0,
+          "ETSOLVE": 0.137000111863017
+        },
+        "termination": "feasible",
+        "solver_status": "ok",
+        "lower_bound": -4.848101982208935,
+        "upper_bound": -4.848076211353316,
+        "wall_s": 0.4758721610996872
+      },
+      {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "nlp",
+        "limit_s": 28.49974776743911,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 7.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": -1.414217826113529,
+          "OBJVAL": -1.414213562373095,
+          "NUMVAR": 2.0,
+          "NUMEQU": 1.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 2.0,
+          "ETSOLVE": 0.072999880649149
+        },
+        "termination": "feasible",
+        "solver_status": "ok",
+        "lower_bound": -1.414217826113529,
+        "upper_bound": -1.414213562373095,
+        "wall_s": 0.3952588988468051
+      }
+    ],
+    "outer_checksum_note": "Computed locally; server checksum sidecars were not provided."
+  },
+  "analysis_python": "3.13.12",
+  "analysis_pyomo": "6.10.0",
+  "analysis_sources_sha256": {
+    "scripts/analyze_grid_scip_recovery_loa_return.py": "a5013565431c1e691ffd05ca1f37cbb1ab9f322e6257be768dc1e60ba89eac7e",
+    "scripts/analyze_grid_gdpopt_scip_return.py": "d2ba2361d8ff4f479e6f98e373c7bb662fa53e0de56d35913f04c7c78aeda937",
+    "scripts/analyze_grid_scip_return.py": "abcfd4aabb78a8378ff8b0961c13b6666b6696a0d2fa1ad0fe14c1bdb928d1b2",
+    "scripts/probe_grid_scip_presolve.py": "31a413cb2f52cfe6af6de565d4f4e39f93d1ce8069a82b658e04c6f1d0c7b5d5"
+  },
+  "local_diagnostic_modules_sha256": {
+    "pyomo.contrib.fbbt.fbbt": "b0f724bd5e7fe1fb872fa6b6f9cef1d64711266215af16221815192080ac5c75",
+    "pyomo.contrib.fbbt.interval": "38b7bca9f9f80559e94c50bf12939393797241b2f3d89f3c83e720b4d061645c",
+    "pyomo.contrib.gdpopt.solve_subproblem": "bfe447752b632435b7adc40e76501408d6a2fc44b20fe3723b908b1fe702bf11"
+  },
+  "diagnostic_loa_tolerances": {
+    "integer_tolerance": 1e-05,
+    "constraint_tolerance": 1e-06,
+    "max_fbbt_iterations": 3
+  },
+  "outer_checksum_note": "Computed from the supplied local ZIP; no independent server checksum sidecar was supplied.",
+  "original_provider_manifests_unchanged": true,
+  "target_definition": "Normalized CSV objective minus unchanged CSV minimum <= 1e-5.",
+  "optimization_calls": 0
+}

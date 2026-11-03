@@ -1,0 +1,14 @@
+{
+  "matplotlib": "3.10.3",
+  "inputs_sha256": {
+    "completed_runs.csv": "f0764696a4846d391e8d040781e8e32bde72829654e13ca6c1342cf768d1843f",
+    "condition_summary.csv": "6c90c58cf2c364d69910fa397ede4a8cbd24c996765ae61e50269de9797f27ef"
+  },
+  "outputs_sha256": {
+    "grid_comparison.pdf": "7bb5201ef196397ef9dd5be1f3a4f477f7708a08c08902ef319ea6a928fc547a",
+    "grid_comparison.png": "83c386c4f229f0f7aa37053a7b17263bfb6c1bf8bf303022a9ad3e94800da8ec",
+    "process_target_counts.pdf": "4fe855d0aa7c8b09a0efde87c6ac778d91f87e5ab0251bf3ff2e454edb9e605e",
+    "process_target_counts.png": "419de4fdf777bb88b0813f859944b540ed389094d2ac6166ea6fa91d4ae99a42"
+  },
+  "note": "New analysis figures; original manuscript and execution artifacts unchanged."
+}

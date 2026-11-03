@@ -1,0 +1,569 @@
+{
+  "analysis_base_revision": "44ed72156a03017d7021f3fac6744bae4366dbfb",
+  "executed_repository_revision": null,
+  "revision_note": "The returned package records exact file hashes and upstream pins, but no repository commit; no revision is inferred.",
+  "archive": "results/archives/process_gdpopt_scip_20261025_003203_eqiw7649.zip",
+  "archive_sha256": "8f4fe4ecddb0e448ff667f80f7b32df2c26f6bfca12656e9ed3ebea87d0fe8d8",
+  "archive_bytes": 8426839,
+  "outer_checksum_provenance": "Locally calculated on receipt; no downloaded server sidecar was available.",
+  "internal_checksums_verified": 1846,
+  "terminal_jobs_inspected": 27,
+  "terminal_jobs_fully_verifiable": 26,
+  "terminal_files_verified": 1728,
+  "sealed_files_omitted_by_packer": [
+    {
+      "member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/column/ric/gams-9uoxt4cr/model.gms",
+      "sealed_sha256": "16bbc8249509f6dc805073f6e90276244816735368cf66c53f4d301b871bac36",
+      "reason": "The archived pack() excludes all temporary gams-* directories, including leftovers after the watchdog kill."
+    },
+    {
+      "member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/column/ric/gams-9uoxt4cr/output.lst",
+      "sealed_sha256": "87d42094d03a16b9bce1b414864d5fca9d3a012279beaba7458ce704c1d60da6",
+      "reason": "The archived pack() excludes all temporary gams-* directories, including leftovers after the watchdog kill."
+    },
+    {
+      "member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/column/ric/gams-9uoxt4cr/results.dat",
+      "sealed_sha256": "50edb51a3a0f240a28b2b552d1eaf397a91fada69e3000bb770ad8db49797ad8",
+      "reason": "The archived pack() excludes all temporary gams-* directories, including leftovers after the watchdog kill."
+    },
+    {
+      "member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/column/ric/gams-9uoxt4cr/resultsstat.dat",
+      "sealed_sha256": "7dc702b8194f08d6a2b40788855769a0959e45aa064b7db5f6eca03e3faa8627",
+      "reason": "The archived pack() excludes all temporary gams-* directories, including leftovers after the watchdog kill."
+    },
+    {
+      "member": "process_gdpopt_scip_20261025_003203_eqiw7649/benchmark/column/ric/gams-9uoxt4cr/scip.opt",
+      "sealed_sha256": "8b8b17b72c3d92943f5bd5600f4383ba4c181ac0fcce8ce6a3e42177030b0a47",
+      "reason": "The archived pack() excludes all temporary gams-* directories, including leftovers after the watchdog kill."
+    }
+  ],
+  "run_source_files_verified": 75,
+  "package_files_verified": 74,
+  "source_sha256": {
+    "LICENSE": "1d34d50a6a4c138f091f62dc8428ad0177658a8a81758424683823673d48f813",
+    "README.md": "90d51243b8ca5eaed1e967e038ed2888738f719c8424d5e9b65a801c25ce61fe",
+    "benchmark_grids/ackley.csv": "6a607107c82492852bed244357cf56a96aa347754b3e14f67b73833e6a0ef67f",
+    "benchmark_grids/alpine1.csv": "ae33130fa2fc3325c4c7e1e9112fed6bc90bfa2971b32fae022b5fd90382e770",
+    "benchmark_grids/alpine2.csv": "ff8cfd7f8ca3a8e595b9ef406b51bad46068574d126e9deb665de985f577722e",
+    "benchmark_grids/bohachevsky2.csv": "999858033dfbc7d0084923abe5246d5c6273b22f7300b79a101d49448170a291",
+    "benchmark_grids/camel3.csv": "16fc6c3f64fe31e952a072b44d19ff6984c508bcfa2509f740bcc7e80211cc8f",
+    "benchmark_grids/csendes.csv": "2b197da228ae88301368acb01e34222a6a88a0d5c215991b248c0f32777ed15e",
+    "benchmark_grids/deflected_corrugated_spring.csv": "63ed8e5447773c569d87a272d9243e1bdcecbd2d6f34e2005a9ee8784fd1c048",
+    "benchmark_grids/dropwave.csv": "5af484dd952252f35138c00720bab3f19d5ac0b6402e4e8885f22b22a0e687e8",
+    "benchmark_grids/easom.csv": "04a20282270ea465edb3cb434f97bd6030b53a0aff199837298a1a20c917d2c1",
+    "benchmark_grids/griewank.csv": "67390481014ae59ee0cddd4078bdbacba4c29bf417a8eb709da6e4353364358b",
+    "benchmark_grids/holder_table.csv": "7546c9484d35eb13341d396c80f7a9d436fa5d071710eafd51f7691b2dc64f21",
+    "benchmark_grids/hosaki.csv": "d69f02c3f1b4f3371dfca3370b566ba39aaa6863737c230141b5ede81622b358",
+    "benchmark_grids/levy.csv": "fe5b30f3fcae2f33e271a97f316117ca7e03355e30f6d612bdc1db7dff8e22ce",
+    "benchmark_grids/levy13.csv": "d577e1fa4310b19d530bfeb348a7f88bbb4561285e8ffea87f85eecb90014800",
+    "benchmark_grids/michalewicz.csv": "2a6adca0a6d7889043a086016e4fb0e5f022fccbcca03b12cf2567bfb95cc25a",
+    "benchmark_grids/rastrigin.csv": "af132657e70812320c8171a1996dd120f33eb81147cd138c1d36e9e0ccaf39c8",
+    "benchmark_grids/rosenbrock.csv": "e2e5fdee4fa872c8cd54350b3a8065d3b7167d3f18e5d0fb269a3c3f7b6451f4",
+    "benchmark_grids/shubert.csv": "79bf42e84bd8ab312a7ba7a6b58d4f9d49922e328604c07073d02d101ec146b3",
+    "benchmark_grids/styblinski_tang.csv": "6000c3e54804f1e87bf1b9dd4f9082028e958c6f95d89d0a3e651218f4a5906f",
+    "benchmark_grids/sum_of_squares.csv": "f821c40aee52d021768e73cc4a383267cfac44a9657ae6bf1db12b59c766e0d3",
+    "benchmark_grids/xin_she_yang3.csv": "f96827c10578a16a8b7c5bbcbe7445e17762d1dc0705175b9fa6edaefe2d2d0d",
+    "cpu_affinity.py": "fc6470e8db52df68935abdaa5ebe76602a1c7917d08b4ca35760a042aba73b60",
+    "docs/dantzig_cpu_rerun.md": "74801018aa5047781edc24b1796e3925391c296bb42604ae9ca9f2e4511eeb36",
+    "docs/gdp_comparison.md": "0d36a2aaae143da59b637e7b1684dcaff88067d14a88a9b197de20fd48a2651a",
+    "docs/gdp_scip_experiments.md": "90d51243b8ca5eaed1e967e038ed2888738f719c8424d5e9b65a801c25ce61fe",
+    "docs/gdpopt_baron_highs.md": "8d710ee91d612e4938c1be0d84780e2afdad2471e88016f683f2128fcc57772e",
+    "docs/gdpopt_loa_baron_highs.md": "4668e19b0d04f161a0365252efbc9fbbdaf7980b59ea29e49a373dbe17885026",
+    "docs/grid_gdp.md": "1e4ad181b4534097fe7a1888199b21e2909a027ce54e0f5ccc3ef6ee4465724f",
+    "docs/grid_gdp_benchmark.md": "ba62ea17ae02ddaba516a914fe5a95f586943949bcde877df5b8461d6056d095",
+    "docs/grid_gdp_scip.md": "afd98df55fa1d8af942ba545a8241885a2d90f5286ab01aa0ac01867f713c88e",
+    "external/dsda-gdp/LICENSE.md": "4b5a2760c48a1ecb53d95636bdf462c566fda5b5f4297f57ad35ff8fe2de7d2a",
+    "external/dsda-gdp/gdp/column/gdp_column.py": "c5fea7ff6286d2b6c1055a4e602b08648a03853aea24e6552f5921b36e205bab",
+    "external/dsda-gdp/gdp/cstr/gdp_reactor.py": "d4883e8911da75242fe34db7905269e7b40a49b68054e21125ef6035653933b6",
+    "external/dsda-gdp/gdp/dsda/column_17_initialization.json": "60cd7d1f7a7f08b59d9b0d7fca6e8920313ca7722c94d829e388a009ae4acfd7",
+    "external/dsda-gdp/gdp/dsda/cstr_10_initialization.json": "c7ed746a610656af44d7382b3656158efecd61d62785a713da4a8b0a7f3b6cb4",
+    "external/dsda-gdp/gdp/dsda/cstr_15_initialization.json": "de9eec42abb1f5ba587546239e9520e8ffc2ddffc9518f777227564f4c1b3104",
+    "external/dsda-gdp/gdp/dsda/cstr_20_initialization.json": "bafdb05180118d08876f662ab43f87a09a7c2bd4b9e3d6c6289367ca40030f86",
+    "external/dsda-gdp/gdp/dsda/cstr_25_initialization.json": "98e8ceaf048d8e1d1835f3b13489da34fb78b4b955f38cd3731d5ef9b856e397",
+    "external/dsda-gdp/gdp/dsda/cstr_5_initialization.json": "2f8180fe245f7ec8af8fb9fd2fc549c43aaecc6d6dfc735eb2c89715a8d09ce2",
+    "external/dsda-gdp/gdp/dsda/model_serializer.py": "130f95560642bfe6d2684c10b061e924c6fb2f44e857be0c90d65da6c2dfddfe",
+    "external/dsda-gdp/gdp/dsda/small_batch_initialization.json": "44a1c5f8a09f594ecdce4cbd93206486648df347ca7f74cf5572f24c1f44cca8",
+    "external/dsda-gdp/gdp/small_batch/gdp_small_batch.py": "69bdca03d35dfeb618419fe01e30686802be529b44e1f8ec24be66671bef30d4",
+    "external/ld-sda-dynamic/models/nine_stage_dynamic_model_switching_nonlinear.py": "70653536e48a2a6a05c23a8f0337a43e36307c554569982767afa1c1c623ed98",
+    "gdp_compare.py": "3e21611d2e9a3590e02c330552225f6dcbe9f0646635e35412d861299d27826b",
+    "gdp_models/__init__.py": "5ebb20b8f7249a66ace212cebabf47949e8f40d3a9ddea464b11a7eb55a47705",
+    "gdp_models/__main__.py": "3637c973071961beeb01876a23eb3bbf172d2fe3a493cbbc9e0fd29d623e6dc4",
+    "gdp_models/_sources.py": "88fc01e27c0ce4b926de669adbe9f1ceb855420fec61d9a27bf2605dd2e40afa",
+    "gdp_models/batch.py": "1fdadf7f9cfe7a2d509c143b7a5db8562abee22aba536767021b530f0c4370c8",
+    "gdp_models/comparison.py": "3db1262a29a4afe7084241830936f206d60f364798f5f475a42597da89254c0a",
+    "gdp_models/dantzig.py": "47533ff3b9436e4bc089ca7aecd43ca0c38924e379c2b3b4195a8cd60d48b3d4",
+    "gdp_models/domains.py": "bb2a9f2783fdf32f25d327c417521ecae73b2dc60fc6e579d8c0afe187493394",
+    "gdp_models/evaluation.py": "cb9d5cb77e8bf48b72665ffeafcfb0e0c00d3ac0656def725a294a21a1a4c18e",
+    "gdp_models/grid.py": "e0e65ec27d20be9f5cfe6419cb7cd176663a909614a6bb9be67db879d574c7c8",
+    "gdp_models/grid_benchmark.py": "f866797a52ac27562831e1f8081b58bbce90a8a6e0cd2cbb9afb0234c03519e9",
+    "gdp_models/grid_retry_fixes.py": "466d9b92b3247a6832ca88ebd00f8de719dccc0e4205b53ff0e6c67937243f0f",
+    "gdp_models/models.py": "1dddc02ee1463c03c1b041dfaf83444171765514e570ab8da7bf26d3ec2e9c23",
+    "gdp_models/preflight.py": "fca788f4312c463fc169754470a1859cd1558fe36b87610e79739e183b870e56",
+    "gdp_models/solvers.py": "cd1c88cb8ec66dceac2bb4f17dcd38e40fb5b3cf0891ad93298002f879040f06",
+    "gdp_scip_experiments.py": "50b97edeef427db4a1738f9dacfcfd31e2ab4ae341cecebcdb7ff4d2740adb17",
+    "gdp_scip_package.json": "d9b029537892fcc094a552f698a765631772b0b91c62647126c8c7bd6ea14ad5",
+    "grid_gdp_benchmark.py": "a2a1f34dc3943eb3f6f5e3507ca6ca2cd4e3b629c6e9a2ac0f7e1e36ba0cf362",
+    "grid_gdp_process_profile.json": "4671b6f69cf4e42f715165bfda3541acbe3bad3d570fd8cf8a3305c452a6e46b",
+    "grid_gdp_scip_profile.json": "670570086bdaaecb4f5632c59be1a2bf632e9bc0875fee76ed543112369ad45d",
+    "grid_scip_package.py": "34dacc65dd527bba79944c40af561c364f4350384ed8d9794adaa936427ecebc",
+    "requirements-gdp-comparison.txt": "8b8411586e0460a5c6a9eb7b9901fd9240ea17198254bf747a1da23a895ef685",
+    "requirements-gdp.txt": "c59b628e0e07c2b9e86d4ee065a29ed0c211b419b4f99d1cea8d958100731bc8",
+    "run_gdp_scip_experiment.sh": "e6600272921bbee5be571a67daa3714105ddeaa66c1f12449c5dd101daefb585",
+    "run_gdpopt_baron_highs_dantzig.sh": "63a9b5ffdda15cbf72d60a9a42e5b11f4464eac68c41196109492586b1cec3ce",
+    "run_gdpopt_loa_baron_highs_dantzig.sh": "e187fe63ccfec89b684eacd0bf9a5e80796e6c521219b6fa94fab12a68e6a32c",
+    "run_grid_gdp_dantzig.sh": "6cbd62632a20d0bba2db3d55e9e5b31b423acb009c914403d8d8230a4306804b",
+    "run_grid_scip_dantzig.sh": "425a344b87de8707d10a5f540f0c1eb8348b8a026f5f11b7f28cd654773c1f51",
+    "tests/test_gdp_scip_experiments.py": "e081958561f98b3016d97fa0213f15735bb941460f3b44edc15bfb7b34c1c4f7",
+    "PACKAGE_MANIFEST.json": "585d8a4a25c54f3797394c5db7b2187a9757658415c0ea98957b1425d12bff6a"
+  },
+  "upstream_pins": {
+    "external/dsda-gdp": "3e469dbeea8931670b8cd6752014ab7a767d3af5",
+    "external/ld-sda-dynamic": "482e14ebf9caabbd35d959986942cb028778a1d7"
+  },
+  "created_utc": "2026-10-25T00:32:03.732225+00:00",
+  "run_config": {
+    "kind": "gdpopt_actual_scip_20261024_v1",
+    "package": "process",
+    "tag": "20261024",
+    "methods": [
+      "gloa",
+      "loa",
+      "ric"
+    ],
+    "time_limit": 1800,
+    "relative_gap": 1e-05,
+    "threads": 1,
+    "planned_jobs": 27,
+    "cases": [
+      "cstr",
+      "column",
+      "small_batch",
+      "dynamic"
+    ],
+    "cstr_sizes": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "mip_solver": "highs",
+    "nlp_solver": "scip",
+    "cpu": 8,
+    "peer_cpu": 6,
+    "grids": [
+      "ackley",
+      "alpine1",
+      "alpine2",
+      "bohachevsky2",
+      "camel3",
+      "csendes",
+      "deflected_corrugated_spring",
+      "dropwave",
+      "easom",
+      "griewank",
+      "holder_table",
+      "hosaki",
+      "levy",
+      "levy13",
+      "michalewicz",
+      "rastrigin",
+      "rosenbrock",
+      "shubert",
+      "styblinski_tang",
+      "sum_of_squares",
+      "xin_she_yang3"
+    ],
+    "phases": [
+      "benchmark"
+    ],
+    "expected_gams_version": "52.2",
+    "executable": "/package/gams/52.2/gams",
+    "record_grid_path": false,
+    "record_gdp_path": true,
+    "gams_version": [
+      52,
+      2,
+      0,
+      0
+    ]
+  },
+  "runtime": {
+    "host": "dantzig.ecn.purdue.edu",
+    "python": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+    "gams_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "gams_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+    "affinity": {
+      "cpu": 8,
+      "physical_package_id": "0",
+      "core_id": "10",
+      "thread_siblings_list": "8,56",
+      "effective_cpus": [
+        8
+      ],
+      "policy": "one logical CPU; not an exclusive reservation"
+    },
+    "mcpp_sha256": "05082e93380fd595c65d1b5ecd5cd36a381ff6d28abb8023c556e52cf944c2c6",
+    "versions": {
+      "pyomo": "6.10.0",
+      "numpy": "2.4.6",
+      "sympy": "1.14.0",
+      "networkx": "3.6.1"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OMP_THREAD_LIMIT": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1",
+      "GOTO_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "NUMEXPR_MAX_THREADS": "1"
+    },
+    "solver_checks": {
+      "highs": {
+        "index": 1,
+        "solver": "highs",
+        "mtype": "mip",
+        "limit_s": 28.49964354180265,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [],
+        "gams_statistics": {
+          "MODELSTAT": 1.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": 1.0,
+          "OBJVAL": 1.0,
+          "NUMVAR": 3.0,
+          "NUMEQU": 2.0,
+          "NUMDVAR": 1.0,
+          "NUMNZ": 5.0,
+          "ETSOLVE": 0.035999855026603
+        },
+        "termination": "optimal",
+        "solver_status": "ok",
+        "lower_bound": 1.0,
+        "upper_bound": 1.0,
+        "wall_s": 0.3978088879957795
+      },
+      "scip_nlp": {
+        "index": 1,
+        "solver": "scip",
+        "mtype": "nlp",
+        "limit_s": 28.49969377031084,
+        "threads": 1,
+        "status": "returned",
+        "solver_option_file": [
+          "gams/mipstart = 0",
+          "timing/clocktype = 2"
+        ],
+        "gams_statistics": {
+          "MODELSTAT": 7.0,
+          "SOLVESTAT": 1.0,
+          "OBJEST": -4.848101982208935,
+          "OBJVAL": -4.848076211353316,
+          "NUMVAR": 2.0,
+          "NUMEQU": 1.0,
+          "NUMDVAR": 0.0,
+          "NUMNZ": 2.0,
+          "ETSOLVE": 0.162999518215656
+        },
+        "termination": "feasible",
+        "solver_status": "ok",
+        "lower_bound": -4.848101982208935,
+        "upper_bound": -4.848076211353316,
+        "wall_s": 0.5056485631503165
+      }
+    }
+  },
+  "correction_policy": "Existing pyomo610-grid-v1 only; no new FBBT or GLOA patches",
+  "time_policy": "Per-method worker budget; model preparation and preflight separate",
+  "historical_sources": [
+    {
+      "directory": "results/gdp_comparison_20261001/raw",
+      "methods": [
+        "gloa",
+        "ric"
+      ],
+      "archive": "results/archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip",
+      "config": {
+        "cases": [
+          "cstr",
+          "column",
+          "dynamic",
+          "small_batch"
+        ],
+        "cstr_sizes": [
+          5,
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "methods": [
+          "ric",
+          "gloa"
+        ],
+        "time_limit": 1800,
+        "relative_gap": 1e-05,
+        "executable": "/package/gams/52.2/gams",
+        "nlp_solver": "baron",
+        "mip_solver": "highs",
+        "baron_lp_solver": "clp",
+        "baron_column_hull_lbtt": 0,
+        "expected_gams_version": "52.2"
+      },
+      "created_utc": "2026-10-01T17:52:49.020069+00:00",
+      "host": "dantzig.ecn.purdue.edu",
+      "cpu_affinity": {
+        "cpu": 2,
+        "physical_package_id": "0",
+        "core_id": "2",
+        "thread_siblings_list": "2,50",
+        "effective_cpus": [
+          2
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "runtime": {
+        "gams_version": [
+          52,
+          2,
+          0,
+          0
+        ],
+        "gams_executable_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+        "dependencies": {
+          "pyomo": "6.10.0",
+          "sympy": "1.14.0",
+          "numpy": "2.4.6",
+          "networkx": "3.6.1",
+          "matplotlib": "3.11.2"
+        },
+        "python_version": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+        "mcpp": {
+          "library": "/local/scratch/a/lee4382/repository/RBFopt_Test/.pyomo-gdp-comparison/lib/mcppInterface.so",
+          "sha256": "05082e93380fd595c65d1b5ecd5cd36a381ff6d28abb8023c556e52cf944c2c6",
+          "expected_source_commit": "c8ae9800d02b09bee0012aed593de92c9cf10fa7"
+        },
+        "solver_checks": {
+          "baron_nlp": {
+            "index": 1,
+            "solver": "baron",
+            "mtype": "nlp",
+            "limit_s": 28.49981281384826,
+            "threads": 1,
+            "status": "returned",
+            "solver_option_file": [
+              "LPSol 8",
+              "NLPSol 9"
+            ],
+            "gams_statistics": {
+              "MODELSTAT": 1.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": -4.848076211353316,
+              "OBJVAL": -4.848076211353316,
+              "NUMVAR": 2.0,
+              "NUMEQU": 1.0,
+              "NUMDVAR": 0.0,
+              "NUMNZ": 2.0,
+              "ETSOLVE": 0.107000023126602
+            },
+            "termination": "optimal",
+            "solver_status": "ok",
+            "lower_bound": -4.848076211353316,
+            "upper_bound": -4.848076211353316,
+            "wall_s": 1.6604534019716084
+          },
+          "highs": {
+            "index": 1,
+            "solver": "highs",
+            "mtype": "mip",
+            "limit_s": 28.499676847131923,
+            "threads": 1,
+            "status": "returned",
+            "solver_option_file": [],
+            "gams_statistics": {
+              "MODELSTAT": 1.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": 1.0,
+              "OBJVAL": 1.0,
+              "NUMVAR": 3.0,
+              "NUMEQU": 2.0,
+              "NUMDVAR": 1.0,
+              "NUMNZ": 5.0,
+              "ETSOLVE": 0.037999567575753
+            },
+            "termination": "optimal",
+            "solver_status": "ok",
+            "lower_bound": 1.0,
+            "upper_bound": 1.0,
+            "wall_s": 0.40909989085048437
+          }
+        },
+        "transformation_checks": []
+      }
+    },
+    {
+      "directory": "results/gdp_comparison_loa_20261001/raw",
+      "methods": [
+        "loa"
+      ],
+      "archive": "results/archives/dantzig_gdp_compare_20261001_204801_1gfd4d02.zip",
+      "config": {
+        "cases": [
+          "cstr",
+          "column",
+          "dynamic",
+          "small_batch"
+        ],
+        "cstr_sizes": [
+          5,
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "methods": [
+          "loa"
+        ],
+        "time_limit": 1800,
+        "relative_gap": 1e-05,
+        "executable": "/package/gams/52.2/gams",
+        "nlp_solver": "baron",
+        "mip_solver": "highs",
+        "baron_lp_solver": "clp",
+        "baron_column_hull_lbtt": 0,
+        "expected_gams_version": "52.2"
+      },
+      "created_utc": "2026-10-01T20:48:01.619285+00:00",
+      "host": "dantzig.ecn.purdue.edu",
+      "cpu_affinity": {
+        "cpu": 6,
+        "physical_package_id": "0",
+        "core_id": "8",
+        "thread_siblings_list": "6,54",
+        "effective_cpus": [
+          6
+        ],
+        "policy": "one logical CPU; not an exclusive reservation"
+      },
+      "runtime": {
+        "gams_version": [
+          52,
+          2,
+          0,
+          0
+        ],
+        "gams_executable_sha256": "11bd33943b5b2542afa73cbf3eb8a1f1b27eb1bde1ba56e85f8a262cfdd29245",
+        "dependencies": {
+          "pyomo": "6.10.0",
+          "sympy": "1.14.0",
+          "numpy": "2.4.6",
+          "networkx": "3.6.1",
+          "matplotlib": "3.11.2"
+        },
+        "python_version": "3.11.16 (main, Sep  2 2026, 23:39:52) [GCC 15.3.0]",
+        "mcpp": null,
+        "solver_checks": {
+          "baron_nlp": {
+            "index": 1,
+            "solver": "baron",
+            "mtype": "nlp",
+            "limit_s": 28.49972503760364,
+            "threads": 1,
+            "status": "returned",
+            "solver_option_file": [
+              "LPSol 8",
+              "NLPSol 9"
+            ],
+            "gams_statistics": {
+              "MODELSTAT": 1.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": -4.848076211353316,
+              "OBJVAL": -4.848076211353316,
+              "NUMVAR": 2.0,
+              "NUMEQU": 1.0,
+              "NUMDVAR": 0.0,
+              "NUMNZ": 2.0,
+              "ETSOLVE": 0.074999593198299
+            },
+            "termination": "optimal",
+            "solver_status": "ok",
+            "lower_bound": -4.848076211353316,
+            "upper_bound": -4.848076211353316,
+            "wall_s": 0.4487068960443139
+          },
+          "highs": {
+            "index": 1,
+            "solver": "highs",
+            "mtype": "mip",
+            "limit_s": 28.499632443860172,
+            "threads": 1,
+            "status": "returned",
+            "solver_option_file": [],
+            "gams_statistics": {
+              "MODELSTAT": 1.0,
+              "SOLVESTAT": 1.0,
+              "OBJEST": 1.0,
+              "OBJVAL": 1.0,
+              "NUMVAR": 3.0,
+              "NUMEQU": 2.0,
+              "NUMDVAR": 1.0,
+              "NUMNZ": 5.0,
+              "ETSOLVE": 0.013999873772264
+            },
+            "termination": "optimal",
+            "solver_status": "ok",
+            "lower_bound": 1.0,
+            "upper_bound": 1.0,
+            "wall_s": 0.5539104170165956
+          }
+        },
+        "transformation_checks": []
+      }
+    }
+  ],
+  "input_sha256": {
+    "results/gdp_comparison_current/selection.json": "afb722ee7689c4e17db03d58174204bfcabdcc21c86608c7bfcbc26695464725",
+    "results/gdp_comparison_current/analysis/comparison.csv": "3cfbdc23eb9423a910208c176259dfc5c1844f2cf6a5dc09ee1e1791f234008f",
+    "results/gdp_comparison_current/analysis/solution_rechecks.json": "139343ce13982f3d017d9aa164da3ad4b9d00506634d151a1cb3001daec7795b",
+    "nlp_cost_analysis.py": "3b5dfea4e2dba550c702d51ee3121dcf596443abe399de98134c4cf66cb7355b",
+    "results/archives/dantzig_gdp_compare_20261001_175249_6lvrs3wy.zip": "7fbb60f75bd46ecefd8788540be2e070656df37d6b80f075aea9e09c5ad33d4e",
+    "results/gdp_comparison_20261001/publication.json": "28c09bdae89ea74495ffbaba8d36d35817a3c10c55d9afe7db436dd9677e49b9",
+    "results/archives/dantzig_gdp_compare_20261001_204801_1gfd4d02.zip": "a9645e0b12d2870e14a19e689e221068f6092071fea3df2cda590a1d4bdd4498",
+    "results/gdp_comparison_loa_20261001/publication.json": "24013cffc8a4062db885d31aaad73a466468d2d880577f6c75d2031f7d6c7a70"
+  },
+  "attached_diagnostics": {
+    "archive": "diagnostics/gdpopt_20261023/dantzig_package.zip",
+    "sha256": "424b615ca564bac6a7a9c4e05b9f19e98e307d1982d9e15e2617519e8c2a28e6",
+    "internal_checksums_verified": 231,
+    "attached_checksums_verified": 235,
+    "optimization_solver_calls": 0,
+    "identity_note": "October 23 diagnostic package, not the October 25 Process SCIP return.",
+    "attached_file_sha256": {
+      "diagnostics/gdpopt_20261023/dantzig_package.zip.sha256": "27842b239b0261e6fa8ded6125bb4311964906223e479560196f7961690b4482",
+      "diagnostics/gdpopt_20261023/SHA256SUMS": "c38ff6ca1cb8372534262d22a949c66721692ad206d7ed5a1ed7579d491d12e9"
+    }
+  },
+  "target_rule": "abs(objective-reference) <= 1e-5 * max(1, abs(reference)); reference from unchanged current comparison",
+  "supplementary_attainment_rule": "objective <= reference + 1e-5 * max(1, abs(reference))",
+  "primal_tolerance": 1e-05,
+  "analysis_python": "3.13.12",
+  "analysis_pyomo": "6.10.0",
+  "analysis_system": "Darwin",
+  "analysis_machine": "arm64",
+  "analysis_source_sha256": {
+    "scripts/analyze_process_scip_return.py": "0e11db0f98a636c9f4f576611d1a26c084265339475c2b0405d8d12c5feb9ed2"
+  },
+  "analysis_environment_note": "Local Python differs from server Python; no solver is constructed or invoked."
+}

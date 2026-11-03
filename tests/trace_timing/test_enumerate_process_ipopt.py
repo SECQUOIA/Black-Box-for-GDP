@@ -20,7 +20,7 @@ def test_plans_cover_every_dfo_coordinate(case, total, logical):
 def test_original_model_and_reference_hashes_match(case):
     baseline, changes = enum.verify_sources(case)
     assert baseline['config'] == enum.CONFIG
-    assert set(changes) == {'models.py', 'evaluation.py', 'solvers.py', 'preflight.py'}
+    assert set(changes) == {'_sources.py', 'models.py', 'evaluation.py', 'solvers.py', 'preflight.py'}
     for name in ('models.py', 'evaluation.py'):
         assert changes[name]['current_sha256'] == enum.REJECTION_PHASE_ADAPTERS[name]
         assert 'rejection_phase' in changes[name]['reviewed_change']
@@ -127,7 +127,7 @@ def test_present_changed_reference_is_not_replaced_by_archive(tmp_path, monkeypa
         enum.verify_sources('column')
 
 
-@pytest.mark.parametrize('name', ['evaluation.py', 'solvers.py', 'models.py'])
+@pytest.mark.parametrize('name', ['_sources.py', 'evaluation.py', 'solvers.py', 'models.py'])
 def test_builder_refuses_unreviewed_captured_adapter_bytes(name, tmp_path, monkeypatch):
     import build_column_dynamic_ipopt as builder
     from pathlib import Path

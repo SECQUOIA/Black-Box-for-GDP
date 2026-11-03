@@ -1,0 +1,32 @@
+{
+  "status": "incomplete_no_returned_solution",
+  "actual_new_NLP_calls": 1,
+  "returned_solutions": 0,
+  "optimization_iterations": 0,
+  "option_file_transport_verified": true,
+  "solver_failure": "TOO_FEW_DOF: Problem has too few degrees of freedom",
+  "solver_status": "warning",
+  "termination": "other",
+  "driver_exception": null,
+  "nl_free_variables": 156,
+  "nl_equalities": 158,
+  "constant_satisfied_fixed_logic_equalities": [
+    "logic_to_linear.transformed_constraints[16]",
+    "logic_to_linear.transformed_constraints[17]",
+    "logic_to_linear.transformed_constraints[18]"
+  ],
+  "nonconstant_equalities": 155,
+  "constraint_deletion_or_bound_relaxation_performed": false,
+  "original_W03_recheck_passed_at_1e_5": true,
+  "original_objective": 2.82935061823614,
+  "original_maximum_unscaled_primal_violation": 5.634494497502862e-07,
+  "returned_objective": null,
+  "returned_maximum_unscaled_primal_violation": null,
+  "tightened_feasibility_passed": false,
+  "bound_discrepancy_persists": null,
+  "stop_reason": "No returned point; instruction prohibits automatic retry after no solution or an environment/interface error.",
+  "second_call_performed": false,
+  "worker_artifact_semantics": "unreturned_state.json and residuals.json contain the unchanged W03 state; result.json reports that state but solution_loaded is false; these are not a polished solution.",
+  "next_step": "Review an equivalent serialization/preprocessing treatment of satisfied fixed-logic rows that preserves original-GDP validation; a revised solver call would require separate authorization.",
+  "manuscript_applied": false
+}

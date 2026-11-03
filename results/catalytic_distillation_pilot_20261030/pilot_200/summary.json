@@ -1,0 +1,70 @@
+{
+  "admissible_configurations": 100947,
+  "sampled": 202,
+  "seed": 20261031,
+  "configs": null,
+  "solver": "conopt",
+  "init": "/home/bernalde/repos/RBFopt_Test/.worktrees/catdist/gdp_models/catalytic_distillation/init",
+  "accepted": 130,
+  "statuses": {
+    "2/1": 130,
+    "5/1": 72
+  },
+  "timeouts": 0,
+  "solver_seconds": {
+    "median": 2.633,
+    "max": 12.05
+  },
+  "wall_seconds_median": 2.896822420000035,
+  "published": {
+    "f1": 4,
+    "c1": 4,
+    "c2": 6,
+    "c3": 8,
+    "f2": 8,
+    "b": 10,
+    "solver": "conopt",
+    "returncode": 0,
+    "wall_s": 0.6303093090000402,
+    "modelstat": 2,
+    "solvestat": 1,
+    "zobj": 22631.782909,
+    "resusd": 0.375
+  },
+  "best": {
+    "f1": 7,
+    "c1": 7,
+    "c2": 11,
+    "c3": 17,
+    "f2": 17,
+    "b": 20,
+    "solver": "conopt",
+    "returncode": 0,
+    "wall_s": 2.5721872719998373,
+    "modelstat": 2,
+    "solvestat": 1,
+    "zobj": 22527.970007,
+    "resusd": 2.258
+  },
+  "better_than_published": [
+    {
+      "f1": 7,
+      "c1": 7,
+      "c2": 11,
+      "c3": 17,
+      "f2": 17,
+      "b": 20,
+      "solver": "conopt",
+      "returncode": 0,
+      "wall_s": 2.5721872719998373,
+      "modelstat": 2,
+      "solvestat": 1,
+      "zobj": 22527.970007,
+      "resusd": 2.258
+    }
+  ],
+  "campaign_seconds": 157.63735124200002,
+  "workers": 6,
+  "host": "X-FRNYG027CPC01",
+  "gams": "/home/bernalde/packages/gams54.2_linux_x64_64_sfx/gams"
+}

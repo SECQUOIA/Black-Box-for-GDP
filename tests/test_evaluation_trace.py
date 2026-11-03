@@ -53,7 +53,7 @@ def test_exception_retains_interrupted_coordinate_and_resets_context(tmp_path):
     assert ACTIVE_TRACE.get() is None
 
 
-def test_real_dsda_all_cases_trace_matches_records_and_preserves_old_schema(tmp_path):
+def test_real_dsda_all_cases_trace_roundtrips_optional_reporting_fields(tmp_path):
     records, path = cases.run_case_study_benchmark(
         methods=("dsda",), seeds=(0,), column_seeds=(1,),
         cstr_grid_sizes=(5,), dynamic_budgets=(12,),
@@ -62,7 +62,12 @@ def test_real_dsda_all_cases_trace_matches_records_and_preserves_old_schema(tmp_
     assert len(records) == 4
     manifest = json.loads(path.with_suffix(".manifest.json").read_text())
     with path.open() as handle:
-        reloaded = [cases._deserialize_result_record(row) for row in csv.DictReader(handle)]
+        reader = csv.DictReader(handle)
+        reloaded = [cases._deserialize_result_record(row) for row in reader]
+        assert manifest["schema"]["fields"] == reader.fieldnames
+    for original, restored in zip(records, reloaded):
+        assert restored["target_reached"] is original["target_reached"]
+        assert restored["observed_best_value"] == original["observed_best_value"]
     artifacts = validate_trace_artifacts(manifest, path, reloaded)
     assert len(artifacts) == 4
     for artifact, record in zip(artifacts, records):
@@ -100,3 +105,8 @@ def test_resume_requires_intact_traces_and_skips_completed_runs(tmp_path):
     assert calls == [1]
     assert len(records) == 2
     assert trace_path.read_bytes() == original
+    assert all(isinstance(record["target_reached"], bool) for record in records)
+    from case_study_analysis import load_case_study_results
+    frame = load_case_study_results(output)
+    assert frame["target_reached"].tolist() == [r["target_reached"] for r in records]
+    assert frame["observed_best_value"].tolist() == [r["observed_best_value"] for r in records]

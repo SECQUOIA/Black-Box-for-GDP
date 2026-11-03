@@ -1,16 +1,36 @@
-# RBFopt_Test
+# Black-Box-for-GDP
 
-## Reproduce the manuscript from frozen data
+## Current manuscript and results
+
+The [current manuscript](manuscript/README.md) compares D-SDA, NOMAD, RBFOpt,
+MISO, BAM, FMQA-SA, and uniform sampling, including the Lomustine simulation
+and catalytic distillation cases. Start with these guides:
+
+- [Seven-method Grid and process comparison](results/seven_method_comparison_20261031/README.md).
+- [Lomustine simulation results](results/lomustine_simulation_20261031/README.md).
+- [Catalytic distillation live campaign](results/catalytic_distillation_live_20261101/README.md).
+- [Catalytic distillation MINLP comparison on Dantzig](results/catalytic_distillation_minlp_dantzig_20261101/README.md)
+  and [configurations outside the search box](results/catalytic_distillation_outside_box_dantzig_20261103/README.md).
+- [D-SDA separable-neighborhood comparison](results/dsda_separable_20261101/README.md).
+
+These guides identify retained records and the commands for each analysis.
+Public release and unauthenticated access verification remain pending; see
+[publication readiness](docs/publication_readiness.md).
+
+## Reproduce the October 19 baseline from frozen data
 
 Start with the [complete reproduction guide](reproduction/README.md),
 [all-figure/table output index](reproduction/OUTPUT_INDEX.md), and
 [executed validation report](reproduction/validation/REPORT.md).
-The companion rebuilds eight figures and 23 table datasets from retained
+This companion targets the October 19 four-method manuscript baseline, before
+the seven-method revision and the Lomustine and catalytic distillation cases.
+It rebuilds eight figures and 23 table datasets from retained
 records without running optimizers or NLP solvers. It includes the protocol,
 terminal-callback, stopping and algebraic-audit evidence, and a pinned package
 builder with file-level checksums. Original execution archives remain intact.
-The final public release locator and logged-out access check are still pending;
-see the guide's post-merge checklist (Issue #44).
+Its validation report applies to that baseline. The final companion release
+locator and logged-out access check are still pending; see the guide's
+post-merge checklist (Issue #44).
 
 
 RBFopt_Test is a research and testing repository for derivative-free
@@ -27,6 +47,11 @@ documentation of workflows involving RBFOpt and related discrete search methods.
 ## Benchmark results
 
 Start with the retained result datasets:
+
+- [Additional genetic RBFOpt and sampling comparisons, October 20](results/review_comparison_20261020/README.md):
+  all 3,430 new runs audited against frozen inputs; 1,558 target hits and 1,872
+  misses. Includes matched solver/genetic comparisons, uniform and BAM-prefix
+  controls, raw return archive, timing analysis and reproduction commands.
 
 - [Final IPOPT Process comparison with corrected BAM](results/process_ipopt_bam_v2_20261015/README.md):
   560 runs; 291 target hits, 268 misses and one execution failure. All 140 BAM
@@ -148,6 +173,8 @@ contains 417 new DSDA/RBFOpt/BAM traces plus 139 original Dantzig FMQA traces,
 with every visited coordinate linked to a separate NLP measurement. The
 [September 17 local coordinate audit](results/process_evaluation_traces_20260917/README.md)
 is historical and is not used for Dantzig runtime claims.
+
+The maintained D-SDA defaults, explicit legacy calls, observed-target reporting, and solver-free regression commands are documented in [the D-SDA protocol guide](docs/dsda_protocol.md).
 
 For a lightweight DSDA run on one of the benchmark grids:
 
@@ -537,9 +564,12 @@ python -m ruff check benchmark.py benchmark_analysis.py case_study_benchmark.py 
 
 ## License
 
-This project's code is distributed under the MIT License. See `LICENSE` for
-the full license text. External source submodules retain their upstream terms;
-see [original GDP source attribution](docs/original_gdp_models.md#original-sources).
+Original project code is distributed under the [MIT License](LICENSE).
+Vendored sources, copied catalytic distillation models, and external submodules
+retain the notices and terms described in [third-party notices](THIRD_PARTY_NOTICES.md).
+The pinned Dynamic source has no license file; the maintainer confirmed its
+redistribution permission on November 3, 2026. The root MIT notice does not
+relicense that source.
 
 ## Process GDP interface integration
 

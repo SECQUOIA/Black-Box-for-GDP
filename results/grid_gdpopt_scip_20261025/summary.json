@@ -1,0 +1,42 @@
+{
+  "jobs": 63,
+  "returned_solutions_verified": 63,
+  "target_hits": 12,
+  "target_hits_without_error": 11,
+  "status_counts": {
+    "error": 46,
+    "finished": 16,
+    "hard_time_limit": 1
+  },
+  "termination_counts": {
+    "error": 46,
+    "optimal": 12,
+    "maxTimeLimit": 5
+  },
+  "failure_counts": {
+    "gams_network_session_start": 32,
+    "none": 12,
+    "pyomo_fbbt_interval": 2,
+    "gams_network_session_close": 12,
+    "worker_watchdog": 1,
+    "time_limit": 4
+  },
+  "maximum_original_violation": 0.0,
+  "maximum_objective_error": 5.551115123125783e-17,
+  "benchmark_calls": {
+    "journaled_call_attempts": 33396,
+    "returned_calls": 33352,
+    "error_calls": 44,
+    "active_unjournaled_attempts": 1,
+    "started_interface_attempts": 33397,
+    "confirmed_scip_invocations": 33364,
+    "benchmark_nlp_calls": 0
+  },
+  "separate_preflight_calls": 9,
+  "preflight_mip_calls": 3,
+  "preflight_nlp_calls": 6,
+  "normalized_target_tolerance": 1e-05,
+  "old_target_hits": 54,
+  "original_63_job_combined_run": "Not provided; left running by the user and not combined with these independent split runs.",
+  "optimization_calls_during_analysis": 0
+}

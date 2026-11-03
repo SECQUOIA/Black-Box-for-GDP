@@ -1,0 +1,48 @@
+{
+  "baseline_revision": "329c6f93f4940436425582ae60323c0c9f95b581",
+  "counts": {
+    "dfo_runs": 700,
+    "algebraic_runs": 45,
+    "new_gdpopt_runs": 27,
+    "actual_ipopt_calls": 2373,
+    "unconfirmed_ipopt_attempts": 0,
+    "bound_flags": 21,
+    "new_solver_calls": 0
+  },
+  "input_sha256": {
+    "results/joint_process_comparison_20261029/manifest.json": "e833c60f3e8db14e2df5548eb377c1c2cc476b1daf2a12f7cd7b13c2383166c2",
+    "results/joint_process_comparison_20261029/joint_runs.csv": "cab8cebaf76670fc764a881fe3bc7b7b176bb6200b572f8c181b13affe1b417c",
+    "results/gdpopt_scip_ipopt_analysis_20261030/SHA256SUMS": "9efa4ecfdf056356a48392da387734f8abdd7e91c0abc0b32de6a52d20ba1830",
+    "results/gdpopt_scip_ipopt_analysis_20261030/jobs.json": "92c4d60045957a814415f768443f268f3d9e49a6f475c8579746c3bbc8766846",
+    "results/gdpopt_scip_ipopt_analysis_20261030/solution_checks.json": "66048a0e0291501163eee10d21dda5bd4c1c4ac7b9b663211086de01b7088451",
+    "results/process_scip_four_analysis_20261026/artifact_checksums.json": "c3891dd505429fc79f9268b97459bc0cb73e576b0a5c1fb1e3dfc22b4fd1b447",
+    "results/process_scip_four_analysis_20261026/jobs.csv": "4f1a3846dee5f346e53563d848aa1a84421f5e96832a1cc1a1c4514d4aa6cc67",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part06.zip": "583ec7f38d0ccac431707836b9f60986d868f49db930c14363432bd93efe8d66",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part04.zip": "d547a08316e972e191d2bdf719ade32fcedd4e6fb59b9922ee127ce609227895",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part05.zip": "dd99dd7a6ded1b09ebaf583d9f78625d958471b484437b93f9db492eb6ca3c60",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part02.zip": "3d3d305c9ee17defd2ee0a2ebcd6a492b9cfc455d211c4ba56c46ff8b1daab6d",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part03.zip": "3207478b35b5514e913a739b5907ccb716c7c5c652ddbfc0c667f7baaf9250d1",
+    "results/gdpopt_scip_ipopt_analysis_20261030/evidence/gdpopt_scip_ipopt_part01.zip": "f123d9e7a7ec2576a7f3230e5797d0f538cd23e8fc48625874c430534949c4db"
+  },
+  "source_sha256": {
+    "review_comparison/joint_process_ipopt.py": "302e3be5f2eced60dc5e197c7470d6759012f0f1c6d4e30aed2542196e63b0a2",
+    "review_comparison/joint_process.py": "06eff66bafe3bb3411021441204b45744ce6ed69111f6e926630d910fc89edfe"
+  },
+  "environment": {
+    "python": "3.12.13",
+    "matplotlib": "3.10.3"
+  },
+  "reproduce": "python -m review_comparison.joint_process_ipopt --output /tmp/joint-process-ipopt",
+  "execution_provenance": "Unchanged; retained in the original manifests and evidence archives.",
+  "output_sha256": {
+    "README.md": "8c58c099538681e69438fdff622922adae050a51c213580784d01971bcfa2b6e",
+    "bound_flags.csv": "a81af884d1287a8990c7c715eea129a7a4f67539c9ccee5800f27bf375fde609",
+    "joint_cstr_completion.pdf": "d0d75ab07841edd2d1fb02f1cf3f2bef0b46f8fce5e13b19b971611a408dfbfa",
+    "joint_cstr_completion.png": "5fb3fa29903c3442e3bf8b373e255a3b65dd757418e5b6eead122fc9a3b3e2aa",
+    "joint_other_completion.pdf": "9be6e1522d82eda2cbfee20ac3b33f5644119b8ce4bfd13f31d030f8859c4603",
+    "joint_other_completion.png": "afdf571d88a6a6be2afec323e98021989a0000b5ee7a83541799fa9c9e9d8d9d",
+    "joint_runs.csv": "5c59364721a0676e5a27822afc9c034ec61eee66ff707a999fc617ab0880a2b0",
+    "joint_summary.csv": "21503ad0cae5b14c4d4df26100510d6ff5d884fb4446602b93e4908f522d1daa",
+    "supplement_fragment.tex": "c8c000193d6fcd9410ab52eb06071557341c94669c61d67096cc66a6fd639c5b"
+  }
+}

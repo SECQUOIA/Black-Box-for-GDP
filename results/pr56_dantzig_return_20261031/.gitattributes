@@ -1,0 +1,6 @@
+# Preserve published hashes on every platform, including standard CSV CRLFs.
+* -text
+analysis/*.csv whitespace=cr-at-eol
+# Immutable evidence and generated SVG paths keep their original formatting.
+evidence/* -whitespace
+figures/*.svg -whitespace

@@ -1,0 +1,39 @@
+{
+  "baseline_revision": "49d4bcbeb10fe49b74fe2333d27829046e93bf03",
+  "no_new_experiments": true,
+  "execution_provenance": "Unchanged; see the input analysis manifest and its execution_records",
+  "input_sha256": {
+    "results/dsda_publication_20261028/manifest.json": "98c41bd3fe0cec9c0a1a54949e156e8b96995a722306faec996b1cccc6e9e811",
+    "results/dsda_publication_20261028/tables/run_records.csv": "5948a78341f20faa9507ef3c9f72f8d0a599b8df7e1b96d8e3153d3c1414e386",
+    "results/dsda_publication_20261028/figures/grid_figure_values.json": "2d17f78f4b3b716efa262cf11999863995ebc8f357e17d87f8a83f562ad5aedb"
+  },
+  "source_sha256": {
+    "review_comparison/grid_presentation.py": "eca17b109f5ee5f64d7891f32c21aaddad1939c78aebc6b2646282eb1cff1a92",
+    "review_comparison/manuscript.py": "722e882326da300719c59a305af1a874dcb3b3fef09584579e70ac49b00193b7"
+  },
+  "outputs_sha256": {
+    "README.md": "64065372edfd197c8ffc2a0c9a4b072ad0da97690b748819385087f8aa8b6625",
+    "figure_B_grid_evaluation_profiles.pdf": "fd51f319f6369dd0f86ca921926c2abd8f7c1ceb0a2eb5f49b5867c5acb36e10",
+    "figure_B_grid_evaluation_profiles.png": "0ec0c4a9dd5b213df53b78e8cd8bf6f860195a3f89b590877d14ff0df55baebc",
+    "grid_cost_quartiles.csv": "002414424b9a4b893080a72c049618ad9ed9884bbac8681bbf8a4faf3bf643c4",
+    "grid_cost_rows.tex": "be73ec855ab66c8866f62e69b7093f119c7148c06b2acd326d81b5bf04f5ac85",
+    "grid_evaluation_curve_values.json": "683a4f48c684ec32a954c015cab5e4b8ef6c05f60c5be375577848020d40edda"
+  },
+  "environment": {
+    "python": "3.12.13",
+    "matplotlib": "3.10.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit"
+  },
+  "quartiles": {
+    "probabilities": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "method": "inclusive linear interpolation",
+    "runs_per_method": 210,
+    "include_target_misses": true
+  },
+  "curve_verification": "All 30 curves exactly equal archived x/y arrays and match run records",
+  "reproduction_command": "python -m review_comparison.grid_presentation --input results/dsda_publication_20261028 --output /tmp/grid-presentation"
+}

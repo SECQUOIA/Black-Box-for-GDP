@@ -4,6 +4,30 @@ These are the original result ZIPs retained in the repository.
 They retain their original bytes, including any source snapshots and shell
 scripts present in the server archive.
 
+The [October 23 SCIP Grid returns](../grid_scip_20261023/README.md) retain four
+independent MINLP/GLOA/LOA/RIC result ZIPs and their SHA256 sidecars. The audit
+checks all 105 returned solution vectors against the original GDP and grid
+reference, separates actual solver calls from configured solvers, and reconciles
+the returns with the preserved GDPopt diagnostic package. These additions are
+verified by `scripts/analyze_grid_scip_return.py`, independently of the legacy
+archive catalog.
+
+The English report also compares the actual solver calls in the three earlier
+BARON-configured Grid archives. Reproduce that inventory with
+`python scripts/audit_legacy_grid_solver_calls.py --output /tmp/grid-legacy-solver-calls.json`.
+Both the earlier and new Grid GDPopt benchmarks called HiGHS, despite their
+different configured NLP solvers; direct reformulations actually called
+BARON or SCIP. Archive bytes and historical result tables are unchanged.
+
+The [October 20 additional-comparison return](review_comparison_20261020_124949_return_1792527395393579314.zip)
+retains 3,430 new genetic/sampling runs, every callback and controller/worker
+log, and the exact frozen execution package. Its [supplied SHA256](review_comparison_20261020_124949_return_1792527395393579314.zip.sha256)
+and [independent audit and analysis](../review_comparison_20261020/README.md)
+preserve the original bytes. Verify this return with
+`python -m review_comparison.audit --output /tmp/review-comparison-audit`;
+it uses per-attempt seals and a package inventory, so it is not an entry in
+the legacy `result_archives.py` SHA256SUMS catalog.
+
 The catalog key `original-ipopt-evaluations` also exposes the September 22
 GAMS return to the current CSTR and non-CSTR package builders. They verify the
 ZIP and every internal checksum, use a temporary extraction, and record archive
@@ -15,6 +39,11 @@ contains all 153 coordinate evaluations with measured failure and rejection
 times. The [verified import](../column_dynamic_box_ipopt/INDEX.txt) preserves
 original CSVs, records, logs and execution sources. Its adjacent `.zip.sha256`
 checks the original archive; previous DFO inputs and results remain unchanged.
+
+The [October 21 CSTR15 return](review_cstr15_dantzig_20261021_161412_30959_return_1792599258428957007.zip) retains the single GAMS/IPOPT call, original W03 start, submitted input, logs, listing, returned vector and server verification.
+Its adjacent `.zip.sha256` and internal `RETURN_MANIFEST.json` preserve the uploaded bytes.
+The [solver-free local comparison](../review_cstr15_dantzig_20261021/README.md) records the numerical result and the cross-platform derived-metadata replay difference without changing the original verifier or raw evidence.
+Verify and regenerate this return with `python -m review_diagnostics.cstr15_gams_analysis --output /path/to/new/analysis`; its return-manifest format is separate from the legacy `result_archives.py` catalog.
 
 ## Reviewing detailed records
 
@@ -120,7 +149,6 @@ The [96-point logical-rejection supplement](fmqa_qhd_points_20261012_234651_f39l
 | Grid GDP retry, October 9, CPU 6, 21 error retries | [grid_gdp_retry_all_20261009_153057_czhvd9w7.zip](grid_gdp_retry_all_20261009_153057_czhvd9w7.zip) |
 | Corrected Grid GDP retry, October 9, CPU 6, ten cases | [grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip](grid_gdp_retry_fixed_all_20261009_204028_lu6vdgkt.zip) |
 | RBFOpt Grid trajectories, October 10, CPU 0, all 1,050 runs | [grid_trace_rbfopt_20261008_190603_og2app39.zip](grid_trace_rbfopt_20261008_190603_og2app39.zip) |
-| Superseded partial RIC/GLOA snapshot, not a comparison input | [gdpopt_baron_highs_20261001_partial.tar.gz](gdpopt_baron_highs_20261001_partial.tar.gz) |
 
 Verify from the repository root:
 
@@ -141,8 +169,12 @@ their overlap on CPU 0. They are not inputs to current analyses.
 
 The two final October 1 GDPopt ZIPs pass their supplied external checksums and
 all 189 internal file checksums. Their 27 saved solutions pass independent
-original-GDP feasibility checks. The partial tar.gz is retained as historical
-evidence only; all 12 CSTR records already complete in it match the final ZIP.
+original-GDP feasibility checks. The superseded partial tar.gz and its checksum
+sidecar were removed from the publication tree because the snapshot contained
+a solver license file. All 12 CSTR records already complete in it match the
+final ZIP. Historical inventories retain the original hashes; see
+[publication sanitization](../../docs/publication_sanitization.md) for the
+documented removal and Git-history publication gate.
 
 These ZIPs contain the current FMQA runs and the other supplied benchmark
 archives. Earlier GDP point failures remain part of their provenance; archiving a run does

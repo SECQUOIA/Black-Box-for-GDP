@@ -1,0 +1,119 @@
+{
+  "status": "stopped_fixed_gate",
+  "config": {
+    "kind": "gdpopt_actual_scip_20261024_v1",
+    "package": "grid",
+    "tag": "20261025",
+    "methods": [
+      "loa"
+    ],
+    "time_limit": 1800.0,
+    "relative_gap": 1e-05,
+    "threads": 1,
+    "planned_jobs": 3,
+    "cases": [
+      "cstr",
+      "column",
+      "small_batch",
+      "dynamic"
+    ],
+    "cstr_sizes": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30
+    ],
+    "mip_solver": "scip",
+    "nlp_solver": "scip",
+    "cpu": 14,
+    "peer_cpu": 6,
+    "split_method": "loa",
+    "separate_cpu_ids": [
+      6,
+      8,
+      10,
+      12,
+      14,
+      16
+    ],
+    "recovery_grids": [
+      "holder_table",
+      "michalewicz",
+      "shubert"
+    ],
+    "recovery_policy": "grid-scip-network-and-bohachevsky2-v1",
+    "grids": [
+      "holder_table",
+      "michalewicz",
+      "shubert"
+    ],
+    "phases": [
+      "benchmark"
+    ],
+    "expected_gams_version": "52.2",
+    "executable": "/package/gams/52.2/gams",
+    "record_grid_path": true,
+    "record_gdp_path": true,
+    "gams_version": [
+      52,
+      2,
+      0,
+      0
+    ],
+    "diagnostic_presolve_disabled": true
+  },
+  "requested_option": {
+    "subproblem_presolve": false
+  },
+  "review_revision": "24df0376881409a533b98d9a8490c902eef38b5b",
+  "actual_fixed_solver_calls": 1,
+  "actual_full_loa_runs": 0,
+  "fixed": [
+    {
+      "grid_name": "holder_table",
+      "point": [
+        3,
+        1
+      ],
+      "status": "error",
+      "subproblem_presolve": false,
+      "actual_solver_calls": 1,
+      "returned_solution_count": 0,
+      "global_optimality_certified": false,
+      "time_limit_s": 60,
+      "original_network_policy": "grid-scip-network-and-bohachevsky2-v1",
+      "fixed_call_cap": 1,
+      "retry_note": "The preserved network policy has insufficient budget to retry within 60 seconds; a hard one-call guard also applies.",
+      "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+      "gate_passed": false,
+      "calls": [
+        {
+          "index": 1,
+          "solver": "scip",
+          "mtype": "nlp",
+          "limit_s": 56.771352176915386,
+          "threads": 1,
+          "status": "error",
+          "solver_option_file": [
+            "gams/mipstart = 0",
+            "timing/clocktype = 2"
+          ],
+          "message": "RuntimeError: GAMS encountered an error during solve. Check listing file for details.",
+          "wall_s": 0.37393051106482744
+        }
+      ],
+      "case": "grid",
+      "cstr_size": null,
+      "instance_id": "holder_table",
+      "worker_pid": 571662,
+      "worker_returncode": 0,
+      "worker_wall_s": 0.6215993301011622,
+      "hard_time_limit_reached": false
+    }
+  ],
+  "full": [],
+  "full_loa_worker_launches": 0,
+  "pyomo_modules_unchanged": true
+}

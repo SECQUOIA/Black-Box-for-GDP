@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/private/tmp/review-diagnostics-env/bin/python",
+    "-m",
+    "review_diagnostics.fmqa",
+    "--directory",
+    "/Users/albertlee0125/Repos/RBFopt_Test/results/review_diagnostics_20261020",
+    "--worker"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "wall_s": 2.827295667026192,
+  "external_wall_limit_s": 1200
+}

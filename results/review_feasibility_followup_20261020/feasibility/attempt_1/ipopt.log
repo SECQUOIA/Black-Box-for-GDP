@@ -1,0 +1,25 @@
+Solver command line: ['/Users/albertlee0125/Solvers/ampl.macos64/ipopt', '/var/folders/k7/g4d0ts6n5gz4p52pl6hnwb4r0000gn/T/tmp_s_cf10n.pyomo.nl', '-AMPL', 'option_file_name=/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_followup_20261020/feasibility/attempt_1/ipopt.opt']
+
+Ipopt 3.12.13: option_file_name=/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_followup_20261020/feasibility/attempt_1/ipopt.opt
+
+Using option file "/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_followup_20261020/feasibility/attempt_1/ipopt.opt".
+
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.12.13, running with linear solver mumps.
+NOTE: Other linear solvers might be more efficient (see Ipopt documentation).
+
+Number of nonzeros in equality constraint Jacobian...:      407
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:       79
+
+Exception of type: TOO_FEW_DOF in file "/Users/runner/work/1/s/Ipopt/Ipopt/src/Interfaces/IpIpoptApplication.cpp" at line 891:
+ Exception message: status != TOO_FEW_DEGREES_OF_FREEDOM evaluated false: Too few degrees of freedom (rethrown)!
+
+EXIT: Problem has too few degrees of freedom.
+

@@ -1,0 +1,39 @@
+{
+  "publication_analysis_revision": "e67926f9e0fdd389d368bb8d3cfc943a6e3f3baf",
+  "manifest": "results/dsda_publication_20261028/manifest.json",
+  "manifest_sha256": "98c41bd3fe0cec9c0a1a54949e156e8b96995a722306faec996b1cccc6e9e811",
+  "reproduce": "python -m review_comparison.dsda_publication --output /tmp/dsda-publication-replay",
+  "execution_records": {
+    "grid": {
+      "archive": "results/archives/dsda_grid_target_stop_20261028_032943_2346732.zip",
+      "server_revision": "7f110f9122298a4f492d8ad464e782b2435b167b",
+      "utc_started": "2026-10-28T03:29:46.285160+00:00",
+      "utc_finished": "2026-10-28T03:35:14.077728+00:00",
+      "execution_manifest_member": "dsda_grid_target_stop_20261028_032943_2346732/execution_manifest.json"
+    },
+    "process": {
+      "archive": "results/archives/dsda_abs1e5_rerun_20261028_020753_2004611.zip",
+      "server_revision": "7f110f9122298a4f492d8ad464e782b2435b167b",
+      "utc_started": "2026-10-28T02:07:54.260587+00:00",
+      "utc_finished": "2026-10-28T02:16:17.814103+00:00",
+      "execution_manifest_member": "dsda_abs1e5_rerun_20261028_020753_2004611/execution_manifest.json"
+    }
+  },
+  "historical_execution_provider_revision": "38d917ef75ef6767c2a9f238d88be19bf0b89160",
+  "no_new_optimizer_or_nlp_calls": true,
+  "historical_manifest": "manuscript/review_history/pre_dsda_adoption/analysis_manifest_current.json",
+  "companion_tables": {
+    "exact_copies": [
+      "grid_hits.tex",
+      "grid_cost.tex",
+      "grid_intervals_B100.tex",
+      "process_cost.tex",
+      "process_hits.tex",
+      "run_records.csv",
+      "paired_grid.csv",
+      "paired_process.csv",
+      "configuration_coverage.csv"
+    ],
+    "other_preexisting_files": "Historical companions; see manuscript/tables/README.md."
+  }
+}

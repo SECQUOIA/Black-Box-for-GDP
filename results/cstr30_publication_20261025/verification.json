@@ -1,0 +1,42 @@
+{
+  "solver_free_tests_passed": 26,
+  "subtests_passed": 7,
+  "ruff": "passed",
+  "byte_identical_repeat_files": [
+    "README.md",
+    "figures/figure_values.json",
+    "figures/process_completion_profiles.pdf",
+    "figures/process_completion_profiles.png",
+    "figures/process_completion_scatter.pdf",
+    "figures/process_completion_scatter.png",
+    "figures/process_cost_breakdown.pdf",
+    "figures/process_cost_breakdown.png",
+    "figures/process_evaluation_profiles.pdf",
+    "figures/process_evaluation_profiles.png",
+    "manifest.json",
+    "tables/case_coverage.csv",
+    "tables/condition_summary.csv",
+    "tables/configuration_coverage.csv",
+    "tables/cstr30_callbacks.csv",
+    "tables/fmqa_fallback_runs.csv",
+    "tables/fmqa_fallback_summary.csv",
+    "tables/paired_process.csv",
+    "tables/primary_process_runs.csv",
+    "tables/process_cost.tex",
+    "tables/process_hits.tex",
+    "tables/process_intervals.tex",
+    "tables/run_records.csv",
+    "tables/summary.json"
+  ],
+  "all_four_plots_visually_checked": true,
+  "optimization_calls": 0,
+  "process_nlp_calls": 0,
+  "repeat_directories": [
+    "/private/tmp/cstr30-publication-lf-first",
+    "/private/tmp/cstr30-publication-lf-repeat"
+  ],
+  "test_command": "python -m pytest tests/test_cstr30_publication.py tests/test_review_comparison_manuscript.py tests/test_cstr_penalty_analysis.py tests/test_cstr30_initialization_return.py -q",
+  "pdf_render_check": "All four final PDFs rendered with Poppler and visually checked.",
+  "new_csv_line_endings": "LF; historical CSV inputs preserved unchanged",
+  "pdf_bytes_unchanged_after_line_ending_fix": true
+}

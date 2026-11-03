@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "byte_identical_outputs": 16,
+  "files_sha256": {
+    "initial_designs.json": "d1ac0e9e6ce9e5048dd63799186059b60fa6385caa3dc977acadcd62b74207cc",
+    "summary.json": "65c08bdd4990a2bcb0b37dafba94303d086af92dab09bdcca1a467213581c16f",
+    "methods.csv": "ef1c7acc3144766672c225764429aa48ed1fb86002840429ee406a7d6681a77e",
+    "auxiliary_calls.json": "e3d2a0ae9070ee7c192b801d1865421bbb4bfdfa05cbf2e3ee3bf1afcad6986d",
+    "coordinate_cost_attribution.json": "f070219f23ba2d7de01dea635d7788f619bccf7e23fadca706c10b574194f66b",
+    "auxiliary_calls.csv": "b9bfa1f069faf7655bc1bb0418e1c291c94dd35b56e6ec7a57e93b22588457bd",
+    "paired_runs.csv": "0835709c422c2d0e2b1640ad5eb6d05b9c823756daeed08b16ac5e03d5b3e469",
+    "coordinate_cost_attribution.csv": "031c12c2d4398edcda28a6d112df6dabf9dfa3d047f6f51eaddd0219ed4f684e",
+    "paired_runs.json": "55c8fd09fe2bf1411ec55a3ccbdba068d34b990b394ee32ed27280650008dfae",
+    "README.md": "01d6222ddf4dc1ec9d51c16293d3116448a8896852aac9c707a075db764de71a",
+    "methods.json": "40e34c9e6318c1803899c4abd98169317dfb6485d39a442e285b6c757657ece9",
+    "runtime_verification.json": "7e06b4b7311ef8d60c793cf457d6309afbc19096f73e8c5b6fa55b64d63432e1",
+    "manifest.json": "097cfffa848d73b87d9652ce338611fe071272642f391bbada844c7f60ec613d",
+    "run_details.json": "66209610fc03232d6592c18a9391e1e5bfebaa233ad6958aa60b10c28575ebfb",
+    "initial_designs.csv": "f5f7d7e71aa637852b8dfb25bb0c2242976af9fe860ac723305c7477276714ac",
+    "run_details.csv": "8e7374c9e2439fca19528af18c8d440d57a2b297a74d6d53536489bbbbd87290"
+  },
+  "command": [
+    "/Users/albertlee0125/Repos/RBFopt_Test/.venv-trace-bam5/bin/python",
+    "/Users/albertlee0125/Repos/RBFopt_Test/results/column_logical_b13_analysis_20261025/compare.py",
+    "--run",
+    "/Users/albertlee0125/Repos/RBFopt_Test/results/column_logical_b13_analysis_20261025/returned",
+    "--package",
+    "/Users/albertlee0125/Repos/RBFopt_Test/results/runners/column_logical_b13_20261025_v3/column_logical_b13_dantzig_20261025_v3",
+    "--replay",
+    "/Users/albertlee0125/Repos/RBFopt_Test/results/column_logical_b13_analysis_20261025/replayed",
+    "--output",
+    "/var/folders/k7/g4d0ts6n5gz4p52pl6hnwb4r0000gn/T/column-paired-replay-mn52rrge/comparison"
+  ],
+  "optimizer_calls": 0,
+  "original_process_nlp_calls": 0
+}

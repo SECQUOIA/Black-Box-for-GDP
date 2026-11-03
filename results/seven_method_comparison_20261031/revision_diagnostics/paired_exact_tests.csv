@@ -1,0 +1,17 @@
+case,budget,first,second,pairs,both,first_only,second_only,neither,p_exact
+cstr_5,8,rbfopt_msrsm_genetic,dsda,10,2,6,0,2,0.03125
+cstr_10,15,rbfopt_msrsm_genetic,dsda,10,2,4,1,3,0.375
+cstr_15,22,rbfopt_msrsm_genetic,dsda,10,2,5,0,3,0.0625
+cstr_20,29,rbfopt_msrsm_genetic,dsda,10,3,4,0,3,0.125
+cstr_25,36,rbfopt_msrsm_genetic,dsda,10,3,5,0,2,0.0625
+cstr_30,43,rbfopt_msrsm_genetic,dsda,10,3,6,0,1,0.03125
+cstr_all,,rbfopt_msrsm_genetic,dsda,60,15,30,1,14,2.9802322387695312e-08
+column,13,rbfopt_msrsm_genetic,dsda,10,3,1,2,4,1.0
+small_batch,10,rbfopt_msrsm_genetic,dsda,10,4,1,4,1,0.375
+dynamic,12,rbfopt_msrsm_genetic,dsda,10,4,6,0,0,0.03125
+dynamic,15,rbfopt_msrsm_genetic,dsda,10,6,4,0,0,0.125
+dynamic,20,rbfopt_msrsm_genetic,dsda,10,10,0,0,0,1.0
+dynamic,30,rbfopt_msrsm_genetic,dsda,10,10,0,0,0,1.0
+dynamic,37,rbfopt_msrsm_genetic,dsda,10,10,0,0,0,1.0
+dynamic,50,rbfopt_msrsm_genetic,dsda,10,10,0,0,0,1.0
+cstr_5,8,bam,rbfopt_msrsm_genetic,10,8,2,0,0,0.5

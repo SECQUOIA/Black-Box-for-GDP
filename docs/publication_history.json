@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-03",
+  "source_repository": "https://github.com/SECQUOIA/Black-Box-for-GDP",
+  "original_main": "b66c572446f5ccfb9f82eba74d7fa40111e85072",
+  "original_publication_snapshot": "5c811550c9f155f190771845ffa37fb33c09d473",
+  "clean_publication_snapshot": "ea65c5339486b576008df68645ea68d22f7c7213",
+  "audited_live_commits": 494,
+  "rewritten_commit_ids": 494,
+  "branches": {
+    "refs/heads/Benchmark": {
+      "original": "c8f905aa2fa17612d6dbf45fa4a6969d7268cdd4",
+      "rewritten_baseline": "06131fdaa7bf1b50994fa2e1010ca2e16918d168"
+    },
+    "refs/heads/benchmark": {
+      "original": "e10f17a50de16e48e8d3fa8766504cfc72e552b7",
+      "rewritten_baseline": "4cd36b3e57fd752f70526bedcb37afb26260434b"
+    },
+    "refs/heads/copilot/improve-copilot-setup": {
+      "original": "4cf2deae4de503dc01138998db327be385c73086",
+      "rewritten_baseline": "8deeadb4c5b5ab9a2456afd64a91f3ade5c68a7e"
+    },
+    "refs/heads/dependabot/pip/reproduction/pytest-9.0.3": {
+      "original": "b1d2d6a36887fa246af713d084ca7059f9d9b5a0",
+      "rewritten_baseline": "eea779d266047b4ba3d340d8382f292c837de309"
+    },
+    "refs/heads/feat/evaluation-trace-timing": {
+      "original": "6ab9e726541131500934cb2517682bee88b4c6b7",
+      "rewritten_baseline": "e6ef6f4c3dbf59207bf2d522668fc7682f0f2343"
+    },
+    "refs/heads/feat/ipopt-csv-dfo": {
+      "original": "ab71af9abaa74a4a7e8375de99fdc6641e59d78c",
+      "rewritten_baseline": "a34f7a5368bca7745e5a0f91192108aa833b64cf"
+    },
+    "refs/heads/feat/process-gdp-interfaces": {
+      "original": "e299b90bfb8af7ae824369451b6331994113884b",
+      "rewritten_baseline": "30a7e0d8069a77116cb663ee4a41f94cf675c1cb"
+    },
+    "refs/heads/main": {
+      "original": "b66c572446f5ccfb9f82eba74d7fa40111e85072",
+      "rewritten_baseline": "7cf4cbb99c87ea43ac7ab5055d36d90a8ef3cbd0"
+    },
+    "refs/heads/plotting": {
+      "original": "7eab44aa2b214f923d1a885c9c42387c1853f163",
+      "rewritten_baseline": "d8ec6f4c8b2b40e93959111ab60aac5895a450e1"
+    },
+    "refs/heads/qhdopt_gdp": {
+      "original": "350d9b77fbfbe78dbfec002d30eafbb784060b8b",
+      "rewritten_baseline": "3cbe6415e072bc9afd153a589b0e4df66b307ff0"
+    },
+    "refs/heads/results/gdpopt-scip-ipopt-20261030": {
+      "original": "8e0e7449d8daae2bdcfdf79215d5184125b83096",
+      "rewritten_baseline": "ff2d1820c3b5974dee3da19a029f3736edfc9a40"
+    },
+    "refs/heads/review-fixes": {
+      "original": "b3aa5788fc31ae0550ff2a1e4846d731bc1c23c2",
+      "rewritten_baseline": "2a87000ba0aa882eec676c47de688635af60811c"
+    },
+    "refs/heads/review/cstr15-dantzig-check": {
+      "original": "70bf17ca95e5ee1b98069e494c22fcafd6398960",
+      "rewritten_baseline": "179dd921e69c4d4c0b95ec8bc1bb29f537597312"
+    }
+  },
+  "github_managed_pull_refs": 40,
+  "original_archive_blob_absent_in_candidate": true,
+  "removed_paths_absent_throughout_candidate_history": true,
+  "git_fsck_passed": true,
+  "github_mutated": false,
+  "visibility": "private",
+  "note": "The final cleanup commit is added on top of the rewritten main baseline. Historical source/provenance hashes remain records of the original experiments; use publication_commit_map.tsv for Git commit mappings.",
+  "signature_handling": "git-filter-repo strips existing commit signatures. The original root commit was signed, so all 494 commit IDs change even for trees before the license archive was added.",
+  "branch_protection_preflight": {
+    "protected_branches": 0,
+    "rulesets": 0,
+    "visibility": "private",
+    "administrator_access_confirmed": true
+  }
+}

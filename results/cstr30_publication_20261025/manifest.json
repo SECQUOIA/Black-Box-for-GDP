@@ -1,0 +1,75 @@
+{
+  "baseline_revision": "df060f6f6974f8deb8ac085ee908b9e99f666b36",
+  "no_new_optimization_or_nlp_runs": true,
+  "overlay_order": [
+    "120 finite-penalty CSTR D-SDA/RBFOpt records",
+    "50 CSTR30 initialization records"
+  ],
+  "unchanged_grid_records": 7350,
+  "primary_process_runs": 700,
+  "historical_execution_provider_revision": "38d917ef75ef6767c2a9f238d88be19bf0b89160",
+  "cstr30_execution_source_revision": "750169cdaa42dc46577b7c267837da54e7b99c35",
+  "cstr30_baseline_revision": "44ed72156a03017d7021f3fac6744bae4366dbfb",
+  "input_sha256": {
+    "results/review_comparison_20261020/manifest.json": "03d23f69783e71b0125be6cd8bed63a0b3a296977ffa76b719d26cc09c61022f",
+    "results/review_comparison_20261020/tables/completed_runs.csv": "f0764696a4846d391e8d040781e8e32bde72829654e13ca6c1342cf768d1843f",
+    "results/archives/review_comparison_20261020_124949_return_1792527395393579314.zip": "659ddd3d1c1f62def4f8875399b63bdd4899f44ff848afb4ea45c079b3c1dc36",
+    "results/grid_gdp_dfo_20261011/runs.csv": "de2d8725777d66010cc87f9305c14cf54fff440c3b32cbd8fe06e913bd1ba015",
+    "results/process_ipopt_bam_v2_20261015/tables/run_results.csv": "54ffc148d18ff07506c8c3ab96f77c953079a660516e79f6f3198649ee606fa5",
+    "results/cstr_penalty_1e6_analysis_20261022/manifest.json": "2aa74e47deb2617f93013ad5489c236bd4f0c10c11ae1ed444eaed589655dbd1",
+    "results/cstr_penalty_1e6_analysis_20261022/paired_runs.csv": "576be87c993426c6471fe8d31e601948277515315b5dc1e15f34e8b711e309c3",
+    "results/cstr_penalty_1e6_analysis_20261022/callback_paths.csv": "ce00b0b5ccf5ad92c5d4bc4d99da94149f472b024760301c96911d9937214dd7",
+    "results/review_process_coverage_20261021/manifest.json": "ef8ea404c34ebd81182f31378ce8c1bf618341756a6a6f67587b2b8a9f7e02c5",
+    "results/review_process_coverage_20261021/configuration_coverage.csv": "83b63951fbb62dc51811e23ea8f6dabcdb309d405792df00ae885678d58c932f",
+    "results/archives/cstr30_init_20261025_060540_98uz54ol.zip": "0cfec308ee68512f9e46bd2dc78f9839dad987fd5843cc3e829d5d71ee9ccdfb",
+    "results/cstr30_initialization_analysis_20261025/audit_manifest.json": "4424390fce5f14d833bedcd44c450f72bda9bf376b91b91e389934936f488e6c",
+    "results/cstr30_initialization_analysis_20261025/artifact_checksums.json": "c5123acff5fbfd73b144abf441c82d3f70a35e210d56585b3a1ee20f95be5928",
+    "results/cstr30_initialization_analysis_20261025/returned/paired_runs.csv": "35f49450f613761e89be6d6214d99837e58446e8d47b7dd7b1f8e499c0f3cfae",
+    "results/cstr30_initialization_analysis_20261025/returned/evaluations.csv": "b47d7cd2e2d60ac62bfdb72aece04aa1bee9ff1b805d7303e1d6d21f87077b46",
+    "results/archives/ipopt_dfo_cstr_20261015_174637_r1dzn5tk.zip": "b91afb707229766adcdcfb1ee67406377d1d2ef44839b062ec9e0539893bfefa",
+    "results/archives/ipopt_dfo_non_cstr_20261015_172428_o671edu_.zip": "ed7eaa2c20031b58f5a9c02c0bc89699cf170c7e256a65c92664ac4b1875cc6e",
+    "results/archives/PROCESS_SHA256SUMS": "1692aede297f63bf4ffb1b87e84639a404b7d0355a5ffb34759de5e0c7e5a486"
+  },
+  "source_sha256": {
+    "review_comparison/cstr30_publication.py": "c61877c9800a9841e95f8721ea6989ffa03ccb36063b8c91eba9123fe8e50c80",
+    "review_comparison/manuscript.py": "722e882326da300719c59a305af1a874dcb3b3fef09584579e70ac49b00193b7",
+    "review_comparison/analysis.py": "cdde929239164930aec89d27453a7186f1d655cc347003085683a3eae53480ed"
+  },
+  "bootstrap": {
+    "seed": 20261020,
+    "replications": 2000,
+    "unit": "paired seeds within each condition",
+    "ordering": "seed 0 through 9"
+  },
+  "environment": {
+    "python": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:07:20) [Clang 20.1.8 ]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "matplotlib": "3.10.9"
+  },
+  "reproduce": "python -m review_comparison.cstr30_publication --output /tmp/cstr30-publication-new",
+  "outputs_sha256": {
+    "README.md": "abb4da262a59cfb01cb6bc324f28803b038a8abb6dc366733867d708cfe7cc59",
+    "figures/figure_values.json": "ef4ffc907117339cbee62b3d6ae9dd9028b89ae2ffefa610410ab51ffb5732c6",
+    "figures/process_completion_profiles.pdf": "1c0037c5a4d75148d3330e0f30f133a9b69e598caab7b8e261f082361054f1a2",
+    "figures/process_completion_profiles.png": "ff4dd1ab9fee9d1610be1a5c4f6a36a8c275907f70f5279a81619074530b33f2",
+    "figures/process_completion_scatter.pdf": "209bc92f0fbfcd20bfb88f4400142f3877a8c4fcf42fb2fd56ea34ce2e8f6e48",
+    "figures/process_completion_scatter.png": "5a8dc747261685828b69b04448f16540bc38d9b36a7340d8770f4789e08c493f",
+    "figures/process_cost_breakdown.pdf": "0555d90a2137d12bcb72bdb991d857e77793900eb591e9a72100f707e8a7509a",
+    "figures/process_cost_breakdown.png": "03c54bc5576f118e3af8d874fed06ae5f9a3f8e570c20c1fb2c263c01ab70a9c",
+    "figures/process_evaluation_profiles.pdf": "05b0619a23a84ea6ac09fcd673a35ed0e780758b66f01773f710d97b9b2b623a",
+    "figures/process_evaluation_profiles.png": "f76fe4e7304ed450359e72bbe930f56a00297739d5260045c152f9a428beca45",
+    "tables/case_coverage.csv": "cf5abbdab4453c68d50b7fd8311885781ebe9bacfa200fe1475da851089569cf",
+    "tables/condition_summary.csv": "74c610a516873960abbc467423dc9cefceff9ba8626f31fec5d41173d56cf069",
+    "tables/configuration_coverage.csv": "10abd8aefd24eae5186e465e080f3952d9be2b271f09ac7a258003d72f872ee1",
+    "tables/cstr30_callbacks.csv": "51e74718ba4d5714ad744c4d2d2cc8d5c4e326c0a24231d1349ea1618c034efd",
+    "tables/fmqa_fallback_runs.csv": "2bda45cc5e3847eba2667ac42b8af4c7c084fffe4437ce5bce2b0607abf6f5b7",
+    "tables/fmqa_fallback_summary.csv": "b120bb2f79330280ab44884923a016dbd1a72c6387c19294591d2550d82e7a4a",
+    "tables/paired_process.csv": "37d5359838127eeeaddb91e2e1fe40161697d5611da840607b9b3489acfc00da",
+    "tables/primary_process_runs.csv": "bf758912dae90c04e334f33a073bfa456a987d08e56e6b11f63861d428d859e0",
+    "tables/process_cost.tex": "7934686322447fcd3aa3742e3c92cb27fe2de9ee975125252879647a2903d1af",
+    "tables/process_hits.tex": "7ea1d7cb0b14bf82e6b552dc28d6f1a641bf1695f1fb3897914a5703490d7538",
+    "tables/process_intervals.tex": "161043b8fac5adca3097a15e55ed8823fa54f1c68a8f3258c85b3a00b999d0df",
+    "tables/run_records.csv": "7c8f1e5b8ac21236928b92e99410f7d5a4605c3a0768147851ea2ca7b440377d",
+    "tables/summary.json": "3538124d5b713691b6df1185e9082762af8930fe077bb8d318f75787ff604a39"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "before": {
+    "active_constraints": 306,
+    "active_equalities": 158,
+    "free_continuous_variables": 156
+  },
+  "after": {
+    "active_constraints": 303,
+    "active_equalities": 155,
+    "free_continuous_variables": 156
+  },
+  "original_GDP_unchanged": true,
+  "omitted_only": [
+    "logic_to_linear.transformed_constraints[16]",
+    "logic_to_linear.transformed_constraints[17]",
+    "logic_to_linear.transformed_constraints[18]"
+  ],
+  "new_solver_calls": 0
+}

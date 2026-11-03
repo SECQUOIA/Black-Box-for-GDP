@@ -170,19 +170,36 @@ def worker(args):
     return 0
 
 
+def _signal_process_group(process, signum):
+    """Retry Darwin's transient EPERM while an owned group becomes reapable."""
+    for attempt in range(3):
+        try:
+            os.killpg(process.pid, signum)
+            return
+        except PermissionError:
+            if sys.platform != "darwin" or attempt == 2:
+                raise
+            # Darwin can find a group but exclude its exiting/zombie members
+            # from signal delivery, returning EPERM instead of ESRCH.
+            # Reap our worker and retry the same group, including descendants;
+            # its leader's exit alone is not proof the whole group is gone.
+            process.poll()
+            time.sleep(0.01)
+
+
 def stop_process(process, grace=3):
     """Clean up the session run_child owns, even if its leader already exited."""
     interrupted = False
     try:
         try:
-            os.killpg(process.pid, signal.SIGTERM)
+            _signal_process_group(process, signal.SIGTERM)
         except ProcessLookupError:
             pass
         deadline = time.monotonic() + grace
         while True:
             process.poll()  # Reap the worker without mistaking its exit for group exit.
             try:
-                os.killpg(process.pid, 0)
+                _signal_process_group(process, 0)
             except ProcessLookupError:
                 break
             remaining = deadline - time.monotonic()
@@ -197,7 +214,7 @@ def stop_process(process, grace=3):
         while True:
             try:
                 try:
-                    os.killpg(process.pid, signal.SIGKILL)
+                    _signal_process_group(process, signal.SIGKILL)
                 except ProcessLookupError:
                     pass
                 process.wait()

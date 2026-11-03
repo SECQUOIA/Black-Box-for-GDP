@@ -1,0 +1,3 @@
+record,returned_solution,objective,maximum_unscaled_primal_violation,worst_constraint,residual_target,numerically_feasible_under_stated_residual_test,tightened_feasibility_passed,reported_gloa_lower_bound,bound_minus_witness,audit_tolerance,bound_gap_over_tolerance,bound_difference_exceeds_audit_tolerance,bound_discrepancy_persists,configuration_matches,logic_valid,solver_status,termination,error,timed_out,solve_wall_s,worker_wall_s,NLP_invoked
+original_W03,True,2.82935061823614,5.634494497502862e-07,"react_mole[B,12]",1e-05,True,False,3.522552007803194,0.6932013895670543,2.8293506182361402e-05,24500.37068927168,True,True,True,True,,,,,,,
+attempt_1,False,,,,1e-08,False,False,3.522552007803194,,,,,,,,warning,other,,False,0.045299582881852984,0.6730100829154253,True

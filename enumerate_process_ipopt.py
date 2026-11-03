@@ -48,6 +48,11 @@ REJECTION_PHASE_ADAPTERS = {
     'models.py': '1dddc02ee1463c03c1b041dfaf83444171765514e570ab8da7bf26d3ec2e9c23',
     'evaluation.py': 'cb9d5cb77e8bf48b72665ffeafcfb0e0c00d3ac0656def725a294a21a1a4c18e',
 }
+# 0d61deab: load exact, hash-verified source files from release companions.
+# No original model, initialization, or solver policy changes.
+PACKAGED_SOURCE_ADAPTERS = {
+    '_sources.py': '88fc01e27c0ce4b926de669adbe9f1ceb855420fec61d9a27bf2605dd2e40afa',
+}
 EXTRA_FIELDS = ['logical_allowed', 'reflux_tray', 'boilup_tray', 'legacy_status',
     'failure_stage', 'logic_wall_s', 'original_total_wall_s', 'instrumented_call_wall_s',
     'solver_called', 'validation_performed', 'primal_feasible', 'acceptance_failure',
@@ -121,11 +126,13 @@ def verify_sources(case, *, adapter_files=None):
         digest = hashlib.sha256(raw).hexdigest()
         old = prior['adapter_sha256'][name]
         if digest != old:
-            require(digest in {APPROVED_CHANGED_ADAPTERS.get(name), MAIN_ROUTING_ADAPTERS.get(name), REJECTION_PHASE_ADAPTERS.get(name)},
+            require(digest in {APPROVED_CHANGED_ADAPTERS.get(name), MAIN_ROUTING_ADAPTERS.get(name), REJECTION_PHASE_ADAPTERS.get(name), PACKAGED_SOURCE_ADAPTERS.get(name)},
                     f'Unreviewed adapter change: {name}')
             differences[name] = {'historical_sha256': old, 'current_sha256': digest}
             if MAIN_ROUTING_ADAPTERS.get(name) == digest:
                 differences[name]['reviewed_change'] = '5a9e704: effective GAMS executable routing and reporting'
+            if PACKAGED_SOURCE_ADAPTERS.get(name) == digest:
+                differences[name]['reviewed_change'] = '0d61deab: hash-verified packaged upstream sources'
             if REJECTION_PHASE_ADAPTERS.get(name) == digest:
                 differences[name]['reviewed_change'] = 'PR #30: logical rejection exception subtype and rejection_phase metadata'
     return baseline, differences

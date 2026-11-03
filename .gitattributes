@@ -10,3 +10,17 @@ results/grid_trace_rbfopt_20261010/trajectories/** -text -whitespace
 # Supplied manuscript companion evidence: retain original hashes and CSV CRLF.
 reproduction/data/** -text -whitespace linguist-generated=true
 reproduction/validation/*.json linguist-generated=true
+# Audited October 20 return tables: retain exact server CSV bytes and hashes.
+results/review_comparison_20261020/**/*.csv -text -whitespace linguist-generated=true
+# Separate CSTR penalty analysis: preserve coordinate and audit CSV bytes.
+results/cstr_penalty_1e6_analysis_20261022/*.csv -text -whitespace linguist-generated=true
+
+# Preserve Column return and preparation evidence byte-for-byte.
+results/column_logical_b13_analysis_20261025/** -text -whitespace
+results/runners/column_logical_b13_20261025_v3/** -text -whitespace
+results/workspace_cleanup_20261025/** -text -whitespace
+
+# Vendored catalytic distillation model: keep the source CRLF line endings.
+gdp_models/catalytic_distillation/** -text
+# The verbatim upstream license uses a seven-equals reStructuredText heading.
+gdp_models/catalytic_distillation/LICENSE.dsda-gdp conflict-marker-size=32

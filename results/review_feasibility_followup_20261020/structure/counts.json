@@ -1,0 +1,27 @@
+{
+  "variables_total": 231,
+  "free_variables": 156,
+  "active_constraints": 306,
+  "active_equalities": 158,
+  "equalities_with_free_variables": 155,
+  "equality_groups": {
+    "unreact_mole": 2,
+    "unreact_cont": 1,
+    "react_mole": 28,
+    "react_cont": 14,
+    "split_mole": 2,
+    "split_cont": 1,
+    "split_add": 2,
+    "prod_spec": 1,
+    "vol_cons": 14,
+    "YRD_FR_act": 2,
+    "YRD_QFR_act": 1,
+    "neg_YRD_FR_desact": 28,
+    "neg_YRD_QFR_desact": 14,
+    "YPD_rate_calc": 15,
+    "YPD_rate_rel": 15,
+    "YPD_vol_act": 15,
+    "transformed_constraints": 3
+  },
+  "solver_calls_in_this_inspection": 0
+}

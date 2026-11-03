@@ -78,3 +78,25 @@ def test_derived_refresh_requires_exact_before_and_after_hashes(tmp_path, monkey
     manifest['derived_artifact_updates'] = {'results/raw/solution.json': update}
     with pytest.raises(ValueError, match='Not a derived comparison artifact'):
         verifier.verify_preservation(manifest)
+
+
+def test_documentation_update_requires_reviewed_before_and_after_bytes(tmp_path, monkeypatch):
+    import gzip
+    import result_archives
+
+    monkeypatch.setattr(verifier, 'ROOT', tmp_path)
+    monkeypatch.setattr(result_archives, 'datasets', lambda: {})
+    name = 'results/grid_gdp_20261009/README.md'
+    artifact = tmp_path / name
+    artifact.parent.mkdir(parents=True)
+    artifact.write_text('reviewed clarification')
+    baseline = tmp_path / 'baseline.json.gz'
+    with gzip.open(baseline, 'wt') as stream:
+        json.dump({'files': {name: {'sha256': 'old-hash'}}}, stream)
+    manifest = {'before_inventory': {'path': baseline.name, 'sha256': verifier.sha(baseline)},
+                'documented_nondata_changes': {}, 'additional_files_sha256': {}}
+    monkeypatch.setattr(verifier, 'DOCUMENTATION_UPDATES', {name: ('old-hash', verifier.sha(artifact))})
+    assert verifier.verify_preservation(manifest)['missing_or_changed_experimental_artifacts'] == 0
+    artifact.write_text('unreviewed documentation')
+    with pytest.raises(ValueError, match='Reviewed documentation changed'):
+        verifier.verify_preservation(manifest)

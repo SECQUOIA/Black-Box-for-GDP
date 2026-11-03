@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/private/tmp/issue44-reader-env/bin/python",
+    "-m",
+    "review_diagnostics.feasibility",
+    "--directory",
+    "/Users/albertlee0125/Repos/RBFopt_Test/results/review_feasibility_followup_20261020",
+    "--worker",
+    "--attempt",
+    "1",
+    "--ipopt",
+    "/Users/albertlee0125/Solvers/ampl.macos64/ipopt"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "wall_s": 0.6730100829154253,
+  "external_wall_limit_s": 300
+}

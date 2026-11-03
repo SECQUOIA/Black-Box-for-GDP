@@ -1,0 +1,14 @@
+% Separate proposed wording; no Overleaf source is modified.
+We distinguish RBFOpt with MSRSM and solver-based candidate search from the matched MSRSM variant using genetic candidate search.
+The original solver-based observations are retained, and the additional comparison changes only the candidate-search option while preserving the archived initial configurations and evaluation protocol.
+Nannicini (2021, Sections 4.2.3 and 5.2) reports difficulties with the nonconvex distance subproblem in the MSRSM--mathematical-solver combination, motivating this configuration comparison without predetermining its outcome on the present cases.
+The genetic option does not eliminate auxiliary Ipopt or Bonmin calls in other surrogate-minimization operations.
+The uniform baseline evaluates the three shared initial configurations and then samples previously unobserved configurations uniformly without replacement from the complete candidate domain.
+The BAM initialization control preserves the archived predetermined callback prefix and continues with uniform sampling without adaptive surrogate modeling.
+This control does not separately identify the causal contribution of every BAM component.
+The primary timing endpoint is completion of the recorded search stage, excluding subsequent incumbent extraction and export.
+Separately measured extraction and export costs for the new runs are reported without assigning zero cost to unmeasured historical operations.
+The sensitivity quantity is $T_{\mathrm{search}}+\alpha\sum_i t_i+T_{\mathrm{prep}}$ conditional on a recorded path; it does not predict the path under a different online time limit.
+Empirical TTS99 is a restart estimate derived from observed attainment and median completion cost, not a measured 99th percentile or a 99 percent performance guarantee.
+% Table/figure caption draft: fill no numerical claims until all required seeds finish.
+The comparison distinguishes solver and genetic candidate search and reports all ten planned seeds, including execution failures and separately identified incomplete slots.

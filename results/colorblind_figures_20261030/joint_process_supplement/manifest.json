@@ -1,0 +1,91 @@
+{
+  "baseline_revision": "ba8db83e5df39c727c4a33066d582572668721dd",
+  "input_sha256": {
+    "results/joint_process_scip_ipopt_20261030/manifest.json": "09ba1c9455761a5898f578dc7705b352458448f27a171c08a125db7a1f1f1c2f",
+    "results/joint_process_scip_ipopt_20261030/joint_runs.csv": "5c59364721a0676e5a27822afc9c034ec61eee66ff707a999fc617ab0880a2b0",
+    "results/gdpopt_scip_ipopt_analysis_20261030/jobs.json": "92c4d60045957a814415f768443f268f3d9e49a6f475c8579746c3bbc8766846",
+    "results/process_scip_four_analysis_20261026/jobs.csv": "4f1a3846dee5f346e53563d848aa1a84421f5e96832a1cc1a1c4514d4aa6cc67"
+  },
+  "source_sha256": {
+    "review_comparison/joint_process_supplement.py": "0c19b8b2cee8b56ecad14a19b4b4ca9eedf73efe8bd401251ae357d4fe9bc78a",
+    "review_comparison/joint_process_main.py": "0c4164b6e011e3bf1c050769c40f79a04d457361d5419b6d0fb61e33f3923fbd",
+    "review_comparison/joint_process.py": "06eff66bafe3bb3411021441204b45744ce6ed69111f6e926630d910fc89edfe",
+    "review_comparison/joint_process_ipopt.py": "302e3be5f2eced60dc5e197c7470d6759012f0f1c6d4e30aed2542196e63b0a2"
+  },
+  "conditions": [
+    [
+      "cstr_10",
+      15
+    ],
+    [
+      "cstr_15",
+      22
+    ],
+    [
+      "cstr_20",
+      29
+    ],
+    [
+      "cstr_25",
+      36
+    ],
+    [
+      "dynamic",
+      15
+    ],
+    [
+      "dynamic",
+      20
+    ],
+    [
+      "dynamic",
+      37
+    ],
+    [
+      "dynamic",
+      50
+    ]
+  ],
+  "excluded_main_conditions": [
+    [
+      "cstr_5",
+      8
+    ],
+    [
+      "cstr_30",
+      43
+    ],
+    [
+      "column",
+      13
+    ],
+    [
+      "small_batch",
+      10
+    ],
+    [
+      "dynamic",
+      12
+    ],
+    [
+      "dynamic",
+      30
+    ]
+  ],
+  "dfo_runs": 400,
+  "conventional_distinct_runs": 25,
+  "conventional_plotted_marks": 40,
+  "new_solver_calls": 0,
+  "execution_provenance": "Unchanged; see original manifests and source references.",
+  "environment": {
+    "python": "3.10.19",
+    "matplotlib": "3.10.8"
+  },
+  "reproduce": "python -m review_comparison.joint_process_supplement --output /tmp/joint-process-supplement",
+  "output_sha256": {
+    "README.md": "cab29545e7ca35d7c7d0923cf7d7f85dcf8fdeb29e405349ba14e34e78579c98",
+    "joint_remaining_completion.pdf": "0734bd29edeb9a392bdfba73f26ef17d60f6bc05083f099e55dcd5249730c483",
+    "joint_remaining_completion.png": "a2ed04b032eac2c62a8b8526b790a242cf28d8aa0f8098c028fbfda3e59a16b2",
+    "selected_runs.csv": "29281fa862679ce5db7678ba8f8c4c3ca8d9f0b16a9461371328d7fe0742294f"
+  }
+}

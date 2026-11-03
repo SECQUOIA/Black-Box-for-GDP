@@ -1,0 +1,43 @@
+# 1. Mac: upload the ZIP and its checksum in one SCP invocation.
+scp /private/tmp/cstr15-dantzig-results/results/grid_loa_presolve_disabled_20261025/grid_loa_presolve_disabled_dantzig_20261025.zip /private/tmp/cstr15-dantzig-results/results/grid_loa_presolve_disabled_20261025/grid_loa_presolve_disabled_dantzig_20261025.zip.sha256 lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/
+
+# 2. Dantzig: verify and extract into a new runner directory.
+cd /local/scratch/a/lee4382/repository/RBFopt_Test
+sha256sum -c grid_loa_presolve_disabled_dantzig_20261025.zip.sha256
+python3 - <<'PY'
+from pathlib import Path
+import hashlib
+import zipfile
+root=Path('/local/scratch/a/lee4382/repository/RBFopt_Test')
+name='grid_loa_presolve_disabled_dantzig_20261025'
+runner=root/'results/runners'/name
+if runner.exists():
+    raise SystemExit('Runner already exists; do not overwrite or relaunch this one-use experiment.')
+expected=(root/(name+'.zip.sha256')).read_text().split()[0]
+if hashlib.sha256((root/(name+'.zip')).read_bytes()).hexdigest()!=expected:
+    raise SystemExit('Package checksum mismatch')
+with zipfile.ZipFile(root/(name+'.zip')) as z:
+    names=z.namelist()
+    if len(names)!=len(set(names)) or any(not n.startswith(name+'/') or '..' in Path(n).parts for n in names):
+        raise SystemExit('Invalid package member paths')
+    runner.parent.mkdir(parents=True,exist_ok=True)
+    z.extractall(runner.parent)
+print(runner)
+PY
+
+# 3. Dantzig: launch once; failed fixed checks automatically prevent full LOA.
+RUNNER=/local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_presolve_disabled_dantzig_20261025
+( set -o noclobber; : > "$RUNNER/launch.log" ) && nohup bash "$RUNNER/execution/run_diagnostic.sh" run >> "$RUNNER/launch.log" 2>&1 < /dev/null &
+
+# 4. Dantzig: watch fixed checks, gates, full-job start/end and the result ZIP path.
+tail -n 80 -F /local/scratch/a/lee4382/repository/RBFopt_Test/results/runners/grid_loa_presolve_disabled_dantzig_20261025/launch.log
+
+# 5. Mac: download after RESULT_ZIP appears, including a stopped/failed diagnostic.
+scp lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025/grid_loa_presolve_disabled_20261025_result.zip ~/Downloads/
+
+# 6. Optional Mac: download the outer checksum.
+scp lee4382@dantzig.ecn.purdue.edu:/local/scratch/a/lee4382/repository/RBFopt_Test/results/grid_loa_presolve_disabled_20261025/grid_loa_presolve_disabled_20261025_result.zip.sha256 ~/Downloads/
+
+# 7. After extracting a result: solver-free analysis into a fresh directory.
+# Use an existing environment with Pyomo 6.10.0; do not install or substitute solvers.
+# python <returned run>/package/execution/analyze_diagnostic.py --run-dir <returned run> --output <fresh analysis directory>

@@ -1,0 +1,27 @@
+{
+  "reason": "PR #52: portable replay of archived CSTR15 vectors; only float comparisons and derived residual rankings change. Original execution sources, models, solver options, feasibility tolerances and saved outputs remain unchanged.",
+  "dependencies_sha256": {
+    "review_diagnostics/replay.py": "ea3bc383c1ef70f1f220b45ac334135a242925c40a468de623b0379b8ac42b71"
+  },
+  "verifier_updates": {
+    "review_diagnostics/feasibility_followup.py": {
+      "recorded_sha256": [
+        "cebcf8db5ef21773fd67586decde33cda55f78357149f92f293e18bd87823d76"
+      ],
+      "current_sha256": "702166d68f4ffc5ac90ad9720e2879012f9732556c2f6e69dfac58f7a074855a"
+    },
+    "review_diagnostics/feasibility_tautology.py": {
+      "recorded_sha256": [
+        "87277256d4fab4d09aa7e1adab2c911e9c85dc35888a8a69e302cdd8594165af",
+        "a2804a5b309640770ef13fbaa3aea64f3141f3f571d2654e08f637de10a36104"
+      ],
+      "current_sha256": "436d19a8422f341df55205b7ebad4b6204f57d279f9ce54738ba3335adc3a7a4"
+    },
+    "review_diagnostics/cstr15_gams.py": {
+      "recorded_sha256": [
+        "1f4521eef12c7b96c25239d302a8dde6c11c3dc4ae84f20fc62f0cc04471c1a1"
+      ],
+      "current_sha256": "b1356bcf1014329941348163b6de4ca8a33a5c4e534373fa4f9446fdf2561d7c"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "starting_revision": "e40e7d36f18579cbeae418cab1c0384d801bcf9c",
+  "purpose": "Fix the pre-existing Darwin watchdog cleanup race identified during PR #54 validation",
+  "root_cause": "A zombie-only process group can return EPERM before worker reaping; the same owned group returns ESRCH after reaping",
+  "probe_observations": {
+    "live_owned_group_check": "success",
+    "SIGTERM_delivery": "success",
+    "unreaped_exited_group_check": "EPERM",
+    "after_worker_reap_group_check": "ESRCH"
+  },
+  "fix_policy": {
+    "platform": "darwin",
+    "max_attempts_per_signal": 3,
+    "retry_delay_seconds": 0.01,
+    "poll_owned_worker_before_retry": true,
+    "same_group_rechecked": true,
+    "persistent_permission_error_propagated": true,
+    "linux_signal_path_unchanged": true
+  },
+  "environment": {
+    "python": "3.10.20 (main, Jun 23 2026, 15:45:03) [Clang 22.1.3 ]",
+    "platform": "darwin",
+    "kernel": "25.6.0"
+  },
+  "targeted_tests": {
+    "command": "python -m pytest tests/test_cstr30_retry.py tests/test_cstr_watchdog.py -q",
+    "passed": 21,
+    "skipped": 7,
+    "failed": 0,
+    "skip_reason": "Linux-only subreaper integration cases"
+  },
+  "full_suite": {
+    "command": "python -m pytest tests/ -q",
+    "passed": 1440,
+    "skipped": 33,
+    "subtests_passed": 9,
+    "failed": 0
+  },
+  "timeout_stress": {
+    "timeout_cleanup_passed": 50,
+    "failures": 0,
+    "max_wall_s": 0.07836529240012169,
+    "solver_calls": 0
+  },
+  "ruff": "PASS",
+  "diff_check": "PASS",
+  "preservation": {
+    "baseline_tracked_files": 2645,
+    "authorized_changed_files": [
+      "cstr30_retry.py",
+      "docs/cstr30_retry.md",
+      "docs/dsda_protocol.md",
+      "tests/test_cstr30_retry.py"
+    ],
+    "all_other_tracked_files_sha256_unchanged": 2641,
+    "archives_results_sealed_sources_manuscript_and_ci_unchanged": true,
+    "previous_verification_receipts_preserved": true
+  },
+  "source_and_test_sha256": {
+    "cstr30_retry.py": "8f6eb459ad3ad5e79067f41ac7bfa73dad8b589fc44ea24ef73afc00125b7202",
+    "tests/test_cstr30_retry.py": "6968b34357664fdad8499f295a32c3c45367e2141793f410e4bf2aba51ebdd78"
+  },
+  "validation_log_sha256": {
+    "targeted": "65b5f6ebcee15bab474bbe33ef1c35e45f6625d013a6ea7229d11fc74f0fc4fc",
+    "full": "9729c411dbe70bca46c2a14df2933fd64e88a584c0cf57a113d8c1e606749b2a",
+    "stress": "25a05e5e6bd21208c4f8dac2a4606634fe63e8c1beb28fca0abc50ac1cb53ee9"
+  },
+  "new_solver_or_nlp_experiments": 0,
+  "server_jobs": 0
+}

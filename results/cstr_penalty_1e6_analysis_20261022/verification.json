@@ -1,0 +1,21 @@
+{
+  "tests": "7 passed, 7 mutation subtests passed",
+  "test_command": "python -m pytest -q tests/test_cstr_penalty_analysis.py",
+  "replay_command": "python experiments/cstr_penalty_1e6/analyze.py --output /tmp/cstr_penalty_pr49_replay",
+  "byte_identical_replay_outputs": [
+    "README.txt",
+    "audit.json",
+    "callback_paths.csv",
+    "condition_summary.csv",
+    "method_summary.csv",
+    "paired_runs.csv",
+    "rbfopt_coordinates.csv",
+    "runtime_audit.csv"
+  ],
+  "server_protocol_tests": 13,
+  "archive_code_executed_during_analysis": false,
+  "new_optimizations_or_nlp_solves": 0,
+  "target_branch_base": "d8a9dd63721d2049a1744316c1781429ae7ad4c0",
+  "source_test_sha256": "277dfcc29edeff1b50f5e08ed85fadeb53b1b614798a4a7e80713a6e1daf418c",
+  "ruff": "passed"
+}
