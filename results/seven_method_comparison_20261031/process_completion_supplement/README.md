@@ -1,7 +1,7 @@
 # Supplement panels without main-text duplication
 
 This presentation-only reduction retains the eight process conditions absent from main Figure 3.
-The remaining panels are CSTR10 B=15, CSTR15 B=22, CSTR20 B=29, CSTR25 B=36, and Dynamic B=15, B=20, B=37, and B=50.
+The remaining panels are CSTR10 B=15, CSTR15 B=22, CSTR20 B=29, and CSTR25 B=36 (`joint_remaining_completion_cstr`) and Dynamic B=15, B=20, B=37, and B=50 (`joint_remaining_completion_dynamic`).
 Together with `results/joint_process_main_20261030`, these panels cover all fourteen conditions exactly once.
 No optimizer, NLP solver, or benchmark is rerun.
 

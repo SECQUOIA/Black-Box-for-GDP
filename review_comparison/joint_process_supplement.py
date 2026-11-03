@@ -38,51 +38,54 @@ def render(selected, out):
     with plt.rc_context({'font.family': 'DejaVu Sans', 'font.size': 9,
                          'axes.titlesize': 10, 'axes.spines.top': False,
                          'axes.spines.right': False, 'pdf.fonttype': 42}):
-        fig, axs = plt.subplots(4, 2, figsize=(7.2, 10.6), sharex=True, sharey=True)
-        for ax, (case, budget) in zip(axs.flat, CONDITIONS):
-            for i, method in enumerate(METHODS):
-                group = [r for r in selected if (r['case'], r['panel_budget'], r['method'])
-                         == (case, budget, method)]
-                dfo = method in main.DFO
-                if dfo:
-                    q25, median, q75 = base.quartiles([r['completion_s'] for r in group])
-                    ax.plot([q25, q75], [i, i], color='#b0b0b0', lw=3.3, zorder=1)
-                    ax.plot(median, i, marker='|', color='#222222', ms=9, zorder=4)
-                for row in group:
-                    y = i + (row['seed'] - 4.5) * .055 if dfo else i
-                    hit = row['target_reached']
-                    marker = ('o' if dfo else 'D') if hit else 'x'
-                    color = '#0072B2' if hit else '#D55E00'
-                    ax.scatter(row['completion_s'], y, marker=marker, c=color,
-                               s=13 if dfo else 22, linewidths=.8, zorder=3)
-                    if row['bound_conflict']:
-                        ax.annotate('*', (row['completion_s'], y), xytext=(3, 2),
-                                    textcoords='offset points', fontsize=10)
-                hits = sum(r['target_reached'] for r in group)
-                label = f'{hits}/10' if dfo else ('yes' if hits else 'no')
-                if not dfo and group[0]['time_limit']:
-                    label += ' TL'
-                ax.text(1.015, i, label, transform=ax.get_yaxis_transform(), va='center', fontsize=7.8)
-            ax.axhline(len(main.DFO) - .5, color='#999999', lw=.7)
-            ax.set(xscale='log', xlim=(.1, 3000), ylim=(len(METHODS) - .3, -.7), yticks=range(len(METHODS)),
-                   yticklabels=[main.LABELS[m] for m in METHODS],
-                   title=f'{base.pname(case)}, B={budget}')
-            ax.tick_params(axis='y', length=0, labelleft=True, labelsize=8.2)
-            ax.tick_params(axis='x', labelsize=8)
-            ax.grid(axis='x', which='major', alpha=.18)
-        for ax in axs[-1]:
-            ax.set_xlabel('Full-run completion time (s)', fontsize=9)
-        handles = [Line2D([], [], marker='o', color='#0072B2', ls='', label='DFO target reached'),
-                   Line2D([], [], marker='D', color='#0072B2', ls='', label='Conventional GDP target reached'),
-                   Line2D([], [], marker='x', color='#D55E00', ls='', label='Target not reached'),
-                   Line2D([], [], marker='|', color='#b0b0b0', markeredgecolor='#222222',
-                          ms=9, lw=3, label='DFO median and Q25-Q75')]
-        fig.legend(handles=handles, loc='lower center', ncol=2, frameon=False, fontsize=8,
-                   bbox_to_anchor=(.5, .001))
-        fig.subplots_adjust(left=.108, right=.90, top=.958, bottom=.10, hspace=.28, wspace=.70)
-        fig.savefig(out / 'joint_remaining_completion.pdf', metadata={'CreationDate': None, 'ModDate': None})
-        fig.savefig(out / 'joint_remaining_completion.png', dpi=180)
-        plt.close(fig)
+        # Two 2-by-2 figures (CSTR sizes, Dynamic budgets) keep the labels legible at page width.
+        for stem, conditions in (('joint_remaining_completion_cstr', CONDITIONS[:4]),
+                                 ('joint_remaining_completion_dynamic', CONDITIONS[4:])):
+            fig, axs = plt.subplots(2, 2, figsize=(7.2, 6.0), sharex=True, sharey=True)
+            for ax, (case, budget) in zip(axs.flat, conditions):
+                for i, method in enumerate(METHODS):
+                    group = [r for r in selected if (r['case'], r['panel_budget'], r['method'])
+                             == (case, budget, method)]
+                    dfo = method in main.DFO
+                    if dfo:
+                        q25, median, q75 = base.quartiles([r['completion_s'] for r in group])
+                        ax.plot([q25, q75], [i, i], color='#b0b0b0', lw=3.3, zorder=1)
+                        ax.plot(median, i, marker='|', color='#222222', ms=9, zorder=4)
+                    for row in group:
+                        y = i + (row['seed'] - 4.5) * .055 if dfo else i
+                        hit = row['target_reached']
+                        marker = ('o' if dfo else 'D') if hit else 'x'
+                        color = '#0072B2' if hit else '#D55E00'
+                        ax.scatter(row['completion_s'], y, marker=marker, c=color,
+                                   s=13 if dfo else 22, linewidths=.8, zorder=3)
+                        if row['bound_conflict']:
+                            ax.annotate('*', (row['completion_s'], y), xytext=(3, 2),
+                                        textcoords='offset points', fontsize=10)
+                    hits = sum(r['target_reached'] for r in group)
+                    label = f'{hits}/10' if dfo else ('yes' if hits else 'no')
+                    if not dfo and group[0]['time_limit']:
+                        label += ' TL'
+                    ax.text(1.015, i, label, transform=ax.get_yaxis_transform(), va='center', fontsize=7.8)
+                ax.axhline(len(main.DFO) - .5, color='#999999', lw=.7)
+                ax.set(xscale='log', xlim=(.1, 3000), ylim=(len(METHODS) - .3, -.7), yticks=range(len(METHODS)),
+                       yticklabels=[main.LABELS[m] for m in METHODS],
+                       title=f'{base.pname(case)}, B={budget}')
+                ax.tick_params(axis='y', length=0, labelleft=True, labelsize=8.2)
+                ax.tick_params(axis='x', labelsize=8)
+                ax.grid(axis='x', which='major', alpha=.18)
+            for ax in axs[-1]:
+                ax.set_xlabel('Full-run completion time (s)', fontsize=9)
+            handles = [Line2D([], [], marker='o', color='#0072B2', ls='', label='DFO target reached'),
+                       Line2D([], [], marker='D', color='#0072B2', ls='', label='Conventional GDP target reached'),
+                       Line2D([], [], marker='x', color='#D55E00', ls='', label='Target not reached'),
+                       Line2D([], [], marker='|', color='#b0b0b0', markeredgecolor='#222222',
+                              ms=9, lw=3, label='DFO median and Q25-Q75')]
+            fig.legend(handles=handles, loc='lower center', ncol=2, frameon=False, fontsize=8,
+                       bbox_to_anchor=(.5, .001))
+            fig.subplots_adjust(left=.108, right=.90, top=.94, bottom=.17, hspace=.32, wspace=.70)
+            fig.savefig(out / f'{stem}.pdf', metadata={'CreationDate': None, 'ModDate': None})
+            fig.savefig(out / f'{stem}.png', dpi=180)
+            plt.close(fig)
 
 
 def build(root, out):
@@ -95,7 +98,7 @@ def build(root, out):
     (out / 'README.md').write_text('''# Supplement panels without main-text duplication
 
 This presentation-only reduction retains the eight process conditions absent from main Figure 3.
-The remaining panels are CSTR10 B=15, CSTR15 B=22, CSTR20 B=29, CSTR25 B=36, and Dynamic B=15, B=20, B=37, and B=50.
+The remaining panels are CSTR10 B=15, CSTR15 B=22, CSTR20 B=29, and CSTR25 B=36 (`joint_remaining_completion_cstr`) and Dynamic B=15, B=20, B=37, and B=50 (`joint_remaining_completion_dynamic`).
 Together with `results/joint_process_main_20261030`, these panels cover all fourteen conditions exactly once.
 No optimizer, NLP solver, or benchmark is rerun.
 

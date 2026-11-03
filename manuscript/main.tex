@@ -907,12 +907,12 @@ Dots mark DFO runs that reach the reference target of Equation~\eqref{eqn:target
 The right-hand labels give the target hits out of ten of each DFO method and the outcome, yes or no, of each conventional run, with TL for runs that report termination at the 1,800~s time limit.
 Asterisks mark conventional runs whose reported lower bound exceeds a checked feasible objective (Supplementary Section~\ref{sec:bound-audit}).
 The conventional GDP methods have no evaluation budget, so both \texttt{Dynamic} panels show the same conventional runs.
-Supplementary Figure~\ref{fig:joint-remaining-completion} shows the other eight conditions.
+Supplementary Figures~\ref{fig:joint-remaining-completion} and~\ref{fig:joint-remaining-completion-dynamic} show the other eight conditions.
 Uniform: uniform sampling without replacement.}
 \label{fig:process-completion}
 \end{figure}
 
-Figure~\ref{fig:process-completion} places the conventional GDP methods on the same time axis, and Supplementary Table~\ref{tab:full-gdp} lists their objectives; Supplementary Figure~\ref{fig:joint-remaining-completion} shows the other eight conditions.
+Figure~\ref{fig:process-completion} places the conventional GDP methods on the same time axis, and Supplementary Table~\ref{tab:full-gdp} lists their objectives; Supplementary Figures~\ref{fig:joint-remaining-completion} and~\ref{fig:joint-remaining-completion-dynamic} show the other eight conditions.
 Hull reaches the target on seven of the nine models, RIC, LOA, and Big-\(M\) on five each, and GLOA only on \texttt{Small Batch}.
 Big-\(M\) and Hull solve \texttt{Small Batch} in about 0.5~s, faster than any DFO run, and they are the only conventional methods that reach the \texttt{CSTR30} target, both stopping at the 1,800~s time limit.
 No conventional method reaches the \texttt{Column} target.
@@ -1170,22 +1170,22 @@ First, separating the model from the search extends GDP to models that conventio
 A configuration search needs only the value of each configuration, so the same GDP model can be solved when its subproblems are simulations, as for the \texttt{Lomustine} flowsheet, or when its MINLP reformulations fail, as for the \texttt{Catalytic Column}, whose evaluations contain only the equations of the selected design.
 
 Second, surrogate search spends subproblem solves economically.
-RIC and LOA solved one subproblem for each admissible configuration on most process models, whereas the two radial-basis-function methods reached the best configuration of the largest reactor network in nine or ten of ten runs with about 6 to 7\% of the solves of full enumeration.
+RIC and LOA solved one subproblem for each admissible configuration on most process models, whereas the two radial-basis-function methods reached the best configuration of the largest reactor network with a small fraction of those solves.
 
 Third, the landscape and its representation decide whether a global search pays off.
-Local descent suffices when the good configurations form one region, and surrogate methods that interpolate all observations are the safer choice when large basins of local minima lie between the initial configurations and the optimum.
+Local descent can be competitive when the good configurations form one region, as it was in reaching designs close to the reference of the \texttt{Catalytic Column}, and surrogate methods that interpolate all observations are the safer choice when large basins of local minima lie between the initial configurations and the optimum.
 The external variables, the order of categorical alternatives, and the neighborhood determine which configurations are close, so they shape the landscape that every method sees.
 
 Fourth, exact target attainment is an incomplete measure for stochastic methods.
 A method that rarely matches the reference can still end consistently close to it, so the spread of final objectives across runs belongs next to the target counts when methods are compared for design studies.
 
 Fifth, the value of search effort depends on the cost of an evaluation.
-Refitting a surrogate at every step buys targets but dominates the run time when evaluations are cheap, and methods that stop at a local criterion leave part of the budget unused; as evaluations become more expensive, the number of subproblem solves becomes the cost that matters.
+Additional search effort per evaluation can improve target attainment, but its overhead can dominate the run time when evaluations are cheap, and methods that stop at a local criterion leave part of the budget unused; as evaluations become more expensive, the number of subproblem solves becomes the cost that matters.
 
 For future GDP instances, these results suggest enumerating the configurations or solving a direct Big-\(M\) or Hull reformulation when the model is small, as for Grid-GDP and \texttt{Small Batch}.
-When the configuration space is too large to enumerate and contains large basins of local minima, as for the larger \texttt{CSTR} networks, surrogate-based configuration search with radial basis functions is preferable, with \texttt{MISO} when evaluations are expensive relative to its search overhead and \texttt{RBFOpt} when they are cheap.
+When the configuration space is too large to enumerate and contains large basins of local minima, as for the larger \texttt{CSTR} networks, surrogate-based configuration search with radial basis functions is preferable; in these experiments, \texttt{MISO} reached slightly more targets when its search overhead was small relative to the evaluation cost, and \texttt{RBFOpt} was the less sensitive to the order of categorical alternatives.
 For local descent, the unit \(L_\infty\) neighborhood suits two external variables and budgets that cover its neighbors, and the separable neighborhood suits more external variables or smaller budgets.
-When the subproblems are simulations, or when the MINLP reformulations keep equations that are ill-defined for absent units, the GDP model is best solved by configuration search, with local descent when the good designs form one region and surrogate search when the landscape has several basins.
+When the subproblems are simulations, or when the MINLP reformulations keep equations that are ill-defined for absent units, the GDP model is best solved by configuration search, in which local descent can be competitive when the good designs form one region and surrogate search is the safer choice when the landscape has several basins.
 Because the wall-time advantage of searching fewer configurations grows with the cost of each evaluation, testing these recommendations on live simulation-based subproblems, in which every evaluation runs the inner optimization, is the next step.
 
 \section{Acknowledgement}
@@ -1196,8 +1196,8 @@ The code and data are available in the \href{https://github.com/SECQUOIA/Black-B
 Supplementary Section~\ref{sec:supp-data} identifies the archived inputs, including the CSTR updates, Column logical-domain runs, conventional GDP comparisons, \texttt{D-SDA} reruns, the \texttt{Lomustine} runs, and the \texttt{Catalytic Column} runs and MINLP comparisons.
 
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
-The authors used ChatGPT and Codex (OpenAI), including the GPT-6 Astra model, to assist with drafting, organizing, and revising the manuscript and developing analysis and plotting code.
-The authors also used Claude Code (Anthropic), with the Claude Opus 5.5 model, to review the manuscript, revise the Discussion and Conclusions, and develop analysis, plotting, and experiment code.
+The authors used \texttt{ChatGPT} and \texttt{Codex} (OpenAI), including the GPT-6 Astra model, to assist with drafting, organizing, and revising the manuscript and developing analysis and plotting code.
+The authors also used \texttt{Claude Code} (Anthropic), with the Claude Opus 5.5 model, to review the manuscript, revise the Discussion and Conclusions, and develop analysis, plotting, and experiment code.
 The resulting text and code were checked and revised by the authors, who remain responsible for the article's content.
 
 \bibliographystyle{elsarticle-harv}
