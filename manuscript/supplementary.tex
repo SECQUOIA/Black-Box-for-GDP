@@ -702,7 +702,7 @@ Model & \(N\) & \(B\) & Search time & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{
 \begin{tablenotes}[flushleft]\footnotesize
 \item Search time: the time a method spends selecting configurations, which excludes the cost of evaluating them; the full-run completion times and target hits are in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-targets}\else2\fi{} of the main paper.
 Percentiles are over the ten runs.
-\(N\): number of potential reactors of \texttt{CSTR}; \(B\): evaluation budget; Uniform: uniform sampling without replacement.
+\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable); \(B\): evaluation budget; Uniform: uniform sampling without replacement.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -830,7 +830,7 @@ Model & \(N\) & Method & ID & Reported \(L\) & Unit & \(v_{\max}\) & C & \(\rho\
 Reported \(L\): lower bound reported by the run. Unit: unit of the objective, as in Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper; none, no physical unit.
 \(v_{\max}\): largest unscaled violation of the original GDP constraints and variable bounds at the run's saved solution.
 \(\rho=(L-f_w)/\tau_w\): excess of the reported lower bound over \(f_w\) in multiples of the audit tolerance \(\tau_w=10^{-5}\max\{1,|f_w|\}\).
-\(N\): number of potential reactors of \texttt{CSTR}.
+\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable).
 GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts; all three are \texttt{GDPopt} methods.
 Hull: the reformulation solved directly by \texttt{SCIP}.
 \(\dagger\): \(\rho>1\).
@@ -1078,7 +1078,7 @@ Runs with gap \(\leq0.1\%\), \(\leq1\%\), \(\leq5\%\): runs whose relative gap \
 Distinct finals: largest number of different final objectives among the ten seeds of any condition of the model.
 Smallest and largest miss gap: smallest and largest relative gap over the runs that miss the exact target.
 Uniform: uniform sampling without replacement.
-Dash: no run misses the exact target.
+--: no run misses the exact target.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
