@@ -10,4 +10,4 @@ NOMAD's 21 Grid B = 100 runs that crashed identically on every attempt are score
 | `revision_diagnostics` | Seed spread and tolerance sensitivity, search time per evaluation, paired exact tests, and GDPopt enumeration counts | `python -m review_comparison.revision_diagnostics --output DIR` |
 | `process_nlp` | NLP subproblems solved per run (`process_nlp_solves`) | `python -m review_comparison.joint_process_nlp --output DIR` |
 | `process_completion` | Full-run completion times (`process_joint_completion`) | `python -m review_comparison.joint_process_main --output DIR` |
-| `process_completion_supplement` | Completion times for the remaining eight process conditions (`joint_remaining_completion`) | `python -m review_comparison.joint_process_supplement --output DIR` |
+| `process_completion_supplement` | Completion times for the remaining eight process conditions (`joint_remaining_completion_cstr`, `joint_remaining_completion_dynamic`) | `python -m review_comparison.joint_process_supplement --output DIR` |
