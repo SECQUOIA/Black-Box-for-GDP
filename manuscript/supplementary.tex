@@ -233,8 +233,8 @@ f(x,y)=\exp\!\left(-\left[\left(\frac{x}{15}\right)^6+y^6\right]\right)
 \FloatBarrier % \clearpage
 \section{Executable protocol and implementation settings}\label{sec:supp-protocol}
 
-Python and \texttt{NumPy} use the job seed, and \texttt{RBFOpt} also receives \nolinkurl{rand_seed}.
-\texttt{BAM} exposes no separate native random-seed option: its process wrapper seeds Python/\texttt{NumPy}, while the Grid seed identifies the common initial design.
+\texttt{Python} and \texttt{NumPy} use the job seed, and \texttt{RBFOpt} also receives \nolinkurl{rand_seed}.
+\texttt{BAM} exposes no separate native random-seed option: its process wrapper seeds \texttt{Python}/\texttt{NumPy}, while the Grid seed identifies the common initial design.
 \texttt{FMQA-SA} uses three \texttt{NumPy} \nolinkurl{SeedSequence(seed)} streams for FM initialization, annealing, and uniform unseen-point fallback; each training or annealing invocation draws a seed from its stream.
 \texttt{PyTorch} uses deterministic CPU operations and one thread.
 
@@ -645,23 +645,18 @@ Model & \(N\) & \(B\) & Search time & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{
 \multirow{18}{*}{\texttt{CSTR}} & \multirow{3}{*}{5} & \multirow{3}{*}{8} & Median (s) & 0.0105 & 0.0367 & 0.0596 & 0.659 & 0.0360 & 3.66 & 0.00460 \\
  & &  & 25th percentile (s) & 0.0102 & 0.0323 & 0.0590 & 0.658 & 0.0151 & 3.64 & 0.00387 \\
  & &  & 75th percentile (s) & 0.0111 & 1.13 & 0.0597 & 0.669 & 0.0816 & 3.67 & 0.00478 \\
-\addlinespace[2pt]
  & \multirow{3}{*}{10} & \multirow{3}{*}{15} & Median (s) & 0.0137 & 1.83 & 0.302 & 0.677 & 0.137 & 8.00 & 0.00807 \\
  & &  & 25th percentile (s) & 0.0130 & 0.469 & 0.288 & 0.675 & 0.126 & 7.98 & 0.00772 \\
  & &  & 75th percentile (s) & 0.0147 & 1.88 & 0.315 & 0.683 & 0.158 & 8.08 & 0.00812 \\
-\addlinespace[2pt]
  & \multirow{3}{*}{15} & \multirow{3}{*}{22} & Median (s) & 0.0169 & 0.825 & 1.00 & 3.29 & 0.150 & 12.4 & 0.0113 \\
  & &  & 25th percentile (s) & 0.0156 & 0.0949 & 0.492 & 1.21 & 0.140 & 12.3 & 0.0108 \\
  & &  & 75th percentile (s) & 0.0172 & 1.82 & 3.26 & 7.50 & 0.162 & 12.4 & 0.0116 \\
-\addlinespace[2pt]
  & \multirow{3}{*}{20} & \multirow{3}{*}{29} & Median (s) & 0.0207 & 1.63 & 2.82 & 10.8 & 0.167 & 16.9 & 0.0139 \\
  & &  & 25th percentile (s) & 0.0189 & 0.521 & 0.632 & 9.02 & 0.165 & 16.8 & 0.0121 \\
  & &  & 75th percentile (s) & 0.0218 & 1.92 & 4.01 & 15.8 & 0.313 & 16.9 & 0.0148 \\
-\addlinespace[2pt]
  & \multirow{3}{*}{25} & \multirow{3}{*}{36} & Median (s) & 0.0258 & 1.08 & 2.47 & 17.6 & 0.401 & 21.3 & 0.0161 \\
  & &  & 25th percentile (s) & 0.0238 & 0.170 & 1.86 & 16.4 & 0.392 & 21.3 & 0.0147 \\
  & &  & 75th percentile (s) & 0.0299 & 2.32 & 4.43 & 18.8 & 0.449 & 21.4 & 0.0186 \\
-\addlinespace[2pt]
  & \multirow{3}{*}{30} & \multirow{3}{*}{43} & Median (s) & 0.0585 & 1.90 & 4.99 & 18.1 & 0.425 & 25.8 & 0.0241 \\
  & &  & 25th percentile (s) & 0.0556 & 1.76 & 2.95 & 14.0 & 0.404 & 25.7 & 0.0224 \\
  & &  & 75th percentile (s) & 0.0610 & 7.65 & 10.3 & 19.3 & 0.451 & 26.0 & 0.0257 \\
@@ -677,23 +672,18 @@ Model & \(N\) & \(B\) & Search time & \texttt{D-SDA} & \texttt{NOMAD} & \texttt{
 \multirow{18}{*}{\texttt{Dynamic}} & \multirow{3}{*}{--} & \multirow{3}{*}{12} & Median (s) & 0.0119 & 0.0419 & 0.186 & 0.671 & 0.0173 & 6.16 & 0.00589 \\
  & &  & 25th percentile (s) & 0.0113 & 0.0377 & 0.182 & 0.670 & 0.0172 & 6.14 & 0.00540 \\
  & &  & 75th percentile (s) & 0.0125 & 0.0630 & 0.189 & 0.676 & 0.0174 & 6.20 & 0.00658 \\
-\addlinespace[2pt]
  &  & \multirow{3}{*}{15} & Median (s) & 0.0123 & 0.0896 & 0.296 & 0.679 & 0.139 & 8.04 & 0.00740 \\
  & &  & 25th percentile (s) & 0.0115 & 0.0627 & 0.291 & 0.676 & 0.128 & 8.01 & 0.00622 \\
  & &  & 75th percentile (s) & 0.0131 & 1.09 & 0.321 & 0.683 & 0.156 & 8.09 & 0.00760 \\
-\addlinespace[2pt]
  &  & \multirow{3}{*}{20} & Median (s) & 0.0133 & 1.49 & 0.367 & 25.0 & 0.143 & 11.2 & 0.00987 \\
  & &  & 25th percentile (s) & 0.0119 & 0.447 & 0.355 & 24.6 & 0.130 & 11.1 & 0.00927 \\
  & &  & 75th percentile (s) & 0.0154 & 6.90 & 0.381 & 30.1 & 0.156 & 11.2 & 0.00991 \\
-\addlinespace[2pt]
  &  & \multirow{3}{*}{30} & Median (s) & 0.0149 & 1.77 & 7.61 & 79.7 & 0.355 & 17.4 & 0.0141 \\
  & &  & 25th percentile (s) & 0.0124 & 1.44 & 4.88 & 79.4 & 0.204 & 17.2 & 0.0135 \\
  & &  & 75th percentile (s) & 0.0157 & 9.24 & 13.7 & 80.5 & 0.364 & 17.5 & 0.0145 \\
-\addlinespace[2pt]
  &  & \multirow{3}{*}{37} & Median (s) & 0.0134 & 1.77 & 10.1 & 81.0 & 0.376 & 21.7 & 0.0173 \\
  & &  & 25th percentile (s) & 0.0118 & 1.43 & 5.25 & 79.7 & 0.364 & 21.6 & 0.0171 \\
  & &  & 75th percentile (s) & 0.0160 & 9.23 & 14.2 & 82.9 & 0.383 & 21.8 & 0.0174 \\
-\addlinespace[2pt]
  &  & \multirow{3}{*}{50} & Median (s) & 0.0135 & 1.77 & 26.3 & 158 & 0.732 & 29.8 & 0.0233 \\
  & &  & 25th percentile (s) & 0.0129 & 1.42 & 17.0 & 157 & 0.685 & 29.7 & 0.0229 \\
  & &  & 75th percentile (s) & 0.0153 & 9.21 & 37.2 & 160 & 0.751 & 30.1 & 0.0235 \\
@@ -749,14 +739,14 @@ The \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/de6ab9395e5121f27db
 The \texttt{CSTR} updates are the penalty of \(10^6\) for unaccepted responses, analyzed in \nolinkurl{results/cstr_penalty_1e6_analysis_20261022}, and the \texttt{CSTR30} evaluation table rebuilt with the mass-balance/zero-recycle initialization, in \nolinkurl{results/cstr30_publication_20261025}; the \texttt{Column} runs on its 64-configuration logical domain with \(B=13\) are in \nolinkurl{results/column_logical_b13_analysis_20261025}.
 The updated \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/329c6f93f4940436425582ae60323c0c9f95b581/results/gdpopt_scip_ipopt_analysis_20261030}{\texttt{GDPopt} analysis and execution records} contain the 63 Grid and 27 process runs configured with \texttt{SCIP} for MIP and \texttt{IPOPT} for NLP subproblems.
 The three presolve-disabled LOA diagnostic runs are excluded.
-The same records contain the paired comparison with the earlier configuration that used \texttt{SCIP} for both MIP and NLP subproblems, in which GLOA returned the same \texttt{CSTR} objectives within a relative difference of \(3\times10^{-5}\).
+The same records contain the paired comparison with the earlier configuration that used \texttt{SCIP} for both the mixed-integer master problems and the NLP subproblems, in which GLOA returned the same \texttt{CSTR} objectives within a relative difference of \(3\times10^{-5}\).
 Seed spread, tolerance sensitivity, search overhead, and \texttt{GDPopt} enumeration counts are generated by \nolinkurl{review_comparison/revision_diagnostics.py} from the retained run records and execution logs.
 The \texttt{D-SDA} rerun, including the process restart variants, is \nolinkurl{experiments/dsda_no_revisit/run.py}, which replays the sealed lookup package of the adopted \texttt{D-SDA} rerun.
 The \texttt{NOMAD} and \texttt{MISO} runs were executed at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c4d7db6b671bbe92a314be524a650d75cd49529c}{source revision c4d7db6}; the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/841ca986f175dda4d91c784b195e60279cf94b99/results/pr56_dantzig_return_20261031}{returned records} contain the original archive, its SHA-256 checksum, and hash-checked analysis tables of every run.
 All \texttt{D-SDA} runs, including the restart variants, were rerun at \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/c186408728c6f95ac33a5465edd53035d85c5620}{source revision c186408}, where no configuration is evaluated twice; with re-evaluation switched back on, the same code reproduces all 1,190 published \texttt{D-SDA} runs exactly, and the \href{https://github.com/SECQUOIA/Black-Box-for-GDP/tree/f3b57ac44cccb27552b3a8618ce6abd463e540a4/results/dsda_no_revisit_20261031}{returned records} hold every run.
 The \texttt{Lomustine} case is \nolinkurl{experiments/lomustine_simulation}, which vendors the corrected-model table of \citet{secquoiaPdIsing} and runs the seven methods through the harness in \nolinkurl{experiments/catalytic_distillation_live}; the run records and analysis are in \nolinkurl{results/lomustine_simulation_20261031}.
 The \texttt{Catalytic Column} model and its review are in \nolinkurl{gdp_models/catalytic_distillation}, the live runs are \nolinkurl{experiments/catalytic_distillation_live}, and their returned records, with the original archive, its SHA-256 checksum, and an audit of every run, are in \nolinkurl{results/catalytic_distillation_live_20261101}.
-The MINLP forms, their generators, the fixed-configuration validation, and the solver runs are \nolinkurl{experiments/catalytic_distillation_minlp}; the runs reported here are in \nolinkurl{results/catalytic_distillation_minlp_dantzig_20261101}, and an earlier run of the same experiments on a workstation with \texttt{GAMS} 54.2.2, in \nolinkurl{results/catalytic_distillation_minlp_20261101}, returned the same outcome for every solver, form, and configuration.
+The MINLP forms, their generators, the fixed-configuration validation, and the solver runs are \nolinkurl{experiments/catalytic_distillation_minlp}; the runs reported here are in \nolinkurl{results/catalytic_distillation_minlp_dantzig_20261101}, and an earlier run of the same experiments on a workstation (Section~\ifdefined\manuscriptwithsupplement\ref{sec:protocol}\else3.6\fi{} of the main paper), in \nolinkurl{results/catalytic_distillation_minlp_20261101}, returned the same outcome for every solver, form, and configuration.
 The \texttt{D-SDA} neighborhood comparison of Section~\ref{sec:supp-dsda-neighborhood} is \nolinkurl{experiments/dsda_separable}, with results in \nolinkurl{results/dsda_separable_20261101}, and the check of the \texttt{Catalytic Column} configurations outside the search box is in \nolinkurl{results/catalytic_distillation_outside_box_20261102}.
 The seven-method tables and figures are generated from these tables and the published records by \nolinkurl{review_comparison/seven_methods.py} and the \nolinkurl{review_comparison/joint_process_*.py} scripts, without new solver calls.
 
@@ -898,12 +888,13 @@ The cause of the discrepancy remains unresolved.
 \FloatBarrier % \clearpage
 \section{Additional candidate-search and sampling comparisons}\label{sec:supp-additional}
 
-Figure~\ref{fig:process-evaluations} shows the evaluation at which each process run that reaches the target first reaches it.
+Figure~\ref{fig:process-evaluations} shows the evaluation at which each process run that reaches the target first reaches it, for \texttt{CSTR30}, \texttt{Column}, \texttt{Small Batch}, and \texttt{Dynamic} at its largest budget.
 
 \begin{figure}[htbp]
-\centering\includegraphics[width=\linewidth]{figures/process_evaluation_profiles.pdf}
-\caption{Fraction of the ten seeds whose run has reached the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper within a given number of evaluations, for nine process conditions and the six DFO methods and uniform sampling.
-Top row: \texttt{CSTR30} at \(B=43\), \texttt{Column} at \(B=13\), and \texttt{Small Batch} at \(B=10\); middle and bottom rows: \texttt{Dynamic} at \(B=12\), 15, 20, 30, 37, and 50, where \(B\) is the evaluation budget.
+\centering\includegraphics[width=\linewidth,height=0.6\textheight,keepaspectratio]{figures/process_evaluation_profiles.pdf}
+\caption{Process GDP models: fraction of the ten runs per method that have reached the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper within a given number of evaluations, for four conditions and the six DFO methods and uniform sampling.
+Panels: \texttt{CSTR30} at \(B=43\), \texttt{Column} at \(B=13\), \texttt{Small Batch} at \(B=10\), and \texttt{Dynamic} at \(B=50\), where \(B\) is the evaluation budget.
+Every \texttt{Dynamic} run with \(B=12\), 15, 20, 30, or 37 reaches the target at the same evaluation as the run with \(B=50\) and the same seed, or misses it when that run reaches it later, so the \texttt{Dynamic} panel also gives the profiles of the smaller budgets up to their budgets.
 Every evaluation counts, including the three shared initial configurations, unaccepted evaluations, and repeated configurations, and the dashed vertical line at three evaluations marks the end of the shared initial evaluations.
 Each curve steps up at the evaluation in which a run first observes an accepted objective that meets the target; runs that miss the target remain in the denominator.
 Methods are distinguished by color, line style, and marker.
@@ -1201,7 +1192,7 @@ Model & \(N\) & \(B\) & & \makecell{\texttt{NOMAD}\\vs \texttt{D-SDA}} & \makece
 \begin{tablenotes}[flushleft]\footnotesize
 \item Discordant seeds: \(a{:}b\), the numbers of seeds in which only the first or only the second method of the column reaches the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper.
 \(p\): unadjusted two-sided exact McNemar \(p\)-value; the smallest Holm-adjusted \(p\)-value of the 70 per-condition tests is 0.547.
-\(N\): number of potential reactors of \texttt{CSTR}; all: the six sizes pooled (60 seed pairs), which is not part of the 70 per-condition tests; \(B\): evaluation budget (--: several budgets, in the pooled row).
+\(N\): number of potential reactors of \texttt{CSTR} (--: not applicable); all: the six sizes pooled (60 seed pairs), which is not part of the 70 per-condition tests; \(B\): evaluation budget (--: several budgets, in the pooled row).
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -1378,7 +1369,7 @@ Big-\(M\) and Hull: the retained runs that solve these reformulations directly w
 TL: stopped at the time limit, with reported \texttt{maxTimeLimit}; runs without TL report \texttt{optimal}.
 --: no accepted feasible solution in an objective cell; not applicable in the \(N\) column.
 \(\dagger\): reported lower bound exceeds the best checked saved numerically feasible objective \(f\) of the model by more than \(10^{-5}\max\{1,|f|\}\) (Section~\ref{sec:bound-audit}).
-\(\ddagger\): final objective above \(f_{\mathrm{ref}}+10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\), the success threshold of the conventional GDP methods, despite reported \texttt{optimal} termination and a better checked numerically feasible solution.
+\(\ddagger\): final objective above \(f_{\mathrm{ref}}+10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\), where \(f_{\mathrm{ref}}\) is the reference objective of Table~\ifdefined\manuscriptwithsupplement\ref{tab:process-cases}\else1\fi{} of the main paper, the success threshold of the conventional GDP methods, despite reported \texttt{optimal} termination and a better checked numerically feasible solution.
 Feasibility: numerical feasibility under the original-GDP residual test at \(10^{-5}\), which does not establish exact feasibility.
 Bold: lowest final objective of each model, including ties within \(10^{-5}\max\{1,|f_{\min}|\}\), where \(f_{\min}\) is that lowest objective, and shortest completion time of each model, including ties.
 \end{tablenotes}
@@ -1435,11 +1426,10 @@ Uniform: uniform sampling without replacement.
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=\linewidth,height=0.65\textheight,keepaspectratio]{figures/joint_remaining_completion.pdf}
-\caption{Full-run completion times on the eight process conditions not shown in Figure~\ifdefined\manuscriptwithsupplement\ref{fig:process-completion}\else3\fi{} of the main paper, by the six DFO methods and uniform sampling (ten seeds each) and by the single run of each conventional GDP method.
-Panels: \texttt{CSTR10} at \(B=15\), \texttt{CSTR15} at \(B=22\), \texttt{CSTR20} at \(B=29\), \texttt{CSTR25} at \(B=36\), and \texttt{Dynamic} at \(B=15\), 20, 37, and 50, where \(B\) is the evaluation budget of the DFO methods.
-Rows list \texttt{D-SDA}, \texttt{NOMAD}, \texttt{RBFOpt}, \texttt{MISO}, \texttt{BAM}, \texttt{FMQA-SA}, and Uniform, then the \texttt{GDPopt} methods GLOA (global logic-based outer approximation), LOA (logic-based outer approximation), and RIC (relaxation with integer cuts), and the Big-\(M\) and Hull reformulations solved directly by \texttt{SCIP}.
-DFO times add the search time to the measured cost of each evaluated configuration (Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:reconstructed-cost}\else(10)\fi{} of the main paper); conventional GDP times are measured and include model preparation; the time axis is logarithmic.
+\includegraphics[width=\linewidth,height=0.72\textheight,keepaspectratio]{figures/joint_remaining_completion.pdf}
+\caption{Process GDP models: full-run completion times on the eight conditions not shown in Figure~\ifdefined\manuscriptwithsupplement\ref{fig:process-completion}\else3\fi{} of the main paper, of the six DFO methods and uniform sampling (ten runs each) and of the single run of each conventional GDP method.
+GLOA: global logic-based outer approximation; LOA: logic-based outer approximation; RIC: relaxation with integer cuts; Big-\(M\) and Hull: reformulations solved by \texttt{SCIP}.
+DFO times add the search time to the measured cost of each evaluated configuration (Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:reconstructed-cost}\else(10)\fi{} of the main paper); conventional GDP times are measured and include model preparation.
 Dots mark DFO runs that reach the reference target of Equation~\ifdefined\manuscriptwithsupplement\eqref{eqn:target}\else(8)\fi{} of the main paper, an objective within \(10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\) of the reference objective \(f_{\mathrm{ref}}\); diamonds mark conventional GDP runs whose feasible objective is at most \(f_{\mathrm{ref}}+10^{-5}\max\{1,|f_{\mathrm{ref}}|\}\); crosses mark the other runs; gray bars span the 25th to 75th percentiles of the ten DFO seeds, with a tick at the median.
 The right-hand labels give the target hits out of ten of each DFO method and the outcome, yes or no, of each conventional run, with TL for runs that report termination at the 1,800~s time limit.
 Asterisks mark conventional runs whose reported lower bound exceeds a checked feasible objective (Section~\ref{sec:bound-audit}).
