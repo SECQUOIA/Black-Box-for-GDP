@@ -301,6 +301,7 @@ def grid_exclusions(rows):
 
 
 def grid_profiles(rows, out):
+    """Cumulative target hits at B = 100; the per-budget checks still cover every budget."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -310,40 +311,39 @@ def grid_profiles(rows, out):
               "xtick.labelsize": 10, "ytick.labelsize": 10, "legend.fontsize": 10.5, "axes.spines.top": False,
               "axes.spines.right": False, "pdf.fonttype": 42}
     checks = []
+    for b in ms.BUDGETS:
+        for m in GRID:
+            group = [r for r in rows if r["scope"] == "grid" and r["budget"] == b and r["method"] == m]
+            vals = sorted(r["first_hit"] for r in group if r["hit"])
+            checks.append(dict(method=m, budget=b, runs=len(group), hits=len(vals), final=len(vals) / len(group)))
+    b = max(ms.BUDGETS)
     with plt.rc_context(params):
-        fig, axs = plt.subplots(2, 3, figsize=(8.2, 5.8), sharey=True)
-        for ax, b in zip(axs.flat, ms.BUDGETS):
-            for m in GRID:
-                group = [r for r in rows if r["scope"] == "grid" and r["budget"] == b and r["method"] == m]
-                vals = sorted(r["first_hit"] for r in group if r["hit"])
-                xs = sorted({0, b, *vals})
-                ys = [sum(v <= x for v in vals) / len(group) for x in xs]
-                ax.step(xs, ys, where="post", color=COLOR[m], ls=STYLE[m], lw=1.6, marker=MARK[m], ms=3.5,
-                        markevery=max(1, len(xs) // 5))
-                checks.append(dict(method=m, budget=b, runs=len(group), hits=len(vals), final=ys[-1]))
-            ax.axvline(3, color="#777777", ls="--", lw=0.8)
-            ax.axvspan(3, min(13, b), color="#008b8b", alpha=0.09)
-            ax.set(title=f"Budget B={b}", ylim=(-0.02, 1.03), yticks=[0, 0.5, 1], xlim=(0, b),
-                   xlabel="Evaluations")
-            ax.set_xticks([0, b // 2, b])
-            ax.grid(axis="y", alpha=0.2)
-        for ax in axs[:, 0]:
-            ax.set_ylabel("Target-hit fraction")
-        ax = axs.flat[-1]
-        ax.axis("off")
+        fig, ax = plt.subplots(figsize=(7.4, 4.0))
+        for m in GRID:
+            group = [r for r in rows if r["scope"] == "grid" and r["budget"] == b and r["method"] == m]
+            vals = sorted(r["first_hit"] for r in group if r["hit"])
+            xs = sorted({0, b, *vals})
+            ys = [sum(v <= x for v in vals) / len(group) for x in xs]
+            ax.step(xs, ys, where="post", color=COLOR[m], ls=STYLE[m], lw=1.6, marker=MARK[m], ms=3.5,
+                    markevery=max(1, len(xs) // 8))
+        ax.axvline(3, color="#777777", ls="--", lw=0.8)
+        ax.axvspan(3, 13, color="#008b8b", alpha=0.09)
+        ax.set(ylim=(-0.02, 1.03), yticks=[0, 0.25, 0.5, 0.75, 1], xlim=(0, b), xlabel="Evaluations",
+               ylabel="Target-hit fraction")
+        ax.set_xticks([0, 10, 30, 50, 70, 100])
+        ax.grid(axis="y", alpha=0.2)
         handles = [Line2D([], [], color=COLOR[m], ls=STYLE[m], marker=MARK[m], ms=4, lw=1.5, label=LABEL[m])
                    for m in GRID]
-        ax.legend(handles=handles, loc="upper left", frameon=False, fontsize=9.5)
-        ax.text(0.02, 0.0, "Dashed: three shared starts\nShaded: BAM initial design", fontsize=9,
-                transform=ax.transAxes)
-        fig.tight_layout(h_pad=1.8, w_pad=0.8)
+        ax.legend(handles=handles, loc="center left", bbox_to_anchor=(1.01, 0.5), frameon=False, fontsize=9.5)
+        fig.tight_layout()
         for ext, kw in (("pdf", dict(metadata={"CreationDate": None, "ModDate": None})), ("png", dict(dpi=160))):
             fig.savefig(out / f"figure_B_grid_evaluation_profiles.{ext}", bbox_inches="tight", pad_inches=0.04, **kw)
         plt.close(fig)
     return checks
 
 
-PROFILE_PANELS = [("cstr_30", 43), ("column", 13), ("small_batch", 10)] + [("dynamic", b) for b in (12, 15, 20, 30, 37, 50)]
+# Dynamic at B = 50 only: its profile at 12 to 37 evaluations equals the runs with those budgets.
+PROFILE_PANELS = [("cstr_30", 43), ("column", 13), ("small_batch", 10), ("dynamic", 50)]
 
 
 def process_profiles(rows, out):
@@ -356,7 +356,7 @@ def process_profiles(rows, out):
               "xtick.labelsize": 10, "ytick.labelsize": 10, "axes.spines.top": False, "axes.spines.right": False,
               "pdf.fonttype": 42}
     with plt.rc_context(params):
-        fig, axs = plt.subplots(3, 3, figsize=(8.2, 8))
+        fig, axs = plt.subplots(2, 2, figsize=(7.4, 6.2))
         for ax, (case, b) in zip(axs.flat, PROFILE_PANELS):
             for m in METHODS:
                 group = [r for r in rows if r["scope"] == "process" and (r["case"], r["budget"], r["method"]) == (case, b, m)]
