@@ -663,11 +663,11 @@ It reaches the target by construction, because \(f_{\mathrm{ref}}\) is the best 
 
 \subsection{Execution environment and conventional GDP comparisons}
 \label{sec:protocol}
-All benchmark campaigns ran on a server with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM; two checks of the \texttt{Catalytic Column}, an earlier run of its MINLP solves and the solves of the configurations outside its search box, ran on a workstation (Supplementary Section~\ref{sec:supp-catdist}).
+All experiments ran on a server with an AMD EPYC 7643 processor (48 cores, 2.3~GHz) and 1~TB RAM.
 All optimization methods and numerical libraries were configured for single-threaded execution.
 The software comprised \texttt{Python} 3.11.16, \texttt{Pyomo} 6.10.0~\citep{bynum2021pyomo}, \texttt{RBFOpt} 4.3.0, \texttt{BAM} 5.0.0, \texttt{soogo} 2.1.0, \texttt{NOMAD} 4.6.0 called through \texttt{PyNomadBBO} 4.6.0, \texttt{PyTorch} 2.8.0~\citep{paszke2019pytorch}, \texttt{Bonmin} 1.8.9, \texttt{IPOPT} 3.14.19 with \texttt{MUMPS} 5.8.1~\citep{amestoy2001mumps}, and \texttt{CONOPT} 4.39.1.
 The process and Grid comparisons called \texttt{IPOPT} and \texttt{SCIP} 9.2.4~\citep{bolusani2024scip} through \texttt{GAMS} 52.2.0.
-The \texttt{Catalytic Column} used \texttt{GAMS} 54.3.1 with \texttt{SCIP} 10.0.3 and \texttt{BARON} 26.5.27 (Section~\ref{sec:catdist-case}), and the two workstation checks used \texttt{GAMS} 54.2.2 with the same \texttt{CONOPT}.
+The \texttt{Catalytic Column} used \texttt{GAMS} 54.3.1 with \texttt{SCIP} 10.0.3 and \texttt{BARON} 26.5.27 (Section~\ref{sec:catdist-case}).
 
 \paragraph{Fixed-disjunction NLP evaluations.}
 We fix the original Boolean GDP decisions and evaluate the resulting subproblems using \texttt{IPOPT} with the \texttt{MUMPS} linear solver.
