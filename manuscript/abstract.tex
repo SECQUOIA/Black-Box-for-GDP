@@ -1,0 +1,10 @@
+Generalized disjunctive programming (GDP) describes process design alternatives with Boolean variables, disjunctions, and logical propositions, and fixing one configuration leaves a subproblem in the continuous variables.
+Conventional GDP methods require explicit algebraic formulations that simulators may not expose.
+Even when such formulations are available, nonconvex models can be intractable.
+The external variables define an integer lattice that derivative-free optimization (DFO) searches using subproblem values.
+We compare surrogate DFO methods and the direct-search method \texttt{NOMAD} with discrete steepest descent (\texttt{D-SDA}), logic-based solvers, mixed-integer nonlinear programming (MINLP) solvers, and enumeration.
+The benchmarks include nine process models, 21 test functions, a pharmaceutical flowsheet simulated in \texttt{PharmaPy}, and a catalytic distillation column with 100,947 configurations.
+On the largest reactor network, the surrogate methods \texttt{MISO} and \texttt{RBFOpt} reach the reference in nine or ten of ten runs with about 30 subproblem solves, whereas logic-based methods solve nearly one subproblem for each admissible configuration and most \texttt{D-SDA} descents end at one local minimum.
+In the flowsheet example, where GDP solvers do not apply, \texttt{RBFOpt} and \texttt{MISO} find the best of 36 simulated configurations in every run with 20 evaluations.
+For the catalytic column, \texttt{D-SDA} and \texttt{MISO} reach the best known design with 100 evaluations, whereas MINLP solvers find no design within 15\% of it and global solvers return contradictory certificates.
+This search pays off when the configuration space is too large to enumerate, has deceptive local minima, or has MINLP reformulations that fail, and enumeration or a direct reformulation is simpler for small algebraic models.

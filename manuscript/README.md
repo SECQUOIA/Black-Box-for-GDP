@@ -1,10 +1,26 @@
-# Current manuscript snapshot - November 3, 2026
+# Current manuscript submission sources - November 4, 2026
 
-The current [main source](main.tex), [supplementary source](supplementary.tex),
-[bibliography](reference.bib), [combined PDF](main.pdf), and
-[supplementary PDF](supplementary.pdf) include the seven-method comparison,
+The [arXiv entry point](arxiv.tex) and [CACE entry point](cace.tex) both use
+the same [article source](main.tex), [249-word abstract](abstract.tex),
+[paper metadata](paper-metadata.tex), [bibliography](reference.bib), and
+[submission statements](submission/README.md).
+The arXiv version includes the supplement; the CACE article is accompanied by
+a separate supplement. Edit the shared sources rather than either PDF.
+
+- [arXiv PDF, article and supplement](arxiv.pdf), with [flat sources](arxiv_sources.zip).
+- [CACE article PDF](cace.pdf), with [flat sources](cace_sources.zip).
+- [Standalone supplementary PDF](supplementary.pdf) and [source](supplementary.tex).
+- [Legacy combined PDF](main.pdf), identical to the current arXiv PDF.
+- [Cover letter, highlights, declarations, and upload notes](submission/README.md).
+
+The sources and PDFs include the seven-method comparison,
 Lomustine simulation, catalytic distillation results, and the D-SDA
 separable-neighborhood comparison.
+Both versions include the author-approved funding, author contributions,
+competing-interest statement, and the reviewer-access data statement.
+The arXiv entry point prepares a preprint; it does not indicate that one has
+already been posted. See [submission notes](submission/README.md) for the
+remaining journal-specific checks before uploading.
 
 The retained records and analysis commands are documented in:
 
@@ -16,7 +32,8 @@ The retained records and analysis commands are documented in:
 - [D-SDA separable-neighborhood comparison](../results/dsda_separable_20261101/README.md).
 
 The manuscript cites publication snapshot `ea65c5339486b576008df68645ea68d22f7c7213`.
-Public access remains to be verified; see [publication readiness](../docs/publication_readiness.md).
+Sanitized code and data are available to reviewers on request; public release
+is planned. See [publication readiness](../docs/publication_readiness.md).
 The [frozen reproduction companion](../reproduction/README.md) validates the
 October 19 baseline and does not cover all later manuscript revisions.
 

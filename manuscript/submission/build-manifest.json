@@ -1,0 +1,348 @@
+{
+  "target": "all",
+  "entrypoints": [
+    "arxiv.tex",
+    "cace.tex"
+  ],
+  "inputs": [
+    {
+      "source": "abstract.tex",
+      "member": "abstract.tex",
+      "sha256": "4aa3fc8b34229ab7f2799a40a7c243bd6de64514db4f68ce5c685c24d8f18d08",
+      "staged_sha256": "4aa3fc8b34229ab7f2799a40a7c243bd6de64514db4f68ce5c685c24d8f18d08"
+    },
+    {
+      "source": "arxiv.tex",
+      "member": "arxiv.tex",
+      "sha256": "77bd1c4d912ab197e27ab5b1dee672a8f0e40789578c895e29a2db8d3057ab2c",
+      "staged_sha256": "77bd1c4d912ab197e27ab5b1dee672a8f0e40789578c895e29a2db8d3057ab2c"
+    },
+    {
+      "source": "submission/author-contributions.tex",
+      "member": "author-contributions.tex",
+      "sha256": "34298f6f01a9c44c7ecdb47eac6dfe7e4d2c26f7151905d744ba528c6b8d8361",
+      "staged_sha256": "34298f6f01a9c44c7ecdb47eac6dfe7e4d2c26f7151905d744ba528c6b8d8361"
+    },
+    {
+      "source": "cace.tex",
+      "member": "cace.tex",
+      "sha256": "d840c64fc3b707678495356246d5363762701e03d468804b1145646592c7f37b",
+      "staged_sha256": "d840c64fc3b707678495356246d5363762701e03d468804b1145646592c7f37b"
+    },
+    {
+      "source": "submission/competing-interests.tex",
+      "member": "competing-interests.tex",
+      "sha256": "fcc172a3803d137aac9066132159bcb14ed1f946d07d0d9dfa5abbb0b9c88e1d",
+      "staged_sha256": "fcc172a3803d137aac9066132159bcb14ed1f946d07d0d9dfa5abbb0b9c88e1d"
+    },
+    {
+      "source": "provided bibliography style",
+      "member": "elsarticle-harv.bst",
+      "sha256": "d85a928515628a9526d1d02f076f723a4da25387286a4f656d8943600880a436",
+      "staged_sha256": "d85a928515628a9526d1d02f076f723a4da25387286a4f656d8943600880a436"
+    },
+    {
+      "source": "figures/figure_B_grid_evaluation_profiles.pdf",
+      "member": "figure_B_grid_evaluation_profiles.pdf",
+      "sha256": "0d3de306018c1c672caad999b8b6a270d9a6471b112f20ef8885f2d127e4815f",
+      "staged_sha256": "0d3de306018c1c672caad999b8b6a270d9a6471b112f20ef8885f2d127e4815f"
+    },
+    {
+      "source": "submission/funding.tex",
+      "member": "funding.tex",
+      "sha256": "c2a703ba66db1728cf1ac3f301272fff52400f62ad099d19aeb9d32f05da2aa6",
+      "staged_sha256": "c2a703ba66db1728cf1ac3f301272fff52400f62ad099d19aeb9d32f05da2aa6"
+    },
+    {
+      "source": "figures/joint_remaining_completion_cstr.pdf",
+      "member": "joint_remaining_completion_cstr.pdf",
+      "sha256": "90cebea7cd1ed2dd230c7d851b9a8649469a30239563d3fe4b34ba7d74b2cc14",
+      "staged_sha256": "90cebea7cd1ed2dd230c7d851b9a8649469a30239563d3fe4b34ba7d74b2cc14"
+    },
+    {
+      "source": "figures/joint_remaining_completion_dynamic.pdf",
+      "member": "joint_remaining_completion_dynamic.pdf",
+      "sha256": "d1aaae9076c6af1443f3519d3103ec3a65d695a196a2123bb77e6fa9ee80bd07",
+      "staged_sha256": "d1aaae9076c6af1443f3519d3103ec3a65d695a196a2123bb77e6fa9ee80bd07"
+    },
+    {
+      "source": "main.tex",
+      "member": "main.tex",
+      "sha256": "e1cdb6b9bed32686073616621f723c5007dde3def504288ec8682bd1ea06d6ac",
+      "staged_sha256": "b20d7cca7b1cc129eac5dbb89191f7718d93a744f067fd703df9cf1faf131ee8"
+    },
+    {
+      "source": "paper-metadata.tex",
+      "member": "paper-metadata.tex",
+      "sha256": "dc37f626d67abbaca65538e359ccfd33d9afb3b8b199c897556119ca8ed86f16",
+      "staged_sha256": "dc37f626d67abbaca65538e359ccfd33d9afb3b8b199c897556119ca8ed86f16"
+    },
+    {
+      "source": "figures/process_evaluation_profiles.pdf",
+      "member": "process_evaluation_profiles.pdf",
+      "sha256": "0892d38792ce01dc93c2aafb2ae0c892e719f9285a50edfe53b6cba8cd642bcd",
+      "staged_sha256": "0892d38792ce01dc93c2aafb2ae0c892e719f9285a50edfe53b6cba8cd642bcd"
+    },
+    {
+      "source": "figures/process_joint_completion.pdf",
+      "member": "process_joint_completion.pdf",
+      "sha256": "15a36f777bc394994ed2b305a2e724f8a677229fd606d2269ab528cbb8883a55",
+      "staged_sha256": "15a36f777bc394994ed2b305a2e724f8a677229fd606d2269ab528cbb8883a55"
+    },
+    {
+      "source": "figures/process_nlp_solves.pdf",
+      "member": "process_nlp_solves.pdf",
+      "sha256": "c6ee8f03ec51a746215ce39e6f4c478a0a6532949ef0137d95a1328d848c3351",
+      "staged_sha256": "c6ee8f03ec51a746215ce39e6f4c478a0a6532949ef0137d95a1328d848c3351"
+    },
+    {
+      "source": "reference.bib",
+      "member": "reference.bib",
+      "sha256": "b24c0bdc4fdff9fba57aa21901df4f594857ab05873defc5ff7a3836be3b21cc",
+      "staged_sha256": "b24c0bdc4fdff9fba57aa21901df4f594857ab05873defc5ff7a3836be3b21cc"
+    },
+    {
+      "source": "supplementary.tex",
+      "member": "supplementary.tex",
+      "sha256": "00b962d7d5832f5b3cb6a2ceeca10dedbd44bc0746974619338cc2e85809fe61",
+      "staged_sha256": "2cf27688207e36d377edb255b65d8aa7b9d6eaf34b9e22a293826b3c3315278e"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "supplementary.tex"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/supplementary-pdflatex-1.log"
+    },
+    {
+      "argv": [
+        "bibtex",
+        "supplementary"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/supplementary-bibtex.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "supplementary.tex"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/supplementary-pdflatex-2.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "supplementary.tex"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/supplementary-pdflatex-3.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "arxiv.tex"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/arxiv-pdflatex-1.log"
+    },
+    {
+      "argv": [
+        "bibtex",
+        "arxiv"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/arxiv-bibtex.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "arxiv.tex"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/arxiv-pdflatex-2.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "arxiv.tex"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/arxiv-pdflatex-3.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "arxiv.tex"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/arxiv-pdflatex-4.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "cace.tex"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/cace-pdflatex-1.log"
+    },
+    {
+      "argv": [
+        "bibtex",
+        "cace"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/cace-bibtex.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "cace.tex"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/cace-pdflatex-2.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "cace.tex"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/cace-pdflatex-3.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "cace.tex"
+      ],
+      "cwd": "manuscript",
+      "log": "logs/cace-pdflatex-4.log"
+    }
+  ],
+  "archives": {
+    "arxiv_sources.zip": {
+      "master": "main.tex",
+      "target": "arxiv",
+      "target_prefix": "",
+      "members": {
+        "abstract.tex": "4aa3fc8b34229ab7f2799a40a7c243bd6de64514db4f68ce5c685c24d8f18d08",
+        "author-contributions.tex": "34298f6f01a9c44c7ecdb47eac6dfe7e4d2c26f7151905d744ba528c6b8d8361",
+        "competing-interests.tex": "fcc172a3803d137aac9066132159bcb14ed1f946d07d0d9dfa5abbb0b9c88e1d",
+        "elsarticle-harv.bst": "d85a928515628a9526d1d02f076f723a4da25387286a4f656d8943600880a436",
+        "figure_B_grid_evaluation_profiles.pdf": "0d3de306018c1c672caad999b8b6a270d9a6471b112f20ef8885f2d127e4815f",
+        "funding.tex": "c2a703ba66db1728cf1ac3f301272fff52400f62ad099d19aeb9d32f05da2aa6",
+        "joint_remaining_completion_cstr.pdf": "90cebea7cd1ed2dd230c7d851b9a8649469a30239563d3fe4b34ba7d74b2cc14",
+        "joint_remaining_completion_dynamic.pdf": "d1aaae9076c6af1443f3519d3103ec3a65d695a196a2123bb77e6fa9ee80bd07",
+        "main.bbl": "9e1637ebf6729cd0a5feb2bd33dcfa46e24ce71cbee76d766d5520245be01457",
+        "main.tex": "b20d7cca7b1cc129eac5dbb89191f7718d93a744f067fd703df9cf1faf131ee8",
+        "paper-metadata.tex": "dc37f626d67abbaca65538e359ccfd33d9afb3b8b199c897556119ca8ed86f16",
+        "process_evaluation_profiles.pdf": "0892d38792ce01dc93c2aafb2ae0c892e719f9285a50edfe53b6cba8cd642bcd",
+        "process_joint_completion.pdf": "15a36f777bc394994ed2b305a2e724f8a677229fd606d2269ab528cbb8883a55",
+        "process_nlp_solves.pdf": "c6ee8f03ec51a746215ce39e6f4c478a0a6532949ef0137d95a1328d848c3351",
+        "reference.bib": "b24c0bdc4fdff9fba57aa21901df4f594857ab05873defc5ff7a3836be3b21cc",
+        "supplementary.bbl": "b8b1aae480b46bd7998e41c74c08441a76c8684da4d215cb126ae0d36bdd784b",
+        "supplementary.tex": "2cf27688207e36d377edb255b65d8aa7b9d6eaf34b9e22a293826b3c3315278e"
+      }
+    },
+    "cace_sources.zip": {
+      "master": "main.tex",
+      "target": "cace",
+      "target_prefix": "\\def\\cacesubmission{1}\n",
+      "members": {
+        "abstract.tex": "4aa3fc8b34229ab7f2799a40a7c243bd6de64514db4f68ce5c685c24d8f18d08",
+        "author-contributions.tex": "34298f6f01a9c44c7ecdb47eac6dfe7e4d2c26f7151905d744ba528c6b8d8361",
+        "competing-interests.tex": "fcc172a3803d137aac9066132159bcb14ed1f946d07d0d9dfa5abbb0b9c88e1d",
+        "elsarticle-harv.bst": "d85a928515628a9526d1d02f076f723a4da25387286a4f656d8943600880a436",
+        "figure_B_grid_evaluation_profiles.pdf": "0d3de306018c1c672caad999b8b6a270d9a6471b112f20ef8885f2d127e4815f",
+        "funding.tex": "c2a703ba66db1728cf1ac3f301272fff52400f62ad099d19aeb9d32f05da2aa6",
+        "joint_remaining_completion_cstr.pdf": "90cebea7cd1ed2dd230c7d851b9a8649469a30239563d3fe4b34ba7d74b2cc14",
+        "joint_remaining_completion_dynamic.pdf": "d1aaae9076c6af1443f3519d3103ec3a65d695a196a2123bb77e6fa9ee80bd07",
+        "main.bbl": "bba4368944bc68d7a87cd5fda0d731b24576d8262d2628b5a50ccd7f1e5b0f2a",
+        "main.tex": "885f54c8b46015377f7103c931723167f2026b8fdf293e3dbf1fc63ed43640d1",
+        "paper-metadata.tex": "dc37f626d67abbaca65538e359ccfd33d9afb3b8b199c897556119ca8ed86f16",
+        "process_evaluation_profiles.pdf": "0892d38792ce01dc93c2aafb2ae0c892e719f9285a50edfe53b6cba8cd642bcd",
+        "process_joint_completion.pdf": "15a36f777bc394994ed2b305a2e724f8a677229fd606d2269ab528cbb8883a55",
+        "process_nlp_solves.pdf": "c6ee8f03ec51a746215ce39e6f4c478a0a6532949ef0137d95a1328d848c3351",
+        "reference.bib": "b24c0bdc4fdff9fba57aa21901df4f594857ab05873defc5ff7a3836be3b21cc",
+        "supplementary.aux": "2703bae0a6153c098db15874970544a3d233c4d8bdc09890da48790129ba9f12",
+        "supplementary.bbl": "b8b1aae480b46bd7998e41c74c08441a76c8684da4d215cb126ae0d36bdd784b",
+        "supplementary.pdf": "a635c6d4767ce3794826efcec8dc041c93dd8aeb61608be6c952df4dc21b57e0",
+        "supplementary.tex": "2cf27688207e36d377edb255b65d8aa7b9d6eaf34b9e22a293826b3c3315278e"
+      }
+    }
+  },
+  "limits": {
+    "wall_seconds_per_command": 180,
+    "address_space_bytes": 2147483648,
+    "cpu_seconds": 120
+  },
+  "artifacts": {
+    "supplementary.pdf": {
+      "sha256": "a635c6d4767ce3794826efcec8dc041c93dd8aeb61608be6c952df4dc21b57e0",
+      "bytes": 664778
+    },
+    "arxiv.pdf": {
+      "sha256": "0d6aa3180b22f62aa7ede664588120ee0c6cdae817708ed11311e011ecb795fa",
+      "bytes": 1031671
+    },
+    "arxiv_sources.zip": {
+      "sha256": "024900962bef2ed3ac58e1f30931cfb73bc9b5d91b78d0ca412854c47e4b7184",
+      "bytes": 377013
+    },
+    "cace.pdf": {
+      "sha256": "476de06221ccc30a3c7d0f582db5aeaa2b20759a2856fb09ab46fad30a5ade5a",
+      "bytes": 761460
+    },
+    "cace_sources.zip": {
+      "sha256": "07af3d2bf25fc5090a3e99ebed57339a316895f649387cad24ddcb9f39397bb2",
+      "bytes": 1032260
+    }
+  }
+}

@@ -1,0 +1,30 @@
+November 4, 2026
+
+Editorial Office
+Computers & Chemical Engineering
+
+Re: Submission of “Generalized Disjunctive Programming with Derivative-Free Configuration Search”
+
+Dear Editors,
+
+We are submitting our manuscript, “Generalized Disjunctive Programming with Derivative-Free Configuration Search,” for consideration for publication in Computers & Chemical Engineering.
+
+Our manuscript connects generalized disjunctive programming with derivative-free optimization through an external-variable representation of process configurations. This approach preserves the logical description of design alternatives while allowing each selected configuration to be evaluated through an optimization subproblem or a process simulation. It enables configuration search when simulator equations are unavailable or when conventional mixed-integer nonlinear reformulations are difficult to solve.
+
+We compare surrogate and direct-search methods with local descent, conventional mathematical programming methods, and enumeration across nine process models, 21 test functions, a simulated pharmaceutical manufacturing flowsheet, and a catalytic distillation column with 100,947 configurations. On the largest reactor network, two surrogate methods reach the reference design in nine or ten of ten runs using approximately 30 subproblem solves. Both methods also identify the best of 36 simulated pharmaceutical configurations in every run with 20 evaluations. For the catalytic column, configuration search reaches the best known design within 100 evaluations, whereas the tested mixed-integer nonlinear solvers find no design within 15% of that reference.
+
+Beyond comparing algorithms, the manuscript examines how local minima, the representation of design alternatives, and configuration-evaluation costs influence search performance. These results provide practical guidance for choosing among enumeration, direct reformulation, local descent, and surrogate search. We believe this connection between mathematical modeling, process simulation, and computational optimization will interest the process systems engineering readership of Computers & Chemical Engineering.
+
+We confirm that the manuscript has not been published in another scientific journal and is not under consideration elsewhere. All authors have reviewed and approved its content and submission. The authors have no competing financial interests or personal relationships to declare.
+
+The manuscript and supplementary material document the computational experiments and supporting analyses. Sanitized code and data are available to reviewers on request from the corresponding author, and public release is planned through the accompanying repository.
+
+Thank you for considering our manuscript. As the corresponding author, I submit this letter on behalf of all co-authors.
+
+Yours sincerely,
+
+David E. Bernal Neira
+Assistant Professor
+Davidson School of Chemical Engineering
+Purdue University
+dbernaln@purdue.edu
