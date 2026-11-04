@@ -15,8 +15,10 @@ the CACE entry point does not claim a journal-specific typeset layout.
 - There are no competing interests to declare.
 - The Davidson School of Chemical Engineering at Purdue University provided
   the only funding and had no role in the study or submission decision.
-- Albert Joon Lee contributed implementation and drafting. Woosik Kim
-  contributed the factorization-machine method with simulated annealing.
+- Albert Joon Lee contributed implementation, investigation, formal analysis,
+  validation, visualization, and drafting. Woosik Kim contributed the
+  factorization-machine method with simulated annealing, validation, and
+  visualization.
   David E. Bernal Neira contributed across the research, software, analysis,
   writing, supervision, and funding roles.
 - Sanitized code and data are available to reviewers on request from the
