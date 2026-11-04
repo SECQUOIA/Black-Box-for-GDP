@@ -1,3 +1,6 @@
+\ifdefined\papertitle\else
+\input{paper-metadata}
+\fi
 \ifdefined\manuscriptwithsupplement
 \clearpage
 \begingroup
@@ -19,6 +22,10 @@
 \widowpenalty=10000
 \begin{center}
 {\LARGE Supplementary Material:\\Benchmark Definitions, Execution Protocol, and Uncertainty\par}
+\medskip
+{\large \papertitle\par}
+\medskip
+\paperauthors
 \end{center}
 \else
 \documentclass{article}
@@ -41,8 +48,8 @@
 \setlength{\emergencystretch}{2em}
 \clubpenalty=10000
 \widowpenalty=10000
-\title{Supplementary Material:\\Benchmark Definitions, Execution Protocol, and Uncertainty}
-\author{}
+\title{Supplementary Material for\\\papertitle\\[1ex]\large Benchmark Definitions, Execution Protocol, and Uncertainty}
+\author{\paperauthors}
 \date{}
 \setlength{\emergencystretch}{2em}
 \begin{document}
