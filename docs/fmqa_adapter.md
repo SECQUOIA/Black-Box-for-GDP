@@ -94,7 +94,7 @@ python -m pip install "$(sed -n '/^torch==/p' requirements-fmqa-qhd.txt)" --inde
 python -m pip install ".[fmqa,test]"
 ```
 
-CI exercises the patched CPU runtime on Python 3.10–3.13, including native training,
+CI exercises the patched CPU runtime on Python 3.11–3.13, including native training,
 BQM energies, repeatable trajectories and caller runtime restoration. These checks
 establish compatibility within each runtime; they do not establish identical
 benchmark results across PyTorch versions. Archived results retain their recorded

@@ -17,7 +17,7 @@ cd "$RUNNER"
 if [[ "$mode" == setup ]]; then
     FMQA_QHD_BASE_PYTHON=${FMQA_QHD_BASE_PYTHON:-$FMQA_REPOSITORY/.venv-dantzig-fmqa/bin/python}
     if [[ ! -x "$FMQA_QHD_BASE_PYTHON" ]]; then FMQA_QHD_BASE_PYTHON=$(command -v python3); fi
-    "$FMQA_QHD_BASE_PYTHON" -c 'import sys; assert (3, 10) <= sys.version_info[:2] <= (3, 13), "Use Python 3.10-3.13 (3.11 recommended)"'
+    "$FMQA_QHD_BASE_PYTHON" -c 'import sys; assert (3, 11) <= sys.version_info[:2] <= (3, 13), "Use Python 3.11-3.13 (3.11 recommended)"'
     if [[ ! -x "$FMQA_QHD_PYTHON" ]]; then
         "$FMQA_QHD_BASE_PYTHON" -m venv "$FMQA_QHD_ENV"
     fi

@@ -100,7 +100,7 @@ To run another scope, replace `--scope small_batch` with `--scope process`,
 `--scope grid`, or `--scope all` and use a corresponding log name.
 Do not launch these scopes together on the same CPU. A scope includes only the
 PyTorch method; existing NumPy benchmarks are not rerun or overwritten.
-`FMQA_QHD_BASE_PYTHON` can specify Python 3.10-3.13 for setup (3.11 recommended).
+`FMQA_QHD_BASE_PYTHON` can specify Python 3.11-3.13 for setup (3.11 recommended).
 `FMQA_QHD_ENV` can select a dedicated environment; do not point it at the old
 FMQA/GDP/DFO environment. GAMS, RBFOpt, BAM, solver licenses and GPUs are not required.
 
